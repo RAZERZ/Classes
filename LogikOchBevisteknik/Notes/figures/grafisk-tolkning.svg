@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="240mm"
+   height="120mm"
+   viewBox="0 0 240 120"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="grafisk-tolkning.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.9774955"
+     inkscape:cx="554.74607"
+     inkscape:cy="234.82113"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="true"
+     width="200mm"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1501"
+     inkscape:window-height="900"
+     inkscape:window-x="49"
+     inkscape:window-y="12"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815"
+       units="mm"
+       spacingx="10"
+       spacingy="10"
+       empspacing="4"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-177)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.264583"
+       id="rect30"
+       width="98.278679"
+       height="70.286888"
+       x="71.222076"
+       y="196.7379" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.264583"
+       id="path891"
+       cx="125.51569"
+       cy="234.0388"
+       rx="26.79167"
+       ry="27.473818" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.264583"
+       id="path903"
+       cx="125.98203"
+       cy="233.67657"
+       rx="14.387785"
+       ry="15.050457" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.264583"
+       id="path907"
+       cx="146.37242"
+       cy="244.93312"
+       rx="12.02927"
+       ry="14.447359" />
+    <path
+       style="fill:#cccccc;stroke:#000000;stroke-width:0.251414"
+       d="m 549.71778,310.57242 c -6.09964,-0.55413 -14.04529,-3.50889 -18.67435,-6.94446 l -0.82392,-0.6115 2.34633,-1.66318 c 9.84617,-6.97944 19.1067,-16.57306 26.02092,-26.95687 11.6109,-17.43731 17.65525,-37.72249 17.65525,-59.25201 v -4.74277 l 1.94593,1.58749 c 19.69116,16.06403 25.65387,47.48379 13.66075,71.98354 -8.74264,17.85964 -25.04454,28.152 -42.13091,26.59976 z"
+       id="path1020"
+       transform="matrix(0.26458333,0,0,0.26458333,0,177)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.60162px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.190041"
+       x="130.27089"
+       y="197.02788"
+       id="text3525"
+       transform="scale(0.9156456,1.0921256)"><tspan
+         sodipodi:role="line"
+         id="tspan3523"
+         style="stroke-width:0.190041"
+         x="130.27089"
+         y="197.02788">$R$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.9346px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.123365"
+       x="139.15131"
+       y="198.37918"
+       id="text4717"
+       transform="scale(0.86698393,1.1534239)"><tspan
+         sodipodi:role="line"
+         id="tspan4715"
+         style="stroke-width:0.123365"
+         x="139.15131"
+         y="198.37918">$K$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.31477px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.132869"
+       x="146.28014"
+       y="254.3394"
+       id="text8651"
+       transform="scale(0.9956834,1.0043353)"><tspan
+         sodipodi:role="line"
+         id="tspan8649"
+         style="stroke-width:0.132869"
+         x="146.28014"
+         y="254.3394">$F$</tspan></text>
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583;fill-opacity:1"
+       id="path9107"
+       cx="154.33951"
+       cy="244.32828"
+       rx="0.38509297"
+       ry="0.3708787" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.67558px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0918898"
+       x="153.94919"
+       y="243.68343"
+       id="text10417"
+       transform="scale(1.0057077,0.99432469)"><tspan
+         sodipodi:role="line"
+         id="tspan10415"
+         style="stroke-width:0.0918898"
+         x="153.94919"
+         y="243.68343">$\alpha$</tspan></text>
+  </g>
+</svg>

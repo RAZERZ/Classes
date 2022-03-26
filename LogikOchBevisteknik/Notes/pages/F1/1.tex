@@ -1,0 +1,108 @@
+\section{Föreläsning - Introduktion till Satslogik}
+
+\subsection{Historia}
+\par\bigskip
+
+  Vad är ett matematiskt bevis?\par
+  Vad får användas i bevis?\par
+  Är matematiken motsägelsefri (Konsistent = motsägelsefritt)?
+
+\subsection{Vad behövs för ett matematiskt bevis?}
+\par\bigskip
+
+\begin{itemize}
+  \item Ett påstående (även kallad utsaga) (ex.vis $\sqrt{2}$ är irrationellt), dessa har sanningsvärde \textit{sant} eller \textit{falskt}
+  \item (Giltigt) Argument (resonemang)
+\end{itemize}
+
+\subsection{Exempel}
+
+\begin{itemize}
+  \item Påstående: \textit{Varje kvadrat är en rektangel}
+  \item Påstående: \textit{Det finns en fyrhörning som inte är en rektangel}
+\end{itemize}
+---------------------------------------------------------
+
+Alltså finns en fyrhörning som inte är kvadrat
+\par\bigskip
+
+
+\noindent Detta är syftet med kursen, låt oss nu göra det mer abstrakt.
+(Låt x vara form, K(x) kvadrat, R(x) rektangel, F(x) fyrhörning)
+Då blir påståenden:
+
+\begin{itemize}
+  \item $\forall x (K(x) \Rightarrow R(x))$
+  \item $\exists x (F(x) \wedge \neg R(x))$
+\end{itemize}
+---------------------------------------------------------\par
+$\exists x (F(x) \wedge\neg(K(x)))$
+
+\begin{figure}[ht]
+    \centering
+    \incfig{grafisk-tolkning}
+    \caption{Grafisk tolkning}
+    \label{fig:grafisk-tolkning}
+\end{figure}
+
+\begin{theo}[Logiskt giltighet (Predikat-logik = 1:a ordningens logik)]{thm:logiskGilt}
+  En följd av logiska steg kallas för \textit{logiskt giltig} om det gäller $\forall$ tolkningar av $K,R,F$ (även vovvisar)
+\end{theo}
+\newpage
+
+\subsection{Satslogik}
+\par\bigskip
+
+Vi behöver:
+\begin{itemize}
+  \item Ett skriftligt språk (mängd av teckensträngar som betyder utsagor/satser)
+  \item Regler/Formella bevis (Hur får man dra slutsatser av nya teckensträngar), \textit{syntax}
+  \item Tolka teckensträngarna i en "verklighet" (sant eller falskt)
+\end{itemize}
+
+
+\subsection{Predikatlogik (1:a ordningens logik)}
+Skiljer sig från satslogik i och med att vi inte hanterar satser utan predikaten.
+
+\begin{itemize}
+  \item Språk behövs, liknande med teckenmängd men vi kan även hantera elementen
+  \item Formella bevis består av teckensträngsmanipulation, relation mellan teckensträngar\par(Exvis $A_1, A_2, A_3 \vdash B$ (A bevisar B))
+  \item Vad betyder det att något är sant eller falskt? Om det går att visa B utan något så är det sant. 
+    \par\bigskip
+
+    \begin{theo}[Definiera sanning i struktur]{thm:truth}
+      $\vdash B$ = Sant om det inte krävs något för att visa B:s sanningsvärde.\par\bigskip
+
+      $A_1, A_2, A_3 \vDash B$ det vill säga om alla A krav är uppfyllda så gäller B
+    \end{theo}
+    \par\bigskip
+
+  \item Samband mellan $\vdash$ (formell bevisbarhet) och $\vDash$ (hur man tolkar något som sant eller falskt)
+    \par\bigskip
+
+
+    \begin{theo}[Sundhetssatsen]{thm:sund}
+      Detta säger att bevissystemet är sunt, allt man visar är sunt
+      \par\bigskip
+      $A_1, A_2, A_3 \vdash B \Rightarrow A_1, A_2, A_3 \vDash B$
+    \end{theo}
+    \par\bigskip
+
+
+    \begin{theo}[Adekvathet]{thm:adekvat}
+      Om det är så att B är sann så fort alla A är sanna så finns det ett bevis, vi kommer kunna påstå att det finns ett formellt bevis för samma sak.
+      \par\bigskip
+      $A_1, A_2, A_3 \vDash B \Rightarrow A_1, A_2, A_3 \vdash B$
+    \end{theo}
+    \par\bigskip
+
+    \begin{theo}[Fullständighet]{thm:full}
+      Slår vi ihop dessa 2 (Sundhetssatsen och Adekvathet) får vi fullständighet
+      \par\bigskip
+      $A_1, A_2, A_3 \vdash B \Lrarr A_1, A_2, A_3 \vDash B$
+    \end{theo}
+
+\end{itemize}
+
+\newpage
+

@@ -1,0 +1,146 @@
+\section{Förtydligande}
+
+\begin{theo}[Disjunktion]{thm:disjunk}
+  $A$ eller $B$. Uttrycker att minst en av $A$ och $B$ är fallet. Betecknas $A\vee B$ där $A, B$ kallas \textit{disjunktionsled} eller \textit{disjunkter}.
+  \par\bigskip
+  \noindent Det finns 2 typer av disjunktion, \textit{uteslutande} och \textit{icke-uteslutande}. Uteslutande disjunktion är helt enkelt A eller B (men inte båda) och icke-uteslutande är motsatt.
+\end{theo}
+\par\bigskip
+
+\noindent Disjunktionen är så kallad \textit{inklusiv}, det vill säga det är helt okej att både $A$ och $B$ är sann. Det finns en så kallad \textit{exklusiv} disjunktion vilket kommer lite senare (kanske $A\wedge B$?). 
+\par\bigskip
+
+\begin{theo}[Implikation]{thm:impl}
+  Om $A$ så $B$ uttrycker att $B$ är fallet givet att $A$ är det. Detta betecknas $A\rightarrow B$. Här är $A$ \textit{antecendenten} eller även \textit{förledet} och $B$ är \textit{konsekventen} eller \textit{efterledet}. En implikation kallas också ivland en \textit{materiell implikation}, \textit{konditionalsats}, \textit{villkorssats}.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Ekvivalens]{thm:eqv}
+  $A$ omm $B$ yttrycker konjunktionen av två implikationer, det vill säga om $A$ så $B$ oh om $B$ så $A$. Skrivs $A\leftrightarrow B$ och kallas även för \textit{materiella ekvivalenser} eller \textit{bikonditionalsatser}.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Molekyler och Atomär]{thm:molat}
+  En sats är \textit{molekylär} om den är uppbyggd av en eller två andra satser med hjälp av ett konnektiv. I motsatt fall är satsen \textit{atomär}. En molekylär sats innehåller minst ett konnektiv.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[n-ställig satsoperator]{thm:noperator}
+  En \textit{n-ställig satsoperator} är en operator som "tar in" $n$ variabler. Exempelvis är negationen $\neg$ en 1-ställig operator, medan $\wedge$ är en 2-ställig operator.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Huvudoperator]{thm:headop}
+  En \textit{huvudoperator} är den operator som har tillämpats sist i uppbyggnaden av satsen. Exempelvis, i $(A\rightarrow(B\vee\neg A))$ är $\rightarrow$ huvudoperatorn. Däremot är $\vee$ huvudoperatorn i delformen $(B\vee\neg A)$.
+\end{theo}
+\par\bigskip
+\newpage
+
+\subsection{Sanningstabeller}\hfill\\
+
+\noindent För negation $\neg$:
+\par\bigskip
+\noindent $\neg$A är sann $\Lrarr$ A är falsk $\Lrarr$ A inte är sann.
+\par\bigskip
+
+\noindent\begin{tabular}{|c|c|}
+  \hline
+  A&$\neg$A\\
+  \hline
+  S&F\\
+  \hline
+  F&S\\\hline
+\end{tabular}
+\par\bigskip
+
+\noindent För Konjunktion:
+\par\bigskip
+\noindent A$\wedge$B är sann $\Lrarr$ A är sann och B är sann.
+\par\bigskip
+
+\noindent\begin{tabular}{|c|c|c|}
+  \hline
+  A & B & A $\wedge$ B\\
+  \hline
+  S&S&S\\
+  \hline
+  S&F&F\\
+  \hline
+  F&S&F\\
+  \hline
+  F&F&F\\
+  \hline
+\end{tabular}
+\par\bigskip
+
+\noindent För disjunktion:
+\par\bigskip
+\noindent A$\vee$B är sann $\Lrarr$ A är sann eller B är sann $\Lrarr$ minst en av A och B är sann.
+\par\bigskip
+
+\noindent\begin{tabular}{|c|c|c|}
+  \hline
+  A&B&A$\vee$B\\
+  \hline
+  S&S&S\\
+  \hline
+  S&F&S\\
+  \hline
+  F&S&S\\
+  \hline
+  F&F&F\\
+  \hline
+\end{tabular}
+\par\bigskip
+
+\noindent För implikation:
+\par\bigskip
+\noindent A$\rightarrow$B är sann $\Lrarr$ om A är sann så B är sann $\Lrarr$ A är falsk eller B är sann. (Tips, vad är sista sanningsvärdet, dvs sanningsvärdet på B?)
+\par\bigskip
+
+\noindent\begin{tabular}{|c|c|c|}
+  \hline
+  A&B&A$\rightarrow$B\\
+  \hline
+  S&S&S\\
+  \hline
+  S&F&F\\
+  \hline
+  F&S&S\\
+  \hline
+  F&F&S\\
+  \hline
+\end{tabular}
+\par\bigskip
+
+\noindent För ekvivalens:
+\par\bigskip
+\noindent A$\leftrightarrow$B är sann $\Lrarr$ om A är sann så är B saan och om B är sann så är A sann. $\Lrarr$ A$\rightarrow$B är sann och B$\rightarrow$A är sann $\Lrarr$ A och B har samma sanningsvärde.
+\par\bigskip
+
+\noindent\begin{tabular}{|c|c|c|}
+  \hline
+  A&B&A$\leftrightarrow$B\\
+  \hline
+  S&S&S\\
+  \hline
+  S&F&F\\
+  \hline
+  F&S&F\\
+  \hline
+  F&F&S\\
+  \hline
+\end{tabular}
+\par\bigskip
+
+\begin{theo}[Satsparametrar]{thm:params}
+  Antalet satsparametrar är antalet "variabler" i vår utsaga. Exvis, i $A\rightarrow(B\wedge C\leftrightarrow\neg A)$ har 3st satsparametrar.
+\end{theo}
+
+
+
+
+
+
+
+

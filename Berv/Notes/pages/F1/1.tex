@@ -1,0 +1,138 @@
+\section{Interpolation}
+
+\noindent Givet $n$ punkter $(x_i, y_i) i\in\N$ där alla $x_i$ är olika. Då vill vi anpassa en funktion $p(x)$ till detta data så att den går igenom alla dessa punkter, det vill säga $p(x_i)=y_i \forall i\in\N$. Detta kallas för interpolation.
+\par\bigskip
+
+\begin{figure}[ht]
+    \centering
+    \incfig{interpolation-idé}
+    \caption{Interpolation idé}
+    \label{fig:interpolation-idé}
+\end{figure}
+
+\noindent Vanliga användningsområden kan vara:
+\begin{itemize}
+  \item Att läsa mellan raderna i en tabell, även om vi bara har data för $x=3$ och $x=2$ så kan vi finna värden för $x=2.5$
+  \item Anpassa matematisk modell till data.
+  \item Approximera en "svår" funktion, ex. Weirstrass, med en enklare funktion.
+\end{itemize}
+\par\bigskip
+\subsection{Interpolation med polynom}\hfill\\
+
+\begin{itemize}
+  \item Interpolera alla datapunkter med ett enda polynom:
+    \begin{itemize}
+      \item $p_{n-1}(x)=\sum_{i=0}^{n-1}a_ix_i$ där $n-1$ är polynomgraden
+    \end{itemize}
+    \par\bigskip
+    I allmänhet krävs det polynom av grad $n-1$ för att interpolera $n$ punkter.
+    \par\bigskip
+    Vi sätter in de punkter vi vill lösa i polynomet och löser för koefficienterna. Vi kommer då få ett ekvationssystem.
+    \par\bigskip
+    Ansats med gradtal mindre än $n-1$ ger generellt ingen interpolationnslösning.
+    \par\bigskip
+    Vid ansats med gradtal högre än $n-1$ så finns ingen unik lösning.
+    \par\bigskip
+    Läs gärna vidare om Newton interpolation.
+
+  \item Styckvis polynominterpolation:
+    \begin{itemize}
+      \item Anpassar med polynom av låg grad (exvis grad 1 så att den blir linjär) på varje delintervall (mellan varje punkt).
+      \item $p_{k}^{j}(x)$ för $x\in[x_j,x_{j+1}]$ så att $j=1,\cdots n-1$ och att punkterna är ordnade så att $x_j<x_j{j+1}$. Vanligtvis är $k=1$ (graden är 1, styckvis linjär) eller $k=3$ (styckvis kubisk).
+      \item Vid kubisk interpolation får vi 2 styckna "frihetsgrader", det vill säga $x, x^2$. Dessa brukar kombineras med en metod som kallas för\textit{spline} för att ge en kontinuerlig första och andra derivata i hela interpolationen så att kurvan blir mer \textit{smoooooothh}.
+        \par
+        En annan variant kallas för \textit{pchip} som enbart ger en kontinuerlig första-deriv. Den är monoton mellan datapunkter.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Numerisk integration}\hfill\\
+\noindent Problemet som vi vil lösa är att vi förståss vill beräkna integralen av en given funktion:
+
+\begin{equation*}
+  \begin{gathered}
+    I = \int_{a}^{b}f(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Speciellt när det inte går att analytiskt integrera funktionen så blir det som intressantast, eller att det är väldigt svårt, eller då $f$-värden endast finns som mätvärden i vissa punkter.
+\par\bigskip
+
+\subsection{Numerisk kvadratur}\hfill\\
+
+\begin{equation*}
+  \begin{gathered}
+    I\approx \sum_{i=1}^{n}w_if(x_i)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Där $w_i$ är "vikter". Då är frågan hur man skall bestämma dessa vikter och vilka punkter $x_i$ som är relevanta att ta med.\par\noindent Vi gör detta baserat på de interpolerade polynomen och polynom kan vi integrera analytiskt.
+\par\bigskip
+
+\subsection{Newton-Coates kvadratur}\hfill\\
+
+\noindent Vi väljer $x_1,x_2\cdots x_n$ värden som ekvi-distanta punkter. Sedan approximeras integralen $\int_a^b f(x)dx$ av $\int_a^b p(x)dx$ där $p(x)$ är polynomet av grad $n-1$ som interpolerar alla punkter $(x_i, f(x_i)), i=1,\cdots,n$
+\par\bigskip
+
+\noindent Exempel: När jag bara har två punkter $(n=2)$ kallas det för \textit{trapetsregeln}:
+
+\begin{figure}[ht]
+    \centering
+    \incfig{trapetsregeln}
+    \caption{Trapetsregeln}
+    \label{fig:trapetsregeln}
+\end{figure}
+\par\bigskip
+
+\noindent En bättre approximering än att använda en första-gradare är simpsons formel ($n=3$):
+
+\begin{figure}[ht]
+    \centering
+    \incfig{simpsons}
+    \caption{Simpsons}
+    \label{fig:simpsons}
+\end{figure}
+
+\par\bigskip
+\noindent Det som kanske verkar rimligt kanske är att ta högre grad, men det som händer är att man får starka oscillationer eftersom ju högre grad detsto fler "kupor". Istället tar vi mindre intervall och kör bitvis linjär/simpsons istället.
+
+\subsection{Sammansatta trapetsregeln}\hfill\\
+\begin{figure}[ht]
+    \centering
+    \incfig{exempel:-4-intervall}
+    \caption{Exempel: 4 intervall}
+    \label{fig:exempel:-4-intervall}
+\end{figure}
+\par\bigskip
+
+\noindent Generella trapetsformeln:
+
+\begin{equation*}
+  \begin{gathered}
+    x_i=a+ih, h=\dfrac{b-a}{n}\\
+    \int_a^b f(x)dx \approx T(h)=h\left(\sum_{i=0}^n f(x_i) -\dfrac{f(a)+f(b)}{2}\right)
+  \end{gathered}
+\end{equation*}
+
+\noindent Simpsons formel:
+
+
+\begin{equation*}
+  \begin{gathered}
+    x_i=a+ih, h=\dfrac{b-a}{a}\\
+    \int_a^b f(x)dx\approx S(h)=\dfrac{h}{3}\left(f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+\cdots+2f(x_{n-2})+4f(x_{n-1})+f(x_n)\right)
+  \end{gathered}
+\end{equation*}
+\noindent $n$ måste vara jämn.
+
+
+
+
+
+
+
+
+
+
+
+

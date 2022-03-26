@@ -1,0 +1,156 @@
+\section{Förtydligande - Föreläsning 2}
+
+\noindent Det kanske var lite otydligt just \textit{vad} en exakt lösning/differentialkevation var och vad det innebär med just att den löses \textit{implicit}.
+\par\bigskip
+
+\begin{theo}[Implicit lösning]{thm:implicit}
+  En lösning kallas för \textit{implicit} om den \textit{implicerar} explicita lösningar.
+\end{theo}
+\par\bigskip
+
+\subsection{Exempel}\hfill\\
+
+\noindent Låt oss titta på ekvationen för en cirkel med radie 5 i planet:
+
+\begin{equation*}
+  \begin{gathered}
+    25=x^2+y^2
+  \end{gathered}
+\end{equation*}
+
+\noindent Detta är en funktion som inte är \textit{rent} definierad, det vill säga vi har inget VL som består av enbart \textit{beroende} variabler från HL såsom $y(x)$. Däremot så \textit{implicerar} den de explicita funktionerna:
+\par\bigskip
+
+\begin{itemize}
+  \item $y=\sqrt{25-x^2}$
+    \par\bigskip
+
+  \item $y=-\sqrt{25-x^2}$
+\end{itemize}
+\par\bigskip
+
+\noindent Nu har vi gått igenom definitionen, låt oss rigoröst gå igenom definitionen av en \textit{exakt} differentialkevation. Vi kommer göra detta genom att gå igenom ett exempel och sedan se vad det är vi kommer behöva för att lösa den.
+\par\bigskip
+
+\noindent Antag att vi vill lösa följande:
+
+\begin{equation*}
+  \begin{gathered}
+    2xy-9x^2+(2y+x^2+1)\dfrac{dy}{dx}=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent För förklaringens skull, antag att vi har en funktion $\varphi(x,y) = y^2+(x^2+1)y-3x^3$. Låt oss nu finna den partiella derivatan av denna funktion:
+\par\bigskip
+
+\begin{itemize}
+  \item $\dfrac{\partial}{\partial x}=2xy-9x^2$
+    \par\bigskip
+  \item $\dfrac{\partial}{\partial y}=2y+x^2+1$
+\end{itemize}
+\par\bigskip
+
+\noindent Notera här att detta matchar precis differentialkevationen förutom att den saknar en $\dfrac{dy}{dx}$ term. Men! Tricket kommer från flervarren. Vi vet att $y$ är en \textit{beroende} variabel som beror på $x$, alltså kommer vi enligt kedjeregeln få följande:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{d}{dx}(\varphi(x,y(x)))=\dfrac{\partial}{\partial x}+\dfrac{\partial}{\partial y}\cdot\dfrac{dy}{dx}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Detta på grund av att $y(x)$ tekniskt sett har en inre derivata som vi måste ta hänsyn till. Vi ser nu att vi kan skriva om vår differentialkevation som $\dfrac{d}{dx}\varphi(x,y(x))=0$. Men om en ordinär derivata (dvs inte partiell, ty då måste vi betrakta alla partialer) är lika med noll så måste det vara så att vi differentierar en konstant! Alltså $\varphi(x,y(x))=C$, men detta motsvarar i vårat exempel då att vi har:
+
+\begin{equation*}
+  \begin{gathered}
+    \varphi(x,y) = y^2+(x^2+1)y-3x^3 = C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Detta blir då en \textit{implicit} lösning, eftersom den implicerar flera lösningar som vi får arbeta oss för. Det som nu återstår är att kolla hur vi kan hitta denna underbara $\varphi$ funktion och under vilka villkor som den fungerar.
+\par\bigskip
+\pagebreak
+\noindent Vår sugardaddy/mommy funktion skall alltså uppfylla:
+
+\begin{itemize}
+  \item $\varphi_x=M$
+  \item $\varphi_y=N$
+\end{itemize}
+\par\bigskip
+
+\noindent Givet att $\varphi(x,y(x))$ och dess första derivator också är kontinuerliga vet vi från flervarren att vi kan kommutera partialerna på följande sätt:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \varphi_{x y}=\varphi_{y x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Men givet detta, och att $\varphi_x=M$ osv så kan vi alltså busa lite!
+
+\begin{equation*}
+  \begin{gathered}
+    \varphi_{x y} = (\varphi_x)_y=(M)_y=M_y\\
+    \varphi_{y x}=(\varphi_y)_x=(N)_x=N_x
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Men eftersom $\varphi_{x y}=\varphi_{y x}$ så vet vi alltså att $M_y=N_x$, fiffigt sätt att kontrollera att man har gjort rätt!
+\par\bigskip
+
+\noindent Hur kan vi hitta denna funktion då? Vi skulle kunna använda $M_y=N_x$ sambandet och se om vi kommer någon vart:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \varphi = \int M dx \Lrarr \int N dy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Detta är fördelaktigt att vi kan byta runt och integrera lite som vi vill, ty förhoppningsvis är en utav dem lättare än den andra. Låt oss antag att $dx$ integralen är den vi vill integrera:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \int M dx = \varphi + h(y)
+  \end{gathered}
+\end{equation*}
+
+\noindent Detta eftersom $\varphi$ är en funktion av 2 variabler och vi integrerar med avseende på en, alltså vet vi inte om konstanten kanske beror på den andra variabeln. Därför skriver vi $h(x)$ istället för $C$ som vi kanske är vana med.
+\par\bigskip
+\noindent Hur kan vi hitta denna mystiska funktion $h(x)$? Vi vet att om vi deriverar $\varphi$ med avseende på $y$ så bör vi få $N$, vi använder detta till vår fördel:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \varphi_y=\dfrac{\partial}{\partial y}\left(\int M dx\right)=\dfrac{\partial}{\partial y}\varphi+h^{\prime}(y)=N\\
+    h^{\prime}(y)=N-\dfrac{\partial}{\partial y}\varphi
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Nu är det bara en fråga om att integrera $h^{\prime}(y)$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    h(y)=\int (N-\dfrac{\partial}{\partial}\varphi)dy\\
+    \Lrarr \varphi + D
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Vi kan strunda i konstanten $D$ eftersom i vår implicita lösning så kommer vi ha $\varphi + D = C$ där vi nu kan slå ihop $D$ och $C$ till en enda konstant. Nu har vi hittat en metod för att lösa dessa differentialkevationer! För definitionen, se Sats 2.1.
+
+
+
+
+
+

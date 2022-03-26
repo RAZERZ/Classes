@@ -1,0 +1,171 @@
+\section{Föreläsning - Existens och unikhet}
+
+\noindent Antag att vi har en ODE på formen:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}=f(x,y), y(x_0)=y_0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent I allmänhet kan vi inte lösa den här explicit. Vi kommer under denna föreläsning kika på IVP. Vi kommer studera 3 frågor:
+
+\begin{itemize}
+  \item Lokal existens: finns det en lösning $y(x)$ def. i närheten av $x_0$?
+  \item Existens i stort: Hur stort intervall kan den vara definierad på som innehåller $x_0$ där $y(x)$ är def.?
+  \item Unikhet: Finns det flera lösningar eller bara en? Detta är viktigt att veta om man studerar en ODE eftersom man behöver ha koll på att den lösningen man får som kanske löser ett system så behöver vi veta vad den andra lösningen betyder.
+\end{itemize}
+\par\bigskip
+
+\noindent När det gäller första punkten, det visar sig att lokal existens endast kräver att $f$ är kontinuerlig:
+\par\bigskip
+
+\begin{theo}
+  OOm $f$ är \textit{kontinuerlig} så finns det en lösning definierad i närheten av en punkt.
+\end{theo}
+\par\bigskip
+
+\noindent Detta räcker \textit{inte} för att lösningen ska vara unik! Exempelvis:
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}=xy^{1/3}, y(0)=0\\
+    y((x))=0, y(x)=\dfrac{x^3}{\sqrt{27}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Vi kommer kolla på ett intressant bevis om när lösnignen är unik, ty beviset ger information om hur man kan approximera en lösning.
+\par\bigskip
+
+
+\begin{theo}
+  AAntag att $f$ och $\dfrac{\partial f}{\partial y}$ är kontinuerliga i någon rektangel $R=\{(x,y)\in\R^2, a\leq x\leq b, c\leq y \leq d\}$ som innehåller $(x_0,y_0)$ i dess inre (kan ej ligga på randen).
+  \par\bigskip
+  \noindent Då existerar det något intervall $I=(x_0-h,x_0+h)$ för $h>0$ och en \textit{unik} funktion $y=y(x)$ definierad på $I$ så att $y^{\prime}=f(x,y)$ på $I$ och $y(x_0)=y_0$
+\end{theo}
+\par\bigskip
+
+\noindent Kommentar: $y^{\prime}=xy^{1/3}=f(x,y)$ ger oss $\dfrac{\partial f}{\partial y}=\dfrac{x}{3y^{2/3}}$ som inte är kontinuerlig ty $y\neq 0$ ger bus.
+\par\bigskip
+
+\noindent Kommentar: Bara för att funktionen är definierad i en rektangel betyder det inte att samma rektangel är intervallet för lösningen. I allmänhet är intervallet mindre än rektangel.
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}=y^2, y(0)=1\\
+    \Lrarr f(x,y)=y^2 \text{ är kont.}\\
+    \dfrac{\partial f}{\partial y}(x,y)=2y \text{ är kont.}\\
+    y(x)=\dfrac{1}{1-x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Så satsen gäller $\forall$ rektanglar. Notera att lösningen inte är def. i $x=1$, men den är definierad för $x<1$. 
+\par\bigskip
+\pagebreak
+
+\begin{prf}[Sketch av bevis för unikhet av unikhetssats]{prf:sketch}
+  Idén är att använda metoden med successiva approximationer. Vi kommer börja med en funktion som inte är en lösning men som ger oss lite info och så fortsätter vi tills vi når ett "gränsvärde" som är vår lösning:
+
+  \begin{itemize}
+    \item Skriv om som integralekvation: $y^{\prime}=f(x,y), y(x_0)=y_0$ $\Lrarr\int_{x_0}^{x}y^{\prime}(t)dt=\int_{x_0}{x}f(t,y(t))dt \Lrarr y(x)-y(x_0)=\int_{x_0}^{x}f(t,y(t))dt \Lrarr y(x)=y_0+\int_{x_0}^{x}f(t,y(t))dt$
+    \item Det härliga här är att vi kan förkasta initalvärdet, ty det blir lätt att stoppa in och lösa.
+    \item Nu definierar vi en sekvens av funktioner som är våra "successiva approximation": $\varphi_0(x)=y_0$. Denna uppfyller IV men i allmänhet inte funktionen. Sedan definierar vi $\varphi_1=y_0+\int_{x_0}^{x}f(t,\varphi_0(t))dt$ (i allmänhet inte en lösning til ekvationen), men vi fortsätter såhär $\cdots \varphi_{n+1}(x)=y_0+\int_{x_0}^{x}f(t,\varphi_n(t))dt$
+    \item Vi vill få en känsla för att den här sekvensen av funktioner i gränsvärdet när $y\to\infty$ ger oss en lösning.
+    \item Notera, $\varphi_n(x_0)=y_0+\int_{x_0}^{x_0}f(t,\varphi_{n-1}(t))dt=y_0$ men i allmänhet \textit{inte} $\varphi_n^{\prime}=f(x,\varphi_n)$
+    \item $\lim_{n\to\infty}\varphi_{n+1}(x)=y_0+\lim_{n\to\infty}\int_{x_0}^{x}f(t,\varphi_n(t))dt$
+    \item Om vi låter $\varphi=\lim_{n\to\infty}\varphi_n$ får vi:
+    \item $\varphi(x)=y_0+\int_{x_0}^{x}f(t,\varphi(t))dt \to \varphi \text{ är en lösning!}$
+    \item Detta är ett informellt bevis ty vi vet inte när vi kan flytta in gränsvärdet innanför integralen, går det att få in det så löser det sig.
+  \end{itemize}
+  \par\bigskip
+
+  \noindent Vi får inte glömma att vi använder oss av att $f$ är kontinuerlig och definierad i rektangeln. Vi måste alltså se till att $\varphi$ hamnar inom denna rektangeln. Vi måste därför begränsa $\varphi$ så att den aldrig lämnar rektangeln.
+  \par\bigskip
+
+\end{prf}
+
+\subsection{Exempel}\hfill\\
+
+\noindent Vi kommer ta en explicit ekvation och kolla vad som händer med $\varphi$
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}=-\dfrac{y}{2}+t, y(0)=0\\
+    y(t)=0+\int_{0}^{x}\dfrac{y(s)}{2}+s ds\\
+    \varphi_0(t)=0\\
+    \varphi_1(t)=0+\int_{0}^{t}\dfrac{0}{2}+s ds = \left[\dfrac{s^2}{2}\right]_{0}^{t}=\dfrac{t^2}{2}\\
+    \varphi_2(t)=\int_{0}^{t}\dfrac{\dfrac{s^2}{2}}{2}+s ds = \int_{0}^{t}\dfrac{s^2}{4}+s ds = \left[\dfrac{s^3}{2\cdot3!}+\dfrac{s^2}{2}\right]_{0}^{t}=\dfrac{t^3}{12}+\dfrac{t^2}{2}\\
+    \vdots\\
+    \lim_{n\to\infty}\varphi_n (t)=\sum_{i=0}^{\infty}\dfrac{(-1)^{n+1}t^{n+1}}{2^{n-1}(n+1)!} \text{   ser ut som taylor för $e^x$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Vi kan kolla att den konvergerar genom kriterier för serier. I detta fall kan vi försöka få en explicit lösning. Vi noterar att den liknar taylor, låt oss undersöka:
+
+
+\begin{equation*}
+  \begin{gathered}
+    e^x = \sum_{k=0}^{\infty}\dfrac{x^k}{k!} \to \sum_{k=2}^{\infty}(-1)^k\dfrac{t^k}{2^{k-2}k!}= 4\sum_{k=2}^{\infty}(-1)^k\dfrac{t^k}{2^k k!}=4\sum_{k=2}^{\infty}\dfrac{\left(\dfrac{-t}{2}^k\right)}{k!}=4\sum_{k=0}^{\infty}\dfrac{\left(\dfrac{-t}{2}^k\right)}{k!}-4+2t=4e^{\left(\dfrac{-t}{2}\right)}-4+2t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{prf}[Bevis av unikhet]{prf:unique}
+  Antag att vi har 2 lösningar, $y_1$ och $y_2$. Det vi gjorde var att vi skrev om den på integralform:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      y_1(x)=y_0+\int_{x_0}^{x}f(t,y_1(t))dt\\
+      y_2 =y_0+\int_{x_0}^{x}f(t,y_2(t))dt\\
+      \text{Om de är unika så borde } y_1-y_2=0\\
+      y_1-y_2=\left(y_0+\int_{x_0}^{x}f(t,y_1(t))dt\right)-\left(y_0+\int_{x_0}^{x}f(t,y_2(t))dt\right)\\
+      y_1-y_2 = \int_{x_0}^{x}f(t,y_1(t))-f(t,y_2(t)) dt\\
+      \text{MVS ger } g(y_1)-g(y_2)=g^{\prime}(\alpha y_1+(1-\alpha y_2))(y_1-y_2), \alpha\in [0,1]\\
+      f(t,y_1)-f(t,y_2)=\dfrac{\partial f}{\partial y}(\alpha y_1+(1-\alpha)y_2)(y_1-y_2)\\
+      \text{Eftersom $\dfrac{\partial f}{\partial y}$ är kont. i $R$ finns det en övre gräns:}\\
+      \left|\dfrac{\partial f}{\partial y}< C\right| \text{ för någon konstant $C$}\\
+      \left|\dfrac{\partial f}{\partial y}(\alpha y_1-(1-\alpha)y_2)\right| \leq C\\
+      \left|f(t,y_1)-f(t,y_2)\right|\leq C\left|y_1-y_2\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  Går vi tillbaka till där vi skrev "för någon konstant $C$" får vi:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      \left|y_1-y_2\right| = \left|\int_{x_0}^{x}f(t,y_1(t))-f(t,y_2(t))dt\right|\leq\int_{x_0}^{x}\left|f(t,y_1(t))-f(t,y_2(t))\right|dt\leq C\int_{x_0}^{x}\left|y_1(t)-y_2(t)\right|dt\\
+      \text{Låt $u(x)= \left|y_1(x)-y_2(2)\right|$:}\\
+      u^{\prime}(x)\leq C\cdot u(x)\Lrarr u^{\prime}(x)-Cu(x)\leq0\\
+      \text{ Detta är en linjär differentialolikhet som vi löser på följande sätt:}\\
+      \text{Integrerande faktor: }\mu(x)=e^{\int -Cdx}= e^{-Cx} > 0 \text{ så ändrar inte olikheten:}\\
+      e^{-Cx}u^{\prime}(x)-Ce^{-Cx}u(x)\leq0\Lrarr (e^{-Cx}u(x))^{\prime}\leq0\\
+      \Lrarr\int_{x_0}^{x}(e^{-Ct}u(t))^{\prime}dt\leq0 \Lrarr e^{-Cx}u(x)-e^{Cx_0}u(x_0)\leq0\\
+      \text{Då är frågan, vad är $u(x_0)$?}\\
+      u(x_0)=\left|y_1(x_0)-y_2(x_0)\right| = \left|y_0-y_0\right|=0\\
+      e^{-Cx}u(x)\leq0 \Lrarr u(x)=0 \text{ men eftersom $u(x)$ är absolutbelopp så kan ej vara negativ, alltså }\\
+      u(x)=0\Lrarr y_1(x)-y_2(x)=0 \Lrarr y_1(x)=y_2(x)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+
+
+
+
+
+
+
+
+
+
+
+

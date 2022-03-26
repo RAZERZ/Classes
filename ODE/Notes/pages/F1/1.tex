@@ -1,0 +1,248 @@
+\section{Föreläsning - Intro}
+\subsection{Vad är en differentialekvation?}
+\par\bigskip
+
+
+\noindent En ekvation som innehåller derivator med avseende på en eller flera oberoende variabler.\par
+Om det enbart är en variabel som är oberoendekallas det för en \textit{ordinär} differentialekvation.
+
+Fråga: Vad är poängen med att variablerna är oberoende?
+Svar: Man måste ha oberoende variabler som man löser för
+
+\subsection{Exemepel på ODE}
+\begin{itemize}
+  \item $\dfrac{dy}{dx} + 5y = e^x$
+  \item $y^{\prime\prime}-y^{\prime}+6y=0$
+  \item $\dfrac{dx}{dt}+\dfrac{dy}{dt}=2x+y$
+\end{itemize}
+\par\bigskip
+
+\noindent I alla dessa fall hade vi \textit{en} oberoende variabel, har vi flera så är det en \textit{partiell differentialekvation} (PDE).
+
+\subsection{Exemepel på PDE}
+
+\begin{itemize}
+  \item $\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=0$
+\end{itemize}
+
+\subsection{Newtons andra lag}
+\par\bigskip
+
+$F=m\cdot a$ där $F$ är kraften, $m$ massan, $a$ accelerationen.
+Säg att vi har en sten:
+
+\begin{figure}[ht]
+    \centering
+    \incfig{figur}
+    \caption{Figur}
+    \label{fig:figur}
+\end{figure}
+\par\bigskip
+
+\noindent Då får vi följande samband
+
+\begin{equation*}
+  a = \dfrac{d^2s}{dt^2}\\
+  F = -mg\\
+  -mg=m\cdot\dfrac{d^2s}{dt^2}\\
+  \dfrac{d^2s}{dt^2}=-g
+\end{equation*}
+
+\subsection{Spridning av en sjukdom}
+
+\noindent Ett virus sprids genom en population. Spridning sker när folk som är infekterade kommer i kontakt med folk som inte är smittade.
+\par\bigskip
+ Vad säger detta om spridningen? Antag att vid tid $t$ så är $x(t)$ personer infekterade och $y(t)$ personer är inte infekterade. Spridning bör vara proportionell mot hur många från $x, y$ som mötes, det vill säga ett rimligt antagande är:
+ \par\bigskip
+
+
+ \begin{equation*}
+   \dfrac{dx}{dt} = kxy
+ \end{equation*}
+ \par\bigskip
+
+ \noindent Något man kan studera är vad som händer när en infekterad person introduceras till en grupp icke-infekterade. Detta betyder att $x(0)=1$. Antal personer är $x+y=n+1$. Stoppar vi in detta i ekvationen får vi:
+
+
+ \begin{equation*}
+   \dfrac{dx}{dt}= k\cdot x\cdot(n+1-x)
+ \end{equation*}
+ \par\bigskip
+
+\noindent Ofta kan man inte lösa ODE:er med hand, då kan man lösa det grafiskt/m.h.a dator. Det finns flera verktyg som kan åstadkomma detta men ett av dessa verktyg är ett vektorfält/riktningsfält.
+
+\subsection{Riktningsfält}
+\par\bigskip
+
+\noindent Grafiska verktyg är ofta väldigt kraftfulla för att förstå hur lösningen till en ODE ser ut.\par
+Tänk oss att vi har följande ODE:
+
+
+\begin{equation*}
+  y^{\prime}= \dfrac{y}{x^2}
+\end{equation*}
+\par\bigskip
+
+\noindent De flesta ODE:er går inte att lösa exakt. Därför är grafiska verktyg/numreriska metoder väldigt användbara när man vil lösa ODE:er.
+\par\bigskip
+
+\subsection{Lösning av en ODE}
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dp}{dt}=\dfrac{p}{2}-450\\
+    \dfrac{dp}{dt}=\dfrac{1}{2}(p-450)\\
+    p=900 \Rightarrow \dfrac{dp}{dt}=0 \Rightarrow p(t)=900 \text{är en lösning}\\
+    p\neq 900 \Rightarrow \dfrac{\dfrac{dp}{dt}}{p-900}=\dfrac{1}{2}\\
+    \dfrac{d}{dt}(\log(|p-900|))=\dfrac{1}{2} \text{vi kan nu integrera m.a.p t}\\
+    \log(|p-900|)=\int\dfrac{1}{2}dt=\dfrac{t}{2}+C\\
+    |p-900|=e^{\dfrac{t}{2}+C}=e^Ce^{\dfrac{t}{2}}\\
+    p=900 \pm e^Ce^{\dfrac{t}{2}} \text{där $e^C$ är en positiv konstant}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+Kom ihåg att $p=900$ är en lösning, alltså:
+\par\bigskip
+
+\begin{equation*}
+  p=900+Ce^{t/2}
+\end{equation*}
+\par\bigskip
+
+ger alla lösningar. Vi kan få fram C genom att kolla på startpopulation:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{split}
+    p(0)=1000 \Rightarrow C=100
+    p(t)=900+100e^{t/2}
+  \end{split}
+\end{equation*}
+\par\bigskip
+
+Liknande beteende $\forall p(0)>900$
+\par\bigskip
+
+\subsection{Klassificering av ODE:er}
+\par\bigskip
+
+\noindent I funktionen $y(t)$ är $y$ en beroende variabel (beror på $t$) och $t$ en oberoende variabel. Detta är en reellvärd funktion på intervallet $(a,b)$:
+
+\begin{equation*}
+  y:(a-b)\to\R
+\end{equation*}
+
+\begin{equation*}
+  y^{\prime}=\dfrac{dy}{dt}, y^{\prime\prime}=\dfrac{d^2y}{dt}, y^{\prime\prime\prime}=\dfrac{d^3y}{dt}
+\end{equation*}
+\par\bigskip
+\noindent Alternativt:
+
+\begin{equation*}
+  y^{(0)}=y, y^{(1)}=\dfrac{dy}{dt}\cdots
+\end{equation*}
+
+\begin{theo}[ODE]{thm:ODE}
+  En ordinär differentialekvation för funktionen $y=y(t)$ är en ekvation på formen:
+
+  \begin{equation*}
+    F(t,y,y^{(1)}, \cdots y^{(n)}) = 0
+  \end{equation*}
+  \par\bigskip
+
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Graden av en ODE]{thm:deg}
+  \textit{Graden} av en ODE är ordningen på den högsta derivatan av $y$ som förekommer. I sats 1.1 hade det då varit $n$.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Linjär ODE]{thm:linjODE}
+  En ODE kallas för \textit{linjär} om den är på formen:
+
+  \begin{equation*}
+    \sum_{i=0}^{n}a_i(t)y^{(i)}(t) = g(t)
+  \end{equation*}
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Icke-linjär ODE]{thm:nonLin}
+  Om en ODE inte är linjär kallas den \textit{icke-linjär}
+\end{theo}
+\par\bigskip
+
+\noindent Hur definierar vi en lösning till en ODE?
+\par\bigskip
+En lösning till en ODE på ett intervall $(a,b)$ är en funktion $y(t)$ så att:
+
+\begin{itemize}
+  \item $y$ och alla dess derivator är kontinuerliga $\forall t\in(a,b)$
+  \item $y$ löser ekvationen $\forall t$
+\end{itemize}
+\par\bigskip
+Om detta uppfylls kallas $(a,b)$ \textit{lösningsintervallet}.
+
+\subsection{Exemepel}
+\par\bigskip
+
+\begin{equation*}
+  t^5y^{(4)}-t^3-y^{(2)}+6y=0
+\end{equation*}
+\par\bigskip
+
+Denna ODE är linjär och av grad 4.
+\par\bigskip
+
+\subsection{Exemepel}
+\par\bigskip
+
+
+\begin{equation*}
+  u^{\prime\prime}=\sqrt{1+(u^{\prime})^2}
+\end{equation*}
+\par\bigskip
+
+\begin{theo}[Initialvärdesproblem]{thm:init}
+  Ett \textit{initialvärdesproblem} (IVP) är en ODE tillsammans med ett startvärde för den oberoende variabeln. För en ODE av grad 1:
+  \par\bigskip
+
+  \begin{equation*}
+    F(t,y,y^{\prime})=0 \text{och} y(x_0)=y_0
+  \end{equation*}
+  \par\bigskip
+
+  Där $y(x_0)=y_0$ kallas \textit{initialvillkoret}
+\end{theo}
+\par\bigskip
+
+\noindent Ofta kommer vi ha:
+\begin{equation*}
+  y^{(n)}(t)= F(t,y^{(1)}\cdots y^{(n-1)}(t))
+\end{equation*}
+\par\bigskip
+
+\subsection{Idén i den här kursen}
+\par\bigskip
+
+\begin{itemize}
+  \item Givet en ODE, finns det lösning?
+  \item Om ja, hur många lösningar finns det? (Inget initialvärde kommer vi ha oändligt)
+  \item Hitta explicita lösningar till enkla ODE:er
+  \item Analysera och approximera lösningar till komplicerade ODE:er med serier (typ som Taylor-serier men med mer krut)
+  \item Kvalitativa egenskaper (hur påverkar initialvillkoret lösningen?)
+  \item Numreriska metoder
+\end{itemize}
+
+
+
+
+
+
+
+
+

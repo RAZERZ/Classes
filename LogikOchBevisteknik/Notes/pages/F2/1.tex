@@ -1,0 +1,107 @@
+\section{Föreläsning - Naturlig deduktion (syntax)}
+
+\subsection{Parantesers roll}\hfill\\
+
+\noindent Exempel: $p\rightarrow q\wedge r$. Hur skall vi placera ut paranteser, och behåller det formelns sanningsvärde? Vad händer om vi skriver $(q\wedge r)$ istället så att $(p\rightarrow(q\wedge r))$, eller motsatsen, $(p\rightarrow q)$ så att $((p\rightarrow q)\wedge r)$.
+\par\bigskip
+
+\noindent Det finns en konvention som hjälper oss att hålla koll på var och när och hur många paranteser som behövs.
+
+\begin{itemize}
+  \item Skriv inte ut yttersta paranter
+  \item $\neg$ binder starkare än $\wedge,\vee,\rightarrow,\leftrightarrow$
+    \begin{itemize}
+      \item $\neg p \wedge q$ betyder $(\neg q)\wedge q$
+    \end{itemize}
+  \item $\wedge, \vee$ binder starkare än pilarna $\rightarrow, \leftrightarrow$
+    \begin{itemize}
+      \item $p\wedge q \rightarrow r\vee s \Lrarr (p\wedge q)\rightarrow (r\vee s)$
+    \end{itemize}
+  \item $\wedge, \vee$ binder lika hårt.
+  \item $\rightarrow, \leftrightarrow$ binder lika hårt. 
+    \begin{itemize}
+      \item Ex: $p\vee q\wedge r$ ej klart vad som menas, här måste paranteser plaserar ut
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+
+\noindent Man kan formulera detta genom \textit{parsingträd} där subnoderna \textit{inte} får kommutera, detta kallas för att trädet är \textit{ordnat}.
+\par\bigskip
+
+\noindent Ex: $(p\wedge(\neg q))$
+\par\bigskip
+\noindent Ex: $(p_1\wedge p_2)\rightarrow (\neg p_2\rightarrow (p_1\rightarrow\perp))$. Detta är en \textit{pilformel} och då kallas det för ett \textit{huvudkonnektiv}.
+\par\bigskip
+
+\begin{theo}
+  DDet sist tillagda konnektivet i formeln (motsvarar högsta noden i trädet) kallas för \textit{huvudkonnektiv}.
+\end{theo}
+\par\bigskip
+
+\noindent Varje formel har ett entydigt träd. Men också tvärtom, givet ett träd så kan vi "bygga upp" en entydig formel.
+\par\bigskip
+
+\begin{theo}[Parsingträd]{thm:parsetree}
+  Låt $T$ stå för ett träd. $T:\text{LP}(\sigma)\rightarrow\{\text{parsingträd}\}$.
+  \par\bigskip
+  Vi definierar det induktivt, där basen är en p atom: $T(p)=\bullet p$. Sedan påbörjar induktionen:
+
+  \begin{itemize}
+    \item Om $\varphi$ formel med träd $T(\varphi)$, så $T((\neg\varphi))=\text{fig.}$
+    \item Om $\varphi$ och $\phi$ formler med träd $T(\varphi)$ resp $T(\phi)$, så $T((\varphi\Box\phi))$ = fig.
+  \end{itemize}
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Delformel]{thm:subformula}
+  En \textit{delformel} till en formel $\varphi$ är en teckensträng från $\varphi$ som själv är en formel, då är det en delformel. Den triviala delformeln är $\varphi$ själv.
+\end{theo}
+\par\bigskip
+\noindent Exempel: $\varphi=(p_1\wedge\neg p_2)\rightarrow((p_2\rightarrow p_3)\wedge p_4)$. Då är exempelvis $(p_2\rightarrow p_3)$ en delformel eller $\neg p_2$. Däremot så är $p_3)\wedge p_4$ \textit{inte} en delformel. I parsingträdet så motsvarar varje nod en delformel.
+
+\subsection{Syntax}\hfill\\
+\noindent Hur man kan dra slutsatser på ett syntaktiskt sett:
+\par\bigskip
+\noindent Om $\Gamma$ är en mängd av formler och $\varphi$ är en formel vill vi studera relationen mellan dessa. Följer $\varphi$ av formlerna i $\Gamma$?
+\par\bigskip
+\noindent Vi kommer studera denna frågan på 2 sätt, syntaktiskt och semantiskt.
+
+\begin{itemize}
+  \item Syntax:
+    \begin{itemize}
+      \item Formella bevisregler, tex. $\dfrac{A  B}{(a\wedge B)}$
+      \item $\Gamma\vdash\varphi$, $\Gamma$ bevisar $\varphi$
+      \item Teckensträngsmanipulation
+      \item Naturlig deduktion
+    \end{itemize}
+  \item Semantik:
+    \begin{itemize}
+      \item Är $\varphi$ sann om alla formler i $\Gamma$ är sanna?
+      \item $\Gamma\vDash\varphi$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+
+\subsection{Naturlig deduktion}\hfill\\
+
+\noindent För varje konnektiv som vi har kommer vi introducera 2 regler, en för att introducera konnektivet och en för att ta bort.
+
+\begin{itemize}
+  \item $\wedge$ intro ($\wedge I$). Om vi har teckensträng $A$ och $B$  så kan vi $\dfrac{AB}{(A\wedge B)}$
+  \item $\wedge$-elimination. $\dfrac{(A\wedge B)}{A}$ och $\dfrac{(A\wedge B)}{B}$
+  \item $\rightarrow$-intro. $A\cdots B$, jag börjar med $A$ och jobbar mig mot $B$ S.T $\dfrac{A\vdots B}{(A\rightarrow B)}$. Efter $B$ får man dra vilken slutsats $A\rightarrow B$ där $A$ vilken formel som helst. Om $A$ är en premiss ovanför $B$ så får $A$ strykas. 
+  \item $\rightarrow$-elimination. Om $A$ gäller och $A\rightarrow B$ så vet vi att $B$ gäller (Modus pomens)
+\end{itemize}
+\par\bigskip
+\noindent Exempel: Vi vill göra ett bevisträd som har följande slutsats, $(A\rightarrow (B\rightarrow A\wedge B))$. I detta träd kommer alla antaganden vara längst upp och slutsatser längst ner. Vi tittar på slutsatsen och märker att huvudkonnektivet är en pil, så vi kommer behöva använda pilintro. Då skall jag antag $A$ och försöka härleda $B\rightarrow(A\wedge B)$, men då måste jag visa att $B\rightarrow(A\wedge B)$ så vi måste anta B för att visa $A\wedge B$ och nu kan jag visa det jag ville visa. Vi använder $\wedge$-intro. Per vårat antagande gäller $A, B$ och därmed $A\wedge B$. Nu kan vi använda pil-elimination för att få bort pilen $B\rightarrow(A\wedge B)$
+\par\bigskip
+
+
+\begin{theo}[Premiss]{thm:premise}
+  En \textit{premiss} är en formel som ej är struken och förekommer högst upp i bevisträdet.
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Slutsats]{thm:slutsats}
+  Formeln som står längst ner i bevisträdet.
+\end{theo}

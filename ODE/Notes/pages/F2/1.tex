@@ -1,0 +1,325 @@
+\section{Föreläsning - 1:a ordningens ODE och 3 typer}
+
+\noindent Vi kommer kolla på 3 olika typer av 1:a ordningens ODE:
+\par\bigskip
+\begin{itemize}
+  \item Linjära
+  \item Separabla
+  \item Exakta
+\end{itemize}
+\par\bigskip
+\noindent I alla dessa fall kommer vi kunna lösa dessa och få fram explicita lösningar - i allmänhet inte möjligt. Däremot är det viktigt att notera att det finns 1:a ordningens ODE som inte täcks av dessa fallen!
+\par\bigskip
+\noindent Vi kommer primärt undersöka ODE:er på formen $y^{\prime}=f(t,y)$
+\par\bigskip
+\subsection{Linjära 1:a ordningens ODE}\hfill\\
+
+\noindent Kan skrivas på formen:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    a(x)\dfrac{dy}{dx}+b(x)y=c(x) \Lrarr \dfrac{dy}{dx}=\dfrac{c(x)-b(x)y}{a(x)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här antas $a(x)\neq 0$
+
+\subsection{Motiverande exmpel}\hfill\\
+
+\noindent Antag att vi har en ODE på formen:
+
+
+\begin{equation*}
+  \begin{gathered}
+    xy^{\prime}+y=e^x\\
+    x>0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har $xy^{\prime}+y=(xy)^{\prime} = e^x$ där vi nu kan integrera båda sidorna:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    xy = \int e^x dx +C \Lrarr xy=e^x+C \Lrarr y = \dfrac{e^x+C}{x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Här hade vi riktigt tur att vi kunde inse att derivatan av produkten var lika med ODE:n vi ville lösa. Givetvis går det inte alltid att göra så. Men vad vi kan göra är att vi kan multiplicera ekvationen med en \textit{faktor} för att få ODE:n på den formen.
+\par\bigskip
+\noindent Denna faktor brukar betecknas $\mu(x)$ och kallas för den \textit{integrerande faktorn}. Låt oss kolla på den allmänna lösningsmetoden:
+\par\bigskip
+
+\begin{itemize}
+  \item Skriv på formen $y\prime+p(x)y=f(x)$
+  \item Beräkna integrerande faktorn $\mu(x) = e^{\int p(x)dx}$
+  \item Tag integrerande faktor och multiplicera ekvationen med den: $\mu(x)y^{\prime}+\mu(x)p(x)y=\mu(x)f(x)$
+  \item Nu har vi $(\mu(x)y)^{\prime}= \mu(x)y^{\prime}+\mu(x)p(x)y$
+  \item Vi kan skriva om ekvationen som $(\mu(x)y)^{\prime}=\mu(x)f(x)\Lrarr \mu(x)y = \int\mu(x)f(x)dx$
+\end{itemize}
+\par\bigskip
+\noindent Detta ger oss slutgiltigen lösningen $y=\dfrac{1}{\mu(x)}\int\mu(x)f(x)dx$
+\par\bigskip
+\noindent Notera att $\mu(x)\neq0$ ty $e^x\neq0$
+\par\bigskip
+\noindent Detta funkar "alltid", så länge vi kan integrera.
+
+\subsection{Exempel}\hfill\\
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}+3x^2y=x^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi noterar att vi är på rätt form, dvs $p(x)=3x^2, f(x)=x^2$. Då kan vi räkna den integrerande faktorn:
+
+\begin{equation*}
+  \begin{gathered}
+    \mu(x)=e^{\int p(x)dx}=e^{\int 3x^2dx}=e^{x^3}\\
+    \Lrarr e^{x^3}y^{\prime}+e^{x^3} 3x^2y=e^{x^3}\cdot x^2 \Lrarr (e^{x^3}\cdot y)^{\prime}=e^{x^3}x^2\\
+    e^{x^3}y=\int x^2\cdot e^{x^3}dx \Lrarr e^{x^3}y=\dfrac{e^{x^3}}{3}+C\\
+    y=\dfrac{1}{3}+C\cdot e^{-x^3}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\subsection{Separabla ekvationer}\hfill\\
+
+\noindent Namnet är ganska beskrivande i det här fallet, där är ekvationer där vi kan separera variablerna. Formellt menas det att ekvationer på denna form är separabla:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dy}{dx}=g(x)h(y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent En lösningsmetod ser ut på följande:
+\par\bigskip
+\begin{itemize}
+  \item Skriv som $\dfrac{dy}{h(y)}=g(x)dx$ (flyttat över allt med $y$ på ena sidan och allt med $x$ på andra)
+  \item Integrera båda sidorna: $\int\dfrac{dy}{h(y)}=\int g(x)dx$
+\end{itemize}
+\par\bigskip
+\noindent En rimlig fråga man kan ställa sig är "varför funkar det att betrakta $\dfrac{dy}{dx}$ som ett bråk?":
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}(x)=g(x)h(y(x)) \Lrarr \dfrac{y^{\prime}(x)}{h(y(x))}=g(x)\\
+    \int\dfrac{y^{\prime}(x)}{h(y(x))}dx = \int g(x)dx \text{HL är ok, men VL, är den verkligen samma som vi kom fram till? Vi skriver om den}\\
+    \int\dfrac{y^{\prime}(x)}{h(y(x))}dx = \left[u(x)=y(x), \dfrac{du}{dx}=y^{\prime}(x)\right] = \int\dfrac{1}{h(u)}du \text{Men $u$ kan lika gärna vara $y$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\subsection{Exempel}\hfill\\
+
+
+\begin{equation*}
+  \begin{gathered}
+    k=1, n=1000, x(0)=1\\
+    \dfrac{dx}{dt}=kx(n+1-x), 0<x<n+1\\
+    \dfrac{dx}{dt}=x(1001-x)\\\dfrac{dx}{x(1001-x)}=dt\\
+    \int\dfrac{dx}{x(1001-x)}dx = \int1dt\\
+    \int\dfrac{dx}{x(1001-x)}dx = \dfrac{1}{1001}\int\dfrac{1}{x}+\dfrac{1}{1001-x}dx \text{vi använde PBU}\\
+    \Lrarr \dfrac{1}{1001}\cdot(\log(x)-\log(1001-x))=t+C\\
+    \log\left(\dfrac{x}{1001-x}\right) = 1001\cdot t+C\\
+    \dfrac{x}{1001-x}=e^{1001t+C}\\
+    x(0)=1 \Rightarrow \dfrac{1}{1001-1}=e^{0+C}\Lrarr e^C=\dfrac{1}{1000}\\
+    x=\dfrac{1001e^{1001t}}{1000+e^{1001t}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\subsection{Exempel 2}\hfill\\
+
+
+\begin{equation*}
+  \begin{gathered}
+    (e^{2y}+y)\cdot\cos(x)\dfrac{dy}{dx}=e^{y}\sin(2x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här är det inte helt uppenbart att den är separabel, vi kan testa att flytta runt saker och se vad vi får:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{e^{2y}+y}{e^y} dy=\dfrac{\sin(2x)}{\cos(x)}dx, (\cos(x)\neq0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu ser vi att den är separabel och vi kan köra på!
+
+
+\begin{equation*}
+  \begin{gathered}
+    \int\dfrac{e^{2y}+y}{e^y}dy=\int e^y+ye^{-y}dy = e^y -ye^{-y}-e^{-y}+C = \text{VL}\\
+    \int\dfrac{\sin(2x)}{\cos(x)}dx = \int\dfrac{2\sin(x)\cos(x)}{\cos(x)}dx = 2\int\sin(x)dx = -2\cos(x)+D = \text{HL}\\
+    \text{VL = HL} \Lrarr e^y-ye^-y-e^{-y}=-2\cos(x)+C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta är en lösning på implicit form, och det går inte att göra så mycket bättre än så ty inga startvärden. Detta är vanligt för separabla ekvationer.
+\par\bigskip
+\noindent Värt att notera, när vi delar på $\cos(x)$ antar vi att den inte antar värdet 0, men sen i slutet spelar det ingen roll om vi har $\cos(x)=0$. Detta gäller för att vi har kontinuitet och är okej och giltigt.
+\par\bigskip
+\noindent När $\sin(x)=0$ är $\cos(x)=0$ samtidigt (i bråket), vi får kolla på gränsvärdet då och vi ser att det finns ett G.V. utan problem. Det blir så kallat härbar singularitet.
+\par\bigskip
+
+\subsection{Exakta ekvationer}\hfill\\
+
+\noindent Diff. ekvationer på formen:
+
+\begin{equation*}
+  \begin{gathered}
+    M(x,y)+N(x,y)\cdot\dfrac{dy}{dx}=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Detta betyder nödvändigtvis inte att den är exakt, så vi måste ställa krav på $M, N$. Därför ställer vi lite krav som de bör uppfylla.
+\par\bigskip
+
+\begin{theo}[Exakt ekvation]{thm:exakt}
+  Ekvationen är \textit{exkakt} om det finns en funktion $F(x,y)$ så att $\dfrac{\partial F(x,y)}{\partial x}=M(x,y)$ och $\dfrac{\partial F(x,y)}{\partial y} = N(x,y)$
+
+\end{theo}
+\par\bigskip
+
+\begin{prf}[Bevisskiss: exakt ekvation]{prf:exakt}
+  \begin{equation*}
+    \begin{gathered}
+      M(x,y)dx+N(x,y)dy=0\\
+      dF(x,y)=\dfrac{\partial F}{\partial x}\cdot dx+\dfrac{\partial F}{\partial y}\cdot dy = M(x,y)dx+N(x,y)dy = dF(x,y)=0\\
+      \Lrarr F(x,y)=C
+    \end{gathered}
+\end{equation*}
+
+\end{prf}
+
+
+\subsection{Enkelt exempel}\hfill\\
+
+
+\begin{equation*}
+  \begin{gathered}
+    ydx+xdy=0 \Lrarr F(x,y)=xy \Rightarrow \dfrac{\partial F}{\partial x}=y, \dfrac{\partial F}{\partial y}=x\\
+    \Lrarr F(x,y)=C \Rightarrow xy = C \Rightarrow y=\dfrac{C}{x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Kuriosa: Varför kallas dessa för \textit{exakta}? Inom differentialgeometri så kallas en differential på denna form $ydx+xdy=0$ för exakt. En viktigare fråga man törs fråga sig är kanske \textit{när är en differentialekvation exakt?}.
+\par\bigskip
+\noindent Vi har sagt att den är det om det finns ett $F$, men hur kan vi hitta det?
+\par\bigskip
+
+\begin{theo}[När kan vi hitta $F$]
+  Låt $M(x,y)$ och $N(x,y)$ vara två kontinuerliga funktioner med kontinuerliga första ordningens partiella derivator (vi antar att det här gäller i någon rektangel $a<x<b, c<y<d$). Då är $M(x,y)dx+N(x,y)dy=0$ exakt omm:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}
+    \end{gathered}
+  \end{equation*}
+
+\end{theo}
+\par\bigskip
+\pagebreak
+
+\begin{prf}[När kan vi hitta $F$]
+   VVi börjar med ena hållet, om ekvationen är exakt vill vi visa att det här gäller.
+  \par\bigskip
+  \noindent Att den är exakt implicerar att $\dfrac{\partial F}{\partial x}=M$, $\dfrac{\partial F}{\partial y}=N$.
+  \par\bigskip
+  \noindent  Vi får:
+
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial M}{\partial y}= \dfrac{\partial}{\partial y}\dfrac{\partial F}{\partial x}\\
+      \dfrac{\partial N}{\partial x}=\dfrac{\partial}{\partial x}\dfrac{\partial F}{\partial y}\\
+      \Lrarr \text{De är lika}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  Eftersom $M,N$ har kontinuerliga derivator så kommuterar dem (enligt flervariabelanalys)
+  \par\bigskip
+
+  Vissa ekvationer kan göras exakta genom att multiplicera med en integrerande faktor. Inte så allmänt
+  \par\bigskip
+\end{prf}
+\par\bigskip
+
+\subsection{Exempel}\hfill\\
+\noindent Betrakta följande differentialekvation:
+
+
+\begin{equation*}
+  \begin{gathered}
+    2xydx+(x^2-1)dy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Här är $2xy=M$ och $(x^2-1)=N$. Nu vill vi kolla om den här differentialekvation är exakt:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial M}{\partial y}= 2x = \dfrac{\partial N}{\partial x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu vill vi hitta ett $F$ så att $\dfrac{\partial F}{\partial x} = M = 2x$ och att $\dfrac{\partial F}{\partial y}=N=x^2-1$.
+\par\bigskip
+\noindent Låt oss ta integralen på $N$:
+
+\begin{equation*}
+  \begin{gathered}
+    F(x,y)=\int(x^2-1)dy=(x^2-1)\cdot y + h(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Viktigt att notera att vi får $h(x)$ som konstant, ty vi vet inte om  konstanten beror på $x$ när vi integrerar med avseende på $y$.
+\par\bigskip
+\noindent Vi vill hitta $h(x)$ så att den första partialen ($M$) uppfylls:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial}{\partial x}\left((x^2-1)y+h(x)\right)=2xy\\
+    2xy+h^{\prime}(x)=2xy \Lrarr h^{\prime}(x)=0 \Lrarr h(x)=C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi behöver \textit{ett} $F$, så vi kan ta $C=0$:
+
+\begin{equation*}
+  \begin{gathered}
+    F(x,y)=(x^2-1)y\\
+    dF(x,y)=0 \Lrarr F(x,y)=C\\
+    (x^2-1)y=C \Lrarr y=\dfrac{C}{x^2-1}
+  \end{gathered}
+\end{equation*}
+
+\subsection{Exempel på differentialekvationer som ej linjär, exakt, eller separabel}\hfill\\
+
+\begin{itemize}
+  \item $y^{\prime}=\sin(xy)$
+  \item $e^{y^{\prime}}=x$
+\end{itemize}
+
+
+
+
+

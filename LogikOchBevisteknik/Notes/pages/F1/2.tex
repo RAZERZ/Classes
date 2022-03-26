@@ -1,0 +1,60 @@
+\section{Satslogik (Propositional calculus)}
+\subsection{Språk (LP)}
+
+\begin{itemize}
+  \item Satssymboler: $\sigma = \{p_0, p_1\cdots,p_n\}$ (en \textit{satslogisk signatur}, även kallas \textit{språkets signatur})
+    \par\bigskip
+    LP($\sigma$) kallas för en \textit{dialekt} av LP
+  \item Alfabet i LP($\sigma$):
+    \begin{itemize}
+      \item Alla symboler i $\sigma$
+      \item Konnektiver: $\Lrarr, \Leftarrow, \Rightarrow, \vee, \wedge, \neg, \perp$
+      \item Paranteser: (, )
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+
+\noindent Viktigt att notera, $\perp$ är konnektiv men även sats, så den skapar inga nya formler.
+\par\bigskip
+
+
+\begin{theo}[Mängden av formler i LP($\sigma$)]{thm:setofChars}
+  Mängden definieras rekursivt (likt naturliga talen).
+  \par\bigskip
+  \begin{itemize}
+    \item Basfall:
+      \begin{itemize}
+        \item Alla tecken i $\sigma$ är en formel
+        \item $\perp$ är en formel
+        \item Dessa kallas för \textit{Atomära} formler
+      \end{itemize}
+    \item Induktion:
+      \begin{itemize}
+        \item Om $\varphi$ är en formel, så är ($\neg\varphi$) en formel
+      \end{itemize}
+    \item Låt $\Box$ vara konnektiv:
+      \begin{itemize}
+        \item Induktion $\Box$:
+          \begin{itemize}
+            \item Om $\varphi_1$ och $\varphi_2$ är formler, så är ($\varphi_1\Box\varphi_2$) en formel
+          \end{itemize}
+      \end{itemize}
+  \end{itemize}
+\end{theo}
+\par\bigskip
+
+
+\subsection{Exempel}
+\par\bigskip
+
+Några exempel på formler i LP($\sigma$) där $\sigma = \{p,q,r\}$:
+\begin{itemize}
+  \item $\perp, r, (p\Rightarrow(\neg r)), (p\vee(\neg p))$
+\end{itemize}
+\par\bigskip
+
+Några som \textit{inte} är formler:
+
+\begin{itemize}
+  \item $(p\wedge, p\vee q\wedge r$ (inga paranteser!)
+\end{itemize}
