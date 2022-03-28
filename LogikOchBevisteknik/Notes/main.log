@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  25 MAR 2022 22:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.22)  26 MAR 2022 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -891,54 +891,47 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 15.
-Package mdframed Info: mdframed works in twoside mode on input line 18.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 18.
+Package mdframed Info: mdframed works in twoside mode on input line 20.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 20.
-Package mdframed Info: mdframed works in twoside mode on input line 23.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 23.
+(mdframed)              on input line 22.
+Package mdframed Info: mdframed works in twoside mode on input line 25.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 25.
-Package mdframed Info: mdframed works in twoside mode on input line 28.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 28.
+(mdframed)              on input line 27.
+Package mdframed Info: mdframed works in twoside mode on input line 30.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 30.
-Package mdframed Info: mdframed works in twoside mode on input line 33.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 33.
+(mdframed)              on input line 32.
+Package mdframed Info: mdframed works in twoside mode on input line 35.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 35.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 37.
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 136.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 136.
+Package mdframed Info: mdframed works in twoside mode on input line 138.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 138.
-
-LaTeX Warning: Reference `mdf@pagelabel-18' on page 8 undefined on input line 1
-38.
-
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 140.
 ) [8] (./main.aux (./includes/title.aux))
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -946,7 +939,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  17946 strings out of 478353
  349921 string characters out of 5854635
- 653406 words of memory out of 5000000
+ 654481 words of memory out of 5000000
  35537 multiletter control sequences out of 15000+600000
  411037 words of font info for 56 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -961,7 +954,7 @@ st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
 m10.pfb>
-Output written on main.pdf (9 pages, 164899 bytes).
+Output written on main.pdf (9 pages, 165174 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
