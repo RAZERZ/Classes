@@ -1,0 +1,159 @@
+\section{Föreläsning}
+
+\noindent Idag skall vi:
+
+\begin{itemize}
+  \item Implementera trapetsmetoden i python
+  \item Implementera simpsons metod i python
+  \item Hur beror felet på $h$ ($E(h)=I-T(h)$)?
+  \item Är det skillnad p trapets eller simpsons?
+  \item Nogrannhetsordning
+  \item Resultat från anal.
+  \item Konvergensstudie
+  \item Feluppskattning i praktiken.
+  \item Richardsson-extrapolation (ett sätt att förbättra nogrannheten på numeriska kvadraturen)
+\end{itemize}
+
+\subsection{Trapetsmetoden i python}\hfill\\
+
+\begin{verbatim}
+import numpy as np
+
+#function = funktionen vi vill integrera
+#a = undre integral gräns
+#b = övre
+#n = antal delintervall
+
+def trapets(func, a, b, n):
+
+  h = (b-a)/n
+  x = np.linspace(a, b, n+1) #Gå från a->b med n+1 punkter
+  fx = func(x)
+  T = h*(np.sum(fx)-(fx[0]+fx[-1])/2)
+
+  return T
+  
+\end{verbatim}
+
+\subsection{Simpsons i python}\hfill\\
+
+\begin{verbatim}
+
+import numpy as np
+
+#function = funktionen vi vill integrera
+#a = undre integral gräns
+#b = övre
+#n = antal delintervall
+
+def simpsons(func, a, b, n):
+  h = (b-a)/n
+  x = np.linspace(a,b,n+1)
+  fx = func(x)
+  S = (h/3)*(fx[0]+4*np.sum(fx[1:-1:2])+2*np.sum(fx[2:-2:2])+fx[-1])
+
+  return S
+
+
+\end{verbatim}
+
+\subsection{Observation från pythonexempel}\hfill\\
+
+\noindent Vi noterade att i början var trapetsmetoden bättre (mindre fel) än simpsons, men att med finare delintervall så blev simpsons betydligt bättre. Senare tester verifierade följande:
+
+\begin{itemize}
+  \item Trapetsmetoden:
+    \begin{itemize}
+      \item Minskning av $h$ med faktor 2 $\Rightarrow$ Minskning av felet med faktor 4
+    \end{itemize}
+  \item Simpsons:
+    \begin{itemize}
+      \item Minskning av $h$ med faktor 2 $\Rightarrow$ Minskning av fel med faktor 16
+    \end{itemize}
+\end{itemize}
+
+\subsection{Nogrannhetsordning}\hfill\\
+
+\noindent Antag att felet beter sig som $Ch^p$ där $C$ är en konstant, $h$ är steglängden, $p$ är metodens nogrannhetsordning.\par\noindent Låt $E(h)$ beteckna felet med steglängd $h$. Då har vi:
+
+
+\begin{equation*}
+  \begin{gathered}
+    E(h)=Ch^p\\
+    E(2h)=C2^ph^p\\
+    \dfrac{E(2h)}{E(h)}=\dfrac{2^pCh^p}{Ch^p}=2^p\\
+    p=\log_2\dfrac{E(2h)}{E(h)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Trapetsmetoden ($\dfrac{E_T(2h)}{E_T(h)}=4$) $\Rightarrow p_T=\log_2(4)=2$, det vill säga nogrannhetsordning 2. Vad vi har gjort nu är uppskattat det med ändligt antal punkter, något som egentligen kräver oändligt antal, och sen har vi dragit en slutsats på detta. Vi säger att \textit{diskretiseringsfelet} (eller \textit{trunkeringsfelet}) är av storleken $O(h^2)$
+\par\bigskip
+
+\noindent Simpsons ($\dfrac{E_S(2h)}{E_S(h)}=16$) $\Rightarrow p_S=\log_2(16)=4$, det vill säga nogrannhetsordning 4 och diskretiseringsfelet $=O(h^4)$
+\par\bigskip
+
+\noindent Felet kan härledas analytiskt:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \text{Låt } I = \int_{a}^{b}f(x)dx\\
+    \text{För trapetsmetoden: } E_T(h)=I-T(h)=-\dfrac{b-a}{12}h^2f^{\prime\prime}(\xi_h) \text{ för något $\xi\in[a,b]$ eller } E_T(h)=Ch^2+O(h^4)\\
+    \text{För simpsons: } E_S(h)=I-S(h)=-\dfrac{b-a}{180}h^4f^{(4)}(\xi_h) \text{ för något $\xi_h\in[a,b]$}
+  \end{gathered}
+\end{equation*}
+
+\noindent Exempelvis såg vi att $\int_{0}^{1}x^3dx$ blev exakt med simpsons, detta beror på att fjärdederivatan av $x^3=0$.
+\par\bigskip
+
+\subsection{Feluppskattning}\hfill\\
+
+\noindent Trapetsregeln ges en härledning av feluppskattningen på följande:
+
+
+\begin{equation*}
+  \begin{gathered}
+    I_1 = T(h)+Ch^2+O(h^4)\\
+    I_2 = T(2h)+C(2h)^2+O(h^4)\\
+    I_1-I_2 = 0 = T(h)-T(2h)+(1-2^2)Ch^2 + O(h^4)\\
+    Ch^2 = \dfrac{T(h)-T(2h)}{3}+O(h^4)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Uppskattning av dominerande termen i trunkeringsfelet för $T(h)$. "Tredjedelsregeln". Notera att vi tittar bara i ett ändligt antal punkter, alltså kan vi konstruera en funktion där felet ser ut att vara noll, men i verkliga fallet så kanske felet är jättestort.
+\par\bigskip
+
+\subsection{Richardsson-extrapolation}\hfill\\
+
+\noindent "Kostar" det något att beräkna detta? Nä, vi har ekvidistanta punkter! Att beräkna ena funktionsvärdet ger den andra.
+
+
+\begin{equation*}
+  \begin{gathered}
+    \text{Vi stoppar in } Ch^2 = \dfrac{T(h)-T(2h)}{3}+O(h^4) \text{ i } I_1:\\
+    I = T(h)+\dfrac{T(h)-T(2h)}{3}+O(h)\\
+    \text{Övning: visa att richardsson-extrapolation tillämpat på trapetsmetoden ger simpsons}\\
+    I_1=Q(h)+Ch^p+O(h^{p+1})\\
+    I_2=Q(2h)+C(2h)^p+O(h^{p+1})\\
+    Ch^p = \dfrac{Q(h)-Q(2h)}{2^p-1}+O(h^{p+1})
+  \end{gathered}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

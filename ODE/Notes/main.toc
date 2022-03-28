@@ -25,3 +25,4 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Exempel}}{11}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Föreläsning - Existens och unikhet}}{13}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Exempel}}{14}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{5}{Klassificering av ODE}}{16}{section.5}%
