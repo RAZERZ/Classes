@@ -1,0 +1,45 @@
+\section{Förtydligande/Från boken}
+
+\subsection{Integraler}\hfill\\
+
+\noindent Ibland går det inte att lösa integraler analytiskt och då kan vi använda numeriska metoder för att lösa dem. Vi kan göra detta givet hela funktionen, eller så kan vi göra detta givet punkter och där vi senare använder olika metoder för att approximera grafen så att vi kan integrera den. Det finns 2 typer av beräkningsalgoritmer:
+
+\begin{itemize}
+  \item Öppna
+    \begin{itemize}
+      \item En väldigt kraftfull typ av öppen integrering är så kallad \textit{Gaussisk kvadratur}. Här uppskattas integralen genom att evaluera den i icke-ekvidistanta punkter och genom att ansätta en "vikt" vid varje punkt som talar om hur mycket den punkten bidrar.
+    \end{itemize}
+  \item Stängda
+    \begin{itemize}
+      \item Evaluerar function i ändpunkterna av det givna intervallet. Den mest grundläggande algoritmen för detta kallas för \textit{Romberg} integrering vilket är baserad på trapetsidén som man senare har förfinat till Simpsons formula. Romberg integrering är alltså i princip Simpsons, men med lite mer logisk koppling mellan trapetsidén och Simpsons.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Riemann integralen}\hfill\\
+\noindent Vi vet från envariabelanalysen att integralens definition ser ut på följande sätt:
+
+
+\begin{equation*}
+  \begin{gathered}
+    I=\int_{a}^{b}f(x)dx=\lim_{\Delta x\to0}\sum_{i=0}^{n}f(x_i)\Delta x\\
+    \Delta x = \dfrac{b-a}{n}
+    \end{gathered}
+    \end{equation*}
+    \par\bigskip
+\noindent Detta bildar våra rektanglar som vi sedan summerar deras area över ett intervall. Ett lite bättre sätt att approximera integralen hade varit att om vi istället för att betrakta rektanglar, att vi betraktar trapetser, det vill säga man "ansluter" $f(x_i)$ och $f(x_{i+1})$. Arean av en trapets ges av $A=\dfrac{a+b}{2}\cdot h$. Om vi låter höjden vara $\Delta x$ och $a$ resp. $b$ ges av funktionsvärderna får vi istället $\dfrac{f(x_i)+f(x_{i+1})}{2}\cdot\Delta x=\Delta A$, varpå trapetsformeln kommer ifrån. 
+\par\bigskip
+\noindent Det visar sig att felet som uppstår i trapetsens uppskattning är proportionell mot $\Delta x^3f^{\prime\prime}(\xi)$, där $\xi$ är någon okänd punkt i intervallet. Denna metod för att räkna fram felet används sällan, ty man behöver finna andra-derivatan och inte nog med det så måste man även hitta när uttrycket antas sitt största värde (man utgår alltid från det värsta fallet, det vill säga att man har det högsta felet på intervallet).
+\par\bigskip
+
+\subsection{Relationen mellan Simpsons och Trapetsapprox.}\hfill\\
+
+\noindent Eftersom både trapets och Simpsons evaluerar funktionen på precis samma mängd av punkter, bör det finnas något form av samband. De använder även samma geometriska härledning för att komma fram till formlerna, en där man använder parabler, och den andra använder vi trapetser. Både geometriskt och algebraiskt måste det finnas någon koppling!
+\par\bigskip
+\noindent Simpsons behöver som absolut minst 3 datapunkter som input. Låt oss kalla dessa $f_1, f_2, f_3$. Vad händer om vi stoppar in samma datapunkter i trapetsen istället, kan vi härleda något algebraiskt uttryck/samband mellan de två?
+
+
+\begin{equation*}
+  \begin{gathered}
+    S_k=T_k+\dfrac{T_k-T_{k-1}}{3}
+    \end{gathered}
+    \end{equation*}
