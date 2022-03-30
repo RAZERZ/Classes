@@ -1,0 +1,38 @@
+\section{Föreläsning - Naturlig deduktion forts.}
+
+\noindent Exempel: Visa att för alla heltal $n$ gäller att $n^2+n$ är jämn.
+\par\bigskip
+
+\begin{prf}[Exempel]{prf:ex}
+  Ett heltal är antingen jämn \textit{eller} udda, så vi gör en falluppdelning:
+  \begin{itemize}
+    \item Fall 1 (jämn):
+      \begin{itemize}
+        \item $n=2k \Rightarrow (2k)^2+2k=4k^2+2k=2(2k^2+k)$ alltså jämn
+      \end{itemize}
+    \item Fall 2 (udda):
+      \begin{itemize}
+        \item $n=2k+1\Rightarrow (2k+1)^2+2k+1=4k^2+4k+1+2k+1=2(2k^2+3k+1)$ alltså jämn.
+      \end{itemize}
+  \end{itemize}
+\end{prf}
+\par\bigskip
+
+\noindent Exempel: $A\vee B\vdash B\vee A$ (sanningstabellen för dessa är likadana). Vi skall producera ett bevisträd som har en premiss $A\vee B$ där slutsatsen är $B\vee A$
+\par\bigskip
+
+\subsection{Botten ($\perp$)}\hfill\\
+
+\noindent Reglerna här är inte riktigt "intro/elimination" utan det har med motsägelser osv att göra.\par\bigskip
+
+\noindent Antag att vi vill visa $A$, då har vi premissen $\neg A$ så att vi kommer fram till $\perp$. Då kan vi dra slutsatsen $A$. Detta kallas för RAA = Reductio ad absurdum. Då får vi stryka $\neg A$
+\par\bigskip
+
+\begin{prf}[Exempel: Det finns oändligt många primtal]{thm:prim}
+  Vi antar motsatsen (att det finns ändligt många primtal) och försöker visa motsägelse.
+  \par\bigskip
+  \noindent Låt $A$ = det finns oändligt många primtal. Då antar vi $\neg A$ och visar $\perp$, och sen drar slutsatsen $A$.
+\end{prf}
+\par\bigskip
+
+\noindent Bevisträd är inte entydiga.

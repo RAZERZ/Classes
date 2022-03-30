@@ -70,7 +70,7 @@
   \item Syntax:
     \begin{itemize}
       \item Formella bevisregler, tex. $\dfrac{A  B}{(a\wedge B)}$
-      \item $\Gamma\vdash\varphi$, $\Gamma$ bevisar $\varphi$
+      \item $\Gamma\vdash\varphi$, $\Gamma$ bevisar $\varphi$, "det finns ett bevis i naturlig deduktion som har slutsatsen $\varphi$ vars premisser/antaganden kommer från $\Gamma$"
       \item Teckensträngsmanipulation
       \item Naturlig deduktion
     \end{itemize}
@@ -85,12 +85,27 @@
 \subsection{Naturlig deduktion}\hfill\\
 
 \noindent För varje konnektiv som vi har kommer vi introducera 2 regler, en för att introducera konnektivet och en för att ta bort.
+\par\bigskip
+\noindent OBS! Reglerna i naturlig deduktion är \textit{syntax}, det vill säga teckensträngsmanipulation. Alltså det spelar ingen roll vad som representeras, utan vilka regler som man får använda sig på dessa tecken. Eg. $A\wedge B \neq B\wedge A$ eftersom den första har tecknet $A$ på första platsen men det har inte den andra.
 
 \begin{itemize}
   \item $\wedge$ intro ($\wedge I$). Om vi har teckensträng $A$ och $B$  så kan vi $\dfrac{AB}{(A\wedge B)}$
   \item $\wedge$-elimination. $\dfrac{(A\wedge B)}{A}$ och $\dfrac{(A\wedge B)}{B}$
-  \item $\rightarrow$-intro. $A\cdots B$, jag börjar med $A$ och jobbar mig mot $B$ S.T $\dfrac{A\vdots B}{(A\rightarrow B)}$. Efter $B$ får man dra vilken slutsats $A\rightarrow B$ där $A$ vilken formel som helst. Om $A$ är en premiss ovanför $B$ så får $A$ strykas. 
-  \item $\rightarrow$-elimination. Om $A$ gäller och $A\rightarrow B$ så vet vi att $B$ gäller (Modus pomens)
+  \item $\rightarrow$-intro. $A\cdots B$, jag börjar med $A$ och jobbar mig mot $B$ S.T $\dfrac{A\vdots B}{(A\rightarrow B)}$. Efter $B$ får man dra vilken slutsats $A\rightarrow B$ där $A$ vilken formel som helst. Om $A$ är en premiss ovanför $B$ så får $A$ strykas.
+    \par\bigskip
+  \item $\rightarrow$-elimination. Om $A$ gäller och $A\rightarrow B$ så vet vi att $B$ gäller (Modus pomens). Vi får dra $B$ som slutsats.
+    \par\bigskip
+  \item $\vee$-intro. Om jag vet $A$, då vet jag $A$ eller $B$: $\dfrac{A}{A\vee B}$
+    \par\bigskip
+  \item $\vee$-elimination. Om jag antar $A$ skall jag kunna bevisa exakt teckensträng som om jag antar $B$.
+    \par\bigskip
+  \item $\neg$-intro. Antag $A$ så att man kommer fram till formen $\perp$ (botten kan tolkas som alltid falsk/motsägelse). Då får man dra slutsatsen $\neg A$. Här får man stryka premiss.
+    \par\bigskip
+  \item $\neg$-elimination. Om man har visat $A$ och $\neg A$ så får man dra slutsatsen $\neg$ (ingen strykning).
+    \par\bigskip
+  \item $\leftrightarrow$-intro. Om $A\rightarrow B$ och $B\rightarrow A$ då kan vi skriva $A\leftrightarrow B$.
+    \par\bigskip
+\item $\leftrightarrow$-elimination. Från $A\leftrightarrow B$ får vi "2 fall", $A\rightarrow B$ och $B\rightarrow A$
 \end{itemize}
 \par\bigskip
 \noindent Exempel: Vi vill göra ett bevisträd som har följande slutsats, $(A\rightarrow (B\rightarrow A\wedge B))$. I detta träd kommer alla antaganden vara längst upp och slutsatser längst ner. Vi tittar på slutsatsen och märker att huvudkonnektivet är en pil, så vi kommer behöva använda pilintro. Då skall jag antag $A$ och försöka härleda $B\rightarrow(A\wedge B)$, men då måste jag visa att $B\rightarrow(A\wedge B)$ så vi måste anta B för att visa $A\wedge B$ och nu kan jag visa det jag ville visa. Vi använder $\wedge$-intro. Per vårat antagande gäller $A, B$ och därmed $A\wedge B$. Nu kan vi använda pil-elimination för att få bort pilen $B\rightarrow(A\wedge B)$

@@ -1,0 +1,135 @@
+\section{Semantik för satslogik}
+
+\begin{theo}
+  EEn mängd av formler $\Gamma$ kallas \textit{konsistent} om $\Gamma\nvdash\perp$. Det finns inget bevisträd som visar $\varphi$ från premisser i $\Gamma$. Kallas \textit{inkonsistent} om $\Gamma\vdash\perp$
+\end{theo}
+\par\bigskip
+\noindent Exempel: $\{p_0,\neg p_0\}$ är inkonsistent, eftersom vi kan visa botten genom en $\neg$-elimination.
+\par\bigskip
+\noindent Exempel: $\{A\wedge B, \neg A\vee\neg B\}$ är inkonsistent.
+\par\bigskip
+\noindent Exempel: $\{A, B, C\}$ är konsistent (kan ej visa botten). Detta visas senare i kursen.
+\par\bigskip
+\noindent Vi har fortfarande vår signatur $\sigma$. Vi vill ge ett värde till varje formel i LP($\sigma$). Detta värde är ett sant eller falskt värde (sanningsvärde). I predikatlogik har värdet "mer värde", det är lite rikare och beskriver mer vad det betyder att något är sant eller falskt gentemot i satslogik där det är binärt.
+\par\bigskip
+
+\begin{theo}
+  EEn $\sigma$-struktur är en funktion $A:\sigma\rightarrow\{0,1\}$ som tilldelar sanningsvärde till vare satssymbol där 0 betyder falsk och 1 sann.
+\end{theo}
+\par\bigskip
+\noindent Exempel: $\sigma = \{p,q\}$. Här finns det 4 olika $\sigma$-strukturer eftersom $p$ kan antingen vara falsk eller sann, och samma för $q$ alltså $2\cdot2=4$:
+\par\bigskip
+
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $A_1$&1&1\\
+    \hline
+    $A_2$&1&0\\
+    \hline
+    $A_3$&0&1\\
+    \hline
+    $A_4$&0&0\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+
+\noindent Men vi vill ge sanningsvärden till \textit{varje} formel i LP($\sigma$).
+\par\bigskip
+\noindent Antag att $A$ är en $\sigma$-struktur. Vi definierar en funktion $A^*:\{\text{formler i LP(}\sigma\text{)}\}\rightarrow \{0,1\}$. Vi definierade formlerna i LP($\sigma$) genom induktion, vi får göra liknande här:
+\par\bigskip
+
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item $A^*(\perp)=0$\\
+      \item $A^*(p)=A(p) \text{ om } p\in\sigma$
+    \end{itemize}
+    \par\bigskip
+  \item Induktion ($\neg$):
+    \begin{itemize}
+      \item$A^*((\neg\varphi))=1-A^*(\varphi)$
+    \end{itemize}
+    \par\bigskip
+  \item Induktion ($\wedge$):
+    \begin{itemize}
+      \item $A^*((\varphi\wedge\psi))=1\Lrarr A^*(\varphi)=A^*(\psi)=1$
+    \end{itemize}
+    \par\bigskip
+  \item Induktion ($\vee$):
+    \begin{itemize}
+      \item $A^*((\varphi\vee\psi))=1\Lrarr\text{ minst en av } A^*(\varphi) \text{ och } A^*(\psi)=1$
+    \end{itemize}
+    \par\bigskip
+  \item Induktion ($\rightarrow$):
+    \begin{itemize}
+      \item $A^*((\varphi\rightarrow\psi))=0\Lrarr A^*(\varphi)=1 \text{ och } A^*(\psi)=0$
+    \end{itemize}
+    \par\bigskip
+  \item Induktion ($\leftrightarrow$):
+    \begin{itemize}
+      \item $A^*((\varphi\leftrightarrow\psi))=1\Lrarr A^*(\varphi)=A^*(\psi)$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent OBS: $A^*(\varphi)$ beroe endast på $A(p)$ för de satssymboler $p$ som ingår i $\varphi$.
+\par\bigskip
+\noindent OBS: Olika värden på $A^*$ fås från sanningsvärdestabeller.
+\par\bigskip
+\noindent Exempel: $\sigma = \{p, q\}$, $\sigma$-strukturerna $A_1, A_2, A_3, A_4$ från tabell. Vi låter $\varphi=(\neg p)\wedge (p\rightarrow q)$. Nu vill vi ta reda på vad $\varphi$ får för värden på olika $A^*$:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    &$p$&$q$&($\neg p$)&$\wedge$&$(p\rightarrow q)$\\
+    \hline
+     $A_1$&1&1&0&0&1\\
+    \hline
+     $A_2$&1&0&0&0&0\\
+    \hline
+     $A_3$&0&1&1&1&1\\
+    \hline
+     $A_4$&0&0&1&1&1\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Då blir sanningsvärdestabellen för $A_n^*(\varphi)$ samma som kolonnen under $\wedge$
+\par\bigskip
+\begin{theo}[Modell av en formell]{thm:model}
+  $\sigma$-strukturen $A$ kallas \textit{modell} för $\varphi$ om $A^*(\varphi)=1$, alltså en modell för när $\varphi$ är sann i $A$. Notation:
+  \par\bigskip
+  $A\vDash\varphi$
+\end{theo}
+\par\bigskip
+\noindent Exempel: Från föregående exempel blev det sant för $A_3$ och $A_4$, alltså $A_3\vDash\varphi$ och $A_4\vDash\varphi$. Däremot, såg vi att $A_1\nvDash\varphi$ och $A_2\nvDash\varphi$ ($\varphi$ inte sann i $A_2$)
+\par\bigskip
+\begin{theo}[Tautologi]{thm:tautologi}
+  $\varphi$ kallas för \textit{tautologi} om $A\vDash\varphi$ för varje $\sigma$-struktur $A$. Alltså om sanningsvärdestabellen har värdet 1 i varje rad. Notation:
+  \par\bigskip
+  $\vDash\varphi$
+\end{theo}
+\par\bigskip
+\begin{theo}[Satisfierbar]{thm:satisfiable}
+  $\varphi$ kallas \textit{satisfierbar} om $A\vDash\varphi$ för minst en struktur $A$. I föregående exempel är $\varphi$ satisfierbar.
+\end{theo}
+\par\bigskip
+\begin{theo}[Falsifierbar]{thm:falsifiable}
+  $\varphi$ kallas \textit{falsifierbar} om det är möjligt att göra den falsk. $A\nvDash\varphi$ för minst en struktur falsk. I föregående exempel är $\varphi$ falsifierbar
+\end{theo}
+\par\bigskip
+\begin{theo}[Osatisfierbar]{thm:unsatis}
+  $\varphi$ kallas \textit{osatisfierbar} om formen är falsk i alla strukturer, det vill säga $A\nvDash\varphi$ i alla strukturer.
+\end{theo}
+
+
+
+
+
+
+
+
+
+
+
