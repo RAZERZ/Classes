@@ -29,3 +29,6 @@
 \contentsline {section}{\tocsection {}{6}{Andra ordningens linjära ODE:er}}{17}{section.6}%
 \contentsline {subsection}{\tocsubsection {}{6.1}{Exempel}}{17}{subsection.6.1}%
 \contentsline {subsection}{\tocsubsection {}{6.2}{Homogena ekvationer}}{18}{subsection.6.2}%
+\contentsline {section}{\tocsection {}{7}{Föreläsning - Homogena ekvationer}}{21}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Reduktion av ordning}}{21}{subsection.7.1}%
+\contentsline {subsection}{\tocsubsection {}{7.2}{Homogena 2:a orndingens linj. ODE med konstanta koefficienter $p,q$}}{22}{subsection.7.2}%

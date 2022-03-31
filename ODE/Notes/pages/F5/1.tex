@@ -1,333 +1,215 @@
-\section{Andra ordningens linjära ODE:er}
+\section{Föreläsning - Homogena ekvationer}
 
-\noindent Vi kommer introducera dessa och tala om \textit{homogena ekvationer}.
-\par\bigskip
-
-\begin{theo}[Andra ordningens ODE]{thm:seconddegode}
-  En allmän andra ordningens ODE är:
-
-
-  \begin{equation*}
-    \begin{gathered}
-      G(x,y,y^{\prime}, y^{\prime\prime})=0
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-  \noindent Om vi kan isolera $y^{\prime\prime}$ får vi:
-
-
-  \begin{equation*}
-    \begin{gathered}
-      y^{\prime\prime}=F(x,y,y^{\prime})
-    \end{gathered}
-  \end{equation*}
-\end{theo}
-\par\bigskip
-\noindent Vi kommer fokusera främst på linjära ODE:er.
-\par\bigskip
-
-\begin{theo}[Linjär ODE]{thm:linearode}
-  En ODE som kan skrivas på formen:
-
-
-  \begin{equation*}
-    \begin{gathered}
-      A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)y=F(x)
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-  \noindent Vi kommer anta att $A, B, C, F$ är kontinuerliga
-
-\end{theo}
-
-\subsection{Exempel}\hfill\\
-
-\noindent Exempel på en linjär ODE (Bessel-ekvationen)
-
-\begin{equation*}
-  \begin{gathered}
-    x^2y^{\prime\prime}+xy^{\prime}+(x^2-\alpha^2)y=0\\
-    y^{\prime\prime} = (y+1)^2y^{\prime}+y^2
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-
-\noindent Exempel på en icke-linjär 2:a ordningens ODE:
-
-\begin{equation*}
-  \begin{gathered}
-    y^{\prime\prime} = (y+1)^2y^{\prime}+y^2
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-
-\begin{theo}[Homogen ekvation]{thm:homogenous}
-  Om $F(x)=0$ kallas ekvationen för \textit{homogen}. Annars kallas den inhomogen.
-  \par\bigskip
-  \noindent Den \textit{associerade homogena} ekvationen är en ODE där vi ansätter $F(x)=0$, det vill säga om vi tar ekvationen från sats 6.2 och sätter $F(x)=0$ så är det vår associerade homogena ekvationen.
-\end{theo}
-\par\bigskip
-
-\noindent Exempel:
+\noindent Vi vill hitta dessa linjärt oberoende funktionerna, det är syftet med dagens föreläsning. Vi kommer börja med att undersöka följande:
 
 
 \begin{equation*}
   \begin{gathered}
-    3y^{\prime\prime}+(2+x)y^{\prime}+y=\cos(x)
-  \end{gathered}
-\end{equation*}
-
-\noindent har den associerade homogena ekvationen:
-
-
-\begin{equation*}
-  \begin{gathered}
-    3y^{\prime\prime}+(2+x)y^{\prime}+y=0
+    y^{\prime\prime}+p(x)y^{\prime}+q(x)y=0
   \end{gathered}
 \end{equation*}
 \par\bigskip
-
-\noindent Notera här att vi kan multiplicera vår associerade ekvation med vad som, detta kommer inte ändra vår lösningsmängd.
+\noindent Alla lösningar är på formen $y=C_1y_1+C_2y_2$ där $\{y_1,y_2\}$ är en \textit{fundamental lösningsmängd}, dvs linjärt oberoende.
 \par\bigskip
-
-\noindent IVP existerar för andra ordningens ODE:er. För en fullständig lösning kommer vi kräva 2 initalvillkor, men vi kan få en \textit{parametriserad} lösningsmängd om vi har 1.
-\par\bigskip
-\pagebreak
-
-\begin{theo}[Existens]{thm:exanduniq}
-  Betrakta 
-
-  \begin{equation*}
-    \begin{rcases*}
-      y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)\\
-      y(a)=b_0, \text{  } y^{\prime}(a)=b_1
-    \end{rcases*}
-  \end{equation*}
-  \par\bigskip
-  \noindent Om $p, q$ är kontinuerliga på ett intervall $I$ som innehåller $a$ (våran startpunkt), då finns exakt en lösning $y=y(x)$ och den är definierad på hela intervallet $I$.
-\end{theo}
-\par\bigskip
-
-\noindent Kommentar: Första ord. ODE:er har endast en lösning som går igenom en punkt $(x_0,y_0)$. För andra ordningen har vi en lösning för varje lutning också!
-\par\bigskip
-\noindent Kommentar: Det visar sig att vi kommer stöta på en massa linjär algebra. Kanske inte för 2:a ordningens, men för första är det användbart. För 3:e ordningen och n:e ordningen går det m.h.a linjär algebra att generalisera ganska enkelt, vi kommer bara få större matriser.
-\par\bigskip
-
-\noindent Kommentar: Vissa lösningar kommer vi se blir system av mindre ordningens ODE:er, detta går också att definiera och lösa m.h.a linjär algebra.
-
-\par\bigskip
-
-\subsection{Homogena ekvationer}\hfill\\
-
-\noindent  För att förstå inhomogena måste vi först förstå homogena. Detta kanske inte är tydligt varför, men det kommer vi se senare när vi diskuterar andra ekvationer. Vi påminner oss om att en homogen ekvation är på formen:
-
-
-\begin{equation*}
-  \begin{gathered}
-    A(x)y^{\prime\prime}+B(x)y^{\prime}+y=0
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-
-\begin{theo}
-  OOm $y_1$ och $y_2$ löser den homogena ekvationen på ett intervall $I$, då löser även $y=C_1y_1+C_2y_2$ ekvationen för alla konstanter $C_1, C_2$ på $I$
-\end{theo}
-\par\bigskip
-\noindent Notera här att det i princip blir en linjärkombination, varpå namnet "linjär ODE" kommer ifrån. Beviset lämnas som övning till läsaren.
-
-\noindent Exempel:
-
-\begin{equation*}
-  \begin{gathered}
-    y_1=e^x \text{ och } y_2=xe^x \text{ är lösningar till}\\y^{\prime\prime}-2y^{\prime}+y=0\\
-    \text{Då är } y= C_1e^x+C_2xe^x = (C_1+C_2x)e^x \text{ också en lösning}
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-
-\noindent Varför vill man ha detta? Om vi har ett IVP så vill vi att lösningen skall ha ett specifikt värde. Då kan vi kombinera lösningar för att få det svaret vi söker.
-\par\bigskip
-
-\noindent Lösningsmetod (idé):
+\noindent Hur ska vi hitta $y_1, y_2$? Vi kommer använda 2 olika metoder:
 
 \begin{itemize}
-  \item Hitta 2 lösningar $y_1$ och $y_2$
-  \item Ta deras linjärkombination $y=C_1y_1+C_2y_2$
-  \item Använd initalvillkor för att bestämma $C_1, C_2$
+  \item Reduction of order (reduction av ordning, om vi har $y_1$ så kan vi hitta $y_2$)
+  \item $p, q$ är konstanter så finns det en annan metod
 \end{itemize}
-
-\noindent Funkar sista punkten verkligen alltid? Svaret är ja, om man väljer $y_1$ och $y_2$ på rätt sätt. Men detta implicerar att det finns ett fel sätt också. Om vi exempelvis får att $y=y^{\prime}$ så kan vi inte bestämma $C_1, C_2$ 
-\par\bigskip
-\pagebreak
-
-\begin{theo}[Linjärt oberoende]{thm:linindep}
-  Två funktioner $f,g$ är linjärt oberoende om vi \textit{inte} har:
-
-  \begin{equation*}
-    \begin{gathered}
-      f = kg \text{ eller } g=kf \text{ för någon konstant } k\in\R
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-  \noindent Det som är viktigt är att ingen av de ($k$ eller funktionerna) är noll, ty annars kan vi dela på noll.
-\end{theo}
 \par\bigskip
 
-\noindent Exempel:
+\subsection{Reduktion av ordning}\hfill\\
+
+\noindent Antag att vi har en lösning $y_1$ till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=0$.
+\par\bigskip
+\noindent Denna metod kan användas för att hitta en till (linjärt oberoende) lösning $y_2$. Idén:
+
+\begin{itemize}
+  \item Hitta $y_2$ som ej är beroende av $y_1$
+  \item Vi sätter $y_2(x)=u(x)\cdot y_1(x)$, om linj. ber. så är $u(x)$ en konstant så vi vill hitta $u(x)$
+\end{itemize}
+\par\bigskip
+\noindent Vi kan börja med att se att:
 
 
 \begin{equation*}
   \begin{gathered}
-    \begin{rcases*}
-      \sin(x) \text{ och } \cos(x) \text{ är linjärt oberoende}\\
-      e^x \text{ och } xe^x\\
-      x+1 \text{ och } x^2
-    \end{rcases*}\text{Linjärt oberoende}
+    y_{2}^{\prime}=u^{\prime}(x)\cdot y_1(x)+u(x)y_{1}^{\prime}\\
+    y_{2}^{\prime\prime}= u^{\prime\prime}\cdot y_1(x)+2u^{\prime}(x)y_{1}^{\prime}(x)+u(x)y_{1}^{\prime\prime}\\
+    (u^{\prime\prime}\cdot y_1(x)+2u^{\prime}(x)y_{1}^{\prime}(x)+u(x)y_{1}^{\prime\prime})+p(x)(u^{\prime}(x)\cdot y_1(x)+u(x)y_{1}^{\prime}) +q(x)u(x)y_1(x)\\
+    u(x)(y_{1}^{\prime\prime}+p(x)y_{1}^{\prime}+q(x)y_1(x))+u^{\prime\prime}y_1(x)+u^{\prime}(x)(2y_{1}^{\prime}+p(x)y_1(x))\\
+    \text{Det som står framför $u(x)$ är lika med noll ty det är precis det vi börjar med:}\\
+    u^{\prime\prime}y_1+u^{\prime}(2y_{1}^{\prime}+py_1)=0\\
+    \text{Låt } w=u^{\prime} \text{ :}\\
+    y_1w^{\prime}+(2_{1}^{\prime}+py_1)w=0 \text{ Detta är en linjär första ordningens ODE}
   \end{gathered}
 \end{equation*}
 \par\bigskip
 
-\noindent Man kan verifiera om de är linj. ober. genom att ta $\dfrac{f}{g}$, om de inte är lika med en konstant så är de oberoende. Exempelvis är då $e^{x+1}$ och $e^x$ linjärt beroende. Det är inte alltid lätt att se, exempelvis:
+\noindent Exempel: Givet att $x^4$ är en lösning till $x^2y^{\prime\prime}-7xy^{\prime}+16y=0$, hitta en annan lösning. Det vi kommer se är att metoden vi precis gick igenom funkar ävenom vi har något framför $y^{\prime\prime}$
+\par\bigskip
+\noindent Ansätt $y_2(x)=u(x)y_1(x)$ där $y_1(x)=x^4$:
+
+\begin{equation*}
+  \begin{gathered}
+    x^2(u^{\prime\prime}y_1+2u^{\prime}y_{1}^{\prime}+uy_{1}^{\prime\prime})+p(x)(u^{\prime}y_1+uy_{1}^{\prime})+q(x)uy_1=0\\
+    u(x^2y_{1}^{\prime\prime}+p(x)y_{1}^{\prime}+q(x)y_{1})+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+p(x)y_1)=0\\
+    0+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+p(x)y_1)=0\\
+    \text{Låt } w = y^{\prime}\\
+    x^2\cdot x^4\cdot w^{\prime}+w(2x^2\cdot4x^3-7x\cdot x^4)=0 \text{ OBS: $q$ finns inte med}\\
+    x^6+w^{\prime}+w(8x^5-7x^5)=0\\
+    x^6w^{\prime}+x^5w=0\\
+    xw^{\prime}+w=0\\
+    (xw)^{\prime}=0\\
+    xw=C\\
+    w=\dfrac{C}{x}\\
+    u^{\prime}=\dfrac{C}{x}\Lrarr u=C\log(|x|)+D\\
+    y_2 = u\cdot y_1 = (C\log(|x|)+D)x^4 \text{ men vi vill få \textit{en} lösning, detta är en familj av lösning}\\
+    \text{Oftast väljer man $D=0$. $C$ får helst inte vara noll, annars får vi att $y_2=Cy_1$, alltså linjärt beroende}\\
+     \text{Väljer vi $C=1$, $D=0$ får vi:}\\
+     y_2=x^4\log(|x|)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Alla lösningar är på formen:
 
 
 \begin{equation*}
   \begin{gathered}
-    \sin(2x) \text{ och } \sin(x)\cos(x) \text{ är linjärt beroende ty:}\\
-    \sin(2x)=2\sin(x)\cos(x)
+    C_1y_1+C_2y_2=C_1x^4+C_2x^4\log(|x|)=x^4(C_2\log(|x|)+C_1)
   \end{gathered}
 \end{equation*}
 \par\bigskip
+\noindent Kommentar: Detta fungerar bara om vi har en lösning redan. Påminner lite om polynom, där om man redan har en lösning så kan vi dela bort den och få ett polynom med lägre grad.
 
-\noindent Ett verktyg som är användbart när man studerar dessa typer av ODE:er är \textit{Wronskianen}.
-\par\bigskip
+\subsection{Homogena 2:a orndingens linj. ODE med konstanta koefficienter $p,q$}\hfill\\
 
-\begin{theo}[Wronskianen]{thm:wron}
-  Wronskianen av 2 deriverbara funktioner $f,g$ är:
-
-
-  \begin{equation*}
-    \begin{gathered}
-      W(f,g)= \det(\begin{pmatrix}f&g\\f'&g'\end{pmatrix}) = fg'-f'g
-    \end{gathered}
-  \end{equation*}
-\end{theo}
-\par\bigskip
-
-\begin{lem}
-  OOm $f,g$ är deriverbara på intervallet $I$ och är linjärt beroende på $I$, då är $W(f,g)=0 \text{  } \forall x\in I$. Om vi får oberoende ekvationer, då kan vi hitta en lösning m.h.a lösningsidén.
-\end{lem}
-\par\bigskip
-
-\begin{prf}[Wronskianen]{thm:wron}
-  Om $f,g$ är linjärt beroende så är $f=kg$ eller $g=kf$. Vi stoppar in det i uttrycket för Wronskianen:
-
-  \begin{equation*}
-    \begin{gathered}
-      W(f,g)=\det(\begin{pmatrix}f&g\\f'&g'\end{pmatrix})= \det(\begin{pmatrix}kg&g\\kg'&g'\end{pmatrix}) = kgg'-kg'g = 0
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-  \noindent Det funkar tyvärr inte åt andra hållet, det vill säga om determinanten är noll så är de inte alltid linjärt beroende.
-\end{prf}
-\par\bigskip
-\noindent Motexempel:
-
-\begin{equation*}
-  \begin{gathered}
-    f=x^2 \text{  }, g=|x|x
-  \end{gathered}
-\end{equation*}
-\noindent Dessa är linjärt oberoende men har noll-determinant.
-\par\bigskip
-\noindent Hur vet vi att det ens finns 2 linjärt oberoende lösningar så att vi kan få vårat coola svar? Det visar sig att det inte är jättekrångligt att visa! Vi kan använda satsen om existens och unikhet:
+\noindent Vi kommer betrakta $y^{\prime\prime}+py^{\prime}+qy=0$ för $p, q \in\R$. Det visar sig att det alltid finns en lösning på formen $y(x)=e^{r\cdot x}$ där $r$ beror på $p, q$. Insättning ger:
 
 
 \begin{equation*}
   \begin{gathered}
-    y^{\prime\prime}+p(x)y^{\prime}+g(x)=0\\
-    y(a)=0, \text{  } y^{\prime}(a)=1 \Rightarrow \text{ det finns en lösning } y_1 \text{ enligt existens och unikhetssatsen}\\
-    y(a)=1, \text{  } y^{\prime}(a)=0 \text{  det finns en lösning $y_2$ enligt existens och unikhetssatsen}\\
-    \text{Då måste vi kolla så att } y_1, y_2 \text{ är linjärt oberoende (Wronskianen nollskilld):}\\
-    W(y_1,y_2)(a)= \det(\begin{pmatrix}y_1(a)&y_2(a)\\y_1'(a)&y_2'(a)\end{pmatrix}) = y_1(a)y_2'(a)-y_1'(a)y_2(a) = 0\cdot0-1\cdot1=-1\neq0\\
-    \text{Alltså linjärt oberoende}
+    r^2e^{rx}+pre^{rx}+qe^{rx}=0 \Lrarr e^{rx}(r^2+pr+q)=0
+    \text{$e^{rx}$ är aldrig noll, alltså} r^2+pr+q=0
   \end{gathered}
 \end{equation*}
 \par\bigskip
+\noindent För att det skall vara lika med noll, så måste $r$ vara en rot, alltså har vi en lösning enbart då.
+\par\bigskip
 
-\begin{theo}
-  Låt $y_1$ och $y_2$ vara linjärt oberoende lösningar till:
-
-  \begin{equation*}
-    \begin{gathered}
-      y^{\prime\prime}+p(x)y^{\prime}+q(x)y=0 \text{ där $p,q$ är kontinuerliga på intervallet $I$}
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-  \noindent Då är alla lösningar på formen $y=C_1y_1+C_2y_2$
+\begin{theo}[Karaktäristiska polynom]{thm:char}
+  Polynomet $r^2+pr+q$ kallas för det \textit{karaktäristiska} polynomet till $y^{\prime\prime}+py^{\prime}+qy=0$
 \end{theo}
 \par\bigskip
 
-\begin{theo}[Fundamental lösningsmängd]{def:fund}
-  Två linjärt oberoende lösnignar kallas för en fundamental lösningsmängd
-\end{theo}
+\noindent Vi får 3 oilka fall när vi hanterar rötter:
+
+\begin{itemize}
+  \item Fall 1: 2 distinkta reela rötter
+  \item Fall 2: Dubbelrot
+  \item Fall 3: Icke-reela rötter
+\end{itemize}
 \par\bigskip
 
-\begin{prf}
-  AAntag att vi har en lösning $y$. Vi vill hitta $C_1, C_2$. Tag en punkt $a\in I$ och lös systemet:
-
-  \begin{equation*}
-    \begin{gathered}
-      \begin{rcases*}
-        C_1y_1(a)+C_2y_2(a)=y(a)\\
-        C_1y_{1}^{\prime}(a)+C_2y_{2}^{\prime}=y^{\prime}(a)
-      \end{rcases*}
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-
-  \noindent Skriv som:
-
-
-  \begin{equation*}
-    \begin{gathered}
-      \begin{pmatrix}
-        y_1(a)&y_2(a)\\
-        y_1^{\prime}(a)&y_{2}^{\prime}(a)
-      \end{pmatrix}
-      \begin{pmatrix}
-        C_1\\
-        C_2
-      \end{pmatrix}
-      = \begin{pmatrix}y(a)\\y^{\prime}(a)\end{pmatrix}
-    \end{gathered}
-  \end{equation*}
-  \par\bigskip
-
-  \noindent Har en lösning om matrisens determinant är nollskilld. Gäller om $W(y_1,y_2)(a)\neq0$. Detta går att visa! Så systemet har en lösning.
-  \par\bigskip
-  \noindent Vi kan defninera en lösning $g= C_1y_1+C_2y_2$ (linjär kombination av lösningar är en lösning på samma initalvillkor), men vi har unikhet, alltså måste lösningen vara samma, dvs $y=g$
-\end{prf}
+\noindent Fall 1: När $r_1\neq r_2$. Vi får 2 lösningar, en för $r_1$ och en för $r_2$: $y_1=e^{r_1x}$ och $y_2=e^{r_2x}$. Dessa är linjärt oberoende eftersom $\dfrac{e^{r_1x}}{e^{r_2x}}=e^{(r_1-r_2)x}$, om de är beroende hade vi fått en konstant det vill säga $e^0$, men eftersom $r_1\neq r_2$ får vi inte det. Alltså är $\{y_1, y_2\}$ en fundamental lösningsmängd. Vi vet att alla lösningar ges på foren $y=C_1e^{r_1x}+C_2e^{r_2x}$
 \par\bigskip
 
-\begin{theo}[Abels sats]{thm:abel}
-  Om $y_1$ och $y_2$ är lösningar till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=0$ där $p,q$ är kontinuerliga på $I$. Då är deras Wronskian $W(y_1, y_2)(x)=Ce^{-\int p(x)dx}$ där $C$ är en konstant som ej beror på $x$. Antingen är $W(y_1, y_2)(x)=0$ $\forall x\in I$ eller $W(y_1, y_2)(x)\neq0 $ $\forall x\in I$
-\end{theo}
+\noindent Fall 2: När $r_1=r_2$. Vi får \textit{en} lösning $y_1=e^{rx}$ men vi behöver 2 lösningar. Använd reduktion av ordning för att hitta $y_2$, $y_2 = u(x)y_1 = u(x)(e^{rx})$, derivera 2 gånger och stoppa in så får vi $u^{\prime\prime}y_1+2u^{\prime}y_{1}^{\prime}+u_{1}^{\prime\prime}+p(u^{\prime}y_1+uy_{1}^{\prime})+quy_1=0$. Då försvinner vissa termer och vi får kvar $y_1u^{\prime\prime}+(2y_{1}^{\prime}+py_{1})u^{\prime}=0$. Vi har $y_1=e^{r_1x}$ med $r_1=-\dfrac{p}{2}$. Insättning ger $e^{-\dfrac{p}{2}}u^{\prime\prime}+(2(-\dfrac{p}{2})e^{-\dfrac{p}{2}x}+pe^{-\dfrac{p}{2}}x)u^{\prime}=0$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    e^{-\dfrac{p}{2}}u^{\prime\prime}=0\\
+    u^{\prime\prime}=0\\
+    u=Cx+D
+  \end{gathered}
+\end{equation*}
+
+\noindent Vi har alltså $y_2=(Cx+D)e^{-\dfrac{p}{2}}x$. Sätt $D=0$ och $C=1\rightarrow y_2=xe^{-\dfrac{p}{2}}x=xe^{rx}=xy_1$
 \par\bigskip
 
-\begin{prf}[Bevisidé för Abels sats]{thm:sketch}
-  Derivera $W(y_1, y_2)$ med avseende på $x$. Då får man ett uttryck som innehåller $y_1, y_2$ och dess derivator. Använder man ODE:n så kan man visa att även $W$ uppfyller en linjär första ordningens ODE och den kan man lösa explicit.
-\end{prf}
+
+\noindent Alltså $y=C_1e^{rx}+C_2xe^{rx} = (C_1+C_2x)e^{rx}$ där $C_1\neq C_2$
+\par\bigskip
+\noindent Fall 3: Komplexa rötter:
 
 
+\begin{equation*}
+  \begin{gathered}
+    y_1=e^{(a+bi)x}\text{ och } y_2=e^{(a-bi)x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dessa är linjärt oberoende. I denna kurs håller vi enbart på med reela ting, så det är fördelaktigt att skriva om så att det blir tydligt att vi arbetar med reela former. Vi kan använda oss av eulers formel $e^{i\theta}=\cos(\theta)+i\sin(\theta)$
+\par\bigskip
+\noindent Vi får:
 
 
+\begin{equation*}
+  \begin{gathered}
+    e^{(a+bi)x}=e^{ax}e^{bix}=e^{ax}(\cos(bx)+i\sin(bx))\\
+    e^{(a-bi)x}=e^{ax}e^{-bix}=e^{ax}(\cos(-bx)+i\sin(-bx))=e^{ax}(\cos(bx)-i\sin(bx))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Alla lösningar är på formen
 
 
+\begin{equation*}
+  \begin{gathered}
+    y=C_1e^{ax}(\cos(bx)+i\sin(bx))+C_2e^{ax}(\cos(bx)-i\sin(bx))=\\
+    (C_1+C_2)e^{ax}\cos(bx)+i(C_1-C_2)e^{ax}\sin(bx) \text{ vi har real del och imaginär del}\\
+    \text{Tag $C_1=C_2=\dfrac{1}{2}$ } y= e^{ax}\cos(bx)\\
+    \text{Tag $C_1=-C_2 = -\dfrac{i}{2}$ } = i(-\dfrac{i}{2}-\dfrac{i}{2})e^{ax}\sin(bx)=e^{ax}\sin(bx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dessa är linjärt oberoende, om vi delar dem på varandra får vi $\dfrac{\cos(bx)}{\sin(bx)}$ vilket inte är en konstant.
+\par\bigskip
+\noindent Alltså är $\{e^{ax}\cos(bx), e^{ax}\sin(bx)\}$ en annan fundamental lösningsmängd. Vi använder oftast denna.
+\par\bigskip
+\noindent Exempel: Hitta den allmänna lösningen till:
+
+\begin{itemize}
+  \item $2y^{\prime\prime}-5y^{\prime}-3y=0$
+  \item $y^{\prime\prime}-10y^{\prime}+25y=0$
+  \item $y^{\prime\prime}+4y^{\prime}+7y=0$
+\end{itemize}
+\par\bigskip
+\noindent Vi kan konstatera att alla dessa är linjära, andra ordningen, konstanta koefficienter. Vi börjar att betrakta första punkten:
 
 
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}-\dfrac{5}{2}y^{\prime}-\dfrac{3}{2}y=0\\
+    \text{Karaktäristiska polynomet: } r^2-\dfrac{5}{2}r-\dfrac{3}{2}=0\\
+    \text{Rötterna blir: } r_1=3, r_2=-\dfrac{1}{2}\\
+    y=C_1e^{-\dfrac{1}{2}x}+C_2e^{3x} \text{ (notera, inget $x$ framför $C_2$ ty ingen dubbelrot)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nästa:
 
 
+\begin{equation*}
+  \begin{gathered}
+    \text{Karaktäristiska polynomet: } r^2-10r+25, \text{ rötterna är } r_1 = 5, r_2=5\\
+    \text{Dubbelrotination, allmänna lösningen ges av: }\\
+    y = C_1e^{5x}+C_2x^{5x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Sista:
 
+
+\begin{equation*}
+  \begin{gathered}
+    \text{Karaktäristiska polynomet: } r^2+4r+7, \text{ rötterna ges av } r_1=-2+i\sqrt(3), r_2=-2-i\sqrt(3)\\
+    \text{Två komplexa rötter, vi får: }\\
+    y=C_1e^{-2x}\cos(\sqrt(3x))+C_2e^{-2x}\sin(\sqrt(3x))
+  \end{gathered}
+\end{equation*}
 
 
 
