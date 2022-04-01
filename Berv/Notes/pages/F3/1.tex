@@ -1,0 +1,138 @@
+\section{Föreläsning}
+
+\begin{itemize}
+  \item Adaptiva metoder
+  \item Numerisk integration i scipy
+  \item Relativt och absolut fel
+  \item Funktionsfel
+\end{itemize}
+\par\bigskip
+\noindent Vi vill göra en figur där y\-axeln motsvarar felet och x\_axeln motsvarar h.
+\par\bigskip
+
+\subsection{Numerisk integration med scipy}\hfill\\
+
+\noindent Givet en integral $I=\int_{a}^{b}f(x)dx$ så kan vi skriva följande kod för att evaluera integralen:
+\par\bigskip
+
+\begin{verbatim}
+from scipy.integrate import quad
+
+(q, aerr) = quad(func, a, b) # Feluppskattning |q-I| ungefär lika med aerr
+#Vi kan begära viss noggrannhet:
+
+(q, aerr) = quad(func, a, b, epsabs = atol, epsrel = rtol) #scipy försöker uppfylla kraven
+
+|q-I| <= max(atol, rtol*|I|)
+\end{verbatim}
+\par\bigskip
+
+\subsection{Vad menas med absolut resp. relativt fel?}\hfill\\
+
+\noindent Om ens chef säger "ge mig det här med 5 siffrors nogrannhet", men vad menar grabben egentligen? Säg att jag skall approximera 1 med 3 siffrors nogrannhet och min approximation är 0.9999999 (inga siffror är korrekt!):
+
+%\begin{itemize}
+  %\item Bestäm $I$ med $s$ siffrors nogrannhet. Det relativa felet $=\dfrac{|I-I^{\tilde}|}{|I|}< 5\cdot10^{-s}$
+  %\item Bestäm $I$ med $d$ korrekta decimaler. Handlar om absoluta felet, $|I-I^{\tilde}| < 0.5\cdot10^{-d}$ 
+%\end{itemize}
+
+%\noindent Exempel: $I=25.6257, I^{\tilde}=25.6264$. Relativa felet blir $ = 2.7\cdot10^{-5}$ (har alltså 5 siffors nogrannhet även om det är 4 siffror som faktiskt är sanna). Absoluta felet $ = 0.07\cdot10^{-2}$, ger alltså 2 korrekta decimaler.
+%\par\bigskip
+
+\subsection{Funktionsfelet}\hfill\\
+
+\noindent $I = \int_{a}^{b}f(x)dx$. Vi approxierar denna med numerisk kvadratur där vi antar att vi har exakta värden på funktionen. Men vad händer om vi inte har exakta funktionsvärden, det vill säga att vi har ett fel? Det kanske kommer från mätvärden där det är fel i dem, eller något som vi alltid har, avrundningsfel. Antag att vi vet att $|f(x)-\tilde{f}(x)|\leq\varepsilon$, för sammansatta trapets/simpson gäller $\sum_{i=0}^{n}|w_i|=b-a \Rightarrow\varepsilon\sum_{i=0}^{n}|w_i|=\varepsilon(b-a)$
+\par\bigskip
+\begin{itemize}
+  \item Diskretiseringsfelet är vanligtvis större än avrundningsfelet.
+  \item Om funktionsvärden kommer från mätningar kan de ha stor effekt på nogrannheten.
+\end{itemize}
+\par\bigskip
+
+\subsection{Nogrannhet - Sammanfattning}\hfill\\
+\par\bigskip
+
+\noindent Två typer av fel
+\begin{itemize}
+  \item Diskretiseringsfel (trunkeringsfel)
+  \item Fel i funktionsvärden 
+\end{itemize}
+
+
+\begin{equation*}
+  \begin{gathered}
+    I = \int_{a}^{b}f(x)dx \approx Q(h)\approx\tilde{Q}(h)\\
+    \text{Totalt fel: } I-\tilde{Q}(h)=I-Q(h)+Q(h)-\tilde{Q}(h) \text{ där första 2 termerna är diskret. fel och sista 2 är funktionsfel}\\
+    \text{Vi kan använda Ye Olde' triangelolikheten: }\\
+    |I-\tilde{Q}(h)|\leq |I-Q(h)|+|Q(h)-\tilde{Q}(h)|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\subsection{Gammal tentauppgift (2009-12-21)}\hfill\\
+
+\noindent Om en funktion $f(x)$ vet man dels att den för vissa x-värden antar värden enligt tabellen nedan (två korrekta decimaler):
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $x$&0.1&0.2&0.3&0.4&0.5\\
+    \hline
+    $f(x)$&1.89&2.07&2.89&2.18&1.74\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent och dels att absolutbeloppet för de 5 första derivatorna av $f(x)$ är begränsade och mindre än 19 i intervallet. Givet denna information, approximera integralen $I=\int_{0.1}^{0.5}f(x)dx$ så exakt som möjligt samt ge en strikt feluppskattning.
+\par\bigskip
+\noindent Det är trapets och simpsons som vi har gått igenom, och simpsons är den mest nogranna. Vad är det som gör att jag kan använda simpsons? Jo, jag har ekvidistanta punkter (alla x-värden skiljer sig med lika mycket) och jämt antal intervall:
+
+
+\begin{equation*}
+  \begin{gathered}
+    S(h) = \dfrac{h}{3}[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)]\\
+    \text{Men! Funktionsvärderna är inte exakta, så jag har alltså $\tilde{S}(h)$: }\\
+    \tilde{S}(h)=\dfrac{0.1}{3}(1.89+4\cdot2.07+2\cdot2.89+4\cdot2.18+1.74)\approx 0.88033
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har 2 fel som vi skall svara på, diskretiseringsfelet och funktionsfelet. Låt oss börja med trunkeringsfelet:
+
+
+\begin{equation*}
+  \begin{gathered}
+    I = \int_{a}^{b}f(x)dx=S(h) - \dfrac{(b-a)}{180}h^4f^{(4)}(\xi) \text{ ej $\tilde{S}(h)$}\\
+    |I-S(h)|=|\dfrac{(b-a)}{180}h^4f^{(4)}(\xi)|< \dfrac{0.5-0.1}{180}\cdot0.1^4\cdot19\approx 4.22\cdot10^{-6} = \text{ trunkeringsfelet}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Funktionsfelet:
+
+
+\begin{equation*}
+  \begin{gathered}
+    |f(x)-\tilde{f}(x)|<0.5\cdot10^-2\\
+    |S(h)-\tilde{S}(h)|\leq (b-a)\varepsilon = (0.5-0.1)\cdot0.5\cdot10^-2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Totala felet:
+
+
+\begin{equation*}
+  \begin{gathered}
+    |I-\tilde{S}(h)|=|I-S(h)+S(h)-\tilde{S}(h)|\leq |I-S(h)|+|S(h)-\tilde{S}(h)|\leq 4.22\cdot10^-6+0.0002\approx 0.0002\\
+    I \approx 0.880\pm 0.002
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att minska felet, vad ska man göra då? Man kan använda flera värden eller testa trapets, men notera att funktionsfelet är 100 gånger större än trunkeringsfelet, så vi behöver mer exakta värden!
+
+
+
+
+
+
+
+
+
