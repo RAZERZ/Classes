@@ -15,9 +15,10 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Integraler}}{9}{}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{Riemann integralen}}{9}{}%
 \contentsline {subsection}{\tocsubsection {}{3.3}{Relationen mellan Simpsons och Trapetsapprox.}}{9}{}%
-\contentsline {section}{\tocsection {}{4}{Föreläsning}}{10}{}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Numerisk integration med scipy}}{10}{}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Vad menas med absolut resp. relativt fel?}}{10}{}%
-\contentsline {subsection}{\tocsubsection {}{4.3}{Funktionsfelet}}{10}{}%
-\contentsline {subsection}{\tocsubsection {}{4.4}{Nogrannhet - Sammanfattning}}{10}{}%
-\contentsline {subsection}{\tocsubsection {}{4.5}{Gammal tentauppgift (2009-12-21)}}{11}{}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Analytiskt bevis för feltermen i trapetsmetoden}}{10}{}%
+\contentsline {section}{\tocsection {}{4}{Föreläsning}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Numerisk integration med scipy}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Vad menas med absolut resp. relativt fel?}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Funktionsfelet}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{Nogrannhet - Sammanfattning}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{4.5}{Gammal tentauppgift (2009-12-21)}}{15}{}%

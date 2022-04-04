@@ -23,9 +23,9 @@
   \begin{gathered}
     I=\int_{a}^{b}f(x)dx=\lim_{\Delta x\to0}\sum_{i=0}^{n}f(x_i)\Delta x\\
     \Delta x = \dfrac{b-a}{n}
-    \end{gathered}
-    \end{equation*}
-    \par\bigskip
+  \end{gathered}
+\end{equation*}
+\par\bigskip
 \noindent Detta bildar våra rektanglar som vi sedan summerar deras area över ett intervall. Ett lite bättre sätt att approximera integralen hade varit att om vi istället för att betrakta rektanglar, att vi betraktar trapetser, det vill säga man "ansluter" $f(x_i)$ och $f(x_{i+1})$. Arean av en trapets ges av $A=\dfrac{a+b}{2}\cdot h$. Om vi låter höjden vara $\Delta x$ och $a$ resp. $b$ ges av funktionsvärderna får vi istället $\dfrac{f(x_i)+f(x_{i+1})}{2}\cdot\Delta x=\Delta A$, varpå trapetsformeln kommer ifrån. 
 \par\bigskip
 \noindent Det visar sig att felet som uppstår i trapetsens uppskattning är proportionell mot $\Delta x^3f^{\prime\prime}(\xi)$, där $\xi$ är någon okänd punkt i intervallet. Denna metod för att räkna fram felet används sällan, ty man behöver finna andra-derivatan och inte nog med det så måste man även hitta när uttrycket antas sitt största värde (man utgår alltid från det värsta fallet, det vill säga att man har det högsta felet på intervallet).
@@ -41,5 +41,218 @@
 \begin{equation*}
   \begin{gathered}
     S_k=T_k+\dfrac{T_k-T_{k-1}}{3}
+  \end{gathered}
+\end{equation*}
+\pagebreak
+
+\subsection{Analytiskt bevis för feltermen i trapetsmetoden}\hfill\\
+
+\noindent Antag att vi har en funktion $f(t)$, vars integral $I =\int_{a}^{b}f(t)dt$ vi vill approximera.
+\par\bigskip
+\noindent Vi påstår att med hjälp av trapetsmetoden kommer feltermen vara $\dfrac{M(b-a)^2}{4n}$ där $M$ är derivatans övre begränsning och $n$ antal steglängder.
+\par\bigskip
+\noindent Vi påminner oss om att steglängden $\neq$ antal steglängder och att steglängden $h = \dfrac{b-a}{n}$.
+\par\bigskip
+\noindent Feltermen uttrycks av $|I-T(h)|$
+\par\bigskip
+\noindent Vi börjar!
+\par\bigskip
+
+\begin{lem}[Indeldning i delintervall]{lem:stepint}
+  \noindent Låt varje steglängd betecknas med intervallet $[x_i, x_{i+1}]$, där mittpunkten ges av $c_i=\dfrac{x_{i+1}+x_{i}}{2}$. Detta betyder att $h = x_{i+1}-x_i$. Då uttrycks feltermen för varje delintervall av:
+
+  \begin{equation*}
+    \begin{gathered}
+      \left|I-\dfrac{h}{2}(f(x_{i+1})+f(x_i)\right| = \left|-(I-\dfrac{h}{2}(f(x_{i+1})+f(x_i))\right| = \left|\dfrac{h}{2}(f(x_{i+1})+f(x_i)-I\right|\\
+      \left|\dfrac{h}{2}(f(x_{i+1})+f(x_i)-\int_{x_i}^{x_{i+1}}f(t)dt\right|
     \end{gathered}
-    \end{equation*}
+  \end{equation*}
+  \par\bigskip
+  \noindent Och för alla delintervall är det summan av alla delintervall:
+
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{i=0}^{n}\left|\dfrac{h}{2}(f(x_{i+1})+f(x_i)-\int_{x_i}^{x_{i+1}}f(t)dt\right|
+    \end{gathered}
+  \end{equation*}
+
+\end{lem}
+\par\bigskip
+
+\begin{lem}[Felterm uttryckt i integral]{lem:errint}
+  \noindent Vi påminner oss om partial integrering, $\int uv^{\prime}= uv - \int u^{\prime}v$
+  \par\bigskip
+  \noindent Vi vill försöka flytta in feltermen så att den ser ut som att den är partialt integrerad:
+
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases*}
+        (t-c_i) = u(t)\\
+        f^{\prime}(t) = v^{\prime}(t)
+      \end{rcases*}\\\\
+      \dfrac{h}{2}(f(x_{i+1})+f(x_i) = \dfrac{x_{i+1}-x_i}{2}f(x_{i+1})+\dfrac{x_{i+1}-x_i}{2}f(x_i)\\
+      (x_{i+1}-c_i)f(x_{i+1})+(c_i-x_i)f(x_i) = (x_{i+1}-c_i)f(x_{i+1})+(-(c_i-x_i))f(x_i)\\
+      (x_{i+1}-c_i)f(x_{i+1})-(c_i-x_i)f(x_i)\\
+      \text{Feltermen ges alltså av } \left((x_{i+1}-c_i)f(x_{i+1})-(c_i-x_i)f(x_i)\right) - \int_{x_i}^{x_{i+1}}f(t)dt\\
+      \Lrarr \int_{x_i}^{x_{i+1}}(t-c_i)f^{\prime}(t)dt
+    \end{gathered}
+  \end{equation*}
+ 
+\end{lem}
+\pagebreak
+
+\begin{prf}[Felterm med första derivata]{prf:errone}
+
+ \par\bigskip
+  \noindent Lemma 3.1 och 3.2 ger att vi kan använda faktumet att $f^{\prime}(t)$ hade en övre begränsning på $M$:
+  \par\bigskip
+
+
+  \begin{equation*}
+    \begin{gathered}
+      \int_{x_i}^{x_{i+1}}(t-c_i)f^{\prime}(t)dt \leq\left|M\int_{x_i}^{x_{i+1}}(t-c_i)dt\right| = M\int_{x_i}^{x_{i+1}}\left|t-c_i\right|dt\\
+      \text{Låt } u = t-c_i\text{, } \int_{x_i}^{x_{i+1}}\left|t-c_i\right| = \int_{x_i}^{x_{i+1}}\left|u\right|\\
+      \begin{rcases*}
+        f = \left|u\right|\\
+        f^{\prime} = \dfrac{\left|u\right|}{u}
+        g^{\prime} = 1
+      \end{rcases*}\\
+      \int_{x_i}^{x_{i+1}}\left|u\right| = \left|\left|u\right|u\right|_{x_i}^{x_{i+1}} - \int_{x_i}^{x_{i+1}}\dfrac{\left|u\right|}{u}\cdot u\\
+      \int_{x_i}^{x_{i+1}}\left|u\right|= \left|u\left|u\right|\right|_{x_i}^{x_{i+1}}-\int_{x_i}^{x_{i+1}}\left|u\right|\\
+      2\int_{x_i}^{x_{i+1}}\left|u\right| = \left|u\left|u\right|\right|_{x_i}^{x_{i+1}}\\
+      \Lrarr\int\left|u\right| = \dfrac{u\left|u\right|}{2}\\
+      \text{Bort med $u$-sub:} \int_{x_i}^{x_{i+1}}\left|t-c_i\right| = \dfrac{(x_{i+1}-c_i)\left|x_{i+1}\right|}{2}- \dfrac{(x_{i}-c_i)\left|x_{i}-c_i\right|}{2}\\
+      \Lrarr \dfrac{(x_{i+1}-c_i)\left|x_{i+1}\right|}{2}- \dfrac{(-(c_i-x_{i}))\left|-(c_i-x_i)\right|}{2} = \dfrac{(x_{i+1}-c_i)\left|x_{i+1}\right|}{2}+\dfrac{(c_i-x_{i})\left|c_i-x_i\right|}{2}\\
+      \begin{rcases*}
+        x_{i+1}-c_i\\
+        c_i-x_i
+      \end{rcases*}=\dfrac{x_{i+1}-x_i}{2}\\\\
+      \dfrac{2\cdot\left(\dfrac{x_{i+1}-x_i}{2}\right)\left|\dfrac{x_{i+1}-x_i}{2}\right|}{2} = \left(\dfrac{x_{i+1}-x_i}{2}\right)\left|\dfrac{x_{i+1}-x_i}{2}\right| = \dfrac{1}{4}(x_{i+1}-x_i)^2\\
+      \text{Nu kan vi skriva tillbaks $M$ framför: } \dfrac{M}{4}(x_{i+1}-x_i)^2\\
+      \text{Notera att } (x_{i+1}-x_i) \text{ är ju steglängden, dvs } h:\\
+      \dfrac{Mh^2}{4} \geq \dfrac{f^{\prime}(t)h^2}{4}
+    \end{gathered}
+  \end{equation*}
+
+ \end{prf}
+\pagebreak
+\noindent Vi vill nu visa att om andraderivatan är så kan vi använda begränsningen för att få en ännu finare felterm.
+\begin{lem}[Partialintegrering av feltermintegral för delintervall]{thm:perrstepint}
+   \noindent Vi vill partialintegrera, men vi kommer inte göra det enkelt för oss utan vi ansätter $(t-c_i)$ som den "redan deriverade" termen:
+   \par\bigskip
+
+   \begin{equation*}
+     \begin{gathered}
+       \int_{x_i}^{x_{i+1}}(t-c_i)f^{\prime}(t)dt\Lrarr \left|\dfrac{(t-c_i)^2}{2}f^{\prime}(t)\right|_{x_i}^{x_{i+1}}-\int_{x_i}^{x_{i+1}}\dfrac{(t-c_i)^2}{2}f^{\prime\prime}(t)dt\\
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Vi påminner oss om:
+
+   \begin{equation*}
+     \begin{gathered}
+       x_{i+1}-c_i = c_i-x_i = \dfrac{x_{i+1}-x_i}{2} = \dfrac{h}{2}
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Insättning av detta i första partialintegrerade termen ger:
+
+
+   \begin{equation*}
+     \begin{gathered}
+       \dfrac{\left(\dfrac{x_{i+1}-x_i}{2}\right)^2}{2}f^{\prime}(x_{i+1})-\dfrac{\left(x_i-c_i\right)^2}{2}f^{\prime}(x_i) = \dfrac{\left(\dfrac{x_{i+1}-x_i}{2}\right)^2}{2}f^{\prime}(x_{i+1})-\dfrac{\left(-(c_i-x_i)\right)^2}{2}f^{\prime}(x_i)\\
+       \Lrarr \dfrac{\left(\dfrac{x_{i+1}-x_i}{2}\right)^2}{2}f^{\prime}(x_{i+1})-\dfrac{\left(\dfrac{x_{i+1}-x_i}{2}\right)^2}{2}f^{\prime}(x_i)\\
+       \Lrarr \dfrac{\left(\dfrac{x_{i+1}-x_i}{2}\right)^2}{2}\left(f^{\prime}(x_{i+1})-f^{\prime}(x_i)\right) = \dfrac{\left(\dfrac{h}{2}\right)^2}{2}\\
+       = \dfrac{h^2}{8}\left(f^{\prime}(x_{i+1})-f^{\prime}(x_i)\right) = \dfrac{1}{2}\left(\dfrac{h}{2}\right)^2\left(f^{\prime}(x_{i+1})-f^{\prime}(x_i)\right)\\
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Men detta är bara följande integral:
+
+   \begin{equation*}
+     \begin{gathered}
+       \dfrac{1}{2}\int_{x_i}^{x_{i+1}}f^{\prime\prime}(t)dt =\int_{x_i}^{x_{i+1}}\dfrac{1}{2}\left(\dfrac{h^2}{2}\right)^2f^{\prime\prime}(t)dt
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Då har vi alltså:
+
+
+   \begin{equation*}
+     \begin{gathered}
+       \int_{x_i}^{x_{i+1}}\dfrac{1}{2}\left(\dfrac{h^2}{2}\right)^2f^{\prime\prime}(t)dt -\int_{x_i}^{x_{i+1}}\dfrac{(t-c_i)^2}{2}f^{\prime\prime}(t)dt\\
+     = \int_{x_i}^{x_{i+1}}\dfrac{1}{2}\left(\dfrac{h}{2}\right)^2f^{\prime\prime}(t)-\dfrac{(t-c_i)^2}{2}f^{\prime\prime}(t)dt\\
+     = \dfrac{1}{2}\int_{x_i}^{x_{i+1}}f^{\prime\prime}(t)\left(\left(\dfrac{h}{2}\right)^2-(t-c_i)^2\right)
+     \end{gathered}
+   \end{equation*}
+ 
+\end{lem}
+\pagebreak
+ \begin{prf}[Felterm med andraderivata]{prf:errtwo}
+  \noindent Från Lemma 3.3 påminner oss om att vi hade en begränsning $M$ på $f^{\prime\prime}(t)$:
+   \begin{equation*}
+     \begin{gathered}
+       \dfrac{1}{2}M\int_{x_i}^{x_{i+1}}\left(\left(\dfrac{h}{2}\right)^2-(t-c_i)^2\right)dt
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Vi vill lösa för integralen:
+
+   \begin{equation*}
+     \begin{gathered}
+       \int_{x_i}^{x_{i+1}}\left(\left(\dfrac{h}{2}\right)^2-(t-c_i)^2\right)dt = \int_{x_i}^{x_{i+1}}\left(\dfrac{h}{2}\right)^2dt-\int_{x_i}^{x_{i+1}}(t-c_i)^2dt\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_{i}\right]-\left|\dfrac{(t-c_i)^3}{3}\right|_{x_i}^{x_{i+1}}\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_i\right]-\left(\dfrac{(x_{i+1}-c_i)^3}{3}-\dfrac{(x_i-c_i)^3}{3}\right)\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_i\right]-\left(\dfrac{\left(\dfrac{h}{2}\right)^3}{3}-\dfrac{(-(c_i-x_i))^3}{3}\right)\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_i\right]-\left(\dfrac{\left(\dfrac{h}{2}\right)^3}{3}-\dfrac{-\left(\dfrac{h}{2}\right)^3}{3}\right)\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_i\right]-\left(\dfrac{h^3}{24}-\dfrac{-h^3}{24}\right)\\
+       = \left(\dfrac{h}{2}\right)^2\left[x_{i+1}-x_i\right]-2\left(\dfrac{h^3}{24}\right)\\
+       = h\left(\dfrac{h}{2}\right)^2-\left(\dfrac{h^3}{12}\right) = \dfrac{h^3}{4}-\dfrac{h^3}{12} = \dfrac{h^3}{6}
+     \end{gathered}
+   \end{equation*}
+   \par\bigskip
+   \noindent Nu när integralen är löst kan vi sätta fram koefficienterna:
+
+
+   \begin{equation*}
+     \begin{gathered}
+       \dfrac{1}{2}M\cdot\dfrac{h^3}{6} = \dfrac{Mh^3}{12}\geq\dfrac{h^3}{12}f^{\prime\prime}(t)
+     \end{gathered}
+   \end{equation*}
+\end{prf}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
