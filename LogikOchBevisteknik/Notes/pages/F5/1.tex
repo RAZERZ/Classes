@@ -1,0 +1,175 @@
+\section{Logisk ekvivalens och konsekvens}
+
+\subsection{Logisk ekvivalens}\hfill\\
+
+\begin{theo}[Logisk ekvivalens]{thm:logeqv}
+  En relation som 2 formler har till varandra, de kan kallas för \textit{logiskt ekvivalenta}.
+  \par\bigskip
+  \noindent Låt $\sigma$ vara en struktur, $\varphi$ och $\psi$ i LP($\sigma$). $\varphi$ och $\psi$ \textit{kallas logiskt ekvivalenta} om $\vDash\varphi\leftrightarrow\psi$
+  \par\bigskip
+  \noindent Notation: $\varphi$ eq $\psi$, alltså samma sanningsvärde.
+\end{theo}
+
+\subsection{Exempel}\hfill\\
+
+\noindent $p\rightarrow$ eq $\neg p\vee q$. Här får man rita upp sanningstabellen:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $p$&$q$&$p\rightarrow q$&$\neg p\vee q$\\
+    \hline
+    1&1&1&1\\
+    \hline
+    1&0&0&0\\
+    \hline
+    0&1&1&1\\
+    \hline
+    0&0&1&1\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{theo}[Eq]{thm:eq}
+  Eq är en ekvivalensrelation
+\end{theo}
+\par\bigskip
+
+\begin{prf}[Eq]{prf:eq}
+  \begin{itemize}
+    \item Reflexiv ($\varphi$ eq $\varphi$)
+    \item Symetrisk ($\varphi$ eq $\psi \Lrarr\psi$ eq $\varphi$)
+    \item Transitiv ($\varphi$ eq $\psi$ och $\psi$ eq $\xi\Rightarrow$ $\varphi$ eq $\xi$)
+  \end{itemize}
+\end{prf}
+\par\bigskip
+
+\subsection{Några viktiga ekvivalenser}\hfill\\
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      p\vee(q\wedge r)$ eq $(p\vee q)\wedge(p\vee r)\\
+      p\wedge(q\vee r)$ eq $(p\wedge q)\vee(p\wedge r)
+    \end{rcases*}=\text{Distributiva lagar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      p\vee(q\vee r)$ eq $(p\vee q)\vee r\\
+      p\wedge(q\wedge r)$ eq $(p\wedge q)\wedge r
+    \end{rcases*}=\text{Associativa lagar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      p\vee q \text{ eq } q\vee p\\
+      p\wedge q \text{ eq } q\wedge p
+    \end{rcases*}=\text{Kommutativa lagar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \neg(p\wedge q) \text{ eq } \neg p \vee\neg q\\
+      \neg(p\vee q) \text{ eq } \neg(p)\wedge \neg(q)
+    \end{rcases*}=\text{de Morgans lagar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      p\vee p \text{ eq } p\\
+      p\wedge p \text{ eq } p
+    \end{rcases*}=\text{Idempotenslagar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \neg\neg p \text{ eq } p
+    \end{rcases*}=\text{Lagen om dubbel-negation}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\subsection{Logisk konsekvens}\hfill\\
+
+\begin{theo}[Logisk konsekvens]{thm:logcons}
+  Låt $\Gamma$ vara en mängd av formler i LP($\sigma$) och låt $\varphi$ en formel i $\Gamma$. $\varphi$ är en \textit{logisk konsekvens} av $\Gamma$, skrivet $\Gamma\vDash\varphi$, om $\varphi$ är sann i varje modell för $\Gamma$.
+  \par\bigskip
+  \noindent Dvs, för varje $\sigma$-struktur gäller: Om $A\vDash\gamma$ för varje $\gamma\in\Gamma$, så kräver vi att $\varphi$ (den logiska konsekvensen) också ska vara sann. Här betyder $\vDash$ "när hälst varje struktur i $\Gamma$".
+\end{theo}
+
+\subsection{Exempel}\hfill\\
+\noindent Visa att $\{p_1\rightarrow p_2, p_1\}\vDash p_2$ (visa att $p_2$ är en logisk konsekvens av mängden).
+\par\bigskip
+\noindent Vi visar detta genom att låta $A$ vara en modell för $p_1\rightarrow p_2$ och $p_1$, alltså $A$ är en struktur där de två är sanna. Detta betyder att $A$ är en $\sigma$-struktur, dvs $A^*(p_1\rightarrow p_2)=1$ och $A^*(p_1)=1$. Det vi måste visa är att $A^*(p_2)=1$. Detta kan vi göra genom att anta att $A^*(p_2)=0$, vi vill få en motsägelse. Då blir $A^*(p_1\rightarrow p_2)=0$, men detta mostäger antagandet att $A^*(p_1\rightarrow p_2)=1$, alltså $A^*(p_2)=1$
+\par\bigskip
+
+\noindent Om inte $\Gamma\vDash\varphi$ gäller, så skriver man $\Gamma\nvDash\varphi$, dvs "$\varphi$ är inte en logisk konsekvens av $\Gamma$" $\Lrarr\neg$($\varphi$ sann i varje modell för $\Gamma$) $\Lrarr$ det finns någon (minst 1) modell för $\Gamma$ i vilken $\varphi$ är falsk.
+\par\bigskip
+
+\subsection{Exempel}\hfill\\
+$\{p_1\rightarrow p_2, p_2\}\nvDash p_1$. Vi måste ge en motexempelstruktur $A$, så att $A^*(p_1\rightarrow p_2)=A^*(p_2)=1$ och $A^*(p_1)=0$. Kom ihåg att struktur betyder tilldeling av sanningsvärde till satssymbolerna.
+\par\bigskip
+\noindent Ta tex följande:
+\begin{itemize}
+  \item $A(p_1)=0$
+  \item $A(p_2)=1$
+\end{itemize}
+\par\bigskip
+\noindent Nu har vi hittat en struktur som gör VL sann och HL falsk.
+\par\bigskip
+
+\subsection{Algoritm för att avgöra $\Gamma\vDash\varphi$}\hfill\\
+
+\noindent Använd sanningsvärdestabeller för alla formler i $\Gamma$ och för $\varphi$. För de rader där alla i $\Gamma$ är sanna, kolla om $\varphi$ är sann.
+\par\bigskip
+\subsection{Exempel}\hfill\\
+
+\noindent Avgör om följande gäller $\neg A\vee \neg B$, $B\vee C\vDash(A\wedge C)\rightarrow B$:
+\par\bigskip
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    $A$&$B$&$C$&$\neg A\vee\neg B$&$B\vee C$&$A\wedge C\rightarrow B$\\
+    \hline
+    0&0&0&1&0&1\\
+    \hline
+    0&0&1&1&1&1\\
+    \hline
+    0&1&0&1&1&1\\
+    \hline
+    0&1&1&1&1&1\\
+    \hline
+    1&0&0&1&1&1\\
+    \hline
+    1&0&1&1&0&0\\
+    \hline
+    1&1&1&0&1&1\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Rad 3 säger ju att VL = 1 men HL = 0, alltså finns modell för $\Gamma$ så att $(A\wedge C)\rightarrow B$ är falsk, alltså $\Gamma\nvDash(A\wedge C)\rightarrow B$
+
+
+
+
+
+
+

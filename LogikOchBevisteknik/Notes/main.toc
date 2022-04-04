@@ -16,3 +16,12 @@
 \contentsline {section}{\tocsection {}{5}{Föreläsning - Naturlig deduktion forts.}}{9}{}%
 \contentsline {subsection}{\tocsubsection {}{5.1}{Botten ($\perp $)}}{9}{}%
 \contentsline {section}{\tocsection {}{6}{Semantik för satslogik}}{10}{}%
+\contentsline {section}{\tocsection {}{7}{Logisk ekvivalens och konsekvens}}{12}{}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Logisk ekvivalens}}{12}{}%
+\contentsline {subsection}{\tocsubsection {}{7.2}{Exempel}}{12}{}%
+\contentsline {subsection}{\tocsubsection {}{7.3}{Några viktiga ekvivalenser}}{12}{}%
+\contentsline {subsection}{\tocsubsection {}{7.4}{Logisk konsekvens}}{13}{}%
+\contentsline {subsection}{\tocsubsection {}{7.5}{Exempel}}{13}{}%
+\contentsline {subsection}{\tocsubsection {}{7.6}{Exempel}}{13}{}%
+\contentsline {subsection}{\tocsubsection {}{7.7}{Algoritm för att avgöra $\Gamma \vDash \varphi $}}{13}{}%
+\contentsline {subsection}{\tocsubsection {}{7.8}{Exempel}}{13}{}%
