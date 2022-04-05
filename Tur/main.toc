@@ -5,3 +5,4 @@
 \contentsline {subsection}{\tocsubsection {}{1.4}{Lärstrategier}}{3}{}%
 \contentsline {subsection}{\tocsubsection {}{1.5}{Vad underlättar djupinriktade lärstrategier?}}{3}{}%
 \contentsline {subsection}{\tocsubsection {}{1.6}{Varierad undervisning - vad är det?}}{3}{}%
+\contentsline {section}{\tocsection {}{2}{Upplägg av lektion}}{4}{}%
