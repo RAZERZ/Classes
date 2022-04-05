@@ -22,3 +22,9 @@
 \contentsline {subsection}{\tocsubsection {}{4.3}{Funktionsfelet}}{14}{}%
 \contentsline {subsection}{\tocsubsection {}{4.4}{Nogrannhet - Sammanfattning}}{14}{}%
 \contentsline {subsection}{\tocsubsection {}{4.5}{Gammal tentauppgift (2009-12-21)}}{15}{}%
+\contentsline {section}{\tocsection {}{5}{Icke-linjära ekvationer}}{16}{}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Bisektionsmetoden/Intervallhalvering}}{16}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.1.1}{Konvergenshastighet}}{17}{}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Newton-Raphson}}{18}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.2.1}{Stoppvillkor}}{18}{}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{Gammal tentatal - 2012-04-11}}{19}{}%

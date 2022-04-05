@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  4 APR 2022 18:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  5 APR 2022 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,12 +971,92 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
-[14]) [15] (./main.aux (./includes/title.aux)) ) 
+[14]) [15] (./pages/F4/1.tex
+Package mdframed Info: mdframed works in twoside mode on input line 7.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 7.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 16.
+
+Overfull \hbox (7.8411pt too wide) in paragraph at lines 29--30
+\OT1/cmr/m/n/10 Hur snabbt meto-den n^^War kon-ver-gens/hittar l^^?osningen ^^?
+ar ocks^^Wa av rel-e-vans. Kallas f^^?or \OT1/cmr/m/it/10 kon-ver-gen-shastighe
+ten\OT1/cmr/m/n/10 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+(./figures/1.pdf_tex
+<./figures//1.pdf, id=89, page=1, 682.86612pt x 341.43306pt>
+File: ./figures//1.pdf Graphic file (type pdf)
+<use ./figures//1.pdf, page 1>
+Package pdftex.def Info: ./figures//1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//1.pdf, id=90, page=2, 682.86612pt x 341.43306pt>
+File: ./figures//1.pdf Graphic file (type pdf)
+<use ./figures//1.pdf, page 2>
+Package pdftex.def Info: ./figures//1.pdf , page2 used on input line 59.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//1.pdf, id=91, page=3, 682.86612pt x 341.43306pt>
+File: ./figures//1.pdf Graphic file (type pdf)
+<use ./figures//1.pdf, page 3>
+Package pdftex.def Info: ./figures//1.pdf , page3 used on input line 61.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+)
+Underfull \vbox (badness 2418) has occurred while \output is active []
+
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+
+ []
+
+(./figures/newton-raphson.pdf_tex
+<./figures//newton-raphson.pdf, id=95, page=1, 682.86612pt x 341.43306pt>
+File: ./figures//newton-raphson.pdf Graphic file (type pdf)
+<use ./figures//newton-raphson.pdf, page 1>
+Package pdftex.def Info: ./figures//newton-raphson.pdf , page1 used on input li
+ne 56.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//newton-raphson.pdf, id=96, page=2, 682.86612pt x 341.43306pt>
+File: ./figures//newton-raphson.pdf Graphic file (type pdf)
+<use ./figures//newton-raphson.pdf, page 2>
+Package pdftex.def Info: ./figures//newton-raphson.pdf , page2 used on input li
+ne 58.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+) [17 <./figures//1.pdf> <./figures//1.pdf> <./figures//1.pdf>] (./figures/d.pd
+f_tex
+<./figures//d.pdf, id=102, page=1, 682.86612pt x 341.43306pt>
+File: ./figures//d.pdf Graphic file (type pdf)
+<use ./figures//d.pdf, page 1>
+Package pdftex.def Info: ./figures//d.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//d.pdf, id=103, page=2, 682.86612pt x 341.43306pt>
+File: ./figures//d.pdf Graphic file (type pdf)
+<use ./figures//d.pdf, page 2>
+Package pdftex.def Info: ./figures//d.pdf , page2 used on input line 60.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+) [18 <./figures//newton-raphson.pdf> <./figures//newton-raphson.pdf> <./figure
+s//d.pdf> <./figures//d.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+[19]) [20] (./main.aux (./includes/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 17926 strings out of 478353
- 350134 string characters out of 5854635
- 649528 words of memory out of 5000000
- 35507 multiletter control sequences out of 15000+600000
+ 17989 strings out of 478353
+ 351846 string characters out of 5854635
+ 649609 words of memory out of 5000000
+ 35559 multiletter control sequences out of 15000+600000
  411205 words of font info for 57 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  110i,17n,107p,588b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -995,10 +1075,10 @@ ts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 246964 bytes).
+Output written on main.pdf (21 pages, 267091 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 189 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

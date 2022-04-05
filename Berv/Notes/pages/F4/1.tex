@@ -1,0 +1,249 @@
+\section{Icke-linjära ekvationer}
+\noindent Exempelvis: Hitta $x$ då $e^x=10\cos(x)$. Dessa typer av ekvationer finns det ingen explicit form där man kan lösa ut $x$. Något vi kommer göra under föreläsningen är att skriva på formen $f(x) = 0$ (detta går alltid genom att flytta över allt till en sida).
+\par\bigskip
+\noindent Vi använder så kallade \textit{iterativa} metoder/algoritmer för att lösa dessa typer av icke-linjära ekvationer.
+\par\bigskip
+
+\begin{theo}[Iterativ metod]{thm:it}
+  \begin{itemize}
+    \item Behöver en startgissning $x_0$
+    \item Bilda en följd med bättre och bättre approximationer till den exakta lösningen $x_*$
+  \end{itemize}
+  \par\bigskip
+  \noindent Metoden konvergerar om $\lim_{k\to\infty}x_k = x_*$
+  \par\bigskip
+  \noindent I praktiken når man inte till $x_*$ utan stannar när ett stoppvillkor uppfylls.
+\end{theo}
+\par\bigskip
+\noindent Implementationen av en sådan metod kallas för \textit{algoritm}.
+
+\begin{verbatim}
+x = [START GISSNING]
+while [STOPPVILLKOR EJ UPPFYLLT]:
+  x = [NY APPROX]
+end
+\end{verbatim}
+\par\bigskip
+\noindent Nya approximationen räknas från någon formel eller princip. Det kan hända att den lyckas, eller misslyckas. Lyckas den så har vi konvergens, misslyckas den så har vi divergens.
+\par\bigskip
+\noindent Hur snabbt metoden når konvergens/hittar lösningen är också av relevans. Kallas för \textit{konvergenshastigheten}.
+\par\bigskip
+\noindent Vi kommer ta upp 2 olika metoder, bisektionsmetoden och Newton.
+
+\subsection{Bisektionsmetoden/Intervallhalvering}\hfill\\
+
+\noindent Denna går ut på att skriva om på formen $f(x) = 0$ (detta gäller allmänt ty det är så de är implementerade, även i SciPy). Fortsätter vi på exemplet $e^x = 10\cos(x)$ får vi $f(x) = e^x -10\cos(x)$
+\par\bigskip
+\noindent Idén är att börja med ett startintervall $I = [a,b]$ där vi antar att den är kontinuerlig på det intervallet och att $f(x)$ har teckenväxling på detta intervall. Satsen om mellanliggande värden säger då attden måste korsa $x$-axeln någonstans, så vi vill helt enkelt förfina intervallet $I$.
+\par\bigskip
+\noindent Det gör vi genom att dela intervallet i två delintervall, väl sedan den delen som har teckenväxling. Upprepa tills intervallet är tillräckligt litet. Hur stort fel man har i sin lösning är begränsat till halva intervall-längden. Vi ritar för en bättre känsla:
+
+\begin{center}
+  \incfig{1}
+\end{center}
+
+\par\bigskip
+\noindent Vi skriver upp en pseudo-kod för detta:
+
+\begin{verbatim}
+#f,a,b givet
+#Vill börja med att kontrollera input
+
+Kontrollera att sign(f(a)) är skilt från sign(f(b))
+
+x= (a+b)/2
+while [!Stoppvillkor]:
+  if sign(f(a)) = sign(f(x)):
+    a = x #Om vänstra delen ej innehåller teckenväxling så förkortar vi bort VL
+  else:
+    b = x #Annars, förkorta HL
+  x = (a+b)/2
+end
+\end{verbatim}
+
+\subsubsection{Konvergenshastighet}\hfill\\
+
+\noindent Konvergerar alltid. Men, det kan finnas flera rötter så det säger inte mycket om \textit{vilken} rot. Hastigheten ges av:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \left|x_*-x_1\right|\leq\dfrac{b-a}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent I varje iteration halverar vi avståndet (delar på 2) alltså kommer felet halveras.
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \left|x_*-x_k\right|\leq \dfrac{b-a}{2^k}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi skriva in lite saker om stoppvillkor:
+\par\bigskip
+\noindent Given tolerans $\left|x_*-x_k\right|\leq Tol$. Vi vet att $\left|x_*-x_k\right|\leq\dfrac{b-a}{2^k}$. Då vet vi att vi ska stanna när $\dfrac{b-a}{2^k}\leq Tol$. Då kan vi räkna ut $k$ och därmed räkna ut antal iterationer vi behöver köra i while-loopen.
+\par\bigskip
+
+\subsection{Newton-Raphson}\hfill\\
+
+\noindent Vi skriver återigen på formen $f(x) = 0$. Vi har någon startgissning $x_0$ (ej intervall, utan värde). Idén är att vi drar en tangent till funktionen och nästa gissning blir roten/nollställe till tangenten. Illustrerat:
+
+\begin{center}
+  \incfig{newton-raphson}
+\end{center}
+\par\bigskip
+\noindent Tangenten ges av $l(x) = f^{\prime}(x_0)(x-x_0)+f(x_0)$. Vi löser för när $l(x_1)=0\Rightarrow f^{\prime}(x_0)(x_1-x_0)+f(x_0)=0\Rightarrow x_1 = x_0-\dfrac{f(x_0)}{f^{\prime}(x_0)}$
+\par\bigskip
+\noindent Låt oss skriva en pseudo-kod:
+
+\begin{verbatim}
+x = startgissning
+while (!stoppvillkor):
+  dx = -f(x)/f'(x)
+  x = x+dx
+end
+\end{verbatim}
+\par\bigskip
+\subsubsection{Stoppvillkor}\hfill\\
+\noindent Säg att vi har en approximativ lösning $\tilde{x}$ och $x_*$ som är exakt. Då är vi intresserade av $|x_*-\tilde{x}|$. Vi utnyttjar att om vi zoomar in så blir det en triangel:
+
+\begin{center}
+  \incfig{d}
+\end{center}
+\par\bigskip
+\noindent Vi får då:
+
+
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(\tilde{x})\approx \dfrac{f(\tilde{x})}{\tilde{x}-x_*}\\
+    \Rightarrow \left|x_*-\tilde{x}\right|\approx\left|\dfrac{f(\tilde{x})}{f^{\prime}(\tilde{x})}\right| = \left|\Delta x\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Alltså stanna då $\left|x_{k+1}-x_k\right|<Tol$
+\par\bigskip
+\noindent Då kan man fråga, "men farbror Melker, kan man inte använda $\left|f(x_k)\right|<Tol$?" Nej, tänk om vi har asymptoter.
+\par\bigskip
+
+\begin{itemize}
+  \item Vertikal asymptot ger att
+    \begin{itemize}
+      \item $\left|x_*-x_{k+1}\right|$ är stort
+      \item $\left|f(x_{k+1})\right|$ är stort
+    \end{itemize}
+  \item Horisontell asymptot ger att
+    \begin{itemize}
+      \item $\left|x_*-x_{k+1}\right|$ är stort
+      \item $\left|f(x_{k+1})\right|$ är litet
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent När man skriver while loopar skall man vara aktsam över att man kanske inte konvergerar. Då får man en oändlig loop eftersom stoppvillkoret aldrig uppfylls. Då är det smart att lägga in ett max antal iterationer:
+\par\bigskip
+
+\begin{verbatim}
+maxiter = 100
+niter = 0
+while felet > tol && niter < maxiter
+  niter = niter+1
+end
+\end{verbatim}
+
+\subsection{Gammal tentatal - 2012-04-11}\hfill\\
+
+\noindent Ekvationen $\cos(x)+5=e^x$. Den har en lösning mellan $[1,2]$
+\begin{itemize}
+  \item Formulera intervallhalveringsmetoden för att hitta roten och gör 3 iterationer
+  \item Hur många iterationer skulle krävas för att få ett absolut fel i det beräknade värdet mindre än $10^{-8}$?
+\end{itemize}
+\par\bigskip
+\noindent Vi börjar med första. Vi börjar givetvis med att skriva om på $f(x) = 0$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    f(x) = \cos(x)+5-e^x = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan nu kontrollera startinervallet $[1,2]$:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    f(1) = \cos(1)+5-e>0\\
+    f(2) = \cos(2)+5-e^2<0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Sartintervallet är ok, ty jag har olika tecken. Mittpunkten är 1.5:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    f(\dfrac{1+2}{2})=f(1.5)\approx 0.6>0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill ha delen med teckenväxling, så vi väljer "högra" delen. Mittpunkten är 1.75:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    f(1.75)\approx -0.93<0
+  \end{gathered}
+\end{equation*}
+
+\noindent Vi väljer "vänstra" delen:
+
+\begin{equation*}
+  \begin{gathered}
+    f(1.625)\approx -0.13<0
+  \end{gathered}
+\end{equation*}
+
+\noindent Mittpunkten mellan 1.5 och 1.625 är 1.5625. Vi har nu kört 3 iterationer som frågan frågar efter, så vi uppskattar felet:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \left|x-x_*\right|\leq\dfrac{b-a}{2}=\dfrac{1.625-1.5}{2}=0.0625
+  \end{gathered}
+\end{equation*}
+\noindent Svaret blir $x = 1.5625\pm 0.0625$
+\par\bigskip
+\noindent Vi kör andra frågan:
+\par\bigskip
+\noindent Låt $\varepsilon_k$ vara feluppskattning efter $k$ iterationer. Då har vi i detta fall:
+\par\bigskip
+\begin{itemize}
+  \item $\varepsilon_0 = \dfrac{b-a}{2}= \dfrac{2-1}{2} = 0.5$
+  \item $\varepsilon_1 = \varepsilon_0\cdot0.5=0.25$
+  \item $\varepsilon_2 = \varepsilon_1\cdot0.5 = \varepsilon_0\cdot0.5^2$
+  \item $\varepsilon_k = 0.5^k\varepsilon_0 = 0.5^{k+1}$
+\end{itemize}
+\par\bigskip
+\noindent Vi vill hitta $\varepsilon_k\leq10^{-8}$:
+
+\begin{equation*}
+  \begin{gathered}
+    0.5^{k+1}<10^{-8}\\
+    (k+1)\log(0.5)<\log(10^{-8})\\
+    k > \dfrac{\log(10^{-8})}{\log(0.5)}-1\approx 25.6
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Eftersom vi ska ha strikt norgannhet så rundar vi uppåt, så det skulle alltså krävas 26 iterationer.
+
+
+
+
+
+
+
+
+
