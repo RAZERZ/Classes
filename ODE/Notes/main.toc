@@ -32,3 +32,6 @@
 \contentsline {section}{\tocsection {}{7}{Föreläsning - Homogena ekvationer}}{21}{section.7}%
 \contentsline {subsection}{\tocsubsection {}{7.1}{Reduktion av ordning}}{21}{subsection.7.1}%
 \contentsline {subsection}{\tocsubsection {}{7.2}{Homogena 2:a orndingens linj. ODE med konstanta koefficienter $p,q$}}{22}{subsection.7.2}%
+\contentsline {section}{\tocsection {}{8}{Föreläsning}}{25}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Metoden med obestämda koefficienter}}{25}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Variation av parameter-metoden}}{28}{subsection.8.2}%

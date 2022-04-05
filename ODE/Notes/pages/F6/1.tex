@@ -1,0 +1,287 @@
+\section{Föreläsning}
+\noindent Idag kommer vi lösa ekvationer på formen $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$. Tidigare har vi kollat på det homogena fallet, det vill säga när $f(x) = 0$, nu ska vi hantera det inhomogena fallet.
+\par\bigskip
+
+\begin{theo}[Generell lösning]{thm:part}
+  Den generella lösningen till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$ kan skrivas på formen:
+
+  \begin{equation*}
+    \begin{gathered}
+      y(x) = y_h+y_p(x)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Där $y_h = C_1y_1(x)+C_2y_2(x)$ är den allmänna lösnigen till den associerade homogena ekvationen, och $y_p$ är \textit{någon} lösning till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$ (kallas för \textit{partikulär} lösning). Partikulärlösningen är alltid oberoende.
+\end{theo}
+\par\bigskip
+\noindent Vi ser då att lösnigen är summan av lösnigen till den associerade homogena ekvationen och \textit{en} lösning till ekvationen.
+\par\bigskip
+
+\begin{prf}[Generell lösning]{prf:gensol}
+  Låt $y$ vara en lösning till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$. Vi vill visa att $y$ går att skriva på formen:
+
+  \begin{equation*}
+    \begin{gathered}
+      y = C_1y_1+C_2y_2 +y_p
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Vi har $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$, men vi har också antagit att $y_p^{\prime\prime}+p(x)y_p^{\prime}+q(x)y_p = f(xx)$. Om vi subtraherar båda från varandra får vi:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      (y-y_p)^{\prime\prime}+p(x)(y-y_p)^{\prime}+q(x)(y-y_p)=0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Denna ekvation är homogen! Det ger oss:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      y-y_p = C_1y_1+C_2y_2\\
+      \Lrarr y=C_1y_1+C_2y_2+y_p
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Hur ska vi hitta $y_p$? Detta är föreläsningens premiss. Partikulärlösningen är \textit{inte} unik, även om vi hänvisar till den som "partikulärlösning\textit{en}". Oftast får man den på en specifik form, men den är givetvis inte entydig.
+\par\bigskip
+\noindent Kommentar: Om vi har 2 olika partikulärlösningar $y_{p_1}, y_{p_2}$ så förhåller de sig till varandra:\par\noindent $y_{p_2} = C_1y_1+C_2y_2+y_{p_1}$, men vi skulle kunna vända på det och skriva $y_{p_1}=D_1y_1+D_2y_2+y_{p_2}$
+\par\bigskip
+\noindent Vi kommer gå igenom 2 olika metoder för att hita partikulärlösningen:
+
+\begin{itemize}
+  \item Metoden med obestämda koefficienter (ansatsmetoden) (mer gissning)
+  \item Variation av parameter-metoden (mer allmän, mer räkna)
+\end{itemize}
+\par\bigskip
+
+\subsection{Metoden med obestämda koefficienter}\hfill\\
+
+\noindent Idén går ut på att gissa en lösning och verifiera den.
+\par\bigskip
+\noindent Exempel: Hitta en partikulärlösning till:
+\par\bigskip
+
+\begin{itemize}
+  \item $y^{\prime\prime}+3y^{\prime}+4y=3x+2$\\
+  \item $y^{\prime\prime}-y = 2e^{3x}$\\
+  \item $3y^{\prime\prime}+y^{\prime}-2y=2\cos(x)$\\
+\end{itemize}
+\par\bigskip
+\noindent Anmärkning: De har alla konstanta koefficienter.
+\par\bigskip
+\noindent Vi börjar med att kolla på första. Vi söker ett $y$ så att vi får $3x+2$ på HL. Det låter rimligt att det vi söker är ett polynom, så vi tar ett allmänt polynom och stoppar in och ser vad som händer.
+\par\bigskip
+\noindent Graden av polynomet på HL är av grad 1, så rimligtvis borde $y$ vara ett förstagradspolynom. Det generella förstagradspolynomet är $y = Ax+B$. Vi stoppar in och ser vad som händer:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y_p^{\prime}=A\\
+      y_p^{\prime\prime}=0
+    \end{rcases*}\\
+    \Lrarr 0+3A+4(Ax+B)=3x+2\\
+    4Ax+(3A+4B) = 3x+2\\
+    \text{Här kan man jämföra vad som står framför $x$ och vilka som är konstanter. Vi får:}\\
+    \begin{rcases*}
+      4A = 3\\
+      3A+4B = 2
+    \end{rcases*}= A=\dfrac{3}{4}\text{ , } B=\dfrac{-1}{16}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En partikulärlösning är $y_p = \dfrac{3}{4}x-\dfrac{1}{16}$
+\par\bigskip
+\noindent Nästa kommer vara att inse att vi har en exponentialfunktion. Vi gissar:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y_P = Ae^{3x}\\
+    \begin{rcases*}
+      y_p^{\prime} = 3Ae^{ex}\\
+      y_p^{\prime\prime}=9Ae^{3x}
+    \end{rcases*}\\
+    \Lrarr 9Ae^{ex}-Ae^{3x}=2e^{3x} = 8Ae^{3x}=2e^{3x}\\
+    \Lrarr A = \dfrac{1}{4} \Rightarrow y_p = \dfrac{1}{4}e^{3x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Ibland får man en gissning som ger 0 på VL, då har man gissat fel. Vissa folk på tentor har gissat fel och börjar lösa för $x$ men det är inte riktigt det vi vill, vi vill hitta för alla $x$.
+\par\bigskip
+\noindent Vi kör sista (men inte minsta!). Vi ska testa vad som händer om man gissar fel. Vi gissar $y_p = A\cos(x)$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y_p^{\prime} = -A\sin(x)\\
+      y_p^{\prime\prime}=-A\cos(x)
+    \end{rcases*}\\
+    \text{Första anmärkningen på att något har gått snett är att vi har fått $\sin(x)$, vi forts.}\\
+    -3A\cos(x)-A\sin(x)-2A\cos(x)=2\cos(x)\\
+    -5A\cos(x)-A\sin(x)=2\cos(x)\\
+    \text{För att detta skall gälla bör vi ha:}\\
+    -5A = 2 \Rightarrow A=\dfrac{-2}{5}\text{ men vi har ingen sinus term i HL!}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad vi skulle kunna göra är att vi gör en ny gissning, eftersom vi vet att vid derivering får vi motsatt funktion kan vi ansätta $y_p = A\cos(x)+B\sin(x)$. Vi får:
+\par\bigskip
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y_p^{\prime} = -A\sin(x)+B\cos(x)\\
+      y_p^{\prime\prime}=-A\cos(x)-B\sin(x)
+    \end{rcases*}\\
+    3(-A\cos(x)-B\sin(x))+(-A\sin(x)+B\cos(x))-2(A\cos(x)+B\sin(x))=2\cos(x)\\
+    (-5A+B)\cos(x)+(-A-5B)\sin(x) = 2\cos(x)\\
+    \begin{rcases*}
+      -5A+B=2\\
+      -A-5B=0
+    \end{rcases*}=
+    \begin{rcases*}
+      A=\dfrac{-5}{13}\\\\
+      B=\dfrac{1}{13}
+    \end{rcases*}\\\\
+    y_p = \dfrac{-5}{13}\cos(x)+\dfrac{1}{13}\sin(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Denna metod fungerade bra i dessa exempel. Vi ska kika på ett exempel där den första gissningen inte riktigt skulle funka och tänka på "vad kan vi göra då?".
+\par\bigskip
+\noindent Exempel: Hitta en partikulärlösning till $y^{\prime\prime}-5y^{\prime}+4y=8e^x$ (ganska lik ett tidigare exempel). Rimlig gissning är $y_p = Ae^x$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    Ae^x-5Ae^x+4Ae^x=8e^x\\
+    0Ae^x=8e^x \Rightarrow\text{Bus! Kan ej välja $A$ så att vi får en lösning}.
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Varför hände detta och varför funkar det inte? Jo, för att om vi kollar på den associerade homogena ekvationen $y^{\prime\prime}-5y^{\prime}+4y=0$ så har den den allmänna lösningen $y_h=C_1e^x+C_2e^{4x}$. Så $y_p =Ae^x$ löser den homogena ekvationen, löser den den homogena kan den inten rimligtvis lösa den inhomogena.
+\par\bigskip
+\noindent En smidig lösning på detta är att man tar det man gissade på, och multiplicerar med $x$. Detta funkar i allmänhet, får man noll så multiplicera med $x$.$y_p = Axe^x$. Vi kollar:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y_p^{\prime} = Ae^x+Axe^x\\
+      y_p^{\prime\prime}=Ae^x+Ae^x+Axe^x = 2Ae^x+Axe^x
+    \end{rcases*}\\
+    \Lrarr 2Ae^x+Axe^x-5(Ae^x+Axe^x)+4Axe^x=8e^x\\
+    -3Ae^x+0Axe^x=8e^x\\
+    A=\dfrac{-8}{3}\Rightarrow y_p=\dfrac{-8}{3}xe^x
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{center}
+  \begin{tabular}{|c|c|}
+    \hline
+    Om $f(x)$ är&Gissa $y_p$\\
+    \hline
+    Polynom&$x^s$Polynom (där $s$ oftast är noll men om vi får 0 öka)\\
+    \hline
+    $a\cos(kx)+b\sin(kx)$&$x^s(A\cos(kx)+B\sin(kx))$\\
+    \hline
+    $e^{rx}(a\cos(kx)+b\sin(kx))$&$x^se^{rx}(A\cos(kx)+B\sin(kx))$\\
+    \hline
+    $P_ne^{rx}$&$x^s(P_n)e^{rx}$\\
+    \hline
+    $P_n(a\cos(kx)+b\sin(kx))$&$x^s(P_n)(A\cos(kx)+B\sin(kx))$
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Vad händer om $f(x)$ inte är på en form liknande ovan? Då kan vi troligen inte gissa lösningen. Men, om den är en summa av saker i tabellen, då kan vi använda att den är linjär och därmed dela upp i fall.
+\par\bigskip
+
+\subsection{Variation av parameter-metoden}\hfill\\
+\par\bigskip
+
+\noindent Mer allmän, men kräver mer beräkning. Risken är därmed större att man räknar fel.
+\par\bigskip
+\noindent Den ger oss en lösning till $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$ om vi har en fundamental lösningsmängd $\{y_1, y_2\}$ till den associerade homogena ekvationen.
+\par\bigskip
+\noindent En partikulärlösning ges då på formen $y_p = u_1(x)y_1(x)+u_2(x)y_2(x)$. Hade $u_1, u_2$ varit konstanter hade vi fått en homogen ekvation.
+\par\bigskip
+\noindent Här är $u_1^{\prime} = \dfrac{W_1}{W(y_1, y_2)}$ och $u_2^{\prime} = \dfrac{W_2}{W(y_1, y_2)}$ där $W$ är Wronskianen som inte är något annat än en determinant av en 2x2 matris:
+
+
+\begin{equation*}
+  \begin{gathered}
+    W = det\left(\begin{pmatrix}y_1&y_2\\y_1^{\prime}&y_2^{\prime}\end{pmatrix}\right) = y_1y_2^{\prime}-y_1^{\prime}y_2\\
+    W_1 = det\left(\begin{pmatrix}0&y_2\\f(x)&y_2^{\prime}
+    \end{pmatrix}\right) = -f(x)y_2\\
+        W_2 = det\left(\begin{pmatrix}y_1&0\\y_1^{\prime}&f(x)\end{pmatrix}\right) = f(x)y_1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exempel: Lös $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^x}$
+\par\bigskip
+\noindent Om vi vill använda denna metod, så behöver vi den homogena ekvationen, så steg 1, lös homogen:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+3y^{\prime}+2y=0\\
+    \text{Karaktäristiska polynomet } r^2+3r+2=0\\
+    \begin{rcases*}
+      r_1 = -1\\
+      r_2 = -2
+    \end{rcases*}\\
+    \text{Lösningen är } y_h = C_1e^{-x}+C_2e^{-2x}\\
+    \text{Där } y_1 = e^{-x}, y_2 = e^{-2x}\\
+    \text{Vi söker } y_p = u_1(x)y_1(x)+u_2(x)y_2(x)\\
+    W(y_1,y_2) = det\left(\begin{pmatrix}e^{-x}&e^{-2x}\\-e^{-x}&-2e^{-2x}\end{pmatrix}\right) = -2e^{-3x}+e^{-3x} = -e^{-3x}\\
+    W_1 = \dfrac{-1}{1+e^x}e^{-2x}\\
+    W_2 = \dfrac{1}{1+e^x}e^{-x}\\\\
+    u_1^{\prime} = \dfrac{W_1}{W} = \dfrac{-e^{-2x}}{1+e^x}\cdot\dfrac{1}{-e^{-3x}} = \dfrac{e^x}{1+e^x}\\
+    u_2^{\prime} = \dfrac{e^{-x}}{1+e^x}\cdot\dfrac{1}{-e^{-3x}}=\dfrac{-e^{2x}}{1+e^x}\\\\
+    u_1 = \int\dfrac{e^x}{1+e^x}dx = \left[u = e^x, du = e^xdx\right] = \int\dfrac{1}{1+u}du\\
+    = \ln|1+u| \text{ (vi struntar i +$C$ ty partikulärlösning är \textit{en})} = \ln\left|1+e^x\right|\\\\
+    u_2 = \int \dfrac{e^2x}{1+e^x} = -\int\dfrac{e^x(1+e^x)-e^x}{1+e^x}dx = -\int e^xdx+\int\dfrac{e^x}{1+e^x}dx = -e^x+\ln\left|1+e^x\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi får $y_p = \ln\left|1+e^x\right|\cdot e^{-x} + (-e^x+\ln\left|1+e^x\right|\cdot e^{-2x}) = \ln\left|1+e^x\right|(e^{-x}+e^{-2x})-e^{-x}$
+\par\bigskip
+\noindent Allmänna lösningen ges av:
+
+\begin{equation*}
+  \begin{gathered}
+    y = y_p+y_h = C_1e^{-x}+C_2e^{-2x}+\ln\left|1+e^x\right|(e^{-x}+e^{-2x})-e^{-x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Varför funkar det här? Om vi stoppar in så löser det, men \textit{varför?} Sätter vi in $y_p(x)=u_1(x)y_1(x)+u_2(x)y_2(x)$ i ekvationen och förenklar, får vi:
+
+\begin{equation*}
+  \begin{gathered}
+    (y_1u_1^{\prime}+y_2u_2^{\prime})^{\prime} + p(x)(y_1u_1^{\prime}+y_2u_2^{\prime})+y_1^{\prime}u_1^{\prime}+y_2^{\prime}u_2^{\prime} = f(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera att vi har $(y_1u_1^{\prime}+y_2u_2^{\prime})^{\prime}$ 2 gånger. Vi kan då kräva
+\par\bigskip
+$
+\begin{rcases*}
+  (y_1u_1^{\prime}+y_2u_2^{\prime})^{\prime} = 0\\
+  y_1^{\prime}u_1^{\prime}+y_2^{\prime}u_2^{\prime} = t(x)
+\end{rcases*}$
+\par\bigskip
+\noindent Detta är en linjärt system! Vi har slutna formler. Vi kan alltså kolla om systemet är lösbart genom Cramers regel. 
+
+
+
+
+
+
