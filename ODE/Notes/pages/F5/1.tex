@@ -35,14 +35,15 @@
 
 \begin{equation*}
   \begin{gathered}
-    y_{2}^{\prime}=u^{\prime}(x)\cdot y_1(x)+u(x)y_{1}^{\prime}\\
-    y_{2}^{\prime\prime}= u^{\prime\prime}\cdot y_1(x)+2u^{\prime}(x)y_{1}^{\prime}(x)+u(x)y_{1}^{\prime\prime}\\
-    (u^{\prime\prime}\cdot y_1(x)+2u^{\prime}(x)y_{1}^{\prime}(x)+u(x)y_{1}^{\prime\prime})+p(x)(u^{\prime}(x)\cdot y_1(x)+u(x)y_{1}^{\prime}) +q(x)u(x)y_1(x)\\
-    u(x)(y_{1}^{\prime\prime}+p(x)y_{1}^{\prime}+q(x)y_1(x))+u^{\prime\prime}y_1(x)+u^{\prime}(x)(2y_{1}^{\prime}+p(x)y_1(x))\\
-    \text{Det som står framför $u(x)$ är lika med noll ty det är precis det vi börjar med:}\\
+    y_{2}^{\prime}=u^{\prime}\cdot y_1+uy_{1}^{\prime}\\
+    y_{2}^{\prime\prime}= u^{\prime\prime}\cdot y_1+2u^{\prime}y_{1}^{\prime}+uy_{1}^{\prime\prime}\\
+    \text{Insättning av $y_2, y_2^{\prime}, y_2^{\prime\prime}$ i ekvationen ger: }\\
+    (u^{\prime\prime}\cdot y_1+2u^{\prime}y_{1}^{\prime}+uy_{1}^{\prime\prime})+p(u^{\prime}\cdot y_1+uy_{1}^{\prime}) +quy_1\\
+    u\underbrace{(y_{1}^{\prime\prime}+py_{1}^{\prime}+qy_1)}_{\text{Ekvationen! = 0}}+u^{\prime\prime}y_1+u^{\prime}(2y_{1}^{\prime}+py_1)\\
+    \text{Det som står framför $u$ är lika med noll ty det är precis det vi börjar med:}\\
     u^{\prime\prime}y_1+u^{\prime}(2y_{1}^{\prime}+py_1)=0\\
     \text{Låt } w=u^{\prime} \text{ :}\\
-    y_1w^{\prime}+(2y_{1}^{\prime}+py_1)w=0 \text{ Detta är en linjär första ordningens ODE}
+    y_1w^{\prime}+w(2y_{1}^{\prime}+py_1)=0 \text{ Detta är en linjär första ordningens ODE}
   \end{gathered}
 \end{equation*}
 \par\bigskip
