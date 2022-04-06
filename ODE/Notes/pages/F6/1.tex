@@ -26,7 +26,7 @@
     \end{gathered}
   \end{equation*}
   \par\bigskip
-  \noindent Vi har $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$, men vi har också antagit att $y_p^{\prime\prime}+p(x)y_p^{\prime}+q(x)y_p = f(xx)$. Om vi subtraherar båda från varandra får vi:
+  \noindent Vi har $y^{\prime\prime}+p(x)y^{\prime}+q(x)y=f(x)$, men vi har också antagit att $y_p^{\prime\prime}+p(x)y_p^{\prime}+q(x)y_p = f(x)$. Om vi subtraherar båda från varandra får vi:
 
 
   \begin{equation*}
@@ -101,12 +101,12 @@
 
 \begin{equation*}
   \begin{gathered}
-    y_P = Ae^{3x}\\
+    y_p = Ae^{3x}\\
     \begin{rcases*}
       y_p^{\prime} = 3Ae^{ex}\\
       y_p^{\prime\prime}=9Ae^{3x}
     \end{rcases*}\\
-    \Lrarr 9Ae^{ex}-Ae^{3x}=2e^{3x} = 8Ae^{3x}=2e^{3x}\\
+    \Lrarr 9Ae^{ex}-Ae^{3x}=2e^{3x} = 8Ae^{3x}\\
     \Lrarr A = \dfrac{1}{4} \Rightarrow y_p = \dfrac{1}{4}e^{3x}
   \end{gathered}
 \end{equation*}
@@ -184,12 +184,18 @@
 \end{equation*}
 \par\bigskip
 
+\noindent När vi säger "multipliera med $x$" kommer det betecknas $x^s$ senare, detta för att ibland så kan det hända att man måste multiplicera med $x$ flera gånger så man låter helt enkelt $s$ beteckna hur många gånger man behöver multiplicera gissningen med $x$ för att inte få en linjärt beroende lösning (0).
+\par\bigskip
+\noindent Nedan följer en (ej fullständig) tabell kring vilka de generella formerna på visa typer av uttryck ser ut:
+\par\bigskip
+\noindent
+
 \begin{center}
   \begin{tabular}{|c|c|}
     \hline
-    Om $f(x)$ är&Gissa $y_p$\\
+    \textbf{Om $f(x)$ är}&\textbf{Gissa $y_p$}\\
     \hline
-    Polynom&$x^s$Polynom (där $s$ oftast är noll men om vi får 0 öka)\\
+    $P_n$ (polynom av grad $n$)&$x^s$Polynom (där $s$ oftast är noll men om vi får 0, öka)\\
     \hline
     $a\cos(kx)+b\sin(kx)$&$x^s(A\cos(kx)+B\sin(kx))$\\
     \hline
@@ -197,7 +203,8 @@
     \hline
     $P_ne^{rx}$&$x^s(P_n)e^{rx}$\\
     \hline
-    $P_n(a\cos(kx)+b\sin(kx))$&$x^s(P_n)(A\cos(kx)+B\sin(kx))$
+    $P_n(a\cos(kx)+b\sin(kx))$&$x^s(P_n)(A\cos(kx)+B\sin(kx))$\\
+    \hline
   \end{tabular}
 \end{center}
 \par\bigskip
