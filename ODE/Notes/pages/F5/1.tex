@@ -50,13 +50,13 @@
 
 \noindent Exempel: Givet att $x^4$ är en lösning till $x^2y^{\prime\prime}-7xy^{\prime}+16y=0$, hitta en annan lösning. Det vi kommer se är att metoden vi precis gick igenom funkar ävenom vi har något framför $y^{\prime\prime}$
 \par\bigskip
-\noindent Ansätt $y_2(x)=u(x)y_1(x)$ där $y_1(x)=x^4$:
+\noindent Ansätt $y_2=uy_1$ där $y_1=x^4$:
 
 \begin{equation*}
   \begin{gathered}
-    x^2(u^{\prime\prime}y_1+2u^{\prime}y_{1}^{\prime}+uy_{1}^{\prime\prime})+p(x)(u^{\prime}y_1+uy_{1}^{\prime})+q(x)uy_1=0\\
-    u(x^2y_{1}^{\prime\prime}+p(x)y_{1}^{\prime}+q(x)y_{1})+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+p(x)y_1)=0\\
-    0+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+p(x)y_1)=0\\
+    x^2(u^{\prime\prime}y_1+2u^{\prime}y_{1}^{\prime}+uy_{1}^{\prime\prime})+p(u^{\prime}y_1+uy_{1}^{\prime})+quy_1=0\\
+    u(x^2y_{1}^{\prime\prime}+py_{1}^{\prime}+qy_{1})+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+py_1)=0\\
+    0+x^2u^{\prime\prime}y_1+u^{\prime}(2x^2y_{1}^{\prime}+py_1)=0\\
     \text{Låt } w = u^{\prime} \text{ och sätt in } y_1=x^4:\\
     x^2\cdot x^4\cdot w^{\prime}+w(2x^2\cdot4x^3-7x\cdot x^4)=0 \text{ OBS: $q$ finns inte med}\\
     x^6+w^{\prime}+w(8x^5-7x^5)=0\\
