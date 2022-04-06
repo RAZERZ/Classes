@@ -1,0 +1,145 @@
+\section{Substitution}
+
+\begin{theo}[Substitution]{thm:sub}
+  Syftet är att byta ut en delformel i en formel, med en annan formel. Vi börjar med att byta ut satssymboler dock.
+  \par\bigskip
+  \noindent Låt $\varphi$ vara en formel, $p$ en satssymbol, och $\psi$ en formel. Notation: $\varphi\left[\psi/p\right]$. Utläses "$\varphi$ med $\psi$ för $p$", eler alt "i formeln $\varphi$, byt ut $\psi$ mot $p$". Definieras med induktion över hur formeln $\varphi$ är uppbyggd ty vi vet att $\varphi$ är konstruerad mha induktion.
+\end{theo}
+\par\bigskip
+\noindent För att definiera med induktion:
+
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item $\varphi$ atom: $\varphi = q$:
+        \begin{itemize}
+          \item $\varphi[\psi/p]=q[\psi/p]$:
+            \begin{itemize}
+              \item $\psi$ om $q=p$
+              \item Annars $q$
+            \end{itemize}
+        \end{itemize}
+      \item $\varphi$ atom: $\varphi = \perp$:
+        \begin{itemize}
+          \item $\varphi[\psi/p] = \perp[\psi/p]=\perp$
+        \end{itemize}
+    \end{itemize}
+  \item Induktion $\neg$:
+    \begin{itemize}
+      \item $\varphi$ är ($\neg\varphi_1$):
+        \begin{itemize}
+          \item $\varphi[\psi/p] = (\neg\varphi_1)[\psi/p]=\neg(\varphi_1[\psi/p])$
+        \end{itemize}
+    \end{itemize}
+  \item Induktion $\Box$:
+    \begin{itemize}
+      \item $\varphi$ är ($\varphi_1\Box\varphi_2$), $\varphi[\psi/p]=(\varphi_1\Box\varphi_2)[\psi/p]=(\varphi_1[\psi/p]\Box\varphi_2[\psi/p])$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+
+\subsection{Exempel}\hfill\\
+
+\noindent $(p_q\rightarrow p_2)[p_7\wedge p_8/p_2]=(p_1\rightarrow(p_7\wedge p_8))$
+\par\bigskip
+\noindent Här behöver vi 2 satser:
+\par\bigskip
+
+\begin{theo}
+  AAnta $\varphi_1$ eq $\varphi_2$. Då gäller $\varphi_1[\psi/p]$ eq $\varphi_2[\psi/p]$
+\end{theo}
+\par\bigskip
+\noindent Exempel på sats 8.2, tag $\varphi_1=p_1\rightarrow p_2$ och $\varphi_2 = \neg p_1\vee p_2$. Vi vet att $p_1\rightarrow p_2$ eq $\neg p_1\vee p_2$ från tidigare. Sats 8.2 ger $(p_1\rightarrow p_2)[p_7\wedge p_8/p_2]$ eq $(\neg p_1 \vee p_2)[p_7\wedge p_8/p_2]$, det vill säga\par\noindent $p_1\rightarrow(p_7\wedge p_8)$ eq $\neg p_1\vee(p_7\wedge p_8)$
+\par\bigskip
+\begin{theo}
+  Antag $\psi_1$ eq $\psi_2$ och $\varphi$ en formel, $p$ en satssymbol. Då gäller: $\varphi[\psi_1/p]$ eller om vi gör $\varphi[\psi_2/p]$ så är de eq. Det vill säga $\varphi[\psi_1/p]$ eq $\varphi[\psi_2/p]$
+\end{theo}
+\par\bigskip
+\noindent Exempel på sats 8.3, visa att $\neg(A\rightarrow B)$ eq $\neg(\neg A\vee B)$. Låt $\psi_1=A\rightarrow B$ och $\psi_2 = \neg A\vee B$. Här har vi $\psi_1$ eq $\psi_2$.\par\noindent Låt $\varphi = \neg p$, då ger sats 8.3 att $\varphi[\psi_1/p]$ eq $\varphi[\psi_2/p]$, det vill säga $(\neg p)[\psi_1/p]$ eq $(\neg p)[\psi_2/p]$. Nu byter vi ut $p$ mot $\psi_1$, dvs $\neg\psi_1$ eq $\neg\psi_2$, dvs $\neg(A\rightarrow B)$ eq $\neg(\neg A\vee B)$ 
+\pagebreak
+\subsection{Normalformer}\hfill\\
+
+\begin{theo}[DNF]{thm:DNF}
+  En formel är på \textit{disjunktiv normalform (DNF)} om den är på formen:
+
+  \begin{equation*}
+    \begin{gathered}
+      \varphi_1\vee\varphi_2\vee\cdots\vee\varphi_n
+    \end{gathered}
+  \end{equation*}
+
+  \noindent Där varje $\varphi_i$ är en konjunktion av atomer och/eller negerade atomer.
+\end{theo}
+\par\bigskip
+
+\noindent Exempel, $(p_1\wedge p_2\wedge\neg p_3)\vee(p_8\wedge p_7)\vee(\neg p_8)$ är på DNF. Samma sak med $p_1\wedge p_2\wedge\neg p_3$ (här är $n=1$). Ett exempel på något som inte är på DNF är $\neg(p_1\wedge p_2)$ eftersom negationen sker inte framför en atom. Däremot är $\neg p_1\vee\neg p_2$ som är på DNF, och enligt de Morgans lag är de eq.
+\par\bigskip
+\noindent Exempel, skriv $p\leftrightarrow q$ på DNF. Då vill vi helt enkelt hitta en eq formel som vi kan substituera och som är på DNF.\par\noindent Vi får $p\leftrightarrow q$ eq $(p\rightarrow q)\wedge(q\rightarrow p)$ eq $(\neg p\vee q)\wedge(\neg q\vee p)$. Här kan vi använda distributiva lagar så vi får att det är eq $((\neg p\vee q)\wedge\neg q)\vee((\neg p\vee q)\wedge p)$. Men här har vi tyvärr "eller", vi vill ha och! Vi kör distributiva lagar så vi får\par\noindent eq $((\neg p\wedge\neg q)\vee(q\wedge\neg q))\vee((\neg p \wedge p)\vee(q\wedge p))$ eq $(\neg p \wedge\neg q)\vee(q\wedge p)$ är på DNF.
+\par\bigskip
+
+\begin{theo}[Varje formel kan skrivas på DNF]{thm:allDNF}
+  Låt $\varphi$ vara en formel. Då finns formel $\psi$ på DNF så att $\varphi$ eq $\psi$.
+\end{theo}
+\par\bigskip
+\noindent Detta visas med ett exempel som ger en algoritm.
+\par\bigskip
+\begin{prf}[Varje formel kan skrivas på DNF]{prf:allDNF}
+  $\varphi=((p\leftrightarrow q)\rightarrow r)\rightarrow q$. Skriv på DNF. Skriv sanningstabellen:
+  \par\bigskip
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      $p$&$q$&$r$&$(p\leftrightarrow q)$&$\rightarrow r$&$\rightarrow$&$q$\\
+      \hline
+      1&1&1&&&1&\\
+      \hline
+      1&1&0&&&1&\\
+      \hline
+      1&0&1&&&0&\\
+      \hline
+      1&0&0&&&0&\\
+      \hline
+      0&1&1&&&1&\\
+      \hline
+      0&1&0&&&1&\\
+      \hline
+      0&0&1&&&0&\\
+      \hline
+      0&0&0&&&1&\\
+      \hline
+
+    \end{tabular}
+  \end{center}
+  \par\bigskip
+  \noindent Markera raderna där huvudkonnektivet är 1. (Fyll i tabellen)
+  \par\bigskip
+  \noindent Vi ser av tabellen att $\varphi$ eq $(p\wedge q\wedge r)\vee(p\wedge q \wedge\neg r)\vee(\neg p\wedge q\wedge r)\vee(\neg p\wedge q\wedge\neg r)\vee(\neg p\wedge\neg q\wedge\neg r)$ där varje parantes motsvarar varje rad där huvudkonnektivet är 1 enligt tabellen.
+  \par\bigskip
+  \noindent Notering, $\perp$ är på DNF
+\end{prf}
+\par\bigskip
+\begin{theo}[KNF]{thm:KNF}
+  \textit{Konjunktiv normalform}. Då är det helt enkelt som DNF men med och istället:
+
+  \begin{equation*}
+    \begin{gathered}
+      \varphi_1\wedge\varphi_2\wedge\cdots\wedge\varphi_n
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Där $\varphi_i$ = disjunktion av atom/$\neg$atom
+\end{theo}
+\par\bigskip
+
+\begin{lem}[Följdsats av KNF]{lem:KNF}
+  Låt $\varphi$ vara en formel. Då finns $\psi$ på KNF så att $\varphi$ eq $\psi$
+\end{lem}
+\par\bigskip
+\noindent Kan vi använda en liknande algoritm som i beviset för DNF? Om vi vänder på algoritmen, det vill säga vi markerar raderna med 0 och för varje rad med noll tar vi tvärtom så där det är 1 skriver vi exempelvis $\neg p$. Detta funkar eftersom det vi har gjort är använt de Morgans lagar och vänt på lite saker.
+
+
+
+
+
+

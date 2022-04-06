@@ -25,3 +25,8 @@
 \contentsline {subsection}{\tocsubsection {}{7.6}{Exempel}}{13}{}%
 \contentsline {subsection}{\tocsubsection {}{7.7}{Algoritm för att avgöra $\Gamma \vDash \varphi $}}{13}{}%
 \contentsline {subsection}{\tocsubsection {}{7.8}{Exempel}}{13}{}%
+\contentsline {subsection}{\tocsubsection {}{7.9}{Exempel}}{14}{}%
+\contentsline {subsection}{\tocsubsection {}{7.10}{Kommentar}}{14}{}%
+\contentsline {section}{\tocsection {}{8}{Substitution}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Exempel}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Normalformer}}{16}{}%

@@ -12,7 +12,7 @@
 
 \subsection{Exempel}\hfill\\
 
-\noindent $p\rightarrow$ eq $\neg p\vee q$. Här får man rita upp sanningstabellen:
+\noindent $p\rightarrow q$ eq $\neg p\vee q$. Här får man rita upp sanningstabellen:
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|}
@@ -156,17 +156,36 @@ $\{p_1\rightarrow p_2, p_2\}\nvDash p_1$. Vi måste ge en motexempelstruktur $A$
     \hline
     0&1&1&1&1&1\\
     \hline
-    1&0&0&1&1&1\\
+    1&0&0&1&0&1\\
     \hline
-    1&0&1&1&0&0\\
+    1&0&1&1&1&0\\
+    \hline
+    1&1&0&1&1&1\\
     \hline
     1&1&1&0&1&1\\
     \hline
   \end{tabular}
 \end{center}
 \par\bigskip
-\noindent Rad 3 säger ju att VL = 1 men HL = 0, alltså finns modell för $\Gamma$ så att $(A\wedge C)\rightarrow B$ är falsk, alltså $\Gamma\nvDash(A\wedge C)\rightarrow B$
+\noindent Rad 6 säger ju att VL = 1 men HL = 0, alltså finns modell för $\Gamma$ så att $(A\wedge C)\rightarrow B$ är falsk, alltså $\Gamma\nvDash(A\wedge C)\rightarrow B$
+\par\bigskip
+\subsection{Exempel}\hfill\\
+\noindent Avgör om följande gäller: $\neg(A\rightarrow B)\vDash A\wedge\neg B$. OBS, ekvivalent omformulering: $\neg(A\rightarrow B)$ eq $\neg(\neg A\vee B)$
+\par\bigskip
+\noindent Vi kan använda de Morgans lagar och arbeta in icke-tecknet:
 
+\begin{equation*}
+  \begin{gathered}
+    \neg(\neg A\vee B) \text{ eq } (\neg\neg A\wedge\neg B)\text{ eq } A\wedge\neg B\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi skulle dock visa om den var logiskt konsekvent men vi visade att den var logiskt ekvivalent, då är den alltid sann! Dvs, om den är logiskt ekvivalent så är den automatiskt logiskt konsekvent.
+\par\bigskip
+\noindent Vi kan resonera på följande sätt: Anta att $S$ är en $\sigma$-struktur där $\neg(A\rightarrow B)$ är sann.\par\noindent Dvs, $S^*(\neg(A\rightarrow B)) = 1$. Då följer att $S^*(A\rightarrow B) = 0$. Stjärna av en pil är bara falsk om förledet är sant men efterledet är falskt, dvs $S^*(A) = 1$ och $S^*(B) = 0$. Nu vet vi vad atomerna måste ha för värde i $S$.\par\noindent Alltså $S^*(\neg(B))=1$ och sedan $S^*(A\wedge\neg B)=1$, då har vi visat att $\neg(A\rightarrow B)\vDash A\wedge\neg B$
+\par\bigskip
+\subsection{Kommentar}\hfill\\
+\noindent Det är inte alltid självklart att hela formeln kan substitueras om det är eq.
 
 
 
