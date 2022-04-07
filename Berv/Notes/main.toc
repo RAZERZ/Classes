@@ -28,3 +28,8 @@
 \contentsline {subsection}{\tocsubsection {}{5.2}{Newton-Raphson}}{18}{}%
 \contentsline {subsubsection}{\tocsubsubsection {}{5.2.1}{Stoppvillkor}}{18}{}%
 \contentsline {subsection}{\tocsubsection {}{5.3}{Gammal tentatal - 2012-04-11}}{19}{}%
+\contentsline {section}{\tocsection {}{6}{Forts. Icke-linjära ekvationer}}{21}{}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Konvergenshastighet}}{23}{}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{Konvergens i bisektionsmetoden}}{23}{}%
+\contentsline {subsection}{\tocsubsection {}{6.3}{Konvergens i Newton-Raphson}}{23}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{6.3.1}{Komplikationer med Newton-Raphson}}{24}{}%
