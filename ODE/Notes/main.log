@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.22)  6 APR 2022 17:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  7 APR 2022 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,18 +1275,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--215
 
  []
 
-[27] [28]) [29] (./main.aux (./includes/title.aux))
+[27] [28]) [29] (./pages/L2/1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+) [30] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5730C08B9A8C9CB990DED4EDA45DD2FE;7305.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 0C4A3317A22FBA197E92F6AF5D3437A2;7371
+(rerunfilecheck)             After:  D934BE5D0635D956C9D30FB9861CDCD3;7499.
  ) 
 Here is how much of TeX's memory you used:
- 24275 strings out of 478353
- 445197 string characters out of 5854635
+ 24282 strings out of 478353
+ 445292 string characters out of 5854635
  761769 words of memory out of 5000000
- 41682 multiletter control sequences out of 15000+600000
+ 41684 multiletter control sequences out of 15000+600000
  411735 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  109i,15n,105p,672b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1305,10 +1341,10 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on main.pdf (30 pages, 299562 bytes).
+Output written on main.pdf (31 pages, 300743 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 396 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 500000)
+ 476 PDF objects out of 1000 (max. 8388607)
+ 402 compressed objects within 5 object streams
+ 103 named destinations out of 1000 (max. 500000)
  319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
