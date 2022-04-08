@@ -36,3 +36,6 @@
 \contentsline {subsection}{\tocsubsection {}{8.1}{Metoden med obestämda koefficienter}}{25}{subsection.8.1}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{Variation av parameter-metoden}}{28}{subsection.8.2}%
 \contentsline {section}{\tocsection {}{9}{Uppgifter - }}{30}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Potensserielösningar}}{31}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Potensserier - Repetition}}{31}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Potensserie-metoden}}{34}{subsection.10.2}%

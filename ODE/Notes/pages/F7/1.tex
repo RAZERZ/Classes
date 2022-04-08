@@ -1,0 +1,366 @@
+\section{Potensserielösningar}
+\noindent På samama sätt som föregående kapitel kommer även detta gälla för linjära ODE:er. Denna metod fungerar för n:te ordningens linjära ODE:er men det blir snabbt mycket räkning så vi kommer begränsa oss till 2:a ordningen. 
+\par\bigskip
+\noindent Kommer i allmänhet inte ge oss lönsingar på sluten form utan vi får lösningar i termer av en potensserie, därför är det bra att bra grund i potensserier så vi kommer ägna lite tid åt det. 
+\par\bigskip
+\noindent De flesta ODE:er har inte lösning på sluten form utan måste beskrivas mha potensserier. Exempel på ekvationer:
+\par\bigskip
+\begin{itemize}
+  \item Bessel-ekvationerna $x^2y^{\prime\prime}+xy^{\prime}+(x^2-\alpha^2)y=0$
+  \item Legendreekvationen $(1-x^2)y^{\prime\prime}-2xy^{\prime}+\lambda(1+\lambda)y=0$
+\end{itemize}
+\par\bigskip
+\subsection{Potensserier - Repetition}\hfill\\
+
+\noindent För att göra allt på ett snyggt sätt kommer vi kräva lite fler verktyg än vi har tillgång till men det betyder inte att vi inte kan göra saker (- Albert Einsten eller nåt). Nog med banter!
+\par\bigskip
+\noindent En potensserie är en serie på följande form:
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}c_n(x-a)^n = c_0+c_1(x-a)+c_2(x-a)^2+\cdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta är en potensserie med \textit{center i $a$}. Om center är i $a=0$ får vi:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}c_nx^n = c_0 + c_1x+c_2x^2\cdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Oftast kommer vi arbeta med $a = 0$ (det blir lättast). Men! Med variabelsubstitution är det lätt att byta mellan fallen.
+\par\bigskip
+\noindent Den viktigaste egenskapen en potensserie har är om den konvergerar eller ej inom ett intervall $I$.
+\par\bigskip
+
+\begin{theo}[Potensserie]{thm:expser}
+\noindent Potensserien konvergerar om:
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}c_n(x-a)^n = \lim_{N\to\infty}\sum_{n=0}^{N}c_n(x-a)^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent existerar för alla $x\in I$. Då är summan:
+
+\begin{equation*}
+  \begin{gathered}
+    f(x) = \sum_{n=0}^{\infty}c_n(x-a)^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent definierad på $I$ och serien kallas för en \textit{potensserierepresentation} av $f(x)$
+\end{theo}
+\par\bigskip
+\noindent Exempel: Vi har:
+
+
+\begin{equation*}
+  \begin{gathered}
+    e^x = \sum_{n=0}^{\infty}\dfrac{x^n}{n!}\\
+    \cos(x) = \sum_{n=0}^{\infty}\dfrac{(-1)^nx^{2n}}{(2n)!}\\
+    \sin(x) = \sum_{n=0}^{\infty}\dfrac{(-1)^nx^{2n+1}}{(2n+1)!}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dessa konvergerar $\forall x$. En som är värd att nämna:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{1-x} = \sum_{n=0}^{\infty}x^n\\
+    \log(1+x)=\sum_{n=0}^{\infty}\dfrac{(-1)^{n+1}x^n}{n}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dessa konvergerar $\left|x\right|<1$ och divergerar då $\left|x\right|>1$.
+\par\bigskip
+\noindent Alla dessa går att beskriva i termer av taylorserier:
+\par\bigskip
+
+\begin{theo}[Taylorserie för funktion]{thm:taylor}
+  \noindent Taylorserien för en funktion $f$ centrerad i $x=a$ är:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{n=0}^{\infty}\dfrac{f^{(n)}a}{n!}\cdot(x-a)^n = f(a)+f^{\prime}(a)(x-a)+\dfrac{f^{\prime\prime}(a)}{2}(x-a)^2\cdots
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Om $a = 0$ är det MacLaurin serier
+  \par\bigskip
+  \noindent Om $x = a$ konvergerar serien alltid till $f(a)$.
+\end{theo}
+\par\bigskip
+\noindent Kommer serien konvergera för $x$ utanför de punkterna?
+\par\bigskip
+
+\begin{theo}[Konvergensradie]{thm:convrad}
+  \textit{Konvergensradien} $r$ av en potensserie är det värde $r\geq0$ så att:
+  \begin{itemize}
+    \item Serien absolutkonvergerar för $\left|x-a\right|< r$ (notera, strikt mindre)
+    \item Serien divergerar för $\left|x-a\right|>r$
+  \end{itemize}
+  \par\bigskip
+  \noindent Serien konvergerar i ett intervall med radie $r$ centrerat kring $a$. Utanför intervallet divergerar den. Notera att vi inte betraktar ändpunkterna i konvergensintervallet; ibland konvergerar den där och ibland inte. 
+\end{theo}
+\par\bigskip
+
+\begin{theo}[Konvergensradiens existens]{thm:konvradex}
+  \noindent Betrakta gränsvärdet:
+
+  \begin{equation*}
+    \begin{gathered}
+      r = \lim_{n\to\infty}\left|\dfrac{c_n}{c_{n+1}}\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Om gränsvärdet existerar (och är ändligt) så är $r$ konvergensradien för serien.\par
+  \noindent Om gränsvärdet $\infty$ så är konvergensradien $\infty$
+\end{theo}
+\par\bigskip
+\begin{prf}[Konvergensradie]{prf:convrad}
+  \noindent Använd kvottest på $\sum_{n=0}^{\infty}a_n$ där $a_n = c_n(x-a)^n$ där kvottestet för en serie $\sum a_n$ görs genom att beräkna:
+
+  \begin{equation*}
+    \begin{gathered}
+      L = \lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+\noindent Om $L< 1$ har vi absolutkonvergens, om $L>1$ divergerar serien, om $L=1$ eller om gränsvärdet inte existerar så får vi inte heller någon info.
+
+\end{prf}
+\par\bigskip
+\noindent Om Taylorserien för $f(x)$ konvergerar till $f(x)$ för alla $x\in I$ där $a\in I$. Då säger vi att $f$ är \textit{analytisk} på $I$ och $f$ är analytisk i $a$.
+\par\bigskip
+\noindent Kommentar: Begreppet analytisk (även kallat holomorf) kommer från komplex analys. Det är ett \textbf{väldigt} starkt begrepp. Vi kommer använda lite verktyg från komplex analys utan att bevisa dem. De flesta funktioner vi har stött på är analytiska.
+\par\bigskip
+\noindent Exempel på analytiska funktioner som är analytiska överallt: $\sin(x), \cos(x), e^x$. Exempel på analytiska funktioner som är analytisk nästan överallt är $\dfrac{1}{x}$ för alla $x\neq0$. Exempel på en icke-analytisk funktion är $\left|x\right|$ i $\C$
+\par\bigskip
+\noindent Om $f, g$ är analytiska så är $f+g$ och $f\cdot g$ analytisk och $\dfrac{f}{g}$ om $g\neq0$. Den kan dock vara analytisk även om $g=0$:
+\par\bigskip
+
+\begin{lem}[När $g=0$ ger analytisk funktion]{lem:go}
+  \noindent Om $f, g$ är analytiska funktioner i $x = a$ då är $\dfrac{f(x)}{g(x)}$ analytisk i $x=a$ omm $\lim_{x\to a}\dfrac{f(x)}{g(x)}$ existerar (är ändligt).
+\end{lem}
+\par\bigskip
+\noindent Exempelvis $\dfrac{\sin(x)}{x}$ är analytsik för alla $x$. Om $x\neq  0$ är det enkelt att se ty det är ett standardgränsvärde som är lika med 1.
+\par\bigskip
+\noindent Hur kan vi använda dessa potensserier för ODE:er? Vi måste derivera givetvis! Vi kan begga följande sats:
+\par\bigskip
+
+\begin{theo}
+  OOm serierepresentationen $f(x) = \sum_{n=0}^{\infty}c_n(x-a)^n$ konvergerar på ett öppet intervall $I$ (som innehåller $a$), då är $f$ glatt (oändligt differentierbar) och derivatan ges av att differentiera termvis, dvs:
+
+
+  \begin{equation*}
+    \begin{gathered}
+      f^{\prime}(x) = \sum_{n=0}^{\infty}nc_n(x-a)^{n-1}\\
+      f^{\prime\prime} = \sum_{n=0}^{\infty}n(n-1)(x-a)^{n-2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Derivatornas potensserie konvergerar på \textit{samma} intervall $I$. 
+\end{theo}
+\par\bigskip
+\noindent En annan sats som kanske känns lite löjlig men som behövs:
+\par\bigskip
+
+\begin{theo}[Identitetsprincipen]{thm:idprin}
+  \noindent Om:
+
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{n=0}^{\infty}a_nx^n = \sum_{n=0}^{\infty}b_nx^n \text{ för } x\in I
+    \end{gathered}
+  \end{equation*}
+  \noindent Då är $a_n = b_n$.\par
+  \noindent Om:
+
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{n=0}^{\infty}a_nx^n = 0
+    \end{gathered}
+  \end{equation*}
+  \noindent Så är $a_n = 0$ för alla $n$
+
+\end{theo}
+
+\subsection{Potensserie-metoden}\hfill\\
+\noindent Allt tidigare var bara setup, so let's kick it!
+\par\bigskip
+\noindent Idé: Ansätt $y(x) = \sum_{n=0}^{\infty}c_nx^n$ i ekvationen och försök bestämma $c_n$
+\par\bigskip
+\noindent Exempel:
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime} +2y = 0
+  \end{gathered}
+\end{equation*}
+\noindent Denna går att lösa på andra sätt men för sakens skull, låt oss visa hur vi gör med potensserier:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \text{Ansätt} y(x) = \sum_{n=0}^{\infty}c_nx^n \rightarrow y^{\prime}(x)=\sum_{n=0}^{\infty}nc_nx^{n-1}\\
+    \rightarrow \sum_{n=1}^{\infty}nc_nx^{n-1} + 2\sum_{n=0}^{\infty}c_nx^n = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu vill vi skriva om för att få båda serier med $x^n$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=1}^{\infty}nc_nx^{n-1}=1\cdot c_1\cdot x^0 + 2c_2x^1 + \cdots = \sum_{n=0}^{\infty}(n+1)c_{n+1}x^n\\
+    \rightarrow \sum_{n=0}^{\infty}(n+1)c_{n+1}x^n + 2\sum_{n=0}^{\infty}c_nx^n =0\\
+    \Lrarr\sum_{n=0}^{\infty}\left((n+1)c_{n+1}+2c_n\right)x^n=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi använda identitetsprincipen som säger att alla termer måste var lika med noll, altså:
+
+
+\begin{equation*}
+  \begin{gathered}
+    (n+1)c_{n+1}+2c_n=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Från det här får vi en \textit{rekursiv relation}:
+
+
+\begin{equation*}
+  \begin{gathered}
+    c_{n+1}=\dfrac{-2c_n}{n+1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om vi har något $c_0$ så kan vi få $c_n$ för alla $n\geq1$. Notera att $c_0$ är vår parameter, den kan exempelvis bestämmas av initialvillkoret. I vårat enkla exempel så kan vi få en explicit formel för att räkna $c_n$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    c_1 = \dfrac{-2c_0}{1}\\
+    c_2 = \dfrac{2^2c_0}{2!}\\
+    c_3 = \dfrac{-2^3c_0}{3!}\\
+    \rightarrow c_n=\dfrac{(-1)^n2^nc_0}{n!}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Så:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y(x) = \sum_{n=0}^{\infty}\dfrac{(-1)^n2^nc_0}{n!} = c_0\sum_{n=0}^{\infty}\dfrac{(-2x)^n}{n!} = c_0e^{-2x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då är frågan var denna serie konvergerar. I detta fall konvergerar den överallt ty vi hittade en taylorekvivalens men i andra fall får man kika närmare på konvergensradien. Alternativt skulle vi kunna räkna ut konvergensradien direkt från $c_{n+1} = \dfrac{-2c_n}{n+1}$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \lim_{n\to\infty}\left|\dfrac{c_n}{c_{n+1}}\right| = \lim_{n\to\infty}\left|\dfrac{c_n}{\dfrac{-2c_n}{n+1}}\right| = \lim_{n\to\infty}\dfrac{n+1}{2}\rightarrow\infty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Denna metod fungerar för linjära ekvationer men är relevant för grad $\geq2$
+\par\bigskip
+\noindent Vi fokuserar på grad 2 och homogena ekvationer (den funkar bra för inhomogena, men det blir lite mer räkningar), alltså:
+
+
+\begin{equation*}
+  \begin{gathered}
+    A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att detta skall funka kommer vi behöva anta att $A, B, C$ är analytiska runt en punkt vi vill lösa ekvationen. I många fall kommer de vara polynom vilket är analytiska funktioner. I många fall kommer vi dela bort $A$, så vi får:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+p(x)y^{\prime}+q(x)y =0\\
+    p(x) = \dfrac{A(x)}{B(x)}\\
+    q(x) = \dfrac{C(x)}{A(x)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta funkar när $A\neq0$ men det kan fungera ändå, så länge $p, q$ är analytiska.
+\par\bigskip
+
+\begin{theo}
+  Om $p(x)=\dfrac{B(x)}{A(x)}$ och $q(x)=\dfrac{C(x)}{A(x)}$ är analytiska i punkten $x=a$, då kallas punkten för en ordinär punkt. Annars kallas punkten för en \textit{singulär punkt} (eller buspunkt som kidsen säger).
+\end{theo}
+\par\bigskip
+\noindent De flesta fall vi kommer jobba med kommer handla om singulära punkter. 
+\par\bigskip
+\noindent Exempel: $xy^{\prime\prime}+y^{\prime}+xy = 0$, vi vill kolla var den är singulär resp. ordinär:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \rightarrow y^{\prime\prime}+\dfrac{1}{x}y^{\prime}+y=0\\
+    p(x) = \dfrac{1}{x}\text{, } q(x)= 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här är $x=0$ en singulär punkt ty $p(x)=\dfrac{1}{x}$ inte är analytisk. Alla andra punkter däremot är ordinära.
+\par\bigskip
+\noindent Exempel: $xy^{\prime\prime}+\sin(x)y^{\prime}+x^2y=0$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \rightarrow y^{\prime\prime}+\dfrac{\sin(x)}{x}y^{\prime}+xy=0\\
+    p(x) = \dfrac{\sin(x)}{x}\text{, } q(x) = x
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här är det uppenbart att $q(x)$ är analytisk, men $p(x)$ är inte lika uppenbar. Kikar vi närmare inser vi att man skulle kunna tro att $x=0$ är en singularitet men det är bara ett standardgränsvärde, alltså inga singularitetspunkter, alltså alla punkter är ordinära. 
+\par\bigskip
+\noindent Notera: Även om am vi har singulära punkter så finns det lösningar, lösningarna kommer i allmänhet inte vara analytiska.
+\pagebreak
+\begin{theo}
+  Om $a$ är en ordinär punkt till $A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)y=0$, då har ODE:n 2 linjärt oberoende lösningar på formen:
+
+  \begin{equation*}
+    \begin{gathered}
+      y(x) = \sum_{n=0}^{\infty}c_n(x-a)^n
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Konvergensradien är åtminstonde lika stor som avståndet till närmsta singulära punkt. Man måste dock även ta hänsyn till komplexa singulära punkter.
+\end{theo}
+\par\bigskip
+\noindent Exempel: Betrakta ekvationen $(x^2+9)y^{\prime\prime}+xy^{\prime}+x^2y=0$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \rightarrow y^{\prime\prime}+\dfrac{x}{x^2+9}+\dfrac{x^2}{x^2+9}y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Denna har inga reella singularitetspunkter, men den har 2 komplexa, närmare bestämt $x = \pm3i$. En serie lösning på formen:
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}c_nx^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kommer den ha konvergensradie $\geq$ 3. I en annan punkt exempelvis $\sum c_n(x-4)^n$ får vi $r\geq d(4,\pm3i)= \sqrt{3^2+4^2}=5$
+
+
+
+
