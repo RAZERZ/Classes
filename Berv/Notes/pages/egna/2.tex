@@ -1,0 +1,49 @@
+\section{Förtydligande/Från boken}
+
+\noindent Att hitta rötterna till en ekvation är inte alltid lätt, oftast har vi kikat på explicita funktioner där det är relativt lätt att göra, men det är inte så i verkligheten. 
+\par\bigskip
+\noindent Vanligtvis slänger man lite analysverktyg på den, kollar om det finns några busiga punkter som man kan analysera som ofta ger mycket information om funktionen, men vad gör man om det inte räcker till? Om det enda sättet att hitta rötterna är via kontinuerlig beräkning, så vill vi givetvis hitta den mest effektiva metoden för det! 
+\par\bigskip
+\noindent Det finns ett par sätt att angripa detta unika problem, de 2 metoder som kommer gås igenom kommer vara antingen genom att analysera \textit{typen} av funktionen och därmed anpassa beräkningsmetoden, eller så anpassar vi beräkningsmetoden. The choice is ours.
+\par\bigskip
+
+\subsection{Rötter av polynom}\hfill\\
+
+\noindent Vad vet vi om polynom?
+\begin{itemize}
+  \item Om polynomet är av grad $n$, så finns det $n$ antal tal där $f(x)=0$
+  \item De är kontinuerliga på hela sin domän
+  \item Rötter kan faktoriseras bort och ge ett enklare polynom 
+\end{itemize}
+\par\bigskip
+\noindent Vi ska bygga vidare lite på den första punkten.
+\par\bigskip
+\noindent Ett polynom $f(x) = a_1x^n+a_2x^{n-1}+\cdots+a_nx+a_{n+1}$ kan faktoriseras m.h.a dess rötter till följande $f(x) = a_1(x-r_1 )(x-r_2)\cdots(x-r_n)$ där $r_i$ är röttre. Lägg märke till att vi inte tar hänsyn till rötters multiplicitet eller eventuell komplex form, utan enbart deras existens. Från Algebra 1 vet vi att polynom med reella koefficienter har komplexa rötter, och om ett polynom har en komplex rot så existerar konjugatet även som rot. 
+\par\bigskip
+
+\subsubsection{Descartes tecken-regel}\hfill\\
+\noindent Om koefficienterna av ett polynom är reelt och antalet teckenväxlingar av koefficienterna är $n$ så gäller:
+\begin{itemize}
+  \item Antalet positiva reella rötter är antingen $n$ eller $n-2m$
+  \item Antalet negativa rötter ges av att invertera polynomet så att $x\to-x$ och sedan applicering av föregående punkt
+\end{itemize}
+\par\bigskip
+\noindent Lite flummigt, så vi kör ett exempel! Antag att vi har följande polynom:
+
+\begin{equation*}
+  \begin{gathered}
+    f(x) = x^4-5x^3+5x^2+5x-6=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att räkna antal teckenväxlingar börjar vi från vänster och räknar. Vi börjar med positivt tecken, sedan växlar det till negativt (1), sedan tillbaka till positivt (2), sedan i slutet finns en negativ term återigen (3). Totalt 3 teckenväxlingar! Alltså kommer vi ha högst 3 positiva reella rötter och minst 1. Röknar vi de negativa så substituerar vi $x$ med $-x$:
+
+\begin{equation*}
+  \begin{gathered}
+    (-x)^4-5(-x)^3+5(-x)^2+5(-x)-6 =0 = x^4+5x^3+5x^2-5x-6
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta polynom har en teckenväxling, alltså kommer det ursprungliga polynomets ha 1 negativ reel rot. Det visar sig att våra beräkningar stämmer, ty polynomets rötter är $\{1, 2, 3, -1\}$.
+\par\bigskip
+\noindent Men det är definivt inte alltid som vi får en så pass snäll funktion som ett polynom, och då har vi andra metoder för att hitta rötterna. 
