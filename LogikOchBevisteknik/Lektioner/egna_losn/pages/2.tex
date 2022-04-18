@@ -1,0 +1,17 @@
+\section{Lektion 2 - Semantik för satslogik}
+
+\subsection{}\hfill\\
+
+\noindent Vi påminner oss om definitionen av en satslogisk signatur:
+\par
+\noindent En satslogisk signatur är en mängd satssymboler. En formel definieras induktivt, det vill säga man börjar med en formel från mängden formler (notera, i första induktionssteget menar vi främst satssymboler, men eftersom $\perp$ tekniskt sätt inte är en satssymbol utan en formel och vi behöver den, så säger vi formel) och "tillsätter" konnektiv tills dess att vi har definierat alla kombinationer som går att uppnå.
+\par\bigskip
+\noindent Vid första blick verkar $a, c, d, e, f, h, j, k, m, n$ vara de rätta svaren, och det stämmer!... Om man förkastar paranteskonventionerna. Efter varje induktionssteg tillsätts en uppsättning paranteser för att förtydliga att det har bildats en ny formel. Låt oss därmed kika närmare på $d, e, h, m$ och hur vi kan filtrera bort dessa:
+\par\bigskip
+\noindent $d:$ När $\leftrightarrow$ sammanfogas med $(p_0\wedge p_3)$ och $p_4$ skall det enligt paranteskonventionerna sättas paranteser runt den nya formel. Hade det alltså stått $((p_0\wedge p_3)\leftrightarrow p_4)$ hade vår gissning varit korrekt. 
+\par\bigskip
+\noindent $e:$ här är det nästan rätt. När paranteserna bildas bör de placeras på \textit{båda} sidorna av formeln och inte bara högra. Hade den alltså sett ut som  $((p_0\wedge p_3)\leftrightarrow p_4)$ hade den varit godkänd.
+\par\bigskip
+\noindent $h:$ Här finns det inga paranteser överhuvudtaget. Vid varje induktionssteg skall det placeras ut, så när icke-formeln bildades bör det skapas en parantes, och när eller-formeln bildades. Slår vi ihop allt så kräver vi alltså att den hade istället sett ut på följande vis $((\neg p_2)\vee p_1)$ om den skall vara godkänd.
+\par\bigskip
+\noindent $m:$ Åh så nära! Det är lätt att missa både under induktionssteget att slänga på paranteser på icke-formler och lätt att missa om man undersöker de som vi gör. Hade det istället stått $(p_0\rightarrow(\neg p_2))$ så hade denna varit en formel. 

@@ -1,0 +1,155 @@
+\section{Föreläsning}
+
+\noindent Idag ska vi prata om linjära ODE:er av högre grad än 2 och försöka se hur vi kan tillämpa dessa.
+\par\bigskip
+\noindent Tidigare har vi snackat om lösningen till en ODE på en \textit{generell form}, dvs som beror på konstanter. Antalet konstanter som jag får från min generella form är kopplat direkt till ordningen av ODE:en
+\par\bigskip
+\noindent Exempel:
+
+
+\begin{equation*}
+  \begin{gathered}
+    a_1y^{(n)}(x)+a_2y^{(n-1)}\cdots \text{ är en ODE av $n$:te ordningen}\\
+    y(x) = f(x,\cdots, c_n)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att hitta dessa konstanter behöver vi initialvärdern. Dessa skall vara angivna eller går att hitta. Stor vikt vid att $n$:te ordningen ger $n$ konstanter. Hittar vi inte alla konstanter så har vi en generell lösning.
+\par\bigskip
+\noindent Exempel:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime}+ky = 0 \text{ är en 1:a ordningen, alltså 1 konstant}\\
+    \text{Generella lösningen ges av } y(x) = Ce^{-kx} \text{ (notera \textit{en} konstant)}\\
+    \text{Antag att vi vet $y(0)=y_1$:}\\
+    y_0 = y(0) = Ce^{-k\cdot0} = C = y_0\\
+    \Lrarr y(x) = y_0e^{-kx} \leftarrow\text{  partikulärlösning}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dessa typer av problem (där initialvärdern ges) kallas för \textit{Initialvärdesproblem} eller IVP.
+\par\bigskip
+\noindent Exempel:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+ay^{\prime}+by=0\\
+    \text{Karaktäristiska lösning ges av } r^2+ar+b=0 \Lrarr C_2e^{r_1x}+C_2e^{r_2x}\\
+    \text{Notera 2 konstanter ty vi har en 2:a ordningens ODE}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi ska kika på hur vi kan tillämpa ODE:er i verkligheten. Vi behöver i princip följa följande steg:
+
+\begin{itemize}
+  \item Skapa modell
+  \item Utför experiment
+  \item Genomför beräkningar
+\end{itemize}
+\par\bigskip
+\noindent ODE:er finns överallt i världen, exempelvis kan de beskriva hur snabbt något radioaktivt sönderfaller eller befolkningsmängd given en tid $t$. Låt oss kika på ett exempel på något som ligger närmare det vi studerar. Vi ska kika på den elastiska rörelsen av en fjäder.
+\par\bigskip
+\noindent Antag att vi har en fjäder som hänger i taket. På fjädern sitter en massa $m = kg$, och fjäderns konstant ges av $K = \dfrac{N}{m}$ (Hookes lag). Antag att vi även vet jämviktspunkten av fjädern \textit{innan} vi sätter fast massan på fjädern och att vi vet hur mycket fjädern dras ut när vi sätter fast massan och att avståndet ges av $A = m$.\par\noindent Om vi vill bygga en ODE av detta behöver vi tänka, vad är det vi vill hitta? Jo vi vill hur lång fjädern sträcker ut sig givet tiden $t$.
+\par\bigskip
+\noindent Vad vet vi?
+\begin{itemize}
+  \item $y(t) = $ fjäderns position
+  \item $y^{\prime}(t) = $ hastigheten av fjäderns rörelse
+  \item $y^{\prime\prime}$ = accelerationen av fjäderns rörelse
+\end{itemize}
+\par\bigskip
+\noindent I detta exempel antar vi även att fjäderkraften är den enda kraften i systemet (dvs strunta i $F_g$).
+\par\bigskip
+\noindent Kraften i systemet betecknar vi $F_s$ och enligt Hookes lag ges den av $F_s = -k\cdot y(t)$. Newtons lag säger även att $F=m\cdot a$, men accelerationen ges ju av $y^{\prime\prime}(t)$! Så vi får $F=m\cdot y^{\prime\prime}(t)$ Vi får följande:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      -ky = F\\
+      my^{\prime\prime} = F
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Flyttar vi runt saker får vi:
+
+
+\begin{equation*}
+  \begin{gathered}
+    -ky = my^{\prime\prime}\\
+    My^{\prime\prime}+ky=0\\
+    y^{\prime\prime}+\dfrac{k}{m}y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Men det här är en ODE av andra ordningen, alltså har vi kunnat ta en modell och skapa en ODE av den.
+\par\bigskip
+\noindent Om vi tar samma modell men om vi nu \textit{inte} antar att fjäderkraften är den andra utan att vi även har en dämpande kraft som efter en viss tid gör att fjäderns rörelse saktas ner. Vi kallar denna kraft $F_d(t)=-by^{\prime}(t)$ Sammalagt har vi:
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+    F_s = -ky\\
+    F_d = -by^{\prime}\\
+    \end{rcases*}\Lrarr F=my^{\prime\prime} = -ky-by^{\prime}\\
+    \Lrarr my^{\prime\prime}+by^{\prime}+ky=0\\
+    \Lrarr y^{\prime\prime}+\underbrace{\dfrac{b}{m}y^{\prime}}_{\text{dämpande term}}+\dfrac{k}{m}y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Återigen! Vi har hittat en ODE av en modell. Notera att HL är 0, alltså har vi homogena ODE:er.
+\par\bigskip
+\noindent Om vi bygger vidare, samma system men istället för att bara ha dämpande kraft som påverkar systemet så ska vi slänga in lite mer. Antag att vi har en extern kraft $F_e$ i systemet. Antag att $F_e$ är känd och beror bara på $t$ (dvs inga $y$). Notera att vi har slängt på mer och mer och  det är så man brukar göra, man gör en enkel modell men bygger vidare på den.
+\par\bigskip
+\noindent Säg att $F_e$ ges av $F_e = \sin(t)$:
+
+\begin{equation*}
+  \begin{gathered}
+    F = my^{\prime\prime} = F_s+F_d+F_e\\
+    \Lrarr -ky-by^{\prime}+\sin(t)\\
+    = y^{\prime\prime}+\dfrac{b}{m}y^{\prime}+\dfrac{k}{m}y=\dfrac{1}{m}\sin(t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta är en 2:a ordningen icke-homogen ODE. Låt oss öva med att antag att vi har siffror i våra 3 fall:
+
+\subsection{Fall 1}\hfill\\
+\noindent Antag att massan $m=0.05$, $k = 20$, $A=-0.1\rightarrow y(0)=-0.1$
+\par\bigskip
+\noindent Vi påminner oss om ODE:n:
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+\dfrac{k}{m}y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Stoppar vi in värderna får vi:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+\dfrac{20}{0.05}y=0 \Lrarr y^{\prime\prime}+400y=0\\
+    \text{Vi räknar det karaktäristiska polynomet: } r^2+400 = 0\\
+    r = \pm20i\\
+    y=e^0\left(C_1\cos(20t)+C_2\sin(20t)\right) = \left(C_1\cos(20t)+C_2\sin(20t)\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill hitta $C_1$ och $C_2$, men vi har bara ett initalvärde. Däremot kan vi också hitta $y^{\prime}(0)$ eftersom den representerar bara hastigheten vid tid 0, men hastigheten anges av $\dfrac{s}{t}$ och vid tid 0 så har vi inte rört oss någonstans, alltså har vi $y^{\prime} = \dfrac{0}{t}=0$. Vi stoppar in:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y(0) = -0.1\Rightarrow C_1+C_2\cdot0 \rightarrow C_1=-0.1\\
+    y^{\prime}=-20C_1\sin(20t)+20C_2\cos(20t)\\
+    y^{\prime}(0)=20C_2 = 0 \Rightarrow C_2 =0\\
+    y(t)=-0.1\cos(20t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här antog vi inte att vi hade en dämpande kraft. 
