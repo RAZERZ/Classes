@@ -1,0 +1,252 @@
+\section{Potensserielösningar - Forts.}
+
+\noindent Dagens föreläsning kommer handla om ett specialfall som kallas för \textit{Eulers ekvation} samt \textit{reguljära singulära punkter}. Oftast är det de singulära punkterna som är mest intressanta
+\par\bigskip
+
+\subsection{Cauchy-Eulers Ekvation}\hfill\\
+
+
+\begin{equation*}
+  \begin{gathered}
+    x^2y^{\prime\prime}+\alpha xy^{\prime}+\beta y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Punkten vi är intresserade av är $x=0$ ty det är en singulär punkt eftersom:
+
+
+\begin{equation*}
+  \begin{gathered}
+    p(x) = \dfrac{\alpha x}{x^2} = \dfrac{\alpha}{x}\\
+    q(x) = \dfrac{\beta}{x^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent är analytiska i alla punkter förutom $x=0$. Vi vill undersöka vad som händer när vi närmar oss $x=0$, så vi delar upp i 2 fall, då $x<0$ och $x>0$. Vi kollar på $x>0$ ty $x<0$ fås genom $t=-x$.
+\par\bigskip
+\noindent Det visar sig att denna ekvation påminner om konstanta koefficienter metoden. Vi undersöker vidare. Ansätt $y=x^r$:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime} = rx^{r-1}\\
+      y^{\prime\prime}=r(r-1)x^{r-2}
+    \end{rcases*}\Rightarrow x^2(r(r-1)x^{r-2})+x\alpha rx^{r-1}+\beta x^r = 0\\
+    \text{Multiplicera in $x^2$ och förenkla:}\\
+    \left((r(r-1)+\alpha r+\beta)\right)x^r = 0\\
+    \Lrarr r^2+(\alpha -1)r+\beta =0\\
+    r_{1,2} = -\dfrac{\alpha-1}{2}\pm\sqrt{\dfrac{(\alpha -1)^2}{4}-\beta}\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här får vi 3 fall:
+
+\begin{itemize}
+  \item $r_1\neq r_2$ reella
+  \item $r_1 = r_2$
+  \item $r_1=\bar{r_2}$ 
+\end{itemize}
+\par\bigskip
+\noindent Fall 1:
+\par
+\noindent Vi får direkt 2 linjärt oberoende lösningar $y_1 = x^{r_1}$ och $y_2 = x^{r_2}$ så den allmänna lösningen ges av $y=C_1x^{r_1}+C_2x^{r_2}$
+\par\bigskip
+\noindent Exempel: $x^2y^{\prime\prime}+\underbrace{4}_{\text{$\alpha$}}xy+\underbrace{2}_{\text{$\beta$}}y=0$.\par\noindent Den karaktäristiska ekvationen blir då $r^2+(4-1)r+2 =0 \Rightarrow r_1=-1, r_2 = -2$.\par\noindent Den generella lösningen blir då $y = C_1x^{-1}+C_2x^{-2} = \dfrac{C_1}{x}+\dfrac{C_2}{x^2}$
+\par\bigskip
+\noindent Fall 2:\par
+\noindent Vi får \textit{en} lösning, $y_1 = x^{r_1}$ och vi vill hitta en till, så vi kan använda reduktion av ordning ty vi har en lösning. Räkningarna är lite långa, så Dahne skriver upp resultaten:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y_2 = x^{r_1}\cdot\log(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent Logaritmen är bara definierad för $x>0$, men notera antagandet i början, dvs att $x>0$. Den allmänna lösningen blir:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y = C_1x^{r_1}+C_2x^{r_1}\log(x) = (C_1+C_2\log(x))x^{r_1}
+  \end{gathered}
+\end{equation*}\par
+\noindent Exempel: $x^2y^{\prime\prime}\underbrace{-3}_{\text{$\alpha$}}xy^{\prime}+\underbrace{4}_{\text{$\beta$}}y = 0$\par
+\noindent Karaktäristiska ekvationen blir $r^2+(-3-1)r+4=0$ där lösningen blir $r_1 = r_2 = 2$, vi får då $y=C_1x^2+C_2x^2\log(x)$.
+\par\bigskip
+\noindent Fall 3:\par
+\noindent Antag att  $r_1 = \lambda + i\mu$, $r_2 = \lambda-i\mu$. Vi får den generella lösningen $y = C_1x^{\lambda+i\mu}+C_2x^{\lambda-i\mu}$. Vi skriver på mer "reell" form:\par
+\noindent Vi kommer ihåg att $e^{a+ib} = e^a(\cos(b)+i\sin(b))$. Detta ger då:
+
+\begin{equation*}
+  \begin{gathered}
+    x^{\lambda+i\mu} = \left(e^{\log(x)}\right)^{\lambda+i\mu} = e^{\lambda\log(x)+i\mu\log(x)} = e^{\lambda\log(x)}(\cos(\pm\mu\log(x))+i\sin(\pm\mu\log(x)))\\
+    = x^{\lambda}(\cos(\mu\log(x))\pm i\sin(\mu\log(x)))
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kan då ta $y_1 = x^{\lambda}\cos(\mu\log(x))$ och $y_2 = x^{\lambda}\sin(\mu\log(x))$. Den allmänna lösningen ges av en linjärkomb av dessa:
+
+\begin{equation*}
+  \begin{gathered}
+    y = C_1x^{\lambda}\cos(\mu\log(x))+C_2x^{\lambda}\sin(\mu\log(x))
+  \end{gathered}
+\end{equation*}\par
+\noindent Exempel: $x^2y^{\prime\prime}+3xy^{\prime}+5y=0$\par
+\noindent Vi får en karaktäristisk ekvation vilket ger oss $r^2+(3-1)r+5=0$ vilket ger oss $r_1,r_2 = -1\pm2i$. Den allmänna lösningen ges då av:
+
+\begin{equation*}
+  \begin{gathered}
+    y = C_1x^{-1}\cos(2\log(x))+C_2x^{-1}\sin(2\log(x))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu har vi bara kikat på när $x>0$, men vi sa tidigare att vi kunde substituera $t = -x$ för att vänta på schteken som kidsen säger. Gör vi denna substitution ser vi att vi kan byta ut $x$ mot $\left|x\right|$ i lösningarna. 
+\par\bigskip
+
+\begin{theo}
+  För alla intervall som inte innehåller $x=0$, har Cauchy-Euler ekvationen 
+  \begin{equation*}
+    \begin{gathered}
+      x^2y^{\prime\prime}+\alpha xy^{\prime}+\beta y =0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent lösningar enligt följande:
+  \begin{equation*}
+    \begin{gathered}
+      \text{Låt $r_1$, $r_2$ vara rötter till } r^2+(\alpha-1)r+\beta=0
+    \end{gathered}
+  \end{equation*}\par
+  \begin{itemize}
+    \item Om $r_1\neq r_2\in\R$ har vi $y = C_1\left|x\right|^{r_1}+C_2\left|x\right|^{r_2}$
+    \item Om $r_1 = r_2$ har vi $y = C_1\left|x\right|^{r_1}+C_2\left|x\right|^{r_1}\log(\left|x\right|)$
+    \item Om $r_1,2 = \lambda+i\mu$ har vi $y = C_1\left|x\right|^{\lambda}\cos(\mu\log(\left|x\right|))+C_2\left|x\right|^{\lambda}\sin(\mu\log(\left|x\right|))$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent Notera att vi inte vad som händer då $x=0$, men om vi gör variabelbytet $t = x-a$ kan vi få lösningar till ekvatioen på formen:
+
+
+\begin{equation*}
+  \begin{gathered}
+    (x-a)^2y^{\prime\prime}+\alpha(x-a)y^{\prime}+\beta y =0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent genom att byta ut $x$ mot $x-a$ i lösningarna i Sats 11.1. Lösningen är då definierad på intervall som inte innehåller $a$.
+\par\bigskip
+\noindent Exempel: $(x+1)^2y^{\prime\prime}+3(x+1)y^{\prime}+\dfrac{3}{4}y=0$
+\par\bigskip
+\noindent Låt $t=x+1$ så får vi ekvationen $r^2+(3-1)r+\dfrac{3}{4}$ som har rötterna $r_1 = -\dfrac{1}{2}$, $r_2 = -\dfrac{3}{2}$. Detta är punkt 1 i Sats 11.1 och ger därmed den generella lösningen:
+
+\begin{equation*}
+  \begin{gathered}
+    y = C_1\left|x+1\right|^{-1/2}+C_2\left|x+1\right|^{-3/2}
+  \end{gathered}
+\end{equation*}
+
+\newpage
+
+\subsection{Reguljära singulära punkter}\hfill\\
+\par\bigskip
+
+\noindent Vi påminner om ursprungsekvationen $A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)=0$. En punkt $x=x_0$ är singulär om $p(x)=\dfrac{B(x)}{A(x)}$ eller $q(x)=\dfrac{C(x)}{A(x)}$ inte är analytisk.
+\par\bigskip
+\noindent En reguljär singulär punkt är en inte-så-hemsk singulär punkt, vi ska gå igenom i mer detalj. Från Lemma 10.1 (sida 34) sa vi att $p, q$ är analytiska i $x_0$ om:
+
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \lim_{x\to x_0} p(x)\\
+      \lim_{x\to x_0}q(x)
+    \end{rcases*}\text{är ändliga}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exempel:\par
+\noindent För att visa att $x=0$ är den \textit{enda} singulära punkten till
+
+
+\begin{equation*}
+  \begin{gathered}
+    x^2y^{\prime\prime}+xy^{\prime}+(x^2-\alpha^2)y=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Räcker det att notera att $p(x)=\dfrac{1}{x}$ och $q(x)=1-\dfrac{\alpha^2}{x^2}$ är ändliga precis då $x\neq0$
+\par\bigskip
+\noindent När $x=x_0$ är en singulär punkt har ekvationen i allmänhet inte en analytisk lösning, det vill säga en lösning som skrivs som en potensserie:
+
+\begin{equation*}
+  \begin{gathered}
+    y = \sum_{n=0}^{\infty}c_n(x-x_0)^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Däremot, om punkten inte är \textit{för} singulär, kan vi ändå hitta en lösning. Exempelvis Cauchy-Euler ekvationen. Då återkommer vi till det där med "för singulär", det betyder i princip att den inte ska vara mer singulär än Cauchy-Euler ekvationerna.
+\par\bigskip
+
+\begin{theo}[Reguljär punkt]{thm:reg}
+  Den singulära punkten $x = x_0$ är en \textit{reguljär} singulär punkt till $A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)=0$ om:
+
+  \begin{equation*}
+    \begin{gathered}
+      (x-x_0)p(x)=(x-x_0)\dfrac{B(x)}{A(x)}\text{ och}\\
+      (x-x_0)^2q(x)=(x-x_0)^2\dfrac{C(x)}{A(x)}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent är analytiska. Annars kallas den för irreguljär.
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\noindent För Cauchy-Euler ekvationen $x^2y^{\prime\prime}+\alpha xy^{\prime}+\beta y = 0$ är $x=0$ en reguljär singulär punkt! Detta eftersom vi har:
+
+
+\begin{equation*}
+  \begin{gathered}
+    xp(x) = x\cdot\dfrac{\alpha x}{x^2} = \alpha\\
+    x^2q(x) = x^2\cdot\dfrac{\beta}{x^2} =\beta
+  \end{gathered}
+\end{equation*}\par
+\noindent Konstanter är analytiska funktioner.
+\par\bigskip
+\noindent Vi kommer senare se att lösningar vid reguljära punkter beter sig likt lösnignar för Cauchy-Euler ekvationen.
+\par\bigskip
+\noindent Exempel:\par
+\noindent Bestäm de singulära punkterna och klassificera de som reguljära och irreguljära för:
+
+\begin{equation*}
+  \begin{gathered}
+    x^2(1+x)^2y^{\prime\prime}+x(4-x^2)y^{\prime}+(2+3x)y=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Det vi behöver göra är att kolla på $p, q$, så vi bestämmer de:
+
+
+\begin{equation*}
+  \begin{gathered}
+    p(x) = \dfrac{x(4-x^2)}{x^2(1+x)^2} = \dfrac{4-x^2}{x(1+)^2}\\
+    q(x) = \dfrac{2+3x}{x^2(1+x)^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent De singulära punkterna är då vi får division med noll, vilket alltså ger oss att de singulära punkterna ges av $x = \{0,-1\}$. Nu vill vi kolla om de är reguljära eller irreguljära:
+
+\begin{equation*}
+  \begin{gathered}
+    \text{För $x=0$ får vi: }\\
+    xp(x) = \dfrac{4-x^2}{(1+x)^2}\\
+    x^2q(x) = \dfrac{2+3x}{(1+x)^2}\\
+    \text{Båda är analytiska i punkten $x=0$, i punkten $x=-1$ får vi: }\\
+    (x+1)p(x) = \dfrac{4-x^2}{x(1+x)}\leftarrow\text{Ej analytisk}\\
+    (x+1)^2q(x) = \dfrac{2+3x}{x^2} \leftarrow \text{Analytisk i $x=-1$}\\
+    \text{Det räcker med att en ej är analytiskt för att punkten skall vara irreguljär}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det kan vara lite klurigt att kontrollera detta, och eftersom det är många beräkningar är det lätt att slarva. Vad man kan göra är att man räknar fram några koefficienter och använder en dator för att plotta. Om man ser att det går mot noll så har man troligtvis gjort rätt. 
+
+
+
+
+

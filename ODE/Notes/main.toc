@@ -39,3 +39,6 @@
 \contentsline {section}{\tocsection {}{10}{Potensserielösningar}}{31}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{Potensserier - Repetition}}{31}{subsection.10.1}%
 \contentsline {subsection}{\tocsubsection {}{10.2}{Potensserie-metoden}}{34}{subsection.10.2}%
+\contentsline {section}{\tocsection {}{11}{Potensserielösningar - Forts.}}{37}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Cauchy-Eulers Ekvation}}{37}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{Reguljära singulära punkter}}{39}{subsection.11.2}%
