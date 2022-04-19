@@ -30,3 +30,5 @@
 \contentsline {section}{\tocsection {}{8}{Substitution}}{15}{}%
 \contentsline {subsection}{\tocsubsection {}{8.1}{Exempel}}{15}{}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{Normalformer}}{16}{}%
+\contentsline {section}{\tocsection {}{9}{Funktionellt kompletta mängder av konnektiv}}{18}{}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{Användning av sundhetssatsen}}{19}{}%

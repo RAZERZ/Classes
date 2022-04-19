@@ -78,7 +78,12 @@
 \par\bigskip
 
 \begin{theo}[Varje formel kan skrivas på DNF]{thm:allDNF}
-  Låt $\varphi$ vara en formel. Då finns formel $\psi$ på DNF så att $\varphi$ eq $\psi$.
+  Låt $\varphi$ vara en formel. Då finns formel $\psi$ på DNF så att $\varphi$ eq $\psi$. Detta gäller även för KNF. Generellt, varje formel $\varphi$ i LP($\sigma$) har formel $\varphi_1$ och $\varphi_2$ så att:\par
+  \begin{itemize}
+    \item $\varphi$ eq $\varphi_1$ eq $\varphi_2$
+    \item $\varphi_1$ på DNF
+    \item $\varphi_2$ på KNF
+  \end{itemize}
 \end{theo}
 \par\bigskip
 \noindent Detta visas med ett exempel som ger en algoritm.
@@ -118,6 +123,7 @@
   \par\bigskip
   \noindent Notering, $\perp$ är på DNF
 \end{prf}
+\newpage
 \par\bigskip
 \begin{theo}[KNF]{thm:KNF}
   \textit{Konjunktiv normalform}. Då är det helt enkelt som DNF men med och istället:

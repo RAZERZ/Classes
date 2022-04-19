@@ -1,0 +1,108 @@
+\section{Funktionellt kompletta mängder av konnektiv}
+\noindent Vi har observerat att varje formel kan skrivas på DNF. Vi har samtidigt visat att varje formel har en annan formel som endast skrivs med $\wedge, \vee, \neg$. Detta kallas för en \textit{funktionellt komplett mängd av konnektiv}.
+\par\bigskip
+\begin{theo}[Funktionellt komplett mängd av konnektiv]{thm:funccompset}
+  En mängd av konnektiver kallas \textit{funktionellt komplett} om varje formel i LP($\sigma$) kan skrivas ekvivalent med en formel som endast innehåller konnektiver från mängden. "De räcker till för att säga allt som går att säga".
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\noindent Mängden $\{\vee,\wedge,\neg\}$ är funktionellt komplett.\par
+\noindent Vi påstår även att $\{\wedge,\neg\}$ är också funktionellt komplett.  För att visa detta påstående behöver vi att varje formel i LP($\sigma$) är ekvivalent med att bara använda dessa konnektiv.
+\par\bigskip
+
+\begin{prf}[Föregående mängd är funk. komp]{prf:prevset}
+  $\varphi$ i LP($\sigma$). Låt $\varphi_1$ eq $\varphi$ och $\varphi_1$ på KNF (eller DNF, spelar ej roll). Men i KNF kanske det finns eller tecken, men vi vill inte ha det i vårat bevis. Vi måste göra något för att få bort eventuella eller tecken. OBS, varje gång vi använder "eller" så kan vi använda de Morgans lag och skriva om den med "och" och "icke":
+  \par
+
+  \begin{equation*}
+    \begin{gathered}
+      A\vee B$ eq $\neg(\neg A\wedge\neg B)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Använder vi andra varianten av de Morgans lag så kan vi göra samma sak med DNF och därmed visa att mängden $\{\vee,\neg\}$ är funktionellt komplett.
+\end{prf}
+\par\bigskip
+\noindent Exempel på en mängd som \textit{inte} är funktionellt komplett:\par
+\noindent Mängden $\{\vee,\wedge\}$ är \textit{inte} funktionellt komplett. Det räcker med att visa att en formel inte går att skriva med hjälp av dessa konnektiv. Vi låter mängden $A$ vara mängden av alla formler som går att skriva med konnektiven $\vee, \wedge$. Vi vill definiera den konkret, så vi härmar definitionen av formler:
+\par\bigskip
+\begin{itemize}
+  \item Bas
+    \begin{itemize}
+      \item $p\in A$ om $p$ satssymbol ($p\in\sigma$)
+    \end{itemize}
+  \item Induktion
+    \begin{itemize}
+      \item Om $\varphi_1$ och $\varphi_2$ tillhör $A$, så $(\varphi_1\wedge\varphi_2)\in A$ och $(\varphi_1\vee\varphi_2)\in A$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Betrakta följande $\sigma$-strukturen A: a$(p)=1\forall p\in\sigma$
+\par\bigskip
+\noindent Om $\varphi\in A$, så gäller A$^*(\varphi)=1$. (Beviset ges av induktion på $A$). Men då kan vi betrakta $\psi =\perp\in\text{LP(}\sigma$). Per definition så är A$^*\perp=0$, men vi har ju definierat $\sigma$-strukturen att alltid vara sann, och då kan vi inte skriva alla formler med hjälp av enbart $\wedge,\vee$. Alltså är mängden inte funktionellt komplett. 
+\par\bigskip
+\noindent Exempel: Konnektivet $|$ (sheffers streck) har följande sanningstabell:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $p$&$q$&$p|q$\\
+    \hline
+    1&1&0\\
+    \hline
+    1&0&1\\
+    \hline
+    0&1&1\\
+    \hline
+    0&0&1\\
+    \hline
+  \end{tabular}
+\end{center}\par
+\noindent Vi påstår att mängden $\{|\}$ är funktionellt komplett. Idé, skriv något vi vet är funktionellt komplett med hjälp av strecket och använd $eq$.
+\par\bigskip
+\noindent Vi vill knyta ihop detta med semantiken och syntax i satslogiken:
+
+\begin{center}
+  \begin{tabular}{|c|c|}
+    \hline
+    Syntax&Semantik\\
+    \hline
+    $\Gamma\vdash\varphi$ (det finns ett bevissträd i naturlig deduktion som visar $\varphi$\\ med premisser i $\Gamma$)&$\Gamma\vDash\varphi$ ($\varphi$ sann i varje modell för $\Gamma$)\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\begin{theo}[Sundhetssatsen]{thm:sundhets}
+  \begin{center}
+    Om $\Gamma\vdash\varphi$ så $\Gamma\vDash\varphi$.\par
+    \noindent Specialfall, $\vdash\varphi\Rightarrow\vDash\varphi$
+  \end{center}
+\end{theo}
+\par\bigskip
+\noindent Beviset nämns kort:
+\par\bigskip
+\begin{prf}[Sundhetssatsen]{prf:sund}
+  Detta görs egentligen av induktion på alla bevissträd. Det innebär att i basfallet har man korta bevis som bara har en formel. Bevissträdet $\varphi$ bevisar att $\varphi\vdash\varphi$. Om vi försöker baka ihop till ett induktionsbevis får vi $\varphi$ som bas och induktionssteg som $\wedge$-intro. Kortfattat, bevisreglerna "bevarar sanning".
+\end{prf}
+\par\bigskip
+
+\subsection{Användning av sundhetssatsen}\hfill\\
+\par\bigskip
+\noindent När vi pratade om logisk konsekvens så fanns det en formel vi kunde använda för att avgöra om saker var sant eller ej genom att skriva upp sanningsvärdestabeller. En anvädning av denna sats är för att visa att något inte är bevisbart i naturlig deduktion.
+\par\bigskip
+\noindent Exempel: Visa att $\nvdash\underbrace{(p\rightarrow q)\rightarrow(p\vee\neg q)}_{\text{$\varphi$}}$. Det hela går ut på att negera sundhetssatsen i någon mening, om vi kan visa att något inte är logiskt konsekvent så är det inte heller bevisbart, dvs om $\Gamma\nvDash\varphi$ så $\Gamma\nvdash\varphi$.\par
+\noindent Vi visar $\nvDash\varphi$, dvs $\nvDash(p\rightarrow q)\rightarrow(p\vee\neg q)$, alltså inte en tautologi. Om $p=0, q = 1$ så är påståendet falskt, dvs vi har hittat en struktur så att den inte är en tautologi, alltså kan vi mha sundhetssatsen dra slutsatsen att $\nvdash\varphi$ eftersom om det inte är en tautologi så är $\vDash\varphi$ men det är den inte.
+\par\bigskip
+\noindent Påminnelse, en mängd kallas \textit{konsistent} om $\Gamma\nvdash\perp$. Nu har vi en metod för detta!
+\par\bigskip
+\noindent Exempel: Visa att $\Gamma = \{p_1,p_2,p_3\}$ är konsistent. Vi vill visa att vi inte kan använda dessa premisser för att komma fram till botten. Vi börjar med att visa på semantik sidan att $\Gamma$ inte är en logisk konsekvens av $\perp$ dvs $\Gamma\nvDash\perp$. Låt $A$ vara en $\sigma$-struktur så att $A(p_1)=A(p_2)=A(p_3)=1$, då bör $A^*\vDash\Gamma$ men $A^*\nvDash\perp$. Sundhetssatsen säger då att $\Gamma\nvdash\perp$.
+\par\bigskip
+\noindent Sundhetssatsen kan man säga är "pilen från syntax till semantik". Pilen från andra hållet kallas för adekvathetssatsen:
+\par\bigskip
+
+\begin{theo}[Adekvathetssatsen]{thm:adeq}
+  Om man vet att något är en logisk konsekvens så får man dra slutsatsen i naturlig deduktion, mer formellt, om $\Gamma\vDash\varphi$ så $\Gamma\vdash\varphi$. 
+\end{theo}
+\par\bigskip
+\noindent Vi får slutgiltigen att Sundhetssatsen + Adekvathetssatsen = Fullständighetssatsen När vi pratade om logisk konsekvens så fanns det en formel vi       kunde använda för att avgöra om saker var sant eller ej genom att skriva       upp sanningsvärdestabeller. En anvädning av denna sats är för att visa       att något inte är bevisbart i naturlig deduktion.
+\par\bigskip
+\noindent Påstående: Varje konsistent mängd av formler i LP($\sigma$) har en modell. Här ger "konsistent" en lettråd om att den befinner sig på semantik-sidan. Om man vill visa adekvathetssatsen så vill vi visa påståendet och att det är ekvivalent med adekvathetssatsen.
