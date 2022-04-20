@@ -1,0 +1,86 @@
+\section{Egna anteckningar - Fundamental teori}
+\par\bigskip
+
+\subsection{Lösningsintervall}\hfill\\
+\par
+\noindent Lösningsintervall innefattar de intervall där en eller fler lösningar existerar för en ODE. Det kanske känns lite onaturligt att en lösning bara är definierad i ett intervall, men antag att $y = \dfrac{1}{x}$ är en lösning, denna funktion vet vi är ej definierad i $x=0$, därmed om den är en lösning kommer vi kräva att $x\neq 0$. I någon mening bygger detta koncept på det. Vi ska kika närmare på ett exempel.
+\par\bigskip
+\noindent Följande exponentialekvation
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dx}{dt}=kx
+  \end{gathered}
+\end{equation*}\par
+\noindent förekommer ofta när tillväxten av något är proportionell till dess nuvarande storlek. Lösningen ges av
+
+\begin{equation*}
+  \begin{gathered}
+    x(t) = x_0e^{kt}
+  \end{gathered}
+\end{equation*}\par
+\noindent är definierad för alla värden på $t$. Funktionen är till och med väldefinierad. Vi kan säga mer om lösningen, nämligen att:
+\par\bigskip
+\begin{itemize}
+  \item $\forall t$ är $x(t)$ en väldefinierad och kontinuerlig och deriverbar funktion där $x(t)\neq0$ aldrig antar 0 om inte $x_0 = 0$
+  \item Om $k>0$, $\lim_{t\to\infty}x(t) = \infty$. Om $k<0$, $\lim_{t\to\infty}x(t)=0$ 
+\end{itemize}\par\bigskip
+\noindent Det vi tar med oss är att lösningen är "snäll" i någon mening, vi får kontinuitet, saker beter sig som de ska (en variabel går mot $\infty$ ger antingen $0$ eller $\infty$).\par
+\noindent Låt oss istället kika på ett IVP fall som inte är så snällt:
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dx}{dx} = x^2\\
+    x(0)=1
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna har lösningen
+\begin{equation*}
+  \begin{gathered}
+    x(t) = \dfrac{1}{1-t}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vad kan vi säga om denna lösning?
+\par\bigskip
+\begin{itemize}
+  \item $x(t)$ är inte definierad för $t=1$
+  \item $\lim_{t\to1}x(t)=\infty$. Detta sker i "ändlig" tid, ty $1<\infty$
+\end{itemize}\par
+\noindent Beroende på vilket håll man angriper $x(t)=1$ får vi antingen $+\infty$ eller $-\infty$. Punkten $t=1$ kallas för \textit{singularitetspunkt}.
+\par\bigskip
+\begin{theo}[Singularitet]{thm:singula}
+  Låt $x(t)$ vara en lösning till $x^{\prime}=f(t,x)$. Vi säger att $x$ har en singularitet i punkten $s$ om:
+  \begin{itemize}
+    \item $x(t)$ är odefinierad eller icke-kontinuerlig i punkten $t=s$, eller
+    \item $\lim_{t\to s}\left|x(t)\right|=\infty$
+  \end{itemize}
+\end{theo}\par\bigskip
+\noindent Återgår vi till föregående exempel med singularitet noterar vi att punkten (0,1) som är givet som IVP begränsar lösningsmängden till det öppna intervallet ($-\infty$, 1) ty det går inte på något sätt att "korsa över" till höger om $t=1$ kontinuerligt. Eftersom IVP är angivet vet vi även att lösningen är definierad till vänster om $t=1$. Detta sammanfattas i följande sats:
+\newpage
+
+\begin{theo}[Existensintervall]{thm:existint}
+  Låt $x(t)$ vara en lösing till
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{dx}{dt}=f(t,x)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent som uppfyller IVP $x(t_0)=x_0$. \textit{Existensintervallet} för $x(t)$ är det största intervallet som innehåller punkten $t_0$ så att lösningen $x(t)$ är kontinuerlig \textbf{och} differentierbar. 
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\noindent Lösningen till följande IVP
+\begin{equation*}
+  \begin{gathered}
+    x^{\prime} = x^2 \qquad x(2)=-1
+  \end{gathered}
+\end{equation*}\par
+\noindent har lösningen
+\begin{equation*}
+  \begin{gathered}
+    x(t) = \dfrac{1}{1-t}
+  \end{gathered}
+\end{equation*}\par
+\noindent I detta fall är initalvärdet specifierat på $t=2$, alltså punkten $(2, -1)$, detta är till höger om singularitetspunkten $t=1$ vilket då gör att lösningsintervallet är det öppna intervallet $(1, \infty)$.
+\par\bigskip
+\noindent En sak att notera är att i exemplen som vi tagit upp är $x(t)$ godtyckligt definierad utöver de intervall som vi hittat men vi har valt att enbart inkludera det största som inkluderar och löser IVP. Detta för att det helt enkelt är orelevant att veta att funktionen är definierad efter $t=1$ eftersom vi inte kan nå den domänen av funktionen. 

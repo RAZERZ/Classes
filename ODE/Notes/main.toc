@@ -42,3 +42,5 @@
 \contentsline {section}{\tocsection {}{11}{Potensserielösningar - Forts.}}{37}{section.11}%
 \contentsline {subsection}{\tocsubsection {}{11.1}{Cauchy-Eulers Ekvation}}{37}{subsection.11.1}%
 \contentsline {subsection}{\tocsubsection {}{11.2}{Reguljära singulära punkter}}{39}{subsection.11.2}%
+\contentsline {section}{\tocsection {}{12}{Egna anteckningar - Fundamental teori}}{41}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Lösningsintervall}}{41}{subsection.12.1}%
