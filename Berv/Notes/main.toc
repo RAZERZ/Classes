@@ -32,7 +32,10 @@
 \contentsline {subsection}{\tocsubsection {}{6.1}{Konvergenshastighet}}{23}{}%
 \contentsline {subsection}{\tocsubsection {}{6.2}{Konvergens i bisektionsmetoden}}{23}{}%
 \contentsline {subsection}{\tocsubsection {}{6.3}{Konvergens i Newton-Raphson}}{23}{}%
-\contentsline {subsubsection}{\tocsubsubsection {}{6.3.1}{Komplikationer med Newton-Raphson}}{24}{}%
-\contentsline {section}{\tocsection {}{7}{Förtydligande/Från boken}}{26}{}%
-\contentsline {subsection}{\tocsubsection {}{7.1}{Rötter av polynom}}{26}{}%
-\contentsline {subsubsection}{\tocsubsubsection {}{7.1.1}{Descartes tecken-regel}}{26}{}%
+\contentsline {section}{\tocsection {}{7}{Förtydligande/Från boken}}{24}{}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Rötter av polynom}}{24}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.1.1}{Descartes tecken-regel}}{24}{}%
+\contentsline {section}{\tocsection {}{8}{Forts. Icke-linjära ekvationer}}{25}{}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Hybrid-skiss av Newton-Raphson och bisektionsmetoden}}{25}{}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Mer om konvergensordning i praktiken}}{25}{}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{Sekantmetoden}}{26}{}%

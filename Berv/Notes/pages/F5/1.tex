@@ -61,7 +61,7 @@ func = lambda x: np.exp(x)-10*np.cos(x)
 \noindent Låt $x_*$ vara vår exakta lösning och vi antar att vi har en iterativ metod som generar en talföljd $x_1, x_2, \cdots$. Antag även att vi har konvergens, dvs $\lim_{k\to\infty}x_k = x_*$.
 \par\bigskip
 \begin{theo}[Konvergensordning]{thm:orderofconv}
-  En metod har \textit{konvergensordning} $r$ om $\lim_{j\to\infty}\dfrac{\left|x_*-x_{k+1}\right|}{\left|x_*-x_k\right|^r} = C$ där $C$ (konstant) kallas för \textit{asymptotisk felkonstant} 
+  En metod har \textit{konvergensordning} $r$ om $\lim_{k\to\infty}\dfrac{\left|x_*-x_{k+1}\right|}{\left|x_*-x_k\right|^r} = C$ där $C$ (konstant) kallas för \textit{asymptotisk felkonstant} 
 \end{theo}
 \par\bigskip
 \noindent Notera att ju större $r$ är, desto snabbare konvergerar den. Om:
@@ -80,55 +80,7 @@ func = lambda x: np.exp(x)-10*np.cos(x)
 
 \subsection{Konvergens i Newton-Raphson}\hfill\\
 
-\noindent Påminner oss om metoden: $x_{k+1} = x_k -\dfrac{f(x_k)}{f^{\prime}(x_k)}$ . Vi Taylorutvecklar kring $x_k$ med steget $(x_*-x_k)$. sedan har vi $\underbrace{f(x_k+(x_*-x_k))}_{\text{$f(x_*)=0$}} = f(x_k)+(x_*-x_k)f^{\prime}(x_k)+(x_*-x_k)^2f^{\prime\prime}(\xi)\cdot\dfrac{1}{2}$
-\par\bigskip
-\noindent Omskrivning ger att $x_k = x_{k+1}+\dfrac{f(x_k)}{f^{\prime}(x_k)}$, vi stoppar in $x_k$ i Taylorutvecklingen:
-
-
-\begin{equation*}
-  \begin{gathered}
-    f(x_k)+(x_*-x_{k+1}-\dfrac{f(x_k)}{f^{\prime}(x_k)})f^{\prime}(x_k)+(x_*-x_k)^2\dfrac{f^{\prime\prime}(\xi)}{2} = 0\\
-    \Lrarr 0 = (x_*-x_{k+1})f^{\prime}(x_k)+(x_*-x_k)^2\dfrac{f^{\prime\prime}(\xi)}{2}\\
-    (x_*-x_{k+1})=-(x_*-x_k)^2\dfrac{f^{\prime\prime}(\xi)}{2f^{\prime}(x_k)}\\
-    \dfrac{x_*-x_{k+1}}{(x_*-x_k)^2}=-\dfrac{f^{\prime\prime}(\xi)}{2f^{\prime}(x_k)} \text{ här antas konvergens och $f^{\prime}(x_k)\neq 0$}\\
-    \Lrarr\lim_{x_k\to x_*} \dfrac{\left|x_*-x_{k+1}\right|}{\left|x_*-x_k\right|^2} = \dfrac{\left|f^{\prime\prime}(x_*)\right|}{2\left|f^{\prime}(x_*)\right|}
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-\noindent Notera att vi har kvadratisk konvergens. Det nya felet ges av $C\cdot(Fel)^2$
-\par\bigskip
-\subsubsection{Komplikationer med Newton-Raphson}\hfill\\
-\par\bigskip
-\noindent Det första som kan hända är divergens:
-
-\begin{center}
-  \incfig{div}
-\end{center}
-\par\bigskip
-\noindent Alternativt:
-
-\begin{center}
-  \incfig{div1}
-\end{center}
-\par\bigskip
-\noindent Något annat som kan hända är om vi har multipla rötter:
-
-\begin{center}
-  \incfig{dubbelrot}
-\end{center}
-\par\bigskip
-\noindent Exempelvis $f(x) = x^2$, $f^{\prime}(x) = 2x$, $f^{\prime\prime}(x) = 2$. Från analys:
-
-
-\begin{equation*}
-  \begin{gathered}
-    x_*-x_{k+1} = -(x_*-x_k)^2\dfrac{f^{\prime\prime}(\xi)}{2f^{\prime}(x_k)}\\
-    \text{Låt } x_* = 0 \Rightarrow -x_{k+1}= -x_k^2\dfrac{2}{2\cdot2x_k}  = -\dfrac{1}{2}x_k
-  \end{gathered}
-\end{equation*}
-\par\bigskip
-\noindent Detta blir dock linjär konvergens och vi har förlorat det som var så schysst med Newton-Raphson. Generellt för dubbelrötter så är $C=\lim_{k\to\infty}\dfrac{\left|x_*-x_{k+1}\right|}{\left|x_*-x_k\right|} = \dfrac{1}{2}$. Här är givetvis $r=1$ 
-
+\noindent Påminner oss om metoden: $x_{k+1} = x_k -\dfrac{f(x_k)}{f^{\prime}(x_k)}$ . Vi Taylorutvecklar kring $x_k$ med steget $(x_*-x_k)$. sedan har vi $\underbrace{f(x_k+(x_*-x_k))}_{\text{$f(x_*)=0$}} = f(x_k)+(x_*-x_k)f^{\prime}(x_k)+(x_*-x_k)^2f^{\prime\prime}(\xi)\cdot\dfrac{1}{}$ 
 
 
 
