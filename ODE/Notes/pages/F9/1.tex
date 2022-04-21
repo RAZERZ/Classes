@@ -1,0 +1,277 @@
+\section{Frobenius metod}
+\par\bigskip
+\noindent Vi utgår från samma ekvation som alltid
+\begin{equation*}
+  \begin{gathered}
+    A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)y=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Dagens fokus handlar om reguljära singulära punkter, dvs när vi får problem med att dela bort $A(x)$. Idag kommer vi inte hantera irreguljära singulära punkter. Man kan ha vilka reguljära singulära punkter som helst, men idag kommer vi anta att de ligger i origo (man kan alternativt bara substituera/flytta origo i andra fall).
+\par\bigskip
+\noindent \textbf{Påminnelse:} En \textit{reguljära} singulär punkt kring $x_0 = 0$ ger:
+\begin{itemize}
+  \item $x\cdot p(x) = x\dfrac{B(x)}{A(x)}$
+  \item $x^2q(x)=x^2\dfrac{C(x)}{A(x)}$
+\end{itemize}\par\bigskip
+\noindent där båda dessa är \textit{analytiska} (dvs deras potensserie konvergerar till funktionen). Vi kan därför skriva om dessa på deras respektive potensserier:
+
+
+\begin{equation*}
+  \begin{gathered}
+    xp(x) = \sum_{n=0}^{\infty}p_nx^n\\
+    x^2q(x)=\sum_{n=0}^{\infty}q_nx^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan nu skriva om  $A(x)y^{\prime\prime}+B(x)y^{\prime}+C(x)y=0$ till:
+
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+p(x)y^{\prime}+q(x)y=0\\
+    \Lrarr x^2y^{\prime\prime}+x^2p(x)y^{\prime}+x^2q(x)y=0\\
+    \Lrarr x^2y^{\prime\prime}+x(xp(x))y^{\prime}+(x^2q(x))y=0\\
+    \Lrarr x^2y^{\prime\prime}+x\left(\sum_{n=0}^{\infty}p_nx^n\right)y^{\prime}+\left(\sum_{n=0}^{\infty}\right)y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $p_n=q_n=0$ för $n\geq1$ får vi
+\begin{equation*}
+  \begin{gathered}
+    x^2y^{\prime\prime}+p_0xy^{\prime}+q_0y=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en Eulerekvation!
+\par\bigskip
+\noindent Förra föreläsningen såg vi att Eulerekvationen har lösningar på formen $y=x^r$. Vi provar nu att hitta lösningar på formen
+\begin{equation*}
+  \begin{gathered}
+    y=x^r\cdot f(x)=x^r\sum_{n=0}^{\infty}c_nx^n
+  \end{gathered}
+\end{equation*}\par
+\noindent Om $c_0=0$ blir den första termen som dyker upp $x$ vilket vi kan bryta ut så att vi får $x^{r+1}$, vi vill inte ha saker som vi kan bryta ut. Eftersom $c_1\cdot y$ också är en lösning kan vi ta $c_0=1$.\par
+\noindent Att hitta lösningar på den formen kallas för \textit{Frobenius metod}. Den kräver ganska mycket räkning, så vi kommer gå igenom ett långt exempel och senare gå igenom satser och definitioner.
+\par\bigskip
+\subsection{Exempel}\hfill\\
+\par\bigskip
+\noindent Betrakta 
+\begin{equation*}
+  \begin{gathered}
+    2x^2y^{\prime\prime}+3xy^{\prime}-(x^2+1)y=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera här att om ekvationen hade sett ut på följande $2x^2y^{\prime\prime}+3xy^{\prime}-(1)y=0$ så hade det varit en Eulerekvation.\par
+\noindent Vi börjar med att kontrollera att origo är en reguljär singulär punkt. Vi har:
+\begin{equation*}
+  \begin{gathered}
+    p(x)=\dfrac{3x}{2x^2}=\dfrac{3}{2x}\qquad q(x)=-\dfrac{1}{2}-\dfrac{1}{2x^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi ser att $x=0$ är en singulär punkt ty $p$ och $q$ ej är analytiska. vidare skall vi betrakta $x\cdot p(x)$:
+\begin{equation*}
+  \begin{gathered}
+    xp(x)=\dfrac{3}{2}\qquad x^2q(x)=-\dfrac{x^2}{2}-\dfrac{1}{2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Båda dessa är analytiska, vi har alltså en reguljär singulär punkt, då kan vi använda Frobenius metod och se vad som händer.
+\par\bigskip
+\noindent Det vi vill göra är att ta en ansats som är på formen $y=x^r\sum_{n=0}^{\infty}c_nx^n$. Vi deriverar $y$ och gör det lite enklare genom att multiplicera in $x^r$. Då blir det inte en potensserie ty vi kräver att $n\in\N$ och med $r$ som spökar kan vi inte garantera det, men det spelar ingen roll. Vi får:
+
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime} = \sum_{n=0}^{\infty}(n+r)c_nx^{n+r-1}\\
+    y^{\prime\prime}=\sum_{n=0}^{\infty}(n+r)(n+r-1)c_nx^{n+r-2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Insättning ger:
+\begin{equation*}
+  \begin{gathered}
+    2x^2\cdot\sum_{n=0}^{\infty}(n+r)(n+r-1)c_nx^{n+r-2}+3x\sum_{n=0}^{\infty}(n+r)c_nx^{n+r-1}-(x^2+1)\sum_{n=0}^{\infty}c_nx^{n+r}=0\\
+    \sum_{n=0}^{\infty}2(n+r)(n+r-1)c_nx^{n+r}+\sum_{n=0}^{\infty}3(n+r)c_nx^{n+r}-\sum_{n=0}^{\infty}c_nx^{n+r+2}-\sum_{n=0}^{\infty}c_nx^{n+r}=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vill skriva om summorna så att exponenten blir samma för alla. Skriv som den lägsta! (Ej strikt nödvändigt, men gör räkning lättare). I detta fall är det $n+r$. I detta exempel betraktar vi även $x>0$. Den enda sumnan vi behöver skriva om i det här fallet är den med $x^{n+r+2}$, vi vill skriva om den så att den får exponenten $x^{n+r}$:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}c_nx^{n+r+2}=c_0x^{r+2}+c_1x^{r+3}+c_2x^{r+4}\cdots
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi noterar att om vi istället börjar på $n=2$ så får vi:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=2}^{\infty}c_{n-2}x^{n+r}
+  \end{gathered}
+\end{equation*}\par
+\noindent Insättning ger:
+
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=0}^{\infty}2(n+r)(n+r-1)c_nx^{n+r}+\sum_{n=0}^{\infty}3(n+r)c_nx^{n+r}-\sum_{n=2}^{\infty}c_{n-2}x^{n+r}-\sum_{n=0}^{\infty}c_nx^{n+r}=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Allt är nästan nice här förutom att vi har en summa som börjar på $n=2$. Notera att den gemensamma summationen börjar vid $n=2$ isåfall. Vi kan "bryta ut" de första 2 termer från de övriga summorna:
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    (2r(r-1))c_0+3(rc_0-c_0)x^r+(2(1+r)(1+r-1))c_1+3(1+r)c_1-c_1x^{r+1}\\
+    +\sum_{n=0}^{\infty}\left(2(n+r)(n+r-1)c_n+3(n+r)c_n-c_{n-2}-c_n\right)x^{n+r}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Dela med $x^r$ och förenkla:
+
+\begin{equation*}
+  \begin{gathered}
+    (2r(r-1)+3r-1)c_0+(2(1+r)r+3(1+r)-1)c_1x\\
+    +\sum_{n=0}^{\infty}\left((2(n+r)(n+r-1)+3(n+r)-1)c_n-c_{n-2}\right)x^n=0\\
+    \Lrarr (2r(r-1)+3r-1)c_0 = 0 \Rightarrow 2r(r-1)+3r-1 = 0 \text{\qquad Karaktäristiska ekvation, lös för $r$:}\\
+    r_1 = \dfrac{1}{2}\qquad r_2=-1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu har vi kommit fram till vad $r$ måste vara, nu behöver vi hitta $c_n$. Betraktar vi andra termen har vi:
+
+\begin{equation*}
+  \begin{gathered}
+    (2(1+r)r+3(1+r)-1)c_1\neq0 \text{ för $r_1$ eller $r_2$, alltså $c_1=0$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu vill vi kolla för summan, vi får:
+\begin{equation*}
+  \begin{gathered}
+    (2(n+r)(n+r-1)+3(n+r)-1)c_n-c_{n-2}=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det vi vill göra är att få fram en differensekvation för $c_n$. Om $(2(n+r)(n+r-1)+3(n+r)-1)\neq=0$. Då kan vi dela bort den så att vi får:
+
+\begin{equation*}
+  \begin{gathered}
+    c_n = \dfrac{c_{n-1}}{(2(n+r)(n+r-1)+3(n+r)-1)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Hur vet vi att vi kan dela bort den? Jo för att $\underbrace{(2(n+r)(n+r-1)+3(n+r)-1)}_{\text{karaktäristiska ekvationen med $n+r$ istället för $r$}}$ och vi vet att $n\geq2$ (se täljare). Det vi vill göra nu är att hitta 2 linjärt oberoende lösningar. Vi har 2 rötter $r_1$ och $r_2$, så vi delar upp det i 2 fall:
+\par\bigskip
+\noindent \textbf{Fall 1:} $r=r_1=\dfrac{1}{2}$
+\par\bigskip
+\noindent Sätt in $r_1$ i differensekvationen för $c_n$. För att inte förvirra oss så kommer vi kalla koefficienterna för $a_n$. Vi får:
+\begin{equation*}
+  \begin{gathered}
+    a_n=\dfrac{a_{n-2}}{2n^2+3n}\qquad n\geq2
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi har då:
+\begin{itemize}
+  \item $a_0$
+  \item $a_1=0$
+  \item $a_n = \dfrac{a_{n-2}}{2n^2+3n}$
+\end{itemize}\par
+\noindent Vi kan räkna ut några $a_n$:
+
+\begin{equation*}
+  \begin{gathered}
+    a_n = 0 \text{ för alla udda $n$}\\
+    a_2 = \dfrac{a_0}{14},\qquad a_4 = \dfrac{a_2}{44}=\dfrac{a_0}{616}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har alltså att serien 
+\begin{equation*}
+  \begin{gathered}
+    y_1 = x^{1/2}\sum_{n=0}^{\infty}a_nx^n
+  \end{gathered}
+\end{equation*}\par
+\noindent är en lösning!
+\par\bigskip
+\noindent \textbf{Fall 2:} $r=r_2=-1$
+\par\bigskip
+\noindent Vi kallar koefficienterna här för $b_n$. Vi får
+\begin{equation*}
+  \begin{gathered}
+    b_n =\dfrac{b_{n-2}}{2n^2-3n}\qquad n\geq2
+  \end{gathered}
+\end{equation*}\par
+\noindent Återigen har vi $b_1 = 0$ och $b_0=$ fri konsntant. Vi får:
+\begin{equation*}
+  \begin{gathered}
+    y_2 = x^{-1}\sum_{n=0}^{\infty}b_nx^n
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent Sammanfogar vi fallen får vi att den generella lösningen är:
+
+\begin{equation*}
+  \begin{gathered}
+    y = C_1y_1+C_2y_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här funkade allt väldigt bra och smidigt, men det kan uppstå problem. Vi kan få 2 problem:
+\begin{itemize}
+  \item Dubbelrot - löses likt Eulerekvation
+  \item Vi kan få division med noll i differensekvationen. Händer om $r_1 = r_2+N\qquad N\in\Z$
+\end{itemize}
+\par\bigskip
+\begin{theo}
+  BBetrakta ODE:n
+
+  \begin{equation*}
+    \begin{gathered}
+      x^2y^{\prime\prime}+x(xp(x))y^{\prime}+x^2q(x)y=0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Antag att $x=0$ är en reguljär singulär punkt. Då ges $xp(x)$ och $x^2q(x)$ av potensserier:
+
+  \begin{equation*}
+    \begin{gathered}
+      xp(x) = \sum_{n=0}^{\infty}p_nx^n,\qquad x^2q(x)=\sum_{n=0}^{\infty}q_nx^n
+    \end{gathered}
+  \end{equation*}\par
+  \noindent för $\left|x\right|<\rho$ där $\rho$ är $\leq$ konvergensradien för de två serierna.\par\bigskip
+  \noindent Låt $r_1, r_2$ vara rötter till indikalekvationen $r^2+(p_0-1)r+q_0=0$ (notera, samma som för Eulerekvation).\par
+  \noindent Antag att $r_1, r_2\in\R$ och $r_1\leq r_2$.\par
+  \noindent Då har vi i intervallen $(-\rho,0)$ och $(0,\rho)$ en lösning på formen
+  \begin{equation*}
+    \begin{gathered}
+      y_1=\left|x\right|^{r_1}\sum_{n=0}^{\infty}a_nx^n \qquad a_0\neq0
+    \end{gathered}
+  \end{equation*}\par\bigskip
+  \noindent För den andra (linjärt oberoende lösning) får vi 3 fall:
+  \begin{itemize}
+    \item $r_1\neq r_2\qquad r_1\neq r_2+N$ för $N\in\N$\\
+      Då är $y_2$:
+      \begin{equation*}
+        \begin{gathered}
+          \left|x\right|^{r_2}\sum_{n=0}^{\infty}b_nx^n\qquad b_0\neq0
+        \end{gathered}
+      \end{equation*}
+    \item $r_1 = r_2$ ger:
+      \begin{equation*}
+        \begin{gathered}
+          y_2 = y_1\log(\left|x\right|)+\left|x\right|^{r_1}\sum_{n=1}^{\infty}b_nx^n
+        \end{gathered}
+      \end{equation*}
+    \item $r_1 = r_2 +N\qquad N\in\N$ ger:
+      \begin{equation*}
+        \begin{gathered}
+          y_2 = ay_1\log(\left|x\right|)+\left|x\right|^{r_2}\sum_{n=0}^{\infty}b_nx^n
+        \end{gathered}
+      \end{equation*} där $a$ är konstant som kan vara 0.
+  \end{itemize}
+  \noindent Kommentar: alla serier konvergerar för $\left|x\right|<\rho$ och mängden $\{y_1, y_2\}$ ger en fundamental lösnignsmängd
+\end{theo}
+\par\bigskip
+\noindent Satsen säger inte mycet om hur man hittar $a_n$ eller $b_n$, men de går att bestämma genom insättning vilket kan vara mer eller mindre krångligt. 
+\par\bigskip
+\noindent Beviset liknar metoden för det introducerande exemplet för metoden men mer generellt.
+\par\bigskip
+\begin{prf}[Bevisskiss - Frobenius metod]{prf:skfrobmeth}
+  För att visa att $y_1$ är en lösning gör man som i exemplet.
+  \par
+  \noindent För $y_2$ kan mann göra samma ansats, men man stöter på probem om $r_1 = r_2$ eller $r_1=r_2+N$. Hur gör man i de fallen? Man kan använad reduktion av ordning.
+  \par\bigskip
+  \noindent Kommentar: Om $r_1, r_2$ är komplexa så fungerar samma ansats, men du får  komplexa koefficienter. Man kan få fram reella lösningar på samma sätt som vi gjorde för Eulerekvationerna, men detta kommer inte diskuteras vidare 
+\end{prf}
+\par\bigskip
+\noindent Ett problem är att kontrollera sin lösning eftersom man får en potensserielösning. Detta gör att Dahne inte är lika \textbf{hård} om man missar tecken. Denna metod är även väldigt mekanisk så en dator kan göra det. Det finns några program/paket för att göra det vilket ger en taylorlösning.
