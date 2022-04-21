@@ -1,0 +1,99 @@
+\section{Dugga 2021-04-13}
+\par\bigskip
+\noindent I hela duggan har vi $\sigma=\{p, q, r\}$
+\par\bigskip
+
+\begin{enumerate}
+  \item Gör härledningar i naturlig deduktion som visar att följande sekventer är korrekta där $\varphi,\psi,x\in$LP($\sigma$) 
+
+    \begin{enumerate}
+
+      \item Tänk lite semantiskt först. Antag $\neg \varphi$ och visa $x$ är målet. Vi har en eller formel i VL, så antag $\varphi\wedge\psi$. Då är $\varphi$ sann och motsäger $\neg \varphi$ och vi får $x$. I den andra delen av eller tecknet antar vi $x$ och kommit fram till $x$. Nu kan vi ta $\vee$-elm så vi får $x$
+        \par\bigskip
+
+      \item Här vill vi återigen visa en implikation. vad vi vill göra är:
+        \begin{itemize}
+          \item Antag $\varphi$, försök visa $\neg\psi$. Vi får fram $\neg\psi$ genom att få botten från att ha antagit $\psi$, så vi antar $\psi$. Detta är givet från första premissen ($\varphi\wedge\psi$)
+          \item Men första premissen motsäger andra premissen, vi får $\perp$ och vi får därmed $\neg\psi$
+        \end{itemize}
+    \end{enumerate}
+    \par\bigskip
+
+  \item Börja med att göra sanningsvärdestabell. Detta kommer även hjälpa oss i fråga 3:
+
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $p$&$q$&$r$&($p\leftrightarrow r$)&$\rightarrow$&($q\vee\neg r$)\\
+        \hline
+        1&1&1&x&1&x\\
+        \hline
+        1&1&0&x&1&x\\
+        \hline
+        1&0&1&x&0&x\\
+        \hline
+        1&0&0&x&1&x\\
+        \hline
+        0&1&1&x&1&x\\
+        \hline
+        0&1&0&x&1&x\\
+        \hline
+        0&0&1&x&1&x\\
+        \hline
+        0&0&0&x&1&x\\
+        \hline
+      \end{tabular}
+    \end{center}
+    \par\bigskip
+    \noindent För \textbf{KNF}, läs från 0-raderna. Vi har bara en 0-rad, vi får $\neg p\vee q \vee \neg r$. Notera att den även är på DNF!
+    \par\bigskip
+
+  \item
+    \begin{enumerate}
+
+      \item Ja. Det finns minst en 1-rad
+      \item Valid betyder tautologi, så nej ty vi har en 0-rad
+      \item Frågan är om $\psi\vDash\varphi$ där $\psi$ är $\neg((p\rightarrow q)\vee r)$ och $\varphi$ är formeln ovan. Men detta betyder att $\varphi$ är sann i varje struktur av $\psi$, så vi skriver upp sanningsvärdestabellen för $\psi$ och jämför raderna:
+        \begin{center}
+          \begin{tabular}{|c|}
+            \hline
+            $\psi = \neg((p\rightarrow q)\vee r)$\\
+            \hline
+            0\\
+            \hline
+            0\\
+            \hline
+            0\\
+            \hline
+            1\\
+            \hline
+            0\\
+            \hline
+            0\\
+            \hline
+            0\\
+            \hline
+            0\\
+            \hline
+          \end{tabular}
+        \end{center}
+        \par\bigskip
+        \noindent Är $\varphi$ sann då $\psi$ är sann? Svar ja, alltså gäller $\psi\vDash\varphi$
+        \par\bigskip
+
+      \item Per definition betyder det att $\varphi\Lrarr\psi$ är en tautologi, dvs $\vDash\varphi\leftrightarrow\psi$. Detta kan vi få genom att jämföra tabellerna och vi ser att de \textit{inte} är samma, alltså inte eq.
+
+    \end{enumerate}
+    \par\bigskip
+
+  \item
+    \begin{enumerate}
+
+      (Sekvent = Påstående)
+      \par\bigskip
+
+      \item Frågan är om det finns ett bevissträd i naturlig deduktion som har den slutsatsen med de premisserna. Strategin här går ut på att kolla om det snabbt går att göra ett träd i naturligt deduktion. I detta fall är det lite klurigt, så vi kan istället kika på den semantiska sidanoch använda oss av adekvathetssatsen för att "översätta" den tillbaks till den syntaxiska världen. Detta gör man genom att rita upp sanningsvärdestabell för båda sidorna av $\vdash$ tecknet och jämför. Vi vill veta om den är logisk konsekvens och vi ser att det inte är det, vi hittar alltså en motexempelstruktur.
+
+    \end{enumerate}
+
+\end{enumerate}

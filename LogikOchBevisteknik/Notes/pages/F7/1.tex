@@ -58,7 +58,7 @@
   \end{tabular}
 \end{center}\par
 \noindent Vi påstår att mängden $\{|\}$ är funktionellt komplett. Idé, skriv något vi vet är funktionellt komplett med hjälp av strecket och använd $eq$.
-\par\bigskip
+\newpage
 \noindent Vi vill knyta ihop detta med semantiken och syntax i satslogiken:
 
 \begin{center}
@@ -68,6 +68,10 @@
     \hline
     $\Gamma\vdash\varphi$ (det finns ett bevissträd i naturlig deduktion som visar $\varphi$\\ med premisser i $\Gamma$)&$\Gamma\vDash\varphi$ ($\varphi$ sann i varje modell för $\Gamma$)\\
     \hline
+    $\vdash\varphi$&$\vDash\varphi$ dvs $\varphi$ tautologi\\
+    \hline
+    $\Gamma$ konsistent&$\Gamma$ satisfierbar\\
+    \hline
   \end{tabular}
 \end{center}
 \par\bigskip
@@ -75,6 +79,8 @@
   \begin{center}
     Om $\Gamma\vdash\varphi$ så $\Gamma\vDash\varphi$.\par
     \noindent Specialfall, $\vdash\varphi\Rightarrow\vDash\varphi$
+  \par\bigskip
+  \noindent Man kan även vända på pilen, dvs ekvivalent med $\Gamma\nvDash\varphi\Rightarrow \Gamma\nvdash\varphi$
   \end{center}
 \end{theo}
 \par\bigskip
@@ -101,8 +107,27 @@
 
 \begin{theo}[Adekvathetssatsen]{thm:adeq}
   Om man vet att något är en logisk konsekvens så får man dra slutsatsen i naturlig deduktion, mer formellt, om $\Gamma\vDash\varphi$ så $\Gamma\vdash\varphi$. 
+  \par\bigskip
+  \noindent Man kan även vända på pilen och få ekvivalent med $\Gamma\nvdash\varphi\Rightarrow\Gamma\nvDash\varphi$
 \end{theo}
 \par\bigskip
 \noindent Vi får slutgiltigen att Sundhetssatsen + Adekvathetssatsen = Fullständighetssatsen När vi pratade om logisk konsekvens så fanns det en formel vi       kunde använda för att avgöra om saker var sant eller ej genom att skriva       upp sanningsvärdestabeller. En anvädning av denna sats är för att visa       att något inte är bevisbart i naturlig deduktion.
 \par\bigskip
+\noindent Fullständighetssatsen = $\underbrace{\Gamma\vdash\varphi}_{\text{Sytax}}\Lrarr \underbrace{\Gamma\vDash\varphi}_{\text{Semantik}}$
+\par\bigskip
+\noindent $\Gamma$ konsistent $\Rightarrow$ $\Gamma$ har modell/$\Gamma$ är satisfierbar.
+\par\bigskip
 \noindent Påstående: Varje konsistent mängd av formler i LP($\sigma$) har en modell. Här ger "konsistent" en lettråd om att den befinner sig på semantik-sidan. Om man vill visa adekvathetssatsen så vill vi visa påståendet och att det är ekvivalent med adekvathetssatsen.
+\par\bigskip
+\begin{theo}[]{thm:t}
+  $\Gamma$ är konsistent $\Lrarr$ $\Gamma$ är satisfierbar
+\end{theo}
+\par\bigskip
+\begin{prf}[Föregående sats]{prf:prevthem}
+  Vi har redan visat $\Rightarrow$. Vi skall visa $\Leftarrow$:\par
+  \noindent Antag $\Gamma$ satisfierbar, säg att $A$ är en modell för $\Gamma$.\par
+  \noindent Vi vill visa att $\Gamma$ är konsistent, dvs $\Gamma\nvdash\perp$\par
+  \noindent Antag att $\Gamma\vdash\perp$, enligt sundhetssatsen ger det att $\Gamma\vDash\perp$\par
+  \noindent Eftersom $A$ är en modell för $\Gamma$ så följer att $\perp$ sann i $A$, men detta är en motsägelse, ty $\perp$ är falsk i alla strukturer\par
+  \noindent Från detta följer det att $\Gamma\nvdash\perp$, dvs $\Gamma$ är konsistent.
+\end{prf}
