@@ -46,4 +46,8 @@
 \contentsline {subsection}{\tocsubsection {}{12.1}{Lösningsintervall}}{41}{subsection.12.1}%
 \contentsline {section}{\tocsection {}{13}{Frobenius metod}}{43}{section.13}%
 \contentsline {subsection}{\tocsubsection {}{13.1}{Exempel}}{44}{subsection.13.1}%
-\contentsline {section}{\tocsection {}{14}{Uppgifter - }}{48}{section.14}%
+\contentsline {section}{\tocsection {}{14}{Uppgifter}}{48}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Potensserielösningar}}{48}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Eulerekvationen}}{48}{subsection.14.2}%
+\contentsline {subsection}{\tocsubsection {}{14.3}{Frobeinus metod}}{48}{subsection.14.3}%
+\contentsline {subsection}{\tocsubsection {}{14.4}{Gammal inlupp uppgift}}{48}{subsection.14.4}%
