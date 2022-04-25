@@ -1,0 +1,222 @@
+\section{System av första ordningens linjära differentialekvationer}
+\par\bigskip
+\noindent Vad händer om vi har system med flera okända funktioner istället för att lösa för en? Det är premissen för dagens föreläsning. Det visar sig att i många system irl så är det många saker inblandade.
+\par\bigskip
+\noindent Exempel på hur en sådan ODE kan se ut - SIR modellen, som beskriver hur ett virus sprids:
+\begin{equation*}
+  \begin{gathered}
+    S(t) = \text{ Susceptible vid tid }t\\
+    I(t) = \text{ Infekterade vid tid }t\\
+    R(t) = \text{ Recovered vid tid }t\\
+    \begin{rcases*}
+      \dfrac{dS}{dt} = -\underbrace{k_1}_{\text{Infektionshastigheten}}\cdot S\\
+      \dfrac{dI}{dt} = -\underbrace{k_2}_{\text{Återställningshastighet}}\cdot I + k_1\cdot S\\
+      \dfrac{dR}{dt} = k_2\cdot I
+    \end{rcases*}S+I+R = n \text{ där $n$ är befolkning}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Ytterliggare ett exempel (likt det på sida 3):
+
+\begin{equation*}
+  \begin{gathered}
+    m\dfrac{d^2x}{dt^2}+c\dfrac{dx}{dt}+kx = F(t)
+    \text{Modell för fjäder-mass system. Låt } u = \dfrac{dx}{dt}\\
+    \Lrarr \dfrac{du}{dt} = \dfrac{d^2x}{dt^2} = \dfrac{1}{m}\left(-c\dfrac{dx}{dt}-kx+F(t)\right)\\
+    \begin{rcases*}
+      \dfrac{du}{dt}=\dfrac{1}{m}\left(-c\cdot u-kx+F(t)\right)\\
+      \dfrac{dx}{dt}=0
+    \end{rcases*}\text{System av 1:a ordninges ODE från 2:a ordningens}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Mer generellt kan vi skriva om en ODE som är på formen:
+\begin{equation*}
+  \begin{gathered}
+    y^{(n)}=F(t,y,y^{\prime},\cdots, y^{(n-1)})
+  \end{gathered}
+\end{equation*}\par
+\noindent till ett system av storlek $n$ med första ordningens ekvationer. Vi gör detta genom att införa/subba variabler:
+\begin{equation*}
+  \begin{gathered}
+    x_1 = y,\qquad x_2 = y^{\prime},\qquad\cdots\qquad, x_n = y^{(n-1)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi får ODE:n:
+\begin{equation*}
+  \begin{gathered}
+    x_1^{\prime}=x_2\\
+    x_2^{\prime} = x_3\\
+    \vdots\\
+    x_{n-1}^{\prime}=x_n\\
+    x_n^{\prime} = F(t,x_1, x_2,\cdots,x_n)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det omvända funkar inte, vi kan inte ta en ODE av grad $n$ och skriva den som högre ordningens system. Den typen av ODE:er som vi kommer kolla på nu är system på formen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x_1^{\prime} = F_1(t,x_1,x_2,\cdots,x_n)\\
+      x_2^{\prime} = F_2(t,x_1,\cdots,x_n)\\
+      \vdots\\
+      x_n^{\prime} = F_n(t,x_1,\cdots, x_n)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera! Vi har bytt den beroende och oberoende variabeln, beroende = $x$ och oberoende = $t$.
+\subsection{Existens och unikhet}\hfill\\
+\newpage
+\par\bigskip
+\noindent Vad innebär att hitta en lösning till systemet? Jo, en lösning på ett öppet interval $I$ är en mängd funktioner
+\begin{equation*}
+  \begin{gathered}
+    x_1 = x_1(t),\qquad x_2 = x_2(t),\qquad\cdots\qquad, x_n = x_n(t)
+  \end{gathered}
+\end{equation*}\par
+\noindent Som är deriverbara på $I$ och uppfyller systemet.
+\par\bigskip
+\noindent I tidigare kapitel har vi kikat på IVP, detta fungerar givetvis för system av ODE:er, men skillnaden är att vi behöver ett villkor för varje funktion. Initialvärden tar formen:
+\begin{equation*}
+  \begin{gathered}
+    x_1(t_0)=x_1^0 \text{ (ej upphöjt i 0, utan index)},\qquad x_2(t_0)=x_2^0,\qquad\cdots\qquad, x_n(t_0) = x_n^0
+  \end{gathered}
+\end{equation*}\par
+\noindent där $t_0\in I$ och $x_1^0,\cdots, x_n^0\in\R$
+\par\bigskip
+\begin{theo}[Existens och unikhet för system av ODE:er]{thm:exunisys}
+  Antag att $F_1,\cdots, F_n$ är kontinuerliga samt att derivatan med avseende på alla variabler är kontinuerliga:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial F_1}{\partial x_1},\cdots \dfrac{\partial F_n}{\partial x_1}\\
+      \vdots\\
+      \dfrac{\partial F_1}{\partial x_n}\cdots, \dfrac{\partial F_n}{\partial x_n}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Detta i regionen
+  \begin{equation*}
+    \begin{gathered}
+      R = \{(t,x_1,\cdots,x_n)\in\R^{n+1}, \alpha<t<\beta, \alpha_1<x_1<\beta_1,\cdots, \alpha_n<x_n<\beta_n\}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent (Högdimensionell rektangel). Då gäller för alla $(t_0, x_1^0, \cdots, x_n^0)\in\R$ finns ett intervall $\left|t-t_0\right|<h$ där vi har en unik lösning till systemet med det givna initialvillkoret.\par
+  \noindent Anmärkning: Derivatan med avseende på $t$ behöver alltså inte vara kontinuerlig.  
+\end{theo}
+\par\bigskip
+\noindent Beviset för denna är i princip samma som beviset för det envariabelfallet, bara att man gör det för flera variabler. Oftast gör man det (likt i Flervarren) att man tar ett koncept i envarren och kikar på flera variabler.
+\par\bigskip
+\subsubsection{System av linjära ODE:er}\hfill\\
+\par\bigskip
+\noindent Ett system av linjära ODE:er är på formen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x_1^{\prime} = a_{11}(t)x_1+a_{12}(t)x_2+\cdots+a_{1n}(t)x_n+f_1(t)\\
+      x_2^{\prime} = a_{21}(t)x_1+a_{22}(t)x_2+\cdots+a_{2n}(t)x_n+f_2(t)\\
+      x_n^{\prime} = a_{n1}(t)x_1+a_{n2}(t)x_2+\cdots+a_{nn}(t)x_n+f_n(t)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan skriva detta på matrisform:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = AX+F \text{ där }\\\\
+    X=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\qquad A = \begin{pmatrix}a_{11}(t)\hdots a_{1n}(t)\\\vdots\\a_{n1}(t)\hdots a_{nn}(t)\end{pmatrix},\qquad F=\begin{pmatrix}f_1(t)\\\vdots\\f_n(t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $F=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}$ så kallas systemet för \textit{homogent}, annars, \textit{inhomogent}.
+\par\bigskip
+\noindent Exempel:\par
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \dfrac{dx}{dt} = 3x+4y+t\\
+      \dfrac{dy}{dt}=5x-7y+e^t
+    \end{rcases*}\\
+    X = \begin{pmatrix}x\\y\end{pmatrix},\qquad A = \begin{pmatrix}3&4\\5&-7\end{pmatrix},\qquad F = \begin{pmatrix}t\\e^t\end{pmatrix}\\\\
+    \Lrarr X^{\prime} = AX+F
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För linjära system har vi en starkare sats än existens och unikhet som säger att lösnignen inte bara finns på ett intervall utan på hela intervallet som saker är definierade på:
+\par\bigskip
+
+\begin{theo}
+  OOm elementen i $A=A(t)$ och $F=F(t)$ är kontinuerliga på ett intervall $I$, då finns en unik lösning till IVP som är definierad på hela $I$.
+\end{theo}
+\par\bigskip
+\noindent Vi har nu ett antal resultat som liknar de för linjära ekvationer av grad 2 med koefficienter.
+\par\bigskip
+\begin{theo}
+  OOm $X_1, X_2,\cdots, X_k$ (där stora $X_i$ representerar en kolonn i $X$) ör lösningar till det homogena systemet $X^{\prime} = A(t)X$ för $t\in I$. Då är linjärkombinationen $X = C_1X_1+C_2X_2+\cdots+C_kX_k$ också en lösning för alla $C_i\in\R$
+\end{theo}
+\par\bigskip
+\noindent Vi kommer främst vara intresserade av linjärt oberoende lösningar.
+\par\bigskip
+
+\begin{theo}
+  Låt $X_1,\cdots, X_k$ vara en mängd lösningar till $X^{\prime}=A(t)X$. Vi säger att $X_1, \cdots, X_K$ är \textit{linjärt beroende} om det finns konstanter $C_1,\cdots, C_k$ så att $C_1X_1+\cdots+C_kX_k=0$ för alla $t\in I$ (inte alla $C_i$=0). Annars kallas de för linjärt beroende.
+\end{theo}
+\par\bigskip
+\noindent Kommentar: För $k=2$ får vi att $X_1$ och $X_2$ är linjärt beroende om $\dfrac{X_1}{X_2}=-\dfrac{C_2}{C_1}$ är konstant. Detta stämmer överens med vår tidigare definition.$X_1$ och $X_2$ är vektorer, så vi menar "elementvis division" med $\dfrac{X_1}{X_2}$.
+\par\bigskip
+\noindent Låt $X_1 = \begin{pmatrix}x_{11}\\\vdots\\x_{n1}\end{pmatrix},\cdots, X_n = \begin{pmatrix}X_{1n}\\\vdots\\x_{nn}\end{pmatrix}$ vara lösningar till $X^{\prime}=A(t)X$ (kommer kallas för systemet framöver). Dessa lösningar är linjärt beroende om Wronskianen $W(X_1,\cdots, X_n) \neq 0 = \begin{vmatrix}x_{11}&\hdots&x_{1n}\\\vdots&\vdots&\vdots\\x_{n1}&\hdots&x_{nn}\end{vmatrix}$ 
+\par\bigskip
+\noindent Kommentar: Vi har
+\begin{itemize}
+  \item Om $W(X_1,\cdots, X_n) = 0$ för något $t=t_0$, då är $W(X_1,\cdots, X_n)=0$ för alla $t\in I$
+  \item Om $W(X_1,\cdots, X_n)\neq0$ för något $t=t_0\in I$ är den aldrig 0.
+\end{itemize}
+\par\bigskip
+\begin{theo}[Fundamentala lösningsmängden]{thm:fundset}
+  En mängd $\{X_1, \cdots, X_n\}$ av linjärt oberoende lösningar till systemet kallas för en \textit{fundamental lösningsmängd}.
+\end{theo}
+\par\bigskip
+\noindent Kommentar: Det finns alltid en fundamental lösningsmängd (beviset för detta är exakt samma som när vi hade 2). Bevisas genom att lösa systemet med initialvillkoren $X(t_0)=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, X(t_0) = \begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\cdots$.\par
+\noindent Detta ger oss $n$ lösnignar, kalla dessa $X_1,X_2,\cdots, X_n$. För att kolla om den är linjärt beroende kollar vi på dens Wronskian i $t=t_0$:
+\begin{equation*}
+  \begin{gathered}
+    W(X_1,\cdots, X_n)(t_0) = \begin{vmatrix}1&0&0\hdots\\0&1&0\hdots\\\vdots&\vdots&\vdots\end{vmatrix} = \text{ enhetsmatrisen} = 1\neq0 \Rightarrow \text{ linjärt oberoende}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  Låt $X_1,\cdots, X_n$ vara en fundamental lösningsmängd till systemet, då ges den allmänna/generella lösningen av en linjärkombination
+  \begin{equation*}
+    \begin{gathered}
+      X = C_1X_1+\cdots+C_nX_n
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Där $C_1,\cdots, C_n$ är reella nollskillda konstanter
+\end{theo}
+\par\bigskip
+\noindent Exempel:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = \begin{pmatrix}1&3\\5&3\end{pmatrix}\qquad X = \begin{pmatrix}x\\y\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kan kontrollera att $X_1 = \begin{pmatrix}e^{-2t}\\-e^{-2t}\end{pmatrix}$ och $X_2 = \begin{pmatrix}3e^{6t}\\5e^{6t}\end{pmatrix}$ är lösningar. Vi deriverar $X_1$:
+
+\begin{equation*}
+  \begin{gathered}
+    X_1^{\prime}\begin{pmatrix}-2e^{-2t}\\2e^{-2t}\end{pmatrix}\text{ = vänsterled}\\
+    A = \begin{pmatrix}1&3\\5&3\end{pmatrix}\Rightarrow \begin{pmatrix}1&3\\5&3\end{pmatrix}\begin{pmatrix}e^{-2t}\\-e^{-2t}\end{pmatrix} = \begin{pmatrix}e^{-2t}-3e^{-2t}\\5e^{-2t}-3e^{-2t}\end{pmatrix} = \begin{pmatrix}-2e^{-2t}\\2e^{-2t}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det är tydligt att $X_1$ och $X_2$ inte är en konstant multipel av varandra, de är alltså linjärt oberoende. $\{X_1,X_2\}$ är vår fundamentala lösningsmängd. Den generella lösningen är:
+
+\begin{equation*}
+  \begin{gathered}
+    X = C_1X_1+C_2X_2 = \begin{pmatrix}C_1e^{-2t}+3C_2e^{6t}\\\\-C_1e^{-2t}+5C_2e^{6t}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kommentar: Nu har vi pratat om generella lösningar till homogena system. För ett inhomogent system $X^{\prime} = A(t)X+F(t)$ får vi lösnignen genom att ta den generlla lösningen för det associerade homogena systemet $X^{\prime} = A(t)X$ plus en partikulärlösning.
+\par\bigskip
+\noindent Som vi har sett så har vi många likheter mellan 2:a ordningens linjära ODE:er. Nästa gång kommer vi kika på fallet med konstanta koefficienter. Man kan se det redan nu i exemplet, lösningen hade med exponentialfunktionen att göra, vilket var precis det vi fick innan. I allmänhet kommer detta hända (dvs, vi får något med exponentialfunktionen). 
