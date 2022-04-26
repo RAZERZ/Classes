@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  20 APR 2022 14:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  26 APR 2022 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,35 +1110,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-[26]) [27] (./main.aux (./includes/title.aux)) ) 
+[26]) [27] (./pages/F7/1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+(./figures/euler.pdf_tex
+<./figures//euler.pdf, id=149, page=1, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 1>
+Package pdftex.def Info: ./figures//euler.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//euler.pdf, id=150, page=2, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 2>
+Package pdftex.def Info: ./figures//euler.pdf , page2 used on input line 59.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//euler.pdf, id=151, page=3, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 3>
+Package pdftex.def Info: ./figures//euler.pdf , page3 used on input line 61.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//euler.pdf, id=152, page=4, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 4>
+Package pdftex.def Info: ./figures//euler.pdf , page4 used on input line 63.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//euler.pdf, id=153, page=5, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 5>
+Package pdftex.def Info: ./figures//euler.pdf , page5 used on input line 65.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+<./figures//euler.pdf, id=154, page=6, 682.86612pt x 341.43306pt>
+File: ./figures//euler.pdf Graphic file (type pdf)
+<use ./figures//euler.pdf, page 6>
+Package pdftex.def Info: ./figures//euler.pdf , page6 used on input line 67.
+(pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
+) [30]) [31 <./figures//euler.pdf> <./figures//euler.pdf> <./figures//euler.pdf
+> <./figures//euler.pdf> <./figures//euler.pdf> <./figures//euler.pdf>] (./main
+.aux (./includes/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 18018 strings out of 478353
- 352365 string characters out of 5854635
- 650693 words of memory out of 5000000
- 35576 multiletter control sequences out of 15000+600000
+ 18051 strings out of 478353
+ 353333 string characters out of 5854635
+ 650702 words of memory out of 5000000
+ 35603 multiletter control sequences out of 15000+600000
  411205 words of font info for 57 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  110i,17n,107p,632b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc
-10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (28 pages, 313499 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb>
+Output written on main.pdf (32 pages, 331638 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 240 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
