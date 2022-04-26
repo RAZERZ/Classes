@@ -1,0 +1,237 @@
+\section{Ordinära differentialekvationer}
+\par\bigskip
+\noindent Man brukar dela in ODE:er i 2 grupper beroende på randvillkorlet.\par
+\noindent Explicit: $y^{(k)}(t)=f(t,y, y^{\prime}, y^{\prime\prime},\cdots,y^{(k-1)})$
+\par\bigskip
+\noindent Den första gruppen är \textit{Begynnelsevärdesproblem} (IVP).\par
+\noindent Exempel på första ordningens IVP:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      y^{\prime}(t)=f(t,y(t)) = 3y+t\qquad t>t_0\\
+      y(t_0) = y_0
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Andra gruppen är \textit{Randvärdesproblem}\par
+\noindent Exempel:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      y^{\prime\prime}=f(x,y,y^{\prime})\qquad a\leq x\leq b\\
+      y(a) = \alpha\\
+      y(b) = \beta
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Randvärdesproblem tas inte upp i denna kurs, däremot kommer det i Berv3/Berv för PDE.
+\par\bigskip
+\noindent Det som är viktigt att notera (för att få en unik lösning) är att antalet villkor som krävs är lika med ordningen på ekvationen.
+\par\bigskip
+\subsection{Speciella egenskaper för att klassificera ODE:er}\hfill\\
+\par\bigskip
+\noindent En ODE kallas \textit{linjär }om den är linjär i $y$ och alla dess derivator. Exempelvis $y^{\prime} = 3y+t$
+\par\bigskip
+\noindent \textit{Variabla koefficienter}, exempelvis $y^{\prime} = \sin(t)y+t$
+\par\bigskip
+\noindent En icke-linjär ODE kallas för \textit{ickelinjär}, exempelvis $y^{\prime} = y^2+t$
+\par\bigskip
+\noindent \textit{System av ekvationen}, SIR-modellen för epidemi. Antalet villkor för system av första ordningens ODE:er = antalet ekvationer.
+\par\bigskip
+\noindent Om alla villkor ges i samma punkt så har vi begynnelsevärdesproblem, annars randvärdesproblem.
+\par\bigskip
+\noindent Högre ordningens ekvationer, exempelvis:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}=f(t,y,y^{\prime})\qquad t\geq t_0\\
+    y(t_0) = y_0\\
+    y^{\prime}(t_0) = z_0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Omskrivning till förta ordningens ODE}\hfill\\
+\par\bigskip
+\noindent Givet en ODE av ordning $n$:
+\begin{equation*}
+  \begin{gathered}
+    u^{(n)} = f(t, u, u^{\prime}, u^{\prime\prime},\cdots, u^{(n-1)})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att skriva om den till system av första ordningen introducerar vi en vektor $y$ med följande komponenter:
+\begin{equation*}
+  \begin{gathered}
+    y_1 = u,\qquad y_2 = u^{\prime},\qquad y_3 = u^{\prime\prime},\qquad\cdots, \qquad y_n = u^{(n-1)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vilket ger ett system av första ordningen. Vi behöver HL för varje $y_i$. Vi kikar närmare på $y_1^{\prime}$, vilket blir $y_2$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+        y_1^{\prime} = y_2\\
+        y_2^{\prime} = y_3\\
+        \vdots\\
+        y_{n-1}^{\prime} = y_n\\
+        y_n = f(t,u, u^{\prime}, u^{\prime\prime},\cdots,u^{(n-1)}) = f(t,y_1, y_2,\cdots, y_n)
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kom ihåg! Begynnelsevärden.
+\par\bigskip
+\noindent Vad gör man om man har ett system med flera differentialekvationer? Jo, då skriver man om de till första ordningen och lägger ihop i en enda lång vektor.\par
+\noindent Vid system kan varje ekvation med högre ordningens derivator skrivas om till första ordningen. Därför är vanligtvis mjukvara för ODE utformad för system av första ordningen.
+\par\bigskip
+\subsection{Begynnelsevärdesproblem i SciPy}\hfill\\
+\par\bigskip
+\noindent Vi ska ta fram en slags guide på givet ett problem, hur man löser det i SciPy.
+\par\bigskip
+\noindent Det första man ska göra är att skriva om på standardformen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      y^{\prime} = f(t,y)\qquad a\leq t\leq b\\
+      y(a) = \alpha
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent där $y,f, \alpha$ är vektorvärda.
+\par\bigskip
+\noindent Skriv om till system av 1:a ordningen och specifiera position i vektorn $Y$ för varje komponenter i lösningen.\par\bigskip
+\noindent Exempel, $\begin{pmatrix}S\\I\\R\end{pmatrix} = \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix}$. Man kan givetvis byta runt på raderna, men var konsekvent. Byter man på en rad på ena sidan av ledet måste man göra det på det andra.
+\par\bigskip
+\noindent Ställ upp begynnelsevärden för $Y$.
+\par\bigskip
+\noindent Skriv python funktion för HL, för $f(t,y)$. 
+\par\bigskip
+\noindent Från SciPy.integrate, används solve\_ivp(func,(a,b), $\alpha$.
+\par\bigskip
+\noindent Exempel: Omloppsbana
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime\prime}=-GMy/r^3\\
+      y^{\prime\prime}=-GMy/r^3\qquad t>0
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent där $r=\sqrt{x^2+y^2}$ och $GM = 1$\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x(0)=1-e \text{ $e$ är excentritet}\\
+      y(0)=0\\
+      x^{\prime}(0)=0\\
+      y^{\prime}(0)=\sqrt{\dfrac{1+e}{1-e}}
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par
+\noindent Där $0\leq e<1$
+\par\bigskip
+\noindent Som vi såg tidigare var första steget att skriva om på standardform. Vi kör båda ekvationerna samtidigt:
+\begin{equation*}
+  \begin{gathered}
+    u_1 = x,\qquad u_2 = x^{\prime},\qquad u_3 = y,\qquad u_4 = y^{\prime}\\
+    \begin{cases*}
+      u_1^{\prime} = u_2\\
+      u_2^{\prime} = -GMu_1/r^3\\
+      u_3^{\prime} = u_4\\
+      u_4^{\prime} = -GMu_3/r^3\\
+      r = sqrt{u_1^2+u_3^2}
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi påminner om begynnelsevärden:
+\begin{equation*}
+  \begin{gathered}
+    u(0)= \begin{pmatrix}1-e\\0\\0\\\sqrt{\dfrac{1+e}{1-e}}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då har vi gjort första steget. Andra steget var att skriva en python-funktion för $f(t,u)$:
+\par\bigskip
+
+\begin{verbatim}
+import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+
+def fun(t,u):
+    GM = 1
+    r = np.sqrt(u[0]**2+u[2]**2)
+    return np.array([u[1],
+                     -GM*u[0]/r**3,
+                     u[3],
+                     -GM*u[2]/r**3])
+
+\end{verbatim}
+\par\bigskip
+\noindent Då kommer nästa steg, sätt begynnelsevillkor och anropa solve\_ivp:
+\par\bigskip
+
+\begin{verbatim}
+tspan = (0, 2*np.pi) # en period
+ecc = 0
+u0 = np.array([1-ecc, 0, 0, np.sqrt((1+ecc)/(1-ecc))])
+SOL = solve_ivp(fun, tspan, u0, max_step=0.01)
+
+plt.plot(SOL.y[0,:], SOL.y[2,:])
+plt.grid()
+plt.axis('equal')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+\end{verbatim}
+\par\bigskip
+\noindent SOL är ett objekt med bland annat SOL.t som är en vektor med $n+1$ tidpunkter, SOL.y som är den numeriska lösningen i de här tidpunkterna (vilket i vårat fall är 4 vektorer, en vektor för varje komponent) alltså $4$x$(n+1)$-matris.
+\par\bigskip
+\noindent Sista steget är att plotta lösningen. $x$-axeln kommer ha funktionen $x$ och samma med $y$-axeln, alltså inte variabeln $t$.
+\par\bigskip
+\subsection{Eulers metod (explicit Euler)(Euler framåt)}\hfill\\
+\par\bigskip
+\noindent Givet följande differentialekvation:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime}(t)=f(t,y(t))\qquad a\leq t\leq b\\
+      y(a)=\alpha
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{figure}[ht]
+    \centering
+    \incfig{euler}
+    \caption{Euler}
+    \label{fig:euler}
+\end{figure}
+\par\bigskip
+\noindent Generellt: $t_{i+1}=t_i+h$ där $h=\dfrac{b-a}{n}$
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      t_{i+1}=t_i+h$ \text{ där } $h=\dfrac{b-a}{n}\\
+      y_{i+1}=y-i + hf(t_i,y_i)\\
+      t_0=a,\qquad y_0 = \alpha
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är någon slags geometrisk motivering till metoden, men den går att härleda analytiskt via en taylorserie:
+\begin{equation*}
+  \begin{gathered}
+    y(t+h)=y(t)+hy^{\prime}(t)+\dfrac{h^2}{2}y^{\prime}(t)+\cdots\\
+    \underbrace{y(t)=hf(t,y(t))}_{\text{Euelersteg}}+\underbrace{O(h^2)}_{\text{Lokalt trunkeringsfel}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Det lokala trunkeringsfelet är bara i 1 steg, det är bland annat därför den kallas för \textit{lokal}.
+\par\bigskip
+\subsection{Diskretiseringsfel - Eulers metod}\hfill\\
+\par\bigskip
+\noindent Vi talade om det \textit{lokala} diskretiseringsfelet, vilket är felet i \textit{ett} steg. 

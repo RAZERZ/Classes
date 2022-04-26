@@ -39,3 +39,8 @@
 \contentsline {subsection}{\tocsubsection {}{8.1}{Hybrid-skiss av Newton-Raphson och bisektionsmetoden}}{25}{}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{Mer om konvergensordning i praktiken}}{25}{}%
 \contentsline {subsection}{\tocsubsection {}{8.3}{Sekantmetoden}}{26}{}%
+\contentsline {section}{\tocsection {}{9}{Ordinära differentialekvationer}}{28}{}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{Speciella egenskaper för att klassificera ODE:er}}{28}{}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{Omskrivning till förta ordningens ODE}}{28}{}%
+\contentsline {subsection}{\tocsubsection {}{9.3}{Begynnelsevärdesproblem i SciPy}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{9.4}{Eulers metod (explicit Euler)(Euler framåt)}}{31}{}%
