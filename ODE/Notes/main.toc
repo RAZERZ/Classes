@@ -55,3 +55,6 @@
 \contentsline {subsection}{\tocsubsection {}{15.1}{Existens och unikhet}}{50}{subsection.15.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{15.1.1}{System av linjära ODE:er}}{51}{subsubsection.15.1.1}%
 \contentsline {section}{\tocsection {}{16}{Homogena linjära system med konstanta koefficienter}}{54}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Repetition - Hitta egenvärden och egenvektorer}}{54}{subsection.16.1}%
+\contentsline {subsection}{\tocsubsection {}{16.2}{Fall 1 - Reella distinkta rötter}}{54}{subsection.16.2}%
+\contentsline {subsection}{\tocsubsection {}{16.3}{Fasporträtt}}{57}{subsection.16.3}%

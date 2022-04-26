@@ -1,1 +1,248 @@
 \section{Homogena linjära system med konstanta koefficienter}
+\par\bigskip
+\noindent Från tidigare hade vi:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = \begin{pmatrix}1&3\\5&3\end{pmatrix}X \Rightarrow X = C_1X_1+C_2X_2\\
+    X_1 = \begin{pmatrix}1\\-1\end{pmatrix}e^{-2t}, \qquad X_2 = \begin{pmatrix}3\\5\end{pmatrix}e^{6t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera här att både $X_1$ och $X_2$ är på formen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}k_1\\k_2\end{pmatrix}e^{\lambda t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då kan vi ställa oss frågan, gäller detta generellt? JA!!
+\par\bigskip
+\noindent Låt $A$ vara en $n$x$n$ matris med konstanta koefficienter. Vi studerar $X^{\prime} = AX$.\par
+\noindent Ansätt $X = Ke^{\lambda t}$ (där $K$ kolonnvektor). Vi har då:
+
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = \lambda\cdot K e^{\lambda t}\\
+    \text{Insättning ger: } \lambda K e^{\lambda t} = AKe^{\lambda t}\\
+    \Lrarr\lambda K = AK
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det vill säga, $K$ är en egenvektor till $A$ med egenvärde $\lambda$.
+\par\bigskip
+\subsection{Repetition - Hitta egenvärden och egenvektorer}\hfill\\
+\par\bigskip
+\begin{itemize}
+  \item Skriv $AK=\lambda K$ som ($A-\lambda I$)$K=0$. Vi vill att determinanten till $(A-\lambda I)$ ska vara 0, ty då vet vi att $(A-\lambda I)$ inte är 0 och vi kan då hitta $K$
+  \item Lös polynomekvationen $det(A-\lambda I)=0$. Ekvation av grad $n$, $n$ rötter ($\lambda_1,\cdots, \lambda_n$) om vi räknar multipliciteten och tar med komplexa rötter
+  \item Sätt in $\lambda_i$ i $(A-\lambda I)K=0$. En nollskilld lösning till detta system ger en egenvektor.
+\end{itemize}
+\par\bigskip
+\noindent I denna (och nästa) föreläsning kommer vi diskutera vad som händer i tre fall:
+\begin{itemize}
+  \item rella distinkta rötter
+  \item Rötter med multiplicitet > 1 (repeterande rötter)
+  \item Komplexa rötter
+\end{itemize}
+\par\bigskip
+\noindent Vi kommer även studera beteendet hos lösningen genom att betrakta dess fasporträtt.
+\par\bigskip
+\subsection{Fall 1 - Reella distinkta rötter}\hfill\\
+\par\bigskip
+\noindent Det här är, som tidigare, det enkla fallet. Vi behöver inte göra så många busigheter.
+\par\bigskip
+\begin{theo}
+  BBetrakta ett system $X^{\prime} = AX$ där $A$ är en $n$x$n$ matris med konstanta koefficienter. Om $A$ har $n$ distinkta reella egenvärden $\lambda_1,\cdots\lambda_n$ med egenvektor $K_1,\cdots, K_n$, då är den generella lösningen till ekvationen:
+  \begin{equation*}
+    \begin{gathered}
+      X = C_1K_2e^{\lambda_1 t}+\cdots + C_nK_ne^{\lambda_n t}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      \dfrac{dx}{dt} = -4x+y+z\\
+      \dfrac{dy}{dt}=x+5y-z\\
+      \dfrac{dz}{dt}=y-3x
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Första steget kommer vara att skriva om detta på matrisform för att sedan kunna skriva det på formen $X^{\prime} = AX$ har vi:
+
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}-4&1&1\\1&5&-1\\0&1&-3\end{pmatrix},\qquad X = \begin{pmatrix}x\\y\\z\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi hittar egenvärdena genom att kolla på determinanten av $(A-\lambda I)=0$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{vmatrix}-4-\lambda&1&1\\1&5-\lambda&-1\\0&1&-3-\lambda\end{vmatrix} = 0\\
+    \text{Kofaktorutveckla längst sista raden eller Sarrus ger: }\\
+    -(4+\lambda-1)-(3+\lambda)(-(4+\lambda)(5-\lambda)-1)= -(\lambda+3)+(\lambda+3)((4+\lambda)(5-\lambda)+1)\\
+    (\lambda+3)(4+\lambda)(5-\lambda)\\
+    \Lrarr \lambda_1 = -3,\qquad\lambda_2 = -4,\qquad\lambda_3 = 5
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu gäller det att bestämma egenvektorerna:
+\begin{equation*}
+  \begin{gathered}
+    \lambda_1 = -3 \Rightarrow (A-\lambda_1 I) = \begin{pmatrix}-1&1&1\\1&8&-1\\0&1&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill lösa:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}-1&1&1\\1&8&-1\\0&1&0\end{pmatrix}\begin{pmatrix}k_1\\k_2\\k_3\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi gör Gauzz med den:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}-1&1&1\\1&8&-1\\0&1&0\end{pmatrix} = 0\\
+    \begin{rcases*}
+      k_1 = k_3\\
+      k_2 = 0
+    \end{rcases*}\Rightarrow\text{Vi kan ta $k_1 = 1$: }\\
+    K_1 = \begin{pmatrix}1\\0\\1\end{pmatrix}\Rightarrow K_1e^{-3t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $\lambda=-4$:
+\begin{equation*}
+  \begin{gathered}
+    A-\lambda_2I = \begin{pmatrix}0&1&1\\1&9&-1\\0&1&1\end{pmatrix}\\
+    \begin{rcases*}
+      k_2+k_3 = 0\\
+      k_1-10k_3 = 0
+    \end{rcases*}\text{Väljer vi $k_3=1$ får vi heltalsgrejer, najs}:\\
+    k_3 = 1,\qquad k_1=10,\qquad k_2=-1\\
+    K_2 = \begin{pmatrix}10\\-1\\1\end{pmatrix}\Rightarrow X_2 = K_2e^{-4t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För $\lambda = 5$ får vi $K_3=\begin{pmatrix}1\\8\\1\end{pmatrix}$
+\par\bigskip
+\noindent Generella lösningen ges av linjärkombination av alla:
+\begin{equation*}
+  \begin{gathered}
+    X = C_1\begin{pmatrix}1\\0\\1\end{pmatrix}e^{-3t}+C_2\begin{pmatrix}10\\-1\\1\end{pmatrix}e^{-4t}+C_3\begin{pmatrix}1\\8\\1\end{pmatrix}e^{5t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill nu lägga grunden för fasporträtt. Vi gör detta genom ett exempel:
+\par\bigskip
+\noindent Rörelsen för en partikel beskrivs av ODE:en
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = AX \text{ där } X= \begin{pmatrix}x\\y\end{pmatrix}\text{ och $A$ uppfyller}:\\
+    A\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}3\\6\end{pmatrix} \text{ och } A\begin{pmatrix}1\\-2\end{pmatrix} = \begin{pmatrix}-1\\2\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Hitta den generella lösningen och beskriv vad som händer med en partikel som vid $t=2$ är $\begin{pmatrix}2\\2\end{pmatrix}$ när $t\to\infty$.
+\par\bigskip
+\noindent Vad vi noterar är att det enda som händer vid matrismultiplikationen är att i första fallet så får vi $3\cdot\begin{pmatrix}1\\2\end{pmatrix}$ och andra fallet $-1\cdot\begin{pmatrix}1\\-2\end{pmatrix}$ så vi kan enkelt läsa ut vilka våra egenvärden och egenvektorer är:
+\begin{equation*}
+  \begin{gathered}
+    \lambda_1 = 3\text{ dess egenvektor är } \begin{pmatrix}1\\2\end{pmatrix}\\
+    \lambda_2 = -1\text{ dess egenvektor är } \begin{pmatrix}1\\-2\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då har vi allt för att hitta lösningen:
+\begin{equation*}
+  \begin{gathered}
+    X = C_!\begin{pmatrix}1\\2\end{pmatrix}e^{3t}+C_2\begin{pmatrix}1\\-2\end{pmatrix}e^{-t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu skall vi svara på frågan. Vi söker $C_1, C_2$ så att $X(2)=\begin{pmatrix}2\\2\end{pmatrix}$:
+\begin{equation*}
+  \begin{gathered}
+    C_1\begin{pmatrix}1\\2\end{pmatrix}e^6 + C_2\begin{pmatrix}1\\-2\end{pmatrix}e^{-2} = \begin{pmatrix}2\\2\end{pmatrix}\Lrarr\begin{pmatrix}e^6&e^{-2}\\2e^{6}&-2e^{-25}\end{pmatrix}\begin{pmatrix}C_1\\C_2\end{pmatrix} = \begin{pmatrix}2\\2\end{pmatrix}\\
+    \Lrarr C_1 = 
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi får då:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      C_1 = \dfrac{3}{2}e^{-6}\\
+      C_2 = \dfrac{1}{2}e^2
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Lösningen är då:
+\begin{equation*}
+  \begin{gathered}
+    X(t)=e^{3t}\begin{pmatrix}\dfrac{3}{2}e^{-6}\\3e^{-6}\end{pmatrix}+\dfrac{1}{2}e^{-t}\begin{pmatrix}\dfrac{1}{2}e^{2}\\-e^2\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad händer när $t\to\infty$?:
+\begin{equation*}
+  \begin{gathered}
+    e^{3t}\to\infty\text{ när }t\to\infty\\
+    e^{-t}\to0\text{ när }t\to\infty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det vi kan se är att partikeln går mot $\infty$ i riktningen som ges av $\begin{pmatrix}\dfrac{3}{2}e^{-6}\\3e^{-6}\end{pmatrix}$, eftersom vi bara bryr oss om riktningen kan vi ta bort $e^{-6}$, dvs $\begin{pmatrix}\dfrac{3}{2}\\3\end{pmatrix}$
+\par\bigskip
+\subsection{Fasporträtt}\hfill\\
+\par\bigskip
+\noindent Den generella lösningen till $X^{\prime} = AX$ går att beskriva grafiskt. Exempelvis för lösningen från tidigare exemplet har vi:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}x(t)\\y(t)\end{pmatrix} = \begin{pmatrix}C_1e^{3t}+C_2e^{-t}\\2C_1e^{3t}-2C_2e^{-t}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Denna ritar upp en kurva i planet. För varje val av $C_1$ och $C_2$ får vi en kurva. Dessa kurvor har det formella namnet \textit{banor}. I detta fall kommer banorna befinna sig i $\R^2$, vi kallar $\R^2$ för \textit{fasplanet}. Anledningen till varför det kallas fasplan är att vi kommer se att beroende på var partiekln börjar kommer vi få olika faser.
+\par\bigskip
+\noindent Fasporträttet ges av att rita ut ett par banor i fasplanet. Man kan inte välja dessa banor hur som helst utan måste göra det representativt.\par
+\noindent Hur kan vi systematiskt rita ut fasporträtt? Om vi börjar att kolla på lättare fall, säg $C_2=0$, får vi $X = C_1\begin{pmatrix}1\\2\end{pmatrix}e^{3t}$. Hur beter sig denna när den går mot $\pm\infty$?\par
+\noindent När $t\to-\infty$ går denna mot origo. När $t\to\infty$ får vi olika fall beroende på om $C_1$ är positivt eller negativt. Om $C_1$ är positivt går denna i riktningen $\begin{pmatrix}1\\2\end{pmatrix}$, om $C_1$ är negativ går den i riktningen $-\begin{pmatrix}1\\2\end{pmatrix}$:
+
+\begin{figure}[ht]
+    \centering
+    \incfig{fasporträtt}
+    \caption{Fasporträtt}
+    \label{fig:fasporträtt}
+\end{figure}
+\par\bigskip
+\noindent Om $C_1 = 0$ får vi $X = C_2\begin{pmatrix}1\\-2\end{pmatrix}e^{-t}$. När $t\to+\infty$ går denna mot origo, när $t\to-\infty$ får viockså 2 olika fall beroende på om $C_2$ är positiv eller negativ:
+
+\begin{figure}[ht]
+    \centering
+    \incfig{fasporträtt-2}
+    \caption{Fasporträtt 2}
+    \label{fig:fasporträtt-2}
+\end{figure}
+\par\bigskip
+\noindent Om $C_1\neq0\neq C_2$ får vi:
+\begin{equation*}
+  \begin{gathered}
+    X = C_1\begin{pmatrix}1\\2\end{pmatrix}e^{3t}+C_2\begin{pmatrix}1\\-2\end{pmatrix}e^{-t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent När $t\to+\infty$ närmar sig $X$ $C_1\begin{pmatrix}1\\2\end{pmatrix}e^{3t}$ och när $t\to-\infty$ $C_2\begin{pmatrix}1\\-2\end{pmatrix}$. "Kombinerar" vi graferna får vi:
+
+\begin{figure}[ht]
+    \centering
+    \incfig{fasporträtt3}
+    \caption{Fasporträtt3}
+    \label{fig:fasporträtt3}
+\end{figure}
