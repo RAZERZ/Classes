@@ -1,0 +1,98 @@
+\section{Sammanfattning - Kapitel 2-5}
+\par\bigskip
+\noindent Sammanfattning inför Dugga. Vi har hitils gått igenom Semantik och Syntax, vilket motsvarar Kapitel 2 till Kapitel 5 i boken "Grundläggande Logik". Nedan följer sammanfattning och viktiga begrepp från varje kapitel:
+\par\bigskip
+\subsection{Kapitel 2}\hfill\\
+\par\bigskip
+\noindent\textit{Satslogik} är en del av \textit{predikatlogik}. I Satslogik behandlas \textit{påståendesatser}, det vill säga satser med ett \textit{sanningsvärde}, exempelvis:
+\begin{itemize}
+  \item 7+5=12
+  \item Klocka är tjugo över fem
+\end{itemize}
+\par\bigskip
+\noindent Istället för att skriva ut hela satser, använder vi istället \textit{satssymboler} såsom exempelvis $\varphi, p$\par\bigskip
+\noindent Mängden satssymboler kallas för \textit{satslogisk signatur} och betecknas oftast med $\sigma$ 
+\noindent En byggsten för att koppla samman logik i satser är \textit{konnektiv}, som består av $\neg,\wedge,\vee,\rightarrow,\leftrightarrow,\leftarrow$ och kallas även för \textit{logiska symboler}. Dessa konnektiv har alltid samma tolkning, oavsett vilken satslogisk signatur som används.
+\par\bigskip
+
+\noindent Konnektiv och satser kan kombineras för att bygga \textit{formler}, detta görs induktivt på följande sätt:
+\begin{itemize}
+  \item Basfallet: alla symboler i $\sigma$ är en formel
+  \item Induktionssteg 1: Om $\varphi$ är en formel, så är $\neg\varphi$ en formel
+  \item Induktionssteg 2: Låt $\Box$ vara ett konnektiv och $\varphi_1, \varphi_2$ formler, då är även $\varphi_1\Box\varphi_2$ en formel.
+  \item Före start av en ny formel bör en startparantes ( tillsättas, och i slutet av formeln en slutparantes ) tillsättas 
+\end{itemize}
+\par\bigskip
+
+\noindent Mängden formler givet den satslogiska signaturen $\sigma$ kallas för \textit{LP($\sigma$)}.
+
+\noindent Det är inte alla kombinationer av satser och konnektiv som ger en formel, exempelvis kanske man har fel antal paranteser. Då är det ett \textit{uttryck} och inte en formel. Varje formel är ett uttryck, men inte alla uttryck är formler.
+\par\bigskip
+
+\noindent Notera att vi har Induktionssteg 1 och 2, detta eftersom $\neg$ kan ses som enenvariabelfunktion, medan i steg 2 har vi konnektiv som är 2variabelsfunktioner. Mer formellt kallas dessa för \textit{1:ställig resp. 2:ställig konnektiv}.
+\par\bigskip
+\noindent Det går att visualisera bygget av en formel genom ett så kallat \textit{parsingträd} eller även kallat \textit{konstruktionströd}. Varje nod i ett sådant träd är en godtycklig formel. Slutnoden/roten kommer från det sista konnektivet som används. Detta konnektiv kallas för \textit{huvudkonnektivet}.
+\par\bigskip
+\noindent Varje formel som innehåller minst ett konnektiv kallas för \textit{molekylär} formel, men finns denna molekylära formel med som nod i konstruktionströdet kallas den för \textit{delformel}.
+\par\bigskip
+\noindent Paranteserna har tagits upp som en pelare i formler, men i vissa fall går det att strunta i dem. Reglerna som bestämmer dessa kallas för \textit{paranteskonventionerna}. Vill man vara på den säkra sidan kan det vara värt att minnas att det är aldrig fel att skriva ut alla paranteser. Reglerna lyder:
+\begin{itemize}
+  \item I en formel $\varphi$ sådant att $\varphi$ inte står som en delformel i en annan formel och $\varphi$ har en 2-ställig operator som huvudkonnektiv kan de yttre paranteser slopas
+  \item Led av konjunktion eller led av disjunktion kräver inga paranteser
+  \item Paranteser kring en konjunktion eller en disjunktion som är för eller efterled i en implikation eller ekvivalens kan elimineras 
+\end{itemize}
+\par\bigskip
+\noindent Sammanfattning av sanningstabeller för konjektiven:
+\par\bigskip
+
+\begin{center}
+  \begin{tabular}{c c | c c c c c }
+    $A$&$B$&$\neg A$&$A\wedge B$&$A\vee B$&$A\leftarrow B$&$A\leftrightarrow B$\\
+    \hline
+    S&S&F&S&S&S&S\\
+    S&F&F&F&S&F&F\\
+    F&S&S&F&S&S&F\\
+    F&F&S&F&F&S&S
+  \end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{Kapitel 3 - Semantik}\hfill\\
+\par\bigskip
+\noindent I syntaxen kollar vi på hur vi kan formulera formler genom att koppla samman konnektiv och satser. I semantiken är målet att kunna dra slutsatser från detta, vi vill på något sätt ge mening till att något implicerar något annat.
+\par\bigskip
+\noindent I semantiken finns det 2 grundprinciper:
+\par\bigskip
+\begin{itemize}
+  \item Varje atomär sats har exakt 1 sanningsvärde, sant eller falskt (betecknas S, F eller 1,0)
+  \item De vanliga konnektiven ($\vee, \wedge, \neg,\rightarrow, \leftrightarrow, \leftarrow$) går att översätta till språk (och, eller, inte) och kan tolkas sanningsfunktionellt
+\end{itemize}
+\par\bigskip
+\noindent Det sista ordet, sanningsfunktionellt, kan vara lite svårt att förstå, men vad vi menar är att "inte" kan tolkas som en syntaktisk negation och som byter sanningsvärdet på en formel. 
+\par\bigskip
+\noindent Notera ordet "funktion". En \textit{n-ställig sanningsfunktion} är en funktion $A$ som tillordnat ett sanningsvärde till varje satssymbol. Ja, satssymbol, för formler behöver vi lite mer definitioner.
+\par\bigskip
+\noindent En \textit{$\sigma$-strutkur} är en funktion $A:\sigma\to\{S,F\}$ som tildelar sanningsvärde till varje satssymbol.
+\par\bigskip
+\noindent För att kunna utvidga denna stuktur så att den täcker mängden av formler (LP($\sigma$)) definierar vi funktionen \textit{$A^*$} precis på samma sätt som vi utvidgade satser till formler, induktivt. Då utökas strukturen sådant att $A^*:\text{LP}(\sigma)\to\{S,F\}$:
+\par\bigskip
+\begin{itemize}
+  \item Basfallet: $A^*(\perp)=0$ och $A^*(\varphi)=A(\varphi)$ om $\varphi\in\sigma$
+    \par\bigskip
+
+  \item Induktionssteg $\neg$: $A^*(\neg\varphi) = S \Lrarr A^*(\varphi) = F$
+    \par\bigskip
+
+  \item Induktionssteg $\wedge$: $A^*(\varphi\wedge\psi) = S \Lrarr A^*(\varphi)=A^*(\psi)=S$
+    \par\bigskip
+
+  \item Induktionssteg $\vee$: $A^*(\varphi\vee\psi) = S \Lrarr A^*(\varphi)=S$ eller $A^*(\psi)=S$
+    \par\bigskip
+
+  \item Induktionssteg $\rightarrow$: $A^*(\varphi\rightarrow\psi) = S \Lrarr A^*(\varphi)=F$ eller $A^*(\psi)=S$
+    \par\bigskip
+
+  \item Induktionssteg $\leftrightarrow$: $A^*(\varphi\leftrightarrow\psi)\Lrarr A^*(\varphi)=A^*(\psi)$
+\end{itemize}
+
