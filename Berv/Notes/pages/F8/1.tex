@@ -1,0 +1,176 @@
+\section{Ordinära Differentialekvationer - Forts.}
+\par\bigskip
+\noindent Dagens föreläsning handlar om:
+\begin{itemize}
+  \item Euler bakåt
+  \item Klassificering av metoder
+  \item Globalt trunkeringsfel, konvergens
+  \item Frågeställning från labben
+  \item Enstegsmetoder
+  \item Exempel på Euler bakåt + Newton
+\end{itemize}
+\par\bigskip
+\subsection{Euler bakåt (Implicit euler)}\hfill\\
+\par\bigskip
+\noindent Givet
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime}(t) = f(t, y(t))\qquad a\leq t\leq b\\
+      y(a) = \alpha
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kollar istället riktningen i \textit{nästa} punkt. Vi tar en punkt som gör att om jag går baklänges, så hamnar jag i $(t_0, y_0)$
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    y_1 = y_0+hf(t_1,y_1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det vi gör är att vi söker $y_1$ som uppfyller den ekvationen. Finn $y_{i+1}$ så att ett Eulersteg bakåt skulle ge $y_i$:
+\begin{equation*}
+  \begin{gathered}
+    y_i = y_{i+1}-hf(t_{i+1}, y_{i+1})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Metoden antar ekvidistant steglängd:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      t_{i+1} = t_1+h\qquad h=\dfrac{b-a}{n}\\
+      y_{i+1}=y_i+hf(t_{i+1}, y_{i+1})\\
+      t_0=a\\
+      y_0=\alpha
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kräver i allmänhet iterativ metod för att hitta $y_{i+1}$ (tex. Newton). Denna har samma trunkeringsfel som Euler framåt. Denna metod kostar lite mer, beräkningsmässigt, men den är mer stabil.
+\par\bigskip
+\subsection{Klassificering av metoder}\hfill\\
+\par\bigskip
+\noindent En \textit{implicit metod} kan i allmänhet inte skrivas på formen:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1}=\text{HL}
+  \end{gathered}
+\end{equation*}
+\par\noindent Där HL endast beror på tidigare punkter $y_i, y_{i-1},\cdots$ 
+\par\bigskip
+\noindent En \textit{explicit metod} kan alltid skrivas på formen:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1}=\text{HL}
+  \end{gathered}
+\end{equation*}\par
+\noindent Där HL endast beror på tidigare punkter.
+\par\bigskip
+\noindent En \textit{enstegsmetod} är en metod som enbart beror på 1 tidigare steg, så $y_1$ beror på $y_0$ osv. Metoder:
+\par\bigskip
+\begin{itemize}
+  \item Euler framåt:
+    \begin{itemize}
+      \item $y_{i+1}=y_i+hf(t_i,y_i)$
+      \item Explicit
+      \item Nogrannhetsordning 1 ($O(h)$)
+    \end{itemize}
+  \item Euler bakåt:
+    \begin{itemize}
+      \item $y_{i+1}=y_i+hf(t_{i+1},y_{i+1})$
+      \item Implicit
+      \item Nogrannhetsordning 1 ($O(h)$)
+    \end{itemize}
+  \item Heuns metod:
+    \begin{itemize}
+      \item $k_1 = hf(t_i,y_i),\qquad k_2 = hf(t_{i+1},y_i+k_1)\qquad y_{i+1}=y_i+\dfrac{1}{2}(k_1+k_2)$
+      \item Explicit
+        \item Nogrannhetsordning 2
+    \end{itemize}
+  \item Implicita trapetsmetoden:
+    \begin{itemize}
+      \item $y_{i+1}=y_i+\dfrac{h}{2}f(t_i,y_i)+f(t_{i+1},y_{i+1})$
+      \item Implicit
+      \item Nogrannhetsordning 2
+    \end{itemize}
+  \item Klassisk Runge-Kutta (RK4):
+    \begin{itemize}
+      \item $k_1 = hf(t_i,y_i),\qquad k_2 = hf(t_i+\dfrac{h}{2},y_i+\dfrac{k_1}{2}),\qquad k_3 = hf(t_i+\dfrac{h}{2}, y_i+\dfrac{k_2}{2}),\qquad k_4 = hf(t_{i+1},y_i+k_3),\qquad y_{i+1}=y_i0\dfrac{1}{6}(k_1+2k_2+2k_3+k_4)$
+      \item Explicit
+      \item Nogrannhetsordning 4
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent En \textit{flerstegsmetod} är en metod som beror på flera punkter, $y_2$ kan beror på både $y_1$ och $y_0$. En metod som tillämpar detta kallas för \textit{Leapfrog} ($y_{i+1}=y_{i-1}+2hf(t_i,y_i)$).
+\par\bigskip
+\subsection{Exempel på Euler bakåt + Newton}\hfill\\
+\par\bigskip
+\noindent Betrakta:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      y^{\prime}(t)=\cos(y(t)\cdot t)\\
+      y(0)=0
+    \end{cases*}\\
+    \begin{cases*}
+      t_{i+1}=t_i+h\\
+      y_{i+1}=y_i+hf(t_{i+1}, y_{i+1})=y_1+h\cos((y_{i+1}, t_{i+1}))\\
+      t_0=0\\
+      y_0=0
+    \end{cases*}\\
+    g(y_{i+1})=y_{i+1}-y_i-h\cos(y_{i+1},t_{i+1})=0\\
+    g^{\prime}(y_{i+1})=1-0-ht_{i+1}\sin(y_{i+1},t_{i+1})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Newton för detta:
+\begin{equation*}
+  \begin{gathered}
+    s = y_{i} \leftarrow\text{startgissning}\\
+    \Delta s = -\dfrac{g(s)}{g^{\prime}(s)} = -\dfrac{s-y_i-h\cos(st_{i+1})}{1+ht_{i+1}\sin(st_{i+1})}\\
+    s = s+\Delta s
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Globala trunkeringsfel (enstegsmetoder)}\hfill\\
+\par\bigskip
+\noindent Betrakta:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime}(t)=f(t,y(t))\qquad a\leq t \leq b\\
+      y(a)=\alpha
+    \end{rcases*}\\
+    f(t,y)\text{ är lipschitz kontinuerlig i $y$}:\\
+    \exists L: \left|f(t,y_1)-f(t,y_2)\right|\leq L\left|y_1-y_2\right|
+  \end{gathered}
+\end{equation*}\par
+\noindent En enstegsmetod genererar $\{t_i = a+ih, y_i\}_{i=0}^n$ $h=\dfrac{b-a}{n}$. Låt $u_i^{\prime}(t)=f(t,u_i(t))$ och $u_i(t_i)=y_i$ (begynnelsevärden från punkter som Euler genererat).\par\bigskip
+\noindent Antag att lokala trunkeringsfelen $\left|u_{i-1}(t_i)-y_i\right|\leq Ch^{p+1}$
+\par\bigskip
+\noindent Då gäller att det globala felet:
+\begin{equation*}
+  \begin{gathered}
+    \left|y(b)-y_n\right|\leq Kh^p
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En metod för begynnelsevärdesproblem är \textit{konvergent} om:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{h\to0}y_n=y(b)\qquad nh=(b-a)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En enstegsmetod som har lokalt trunkeringsfel $L_i=\left|u_i(t_{i+1})-y_{i+1}\right|$:
+\begin{itemize}
+  \item Är \textit{konsistent }om $\lim_{h\to0}\dfrac{L_i}{h}=0$
+  \item Är konvergent om den är konsistent
+  \item Har nogrannhetsordning $p$ om $L_i=O(h^{p+1})$ när $h\to0$
+\end{itemize}

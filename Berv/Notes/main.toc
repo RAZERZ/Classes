@@ -44,3 +44,9 @@
 \contentsline {subsection}{\tocsubsection {}{9.2}{Omskrivning till förta ordningens ODE}}{28}{}%
 \contentsline {subsection}{\tocsubsection {}{9.3}{Begynnelsevärdesproblem i SciPy}}{29}{}%
 \contentsline {subsection}{\tocsubsection {}{9.4}{Eulers metod (explicit Euler)(Euler framåt)}}{31}{}%
+\contentsline {subsection}{\tocsubsection {}{9.5}{Diskretiseringsfel - Eulers metod}}{31}{}%
+\contentsline {section}{\tocsection {}{10}{Ordinära Differentialekvationer - Forts.}}{32}{}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Euler bakåt (Implicit euler)}}{32}{}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Klassificering av metoder}}{32}{}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{Exempel på Euler bakåt + Newton}}{33}{}%
+\contentsline {subsection}{\tocsubsection {}{10.4}{Globala trunkeringsfel (enstegsmetoder)}}{33}{}%
