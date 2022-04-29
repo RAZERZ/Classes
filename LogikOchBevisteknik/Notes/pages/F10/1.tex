@@ -1,0 +1,70 @@
+\section{Predikatlogik - Forts.}
+\par\bigskip
+\subsection{Fria och bundna förekomster av variabler}\hfill\\
+\par\bigskip
+\noindent Intuitivt skall en bunden variabel inlindas i kvantorer, vi definierar:
+\par\bigskip
+\begin{theo}
+  AAlla förekomster av variabler i termer kallas \textit{fria}
+  \par\bigskip
+  \noindent En förekomst av variabler $x$ är \textit{fri} (i formeln) om den inte förekommer inom en existens-kvantor med $x$ efter ($\exists x$) eller $\forall x$.\par
+  \noindent Annars kallas den för \textit{bunden}
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\noindent $\forall x\left(\bar{R}(x,\bar{c})\vee y\dot{=}\bar{c}\right)$. Här ser vi att det finns 2 variabler som  förekommer, $x,y$. $x$ förekommer vid en all-kvantor och i en relation. $x$ i relationen samt kvantorn är en s.k \textit{bunden förekomst} av $x$. Vi tittar på $y$, finns det någon kvantor? Nej, så den är fri. Med bundna variabler skall vi kunna uttala formeln utan att säga variabelns namn, vi kan byta ut den mot "något".
+\par\bigskip
+\noindent En formel kallas för \textit{sluten} om den saknar fria variabel-förekomster. Exempel i LR($\sigma$) för \textgoth{n}:
+\par\bigskip $\bar{S}(T)\dot{=}\bar{S}(\bar{S}(\bar{0}))$ \qquad $\forall x\left(\bar{0}\bar{<}\bar{S}(x)\right)$ (alla variabler förekommer bara i en kvantor)\qquad$\exists\left(x\dot{=}\wedge\bar{S}(x)\bar{<}x\right)$
+\par\bigskip
+\noindent En sluten formel kallas för \textit{sats}.
+\par\bigskip
+\noindent Vi vill göra lite som vi gjorde i satslogiken, införa begreppet \textit{semantik} och naturlig dedaktion (syntax).
+\par\bigskip
+\subsection{Variabelsubstitution}\hfill\\
+\par\bigskip
+\noindent Vi vill definiera detta dels i termer och i formler. Vi börjar med att försöka definiera det intuitivt för termer:
+\par\bigskip
+\noindent Låt $T, t$ vara termer och $x$ variabler. Vi skriver $T[t/x]$, varje $x$ vi ser ersätts med $t$ i termen $T$. Definieras vidare med induktion av uppbyggnaden av $T$ 
+\par\bigskip
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item Om $T$ är en variabel eller konstantssymbol:
+        \begin{itemize}
+          \item $\begin{rcases*}t \text{ om } y=x\\y\text{ om }y\neq x\end{rcases*}y[t/x]$ 
+        \end{itemize}
+    \end{itemize}
+  \item Induktion:
+    \begin{itemize}
+      \item Om $T=\bar{F}(t_1,\cdots,t_k)$, så $T[t/x]=\bar{F}(t_1[t/x],\cdots, t_k[t/x])$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Variabelsubstitution i formler sker på samma sätt men istället för $T$ har vi $\varphi$ och vi vill fortfarande byta ut en variabel. Betecknas $\varphi[t/x]$ där $\varphi$ är en formel, $t$ är en term, och $x$ är en variabel. Detta görs även induktivt:
+\par\bigskip
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item$\perp[t/x] = \perp$
+      \item $t_1 = t_2[t/x]= t_1[t/x]\dot{=}t_2[t/x]$
+      \item$\bar{R}(t_1,\cdots,t_k)[t/k]=\bar{R}(t_1[t/x],\cdots, t_k[t/x])$
+    \end{itemize}
+  \item Induktion:
+    \begin{itemize}
+      \item $(\neg\psi)[t/x]=\neg(\psi[t/x])$
+      \item ($\psi_1\Box\psi_2$)$[t/x] = \psi_1[t/x]\Box\psi_2[t/x]$ där $\Box$ är godtyckligt konnektiv
+      \item $(\forall y\psi)[t/x] = \forall y(\psi[t/])$ om $y\neq x$, annars $\forall x\psi$ (vi gör ingenting).
+      \item $(\exists y\psi)[t/x] = \exists y(\psi[t/x])$ om $y\neq x$, annars $\exists x\psi$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Anmärkning: Vi byter alltså \textbf{inte} bundna variabler
+\par\bigskip
+\noindent En variabel substitution kallas för \textit{tillåten} om ingen tidigare fri förekomst av en variabler efter substitutionen blir bunden.
+\par\bigskip
+\noindent Exempel:\par
+\noindent $\exists x(y\bar{<}x)$ är en formel som har en fri variabel förekomst ($y$). Om vi gör substitutionen $[x/y]$ får vi $\exists x(x\bar{<}x)$. Detta är en "korrekt" substitution, den följer reglerna, men vi vill inte tillåta detta ty om vi "översätter" så står det "det finns någonting som är mindre än sig självt" medan innan vi gjorde substitutionen sa vi "det finns någonting som är större än $y$". Vi har tappat betydelsen i substitutionen, vilket vi inte kan tillåta.
+\par
+\noindent Alla substitutioner som vi gör framöver skall vara tillåtna.
+

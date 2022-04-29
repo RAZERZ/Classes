@@ -1,0 +1,162 @@
+\section{Predikatlogik - Första ordningens logik}
+\par\bigskip
+\noindent Predikat kan ses som en slags relation, \textit{mindre än relation}, \textit{delbarhet} osv. Ett annat ord för relation är predikat, så predikatlogik är alltså logik som har tillgång till relationer. Syftet med predikatlogik är att skapa bättre språk. Det satslogiska språket är logiskt "fattigt".
+\par\bigskip
+\noindent Exempel:\par
+\begin{itemize}
+  \item Alla rationella tal är reella ($\forall x(x\in\Q\Rightarrow x\in\R)$)
+  \item 2/3 är ett rationellt tal ($2/3\in\Q$)
+  \item Alltså följer att 2/3 är ett reellt tal ($2/3\in\R$)
+\end{itemize}
+\par\bigskip
+\noindent Detta går inte att uttrycka i satslogik m.h.a konnektiven, alltså är uttrycket "Alla rationella tal är reella tal" en atomär sats. Men det är även "2/3 är ett rationellt tal", då blir det otydligt vilken relation satserna har till varandra.
+\par\bigskip
+\noindent Vi har 2 sorters tillåtna teckensträngar i språket (vi har inte kommit till språket än):
+\begin{itemize}
+  \item \textit{Termer}: Namn på element exvis 2/3, $x$, $y$, $x+3$
+  \item \textit{Formler}: Har sanningsvärde 
+\end{itemize}
+\par\bigskip
+\noindent Bland termerna finns det variabler som kan dyka upp i formler på lite olika sätt. De förekommer ibland \textit{bundet} och ibland \textit{fritt}.\par
+\noindent Tag exempelvis $\forall x(x>3)$, här spelar det ingen roll vad variablen heter. Samma sak i $\int 2xdx$, här är $x$ \textit{bunden}.\par
+\noindent Däremot är termen $x+3$ inte bunden, den är \textit{fri} ty den ger en egenskap till just $x$. Det går att ha både och, exempelvis $\underbrace{\forall x (x>3)}_{\text{bunden}}\wedge \underbrace{x}_{\text{fri}} = 7$
+\par\bigskip
+\subsection{Relationer}\hfill\\
+\par\bigskip
+\noindent Det finns $n$-ställiga relationer (exmepelvis är "$>$" 2-ställig ty den tar 2 variabler/termer). En relation är alltid på en mängd och relationen ger en delmängd av ordnade par.
+\par\bigskip
+\noindent En två-ställig relation på mängden $A$ är en delmängd $A$x$A$, dvs en mängd av ordnade par. $R\subseteq A$x$A$
+\par\bigskip
+\noindent Exempel:\par
+\noindent $D$ på $\Z$. $D = \{(a,b)\in\Z$x$\Z: a|b\}$, här är $(2,6)\in D$ men $(2,7)\notin D$. Det är vanligt att skriva symbolen mellan $a$ och $b$, så istället för $(a,b)$ skriver vi i detta fall $a|b$.
+\par\bigskip
+\noindent Ett-ställig relation på $A$. $R\subseteq A$
+\par\bigskip
+\noindent Exempel:\par
+\noindent $P=\{x\in\Z:\text{$x$ är primtal}\}$. Här är $P(3)$ ty 3 primtal. Brukar skrivas $3\in P$
+\par\bigskip
+\noindent En tre-ställig relation på $\Z$ är en mängd $R\subseteq\Z$x$\Z$x$\Z$.
+\par\bigskip
+\noindent Exempel:\par
+\noindent $M(a,b,c)\Lrarr$ $b$ är strikt mellan $a$ och $c$. $(1,2,4)\in M$ men $(1,0,4)\notin M$
+\par\bigskip
+\subsection{Funktioner}\hfill\\
+\par\bigskip
+\noindent Relationer är altså något som vi vill ha i vårat språk. Ytterliggare något som vi vill ha i språket är \textit{funktioner}.
+\par\bigskip
+\noindent Låt $A$ vara en mängd. En $n$-ställig \textit{funktion} (kommer också vara $n$-ställig) på mängden $A$ är en funktion $F:A$x$A$x$\cdots$x$A\to A$ ($n$-stycken $A$).\par
+\noindent Observera: $F$ är definierad $\forall$ $n$-tupler $a_1,a_2,\cdots, a_n$.
+\par\bigskip
+\noindent Exempel: En 1-ställig funktion från $A\to A$ är $F:A\to A$ är en regel som till varje $a\in A$ tilldelar precis ett element, $F(a)$ i $A$.
+\par\bigskip
+\noindent Exempel på en 2-ställig funktion är +.
+\par\bigskip
+\subsection{Strukturer}\hfill\\
+\par\bigskip
+\noindent Vi talar ofta om en struktur, men vad är det? Jo, det är en icke-tom mängd $A$ som är uttrystad med konstanter, relationer, och funktioner:
+\par\bigskip
+\begin{itemize}
+  \item \textgoth{A} = $<A, \{c_i:i\in I\}, F_n, R_n>$
+    \begin{itemize}
+      \item där $c_i$ är en konstant, dvs $c_i\in A$
+      \item där $F_i$ är en funktion $F_i:A$x$A$x$\cdots$x$A\to A$ där ställigheten av funktionen betecknas $s_i$
+      \item där $R_i$ är en relation av ställighet $r_i$. Dvs $R_i\subseteq A$x$A$x$\cdots$x$A$
+      \item Där $A$ kallas strukturens \textit{universum}.
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Man kan ha 0st konstanter, funktioner, eller relationer.
+\par\bigskip
+\noindent Exempel:\par
+\noindent\textgoth{N} = $<\N, \{0\}, S, <>$\par
+\noindent Där $S:\N\to\N\qquad n\mapsto n+1$ och $<$ är den vanliga mindre-än relationen.\par
+Notera att vi har mängklammrar runt 0. Det behöver vi inte för ändliga mängder som vi kan räkna upp. Se följande exempel.
+\par\bigskip
+\noindent Exempel:\par
+\noindent\textgoth{R}  = $<\R, 0, 1, +, -, \cdot>$
+\par\bigskip
+\noindent Exempel:\par
+\noindent \textgoth{Z} = $<\Z,0,+>$ $\leftarrow$ här kommer vi inte kunna \textit{namnge} talen eftersom de alla är 0.
+\par\bigskip
+\noindent Exempel:\par
+\noindent$\textgoth{Z}_5 = <\Z_5,0, \oplus>$ (addition modulo 5).
+\par\bigskip
+\subsection{Språk för predikatlogik (1:a ordningens logik)}\hfill\\
+\par\bigskip
+\noindent Bakgrunden är att vi tänker oss att vi vill jobba i strukturen \textgoth{N}. Vi vill hitta på ett språk som passar att resonera i strukturen. Vi vill ha en symbol i alfabetet för konstanter. För varje funktion lägga till en fuktionssymbol, för varje relation lägga till en relationssymbol. Vi börjar på följande sätt:
+\par\bigskip
+\noindent Låt \textgoth{A} = $<A, \{c_i:i\in I\}, F_n, R_n>$ vara en struktur.
+\par\bigskip
+\noindent Vi vill generalisera detta men vi vill inte prata om en strutkur, utan alla strukturer med samma typ (där typ är antalet funktioner, konstanter, relationer samt deras ställighet). Därför önskar vi att införa ett alfabet i språket:\par
+\noindent Inför alfabetet $<\{\bar{c_i}:i\in I\}, \{\bar{F_n}\}, \{\bar{R_m}\}>$ där:
+\begin{itemize}
+  \item $\bar{c_i}$ är en konstantsymbol
+  \item $\bar{F_n}$ är en funktionssymbol av ställighet $s_i$
+  \item $\bar{R_m}$ är en relationssymbol med ställighet $r_i$ 
+\end{itemize}
+\par\bigskip
+\noindent Här är ett alfabet med frivilliga symboler (frivilliga ty vi kan välja vilka symboler som helst, till skillnad från konnektiv).
+\par\bigskip
+\noindent Säg att det är ändlig många konstanter $k$st. Vi vill konstruera tuppeln $\sigma$.\par
+\noindent $\sigma = <\bar{c_1},\cdots,\bar{c_k}, \bar{F_1},\cdots, \bar{F_n}, \bar{R_1},\cdots,\bar{R_m}>$ kallas för en \textit{signatur}. För att få generaliteten behöver vi tala om att signaturen är av en viss \textit{typ}.\par
+\noindent \textit{Typen} av $\sigma$ är $<0,0,\cdots,0; s_1,\cdot, s_n; r_1,\cdots, r_n>$ (dvs räkna upp ställigheterna):
+\begin{itemize}
+  \item Konstanterna betraktas som 0-ställiga (varpå nollorna)
+\end{itemize}
+\par\bigskip
+\noindent Nu kan vi generalisera språket till varje typ $\sigma$.
+\par\bigskip
+\noindent Språket betecknas \textit{LR($\sigma$)} (relationslogik istället för propositionell logik) för signaturen $\sigma$ av given typ (ovan). Vad behöver vi?:
+\begin{itemize}
+  \item Alfabet:
+    \begin{itemize}
+      \item Alla symboler i $\sigma$ och konnektiven och paranteser och kvantorerna ($\exists,\forall$) samt en radda av uppräknerligt många variabler $x_1,x_2,\cdots,$ (skrivs vanligtvis $x,y,z$), $\dot{=}$ (2 element är lika) och kommatecken.
+      \item Alla föregående förutom symbolerna i $\sigma$ kallas för \textit{logiska} symboler, medan de andra kallas för \textit{icke-logiska}. 
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Vi skall definiera \textit{termer} och \textit{formler}:
+\par\bigskip
+\noindent \textit{Termer} LR($\sigma$) definieras induktivt och ska peka på element:
+\par\bigskip
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item $x$ variabel $\Rightarrow x$ är en term
+      \item $\bar{c_1},\cdots,\bar{c_k}$ är termer
+    \end{itemize}
+  \item Induktionssteg:
+    \begin{itemize}
+      \item Om $\bar{F}$ är en $k$-ställig funktionssymbol, och $t_1,\cdots, t_k$ är termer, då är $\bar{F}(t_1,\cdots, t_k)$ en term.
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Formler i LR($\sigma$) definieras induktivt:
+\par\bigskip
+\begin{itemize}
+  \item Bas (atomära formler):
+    \begin{itemize}
+      \item $\perp$ är en formel
+      \item Om $t_1$ och $t_2$ är termer, så är $t_1\dot{=} t_2$ en formel
+      \item Om $\bar{R}$ är en $k$-ställig relationssymbol, och $t_1,\cdots, t_k$ är termer, så är $\bar{R}(t_1,\cdots,t_k)$ en formel
+    \end{itemize}
+  \item Induktionssteg (genom konnektiv och kvantorer):
+    \begin{itemize}
+      \item Om $\varphi$ en formel, så är $(\neg\varphi)$ en formel
+      \item Om $\varphi$ och $\psi$ är formler, så är ($\varphi\vee\psi$), ($\varphi\wedge\psi$), ($\varphi\rightarrow\psi$) och ($\varphi\leftrightarrow\psi$) formler
+      \item Om $\varphi$ är en formler och $x$ en variabel, så är $\exists x\varphi$ och $\forall x\varphi$ formler 
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Vad vi har gjort är inte så konstig,t vi har härmat definitionen av formler i satslogik men vi har ändrat bassteget och kör lite extra induktionssteg. De liknar varandra för att vi vill fortfarande ha tillgång till satslogiken i vår predikatlogik.
+\par\bigskip
+\noindent Exempel:\par
+\noindent Vilka formler i LR($\sigma$) för \textgoth{n} = $<\bar{0}, \bar{s}, \bar{<}>$?\par
+Några formler i språket är:
+\begin{itemize}
+  \item $\perp$\qquad$\bar{S}(\bar{0})\dot{=}x$\qquad $\bar{S}(\bar{0}\dot{=}\bar{0})$
+  \item $\left(\bar{<}(\bar{S}(\bar{0}), x)\wedge\bar{0}\dot{=}\bar{S}(\bar{0})\right)$
+  \item $\forall\bar{S}(\bar{0})\dot{=} x$\qquad$\exists(\bar{S}(\bar{0})\bar{<}\bar{0}\wedge x\dot{=}\bar{S}(\bar{S}(\bar{0})))$\qquad (notera paranteserna)
+\end{itemize}
+\par\bigskip
+\noindent Observera: Om $\bar{R}$ är en 2-ställig relationssymbol, och $t_1,t_2$ är termer, så skriver vi oftast $t_1 \bar{R} t_2$ när vi menar $\bar{R}(t_1,t_2)$
