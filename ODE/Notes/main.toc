@@ -58,3 +58,6 @@
 \contentsline {subsection}{\tocsubsection {}{16.1}{Repetition - Hitta egenvärden och egenvektorer}}{54}{subsection.16.1}%
 \contentsline {subsection}{\tocsubsection {}{16.2}{Fall 1 - Reella distinkta rötter}}{54}{subsection.16.2}%
 \contentsline {subsection}{\tocsubsection {}{16.3}{Fasporträtt}}{57}{subsection.16.3}%
+\contentsline {section}{\tocsection {}{17}{Homogena Linjära system med konstanta koefficienter - Forts}}{59}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{Komplexa egenvärden}}{59}{subsection.17.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{Dubbla egenvärden}}{60}{subsection.17.2}%

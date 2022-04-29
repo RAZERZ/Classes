@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  26 APR 2022 10:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.14)  29 APR 2022 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,12 +925,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
 (./pages/F1/1.tex (./figures/figur.pdf_tex
-<./figures//figur.pdf, id=323, page=1, 682.86612pt x 341.43306pt>
+<./figures//figur.pdf, id=338, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//figur.pdf Graphic file (type pdf)
 <use ./figures//figur.pdf, page 1>
 Package pdftex.def Info: ./figures//figur.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//figur.pdf, id=324, page=2, 682.86612pt x 341.43306pt>
+<./figures//figur.pdf, id=339, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//figur.pdf Graphic file (type pdf)
 <use ./figures//figur.pdf, page 2>
 Package pdftex.def Info: ./figures//figur.pdf , page2 used on input line 59.
@@ -1584,20 +1584,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--204
  []
 
 (./figures/fasporträtt.pdf_tex
-<./figures//fasporträtt.pdf, id=650, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt.pdf, id=666, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt.pdf , page1 used on input line
  56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//fasporträtt.pdf, id=651, page=2, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt.pdf, id=667, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt.pdf, page 2>
 Package pdftex.def Info: ./figures//fasporträtt.pdf , page2 used on input line
  58.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 ) (./figures/fasporträtt-2.pdf_tex
-<./figures//fasporträtt-2.pdf, id=652, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt-2.pdf, id=668, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt-2.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt-2.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt-2.pdf , page1 used on input li
@@ -1605,26 +1605,35 @@ ne 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 )
 (./figures/fasporträtt3.pdf_tex
-<./figures//fasporträtt3.pdf, id=653, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt3.pdf, id=669, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt3.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt3.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt3.pdf , page1 used on input lin
 e 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 ) [57 <./figures//fasporträtt.pdf> <./figures//fasporträtt.pdf>]) [58 <./figu
-res//fasporträtt-2.pdf> <./figures//fasporträtt3.pdf>] (./main.aux (./include
-s/title.aux))
+res//fasporträtt-2.pdf> <./figures//fasporträtt3.pdf>] (./pages/F12/1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+
+ []
+
+[60]) [61] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8312169EAA6613454555D587758A6A82;12004.
+(rerunfilecheck)             Checksum: D3A3A3B47D81611D92A18C2D6AE63A40;12769.
  ) 
 Here is how much of TeX's memory you used:
- 24594 strings out of 478353
- 450865 string characters out of 5854635
- 764256 words of memory out of 5000000
- 41863 multiletter control sequences out of 15000+600000
+ 24608 strings out of 478353
+ 451056 string characters out of 5854635
+ 764303 words of memory out of 5000000
+ 41868 multiletter control sequences out of 15000+600000
  411735 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  109i,19n,105p,672b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1643,10 +1652,10 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (59 pages, 407529 bytes).
+Output written on main.pdf (62 pages, 418409 bytes).
 PDF statistics:
- 793 PDF objects out of 1000 (max. 8388607)
- 683 compressed objects within 7 object streams
- 206 named destinations out of 1000 (max. 500000)
- 515 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 212 named destinations out of 1000 (max. 500000)
+ 539 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,191 @@
+\section{Homogena Linjära system med konstanta koefficienter - Forts}
+\par\bigskip
+\noindent Förra gången tittade vi på $X^{\prime} = AX$ där $A$ är en $n$x$n$-matris med konstanta koefficienter. Lösningen är en kolonnvektor $X = \begin{pmatrix}x_1(t)\\\vdots\\x_n(t)\end{pmatrix}$. Om $A$ har $n$ distinkta egenvärden är lösningen given på formen $X = C_1e^{\lambda_1t}K_1 + \cdots + C_ne^{\lambda_nt}K_n$
+\par\bigskip
+\noindent I dagens föreläsning ska vi kolla på om vi har komplexa egenvärden och eller dubbla.
+\par\bigskip
+\subsection{Komplexa egenvärden}\hfill\\
+\par\bigskip
+\noindent Vi kollar på fallet $n=2$ (dvs $2$x$2$-matriser), men det är relativt tydligt hur man generaliserar till högre dimensioner.\par
+\noindent Vi har då $\lambda = \alpha+i\beta$ är ett egenvärde, då är motsvarande egenvektor komplex:
+\begin{equation*}
+  \begin{gathered}
+    K = K_1+iK_2
+  \end{gathered}
+\end{equation*}\par
+\noindent En lösning till $X^{\prime} = AX$ ges på samma sätt som vi gjorde förra gången:
+\begin{equation*}
+  \begin{gathered}
+    X = e^{\lambda t}\cdot K = e^{(\alpha+i\beta)t}\left(K_1+K_2\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Däremot vill vi oftast skriva detta på en mer reell form. Vi har gjort liknande när vi gjorde detta för 2:a ordningens ekvationer.
+\par\bigskip
+\noindent Exempel:\par
+\noindent Lös $X^{\prime} = \underbrace{\begin{pmatrix}4&-5\\5&-4\end{pmatrix}}_{\text{$A$}}X$\par\bigskip
+\noindent \textbf{Steg 1}, bestäm egenvärden:
+\begin{equation*}
+  \begin{gathered}
+    det(A-\lambda I) = \lambda^2+9 = 0 \Lrarr \lambda=\pm3i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Steg 2}, hitta egenvektor (vi behöver bara räkan ut 1, ty även deras egenvektorer är konjugat).\par
+\noindent För $\lambda_1=3i$ får vi:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}4-3i&-5\\5&-4-3i\end{pmatrix}\begin{pmatrix}k_1\\k_2\end{pmatrix}=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att raderna är linjärt beroende, så det räcker med att kolla på en rad. Vi kikar på den övre:
+\begin{equation*}
+  \begin{gathered}
+    (4-3i)k_1-5k_2 = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna löses genom $k_1 = 5$ och $k_2 = 4-3i$.\par
+\noindent Vår första egenvektor är då:
+\begin{equation*}
+  \begin{gathered}
+    K_1 = \begin{pmatrix}5\\4-3i\end{pmatrix} = \begin{pmatrix}5\\4\end{pmatrix}+\begin{pmatrix}0\\-3\end{pmatrix}i
+  \end{gathered}\\
+  K_2 = \begin{pmatrix}5\\4\end{pmatrix}+\begin{pmatrix}0\\3\end{pmatrix}i
+\end{equation*}\par
+\noindent Vi har då:
+\begin{equation*}
+  \begin{gathered}
+    X_1 = e^{\lambda_1t}K_1 = e^{3it}\left(\begin{pmatrix}5\\4\end{pmatrix}+\begin{pmatrix}0\\-3\end{pmatrix}i\right) = (\cos(3t)+i\sin(3t))\left(\begin{pmatrix}5\\4\end{pmatrix}+\begin{pmatrix}0\\-3\end{pmatrix}i\right)\\
+    \Lrarr\begin{pmatrix}5\cos(3t)\\4\cos(3t)+3\sin(3t)\end{pmatrix}+\begin{pmatrix}5\sin(3t)\\-3\cos(3t)+4\sin(3t)\end{pmatrix}i\\\\
+    X_2 = \cdots = \begin{pmatrix}5\cos(3t)\\4\cos(3t)+3\sin(3t)\end{pmatrix}-\begin{pmatrix}5\sin(3t)\\-3\cos(3t)+4\sin(3t)\end{pmatrix}i
+  \end{gathered}
+\end{equation*}\par
+\noindent Om vi tittar på de reella lösningarna (vilket vi kan få från linjärkombinationer):
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{2}X_1+\dfrac{1}{2}X_2 = \begin{pmatrix}5\cos(3t)\\4\cos(3t)+3\sin(3t)\end{pmatrix}\\
+    \dfrac{1}{2i}X_1-\dfrac{1}{2i}X_2 = \begin{pmatrix}5\sin(3t)\\-3\cos(t)+4\sin(3t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Men skalärer är $\in\R$? De flesta saker fungerar även i $\C$, detta även här. Inga konstigheter alltså!
+\par\bigskip
+\noindent Nu har vi löst ekvationen, men m.h.a fasporträtt får vi en "känsla" av hur lösningen är och beter sig. Detta kan vi göra genom att sätta $C_1 = 0$ och $C_2=0$ där $C_i$ är konstanten i linjärkombinationen. Vi har då i första fallet:
+\begin{equation*}
+  \begin{gathered}
+    X = \begin{pmatrix}5\cos(3t)\\4\cos(3t)-3\sin(3t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera här att lösningen blir periodiskt med period $\dfrac{2p}{3}$ (detta kommer från att vi har argumentet $3t$). Vi kan testa stoppa in några värden på $t$ och plotta:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c}
+    $t$&$=$\\
+    \hline
+    0&$\begin{pmatrix}5\\4\end{pmatrix}$\\
+    \hline
+    $\dfrac{\pi}{6}$&$\begin{pmatrix}0\\3\end{pmatrix}$\\
+    \hline
+    $\dfrac{\pi}{3}$&$\begin{pmatrix}-5\\-4\end{pmatrix}$\\
+    \hline
+    $\dfrac{\pi}{2}$&$\begin{pmatrix}0\\-3\end{pmatrix}$
+  \end{tabular}
+\end{center}\par
+\noindent Om läsaren testar att plotta detta så kommer en ellips uppenbara sig. Generellt, om egenvärden är rent imaginära får vi slutna lösningar (periodisk) som roterar runt origo.
+\par
+\noindent Fasporträttet kallas för \textit{stabilt}
+\par\bigskip
+\noindent Om $\lambda = \alpha+i\beta$ med $\alpha<0$ får vi spiraler som rör sig mot origo. Kallas för stabil spiral men även för \textit{asymptotiskt stabil}\par
+\noindent Däremot, om $\alpha>0$ rör sig spiralerna utåt. Denna är en instabil spiral ty vi rör oss bort från origo.
+\par\bigskip
+\subsection{Dubbla egenvärden}\hfill\\
+\par\bigskip
+\noindent Det som skiljer sig här från tidigare är att vi har algebraiskmultiplicitet, men även geometrisk multiplicitet. Återigen kommer vi kolla på fallet $n=2$. Det som händer i högre dimensioner är liknande men vi kan få lite problem.
+\par\bigskip
+\noindent Antag $X^{\prime} = AX$ där $A$ har bara ett egenvärde $\lambda$. Problemet här är att vi behöver 2 lösningar men har barar 1 egenvärde. Men! Det visar sig att det går att lösa om vi kikar på den geometriska multipliciteten. Vi delar in i fall:
+\par\bigskip
+\noindent\textbf{Fall 1}: Geometrisk multiplicitet 2 (hur många tillhörande egenvektorer som finns)\par
+\noindent $(A-\lambda I)K=0$ har 2 linjärt oberoende lösningar. Då är det inga problemis, ty vi får vårt $K_1$ och $K_2$. Vi får:
+\begin{equation*}
+  \begin{gathered}
+    X_1 = e^{\lambda t}K_1,\qquad X_2 = e^{\lambda t}K_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här händer inget särskillt. Det enda som skiljer sig lite är att vanligtvis rör sig fasporträtt till den största egenvektorn, men här är de lika stora.
+\par\bigskip
+\noindent\textbf{Fall 2}: Geometrisk multiplicitet 1:\par
+\noindent $(A-\lambda I)K=0$ har bara 1 lösning $K_1$. Vi får $X_1 = e^{\lambda t}K_1$, men vi måste hitta $K_2$. Idén är lik den med 2:a ordningens, vi testar:
+\begin{equation*}
+  \begin{gathered}
+    X_2 = e^{\lambda t}tK_1
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta kommer inte funka, men det vi kommer göra är:
+\begin{equation*}
+  \begin{gathered}
+    X_2 = e^{\lambda t}tK_1+e^{\lambda t}p
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta kommer däremot inte funka i det endimensionella fallet. Vi tar det som ansats och stoppar in i $X^{\prime} = AX$. Vi får:
+\begin{equation*}
+  \begin{gathered}
+    K_1\lambda te^{\lambda t}+K_1e^{\lambda t}+p\lambda e^{\lambda t}+Ape^{\lambda t}\\
+    \Lrarr te^{\lambda t}\underbrace{\left(\lambda K_1-AK_1\right)}_{\text{=0}}+e^{\lambda t}\underbrace{\left(K_1+\lambda p-AP\right)}_{\text{=0}}=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Det enda sättet den är lika med noll är om det som står i måsvingarna är noll, annars har vi linjärt beroende.
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \left(\lambda K_1-AK_1\right) = (A-\lambda I)K_1 = 0\\
+    \left(K_1+\lambda p-AP\right) = (A-\lambda I)p=K_1
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att den första ekvationen är uppfyllt eftersom $K_1$ är en egenvektor med egenvärde $\lambda$. Det enda vi behöver göra är alltså att hitta $p$ som löser den andra ekvationen. Man kommer alltid kunna hitta det här $p$:et givet denna situation.\par
+\noindent Den generella lösningen är:
+\begin{equation*}
+  \begin{gathered}
+    X = C_1e^{\lambda t}K_1 + C_2e^{\lambda t}(tK_1+p)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exempel:\par
+\noindent Lös $X^{\prime} = \begin{pmatrix}-1&3\\-3&5\end{pmatrix}X$
+\par\bigskip
+\noindent\textbf{Steg 1}, egenvärden!:
+
+\begin{equation*}
+  \begin{gathered}
+    det(A-\lambda I) = (\lambda-2)^2 \Rightarrow\lambda_1=\lambda_2=2
+  \end{gathered}
+\end{equation*}\par
+\noindent Egenvektorer är:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}-3&3\\-3&3\end{pmatrix}\begin{pmatrix}k_1\\k_2\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att den övre och undre är indentisk, vi får $k_1 = k_2$. Vi får 1 egenvektor $K=\begin{pmatrix}1\\1\end{pmatrix}$ :(. Det som kan hända att man får 2 linjärt oberoende lösningar (om man har geometrisk multiplicitet > 1) men det fick vi inte i detta fall.\par
+\noindent Vi har en lösning $X_1 = e^{2t}\begin{pmatrix}1\\1\end{pmatrix}$
+\par\bigskip
+\noindent För $X_2$ söker vi $p$ så att $(A-\lambda I)p=K$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}-3&3\\-3&3\end{pmatrix}\begin{pmatrix}p_1\\p_2\end{pmatrix} = \begin{pmatrix}1\\1\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kan ta $p_1 = 0$ och $p_2 = \dfrac{1}{3}\Rightarrow p=\begin{pmatrix}0\\\dfrac{1}{3}\end{pmatrix}$. Även här finns det många lösningar till denna ekvation och det spelar ingen roll vilken man tar. Det vi \textit{inte} kan göra är att multiplicera med en konstant. Detta ger oss:
+\begin{equation*}
+  \begin{gathered}
+    X_2 = e^{2t}\left(t\begin{pmatrix}1\\1\end{pmatrix}+\begin{pmatrix}0\\\dfrac{1}{3}\end{pmatrix}\right) = e^{2t}\begin{pmatrix}t\\t+\dfrac{1}{3}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Den generella lösningen ges av:
+\begin{equation*}
+  \begin{gathered}
+    X = C_1X_1+C_2X_2 = C_1e^{2t}\begin{pmatrix}1\\1\end{pmatrix}+C_2e^{2t}\begin{pmatrix}t\\t+\dfrac{1}{3}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kuriosa, om spiralen motsvarar gyllene snittet/avståndet mellan spiralen är gyllene snittet, vad säger det om ODE:en?
