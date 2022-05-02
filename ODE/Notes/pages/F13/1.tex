@@ -1,0 +1,293 @@
+\section{Icke-homogena linjära system med konstanta koefficienter}
+\par\bigskip
+\noindent Idag kommer vi prata om system av första ordningens ODE:er, likt det vi har gjort de tidigare föreläsningar, men vi kommer betrakta det inhomogena fallet, dvs $X^{\prime} = AX+F$.\par
+\noindent Lösningen är väldigt likt det vi gjorde för andra ordningens ODE:er. Den generella lösningen ges på formen:
+\begin{equation*}
+  \begin{gathered}
+    X = X_h+X_p
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $X_h$ är lösningen till den associerade homogena ekvationen, och $X_p$ är en partikulärlösning. Man kan säga att förra föreläsningarna har gått igenom hur vi hittar $X_h$ om $A$ endast har konstanta koefficienter.
+\par\bigskip
+\noindent\textbf{Hur hittar vi $X_p$?}
+\par\bigskip
+\noindent Metoden är i princip samma som den med andra ordningens ODE. Det finns ett par metoder att betrakta:
+\begin{itemize}
+  \item Obestämda koefficienter, "gissa en lösning och sätt in"
+  \item Variation-av-parameter metoden
+    \begin{itemize}
+      \item Här kommer vi få en "fundamentalmatris"
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\subsection{Metoden med obestämda koefficienter}\hfill\\
+\par\bigskip
+Vi kör ett introducerande exempel, som vanligt. Idén går ut på att man gissar en lösning (systemet måste vara enkelt, annars kan vi oftast inte göra en bra gissning).\par
+\noindent Det krävs 2 saker för att göra en gissning:
+\begin{itemize}
+  \item $A$ har konstanta koefficienter
+  \item $F$ är "lätt":
+    \begin{itemize}
+      \item Polynom
+      \item Exponentialfunktioner
+      \item Trigonometriska funktioner
+      \item Produkter av ovanstående
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Exempel:\par
+\noindent Betrakta:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = \begin{pmatrix}1&1\\4&1\end{pmatrix}X+\begin{pmatrix}2\\-1\end{pmatrix}e^t
+  \end{gathered}
+\end{equation*}\par
+\noindent Här är $F$ "lätt". Det associerade homogena systemet ges av:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = \begin{pmatrix}1&1\\4&1\end{pmatrix}\\
+    X_h = C_1e^{3t}\begin{pmatrix}1\\2\end{pmatrix}+C_2e^{-t}\begin{pmatrix}1\\2\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nästa steg är att hitta en partikulärlösning.\par
+\noindent Vi har $F(t) = \begin{pmatrix}2\\-1\end{pmatrix}e^{t}$, en rimlig gissning är en gissning på samma form, dvs $X_p = \begin{pmatrix}a\\b\end{pmatrix}e^t$\par
+\noindent Vi stoppar in och räknar:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}a\\b\end{pmatrix}e^t=\begin{pmatrix}1&1\\4&1\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}e^t+\begin{pmatrix}2\\-1\end{pmatrix}e^t\\
+    \Lrarr \begin{pmatrix}a\\b\end{pmatrix}=\begin{pmatrix}1&1\\4&1\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}+\begin{pmatrix}2\\-1\end{pmatrix}\\
+    \Lrarr \begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}a+b+2\\4a+b-1\end{pmatrix}\\
+    \Lrarr \begin{pmatrix}0\\0\end{pmatrix} = \begin{pmatrix}b+2\\4a-1\end{pmatrix}\\
+    a = \dfrac{1}{4}\qquad b=-2\\
+    \Lrarr X_p = \begin{pmatrix}1/4\\-2\end{pmatrix}e^t
+  \end{gathered}
+\end{equation*}\par
+\noindent Generella lösningen ges då av:
+\begin{equation*}
+  \begin{gathered}
+    X = X_h+X_p = C_1e^{3t}\begin{pmatrix}1\\2\end{pmatrix}+C_2e^{-t}\begin{pmatrix}1\\-2\end{pmatrix}+e^t\begin{pmatrix}1/4\\-2\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta var ett väldigt snällt exempel, men idén är smma sak i komplicerade fall men man får räkna lite mer.
+\par\bigskip
+\noindent Precis som tidigare så finns det en slags "mall" över lämpliga gissningar:
+\par\bigskip
+\noindent Om vi har $F(t) = \begin{pmatrix}6t\\-10t+4\end{pmatrix}$ ser vi att vi kan skriva om det som $\begin{pmatrix}6\\-10\end{pmatrix}t+\begin{pmatrix}0\\4\end{pmatrix}$\par
+\noindent Då blir en rimlig gissning $\begin{pmatrix}a_1\\b_2\end{pmatrix}t+\begin{pmatrix}a_2\\b_2\end{pmatrix}$
+\par\bigskip
+\noindent Om vi har $F(t) = \begin{pmatrix}-1e^{-t}+1\\e^{-t}-5t+7\end{pmatrix}$ kan vi, som tidigare, dela upp det i $\begin{pmatrix}-2\\1\end{pmatrix}e^{-t}+\begin{pmatrix}0\\-5\end{pmatrix}t+\begin{pmatrix}1\\7\end{pmatrix}$\par
+\noindent Då blir en rimlig gissning $\begin{pmatrix}a_1\\b_1\end{pmatrix}e^{-t}+\begin{pmatrix}a_2\\b_2\end{pmatrix}t+\begin{pmatrix}a_3\\b_3\end{pmatrix}$
+\par\bigskip
+\noindent Notera, man kan även fördela räkningen av partikulärlösning genom att först räkna partikulärlösningen för första termen ($\begin{pmatrix}a_1\\b_1\end{pmatrix}e^{-t}$) och sedan andra och sedan summera dem.\par
+\noindent Det blir snabbt mycket räkningar!
+\par\bigskip
+\noindent Vi får snabbt problem om gissningen löser det homogena systemet. I exmeplet, om det hade stått $F = \begin{pmatrix}2\\-1\end{pmatrix}e^{3t}$ så hade det inte funkat. Tidigare har vi kunnat multiplicera $x$ eller logaritmer men det funkar inte riktigt här utan vi får göra lite mer komplicerade saker som vi inte kommer gå igenom. Det kan funka i vissa fall, men inte i alllmänhet.
+\par\bigskip
+\subsection{Variation av parameter metoden}\hfill\\
+\par\bigskip
+\noindent För att kunna beskriva denna metod behöver vi ett nytt koncept, \textit{fundamentalmatris}:
+\par\bigskip
+\begin{theo}[Fundamentalmatrisen]{thm:fundmat}
+  Låt $X_1,\cdots,X_n$ vra en fundamental lösningsmängd till $X^{\prime} = AX$\par på intervallet $I$
+  \noindent Matrisen:
+  \begin{equation*}
+    \begin{gathered}
+      \Phi = \begin{pmatrix}\vdots&\vdots&\vdots\\X_1&\hdots&X_n\\\vdots&\vdots&\vdots\end{pmatrix}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent kallas för \textit{fundamentalmatrisen} till systemet. Notera att detta är en $n$x$n$-matris
+\end{theo}
+\par\bigskip
+\noindent Denna matris har behändiga egenskaper, såsom:
+\begin{itemize}
+  \item Eftersom $X_i$ löser $X_i^{\prime} = AX_i\qquad\forall i$ har vi även $\Phi^{\prime} = A\Phi$
+  \item Eftersom $X_1,\cdots,X_n$ är linjärt oberoende följer det att $det(\Phi)\neq0$ gäller för alla $t\in I$, matrisen är alltså inverterbar
+    \begin{itemize}
+      \item Notera: determinanten är även känd som Wronskianen
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Alla lösningar till $X^{\prime} = AX$ är på formen:
+\begin{equation*}
+  \begin{gathered}
+    X = C_1X_1+\cdots+C_nX_n \text{ (linjärkombination av lösnignar)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna linjärkombination går att skriva på ett smidigt sätt med hjälp av denna fundamentalmatris:
+\begin{equation*}
+  \begin{gathered}
+    X = \Phi\cdot C\qquad C= \begin{pmatrix}C_1\\\vdots\\C_n\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi provar $X_p = \Phi(t)\cdot U(t)$ där $U=\begin{pmatrix}u_1(t)\\\vdots\\u_n(t)\end{pmatrix}$ istället för $y_p = u_1y_1+u_2y_2$. Nu är frågan om vi kan stoppa in det i systemet och finna $U$ så att vi kan finna en explicit lösning.\par
+\noindent Vi stoppar in i $X^{\prime} = AX$:
+\begin{equation*}
+  \begin{gathered}
+    \Phi^{\prime}U+\Phi U^{\prime} = A\Phi U + F
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan använda från tidigare att $\Phi$ är en lösning till det homogena systemet:
+\begin{equation*}
+  \begin{gathered}
+    A\Phi U +\Phi U^{\prime} = A\Phi U+F
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vet att $\Phi^{-1}$ finns eftersom kolonnerna är linjärt oberoende, då kan vi göra:
+\begin{equation*}
+  \begin{gathered}
+    \Phi U^{\prime} = F \Rightarrow \Phi^{-1}\Phi U^{\prime} = \Phi^{-1}F\\
+    U^{\prime} = \Phi^{-1}F\Rightarrow U = \int\Phi^{-1}F dt \text{ (integralen ges av att elementvis integrera)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om vi väljer $U$ till detta, dvs:
+\begin{equation*}
+  \begin{gathered}
+    X_p = \Phi\int\Phi^{-1}F dt
+  \end{gathered}
+\end{equation*}\par
+\noindent Så löser $X_p$ det inhomogena systemet $X^{\prime} = AX+F$
+\par\bigskip
+\noindent Exempel:\par
+\noindent Betrakta: $X^{\prime} = \begin{pmatrix}0&-1\\1&0\end{pmatrix}X+\begin{pmatrix}1/\cos(t)\\0\end{pmatrix}$
+\par\bigskip
+\noindent $A$ har konstanta koefficienter men $F$ är inte på "enkel" form, vi kan inte gissa oss fram så det är ett ypperligt tillfälle att använda det vi precis lärt oss!
+\par\bigskip
+\noindent\textbf{Steg 1:} \textit{Lös det associerade homogena systemet}:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}0&-1\\1&0\end{pmatrix} \Rightarrow \lambda = \pm i \text{ (egenvärden)}\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi får att en egenvektor till $\lambda_1 = i$ är $\begin{pmatrix}i\\1\end{pmatrix}$, för $\lambda_2 = -i$ har vi då $\begin{pmatrix}-i\\1\end{pmatrix}$ (ges av konjugatet).\par
+\noindent Den allmänna/generella lösningen (om vi skriver upp det i termer av dessa 2) blir:
+\begin{equation*}
+  \begin{gathered}
+    C_1e^{it}\begin{pmatrix}i\\1\end{pmatrix}+C_2e^{-it}\begin{pmatrix}-i\\1\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Men detta vill vi skriva på reell form (i termer av sinus och cosinus):
+\begin{equation*}
+  \begin{gathered}
+    \Lrarr (C_1+C_2)\begin{pmatrix}-\sin(t)\\\cos(t)\end{pmatrix}+i(C_1-C_2)\begin{pmatrix}\cos(t)\\\sin(t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Om vi väljer $C_1$ och $C_2$ på rätt sätt kan vi få lösningen uttryckt i bara reella termer.\par
+\noindent Vi kan ta $X_1 = \begin{pmatrix}-\sin(t)\\\cos(t)\end{pmatrix}$ och $X_2 = \begin{pmatrix}\cos(t)\\\sin(t)\end{pmatrix}$\par
+\noindent Vi får:
+
+\begin{equation*}
+  \begin{gathered}
+    X_h = C_1X_1+C_2X_2
+  \end{gathered}
+\end{equation*}\par
+\noindent Men det är inte $X_h$ som vi bryr oss om här, det vi vill komma åt är $\Phi$:
+\begin{equation*}
+  \begin{gathered}
+    \Phi = \begin{pmatrix}X_1&X_2\end{pmatrix} = \begin{pmatrix}-\sin(t)&\cos(t)\\\cos(t)&\sin(t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Steg 2:}\textit{Hitta en partikulärlösning}:
+\par\bigskip
+\noindent Då tar vi får $\Phi$na formel som vi har hittat och stoppar in:
+\begin{equation*}
+  \begin{gathered}
+    X_p = \Phi\int\Phi^{-1}F dt
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi har $\Phi$, vi har $F$, vi har inte $\Phi^{-1}$. Vi räknar fram det. Tacksamt är det en 2x2 matris, och inversen ges av en sluten formel:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\\
+    \Lrarr \Phi = \dfrac{1}{-\sin^2(t)-\cos^2(t)}\begin{pmatrix}\sin(t)&-\cos(t)\\-\cos(t)&-\sin(t)\end{pmatrix} = \begin{pmatrix}-\sin(t)&\cos(t)\\\cos(t)&\sin(t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera, inversen är sig sjäv, coolt va! (Detta är absolut inte det allmänna fallet).\par
+\noindent Nu har vi $\Phi^{-1}$ så vi räknar:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \int\Phi^{-1}(t)F(t)dt = \int\begin{pmatrix}-\sin(t)&\cos(t)\\\cos(t)&\sin(t)\end{pmatrix}\begin{pmatrix}1/\cos(t)\\0\end{pmatrix}dt\\
+    \Lrarr \int\begin{pmatrix}-\dfrac{\sin(t)}{\cos(t)}\\1\end{pmatrix}dt = \int\begin{pmatrix}-\tan(t)\\1\end{pmatrix}dt\\
+    \Lrarr \begin{pmatrix}\log(\left|\cos(t)\right|)\\t\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi får inte glömma bort multiplikationen med $\Phi$:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \Phi\int\Phi^{-1}Fdt = \begin{pmatrix}-\sin(t)&\cos(t)\\\cos(t)&\sin(t)\end{pmatrix}\begin{pmatrix}\log(\left|\cos(t)\right|)\\t\end{pmatrix}\\\\
+    \Lrarr \begin{pmatrix}-\sin(t)\log(\left|\cos(t)\right|)+t\cos(t)\\\cos(t)\log(\left|\cos(t)\right|)+t\sin(t)\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Detta ger en partikulärlösning! Vi har vår homogena, vi har vår partikulärlösning, vi får alltså:
+\begin{equation*}
+  \begin{gathered}
+    X = X_h+X_p \Rightarrow C_1X_1+C_2X_+X_p
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Flera egenskaper hos fundamentalmatrisen}\hfill\\
+\par\bigskip
+\noindent Fundamentalmatrisen är som linjär algebra själv, det finns otroligt många tillämpningsområden och coola egenskaper man kan studera och som kan hjälpa en med ODE:er. Vi ska kika på ett par:
+\par\bigskip
+
+\noindent Om man skall hitta en specifik lösning till ett IVP behöver vi bestämma $C_1, C_2,\cdots, C_n$. Man kan stoppa in och lösa, men det visar sig att det går att smidigt använda sig av fundamentalmatrisen för att göra saker lite enklare.\par
+\noindent Vi har sett att lösningen till $X^{\prime} = AX$ kan skrivas som $X = \Phi C$ där $C = \begin{pmatrix}C_1\\\vdots\\C_n\end{pmatrix}$. Om vi nu vill hitta en lösning så att vi har ett specifikt initialvillkor, exempelvis $X(0)=X_0$, så får vi ju en matrisekvation att lösa ty vi har $X_0 = \Phi(0)C$. Vi vet att $\Phi$ är inverterbar, så vi kan helt enkelt skriva det som $C = \Phi^{-1}(0)X_0$\par
+\noindent Vi kan skriva detta på en sats:
+\par\bigskip
+\begin{theo}
+  LLåt $\Phi(t)$ vara fundamentalmatrisen för $X^{\prime} = AX$. Den (unika) lösningen till systemet med $X(0)=X_0$ ges av:
+  \begin{equation*}
+    \begin{gathered}
+      X(t)=\Phi(t)\cdot C = \Phi(t)\Phi^{-1}(0)X_0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Exempel:\par
+\noindent Betrakta
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = 4x+2y\qquad x(0)=1\\
+      y^{\prime} = 3x-y\qquad y(0)=-1
+    \end{rcases*}\\
+    X^{\prime} = \underbrace{\begin{pmatrix}4&2\\3&-1\end{pmatrix}}_{\text{$A$}}X
+  \end{gathered}
+\end{equation*}\par
+\noindent Hitta $\Phi$, vi måste räkna fram egenvärden vilket blir $\lambda_1=-2$ och $\lambda_2 = 5$. Tillhörande egenvektorer är $K_1 = \begin{pmatrix}1\\-3\end{pmatrix}$ och $K_2 = \begin{pmatrix}2\\1\end{pmatrix}$\par
+\noindent Lösningar ges av $X_1 = e^{-2t}\begin{pmatrix}1\\-3\end{pmatrix},\qquad X_2 = e^{5t}\begin{pmatrix}2\\¡\end{pmatrix}$
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \Phi = \begin{pmatrix}e^{-2t}&2e^{5t}\\-3e^{-2t}&e^{5t}\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vill hitta $X$ så att $X(0) = \begin{pmatrix}1\\-1\end{pmatrix}$. Vi använder formen direkt:
+\begin{equation*}
+  \begin{gathered}
+    \Phi(0) = \begin{pmatrix}1&2\\-3&1\end{pmatrix}\Rightarrow\Phi^{-1}(0) = \dfrac{1}{1+6}\begin{pmatrix}1&-2\\3&1\end{pmatrix}\\
+    \Lrarr \dfrac{1}{7}\begin{pmatrix}1&-2\\3&1\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi stoppar in i formeln vi hade för att hitta $C$:
+\begin{equation*}
+  \begin{gathered}
+    X(t) = \Phi\Phi^{-1}(0)X_0\\
+    = \begin{pmatrix}e^{-2t}&2e^{5t}\\-3e^{-2t}&e^{5t}\end{pmatrix}\dfrac{1}{7}\begin{pmatrix}1&-2\\3&1\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}\\\\
+    \Lrarr\dfrac{1}{7}\begin{pmatrix}3e^{-2t}+4e^{5t}\\-9e^{-2t}+2e^{5t}\end{pmatrix}
+  \end{gathered}
+\end{equation*}
