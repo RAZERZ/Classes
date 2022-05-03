@@ -1,0 +1,109 @@
+\section{Semantik för 1:a ordningens logik}
+\par\bigskip
+\noindent Idag skall vi tolka slutna termer som ett element i strukturen. Vi ska även betrakta slutna formler och tolka dessa i strukturen.
+\par\bigskip
+\noindent Vi skall titta på en särskilld signatur $\sigma = <\bar{c_1},\cdots, \bar{c_n};\bar{F_1},\cdots, \bar{F_m};\bar{R_1},\cdots,\bar{R_k}>$\par\noindent av typ $<0,\cdots,0;s_1,\cdots,s_m;r_1,\cdots,r_k>$. Har vi signaturen samt typen så har vi "språket", vi vet i någon mening vad vi kan göra vi vet hur alla symboler får användas. Då kan vi bygga upp våra termer och formler (induktivt).
+\par\bigskip
+\noindent Vill vi tolka dessa måste vi välja en struktur som passar till detta språk. Låt därför \textgoth{A} vara en $\sigma$-struktur:
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A} = <A; c_1\cdots,c_n;F_1,\cdots,F_m;R_1,\cdots,R_k> \text{ ($A$ är strutkurens universum)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Se på det som att $\sigma$ är definitionen av en ring, medan \textgoth{A} är en ring exempelvis $\Z$
+\par\bigskip
+\noindent Vi skall tolka \textbf{slutna termer }som element i $A$ och \textbf{slutna formler} som sanna eller falska i strukturen \textgoth{A}. Notera, enbart slutna, alltså om det existerar en fri variabel gör vi ingenting.
+\par\bigskip
+\noindent \textit{Vad behöver vi?}\par
+\begin{itemize}
+  \item Namn på varenda element (för att tolka kvantorer)
+    \begin{itemize}
+      \item Ett namn kommer representera ett element i strutkurens universum. Från definitionen av de naturliga talen är det behändigt att kunna säga "10" istället för "9 iterationer av $S$(0)"
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Vi utvecklar därmed \textit{det utvidgade språket} $L(\textgoth{A})$ med signatur $\sigma_{\textgoth{A}}$.\par
+\noindent Det språket har nya konstantsymboler, vilket betyder att för varje element $a\in A$ finns det en symbol $\bar{a}$.
+\par\bigskip
+\noindent Exempel: $\textgoth{n} = <\N,0,S,<>$ med $\sigma = <\bar{0}, \bar{s}, \bar{<}>$ av typ $<0;1;2>$. Utvidgade språket $\sigma_{\textgoth{n}} = \sigma\cup\{\bar{n}:n\in\N\}$
+\par\bigskip
+\subsection{Tolkning av slutna termer i \textgoth{A}}\hfill\\
+\par\bigskip
+\noindent Om $t$ är en sluten term, så ska vi definiera elementet $t^{\textgoth{A}}\in A$. Man kan säga att vi ska göra en funktion "slutna-termer $\to A$" så att $t\mapsto t^{\textgoth{A}}$ 
+\par\bigskip
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item $(\bar{c_i})^{\textgoth{A}} = c_1$
+      \item $a\in A$\qquad $(\bar{a})^{\textgoth{A}} = a$
+    \end{itemize}
+  \item Induktionssteg:
+    \begin{itemize}
+      \item Om $\bar{F}$ är $k$-ställig funktionssymbol, och $t_1,\cdots,t_k$ är slutna termer så:
+        \begin{itemize}
+          \item $\bar{(F(t_1,\cdots,t_k))^{\textgoth{A}}}= F(t_1^{\textgoth{A}},\cdots,t_k^{\textgoth{A}})\in A$\qquad $\{t_1^{\textgoth{A}},\cdots, t_k^{\textgoth{A}}\}\in A$
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Exempel: Betrakta $\textgoth{n} = <\N,0,S,<>$ med $\sigma = <\bar{0}, \bar{s}, \bar{<}>$ av typ $<0;1;2>$\par
+\noindent $\sigma_{\textgoth{n}} = \{\bar{n}:n\in\N\}$:
+\par\bigskip
+\begin{itemize}
+  \item $(\bar{0})^{\textgoth{n}}=0$
+  \item $(\bar{3})^{\textgoth{n}}=3$
+  \item $\bar{S}(\bar{S}(\bar{0}))^{\textgoth{n}} = S((\bar{S}(\bar{0}))^{\textgoth{n}}) = S(S(\bar{0})^{\textgoth{n}}) = S(0)+1 = 0+1+1 = 2$
+\end{itemize}
+\par\bigskip
+\noindent Man kan ha en symbol som pekar på samma sak. 2+3 pekar på 5, men det gör även 5.
+\par\bigskip
+\subsection{Tolkning av slutna formler}\hfill\\
+\par\bigskip
+\noindent Från tidigare har vi även sagt att det kallas för sats. I vanlig matematik kan det betyda en sann sak, exempelvis "enligt sats 69", men det kallas egentligen teorem.
+\par\bigskip
+\noindent Slutna formler ($\tau$) skall vi tolka som sanna eller falska i strukturen (\textgoth{A}).
+\par\bigskip
+\noindent Notation: $\textgoth{A}\vDash\tau$, utläses som "\textgoth{A} är en modell för $\tau$" eller "$\tau$ är sann i $\textgoth{A}$".\par
+\noindent Vi kan även skriva $\textgoth{A}\nvDash\tau$ som uttalas "$\tau$  är falsk i \textgoth{A}" eller även \textgoth{A} är inte en modell för $\tau$.
+\par\bigskip
+\noindent Observera: Vi tolkar endast \textit{slutna formler}. Vi kan konstruera en slags funktion, som vi gjorde tidigare, "slutna-formler$\to\{\text{sann i }\textgoth{A}\text{, falsk i } \textgoth{A}\}$"\par
+\noindent Detta gör vi induktivt:
+\par\bigskip
+\begin{itemize}
+  \item Bas:
+    \begin{itemize}
+      \item $\textgoth{A}\nvDash\perp$
+      \item $t_1,t_2$ slutna termer. $\textgoth{A}\vDash t_1\dot{=}t_2 \Lrarr t_1^{\textgoth{A}}=t_2^{\textgoth{A}}$
+      \item $\bar{R}$ är en $k$-ställigt relationssymbol, $t_1,\cdots, t_k$ slutna termer: $\textgoth{A}\vDash\bar{R}(t_1,\cdots, t_k) \Lrarr (t_1^{\textgoth{A},\cdots, t_k^{\textgoth{A}}})\in R$
+    \end{itemize}
+  \item Induktionssteg (konnektiv):
+    \begin{itemize}
+      \item För $\neg\varphi$: $\textgoth{A}\vDash\neg\varphi\Lrarr\textgoth{A}\nvDash\varphi$
+      \item För $\varphi\vee\psi$: $\textgoth{A}\vDash\varphi\vee\psi\Lrarr \textgoth{A}\vDash\varphi$ eller $\textgoth{A}\vDash\psi$
+      \item För $\varphi\wedge\psi$: $\textgoth{A}\vDash\varphi\wedge\psi\Lrarr \textgoth{A}\vDash\varphi$ och $\textgoth{A}\vDash\psi$
+      \item $\varphi\rightarrow\psi$: $\textgoth{A}\nvDash\varphi\rightarrow\psi\Lrarr \textgoth{A}\vDash\varphi$ och $\textgoth{A}\nvDash\psi$
+      \item För $\varphi\leftrightarrow\psi$: $\textgoth{A}\vDash\varphi\leftrightarrow\psi\Lrarr\left(\textgoth{A}\vDash\varphi\text{ och } \textgoth{A}\vDash\psi\right)\text{ eller }\left(\textgoth{A}\nvDash\varphi\text{ och }\textgoth{A}\nvDash\psi\right)$
+    \end{itemize}
+  \item Induktionssteg (kvantorer):
+    \begin{itemize}
+      \item $\tau$ är $\exists x\varphi$.\qquad $\tau$ sluten $\Rightarrow$ den enda variabeln som kan förekomma fritt i $\varphi$ är $x$. Skriver $\varphi(x)$.
+      \item $\textgoth{A}\vDash\exists x\varphi(x)\Lrarr$ det finns element $a\in A$ så att $\textgoth{A}\vDash\underbrace{\varphi[\bar{a}/x]}_{\text{sluten formel}}$
+      \item $\textgoth{A}\vDash\underbrace{\forall x\varphi(x)}_{\text{sluten}}\Lrarr$ för varje element $a\in A$ gäller $\textgoth{A}\vDash\underbrace{\varphi[\bar{a}/x]}_{\text{sluten}}$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Anmärkning: Skriver ofta $\varphi(\bar{a})$ när vi menar $\varphi[\bar{a}/x]$
+\par\bigskip
+\noindent Exempel: Betrakta $\textgoth{n} = <\N,0,S,<>$ med $\sigma = <\bar{0}, \bar{s}, \bar{<}>$ av typ $<0;1;2>$ där $S(n) = n+1$ och < är mindre än.\par
+\noindent Vi påstår att $\textgoth{n}\vDash\underbrace{\bar{<}(\bar{0},\bar{S}(\bar{0}))}_{\text{$\tau$}}$. Notera att det är en sluten formel med en relationssymbol. Kolla på den induktiva definitionen så får vi att det betyder:
+\begin{equation*}
+  \begin{gathered}
+    \bar{0}^{\textgoth{n}}<(\bar{S}(\bar{0}))^{\textgoth{n}}\\
+    \Lrarr 0 < S(0)\Lrarr 0<0+1 \Rightarrow 0<1 \text{ (sannt)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Alltså gäller att $\textgoth{n}\vDash\tau$
+\par\bigskip
+\noindent Exempel: Samma strutkur och signatur från tidigare exempel. Vi påstår att $\textgoth{n}\vDash\exists x\bar{<}(x,\bar{S}(\bar{0}))$.\par
+\noindent Detta gäller omm det finns element $n\in\N$ så att $\textgoth{n}\vDash\bar{<}(\bar{n},\bar{S}(\bar{0}))$ (vi gjorde substitutionen direkt utan att skriva in subtitutionsoperatorn). Vi kan tolka det som:\par
+\noindent Det finns ett element $n\in\N$ så att $(\bar{n})^{\textgoth{n}}<(\bar{S}(\bar{0}))^{\textgoth{n}}\Lrarr n< 1$. Detta påstående stämmer, tag $n=0$. Alltså $\textgoth{n}\vDash\tau$ 

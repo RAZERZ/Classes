@@ -44,3 +44,6 @@
 \contentsline {section}{\tocsection {}{13}{Predikatlogik - Forts.}}{27}{}%
 \contentsline {subsection}{\tocsubsection {}{13.1}{Fria och bundna förekomster av variabler}}{27}{}%
 \contentsline {subsection}{\tocsubsection {}{13.2}{Variabelsubstitution}}{27}{}%
+\contentsline {section}{\tocsection {}{14}{Semantik för 1:a ordningens logik}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Tolkning av slutna termer i \textgoth {A}}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Tolkning av slutna formler}}{30}{}%
