@@ -6,3 +6,8 @@
 \contentsline {subsection}{\tocsubsection {}{1.5}{Vad underlättar djupinriktade lärstrategier?}}{3}{}%
 \contentsline {subsection}{\tocsubsection {}{1.6}{Varierad undervisning - vad är det?}}{3}{}%
 \contentsline {section}{\tocsection {}{2}{Upplägg av lektion}}{4}{}%
+\contentsline {section}{\tocsection {}{3}{Pedagogisk utbildning}}{5}{}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Vad ska man tänka på när man planerar sin undervisnging}}{5}{}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{\textit {Vad} ska de lära sig?}}{5}{}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Hur starta så att de känner sig motiverade?}}{6}{}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Hur avslutar man en lektion/block?}}{7}{}%
