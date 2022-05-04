@@ -1,0 +1,66 @@
+\section{Uppgifter}
+
+\par\bigskip
+\subsection{Lösningar till homogena system ($X^{\prime} = AX$)}\hfill\\
+\par\bigskip
+\noindent Oftast fallet att $A$ har konstanta koefficienter
+\par\bigskip
+
+\begin{enumerate}
+  \item Den enda vi behöver för att hitta den generella lösningen är egenvärderna och egenvektorerna av $A$
+  \item Ett $n$-dimensionellt linjärt första ordningenssystem har alltid $n$-linjärt oberoende lösningar
+  \item Vi bryr oss främst om den algebraiska multiplicitetet hos ett egenvärde, inte den geometriska
+  \item Om $A$ har konstanta koefficienter är lösningen definierad på hela den reella linjen
+  \item En ODE av ordning $n+1$ kan skrivas som ett första ordningens system med $n$ ODE:er
+  \item EN matris har alltid $n$ distinkta egenvärden
+  \item Om alla egenvärden hos $A$ är positiva, så konvergerar alla lösningar mot origo
+\end{enumerate}
+
+\par\bigskip
+\subsection{Inhomogena system ($X^{\prime} = AX+F$)}\hfill\\
+\par\bigskip
+\noindent Metoder som finns är metoden med obestämda koefficienter (gissar lösning) och variation av parameter metoden 
+\par\bigskip
+
+\begin{enumerate}
+  \item Variation av parametermetoden fungerar endast om $A$ har konstanta koefficienter
+  \item Metoden med obestämda koefficienter fungerar endast om $F(t)$ består av polynom
+  \item För att använda variation av parametermetoden måste vi först lösa det associerade homogena systemet
+  \item Fundamentalmatrisen till ett system har lösningar som rader i matrisen
+  \item Fundamentalmatrisen till ett system är unik
+  \item Determinanten av fundamentalmatrisen är samma som Wronskianen
+  \item Variation av parametermetoden kan kräva att vi beräknar "omöjliga" integraler, integraler vi inte kan beräkna explicit
+\end{enumerate}
+
+\par\bigskip
+\subsection{Extra}\hfill\\
+\par\bigskip
+
+\begin{enumerate}
+  \item Consider the system $X^{\prime} = \begin{pmatrix}1&4\\-1&1\end{pmatrix}X$
+
+    \begin{enumerate}
+      \item Find the general solution of the system. Give the solution in "real" form
+      \item Find a particular solution satisfying $X(0) = \begin{pmatrix}10\\3\end{pmatrix}$ 
+      \item Sketch the phase portrait of the system and briefly describe its characteristics
+    \end{enumerate}
+    \par\bigskip
+
+  \item The matrix $A$ has eigenvalues $\lambda_1 = -1$ and $\lambda_2 = 3$ with respective eigenvectors
+    \begin{equation*}
+      \begin{gathered}
+        X_1 = \begin{pmatrix}1\\-1\end{pmatrix}\qquad X_2 = \begin{pmatrix}2\\3\end{pmatrix}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \begin{enumerate}
+      \item Find the general solution to the system $X^{\prime} = AX$
+      \item Find a particular solution to the system:
+        \begin{equation*}
+          \begin{gathered}
+            X^{\prime} = AX+\begin{pmatrix}\dfrac{e^{-t}}{1+t^2}\\\\\dfrac{-e^{-t}}{1+t^2}\end{pmatrix}
+          \end{gathered}
+        \end{equation*}\par
+        \noindent using the method of cariation of parameters and give the general solution
+    \end{enumerate}
+\end{enumerate}
