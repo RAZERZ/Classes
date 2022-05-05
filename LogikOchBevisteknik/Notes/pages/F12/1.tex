@@ -1,0 +1,82 @@
+\section{Föreläsning - }
+\par\bigskip
+\noindent Vi skall skriva lite om vad det innebär att något är en modell.
+\par\bigskip
+\begin{theo}[Modell]{thm:mode}
+  Låt $\tau$ vara en sluten formel och \textgoth{A} vara en struktur som passar språket. \textgoth{A} kallas \textit{modell för $\tau$} om $\textgoth{A}\vDash\tau$
+  \par\bigskip
+  \noindent Låt $\Gamma$ vara en mängd av slutna formler. \textgoth{A} kallas \textit{modell för $\Gamma$} om $\textgoth{A}\vDash\gamma$ för varje $\gamma\in\Gamma$
+\end{theo}
+\par\bigskip
+\noindent Exempelvis, om $\Gamma$ är teorin/definitionen av en grupp, så är $\textgoth{A}$ en grupp som uppfyller gruppaxiomen.
+\par\bigskip
+\subsection{Logisk konsekvens}\hfill\\
+\par\bigskip
+\noindent Påminn dig själv om logisk konsekvens från satslogiken på sida 14. Vi vill generalisera den metoden i 1:a ordningens logik.
+\par\bigskip
+\noindent Låt $\Gamma$ vara en mängd slutna formler och $\varphi$ en sluten formel (i ett språk $\sigma$). Då definierar vi:
+\par\bigskip
+\begin{theo}[Logisk konsekvens i 1:a ordningens logik]{thm:logicconsfirstorder}
+  $\Gamma\vDash\varphi$ ($\varphi$ är en logisk konsekvens av $\Gamma$) omm ($\Lrarr$) $\varphi$ är sann i varje modell för $\Gamma$
+  \par\bigskip
+  \noindent Annars skriver vi $\Gamma\nvDash\varphi$
+\end{theo}
+\par\bigskip
+\noindent Ta en godtycklig struktur och visa att $\varphi$ är sann i varje modell.\par
+\noindent Negationen till att $\varphi$ är sann i varje modell av $\Gamma$ är helt enkelt att det finns en motexempelstruktur ($\varphi$ är inte sann i varje modell av $\Gamma$).
+\par\bigskip
+\noindent \textbf{Exempel}:\par
+\noindent Givet att $\sigma = <\bar{P}, \bar{Q}>$ av typ $<;;1;1>$ (inga konstantsymboler, inga funktionssymboler, $\bar{P}$ är 1-ställig relationssymbol, $\bar{Q}$ är 1-ställig relationssymbol).\par
+\noindent Vi ska betrakta några formler som är slutna och undersöka.\par
+\noindent Låt $\varphi_1 = \forall x\left(\bar{P}(x)\rightarrow\bar{Q}(x)\right)$, $\varphi_2 = \exists x(\neg\bar{Q}(x))$. Båda dessa är slutna formler på grund av kvantorerna.\par
+\noindent Låt även $\tau = \exists x(\neg\bar{P}(x))$\par
+\noindent Visa att $\varphi_1$, $\varphi_2\vDash\tau$, med andra ord, visa att $\tau$ är en logisk konsekvens av $\varphi_1$ och $\varphi_2$.\par
+\noindent För varje struktur som passar till det här språket måste vi visa att om $\varphi_1$ och $\varphi_2$ så måste även $\tau$ vara sann. För att göra detta måste vi träna oss att visa detta i en godtycklig struktur. 
+\par\bigskip
+\noindent\textbf{Lösning}:\par
+\noindent Låt $\textgoth{A} = <A,P,Q>$ vara en $\sigma$-struktur (godtycklig). Vi vet ytterst få saker:
+\begin{itemize}
+  \item $A$ är inte tom, detta är ett grundaxiom, att universumet aldrig är tom
+  \item $P\subseteq A$
+  \item $Q\subseteq A$
+\end{itemize}
+\par\bigskip
+\noindent Om vi ritar ett mängddiagram så vill vi helt enkelt försöka förfina bilden genom att hitta så mycket som möjligt om $\varphi$.\par
+\noindent Vi börjar med $\varphi_1$. Vi noterar att vi har en all-kvantor. Den säger att om vi substituerar $a$ för $x$ så skall pilformeln fortfarande vara sann där $a$ är ett namn på $x$.
+\par\bigskip
+\noindent Det kanske är lite oklart om $P\subseteq A$. $P$ tar ordnade par av element i $A$, men eftersom den är 1-ställig så är den bara $A$. Hade däremot $P$ varit 2-ställig så hade $P\nsubseteq A$ men istället $A$x$A$.
+\par\bigskip
+\noindent Eftersom vi vill undersöka de fallen då $\varphi_1$ och $\varphi_2$ är sanna, så antar vi att de är sanna, dvs $\textgoth{A}\vDash\varphi_1$ och $\textgoth{A}\vDash\varphi_2$. Vi behöver visa att $\textgoth{A}\vDash\tau$. Observera att detta är väldigt generellt.\par
+\noindent Om $\varphi_1$ är sann:
+
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A}\vDash\varphi_1\Lrarr\textgoth{A}\vDash\forall x(\bar{P}(x)\rightarrow\bar{Q}(x))\\
+    \Lrarr \text{För varje element } a\in A \text{ gäller } \textgoth{A}\vDash\bar{P}[\bar{a}/x]\rightarrow\bar{Q}[\bar{a}/x]\\
+    \Lrarr\text{För varje element } a\in A \text{ gäller att om } \textgoth{A}\vDash\bar{P}[\bar{a}/x]\text{, så } \textgoth{A}\vDash\bar{Q}[\bar{a}/x]\\
+    \Lrarr \text{För varje element } a\in A \text{ gäller att om } a\in P \text{, så } a\in Q\\
+    \Lrarr P\subseteq Q
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $\varphi_2$ är sann:
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A}\vDash\varphi_2 \Lrarr\textgoth{A}\vDash\exists x(\neg\bar{Q}(x))\\
+    \Lrarr\text{Det finns } a\in A\text{ så att } \textgoth{A}\vDash\neg\bar{Q}(\bar{a})\\
+    \Lrarr \text{Det finns } a\in A\text{ så att } \textgoth{A}\nvDash\bar{Q}(\bar{a})\\
+    \Lrarr \text{Det finns } a\in A\text{ så att } a\notin Q\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu har vi förstått premisserna. Nu kan vi undersöka vad $\tau$ betyder för att försöka se om det blir sant:
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A}\vDash\tau\Lrarr\textgoth{A}\vDash\exists x(\neg\bar{P}(x))\\
+    \Lrarr\text{Det finns ett element } b\in A \text{ så att } b\notin P
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill undersöka om det är det sant? Alltid?
+\par\bigskip
+\noindent Ja, ty låt $a$ vara så att $a\notin Q$ (enligt $\varphi_2$ finns det ett sådant $a$). Då följer det att $a\notin P$ (eftersom $P\subseteq Q$ enligt $\varphi_1$), alltså $\textgoth{A}\vDash\tau$. Vi har visat att $\{\varphi_1, \varphi_2\}$ semantiskt medför $\tau$.

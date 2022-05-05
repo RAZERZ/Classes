@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.4.30)  3 MAY 2022 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.4.30)  5 MAY 2022 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -782,7 +782,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \openout4 = `main.toc'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3108) has occurred while \output is active []
 
  [1
 
@@ -1278,7 +1278,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-[29]) [30] (./main.aux (./includes/title.aux))
+[29]) [30] (./pages/F12/1.tex
+Package mdframed Info: mdframed works in twoside mode on input line 5.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 19.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 19.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 23.
+[31]) [32] (./main.aux (./includes/title.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 5.0pt have occurred.
@@ -1288,10 +1308,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18285 strings out of 478276
- 355831 string characters out of 5853013
- 654142 words of memory out of 5000000
- 35919 multiletter control sequences out of 15000+600000
+ 18300 strings out of 478276
+ 356132 string characters out of 5853013
+ 654308 words of memory out of 5000000
+ 35931 multiletter control sequences out of 15000+600000
  477167 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,14n,107p,754b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1309,10 +1329,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/yfo
 nts-t1/ygoth.pfb>
-Output written on main.pdf (31 pages, 297505 bytes).
+Output written on main.pdf (33 pages, 303493 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
+ 198 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
