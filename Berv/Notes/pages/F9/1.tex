@@ -1,0 +1,172 @@
+\section{Föreläsning - Differentialekvationer}
+\par\bigskip
+\noindent Varför kör vi inte explicita metoder om implicita kostar mer beräkningsmässigt? Gränsvärdet med $h$, vad menas?
+\par\bigskip
+\subsection{Stabilitet och styva differentialekvationer}\hfill\\
+\par\bigskip
+\noindent \textbf{Exempel A}:
+\par\bigskip
+\noindent Givet:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime}(t)=-\alpha y(t)+()\alpha-1)e^{-t}\qquad 0\leq t_0\leq t\qquad\alpha > 1
+      y(t_0)=y_0
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exakta lösning ges (analytiskt) med:
+\begin{equation*}
+  \begin{gathered}
+    y(t) = (y_0-e^{-t_0})e^{-\alpha(t-t_0)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Speciellt $y(0)=1\Rightarrow y(t)=e^{-t}$
+\par\bigskip
+\noindent Euler framåt ger:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i +hf(t_i,y_1) = y_i+h\left(-\alpha y_i+(\alpha-1)e^{-t_i}\right)\qquad y_0=1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Euler bakåt ger:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i + hf(t_{i+1}, y_{i+1}) = y_i+h\left(-\alpha y_{i+1}+(\alpha-1)e^{-t_{i+1}}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi noterar att i detta fal är det en linjär differentialekvation, så det går att lösa ut $y_{i+1}$:
+\begin{equation*}
+  \begin{gathered}
+    (1+h\alpha)y_{i+1}=y_i+h(\alpha-1)e^{-t_{i+1}}\\
+    \Lrarr y_{i+1} = \dfrac{y_i+h(\alpha-1)e^{-t_{i+1}}}{1+h\alpha}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi noterar att bara för att vi har samma nogrannhetsordning så betyder det inte att de är lika bra. I vissa fall kan det finnas stabilitetsproblem.
+\par\bigskip
+\subsection{Absolutstabilitet}\hfill\\
+\par\bigskip
+\noindent Konvergens säger hur lösningen beter sig när $h\to0$. Det betyder inte att metoden funkar för ett visst $h$.\par
+\noindent Även fast den är konvergent så kan den vara instabil för vissa värden på $h$.\par
+\noindent För att undersöka detta använder man en så kallad \textit{testekvation}. Den säger något om hur metoden beter sig, även i det allmänna fallet. Det gör analysen enklare jmf. med om vi ställer upp en allmänn differentialekvation. Ser ut på följande:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime} = \lambda y\qquad\lambda\in\C\qquad Re(\lambda)<0
+      y(0)=1
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exakt lösning: $y(t) = e^{\lambda t}$
+\par\bigskip
+\noindent En metod som med fix steglängd $h$ genererar en numerisk lösning $\{y_i\}_{i=0}^{\infty}$ till testekvationen är \textit{absolutstabil} för denna kombination av $\lambda$ och $h$ om:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{i\to\infty}y_i=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Generellt säger vi att en numerisk lösning är absolutstabil om det är så att vi har små störningar i metoden och de försvinner när $i\to\infty$. Alltså, om effekten (störningar).
+\par\bigskip
+\noindent Stabiliteten beror på $z=h\lambda$. Vi har sett tidigare att vi har haft $h\cdot f$, varav beroendet följer.
+\par\bigskip
+\noindent \textit{Stabilitetsområdet } för en metod är området med det komplexa tal $z = h\lambda$ för vilka metoden är absolutstabil.
+\par\bigskip
+\noindent Vi skall undersöka vad stabilitetsområdet för Euler framåt. Vi vill alltså kolla för vilka värden som $h\lambda$ uppfyller $\lim_{i\to\infty}y_i=0$. Vi påminner om Euler framåt:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1}=y_i+hf(t_i,y_i) = y_i+h(\lambda y_i)= (1+h\lambda)y_i\qquad y_0=1\\
+    y_1 = (1+h\lambda)y_0\\
+    y_2 = (1+h\lambda)y_1=(1+h\lambda)^2y_0\\
+    y_i = (1+h\lambda)^iy_0\\\\\
+    y_i\to0 \text{ när } i\to\infty \text{ om } \left|1+h\lambda\right|<1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Stabilitetsområdet blir en cirkel centrerad i $y=0, x=-1$. Där måste alltså $h\lambda$ ligga i för att inte "balla ur".
+\par\bigskip
+\noindent För Euler bakåt. Vi påminner oss om dennes definition:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i + hf(t_{i+1},y_{i+1}) = y-i+h\lambda y_{i+1}\qquad y_0=0\\
+    (1-h\lambda)y_{i+1} = y_i\\
+    \Lrarr y_{i+1} = \dfrac{y_i}{1-h\lambda}\\\\
+    y_1 = \dfrac{y_0}{1-h\lambda}\\
+    y_2 = \dfrac{y_1}{1-h\lambda} = \dfrac{y_0}{(1-h\lambda)^2}\\
+    y_i = \dfrac{y_0}{(1-h\lambda)^i}\\\\
+    y_i\to0 \text{ när } i\to\infty\text{ om } \dfrac{1}{\left|1-h\lambda\right|}<1 \Lrarr \left|1-h\lambda\right| >1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi noterar att det är alltid uppfyllt när Re($\lambda$)$<$0. Från detta kan vi dra slutsatsen att om ekvationen är stabil så kommer även Euler bakåt vara stabil.
+\par\bigskip
+\noindent Stabilitetsområdet blir en cirkel centrerad i $y=0, x=1$, men i området \textit{utanför} denna cirkel.
+\par\bigskip
+\noindent Vi säger att en metod som är stabil oavsett vilket $h$ vi använder när Re($\lambda$)$<$0 är \textit{ovillkorligt stabil}. Ett exempel är bakåt Euler.
+\par\bigskip
+\noindent Om istället $h<h_0$ krävs så metoden \textit{villkorligt stabil}. Ett exmepel är framåt euler.. Detta är typiskt för explicita metoder.
+\par\bigskip
+\noindent $\lambda$ i testekvationen spelar i det generella fallet $y^{\prime} = f(t,y)$ rollen av $\dfrac{\partial f}{\partial y}$. Analys av testekvationen är enklare än analys av det generella fallet, men ger i stort sett samma resultat. En viktig skillnad är att $\dfrac{\partial f}{\partial y}$ kan variera (bero på både $t$ och $y$).\par
+\noindent För ett linjärt system av differentialekvationer ($y^{\prime} = Ay + g(t)$), svarar $\lambda$ mot egenvärderna till $A$.
+\par\bigskip
+\subsection{Styva ODE:er}\hfill\\
+\par\bigskip
+\noindent \textbf{Exempel B}:
+\par\bigskip
+\noindent Kan ses som specialfall av Exempel A:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y^{\prime}(t) = -e^{-t}\qquad0\leq t_0 < t\\
+      y(t_0) = y_0
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent med lösning $y(t) = y_0-e^{-t}+e^{-t}$. För $y(0)=1$ får vi $y(t) = e^{-t}$ som även är exakt samma lösning som för exempel A.
+\par\bigskip
+
+\noindent Skriver vi upp Euler framåt för denna får vi:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i+hf(t_i,y_i) = y_i-he^{-t_i}\qquad y_0=1
+  \end{gathered}
+\end{equation*}\par
+\noindent För Euler bakåt:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i+hf(t_{i+1},y_{i+1}) = y_i-he^{-t_{i+1}}\qquad y_0=1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har samma lösning till exempel A, B men vi noterar att vi får ett annorlunda beteende från metoderna. 
+\par\bigskip
+\noindent ODE:n är \textit{neutralt stabil}, det svarar mot $\lambda = 0$. Neutralt i den mening att lösningskurvorna varken divergerar eller konvergerar. Detta är ganska vanligt när man löser problem inom fysiken.
+\par\bigskip
+\noindent Man kan använda \textit{adaptiv steglängd} för att undvika att saker "ballar ut".
+\par\bigskip
+\noindent Typiskt för styva problem att ha riktningsfält som är branta men en exakt lösning som inte är så brant. Typsikt att ha snabba förlopp med långsamma.
+\par\bigskip
+\noindent Stabil men inte styv $\Rightarrow$ gynnsamt för numerisk lösning.
+\par\bigskip
+\noindent \textbf{Sammanfattning - Explicita metoders egenskaper}:
+\begin{itemize}
+  \item Ju mer styvt (ju större $\alpha$ i exempel A) desto mindre $h$ krävs för stabilitet
+  \item Effektiva om problemet inte är syvt
+\end{itemize}
+\par\bigskip
+\noindent \textbf{Sammanfattning - Implicita metoders egenskaper}:
+\begin{itemize}
+  \item Bättre stabilitetsegenskaper
+  \item Kan välja $h$ endast baserat på nogrannhetskravet
+\end{itemize}
+\par\bigskip
+\noindent Det finns inte riktigt en exakt definition på vad en styv ekvation, men vi kan skriva upp lite "riktlinjer" (ba dum tss):
+\begin{itemize}
+  \item Ekvationen innehåller termer som kan ledda till snabba förlopp i lösningen
+  \item "Det är styvt när det är bättre (snabbare) att använda implicit än motsvarande explicita metod", men detta beror på metoden och hur nogrannt vi vill ha det och differentialekvationen själv
+\end{itemize}

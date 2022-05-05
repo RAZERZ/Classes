@@ -50,3 +50,7 @@
 \contentsline {subsection}{\tocsubsection {}{10.2}{Klassificering av metoder}}{32}{}%
 \contentsline {subsection}{\tocsubsection {}{10.3}{Exempel på Euler bakåt + Newton}}{33}{}%
 \contentsline {subsection}{\tocsubsection {}{10.4}{Globala trunkeringsfel (enstegsmetoder)}}{33}{}%
+\contentsline {section}{\tocsection {}{11}{Föreläsning - Differentialekvationer}}{35}{}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Stabilitet och styva differentialekvationer}}{35}{}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{Absolutstabilitet}}{35}{}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{Styva ODE:er}}{36}{}%
