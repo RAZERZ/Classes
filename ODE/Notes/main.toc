@@ -69,3 +69,4 @@
 \contentsline {subsection}{\tocsubsection {}{19.1}{Lösningar till homogena system ($X^{\prime } = AX$)}}{67}{subsection.19.1}%
 \contentsline {subsection}{\tocsubsection {}{19.2}{Inhomogena system ($X^{\prime } = AX+F$)}}{67}{subsection.19.2}%
 \contentsline {subsection}{\tocsubsection {}{19.3}{Extra}}{67}{subsection.19.3}%
+\contentsline {section}{\tocsection {}{20}{Numeriska metoder - Datorprojekt}}{68}{section.20}%
