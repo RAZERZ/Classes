@@ -49,3 +49,5 @@
 \contentsline {subsection}{\tocsubsection {}{14.2}{Tolkning av slutna formler}}{30}{}%
 \contentsline {section}{\tocsection {}{15}{Föreläsning - }}{31}{}%
 \contentsline {subsection}{\tocsubsection {}{15.1}{Logisk konsekvens}}{31}{}%
+\contentsline {section}{\tocsection {}{16}{1:a ordningen semantik och Naturlig deduktion}}{33}{}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Prenex Normalform}}{34}{}%

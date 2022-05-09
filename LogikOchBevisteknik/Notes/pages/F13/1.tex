@@ -1,0 +1,133 @@
+\section{1:a ordningen semantik och Naturlig deduktion}
+\par\bigskip
+\noindent Vi påminner oss om satslogikens semantik. Givet $\Gamma$ är en mängd satser och $\varphi$ en sats, så gäller följande:
+\begin{equation*}
+  \begin{gathered}
+    \Gamma\vDash\varphi \Lrarr \varphi\text{ sann i varje modell för } \Gamma\\
+    \Lrarr\text{ För varje } \sigma\text{-struktur}\textgoth{A}\text{, om}\textgoth{A}\vDash\gamma\text{ för varje }\gamma\in\Gamma\text{, så }\textgoth{A}\vDash\varphi
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent I satslogik är detta enkelt att visa eftersom det finns ändligt antal "rader" i vår tabell. Detta gäller inte här, vilket kan göra saker lite svårare.
+\par\bigskip
+\noindent Vi ska kika på motsvarigheten till en tautologi (sanningsvärdestabellen gav en 1:a i varje rad, sann i varje struktur). Detta kallas för en \textit{valid formel}. Vi definierar:
+\par\bigskip
+\begin{theo}[Valid formel]{thm:validform}
+  En sluten formel $\varphi$ kallas \textit{valid} (alt. \textit{allmängilltig}) om $\varphi$ är sann i varje $\sigma$-struktur (som passar för språket).
+  \par\bigskip
+  \noindent Notationen är densamma som den för satslogik, dvs $\vDash\varphi$.  
+\end{theo}
+\par\bigskip
+\begin{theo}[Logisk ekvivalens]{thm:logEquiv}
+  $\varphi_1$ och $\varphi_2$ kallas för \textit{logiskt ekvivalenta}. Notationen är densamma som den för satslogik, dvs $\varphi_1$eq$\varphi_2$ omm $\vDash\varphi_1\leftrightarrow\varphi_2$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel}: $\neg\exists x \varphi(x)\text{ eq }\forall x\neg\varphi(x)$ där $\varphi$ är en formel som bara har $x$ som en fri variabel. Visa att $\vDash\neg\exists x\varphi(x)\leftrightarrow\forall x\neg\varphi(x)$. 
+\par\bigskip
+\noindent\textbf{Bevis:} Notera att vi inte har ett konkret språk, vi kommer strunta i detta och resonera som om vi har en.
+\par\bigskip
+\noindent Låt $\textgoth{A}$ vara en $\sigma$-struktur. Ska visa att $\leftrightarrow$ är sann, så vi vill visa att $\textgoth{A}\vDash\neg\exists x\varphi(x)\Lrarr\textgoth{A}\vDash\forall x\neg\varphi(x)$.
+\par\bigskip
+\noindent Vi börjar i ena änden och försöker översätta till ren svenska i strukturen.\par\noindent Vi har:
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A}\vDash\neg\exists x\varphi(x)\\
+    \Lrarr\textgoth{A}\nvDash\exists x\varphi(x)\\
+    \Lrarr\text{Det är inte så att }\textgoth{A}\vDash\exists x\varphi(x)\\
+    \Lrarr\text{Det är inte så att det finns }a\in A\text{ så att }\textgoth{A}\vDash\varphi(\bar{a})\\
+    \underbrace{\Lrarr}_{\text{Resonemang som görs i metaspråket \textgoth{A}}}\text{För varje element } b\in A\text{ gäller att }\textgoth{A}\nvDash\varphi(\bar{b})\\
+    \Lrarr\text{För varje }b\in A\text{ gäller }\textgoth{A}\vDash\neg\varphi(\bar{b})\\
+    \Lrarr\textgoth{A}\vDash\forall x\neg\varphi(x)\qquad\Box
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta var ett exempel på en valid formel. Det finns många sådana, såsom:
+\begin{itemize}
+  \item $\neg\forall x\varphi(x)$ eq $\exists x\neg\varphi(x)$
+  \item $\forall x(\varphi(x)\wedge\psi(x))$ eq $\forall x(\varphi(x))\wedge\forall x\psi(x)$
+  \item $\exists x(\varphi(x)\vee\psi(x))$ eq $\exists x(\varphi(x))\vee\exists x(\psi(x))$
+  \item Om $x$ inte förekommer fritt i $\psi$, så gäller:
+    \begin{itemize}
+      \item $\forall x(\varphi(x)\vee\psi)$ eq $\forall x\varphi(x)\vee\psi$
+      \item $\exists x(\varphi(x)\wedge\psi)$ eq $\exists x\varphi(x)\wedge\psi$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Man måste se upp! Om vi byter konnektiv vid kvantorerna, så kan det bli busigt, man måste vara försiktig.
+\par\bigskip
+\noindent Låt oss kika på en invalid formel. Vi definierar $\sigma = <;;\bar{P}>$ av typ $<;;2>$
+\par
+\noindent Visa att följande inte är en valid formel:
+\begin{equation*}
+  \begin{gathered}
+    \nvDash\forall x\exists y\bar{P}(x,y)\leftrightarrow\exists y\forall x\bar{P}(x,y)
+  \end{gathered}
+\end{equation*}\par
+\noindent Övningen går helt enkelt ut på att visa att det spelar roll vilken ordning man ställer kvantorerna. Hade man kunnat göra detta betyder det att de har samma sanningsvärden i alla strukturer. För att visa att dettat inte gäller räcker det alltså med att finna en motexempelstruktur. Vi döper VL till $\varphi_1$ och HL till $\varphi_2$.\par
+\noindent För att ange en struktur behöver vi ge ett universum och en tolkning på den 2-ställiga relationen. Om man inte kommer på ett universum så kan man ta något man arbetat mycket med, såsom $\N$ och relationen $\bar{P}=<$ (mindre än).\par
+\noindent Vi kan nu undersöka $\varphi_1$ och $\varphi_2$ vidare i vår struktur. I detta fall säger vi alltså:
+\begin{equation*}
+  \begin{gathered}
+    \textgoth{A}\vDash\varphi_1\Lrarr\text{ för varje }n\in\N\text{ finns }m\in\N\text{ så att } n<m\\
+    \textgoth{A}\vDash\varphi_2\Lrarr\text{ det finns }a\in\N\text{ så att för varje }b\in\N\text{ gäller } b<a
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $\textgoth{A}\nvDash\varphi_2$ ty det finns inget största naturligt tal, men $\textgoth{A}\vDash\varphi_1$. Alltså $\textgoth{A}\nvDash\varphi_1\leftrightarrow\varphi_2$.
+\par\bigskip
+\noindent Precis som det fanns olika normalformer i satslogik så finns de här i predikatlogik.
+\par\bigskip
+\subsection{Prenex Normalform}\hfill\\
+\par\bigskip
+\noindent När alla kvantorerna står allra först i en sluten formel så kallas det för \textit{prenex normalform} om formeln $\varphi = \underbrace{Q_1x_1Q_2x_2\cdots Q_nx_n}_{\text{Kvantorer}}\underbrace{\psi(x_1,\cdots,x_n)}_{\text{$\psi$ har inga andra fria variabler än $x_1,\cdots,x_n$ och inga kvantorer}}$
+\par\bigskip
+\noindent 
+\par\bigskip
+\noindent \textbf{Exempel:} $\forall x\exists y(\bar{P}(x,y)\wedge\neg x\dot{=}y)$ (på prenex normalform)
+\par\bigskip
+\noindent\textbf{Exempel: }$\forall x\bar{P}(x)\wedge\exists x\bar{Q}(x)$ (inte  på prenex normalform ty kvantorer kommer ej först)
+\par\bigskip
+\noindent\textbf{Exempel: }$\forall x \bar{P}(x)\wedge\bar{Q}(y)$ (inte på prenex normalform ty ej sluten (har en fri variabel $y$))
+\par\bigskip
+\noindent Vi minns från tidigare att vi alltid kunde skriva om till KNF eller DNF. Vi vill göra samma här, m.h.a följande sats:
+\par\bigskip
+\begin{theo}
+  Till varje sluten formel $\tau$ finns en sluten formel $\tau^{\prime}$ på prenex normalform så att $\tau$ eq $\tau^{\prime}$. Varje formel kan alltså skrivas om till prenex normalform
+\end{theo}
+\par\bigskip
+\noindent Vi kommer ej bevisa denna formel, men vi kör ett exempel så man vet hur man ska använda sig av den.
+\par\bigskip
+\noindent\textbf{Exempel: } Låt $\tau = \exists x \bar{P}(x)\rightarrow \forall x\bar{Q}(x)$. Finn någon $\tau^{\prime}$ på prenex normalform så att $\tau$ eq $\tau^{\prime}$
+\par\bigskip
+\noindent Det finns lite algoritmliknande metoder man kan utgå ifrån. Man skall börja med att ta bort alla pilar m.h.a satslogisk omskrivning. Sedan skall man försöka dra ut alla kvantorer. Då kommer det väl till pass att vi har lite standard valida formler.
+\par\bigskip
+\noindent Vi börjar med $\exists x\bar{P}(x)\rightarrow\forall x\bar{Q}(x)$. Ta bort alla pilar genom att byta ut ekvivalenta saker mot andra saker som är ekvivalenta. Detta kan vi alltså byta ut mot:
+\begin{equation*}
+  \begin{gathered}
+    \neg\exists x\bar{P}(x)\vee\forall x \bar{Q}(x)\\
+    \forall x\neg\bar{P}(x)\vee\forall x\bar{Q}(x)\text{ här måste vi byta namn på den bundna variabeln}\\
+    \forall x \neg\bar{P}(x)\vee\forall y\bar{Q}(y)\\
+    \forall x\left(\neg\bar{P}(x)\vee\forall y\bar{Q}(y)\right)\\
+    \forall x\left(\forall y\left(\bar{Q}(y)\vee\neg\bar{P}(x)\right)\right)\\
+    \forall x\forall y\left(\bar{P}(x)\rightarrow\bar{Q}(y)\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi hoppar lite till ett sidospår, men låt oss betrakta lite exempel på olika språk:
+\begin{itemize}
+  \item Språket för likhet, $\sigma=<;;>$
+    \begin{itemize}
+      \item$\dot{=}$ är den enda relationssymbolen
+      \item Formler i basen är inget annat än $\perp, x\dot{=}y$
+    \end{itemize}
+  \item Språk för partiella ordningar, $\sigma=<;;\bar{P}>$, exempelvis $\bar{P}=\leq$
+    \begin{itemize}
+      \item En \textit{partiell ordning} är en struktur $\textgoth{P}=<X,\leq>$ så att $\textgoth{P}\vDash\tau_1\wedge\tau_2$ där:
+        \begin{itemize}
+          \item $\tau_1 = \forall x \forall y \forall z\left(x\leq y\wedge y\leq z\rightarrow x\leq z\right)$ (transitivitet)
+          \item $\tau_2 = \forall x \forall y\left(x\leq y\wedge y\leq x\rightarrow x\dot{=}y\right)$
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Partiella ordningar kan vara lite kluriga. Som vi såg så är $\leq$ en sådan, men även $\subseteq$.
