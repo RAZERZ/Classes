@@ -1,0 +1,265 @@
+\section{Icke linjära system}
+\par\bigskip
+\noindent Vi har kollat lite på detta, exvis separabla ODE:er. Vi ska kolla på stabiliteten på lösningarna (inte lösa de explicit).\par
+\noindent Det finns lite system som är lättare att analysera, dessa kallas för \textit{autonoma} system.
+\par\bigskip
+\subsection{Autonoma system}\hfill\\
+\par\bigskip
+\noindent I det endimensionella fallet har vi en autonom ekvation på formen:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime} = f(y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera att HL inte beror på den beroende variabeln. Just $y = y(t)$, men förändringshastigheten beror inte på $t$. Detta är vanligt förekommande i fysiken.\par
+\noindent Vi kan få mer information och förstå lösningarna till denna ODE genom att kolla på nollställena till $f$ ty det är var vi har konstanta lösningar.
+\par\bigskip
+\noindent Om vi istället betraktar det 2-dimensionella fallet, så är ett autonomt system på formen:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} =\underbrace{F(x)}_{\text{Beror ej på $t$}} 
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Även om vi bara betrktar det 2-dimensionella fallet, så brukar det gå att generalisera till flera dimensioner.
+\par\bigskip
+\noindent Vi kommer betrakta system på formen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = P(x,y)\\
+      y^{\prime} = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Lösningar till:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      0=P(x,y)\\
+      0=Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Ger oss konstanta lösningar till ODE:n. Nollställena kallas, precis som i flervariabelanalys, för \textit{kritiska punkter}. Desas är ofta viktiga eftersom det inte händer något här. Vi kan då använda dessa som "startpunkt" för analys av ODE:n.
+\par\bigskip
+\noindent\textbf{Exempel:} Betrakta följande system
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = y\\
+      y^{\prime} = -x+\varepsilon x^3
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kritiska punkterna:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      0 = y\\
+      0=\pm\dfrac{1}{\sqrt{\varepsilon}}
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Målet är att studera stabiliteten runt de kritiska punktenra, men vad menas med det?\par
+\noindent Antag att $(x_0, y_0)$ är en kritisk punkt till
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = P(x,y)\\
+      y^{\prime} = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad händer då med banor som börjar nära de kritiska punkterna? Stannar den? Rör den sig bort? Närmar den sig? (Om vi börjar i en kritiskt punkt kommer vi stå still ty lösningen är konstant).
+\par\bigskip
+\subsection{Stabilitet för system med konstanta koefficienter}\hfill\\
+\par\bigskip
+\noindent Detta har vi typ hållt på med, så det blir lite repetition. Vi påminner oss om:
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime} = AX
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $A$ är en 2x2 matris med konstanta koefficienter. Vi kommer antag att determinanten är nollskilld eftersom om den inte är noll, kommer vi ha flera lösningar till $AX = 0$. Dvs den enda kritiska punkten är $X = 0 = (0,0)$ om den är nollskilld. Då är egenvärdena nollskillda! Glöm inte, om egenvärdena är noll så blir Fasporträttet lite annorlunda och det vill vi undvika. 
+\par\bigskip
+\noindent Hur ser stabiliteten ut i de olika fallen med avseende på egenvärdena?:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c}
+    Egenvärden&Typ&Stabilitet\\\\
+    \hline\\
+    $0<\lambda_2<\lambda_1$&Nod&Instabil\\
+    $\lambda_2<0<\lambda_1$&Sadelpunkt&Instabil\\
+    $<\lambda_2<\lambda_1<0$&Nod&Asymptotiskt stabil\\\\
+    \hline\\
+    $\alpha>0, \beta\neq0$&Spiral&Instabil\\
+    $\alpha=0, \beta\neq0$&Center&Stabil\\
+    $\alpha<0, \beta\neq0$&Spiral&Asymptotiskt stabil\\\\
+    \hline\\
+    $\lambda_1=\lambda_2 > 0$&Nod (G.M = 2)&Instabil\\
+    &Improper node (G.M < 2)&Instabil\\\\
+    \hline\\
+    $\lambda_1=\lambda_2<0$&Nod (G.M = 2)&Asymptotiskt stabil\\
+    &Improper nod (G.M < 2)&Asymptotiskt stabil\\
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Vi har inte glömt vår lilla funderin där uppe, \textit{vad menas med stabilitet?}
+\par\bigskip
+\noindent De begrepp vi har använt är:
+\begin{itemize}
+  \item Stabilt
+  \item Instabilt
+  \item Asymptotiskt stabilit
+\end{itemize}\par
+\noindent Men mer precist, vad betyder detta? Den intuitiva betydelsen är givetvis viktigt.
+\par\bigskip
+\begin{theo}[Stabilitet]{thm:Stability}
+  En kritisk punkt $(x_0,y_0)$ kallas \textit{stabil} om det $\forall\varepsilon >0\quad\exists\delta >0$ så att alla lösningar som börjar med distansen mellan $(x_0,y_0)$ och $(x(0),y(0))$ är högst $\delta$ (vi kan byta ut noll i funktionerna mot vad som helst ty vi vill fokusera på den beroende variabeln).\par
+  \noindent Har vi att avståndet mellan $(x(t),y(t))$ och $(x_0,y_0)$ är högst $\varepsilon$ $\forall t>0$. \par\bigskip
+  \noindent Helt enkelt, jämför $x$-led och $y$-led. I allmänhet har vi $\delta\leq\varepsilon$. Börjar vi nära, så stannar vi nära.
+  \par\bigskip
+  \noindent En punkt som inte är stabil kallas för \textit{instabil}
+\end{theo}
+\par\bigskip
+\noindent En skillnad mellan de linjära system är att detta gäller \textit{bara} nära punkterna. I linjära system om vi hade ellipser så var det garanterat att vi hade ellipser överallt, men vihär kanske vi har ellipser lokalt, men vi vet inte hur det ser ut mer globalt. 
+\newpage
+\begin{theo}[Asymptotiskt Stabil]{thm:asymptotstable}
+  En kritisk punkt kallas asymptotiskt stabil om den är stabil och $\exists\delta>0$ så att avståndet mellan $(x(0), y(0))$ och $(x_0,y_0)$ är strikt mindre än $\delta$ och att vi har
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{t\to\infty}(x(t),y(t)) = (x_0,y_0)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Hur ser stabilitet ut för icke-linjära system då? Betrakta:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = P(x,y)\\
+      y^{\prime} = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna kan ha flera kritiska punkter, men givetvis vill vi kunna klasificera dessa punkter. En metod vi kan göra detta på är genom fasplanet och säga lite om stabiliteten.
+\par\bigskip
+\noindent Tanken här är att vi inte kan lösa systemet i allmänhet, men vi kan rita ett riktningsfält. Då blir det ganska lätt att se dessa punkter, men det är givetvis inte ett bevis på att det existerar någon intressant punkt.
+\par\bigskip
+\noindent Riktningen ges av $\dfrac{dy}{dx} = \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} = \dfrac{Q(x,y)}{P(x,y)}$. Detta är en ODE som vi kan lösa, oftast inte för hand, men ibland går det att få ut en explicit lösning.
+\par\bigskip
+\noindent\textbf{Exempel:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = y\\
+      y^{\prime} = -2x^3
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent De kritiska punkterna ges av:
+\begin{equation*}
+  \begin{gathered}
+    y = -2x^3=0\rightarrow (0,0)
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi får:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dy}{dx} = \dfrac{-2x^3}{y}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta råkar vara en separabel ekvation och har lösningarna:
+\begin{equation*}
+  \begin{gathered}
+    y^2 = -x^4+C \Lrarr y^2+x^4=C
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna lösning är skriven på implicit form och som \textit{nästan} är en cirkel. Hade vi haft $x^2$ istället hade det varit en cirkel med radie $\sqrt{C}$. Däremot går denna lösning att rita ut och vi kommer se att vi har något ellipsliknande. Det vi får här är att den kritiska punkten blir ett center, och punkten är stabilt.
+\par\bigskip
+\subsection{Lokalt linjära system}\hfill\\
+\par\bigskip
+\noindent I närheten av kritiska punkter kommer, i allmänhet, det linjära beteendet dominära. Även för icke-linjära system.
+\par\bigskip
+\begin{theo}[Lokalt linjärt system]{thm:locallin}
+  Antag att $(0,0)$ är en kritisk punkt till $\begin{pmatrix}x^{\prime}\\y^{\prime}\end{pmatrix} = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} + \begin{pmatrix}p(x,y)\\q(x,y)\end{pmatrix}$.
+  \par\bigskip
+  \noindent Systemet kallas \textit{lokalt linjärt} om $(0,0)$ är en \textit{isolerad} kritiskt punkt (inga andra kritiska punkter i närheten), och:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{(x,y)\to(0,0)}\dfrac{p(x,y)}{\left|\left|(x,y)\right|\right|} = 0 = \lim_{(x,y)\to(0,0)}\dfrac{q(x,y)}{\left|\left|(x,y)\right|\right|}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Vi vill helt enkelt att $\begin{pmatrix}p(x,y)\\q(x,y)\end{pmatrix}$ ska gå mot noll vid den kritiska punkten
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = 4x+2y+2x^2-y^2\\
+      y^{\prime} = 4x-3y+7xy
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi noterar:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      4x+2y\\
+      4x-3y
+    \end{rcases*}\text{linjär}\\
+    \begin{rcases*}
+      2x^2-y^2\\
+      7xy
+    \end{rcases*}\text{icke-linjär}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi ser även att $(0,0)$ är en kritisk punkt. Den är isolerad, men vi visar inte detta nu. Det vi vill undersöka är nu om gränsvärderna stämmer. Det som är viktigt med dessa gränsvärdern är att täljaren går mot noll snabbare än vad nämnaren gör:
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    \lim_{(x,y)\to(0,0)}\dfrac{p(x,y)}{\sqrt{x^2+y^2}} = \lim_{(x,y)\to(0,0)} = \dfrac{2x^2-y^2}{\sqrt{x^2+y^2}} = [\text{Polära koordinater}]\\
+    \Rightarrow \lim_{r\to0}\dfrac{2r^2\cos^2(\theta)-r^2\sin^2(\theta)}{r} = \lim_{r\to0}r\left(2\cos^2(\theta)-\sin^2(\theta)\right) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Liknande för $q(x,y)$. Slutsatsen vi kan dra är att systemet är lokalt linjärt. De flesta systemen är lokalt linjära. Detta kan vi komma fram till genom att använda oss av taylorutvecklingen. Alla funktioner som har andra ordningens taylorutveckling är lokalt linjära.
+\par\bigskip
+\noindent Alla autonoma system med en isolerad kritisk punkt kan skrivas som lokalt linjära system om $P,q\in C^2$ (inte komplexa talen, utan kontinuerliga funktioner). Detta betyder helt enkelt att de har 2-gånger kontinuerliga derivator. Detta är inte ett jättestort krav, de flesta uppfyller detta, men givetvis finns det de som inte uppfyller dessa. Vi kan taylorutvecklar:
+\begin{equation*}
+  \begin{gathered}
+    P(x,y) = P(x_0,y_0)+P_x(x_0,y_0)(x-x_0)+P_y(x_0,y_0)(y-y_0)+R_1(x,y)\\
+    Q(x,y) = Q(x_0,y_0)+Q_x(x_0,y_0)(x-x_0)+Q_y(x_0,y_0)(y-y_0)+R_2(x,y)\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här är:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{(x,y)\to(0,0)}\dfrac{R_1(x,y)}{\left|\left|(x,y)\right|\right|} = 0
+    \lim_{(x,y)\to(0,0)}\dfrac{R_2(x,y)}{\left|\left|(x,y)\right|\right|} = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $(x_0,y_0)$ är en kritisk punkt, har vi att $P(x_0,y_0)$ och $Q(x_0,y_0)$ är 0. De försvinner, och det som blir kvar är derivatorna. Vi kan skriva det som:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}x\\y\end{pmatrix}^{\prime} = \underbrace{\begin{pmatrix}p_x(x_0,y_0)&p_y(x_0,y_0)\\q_x(x_0,y_0)&q_y(x_0,y_0)\end{pmatrix}}_{\text{Jacobianen}}\begin{pmatrix}x-x_0\\y-y_0\end{pmatrix}+\begin{pmatrix}R_1(x,y)\\R_2(x,y)\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta uppfyller kraven för lokalt linjär om vi byter ut $(x,y)$ mot $(x-x_0,y-y_0)$
+\par\bigskip
+\noindent Tanken är helt enkelt att den icke-linjära delen är pyttepytteliten i närheten av den kritiska punkten $(x_0,y_0)$. Liten i den bemärkelsen att gränsvärderna ovan gäller. Systemet kan approximeras av den linjära delen.

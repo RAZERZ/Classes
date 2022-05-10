@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.4.30)  6 MAY 2022 10:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  10 MAY 2022 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24>
+L3 programming layer <2022-04-10>
 (/usr/share/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2020/05/29 v2.20.6
 \linespacing=\dimen138
@@ -263,10 +263,10 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-02-24 L3 programming layer (loader) 
+Package: expl3 2022-04-10 L3 programming layer (loader) 
 
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count284
 \l__pdf_internal_box=\box57
 ))
@@ -277,10 +277,10 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count285
 )
 (/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty
-Package: zref-abspage 2020-07-03 v2.32 Module abspage for zref (HO)
+Package: zref-abspage 2022-04-07 v2.34 Module abspage for zref (HO)
 
 (/usr/share/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2020-07-03 v2.32 Module base for zref (HO)
+Package: zref-base 2022-04-07 v2.34 Module base for zref (HO)
 
 (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -298,16 +298,16 @@ Package pdftexcmds Info: \pdfdraftmode found.
 (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-Package zref Info: New property list: main on input line 764.
-Package zref Info: New property: default on input line 765.
-Package zref Info: New property: page on input line 766.
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
 )
 (/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 \c@abspage=\count286
-Package zref Info: New property: abspage on input line 66.
+Package zref Info: New property: abspage on input line 65.
 )
 (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
@@ -785,6 +785,9 @@ LaTeX Warning: Label `B' multiply defined.
 
 LaTeX Warning: Label `L' multiply defined.
 
+
+LaTeX Warning: Label `A' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -920,12 +923,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
 (./pages/F1/1.tex (./figures/figur.pdf_tex
-<./figures//figur.pdf, id=380, page=1, 682.86612pt x 341.43306pt>
+<./figures//figur.pdf, id=405, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//figur.pdf Graphic file (type pdf)
 <use ./figures//figur.pdf, page 1>
 Package pdftex.def Info: ./figures//figur.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//figur.pdf, id=381, page=2, 682.86612pt x 341.43306pt>
+<./figures//figur.pdf, id=406, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//figur.pdf Graphic file (type pdf)
 <use ./figures//figur.pdf, page 2>
 Package pdftex.def Info: ./figures//figur.pdf , page2 used on input line 59.
@@ -1579,20 +1582,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--204
  []
 
 (./figures/fasporträtt.pdf_tex
-<./figures//fasporträtt.pdf, id=706, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt.pdf, id=731, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt.pdf , page1 used on input line
  56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//fasporträtt.pdf, id=707, page=2, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt.pdf, id=732, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt.pdf, page 2>
 Package pdftex.def Info: ./figures//fasporträtt.pdf , page2 used on input line
  58.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 ) (./figures/fasporträtt-2.pdf_tex
-<./figures//fasporträtt-2.pdf, id=708, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt-2.pdf, id=733, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt-2.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt-2.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt-2.pdf , page1 used on input li
@@ -1600,7 +1603,7 @@ ne 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 )
 (./figures/fasporträtt3.pdf_tex
-<./figures//fasporträtt3.pdf, id=709, page=1, 682.86612pt x 341.43306pt>
+<./figures//fasporträtt3.pdf, id=734, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//fasporträtt3.pdf Graphic file (type pdf)
 <use ./figures//fasporträtt3.pdf, page 1>
 Package pdftex.def Info: ./figures//fasporträtt3.pdf , page1 used on input lin
@@ -1708,32 +1711,57 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 20.
+) [68] (./pages/F15/1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
 
 
-LaTeX Warning: Reference `mdf@pagelabel-57' on page 68 undefined on input line 
-20.
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
-) [68] (./main.aux (./includes/title.aux))
+ []
 
-LaTeX Warning: There were undefined references.
+[69]
+Package mdframed Info: mdframed works in twoside mode on input line 124.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 124.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 130.
+ [70]
+Package mdframed Info: mdframed works in twoside mode on input line 134.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 134.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 141.
+Package mdframed Info: Not enough space on this page on input line 141.
 
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 191.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 191.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 202.
+[71]) [72] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: DFEFDA6D0E1767AE1D35EB4649CBA57A;14766
-(rerunfilecheck)             After:  166AF19EB8191EC792471317D26BE087;15003.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 63C5091B98241CEDDB4AC86CDA337321;15909.
  ) 
 Here is how much of TeX's memory you used:
- 24647 strings out of 478276
- 451524 string characters out of 5853013
- 757692 words of memory out of 5000000
- 41941 multiletter control sequences out of 15000+600000
+ 24705 strings out of 478238
+ 452845 string characters out of 5850457
+ 759222 words of memory out of 5000000
+ 42016 multiletter control sequences out of 15000+600000
  477564 words of font info for 59 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  109i,19n,105p,672b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1752,10 +1780,10 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (69 pages, 441266 bytes).
+Output written on main.pdf (73 pages, 456859 bytes).
 PDF statistics:
- 927 PDF objects out of 1000 (max. 8388607)
- 805 compressed objects within 9 object streams
- 252 named destinations out of 1000 (max. 500000)
- 603 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 975 PDF objects out of 1000 (max. 8388607)
+ 849 compressed objects within 9 object streams
+ 263 named destinations out of 1000 (max. 500000)
+ 643 words of extra memory for PDF output out of 10000 (max. 10000000)
 
