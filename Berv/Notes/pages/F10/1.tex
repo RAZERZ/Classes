@@ -1,0 +1,165 @@
+\section{Datoraritmetik}
+\par\bigskip
+\noindent Observationer från labben:
+\begin{itemize}
+  \item Två huvudtyper av fel: diskretiseringsfel och avrundningsfel
+  \item Olika sätt att mäta fel: relativt fel och absolut fel
+  \item Begreppen maskinepsilon ($\varepsilon_M$), Inf, NaN, overflow, underflow, diskretisering
+  \item Berälningen $A^{-1}$ blev inte riktigt enhetsmatrisen
+  \item Det finns gränser för hur små och stora tal som kan representeras
+  \item Mindre tal kan representeras, men då får vi sämre relativ nogrannhet
+  \item Vilken ordning man gör beräkningar kan leda till olika resultat
+\end{itemize}
+\par\bigskip
+\noindent Reella tal kan representeras med en viss relativ nogrannhet ($\varepsilon_M$). 
+\par\bigskip
+\subsection{Hur mäter man fel?}\hfill\\
+\par\bigskip
+\noindent Absolut fel är ett exakt värde på hur mycket fel som har begåts, medan i det relativa felt så jämförs det med sammanhanget.
+\par\bigskip
+\subsection{Hur representeras tal i datorn?}\hfill\\
+\subsubsection{Heltal}\hfill\\
+\par\bigskip
+\noindent Här kan vi lagra talet exakt.\par
+\noindent Om vi har 8 bitar, och vill spara talet 53 så konverteras det först till binära talbasen $\Rightarrow (00110101)_2 = 2^5+2^4+2^3+2^0$.\par
+\noindent Den vanligaste heltalstypen är att man använder 32-bitar för att lagra. Det finns möjlighet att ha negativa tal genom att tillsätta en bit.
+\par\bigskip
+\subsubsection{Reella tal}\hfill\\
+\par\bigskip
+\noindent Representationen liknar så kallad \textit{grundpotensform} (scientific notation).
+\par\bigskip
+\noindent Exempelvis: $43520 = 4.352\cdot10^4$ eller $0.0000642 = 6.42\cdot10^{-5}$.\par
+\noindent Mer generellt har vi $x = m\beta^e$ där:
+\begin{itemize}
+  \item $m$ kallas för \textit{mantissa}
+  \item $\beta$ basen
+  \item $e$ exponenten
+\end{itemize}\par
+\noindent I datorn har vi ett liknande system som kallas för flyttalssystem:
+\begin{equation*}
+  \begin{gathered}
+    (\beta,P,L,U)
+  \end{gathered}
+\end{equation*}\par
+\noindent Där:
+\begin{itemize}
+  \item $\beta$ bas
+  \item $P$ precision
+  \item $[L,U]$ exponentgränser
+\end{itemize}\par
+\noindent $L,U$ talar alltså om hur stora eller små tal kan representeras. Vi får:
+\begin{equation*}
+  \begin{gathered}
+    x = \left(d_0+\dfrac{d_1}{\beta}+\dfrac{d_2}{\beta^2}+\cdots+\dfrac{d_{p-1}}{\beta^{p-1}}\right)\beta^e
+  \end{gathered}
+\end{equation*}
+\par
+\noindent Vi har även följande samband:
+\begin{equation*}
+  \begin{gathered}
+    0\leq d_1<\beta\qquad i=0,\cdots,p-1\\
+    L\leq e\leq U
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Låt oss återgå till föregående exmepel med $43520$. Med basen 10 och exponenten 4 får vi:
+\begin{equation*}
+  \begin{gathered}
+    43520 = \left(4+\dfrac{3}{10}+\dfrac{5}{10^2}+\dfrac{2}{10^3}\right)10^4
+  \end{gathered}
+\end{equation*}\par
+\noindent Med basen 2 har vi exponenten 15 och vi får:
+\begin{equation*}
+  \begin{gathered}
+    43520 = \underbrace{\left(1+\dfrac{0}{2^1}+\dfrac{1}{2^2}+0+\dfrac{1}{2^4}+0+\dfrac{1}{2^6}\right)}_{\text{Mantissa $m$}}2^{15}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera att vi har bara $p$st platser (har med maskinepsilon att göra), så felet som kommer när vi försöker spara tal i datorer kommer från mantissan. Detta eftersom mantissan måste rundas av. Exponenten är däremot lagrad exakt (inom den övre och undre gräns som definieras av $L,U$).\par
+\noindent Det vanliga är att systemet är normaliserat, men vad betyder det?
+\par\bigskip
+\begin{theo}[Normaliserat flyttalssystem]{thm:floatpointsyst}
+  Ett flyttalssystem kallas för \textit{normaliserat} om $d_0\neq0\Rightarrow 1\leq m<\beta$
+\end{theo}
+\par\bigskip
+\noindent Detta ger en unik representeration av varje tal.\par
+\noindent I ett normaliserat binärt system så är $d_0$ alltid 1, då kan vi spara en bit genom att strunta i att spara den. Detta kallas för \textit{hidden bit normalisation}.
+\par\bigskip
+\subsection{Litet flyttalssystem}\hfill\\
+\par\bigskip
+\noindent Från $(\beta,P,L,U) = (2,3,0,2)$. Detta är ett så pass litet system, så vi kan skriva ner alla möjliga värden:
+\par\bigskip
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $e,m$&(1.00)&(1.01)&(1.10)&(1.11)\\
+    \hline
+    0&1&1.25&1.5&1.75\\
+    \hline
+    1&2&2.5&3&3.5\\
+    \hline
+    2&4&5&6&7\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Om vi måste runda ner till 0 så kallas det för \textit{underflow}, på samma sätt kallas det för \textit{overflow} om vi måste avrunda till \texttt{Inf} (detta eftersom vi kommer hamna utanför basen).
+\par\bigskip
+\noindent Det vi noterar från vårt lilla system är att om vi plottar det på tallinjen så är de tätare ju lägre $e$ vi använder. De är ej jämt representerade. Däremot så är den relativa nogrannheten ungefär samma. Det betyder helt enkelt om vi har ett tal mellan 1 och 1.25 och rundar så kommer det relativa felet vara ungefär samma som om vi har ett tal mellan 6 och 7 och rundar.
+\par\bigskip
+\noindent Vi kör lite exempel: Räkna 2.3+4.4 = 6.7:
+\par\bigskip
+\noindent $fl(2.3)$ är en funktion som sparar det i vårat flyttalssystem:
+\begin{equation*}
+  \begin{gathered}
+    fl(fl(2.3)+fl(4.4))=fl(2.5+4) = fl(6.5) = fl(6)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad man gör är att kolla tabellen, vilket värde är närmast $2.3$? Byt ut det. Vi noterar däremot att vi får 6.5, då finns det en "regel" som säger att man kikar på mantissan och tar den som har jämn mantissa, vilket i vårat fall är 6.
+\begin{itemize}
+  \item Absoluta felet: $\left|6.7-6\right| = 0.7$
+  \item Relativt fel: $\dfrac{\left|6.7-6\right|}{\left|6.7\right|} = 0.104$
+\end{itemize}
+\par\bigskip
+\noindent Så varför kan beräkning i olika ordningar ge olika svar? Om vi kikar på följande exempel:\par
+\noindent $(2.3+4.4)-1.2 = 5.5$:
+\begin{equation*}
+  \begin{gathered}
+    fl(fl(fl(2.3)+fl(4.4))-fl(1.2)) = fl(6-1.25) = fl(4.75) = 5
+  \end{gathered}
+\end{equation*}\par
+\noindent Byter vi ordning på det till $2.3+(4.4-1.2)=5.5$:
+\begin{equation*}
+  \begin{gathered}
+    fl(fl(2.3)+fl(fl(4.4)-fl(1.2))) = 6
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Exempel på overflow: $4.3+6.2=10.5$:
+\begin{equation*}
+  \begin{gathered}
+    fl(fL(4.3)+fl(6.2)) = fl(4+6) = \texttt{Inf}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Hur kommer det sig att vi ändå kan spara tal mindre än exempelvis 1? Jo, när talet är tillräckligt litet så släpper datorn på normaliseringskravet för tal mindre än minsta möjliga nollskillda normaliserade tal $\left|x\right| < \beta^l$. Den relativa nogrannheten är inte lika bra när man kommer till de subnormala talen.\par
+\noindent Det är alltså fortfarande en unik representeration, och är bättre än att bara avrunda till 0 eller $\beta^l$ 
+\par\bigskip
+\subsection{Maskinepsilon}\hfill\\
+\par\bigskip
+\noindent Det är ganska sällan att vi har problem om hur vi ska lagra tal som är större eller mindre. Vi bestämmer den relativa nogrannheten och kan definieras som minsta tal $\varepsilon_M$ som uppfyller:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\left|fl(x)-x\right|}{\left|x\right|}\leq\varepsilon_M
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta skall vara uppfyllt $\forall x$ inom räckvidden för normaliserade flyttal. Detta ges av:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon_M = \dfrac{\beta^{1-p}}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Anmärkning: Man kan givetvis få overflow med heltal, olika språk hanterar detta olika. Vissa språk loopar om och börjar om på 0 eller så utökar de minnesuttrymme.

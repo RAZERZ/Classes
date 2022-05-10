@@ -1,56 +1,63 @@
-\contentsline {section}{\tocsection {}{1}{Interpolation}}{2}{}%
-\contentsline {subsection}{\tocsubsection {}{1.1}{Interpolation med polynom}}{2}{}%
-\contentsline {subsection}{\tocsubsection {}{1.2}{Numerisk integration}}{3}{}%
-\contentsline {subsection}{\tocsubsection {}{1.3}{Numerisk kvadratur}}{3}{}%
-\contentsline {subsection}{\tocsubsection {}{1.4}{Newton-Coates kvadratur}}{3}{}%
-\contentsline {subsection}{\tocsubsection {}{1.5}{Sammansatta trapetsregeln}}{4}{}%
-\contentsline {section}{\tocsection {}{2}{Föreläsning}}{6}{}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Trapetsmetoden i python}}{6}{}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Simpsons i python}}{6}{}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Observation från pythonexempel}}{6}{}%
-\contentsline {subsection}{\tocsubsection {}{2.4}{Nogrannhetsordning}}{7}{}%
-\contentsline {subsection}{\tocsubsection {}{2.5}{Feluppskattning}}{7}{}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Richardsson-extrapolation}}{8}{}%
-\contentsline {section}{\tocsection {}{3}{Förtydligande/Från boken}}{9}{}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{Integraler}}{9}{}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Riemann integralen}}{9}{}%
-\contentsline {subsection}{\tocsubsection {}{3.3}{Relationen mellan Simpsons och Trapetsapprox.}}{9}{}%
-\contentsline {subsection}{\tocsubsection {}{3.4}{Analytiskt bevis för feltermen i trapetsmetoden}}{10}{}%
-\contentsline {section}{\tocsection {}{4}{Föreläsning}}{14}{}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Numerisk integration med scipy}}{14}{}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Vad menas med absolut resp. relativt fel?}}{14}{}%
-\contentsline {subsection}{\tocsubsection {}{4.3}{Funktionsfelet}}{14}{}%
-\contentsline {subsection}{\tocsubsection {}{4.4}{Nogrannhet - Sammanfattning}}{14}{}%
-\contentsline {subsection}{\tocsubsection {}{4.5}{Gammal tentauppgift (2009-12-21)}}{15}{}%
-\contentsline {section}{\tocsection {}{5}{Icke-linjära ekvationer}}{16}{}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{Bisektionsmetoden/Intervallhalvering}}{16}{}%
-\contentsline {subsubsection}{\tocsubsubsection {}{5.1.1}{Konvergenshastighet}}{17}{}%
-\contentsline {subsection}{\tocsubsection {}{5.2}{Newton-Raphson}}{18}{}%
-\contentsline {subsubsection}{\tocsubsubsection {}{5.2.1}{Stoppvillkor}}{18}{}%
-\contentsline {subsection}{\tocsubsection {}{5.3}{Gammal tentatal - 2012-04-11}}{19}{}%
-\contentsline {section}{\tocsection {}{6}{Forts. Icke-linjära ekvationer}}{21}{}%
-\contentsline {subsection}{\tocsubsection {}{6.1}{Konvergenshastighet}}{23}{}%
-\contentsline {subsection}{\tocsubsection {}{6.2}{Konvergens i bisektionsmetoden}}{23}{}%
-\contentsline {subsection}{\tocsubsection {}{6.3}{Konvergens i Newton-Raphson}}{23}{}%
-\contentsline {section}{\tocsection {}{7}{Förtydligande/Från boken}}{24}{}%
-\contentsline {subsection}{\tocsubsection {}{7.1}{Rötter av polynom}}{24}{}%
-\contentsline {subsubsection}{\tocsubsubsection {}{7.1.1}{Descartes tecken-regel}}{24}{}%
-\contentsline {section}{\tocsection {}{8}{Forts. Icke-linjära ekvationer}}{25}{}%
-\contentsline {subsection}{\tocsubsection {}{8.1}{Hybrid-skiss av Newton-Raphson och bisektionsmetoden}}{25}{}%
-\contentsline {subsection}{\tocsubsection {}{8.2}{Mer om konvergensordning i praktiken}}{25}{}%
-\contentsline {subsection}{\tocsubsection {}{8.3}{Sekantmetoden}}{26}{}%
-\contentsline {section}{\tocsection {}{9}{Ordinära differentialekvationer}}{28}{}%
-\contentsline {subsection}{\tocsubsection {}{9.1}{Speciella egenskaper för att klassificera ODE:er}}{28}{}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{Omskrivning till förta ordningens ODE}}{28}{}%
-\contentsline {subsection}{\tocsubsection {}{9.3}{Begynnelsevärdesproblem i SciPy}}{29}{}%
-\contentsline {subsection}{\tocsubsection {}{9.4}{Eulers metod (explicit Euler)(Euler framåt)}}{31}{}%
-\contentsline {subsection}{\tocsubsection {}{9.5}{Diskretiseringsfel - Eulers metod}}{31}{}%
-\contentsline {section}{\tocsection {}{10}{Ordinära Differentialekvationer - Forts.}}{32}{}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{Euler bakåt (Implicit euler)}}{32}{}%
-\contentsline {subsection}{\tocsubsection {}{10.2}{Klassificering av metoder}}{32}{}%
-\contentsline {subsection}{\tocsubsection {}{10.3}{Exempel på Euler bakåt + Newton}}{33}{}%
-\contentsline {subsection}{\tocsubsection {}{10.4}{Globala trunkeringsfel (enstegsmetoder)}}{33}{}%
-\contentsline {section}{\tocsection {}{11}{Föreläsning - Differentialekvationer}}{35}{}%
-\contentsline {subsection}{\tocsubsection {}{11.1}{Stabilitet och styva differentialekvationer}}{35}{}%
-\contentsline {subsection}{\tocsubsection {}{11.2}{Absolutstabilitet}}{35}{}%
-\contentsline {subsection}{\tocsubsection {}{11.3}{Styva ODE:er}}{36}{}%
+\contentsline {section}{\tocsection {}{1}{Interpolation}}{3}{}%
+\contentsline {subsection}{\tocsubsection {}{1.1}{Interpolation med polynom}}{3}{}%
+\contentsline {subsection}{\tocsubsection {}{1.2}{Numerisk integration}}{4}{}%
+\contentsline {subsection}{\tocsubsection {}{1.3}{Numerisk kvadratur}}{4}{}%
+\contentsline {subsection}{\tocsubsection {}{1.4}{Newton-Coates kvadratur}}{4}{}%
+\contentsline {subsection}{\tocsubsection {}{1.5}{Sammansatta trapetsregeln}}{5}{}%
+\contentsline {section}{\tocsection {}{2}{Föreläsning}}{7}{}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Trapetsmetoden i python}}{7}{}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Simpsons i python}}{7}{}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Observation från pythonexempel}}{7}{}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Nogrannhetsordning}}{8}{}%
+\contentsline {subsection}{\tocsubsection {}{2.5}{Feluppskattning}}{8}{}%
+\contentsline {subsection}{\tocsubsection {}{2.6}{Richardsson-extrapolation}}{9}{}%
+\contentsline {section}{\tocsection {}{3}{Förtydligande/Från boken}}{10}{}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Integraler}}{10}{}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Riemann integralen}}{10}{}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Relationen mellan Simpsons och Trapetsapprox.}}{10}{}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Analytiskt bevis för feltermen i trapetsmetoden}}{11}{}%
+\contentsline {section}{\tocsection {}{4}{Föreläsning}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Numerisk integration med scipy}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Vad menas med absolut resp. relativt fel?}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Funktionsfelet}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{Nogrannhet - Sammanfattning}}{15}{}%
+\contentsline {subsection}{\tocsubsection {}{4.5}{Gammal tentauppgift (2009-12-21)}}{16}{}%
+\contentsline {section}{\tocsection {}{5}{Icke-linjära ekvationer}}{17}{}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Bisektionsmetoden/Intervallhalvering}}{17}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.1.1}{Konvergenshastighet}}{18}{}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Newton-Raphson}}{19}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.2.1}{Stoppvillkor}}{19}{}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{Gammal tentatal - 2012-04-11}}{20}{}%
+\contentsline {section}{\tocsection {}{6}{Forts. Icke-linjära ekvationer}}{22}{}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Konvergenshastighet}}{24}{}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{Konvergens i bisektionsmetoden}}{24}{}%
+\contentsline {subsection}{\tocsubsection {}{6.3}{Konvergens i Newton-Raphson}}{24}{}%
+\contentsline {section}{\tocsection {}{7}{Förtydligande/Från boken}}{25}{}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Rötter av polynom}}{25}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.1.1}{Descartes tecken-regel}}{25}{}%
+\contentsline {section}{\tocsection {}{8}{Forts. Icke-linjära ekvationer}}{26}{}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Hybrid-skiss av Newton-Raphson och bisektionsmetoden}}{26}{}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Mer om konvergensordning i praktiken}}{26}{}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{Sekantmetoden}}{27}{}%
+\contentsline {section}{\tocsection {}{9}{Ordinära differentialekvationer}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{Speciella egenskaper för att klassificera ODE:er}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{Omskrivning till förta ordningens ODE}}{29}{}%
+\contentsline {subsection}{\tocsubsection {}{9.3}{Begynnelsevärdesproblem i SciPy}}{30}{}%
+\contentsline {subsection}{\tocsubsection {}{9.4}{Eulers metod (explicit Euler)(Euler framåt)}}{32}{}%
+\contentsline {subsection}{\tocsubsection {}{9.5}{Diskretiseringsfel - Eulers metod}}{32}{}%
+\contentsline {section}{\tocsection {}{10}{Ordinära Differentialekvationer - Forts.}}{33}{}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Euler bakåt (Implicit euler)}}{33}{}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Klassificering av metoder}}{33}{}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{Exempel på Euler bakåt + Newton}}{34}{}%
+\contentsline {subsection}{\tocsubsection {}{10.4}{Globala trunkeringsfel (enstegsmetoder)}}{34}{}%
+\contentsline {section}{\tocsection {}{11}{Föreläsning - Differentialekvationer}}{36}{}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Stabilitet och styva differentialekvationer}}{36}{}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{Absolutstabilitet}}{36}{}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{Styva ODE:er}}{37}{}%
+\contentsline {section}{\tocsection {}{12}{Datoraritmetik}}{39}{}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Hur mäter man fel?}}{39}{}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Hur representeras tal i datorn?}}{39}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{12.2.1}{Heltal}}{39}{}%
+\contentsline {subsubsection}{\tocsubsubsection {}{12.2.2}{Reella tal}}{39}{}%
+\contentsline {subsection}{\tocsubsection {}{12.3}{Litet flyttalssystem}}{40}{}%
+\contentsline {subsection}{\tocsubsection {}{12.4}{Maskinepsilon}}{41}{}%
