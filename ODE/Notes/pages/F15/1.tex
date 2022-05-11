@@ -104,10 +104,10 @@
     $\alpha<0, \beta\neq0$&Spiral&Asymptotiskt stabil\\\\
     \hline\\
     $\lambda_1=\lambda_2 > 0$&Nod (G.M = 2)&Instabil\\
-    &Improper node (G.M < 2)&Instabil\\\\
+    &Improper node (G.M $<$ 2)&Instabil\\\\
     \hline\\
     $\lambda_1=\lambda_2<0$&Nod (G.M = 2)&Asymptotiskt stabil\\
-    &Improper nod (G.M < 2)&Asymptotiskt stabil\\
+    &Improper nod (G.M $<$ 2)&Asymptotiskt stabil\\
   \end{tabular}
 \end{center}
 \par\bigskip
@@ -263,3 +263,68 @@
 \noindent Detta uppfyller kraven för lokalt linjär om vi byter ut $(x,y)$ mot $(x-x_0,y-y_0)$
 \par\bigskip
 \noindent Tanken är helt enkelt att den icke-linjära delen är pyttepytteliten i närheten av den kritiska punkten $(x_0,y_0)$. Liten i den bemärkelsen att gränsvärderna ovan gäller. Systemet kan approximeras av den linjära delen.
+\par\bigskip
+\noindent Stabiliteten hos det ursprungliga systemt är samma som hos det linjära systemet (i de flesta fallen).\par
+\noindent Vad menar vi med "i de flesta fall?" Låt $\lambda_1$ och $\lambda_2$ vara egenvärdena till Jacobianen:\par
+\begin{center}
+  \begin{tabular}{c | c | c}
+    Egenvärden&Typ&Stabilitet\\
+    \hline\\
+    $0<\lambda_2<\lambda_1$&Nod&Instabil\\
+    $\lambda_2<0<\lambda_1$&Sadelpunkt&Instabil\\
+    $<\lambda_2<\lambda_1<0$&Nod&Asymptotiskt stabil\\\\
+    \hline\\
+    $\alpha>0, \beta\neq0$&Spiral&Instabil\\
+    $\alpha=0, \beta\neq0$&Spiral/Center&Obestämd/Stabil\\
+    $\alpha<0, \beta\neq0$&Spiral&Asymptotiskt stabil\\\\
+    \hline\\
+    $\lambda_1=\lambda_2 > 0$&Nod/Spiral&Instabil\\
+    $\lambda_1=\lambda_2<0$&Nod/Spiral&Stabil\\
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Detta är oftast väldigt enkelt att bestämma, det enda vi behöver göra är att räkna ut Jacobianen och egenvärden.
+\par\bigskip
+\noindent\textbf{Exempel:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = y\\
+      y^{\prime} = -x+\varepsilon x^3
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Har 3 kriska punkter, $\left(\pm\dfrac{1}{\sqrt{\varepsilon}},+\right)$ och $(0,0)$
+\par\bigskip
+\noindent Jacobianen ges av:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}P_x&P_y\\Q_x&Q_y\end{pmatrix} = \begin{pmatrix}0&1\\-1+3\varepsilon x^2&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Väldigt enkelt i detta fall eftersom funktionen bara beror på $x$. Vi undersöker punkterna och börjar med punkt 1, $\left(\dfrac{1}{\sqrt{\varepsilon}}, 0\right)$:\par
+
+\begin{equation*}
+  \begin{gathered}
+    J = \begin{pmatrix}0&1\\2&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att densamma gäller för $-\dfrac{1}{\sqrt{\varepsilon}}$. Egenvärden ges av:
+\begin{equation*}
+  \begin{gathered}
+    \lambda_{1,2} = \pm\sqrt{2}\rightarrow\text{Instabil sadelpunkt}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent I punkt 3 $(0,0)$ ger Jacobianen:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}0&1\\-1&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Egenvärdena till denna Jacobian är:
+\begin{equation*}
+  \begin{gathered}
+    \lambda_{1,2}=\pm i\rightarrow\text{Spiral eller center med obestämd stabilitet}
+  \end{gathered}
+\end{equation*}

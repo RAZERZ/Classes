@@ -1,0 +1,158 @@
+\section{Liapunovs andra metod}
+\par\bigskip
+\noindent Vi kommer kika på Liapunovs andra metod som kan förhoppningsvis ge oss mer information när vi får imaginära egenvärden (såsom stabilitet eller typ).\par
+\noindent Denna metod är användbar (ibland) om egenvärdena för det linjära systemet är rent imaginära.
+\par\bigskip
+\noindent Som exempel tar vi ett fysikaliskt system:\par
+\noindent Givet ett konservativt fysikaliskt system (energin i systemet är konstant). Om potentialenergin är minimal i en punkt så är den stabil. Systemt är en pendel som svänger.\par
+\noindent Antag att massan är $m$, längden på tråden är $L$, och $\theta$ är vinkel för tråden, så kan rörelsen beskrivas m.h.a en andra ordningens ODE:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{d^2\theta}{dt^t} + \dfrac{g}{L}\sin(\theta) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Låt $x=\theta$ och $y=\theta^{\prime}$ . Vi kan då skriva detta som ett system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = y\\
+      y^{\prime} = -\dfrac{g}{L}\sin(x)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kan kontrollera att systemet är autonomt genom att notera att vi inte beror på $t$ någonstans (det spelar ingen roll när vi börjar helt enkelt).\par
+\noindent Vi skall studera stabiliteten, så vi börjar med att finna de kritiska punkterna:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      y=0\\
+      -\dfrac{g}{L}\sin(\theta)(x)=0
+    \end{rcases*}\Lrarr
+    \begin{rcases*}
+      x = \pi\cdot n\qquad n\in\Z\\
+      y=0
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kollar på origo. Jacobianen i punkten (0,0):
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}0&1\\-\dfrac{g}{L}&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Som har egenvärdena:
+\begin{equation*}
+  \begin{gathered}
+    \lambda_{1,2}=\pm i\sqrt{\dfrac{g}{L}}
+  \end{gathered}
+\end{equation*}\par\bigskip
+\noindent Notera att vi har rent imaginära egenvärden, vi får alltså ingen information om stabiliteten. Hur skall vi då gå tillväga? Jo! Vi kan kolla på energin (som vi vet är konstant), då kan vi utifrån det säga något om stabiliteten.
+\par\bigskip
+\noindent Den totala energin ges av: $E=\dfrac{m}{2}L^2y^2+mgL(1-\cos(x))$. Eftersom $E$ är konstant, så måste lösningarna ($y$, $x$) uppfylla föregående ekvation.
+\par
+\noindent Om $x$ och $y$ är små har vi att $\cos(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{4!}+\cdots\approx 1-\dfrac{x^2}{2}$. Vi får då att:
+\begin{equation*}
+  \begin{gathered}
+    E\approx\dfrac{1}{2}mL^2y^2+mgL\dfrac{x^2}{2}\\
+    \Lrarr \dfrac{2E}{mgL^2}\approx \underbrace{\dfrac{y^2}{g}+\dfrac{x^2}{L}
+}_{\text{Ellipser runt origo}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Framförallt så stannar banorna nära origo, alltså är systemet stabilt.
+\par\bigskip
+\section{Liapunovs satser}\hfill\\
+\par\bigskip
+\subsection{Definita funktioner}\hfill\\
+\par\bigskip
+\noindent Vi kommer inte använda oss av den "vanliga definitionen" utan den från dynamiska system. I tidigare fallet hade vi energin som vår "test-funktion". Vi fill undersöka det allmänna fallet men då kommer vi kräva att dessa test-funktioner uppfyller några villkor. Det vi vill är att funktionen är \textit{definit}:
+\par\bigskip
+\begin{theo}[Definit funktion]{thm:definitefunc}
+  En kontinuerligt deriverbar funktion $V(x,y)$ som uppfyller $V(0,0)=0$ är \textit{positivt definit} om $V(x,y)>0\quad\forall (x,y)\neq0$ tillräckligt nära $(0,0)$. Tänk på det som en grop.\par\bigskip
+  \noindent Om istället $V(x,y)\geq0$ är funktionen \textit{positivt semi-definit}
+  \par\bigskip
+  \noindent Givetvis existerar det negativt definit samt negativt semi-definit genom att låta $V(x,y)<0$ resp. $V(x,y)\leq0$
+\end{theo}
+\par\bigskip
+\noindent Givet en funktion, hur kan vi identifiera att den är definit resp. semi-definit? Detta är ganska lätt att göra, enligt följande:
+\par\bigskip
+\begin{theo}
+  LLåt $V(x,y)$ vara en 3-gånger kontinuerligt deriverbar funktion i närheten av $(x_0,y_0)$ (den kritiska punkten). Punkten $(x_0,y_0)$ är ett lokalt minimum resp. maximum om:\par
+  \begin{itemize}
+    \item $\dfrac{\partial V}{\partial x}(x_0,y_0)=\dfrac{\partial V}{\partial y}(x_0,y_0)=0$
+    \item $\dfrac{\partial^2V}{\partial x^2}>0$ (resp $<0$)
+    \item $\left(\dfrac{\partial^2V}{\partial x^2}\dfrac{\partial^2V}{\partial y^2}-\left(\dfrac{\partial^2V}{\partial x\partial y}\right)^2\right)$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:} Lokalt minimum $\leftrightarrow$ positivt definit, lokalt maximum $\leftrightarrow$ negativt definit
+\par\bigskip
+\noindent\textbf{Exempel:} Låt $V(x,y)=ax^2+bxy+cy^2$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial V}{\partial x} = 2ax+by\rightarrow \dfrac{\partial V}{\partial x}(0,0)=0\\
+    \dfrac{\partial V}{\partial y}=bx+2cy\rightarrow\dfrac{\partial V}{\partial y}(0,0)=0\\\\
+    \dfrac{\partial^2V}{\partial x^2}=2a,\qquad\dfrac{\partial^2V}{\partial y^2}=2c,\qquad\dfrac{\partial^2V}{\partial xy}=b\\\\
+    \dfrac{\partial^2V}{\partial x^2}\dfrac{\partial^2V}{\partial y^2}-\left(\dfrac{\partial^2V}{\partial x\partial y}\right)^2 = 4ac-b^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $a>0$ och $4ac-b^2>0$ så uppfyller den punkt 2 och 3 och vi får att den är positivt definit. Om vi istället har att $a<0$ och $4ac-b^2>0\rightarrow$ negativt definit.
+\par\bigskip
+\noindent Vi har en plan! Välj $V$ så att banorna till vår ODE rör sig uppåt eller neråt i "gropen" som ges av $V$. Hur skulle vi kunna göra detta?\par
+\noindent Antag att $\gamma(x,y) = (x(t),y(t))$ är någon bana till en ODE. Vi vill kolla hur $V$ förändras längs vår bana enligt:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{d}{dt}V|_{\gamma(t)} = \dfrac{d}{dt}V(x(t),y(t)) = \dfrac{\partial V}{\partial x}\dfrac{dx}{dt}+\dfrac{\partial V}{\partial y}\dfrac{dy}{dt}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kan vi säga något om ifall det här är ökande eller minskande? I vissa fall kan vi det, om vi väljer $V$ på rätt sätt.
+\par\bigskip
+\noindent Antag att:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = P(x,y)\\
+      y^{\prime} = Q(x,y)
+    \end{rcases*}\rightarrow = \dfrac{dV}{dx}P(x,y)+\dfrac{dV}{dy}Q(x,y) = \dfrac{\partial V}{\partial x}\dfrac{dx}{dt}+\dfrac{\partial V}{\partial y}\dfrac{dy}{dt}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi får redan vår information utan att behöva lösa ODE:n
+\par\bigskip
+\begin{theo}
+  BBetrakta följande system:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases*}
+        x^{\prime} = P(x,y)\\
+        y^{\prime} = Q(x,y)
+      \end{rcases*}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Antag att det existerar en kritisk punkt i origo (0,0). Antag även att det finns en funktion $V(x,y)$ så att $V$ är positivt definit.\par\bigskip
+  \noindent Om funktionen $\dfrac{dV}{dt} = \dfrac{\partial V}{\partial x}P(x,y)+\dfrac{\partial V}{\partial y}Q(x,y)$ är negativt semi-definit, så är $(0,0)$ en stabil kritisk punkt.\par\bigskip
+  \noindent Om den är negativt definit, så är (0,0) asymptotiskt stabil.
+\end{theo}
+\par\bigskip
+
+\begin{theo}
+  BBetrakta följande system:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases*}
+        x^{\prime} = P(x,y)\\
+        y^{\prime} = Q(x,y)
+      \end{rcases*}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Antag att det existerar en kritisk punkt i origo (0,0). Låt $V$ vara en funktion med kontinuerliga derivator. Antag $V(0,0)=0$ och att i varje område runt origo finns minst en punkt så att $V$ är positiv. Detta är ett svagare krav än positivt definit.
+  \par\bigskip
+  \noindent Om $\dfrac{dV}{dt}$ är positivt definit, då är $(0,0)$ instabil.
+\end{theo}
+\par\bigskip
+\begin{theo}[Liapunov funktionen]{thm:liupunovfun}
+  Funktionen $V$ kallas för \textit{Liapunovfunktionen}
+\end{theo}
+\par\bigskip
+\noindent Det som är viktigt med denna metod är att det inte är rena räkningar, vi måste hitta funktionen $V$. På tentan kommer vi få tips "leta efter $V$ som är på den här formen". Man kan prova sig fram för att hitta detta $V$, men det finns ingen allmän metod för detta. Har man ett fysikaliskt system är detta lättare, men det finns ingen allmän metod för detta. Har man ett fysikaliskt system är detta lättare.
