@@ -127,6 +127,27 @@
           \item $\tau_1 = \forall x \forall y \forall z\left(x\leq y\wedge y\leq z\rightarrow x\leq z\right)$ (transitivitet)
           \item $\tau_2 = \forall x \forall y\left(x\leq y\wedge y\leq x\rightarrow x\dot{=}y\right)$
         \end{itemize}
+      \item Språket för aritmetik:
+        \begin{itemize}
+          \item $\sigma = <\bar{0},\oplus,\odot,\bar{S}>$ av typ $<0;2,2,1;>$
+          \item Peano-axiom:
+            \begin{itemize}
+              \item Syftet var att hitta axiom så att varje gång något var en modell för axiomet så skulle det vara isomorft med ursprungsstrukturen 
+              \item Det visade sig att det går inte att karaktärisera de naturliga tal
+              \item Axiom 1: $\forall x\quad \bar{0}\neq\bar{S}(x)$
+              \item Axiom 2: $\forall x\forall y(\bar{S}(x)\dot{=}\bar{y}\rightarrow x\dot{=}y)$
+              \item Axiom 3: $\forall x x\oplus\bar{0}\dot{=}x$
+              \item Axiom 4: $\forall x\forall y(x\oplus\bar{S}(y)\dot{=}\bar{S}(x+y))$
+              \item Axiom 5 $\forall x x\odot\bar{0}\dot{=}\bar{0}$
+              \item Axiom 6: $\forall x\forall y(x\odot\bar{S}(y)\dot{=}(x\odot y)\oplus x)$
+              \item Axiom 7 (Induktionsschema): $A(\bar{0})\wedge\forall x(A(x)\rightarrow A(\bar{S}(x)))\rightarrow\forall x A(x)$
+            \end{itemize}
+          \item Standardmodellen för aritmetik: $\textgoth{n}=<\N,0,+,\cdot,S>$
+            \begin{itemize}
+              \item Inför som förkortning $1 = \bar{S}(\bar{0})$ osv...
+              \item Litet lemma, för varje $n\in\N$ gäller $(n)^{\textgoth{n}}=n\in\N$
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 \par\bigskip

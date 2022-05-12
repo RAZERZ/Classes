@@ -1,0 +1,31 @@
+\section{1:a ordningens naturlig deduktion}
+\par\bigskip
+\noindent Det första vi har observerat är att 1:a ordningens logik är en utvidging av satslogiken. Detta betyder att vi har kvar alla regler och konnektiv (även bevisregler).
+\par\bigskip
+\noindent Vad är det vi har lagt till? Jo, $\dot{=}$.\par
+\noindent Som vanligt finns det en introduktions regel samt en eleminations intro:
+\par\bigskip
+\begin{itemize}
+  \item Om $t$ är en term i språket får man dra sträck (och inte skriva något över sträcket) och dra slutsatsen $t\dot{=}t$ 
+  \item Om vi ha 2 termer med likhetstecken, $s\dot{=}t$ och så har vi en formel $\varphi$ som har en fri variabel $x$ sådan att $\varphi[s/x]$. Då säger likhetselimination att vi kan dra slutsatsen $\varphi[t/x]$
+  \item Härledda regler:
+    \begin{itemize}
+      \item $s\dot{=}t\Lrarr t\dot{=}s$ (symmetri)
+      \item $s\dot{=}t\wedge t\dot{=}u\Lrarr s\dot{=}u$ (transitivitet)
+      \item $s\dot{=}t\qquad r[s/x]\dot{=}r[t/x]$ (term)
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Vi har även infört kvantorer, dessa måste behandlas! Vi börjar med $\forall$
+\par\bigskip
+\begin{itemize}
+  \item $\forall$-intro$\qquad\vdots\varphi(x)$ där $x$ inte förekommer fritt i någon premiss som $\varphi(x)$ beror på, dvs ovanför $\varphi(x)$
+  \item $\forall$-elemination$\varphi[t/x]$ där $5$ är en term (tillåten att substituera för $x$ i $\varphi$)
+\end{itemize}
+\par\bigskip
+\noindent Givetvis får vi inte glömma $\exists$ kvatorn!
+\par\bigskip
+\begin{itemize}
+  \item $\exists$-intro$\qquad\varphi[t/x]$ får vi införa $\exists$ och dra slutsatsen $\exists x\varphi(x)$ 
+  \item $\exists$-elemination$\qquad\exists x\varphi(x)$. Låt $\varphi(x)$ vara en premiss och vi vill bevisa en formel $\psi$ där $x$ inte får förekomma fritt i $\psi$ eller i annan premiss. Då får vi dra slutsatsen $\psi$ och stryka $\varphi(x)$ via $\exists$-elemination
+\end{itemize}

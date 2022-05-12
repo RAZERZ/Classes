@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  9 MAY 2022 14:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  12 MAY 2022 09:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1325,7 +1325,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 96.
-[34]) [35] (./main.aux (./includes/title.aux))
+[34]) [35] (./pages/F14/1.tex) [36] (./main.aux (./includes/title.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 5.0pt have occurred.
@@ -1335,10 +1335,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18343 strings out of 478238
- 357258 string characters out of 5850457
+ 18348 strings out of 478238
+ 357342 string characters out of 5850457
  655574 words of memory out of 5000000
- 36002 multiletter control sequences out of 15000+600000
+ 36004 multiletter control sequences out of 15000+600000
  477167 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,14n,107p,754b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1357,10 +1357,10 @@ type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/yfonts-t1/ygoth.pfb
 >
-Output written on main.pdf (36 pages, 323594 bytes).
+Output written on main.pdf (37 pages, 326952 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
+ 218 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

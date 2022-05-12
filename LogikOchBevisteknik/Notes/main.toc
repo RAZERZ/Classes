@@ -51,3 +51,4 @@
 \contentsline {subsection}{\tocsubsection {}{15.1}{Logisk konsekvens}}{31}{}%
 \contentsline {section}{\tocsection {}{16}{1:a ordningen semantik och Naturlig deduktion}}{33}{}%
 \contentsline {subsection}{\tocsubsection {}{16.1}{Prenex Normalform}}{34}{}%
+\contentsline {section}{\tocsection {}{17}{1:a ordningens naturlig deduktion}}{36}{}%
