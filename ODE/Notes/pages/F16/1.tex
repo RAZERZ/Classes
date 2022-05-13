@@ -50,7 +50,7 @@
 \par\bigskip
 \noindent Den totala energin ges av: $E=\dfrac{m}{2}L^2y^2+mgL(1-\cos(x))$. Eftersom $E$ är konstant, så måste lösningarna ($y$, $x$) uppfylla föregående ekvation.
 \par
-\noindent Om $x$ och $y$ är små har vi att $\cos(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{4!}+\cdots\approx 1-\dfrac{x^2}{2}$. Vi får då att:
+\noindent Om $x$ och $y$ är små (nära noll) har vi att $\cos(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{4!}+\cdots\approx 1-\dfrac{x^2}{2}$. Vi får då att:
 \begin{equation*}
   \begin{gathered}
     E\approx\dfrac{1}{2}mL^2y^2+mgL\dfrac{x^2}{2}\\
@@ -58,8 +58,8 @@
 }_{\text{Ellipser runt origo}}
   \end{gathered}
 \end{equation*}\par
-\noindent Framförallt så stannar banorna nära origo, alltså är systemet stabilt.
-\par\bigskip
+\noindent Framförallt så stannar banorna nära origo (eftersom ellipsens banor inte kan skjuta ut åt oändligheten eftersom de har längden $\sqrt{g}$ och $\sqrt{L}$), alltså är systemet stabilt.
+\newpage
 \section{Liapunovs satser}\hfill\\
 \par\bigskip
 \subsection{Definita funktioner}\hfill\\
@@ -156,3 +156,52 @@
 \end{theo}
 \par\bigskip
 \noindent Det som är viktigt med denna metod är att det inte är rena räkningar, vi måste hitta funktionen $V$. På tentan kommer vi få tips "leta efter $V$ som är på den här formen". Man kan prova sig fram för att hitta detta $V$, men det finns ingen allmän metod för detta. Har man ett fysikaliskt system är detta lättare, men det finns ingen allmän metod för detta. Har man ett fysikaliskt system är detta lättare.
+
+\newpage
+\noindent\textbf{Exempel vid använding av Liapunovs metod}:
+\par\bigskip
+
+\noindent Betrakta följande system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = -\dfrac{1}{2}x^3+2xy\\
+      y^{\prime} = -y^3
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill visa att origo är en asymptotiskt stabil punkt. Genom att konstruera en Liapunovfunktion på formen $V(x,y) = ax^2+cy^2$. Här är $a$ och $c$ obestämda, vi måste hitta $a$ och $c$ så vi får en Liapunovfunktion.\par
+\noindent Enlig sats 23.3 följer det att $(0,0)$ är asymptotiskt stabil om vi kan hitta $V(x,y)$ så att följande gäller:
+\begin{itemize}
+  \item $V$ är positivt definit
+  \item $\dfrac{dV}{dt}$ negativ definit
+\end{itemize}
+\par\bigskip
+\noindent Notera, $V$ är positivt definit om $a$ och $b$ $>0$.
+\par\bigskip
+\noindent Nu beräknar vi $\dfrac{dV}{dt}$ och försöker välja $a$ resp. $b$ så att $\dfrac{dV}{dt}$ är negativt definit:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dV}{dt} = \dfrac{dV}{dx}\dfrac{dx}{dt}+\dfrac{dV}{dy}\dfrac{dy}{dt}\\
+    = 2ax\left(\dfrac{-1}{2}x^3+2xy^2\right) + 2cy\left(-y^3\right)\\
+    = -ax^4+4ax^2y^2-2cy^4\\
+    = -a(x^4-4x^2y^2)-2cy^4\\
+    \Lrarr -a\left((x^2-2y^2)^2-4y^4\right)-2cy^4\\
+    \Lrarr -a\underbrace{\left(x^2-2y^2\right)}_{\text{alltid positiv}}^2-\underbrace{y^4}_{\text{alltid positiv}}(2c-4a)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då kan vi se till att koefficienterna alltid är negativa så att vi får ett negativt uttryck (och därmed negativ definit). \par
+\noindent Notera även att $\dfrac{dV}{dt}(0,0)=0\quad\forall a,c$\par
+\noindent Om $-a$ och $-(2c-4a)$ är negativ, då är $\dfrac{dV}{dt}(x,y)<0$ för $(x,y)=(0,0)$.\par
+\noindent Vi kan exempelvis ta $a=1$ och $c=\dfrac{5}{2}$
+\par\bigskip
+\noindent Med det valet får vi:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dV}{dt} = -(x^2-2y^2)^2-y^4
+  \end{gathered}
+\end{equation*}\par
+\noindent Nu ser det ut som att det är negativt överallt. Vad som däremot kan hända är att vi får noll, vilket endast sker när vi är i origo.\par
+\noindent Vi får då att $\dfrac{dV}{dt}$ är negativt definit. Samtidigt har vi att $V(x,y) = x^2+\dfrac{5}{2}y^2$ är positivt definit. Från Sats 23.3 är $(0,0)$ asymptotiskt stabil.

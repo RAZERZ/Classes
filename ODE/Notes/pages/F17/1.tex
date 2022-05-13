@@ -1,0 +1,180 @@
+\section{Periodiska lösningar och gränscykler}
+\par\bigskip
+\noindent Många fenomen i naturen/verkligheten beter sig periodiskt, eller i alla fall approximativt periodiska. I många fall beskriver periodiska lösningar någon slags gräns/slutfas hos ett system. Den kanske inte är periodisk från början, men när tiden går så blir den periodisk. Detta är premissen till dagens föreläsning.
+\par\bigskip
+
+\begin{theo}[Periodisk lösning]{thm:periodicsol}
+  En lösning $X=X(t)$ av det autonoma systemet $X^{\prime} = F(x)$.\par
+  \noindent En lösning till detta system kallas \textit{periodisk} om det finns ett $t\in\R$ (perioden) så att:
+  \begin{equation*}
+    \begin{gathered}
+      X(t+T)=X(t) \quad \forall t\in\R
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Konstanta lösningar är periodiska.
+\end{theo}
+\par\bigskip
+\noindent Vi bryr oss främst om icke-konstanta periodiska lösningar.
+\par\bigskip
+\noindent Vi har sätt exempel på periodiska lösningar när vi betraktade system av ODE:er med rent imaginära egenvärden och lösningen berodde på $\sin(x)$ och $\cos(x)$
+\par\bigskip
+\noindent Vi betraktar de fallen då lösningen inte är explicit periodisk utan är slutfasen.\par
+\noindent Detta betyder att det kommer finnas en periodisk lösning (lokalt) och andra lösningar närmar sig denna lösning.
+\par\bigskip
+\noindent En sådan periodisk lösning kallas för en \textit{gränscykel}. De flesta system kommer vi inte epxlicit kunna hitta gränscykeln, det kan gå numeriskt men oftast inte explicit.
+\par\bigskip
+\noindent\textbf{Exempel:} Betrakta följande system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = x+y-x(x^2+y^2) = P(x,y)\\
+      y^{\prime} = -x+y-y(x^2+y^2) = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det som gör detta system till ett snällt system är att vi har $x^2+y^2$ som gör att vi kan skriva om till polära koordinater.\par
+\noindent Till att börja med så kan vi notera att $(0,0)$ är en kritisk punkt. Betraktar vi Jacobianen i punkten $(0,0)$ har egenvärdena:
+\begin{equation*}
+  \begin{gathered}
+    1\pm i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Origo är en instabil punkt och det kommer vara någon slags spiral. Detta är inte av super intresse, utan bara en notering.\par
+\noindent Hade vi haft ett linjärt system hade vi haft att spiralen går mot oändligheten. Eftersom det är icke-linjärt kan vi inte säga samma sak.
+\par\bigskip
+\noindent Vi kommer se att lösningar som börjar nära $(0,0)$ närmar sig en gränscykel.
+\par\bigskip
+\noindent Byte till polära koordinater ger:
+\begin{equation*}
+  \begin{gathered}
+    x = r\cos(\theta),\qquad y=r\sin(\theta)\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vet att följande gäller:
+\begin{equation*}
+  \begin{gathered}
+    x^2+y^2=r^2\text{, derivering med avseende på $t$ ger:}\\
+  2r\dfrac{dr}{dt} = 2x\dfrac{dx}{dt}+2y\dfrac{dy}{dt}\\
+  = r\dfrac{dr}{dt}=x(x+y-x(x(x^2+y^2)))+(-x+y-y(x^2+y^2))\\
+  = x^2+y^2-(x^2+y^2)^2\\
+  \Lrarr r^2-r^4\qquad \dfrac{dr}{dt} = r(1-r^2)\Leftarrow\text{Autonom ekvation}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Tecknet på derivatna beror på $r(1-r^2)$.\par
+\noindent Vi får om $r\in(0,1)\Rightarrow\dfrac{dr}{dt}>0\Rightarrow r$ ökar.
+\noindent Om $r\in(1,\infty)\Rightarrow\dfrac{dr}{dt}<0\Rightarrow r$ minskar\par
+\noindent Om $r=1\Rightarrow\dfrac{dr}{dt}=0\Rightarrow r$ konstant (motsvarar enhetscirkeln)
+\par\bigskip
+\noindent (Denna ODE är separabel och kan lösas explicit).
+\par\bigskip
+\noindent För $\theta$ får vi om vi deriverar $x=r\cos(\theta)$, $y=r\sin(\theta)$ med avseende på $t$:
+\begin{equation*}
+  \begin{gathered}
+    (1) \quad\dfrac{dx}{dt} = \dfrac{dr}{dt}\cos(\theta)-r\sin(\theta)\dfrac{d\theta}{dt}\\\\
+    (2) \quad\dfrac{dy}{dt} = \dfrac{dr}{dt}\sin(\theta)+r\cos(\theta)\dfrac{d\theta}{dt}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill ha $\dfrac{d\theta}{dt}$.\par
+\noindent Vi kan få bort $\dfrac{dr}{dt}$ om vi tar $(1)\cdot\sin(\theta)-(2)\cdot\cos(\theta)$.\par
+\noindent Om vi samtidigt multiplicerar med $r$ får vi:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{r\sin(\theta)}_{\text{$y$}}\dfrac{dx}{dt}-\underbrace{r\cos(\theta)}_{\text{$y$}}\dfrac{dy}{dt}\\
+    = r\sin(\theta)\left(\dfrac{dr}{dt}\cos(\theta)-r\sin(\theta)\dfrac{d\theta}{dt}\right)-r\cos(\theta)\left(\dfrac{dr}{dt}\sin(\theta)+r\cos(\theta)\dfrac{d\theta}{dt}\right)\\
+    \Lrarr -r^2\dfrac{d\theta}{dt} = \text{HL}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För VL har vi:
+\begin{equation*}
+  \begin{gathered}
+    y\dfrac{dx}{dt}-x\dfrac{dy}{dt} = x^2+y^2 = r^2\\
+    \Lrarr r^2 = -r^2\dfrac{d\theta}{dt}\Rightarrow\dfrac{d\theta}{dt}=-1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi får systemet:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \dfrac{dr}{dt} = r(1-r^2)\\\\
+      \dfrac{d\theta}{dt}=-1
+    \end{rcases*}\\
+    \Rightarrow
+    \begin{cases*}
+      r = \dfrac{1}{\sqrt{1+(r_0^{-2}-1)e^{-2t}}}\\
+      \theta = -(t-\theta_0)
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $r_0=1$ får vi $r(t) = 1$
+\par\bigskip
+\begin{theo}[Gränscykel]{thm:limitcykel}
+  En sluten bana (ej har början eller slut) i fasplanet (vi tar endast upp 2-dim ty i 3-dim kan vi snurra runt) som uppfyller att andra banor närmar sig gränscykeln (antingen utifrån eller innifrån) när $t\to\infty$ kallas för en \textit{gränscykel}. \par
+  \begin{itemize}
+    \item Om alla banor nära gränscykeln närmar sig, kallas gränscykeln för \textit{stabil}
+    \item Om enbart en sida närmar sig kallas den \textit{semi-stabil}
+    \item Om ingen sida närmar sig kallas den \textit{instabil}, men är ej gränscykel per definition
+  \end{itemize}\par\bigskip
+  \noindent\textbf{OBS!} En gränscykel måste inte vara en cirkel. Utseendet på gränscykeln är kopplad till $t$. 
+\end{theo}
+\par\bigskip
+\noindent I allmänhet är det svårt att visa att att vi ens har gränscykler. Det är i allmänhet väldigt svårt att studera (även för polynom). Vi kommer visa fall då de \textit{inte} finns gränscykler.
+\par\bigskip
+\noindent Betrakta följande system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = P(x,y)\\
+      y^{\prime} = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{theo}
+  OOm $P,Q$ har kontinuerliga deriverar i en enkelt sammanhängande område $D\subseteq\R^2$.\par
+  \noindent En sluten bana \textit{måste} omsluta/omringa minst en kritisk punkt.\par
+  \noindent Om den endast omsluter/omringar \textit{en} kritisk punkt, kan den punkten \textit{inte} vara en sadelpunkt. 
+\end{theo}
+\par\bigskip
+\noindent Från Sats 24.3 följer följande:
+\begin{itemize}
+  \item Om ett område \textit{inte} har några kritiska punkter, så existerar det inte slutna banor i det området
+  \item Om ett område endast har en kritisk punkt som är en sadelpunkt, då finns inga slutna banor i det området.
+\end{itemize}
+\par\bigskip
+\begin{theo}
+  AAntag att $P,Q$ har kontinuerliga derivator i ett enkelt sammanhängande område $D\subseteq\R^2$\par
+  \noindent Om $P_x+Q_y$ har samma tecken i hela $D$ så finns inga slutna banor. 
+\end{theo}
+\par\bigskip
+\textbf{Anmärkning:} Enkelt sammanhängande = inga hål
+\par\bigskip
+
+\noindent\textbf{Exempel:} Betrakta följande system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = -2x-3y-xy^2 = P(x,y)\\
+      y^{\prime} = y+x^3-x^2y = Q(x,y)
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi undrar om den har några slutna banor eller gränscykler.\par
+\noindent Vi deriverar:
+\begin{equation*}
+  \begin{gathered}
+    P_x+Q_y = (-2-y^2)+(1-x^2)=-1-(x^2+y^2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\noindent Vi noterar att den är negativ i hela $\R^2$\par
+\noindent Det finns då inga slutna banor enligt Sats 24.4 
