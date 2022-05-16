@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  10 MAY 2022 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  16 MAY 2022 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,7 +252,7 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \l_MT_below_shortintertext_sep=\dimen174
 \xmathstrut@box=\box56
 \xmathstrut@dim=\dimen175
-))
+)
 (/usr/share/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
 
@@ -646,15 +646,109 @@ File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 \c@mdf@env@ii=\count312
 \c@mdf@zref@counter=\count313
 Package zref Info: New property: mdf@pagevalue on input line 895.
+)) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2022-02-21 v7.00n Hypertext links for LaTeX
+
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+\@linkdim=\dimen283
+\Hy@linkcounter=\count314
+\Hy@pagecounter=\count315
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count316
+
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4137.
+Package hyperref Info: Link nesting OFF on input line 4142.
+Package hyperref Info: Hyper index ON on input line 4145.
+Package hyperref Info: Plain pages OFF on input line 4152.
+Package hyperref Info: Backreferencing OFF on input line 4157.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4390.
+\c@Hy@tempcnt=\count317
+
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4749.
+\XeTeXLinkMargin=\dimen284
+
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count318
+\Field@Width=\dimen285
+\Fld@charsize=\dimen286
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
+LaTeX Info: Redefining \ref on input line 6097.
+LaTeX Info: Redefining \pageref on input line 6101.
+\Hy@abspage=\count319
+\c@Item=\count320
+\c@Hfootnote=\count321
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2022-02-21 v7.00n Hyperref driver for pdfTeX
+
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\HyAnn@Count=\count322
+\Fld@listcount=\count323
+\c@bookmark@seq@number=\count324
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip129
 )
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 4.
 
 (./includes/definitions.tex
-\c@theo=\count314
-\c@lem=\count315
-\c@prf=\count316
+\c@theo=\count325
+\c@lem=\count326
+\c@prf=\count327
 )
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
@@ -676,6 +770,10 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
 
@@ -723,16 +821,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count317
-\scratchdimen=\dimen283
+\scratchcounter=\count328
+\scratchdimen=\dimen287
 \scratchbox=\box74
-\nofMPsegments=\count318
-\nofMParguments=\count319
+\nofMPsegments=\count329
+\nofMParguments=\count330
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count320
-\MPscratchDim=\dimen284
-\MPnumerator=\count321
-\makeMPintoPDFobject=\count322
+\MPscratchCnt=\count331
+\MPscratchDim=\dimen288
+\MPnumerator=\count332
+\makeMPintoPDFobject=\count333
 \everyMPtoPDFconversion=\toks45
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -751,34 +849,54 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+Package hyperref Info: Link coloring OFF on input line 9.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count334
+)
+LaTeX Info: Redefining \ref on input line 9.
+LaTeX Info: Redefining \pageref on input line 9.
+LaTeX Info: Redefining \nameref on input line 9.
+
+(./main.out) (./main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
 \openout2 = `includes/title.aux'.
 
- (./includes/title.tex
-[0
+ (./includes/title.tex [0
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.toc)
-\tf@toc=\write4
-\openout4 = `main.toc'.
-
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.toc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
 
-]
+])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
 (./pages/F1/1.tex (./figures/interpolation-idé.pdf_tex
-<./figures//interpolation-idé.pdf, id=20, page=1, 682.86612pt x 341.43306pt>
+<./figures//interpolation-idé.pdf, id=327, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//interpolation-idé.pdf Graphic file (type pdf)
 <use ./figures//interpolation-idé.pdf, page 1>
 Package pdftex.def Info: ./figures//interpolation-idé.pdf , page1 used on inpu
 t line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//interpolation-idé.pdf, id=21, page=2, 682.86612pt x 341.43306pt>
+<./figures//interpolation-idé.pdf, id=328, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//interpolation-idé.pdf Graphic file (type pdf)
 <use ./figures//interpolation-idé.pdf, page 2>
 Package pdftex.def Info: ./figures//interpolation-idé.pdf , page2 used on inpu
@@ -800,20 +918,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
  []
 
 (./figures/trapetsregeln.pdf_tex
-<./figures//trapetsregeln.pdf, id=35, page=1, 682.86612pt x 341.43306pt>
+<./figures//trapetsregeln.pdf, id=344, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//trapetsregeln.pdf Graphic file (type pdf)
 <use ./figures//trapetsregeln.pdf, page 1>
 Package pdftex.def Info: ./figures//trapetsregeln.pdf , page1 used on input lin
 e 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//trapetsregeln.pdf, id=36, page=2, 682.86612pt x 341.43306pt>
+<./figures//trapetsregeln.pdf, id=345, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//trapetsregeln.pdf Graphic file (type pdf)
 <use ./figures//trapetsregeln.pdf, page 2>
 Package pdftex.def Info: ./figures//trapetsregeln.pdf , page2 used on input lin
 e 58.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 ) (./figures/simpsons.pdf_tex
-<./figures//simpsons.pdf, id=37, page=1, 682.86612pt x 341.43306pt>
+<./figures//simpsons.pdf, id=346, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//simpsons.pdf Graphic file (type pdf)
 <use ./figures//simpsons.pdf, page 1>
 Package pdftex.def Info: ./figures//simpsons.pdf , page1 used on input line 56.
@@ -821,15 +939,15 @@ Package pdftex.def Info: ./figures//simpsons.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 )
 (./figures/exempel:-4-intervall.pdf_tex
-<./figures//exempel:-4-intervall.pdf, id=38, page=1, 682.86612pt x 341.43306pt>
-
+<./figures//exempel:-4-intervall.pdf, id=347, page=1, 682.86612pt x 341.43306pt
+>
 File: ./figures//exempel:-4-intervall.pdf Graphic file (type pdf)
 <use ./figures//exempel:-4-intervall.pdf, page 1>
 Package pdftex.def Info: ./figures//exempel:-4-intervall.pdf , page1 used on in
 put line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//exempel:-4-intervall.pdf, id=39, page=2, 682.86612pt x 341.43306pt>
-
+<./figures//exempel:-4-intervall.pdf, id=348, page=2, 682.86612pt x 341.43306pt
+>
 File: ./figures//exempel:-4-intervall.pdf Graphic file (type pdf)
 <use ./figures//exempel:-4-intervall.pdf, page 2>
 Package pdftex.def Info: ./figures//exempel:-4-intervall.pdf , page2 used on in
@@ -991,17 +1109,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
  []
 
 (./figures/1.pdf_tex
-<./figures//1.pdf, id=92, page=1, 682.86612pt x 341.43306pt>
+<./figures//1.pdf, id=423, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//1.pdf Graphic file (type pdf)
 <use ./figures//1.pdf, page 1>
 Package pdftex.def Info: ./figures//1.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//1.pdf, id=93, page=2, 682.86612pt x 341.43306pt>
+<./figures//1.pdf, id=424, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//1.pdf Graphic file (type pdf)
 <use ./figures//1.pdf, page 2>
 Package pdftex.def Info: ./figures//1.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//1.pdf, id=94, page=3, 682.86612pt x 341.43306pt>
+<./figures//1.pdf, id=425, page=3, 682.86612pt x 341.43306pt>
 File: ./figures//1.pdf Graphic file (type pdf)
 <use ./figures//1.pdf, page 3>
 Package pdftex.def Info: ./figures//1.pdf , page3 used on input line 61.
@@ -1020,13 +1138,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--90
  []
 
 (./figures/newton-raphson.pdf_tex
-<./figures//newton-raphson.pdf, id=98, page=1, 682.86612pt x 341.43306pt>
+<./figures//newton-raphson.pdf, id=431, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//newton-raphson.pdf Graphic file (type pdf)
 <use ./figures//newton-raphson.pdf, page 1>
 Package pdftex.def Info: ./figures//newton-raphson.pdf , page1 used on input li
 ne 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//newton-raphson.pdf, id=99, page=2, 682.86612pt x 341.43306pt>
+<./figures//newton-raphson.pdf, id=432, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//newton-raphson.pdf Graphic file (type pdf)
 <use ./figures//newton-raphson.pdf, page 2>
 Package pdftex.def Info: ./figures//newton-raphson.pdf , page2 used on input li
@@ -1034,12 +1152,12 @@ ne 58.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
 ) [18 <./figures//1.pdf> <./figures//1.pdf> <./figures//1.pdf>] (./figures/d.pd
 f_tex
-<./figures//d.pdf, id=106, page=1, 682.86612pt x 341.43306pt>
+<./figures//d.pdf, id=441, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//d.pdf Graphic file (type pdf)
 <use ./figures//d.pdf, page 1>
 Package pdftex.def Info: ./figures//d.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//d.pdf, id=107, page=2, 682.86612pt x 341.43306pt>
+<./figures//d.pdf, id=442, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//d.pdf Graphic file (type pdf)
 <use ./figures//d.pdf, page 2>
 Package pdftex.def Info: ./figures//d.pdf , page2 used on input line 60.
@@ -1051,7 +1169,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--156
  []
 
 [20]) [21] (./pages/F5/1.tex
-<figures/Figure_1.png, id=120, 462.528pt x 346.896pt>
+<figures/Figure_1.png, id=460, 462.528pt x 346.896pt>
 File: figures/Figure_1.png Graphic file (type png)
 <use figures/Figure_1.png>
 Package pdftex.def Info: figures/Figure_1.png  used on input line 50.
@@ -1130,32 +1248,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--197
  []
 
 (./figures/euler.pdf_tex
-<./figures//euler.pdf, id=153, page=1, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=504, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 1>
 Package pdftex.def Info: ./figures//euler.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//euler.pdf, id=154, page=2, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=505, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 2>
 Package pdftex.def Info: ./figures//euler.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//euler.pdf, id=155, page=3, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=506, page=3, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 3>
 Package pdftex.def Info: ./figures//euler.pdf , page3 used on input line 61.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//euler.pdf, id=156, page=4, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=507, page=4, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 4>
 Package pdftex.def Info: ./figures//euler.pdf , page4 used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//euler.pdf, id=157, page=5, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=508, page=5, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 5>
 Package pdftex.def Info: ./figures//euler.pdf , page5 used on input line 65.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//euler.pdf, id=158, page=6, 682.86612pt x 341.43306pt>
+<./figures//euler.pdf, id=509, page=6, 682.86612pt x 341.43306pt>
 File: ./figures//euler.pdf Graphic file (type pdf)
 <use ./figures//euler.pdf, page 6>
 Package pdftex.def Info: ./figures//euler.pdf , page6 used on input line 67.
@@ -1240,35 +1358,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-) [41] (./main.aux (./includes/title.aux)) ) 
+) [41] (./pages/F11/1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+) [42] (./main.aux (./includes/title.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: A42A137007EAE757D845380027DCC258;13179.
+ ) 
 Here is how much of TeX's memory you used:
- 18110 strings out of 478238
- 354621 string characters out of 5850457
- 645446 words of memory out of 5000000
- 35763 multiletter control sequences out of 15000+600000
+ 24354 strings out of 478238
+ 448590 string characters out of 5850457
+ 741799 words of memory out of 5000000
+ 41814 multiletter control sequences out of 15000+600000
  477370 words of font info for 60 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 110i,17n,107p,632b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (42 pages, 362959 bytes).
+ 111i,17n,107p,632b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (43 pages, 378004 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 673 PDF objects out of 1000 (max. 8388607)
+ 563 compressed objects within 6 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 598 words of extra memory for PDF output out of 10000 (max. 10000000)
 

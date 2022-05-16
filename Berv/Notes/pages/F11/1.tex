@@ -1,0 +1,71 @@
+\section{Repetition/Gamla tentor}
+\par\bigskip
+\subsection{ODE:er}\hfill\\
+\par\bigskip
+\noindent Hur skall man göra om en metod är konsistent samt bestämma nogrannhetsordning?\par
+\noindent Vi introducerar en alternativ definition av det lokala trunkeringsfelet som förenklar analysen.
+\par\bigskip
+\noindent \textbf{Enstegsmetoder} är något vi tagit upp i kursen och skrivs på den generella formen:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i + h\varphi(t_i,y_i, y_{i+1}, h)\text{ (Implicit metod ty vi har $y_{i+1}$)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent \textbf{Lokalt trunkeringsfel}, felet i ett steg som anges som avstånd mellan exakta lösning och den numeriska metoden. Det globala ges genom att ta flera steg.
+\par\bigskip
+\noindent En alternativ definition av trunkeringsfelet är att den exakta lösningen insätts i metoden, varpå det lokala trunkeringsfelet ges av resttermen $\tau_i = \left|u_i(t_{i+1})-(\underbrace{u_{i}(t_i)}_{\text{=$y_i$}}+h\varphi(t_i,\underbrace{u_i(t_i)}_{\text{=$y$}}, \underbrace{u_i(t_{i+1})}_{\text{$\neq y_{i+1}$}}, h))\right|$\par
+\noindent För explicita metoder ($\varphi$ oberoende av $y_{i+1}$) är lokala trunkeringsfelet = $\tau_i$\par
+\noindent För implicta metoder med $\varphi(t_i,y_i,y_{i+1},h)$ Lipschitz-kontinuerlig i $y_{i+1}$ med konstant $c$ gäller att lokala trunkeringsfelet är mindre eller lika med $\dfrac{1}{1-hc}\tau_i$ vilket innebär att om vi kan visa att $\tau_i = O(h^{p+1})$ så gäller också $O(h^{p+1})$
+\par\bigskip
+\noindent Hur gör man om detta kommer på tentamen?
+\begin{itemize}
+  \item Steg 1: Sätt in exakt lösning $y(t)$ i metoden, detta ger $\tau_i = y(t_i+h)-(y(t_i)+h\varphi(t_iy(t_i),y(t_i+h),h))$
+  \item Taylorutveckla $\Rightarrow$ målet är att få ett lokalt trunkeringsfel som funktion av $h$
+  \item $\tau_i = O(h^{p+1})\Rightarrow$ ordning $p$
+  \item $\lim_{h\to 0}\dfrac{\tau_i}{h}=0\Rightarrow$ konsistens
+\end{itemize}
+\par\bigskip
+\noindent Låt oss tillämpa detta på Euler framåt/bakåtm där $y^{\prime} = f(t,y)$:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i+hf(t_i,y_i)\\
+  \tau_i = y(t_i+h)-y(t_i)-h \underbrace{f(t_i,y(t_i))
+}_{\text{$y^{\prime}(t_i)$}}
+\end{gathered}
+\end{equation*}\par
+\noindent Taylorutveckling ger:
+\begin{equation*}
+  \begin{gathered}
+    \tau_i = y(t_i)+hy^{\prime}(t_i)+O(h^2) -y(t_i)-hy^{\prime}(t_i) = O(h^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Ordningen ges då av $2-1 = 1$
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    \lim_{h\to 0}\dfrac{\tau_i}{h} = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För Euler bakåt:
+\begin{equation*}
+  \begin{gathered}
+    y_{i+1} = y_i+hf(t_i,y_{i+1})
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi sätter in exakta lösningen:
+\begin{equation*}
+  \begin{gathered}
+    \tau_i = y(t_{i+1})-y(t_i)-h\underbrace{f(t_{i+1},y_{i+1})}_{\text{$y^{\prime}(t_{i+1})$}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Taylorutveckling ger av $y(t_i)$ (för att hamna i $y(t_{i+1})$):
+\begin{equation*}
+  \begin{gathered}
+    y(t_i) = y(t_{i+1} + \underbrace{(t_i-t_{i+1})}_{\text{$=-h$}}) = y(t_{i+1}-h) = y(t_{i+1})-hy^{\prime}(t_{i+1})+O(h^2)\\
+    \tau_i = y(t_{i+1})-(y(t_{i+1})-hy^{\prime}(t_{i+1})+O(h^2)+hy^{\prime}(t_{i+1}))\\
+    \Lrarr \tau_i = O(h^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Ordningen ges då av $2-1=1$ och den blir därmed konsistent.
