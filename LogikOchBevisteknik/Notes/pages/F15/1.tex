@@ -27,5 +27,59 @@
 \begin{prf}[Adekvathetssatsen]{prf:adequ}
   \noindent Vi kommer skissa detta genom en så kallad sökmetod för att försöka avgöra om $\Gamma\vDash\varphi$\par
   \noindent Att leta efter ett motexempel i logisk konsekvens handlar om att hitta att allting i $\Gamma$ sann men $\varphi$ falsk. Detta gör man genom att stycka upp formlerna och det komemr bli som ett träd. \par\bigskip
-  \noindent Om $\Gamma\nvDash\varphi$ så kommer metoden hjälpa att hitta motexempel. Däremot, om $\Gamma\vDash\varphi$ så kommer metoden hjälpa oss att förstå att motexempel saknas samt hjälpa att inse naturlig deduktionsbevis finns 
+  \noindent Om $\Gamma\nvDash\varphi$ så kommer metoden hjälpa att hitta motexempel. Däremot, om $\Gamma\vDash\varphi$ så kommer metoden hjälpa oss att förstå att motexempel saknas samt hjälpa att inse naturlig deduktionsbevis finns\par\bigskip
+  \noindent Antag $\Gamma\vDash\varphi$, gör ett söktträd (även kallat sekventträd). Alla vägar kommer få $X$. Man visar sedan att träd där alla vägar får $X$ kan omvandla till bevissträd i naturlig deduktion för $\Gamma\vdash\varphi$ 
 \end{prf}
+\par\bigskip
+\begin{theo}[Följdsats från Fullständighetssatsen i predikatlogiken]{thm:aplem}
+  \noindent Låt $\Gamma$ vara en mängd satser.\par
+  \noindent $\underbrace{\Gamma \text{konsistent}}_{\text{$\Gamma\nvdash\perp$}}\Rightarrow\underbrace{\Gamma\text{ satisfierbar}}_{\text{$\Gamma$ har en modell}}$
+\end{theo}
+\newpage
+\begin{prf}[$\Rightarrow$]{prf:rightarrow}
+  $\Gamma\nvdash\perp\Lrarr\text{ inte }\left(\Gamma\vdash\perp\right)\underbrace{\Lrarr}_{\text{Fullständighetssatsen}}\text{ inte }\left(\Gamma\vDash\perp\right)$
+  \par\bigskip
+
+  \noindent$\Lrarr$ det finns struktur $\textgoth{A}$ så att $\textgoth{A}\vDash\Gamma$ och $\underbrace{\textgoth{A}\nvDash\perp}_{\text{gäller alltid}}$
+  \par\bigskip
+  \noindent$\Gamma$ har en modell
+\end{prf}
+\par\bigskip
+\begin{theo}[Kompakthetssatsen]{thm:compactnessthm}
+  Låt $\Gamma$ var en mängd av satser. Då gäller:
+  \begin{itemize}
+    \item $\Gamma$ har en modell $\Lrarr$ varje ändlig delmängd av $\Gamma$ har en modell
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{prf}[$\Rightarrow$]{prf:rarr}
+  Varje modell för $\Gamma$ är också en modell för dess delmängder
+\end{prf}
+\par\bigskip
+\begin{prf}[$\Leftarrow$]{prf:larr}
+  Bevisas kontrapositivt. Antag att $\Gamma$ saknar modell, visa att då gäller inte denna sida av pilen.
+  \par\bigskip
+  \noindent Från Sats 18.1 vet vi då att $\Gamma$ är inkonsistent, dvs $\Gamma\vdash\perp$\par
+  \noindent Låt $D$ vara ett bevissträd som visar $\perp$. Vi vet att dessa inte är entydiga, så låt därför $\Gamma_0$ vara infimum av $\Gamma$ sådant att bevissträdet är så litet som möjligt.\par
+  \noindent Då vet vi att $\Gamma_0\vdash\perp$ och $\Gamma_0$ är ändlig och $\Gamma_0\subseteq\Gamma$.
+  \par\bigskip
+  \noindent Från detta vet vi även att $\Gamma_0\vDash\perp$, men $\perp$ är inte sann i någon modell (per definition), alltså saknar $\Gamma_0$ modell\par
+  \noindent Alltså finns ändlig delmängd av $\Gamma$ så att $\Gamma_0$ saknar modell.
+\end{prf}
+\par\bigskip
+\subsection{Tillämpning av Kompakthetssatsen}\hfill\\
+\par\bigskip
+\noindent Antag $\Gamma$ har godtyckligt stora ändliga modeller.
+\par\bigskip
+\noindent Då har $\Gamma$ en oändlig modell (från Kompakthetssatsen)
+\par\bigskip
+\noindent\textbf{Bevisskiss}
+\par\bigskip
+\noindent $\lambda_n$: det finns minst $n$ element (detta får vi skriva så fort vi har tillgång till likhetsstecknet).
+\par\bigskip
+\noindent Ansätt $\Gamma^* = \Gamma\cup\{\lambda_n:n\geq 1\}\qquad$ Observera, varje modell för $\Gamma^*$ måste vara oändlig
+\par\bigskip
+\noindent Låt $\Gamma_0$ vara ändlig delmängd av $\Gamma^*$. $\Gamma_0$ innehåller ändligt många av $\lambda$ formlerna.\par
+\noindent Låt $k$ så att $\lambda_n\in\Gamma_0\Rightarrow n<k\qquad$ $k$ agerar supremum\par
+\noindent Enligt antagande finns det modell för $\Gamma$ som har minst $k$ element.\par
+\noindent Säg $\textgoth{A}$ är en modell. Då är $\textgoth{A}\vDash\Gamma$ och $\textgoth{A}$ har minst $k$ element. Detta medför att $\textgoth{A}$ är en modell för $\Gamma_0$ (från Kompakthetssatsen), alltså varje ändlig delmängd av $\Gamma^*$ har en modell, och från Kompakthetssatsen har $\Gamma^*$ har en modell, säg $\textgoth{A}^*\Rightarrow\textgoth{A}^*$ är en modell för $\Gamma$ och $\textgoth{A}^*$ är oändlig 

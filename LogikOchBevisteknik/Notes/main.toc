@@ -56,3 +56,4 @@
 \contentsline {subsection}{\tocsubsection {}{18.1}{Repetition från satslogiken}}{38}{subsection.18.1}%
 \contentsline {subsection}{\tocsubsection {}{18.2}{Sundhetssatsen}}{38}{subsection.18.2}%
 \contentsline {subsection}{\tocsubsection {}{18.3}{Adekvathetssatsen}}{38}{subsection.18.3}%
+\contentsline {subsection}{\tocsubsection {}{18.4}{Tillämpning av Kompakthetssatsen}}{39}{subsection.18.4}%

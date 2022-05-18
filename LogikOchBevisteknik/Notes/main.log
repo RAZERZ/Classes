@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  17 MAY 2022 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  18 MAY 2022 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,28 +900,28 @@ LaTeX Info: Redefining \nameref on input line 9.
  (./includes/title.tex [0
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.toc
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [1
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [2]
 (./pages/F1/1.tex (./figures/grafisk-tolkning.pdf_tex
-<./figures//grafisk-tolkning.pdf, id=321, page=1, 682.86612pt x 341.43306pt>
+<./figures//grafisk-tolkning.pdf, id=331, page=1, 682.86612pt x 341.43306pt>
 File: ./figures//grafisk-tolkning.pdf Graphic file (type pdf)
 <use ./figures//grafisk-tolkning.pdf, page 1>
 Package pdftex.def Info: ./figures//grafisk-tolkning.pdf , page1 used on input 
 line 56.
 (pdftex.def)             Requested size: 455.24411pt x 227.6284pt.
-<./figures//grafisk-tolkning.pdf, id=322, page=2, 682.86612pt x 341.43306pt>
+<./figures//grafisk-tolkning.pdf, id=332, page=2, 682.86612pt x 341.43306pt>
 File: ./figures//grafisk-tolkning.pdf Graphic file (type pdf)
 <use ./figures//grafisk-tolkning.pdf, page 2>
 Package pdftex.def Info: ./figures//grafisk-tolkning.pdf , page2 used on input 
@@ -1598,8 +1598,50 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 27.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 31.
-) [38] (./main.aux (./includes/title.aux))
+(mdframed)              on input line 32.
+Package mdframed Info: mdframed works in twoside mode on input line 34.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 34.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 37.
+[38]
+Package mdframed Info: mdframed works in twoside mode on input line 39.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 39.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 46.
+Package mdframed Info: Not enough space on this page on input line 46.
+Package mdframed Info: mdframed works in twoside mode on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 53.
+Package mdframed Info: mdframed works in twoside mode on input line 55.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 55.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 57.
+Package mdframed Info: mdframed works in twoside mode on input line 59.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 59.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 68.
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+) [39] (./main.aux (./includes/title.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 5.0pt have occurred.
@@ -1607,36 +1649,46 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 65F03A9C99A01908E5BB59BC43F04BE8;11191.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: F9E74DE4F516B24036605E754ED1D9AA;11582
+(rerunfilecheck)             After:  8F11116085D80FE402C6AE1AB0CC0F52;11453.
  ) 
 Here is how much of TeX's memory you used:
- 24640 strings out of 478238
- 451700 string characters out of 5850457
- 753356 words of memory out of 5000000
- 42062 multiletter control sequences out of 15000+600000
+ 24675 strings out of 478238
+ 452340 string characters out of 5850457
+ 752921 words of memory out of 5000000
+ 42089 multiletter control sequences out of 15000+600000
  477167 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,14n,107p,754b,1076s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/yfonts-t1/ygoth.pfb
->
-Output written on main.pdf (39 pages, 341206 bytes).
+
+pdfTeX warning (dest): name{section.19} has been referenced but does not exist,
+ replaced by a fixed one
+
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+7.pfb></usr/share/texmf-dist/fonts/type1/public/yfonts-t1/ygoth.pfb>
+Output written on main.pdf (40 pages, 349562 bytes).
 PDF statistics:
- 661 PDF objects out of 1000 (max. 8388607)
- 578 compressed objects within 6 object streams
- 164 named destinations out of 1000 (max. 500000)
- 487 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 686 PDF objects out of 1000 (max. 8388607)
+ 600 compressed objects within 6 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 503 words of extra memory for PDF output out of 10000 (max. 10000000)
 
