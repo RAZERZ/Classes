@@ -1,0 +1,31 @@
+\section{Fullständighet i 1:a ordningens logikk}
+\par\bigskip
+\subsection{Repetition från satslogiken}\hfill\\
+\par\bigskip
+\noindent Vi påminner oss om att given en mängd av satser $\Gamma$ så kallas den \textit{konsistent} om $\Gamma\nvdash\perp$ och inkonsistent om $\Gamma\vdash\perp$ 
+\par\bigskip
+\noindent För att visa detta i predikatlogiken så behöver vi visa att det inte finns ett bevisträd för detta. För att kunna göra detta behöver vi ha \textit{Fullständighetssatsen}
+\par\bigskip
+\subsection{Sundhetssatsen}\hfill\\\par
+\noindent Låt $\sigma$ vara en signatur och $\Gamma$ en mängd satser i LR($\sigma$) och $\varphi$ en sats i LR($\sigma$)\par
+\noindent Då gäller $\Gamma\vdash\varphi\Rightarrow\Gamma\vDash\varphi$\par
+\noindent Dvs om det finns bevis i naturlig deduktion av $\varphi$ från $\Gamma$, så är $\varphi$ en logisk konsekvens av $\Gamma$
+\par\bigskip
+\begin{prf}[Sundhetssatsen]{prf:sund}
+  \noindent Detta är bara en skiss.\par
+  \noindent Visa att alla regler är sunda (bevarar sanning)\par
+  \noindent Exempelvis, betrakta $\forall$-intro regeln som säger att givet ett $\varphi(x)$ får vi skriva $\forall \varphi(x)$ förutsatt att $x$ ej förekommer fritt i premisser ovanför $\varphi(x)$. Vi vill visa att $\Gamma\vDash\forall x \varphi(x)$, låt $\textgoth{A}$ vara en modell för $\Gamma$, detta fööljer från att $\Gamma\vDash\varphi(x)$
+\end{prf}
+\par\bigskip
+\subsection{Adekvathetssatsen}\hfill\\\par
+\noindent Låt $\sigma$ vara en signatur och $\Gamma$ en mängd satser i LR($\sigma$) och $\varphi$ en sats i LR($\sigma$)\par
+\noindent Då gäller att $\Gamma\vDash\varphi\Rightarrow\Gamma\vdash\varphi$\par
+\noindent Dvs, om $\varphi$ är logisk konsekvens av $\Gamma$ så finns bevissträd i naturlig deduktion av $\varphi$ från premisser i $\Gamma$
+\par\bigskip
+\noindent Varje gång vi har en logisk konsekvens måste vi visa att det går att visa med naturlig deduktion.
+\par\bigskip
+\begin{prf}[Adekvathetssatsen]{prf:adequ}
+  \noindent Vi kommer skissa detta genom en så kallad sökmetod för att försöka avgöra om $\Gamma\vDash\varphi$\par
+  \noindent Att leta efter ett motexempel i logisk konsekvens handlar om att hitta att allting i $\Gamma$ sann men $\varphi$ falsk. Detta gör man genom att stycka upp formlerna och det komemr bli som ett träd. \par\bigskip
+  \noindent Om $\Gamma\nvDash\varphi$ så kommer metoden hjälpa att hitta motexempel. Däremot, om $\Gamma\vDash\varphi$ så kommer metoden hjälpa oss att förstå att motexempel saknas samt hjälpa att inse naturlig deduktionsbevis finns 
+\end{prf}
