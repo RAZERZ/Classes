@@ -34,7 +34,7 @@
 \begin{itemize}
   \item Bas:
     \begin{itemize}
-      \item $(\bar{c_i})^{\textgoth{A}} = c_1$
+      \item $(\bar{c_i})^{\textgoth{A}} = c_i$
       \item $a\in A$\qquad $(\bar{a})^{\textgoth{A}} = a$
     \end{itemize}
   \item Induktionssteg:
@@ -52,7 +52,7 @@
 \begin{itemize}
   \item $(\bar{0})^{\textgoth{n}}=0$
   \item $(\bar{3})^{\textgoth{n}}=3$
-  \item $\bar{S}(\bar{S}(\bar{0}))^{\textgoth{n}} = S((\bar{S}(\bar{0}))^{\textgoth{n}}) = S(S(\bar{0})^{\textgoth{n}}) = S(0)+1 = 0+1+1 = 2$
+  \item $\bar{S}(\bar{S}(\bar{0}))^{\textgoth{n}} = S((\bar{S}(\bar{0}))^{\textgoth{n}}) = S(S(\bar{0})^{\textgoth{n}}) = S(\bar{0}^{\textgoth{n}})+1 = 0+1+1 = 2$
 \end{itemize}
 \par\bigskip
 \noindent Man kan ha en symbol som pekar på samma sak. 2+3 pekar på 5, men det gör även 5.
@@ -74,7 +74,7 @@
     \begin{itemize}
       \item $\textgoth{A}\nvDash\perp$
       \item $t_1,t_2$ slutna termer. $\textgoth{A}\vDash t_1\dot{=}t_2 \Lrarr t_1^{\textgoth{A}}=t_2^{\textgoth{A}}$
-      \item $\bar{R}$ är en $k$-ställigt relationssymbol, $t_1,\cdots, t_k$ slutna termer: $\textgoth{A}\vDash\bar{R}(t_1,\cdots, t_k) \Lrarr (t_1^{\textgoth{A},\cdots, t_k^{\textgoth{A}}})\in R$
+      \item $\bar{R}$ är en $k$-ställigt relationssymbol, $t_1,\cdots, t_k$ slutna termer: $\textgoth{A}\vDash\bar{R}(t_1,\cdots, t_k) \Lrarr (t_1^{\textgoth{A}},\cdots, t_k^{\textgoth{A}})\in R$
     \end{itemize}
   \item Induktionssteg (konnektiv):
     \begin{itemize}
