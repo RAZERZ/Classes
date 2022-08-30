@@ -1,0 +1,112 @@
+\section{Introduction}
+\par\bigskip
+\noindent One frequently encounters problems involving opitmisation (max, min). This is familiar from single/multi-variable calculus:
+\par\bigskip
+Let $f\in C^{\prime}(I)$ (where $C^{\prime}(I)$ means continous first derivative function space), find max($f$) and min($f$)
+\par\bigskip
+\noindent For a stationary point we know that the derivative $f^{\prime}(x) = 0$, and a stationary point is where the function is either at its peak (max) or lowest point
+\par\bigskip
+\noindent In several variables, we would have a gradient vector $\nabla f \equiv \bar{0}$
+\par\bigskip
+\noindent In Calculus of Variations (CoV) w ehave problems of the following from:
+\par\bigskip
+\textit{Find local minima for $J:C^2(\Omega)\to\R$}: $C^2(\Omega) = \{y:\Omega\to\R:\text{y is twice continously differentiable}\}$
+\par\bigskip
+\noindent $J$  is often called a \textbf{functional} and can be of the form:
+\begin{equation*}
+  \begin{gathered}
+    J(y) = \int_{\Omega}f(x,y,\nabla y)dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $f$ is smooth in all three arguments
+\par\bigskip
+\noindent\textbf{Example:}
+\par\bigskip
+\noindent Let $p,q\in\R^2$ be 2 distinct points. Find the shortest curve connecting $p,q$. Because they are distinct, we know that either the $x$ component or $y$ component is different. Suppose that there is a function $y(x)$ connecting the 2 points, then the following:
+\begin{equation*}
+  \begin{gathered}
+    p = (x_p,y(x_p))\qquad q = (x_q,y(x_q))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Arc length is given by:
+\begin{equation*}
+  \begin{gathered}
+    L(y) = \int_{x_p}^{x_q}\sqrt{1+(y^{\prime}(x))^2}dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This would give us the length between $p,q$, however, since we want to find the shortest curve, we want to minimize (read: opitmize) this function $L$ among the $C^{\prime}$ functions with end points fixed at $p,q$
+\par\bigskip
+\noindent\textbf{Example:} Minimal surfaces
+\par\bigskip
+\noindent Let $C$ be a closed curve in $\R^3$ such that for $\Omega\subset\R^2$ bounded and $g:\partial\Omega\to\R$ so that $C:\{(x,y,g(x,y)):(x,y)\in\Omega\}$
+\par\bigskip
+\noindent Suppose we want to minimize over surfaces $S$ with $\partial S = C$ (boundary of $S$ is $C$), sounds like an opitmisation problem!\par
+\noindent We write $S = \text{graph}(u)$, where $u:\Omega\to\R$ and $u = g$ on $\partial\Omega$
+\par\bigskip
+\noindent The area of such a surface is:
+\begin{equation*}
+  \begin{gathered}
+    A(u) = \int_{\Omega}\sqrt{1+\left|\nabla u\right|^2}dxdy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Our opitmisation problem is now to find a minimizer $u$ of $A$ such that $u=g$ on $\partial\Omega$
+\par\bigskip
+\noindent Minimizers of $A$ are called \textbf{minimal surfaces}. This problem is called Plateaus problem
+\par\bigskip
+\noindent Examples of minimal surfaces:
+\begin{itemize}
+  \item 2D-plane in $\R^3$
+  \item Helicoids
+  \item Catenoid
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Example:} (Catenoid - Catenery)
+\par\bigskip
+\noindent Consider a thin cable hanging between 2 poles. What shape will such a cable attain?\par
+\noindent Assuming the cable has uniform density $\rho$ and fixed length $L$. The cable will arange itself in such a way such that it minimizes its potential energy.\par
+\noindent In order to do so, suppose the line is given by the function $y(x)$ and that there is a force $g$ acting on it:
+\begin{equation*}
+  \begin{gathered}
+    W(y) = \int_{x_1}^{x_2} \rho\sqrt{1+(y^{\prime})^2}gy(x) dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Over functions:
+\begin{equation*}
+  \begin{gathered}
+    y\in C^{\prime}([x_1,x_2])
+  \end{gathered}
+\end{equation*}\par
+\noindent Such that $y(x_1) = y_1$ and $y(x_2)=y_2$\par
+\noindent Operating with fixed length:
+\begin{equation*}
+  \begin{gathered}
+    L = \int_{x_1}^{x_2}\sqrt{1+(y^{\prime})^2}dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Solutions to this problem are called \textit{catenaries}. If you take a catenary and rotate it you get a catenoid, which is a minimal surface.
+\par\bigskip
+\subsection{The catenoid}\hfill\\\par
+\noindent Suppose I have a surface of revolution within an interval $(x_1,x_2)$. In order to find the area, we can use our knowledge of infitesimals:
+\begin{equation*}
+  \begin{gathered}
+    A(y) = \int_{x_1}^{x_2}2\pi y(x)\sqrt{1+(y^{\prime})^2}dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notice that this looks a lot like our function $W$, if we let $\rho\cdot g = 2\pi$ (they are constants, and we do not care of their values other than that they are independent) 
+\par\bigskip
+\subsection{Hamiltons principle}\hfill\\
+\noindent Particles in gravitational fields will follow the trajectory that minimizes its energy. So, consider a moving particle with some mass $m$ in some force field $f(x,y) = -\nabla V(x,y)$ (conservative field, gradient of some function). Denote its trajectory by $r:(-\varepsilon, \varepsilon)\R^2$ (with velocity $r^\cdot$).\par
+\noindent Its kinetic energy is given by $T = \dfrac{1}{2}m·\left|r^\cdot\right|^2$ and its potential energy is $V(x,y)$
+\par
+\noindent We introduce the so called \textbf{lagrangian} which is $L = T-V$. Hamiltons principle states that the particle follows a path $r(t)$ between $t_1$ and $t_2$ that minimizes the \textbf{action functional}:
+\begin{equation*}
+  \begin{gathered}
+    S(r) = \int_{t_1}^{t_2}L(t_1,r,r)dt = \int_{t_1}^{t_2}(T-V)dt
+  \end{gathered}
+\end{equation*}

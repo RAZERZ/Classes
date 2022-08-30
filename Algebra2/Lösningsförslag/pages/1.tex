@@ -1,0 +1,99 @@
+\section{5 snabba}
+
+\subsection{Icke kommutativ ring}
+\par\bigskip
+\noindent Vi påminner oss om en icke kommutativ ring:
+\par\bigskip
+\begin{theo}[Icke-Kommutativ ring]{thm:noncom}
+  \noindent En icke-kommutativ ring är en ring sådant att $\forall a, b\in R\quad a\cdot_R b\neq b\cdot_R a$
+\end{theo}
+\par\bigskip
+\noindent Då vektorrum är en ring, vars multiplikativa operator är matrismultiplikation och element är matriser, gäller det att en matris $\forall A,B\in V\quad A\times B \neq B\times A$
+\par\bigskip
+
+\subsection{Kommutativ ring, ej integritetsområde}\hfill\\
+\par\bigskip
+\noindent Vi påminner oss om definitionen av ett integritetsområde:
+\par\bigskip
+\begin{theo}[Integritetsområde]{thm:integraldomain}
+  \noindent En ring $R$ kallas för ett \textit{integritetsområde} om
+  \begin{equation*}
+    \begin{gathered}
+      \forall a,b\neq0\in R\quad a\cdot_R b = b\cdot_R a \neq0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent De kommutativa ringarna vi känner til är förstås $\Z$, men även $\Z_n$. Låt oss titta närmare på $\Z_n$.
+\par\bigskip
+\noindent I $\Z_n$ gäller $\forall a\in\Z_n\quad a\cdot n = n\cdot a = \bar{0}$, alltså har vi funnit en nolldelare! Alltså är $\Z_n$ inte ett integritetsområde, trots att det är en ring.
+\par\bigskip
+
+\subsection{Euklidisk ring, ej kropp}\hfill\\
+
+\noindent De fina egenskaperna hos en kropp är att varje nollskillt element har en invers sådant att med ringmultiplikationen fås en multiplikativ identitet. Då räcker det med att hitta en ring med nolldelare som är en Euklidisk ring, alltså gäller även $\Z_n$ här, men! Vi måste kräva att $n\neq p$ där $p$ är ett primtal, annars är det en kropp! 
+\par\bigskip
+
+\subsection{Irreducibelt polynom i $\Z[x]$ grad 2}\hfill\\
+
+\noindent Låt oss påminna oss om definitionen av reducibel:
+\par\bigskip
+\begin{theo}[Irreducibelt element]{thm:reducible}
+  \noindent Ett element icke-inverterbart element $a$ i en ring $R$ kallas för \textit{irreducibelt} om $a = b\cdot_R c$ där $b$ eller $c$ är inverterbart.
+\end{theo}
+\par\bigskip
+\noindent Definitionen följer med även i polynomringar. Kom ihåg, $1_R$ är alltid inverterbart och en faktor i alla element.
+\par\bigskip
+\noindent Vi återgår nu till ringen vi är i, $\Z[x]$. Notera att $\Z$ är en kropp, och därmed gäller faktorsatsen. Tag därför ett polynom av grad 2 som inte har rötter i $\Z[x]$, det lättaste valet man kan göra är att välja ett komplext polynom, exempelvis $x^2+1$
+
+\newpage
+
+\subsection{Eulers sats}\hfill\\
+
+\noindent Detta är inget annat än att formulera definitionen:
+\par\bigskip
+\begin{theo}[Eulers sats]{thm:euler}
+  \noindent Låt $\text{sgd}(a,b) = 1$, då gäller $a^{\varphi(b)}\equiv 1 \text{ mod }b$
+\end{theo}
+\par\bigskip
+
+\section{Låt $R$ vara ett integritetsområde}
+\par\bigskip
+
+\subsection{Definiera maximalt ideal}\hfill\\
+\par\bigskip
+\noindent Här krävs inget annat än den rena definitionen, som lyder enligt följande:
+\par\bigskip
+\begin{theo}[Maximalt ideal]{thm:maxideal}
+  \noindent Maximalt ideal är ett ideal $I\subseteq R$ sådant $\nexists P\subseteq R\wedge I\subseteq P$ där $P\neq R$
+\end{theo}
+\par\bigskip
+
+\subsection{Irreducibelt}\hfill\\
+\par\bigskip
+\noindent Definitionen har skrivits i Theorem 1.3 (ja, det är ok att göra så på tentamen).
+\par\bigskip
+
+\subsection{Visa nollskillt och irreducibelt}\hfill\\
+\par\bigskip
+\noindent Notera att denna fråga är lite mer "dominant" än de andra, den vill att vi skall visa något. Då hjälper det att skriva upp vad vi vet för att sedan klura ut om vi minns någon sats som gör att pusselbitarna faller på plats:
+\par\bigskip
+\begin{itemize}
+  \item $R$ integritetsområde $\Rightarrow$ $R$ kropp
+  \item Maximalt ideal genererat av $a\in R$
+  \item Varje växande kedja av ideal konvergerar i ett integritetsområde
+  \item Det finns "triviala ideal"
+  \item Ideal får ej vara tomma mängden (eller var det icke-tom? Tips! Tänk på kroppar, vilka är de triviala idealen?)
+  \item Integritetsområde har inga nolldelare
+  \item Kroppar har bara triviala ideal
+  \item Ett irreducibelt element är icke-inverterbart
+\end{itemize}
+\par\bigskip
+\noindent Nu har vi verktyg i vår verktygslåda vi kan arbeta mer med! Vi ser om vi kan bryta ner det vi vill visa i mindre bitar.\par\bigskip
+\noindent Vi vill visa att $a$ är nollskillt. Vi noterar att vi är i ett integritetsområde, alltså kan ej $a$ vara nolldelare. Vi söker alltså motsägelse till $\forall b\in R\quad a\cdot_R b \neq0$. Vi leker lite med tanken med maximalt ideal, det är alltså det största idealet i ringen, generatorn kan väl inte vara noll? Hmm, vad händer om den är nollan? Då måste ringen vara $\{0\}$, men då kan vi inte vara i ett integritetsområde.\par
+\noindent Vi har en plan! Vi skall nu försöka översätta detta till ett mer matematiskt språk:\par
+\noindent Antag $a = 0$. Då är idealet som genereras av $a = \{a\cdot r | r\in R\} = \{0\}$. Idealet är maximalt, vilket betyder att idealet som genereras av den multiplikativa identiteten är \textit{mindre} än idealet som genereras av 0. Detta kan inte stämma, eftersom det idealet är ett av de triviala idealen, nämligen ringen $R$!. Vi har visat att $R\subseteq\{0\}$, motsägelse, alltså gäller $a\neq0$.
+\newpage
+\noindent Nu vill vi visa att $a$ är irreducibelt, vi måste först visa att $a$ är icke-inverterbart. Om $a$ är inverterbart finns det ett $b$ sådant att $a\cdot_R b = 1_R$, men då skulle idealet som genereras vara hela ringen. Däremot motsäger detta antaganden, ty i uppgiften stod det att det finns \textit{ett} $a$, men om $a$ är inverterbart finns det ju ett $b$ som också genererar idealet!
+\par\bigskip
+

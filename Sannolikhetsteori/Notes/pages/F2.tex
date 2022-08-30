@@ -1,0 +1,200 @@
+\section{Tolkning av sannolikheter}
+\par\bigskip
+\noindent Om vi tar exemplet att singla slant. Vad betyder det att sannolikheten är $\dfrac{1}{2}$?\par
+\noindent Man kan tolka det som att "det finns 2 fall, och båda har lika stor chans att inträffa"\par
+\noindent Eller en mer data-inriktad tolkning, det vill säga om man singlar slant 100ggr, kommer ungefär hälften av kasten resultera i krona eller klave.
+\par\bigskip
+\noindent Det finns däremot tolkningar via Kolmogorovs axiom, det vill säga:
+\begin{itemize}
+  \item $P(A) = p$  betyder att $A$ utgör $p$ enheter av utfallsrummet $\Omega$
+  \item Om vi upprepat slumpar ett $x\in\Omega$ så kommer tillslut $x\in A$  inträffa med frekvens $p$ (\textbf{stora talens lag})
+\end{itemize}
+\par\bigskip
+\subsection{Sannolikhetsmåttet $P$}\hfill\\
+\par\noindent Uppfyller följande:
+\par\bigskip
+\begin{itemize}
+  \item $P(A^c) = 1-P(A)$
+  \item $P(\O) = P(\Omega^c) = 1-P(\Omega) = 1-1 = 0$
+  \item $A,B$ disjunkta gäller $P(A\cup B) = P(A\cup B \cup\O\cdots)$ (ty axiomet säger att vi skall ha oändliga disjunkta par, vi kan därför fylla ut med oändligt många tomma mängder) $\Rightarrow P(A)+P(B)$
+  \item $P(B\setminus A) = P(B)-P(A\cap B)$
+  \item Om $A\subseteq B$ så gäller $A\cap B = A$ och $P(B\setminus A) = P(B)-P(A)$
+  \item Om $P(B\setminus A)\geq0$ så $A\subseteq B\Rightarrow P(A)\leq P(B)$
+  \item $P(A\cup B) = P(A)+P(B)-\underbrace{P(A\cap B)}_{\text{$\geq0$}}$
+  \item $P(A\cup B) \leq P(A)+P(B)$ (Booles olikhet)
+\end{itemize}
+\par\bigskip
+
+\begin{theo}
+  OOm $A_1\subseteq A_2\subseteq\cdots\subseteq\Omega$ så gäller
+  \begin{equation*}
+    \begin{gathered}
+      P(\bigcup_{i=1}^{\infty}A_i) = \lim_{n\to\infty}P(A_n)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Kallas även för att sannolikhetsmåttet är kontinuerligt ovanifrån
+\end{theo}
+\par\bigskip
+\begin{prf}[Bevis av föregående sats]{prf:prev}
+  \begin{equation*}
+    \begin{gathered}
+      \underbrace{A_1}_{\text{$B_1$}}, \underbrace{A_2\setminus A_1}_{\text{$B_2$}},\underbrace{A_3\setminus A_2}_{\text{$B_3$}}\cdots \underbrace{A_{n+1}\setminus A_n}_{\text{$B_{n+1}$}}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent $B_i$ är disjunkta, och följande gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \bigcup_{i=1}^{\infty}A_i = \bigcup_{i=1}^{\infty}B_i\\
+      P\left(\bigcup_{i=1}^{\infty}A_i\right) = P\left(\bigcup_{i=1}^{\infty}B_i\right) = \sum_{i=1}^{\infty}P(B_i) = \lim_{n\to\infty}(P(B_1)+P(B_2)+P(B_3)+\cdots+P(B_n))\\
+      \Lrarr \lim_{n\to\infty}(P(A_1)+(P(A_2)-P(A_1))+(P(A_3)-P(A_2))+\cdots+(P(A_n)-P(A_{n-1})))\\
+      \Lrarr\lim_{n\to\infty}P(A_n)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\begin{theo}
+  LLåt $A_3\subseteq A_2\subseteq A_1\cdots\subseteq\Omega$:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(\bigcap_{i=1}^{\infty}A_i\right) = \lim_{n\to\infty}P(A_n)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{lem}[De morgans lagar]{lem:demorgan}
+  \begin{itemize}
+    \item $\left(\bigcup_{i=1}^{\infty}A_i\right)^c = \bigcap_{i=1}^{\infty}A_i^c$
+    \item $\left(\bigcap_{i=1}^{\infty}A_i\right)^c=\bigcup_{i=1}^{\infty}A_i^c$
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{prf}[Bevis av Lemma]{prf:lem}
+  \begin{equation*}
+    \begin{gathered}
+      x\in\left(\bigcup_{i=1}^{\infty}A_i\right)^c\Lrarr x\notin \bigcup_{i=1}^{\infty}A_i\\
+      \Lrarr x\notin A_i\quad \forall i\\
+      \Lrarr x\in A_i^c\quad\forall i\\
+      \Lrarr x\in\bigcap_{i=1}^{\infty}A_i^c
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{prf}[Bebis av sats]{prf:prefv}
+  Vi har $A_1^c\subseteq A_2^c\subseteq A_3^c\subseteq\cdots$:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(\bigcap_{i=1}^{\infty}A_i\right) = 1-P\left(\left(\bigcap_{i=1}^{\infty}A_i\right)^c\right) = 1-P\left(\bigcup_{i=1}^{\infty}A_i^c\right)\\
+      \Rightarrow 1-\lim_{n\to\infty}P(A_i^c) = \lim_{n\to\infty}(1-P(A_i^c)) = \lim_{n\to\infty}P(A_n)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\section{Betingade sannolikheten $P(A|B)$}
+\par\bigskip
+\begin{theo}[Betingade sannolikheten]{thm:condprob}
+  \begin{equation*}
+    \begin{gathered}
+      P(A|B) = \dfrac{P(A\cap B)}{P(B)} = \text{Sannolikheten för $A$ givet $B$ förutsatt att $P(B)>0$}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}
+\par\bigskip
+\noindent Låt $\Omega = \{1,2,3,4,\cdots\}$, $P(\{n\})=\dfrac{1}{2^n}$
+\par\bigskip
+\noindent Detta sade vi kunde representera antalet slantsinglingar som krävs för att landa på krona (eller klave)\par
+\noindent Säg nu att vi sätter det här $B = $ första försöket landar på klave = $\{1\}^c = \{2,3,4,5,\cdots\}$
+\par\bigskip
+\noindent Vi förväntar oss att $P(1|B) = 0$ ($B$ gäller, alltså att vi har fått klave på första försöket, men då gäller det att det inte finns någon chans att vi får krona på första försöket)
+\par\bigskip
+\noindent Med motiveringen över gäller $P(2|B) = \dfrac{1}{2}$ och följande:
+\begin{equation*}
+  \begin{gathered}
+    P(n|B) = \dfrac{1}{2^{n-1}} =\dfrac{P(\{n\}\cap B)}{P(B)} = \dfrac{P(\{n\})}{1/2} = 2P(n)=2\cdot\dfrac{1}{2^n} = \dfrac{1}{2^{n-1}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan definiera ett sannolikhetsmått $Q:2^B\to\R$ (för något $B\in\Omega$) och $Q(A) = \dfrac{P(A)}{P(B)}$ = betingade sannolikheten\par
+\noindent Mer generellt kan vi definiera $Q:2^\Omega\to\R$ genom $Q(A) = \dfrac{P(A\cap B)}{P(B)}$ (med andra ord, den betingade sannolikheten)
+\par\bigskip
+\noindent För att visa att $Q$ är ett sannolikhetsmått måste vi visa att den uppfyller Kolmogorovs axiom:
+\begin{itemize}
+  \item $P(A)\geq0\quad \forall A\in2^{\Omega}$
+  \item $P(\Omega) = 1$
+  \item $P\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=0}^{\infty}P(A_i)$ om $A_i$ är parvis disjunkta
+\end{itemize}
+\par\bigskip
+\noindent Detta kommer inte vara så svårt, om vi visar det för $Q:2^\Omega\to\R$ så har vi visat det för $Q:2^B\to\R$.\par
+\noindent\textbf{Vi visar första axiomet:} 
+\begin{equation*}
+  \begin{gathered}
+    Q(A) = \dfrac{P(A\cap B)}{P(B)}\geq0\quad\forall A\in2^\Omega\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Andra axiomet:} 
+\begin{equation*}
+  \begin{gathered}
+    Q(\Omega) = \dfrac{P(\Omega\cap B)}{P(B) = \dfrac{P(B)}{P(B)}} = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Tredje axiomet:}\par
+\noindent Antag $A_1, A_2,\cdots$ disjunkta. Då är $B\cap A_1, B\cap A_2,\cdots$ också disjunkta.\par
+\noindent Vi vill räkna följande:
+\begin{equation*}
+  \begin{gathered}
+    Q\left(\bigcup_{i=1}^{\infty}A_i\right) = \dfrac{P\left(\left(\bigcup_{i=1}^{\infty}A_i\right)\cap B\right)}{P(B)}
+  \end{gathered}
+\end{equation*}\par\bigskip
+\noindent Notera:
+\begin{equation*}
+  \begin{gathered}
+    \left(\bigcup_{i=1}^{\infty}A_i\right)\cap B = \bigcup_{i=1}^{\infty}(A_i\cap B)\text{ ty följande:}\\
+    x\in \left(\bigcup_{i=1}^{\infty}A_i\right)\cap B\Rightarrow x\in A_i \text{ för något $i$ och $x\in B$}\\
+    \Lrarr x\in A_i\cap B\text{ för något $i$}\\
+    \Lrarr x\in \bigcup_{i=1}^{\infty}(A_i\cap B)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi får då:
+\begin{equation*}
+  \begin{gathered}
+    Q\left(\bigcup_{i=1}^{\infty}A_i\right) = \dfrac{P(\bigcup_{i=11}^{\infty}A_i\cap B)}{P(B)} = \dfrac{\sum_{i=1}^{\infty}P(A_i\cap B)}{P(B)} = \underbrace{\dfrac{\sum_{i=1}^{\infty}P(A_i\cap B)}{P(B)}}_{\text{$Q(A_i)$}} = \sum_{i=1}^{\infty}Q(A_i)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu följer det till exempel att:
+\begin{itemize}
+  \item $P(A^c|B) = 1-P(A|B)$
+  \item $P(A\cup C| B) = P(A|B)+P(C|B)-P(A\cap C |B)$
+  \item Om $A\cap B\subseteq A_2\cap B\subseteq A_2\cap B\subseteq\cdots$ så gäller $P\left(\bigcup_{i=1}^{\infty}A_i|B\right) = \lim_{n\to\infty}P(A_n|B)$
+\end{itemize}
+\par\bigskip
+\subsection{Oberoende utsagor}\hfill\\
+\par
+\noindent Antag att $P(A) >0$ och $P(B)>0$. Vi säger att $A$ och $B$ är \textbf{oberoende} om $P(A|B) = P(A)$ och $P(B|A) = P(B)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Singla slant 2ggr, $\Omega = \{kr,kl\}^2$.\par
+\noindent Vi ansätter $A= $ första försöket ger krona $= \{(kr,kr),(kr,kl)\}$\par
+\noindent Vi ansätter $B = $ andra försöket ger krona $ = \{(kl,kr),(kr,kr)\}$
+\par\bigskip
+\noindent Vi får då följande:
+\begin{equation*}
+  \begin{gathered}
+    P(A) = \dfrac{1}{2} = P(B)\qquad P(A\cap B) = P(kr,kr) = \dfrac{1}{4}\\\\
+    P(A|B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{1/4}{1/2} = \dfrac{1}{2} = P(A)\\\\
+    P(B|A) = \dfrac{P(B\cap A)}{P(A)} = \dfrac{1/4}{1/2} = \dfrac{1}{2}=P(B)\\\\
+    \Rightarrow\text{$A$ och $B$ är oberoende}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Omega = $ Uppsalas vuxna befolkning.\par
+\noindent Låt $A = \{\text{Man}\}\qquad B = \{\text{Bruna ögon}\}\qquad C = \{\text{Över 170cm}\}$
+\par\bigskip
+\noindent Avgör vilka som är oberoende 

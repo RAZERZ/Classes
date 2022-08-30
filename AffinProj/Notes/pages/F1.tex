@@ -1,0 +1,47 @@
+\section{Plana algebraiska kurvor}
+\par\bigskip
+\noindent Vi inleder med definition:
+\par\bigskip
+\begin{theo}[Plan affin algebraisk kurva]{thm:planeaffinecurve}
+  En \textbf{plan affin algebraisk kurva} är nollställesmängden till ett icke-konstant polynom $f(x,y)\in\R[x,y]$ där $\R[x,y]$ är mängden av alla polynom med 2 variabler med reella koefficienter.
+  \par\bigskip
+  \noindent \textbf{Nollställesmängden} kan betecknas $V(f) = \{(x,y)\in\R^2:f(x,y)=0\}$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Affin-avbildning]{thm:affinproj}
+  En linjär avbildning är på formen $x\mapsto ax$, medan en affin avbildning är "ungefär linjär", dvs $x\mapsto ax+b$
+\end{theo}
+\par\bigskip
+\noindent Ett sätt att betrakta polynom är att de är ett ändligt antal utförande av operatorer på kropp-element.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande polynom i $\R^2$, $ax+by+c = f(x,y)$. Polynomet är av grad 1, och är därför därmed ett linjärt polynom.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi kan även ha nollställesmängden som parabel med följande funktion $f(x,y) = y-x^2$ 
+\par\bigskip
+\noindent Bygger vi vidare på föregående exempel kommer vi fram till följande mer generella formel för att "omvandla" ett endimensionellt polynom till en flerdimensionell:
+\begin{equation*}
+  \begin{gathered}
+    f(x,y) = y-p(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $p(x)$ är ett godtyckligt polynom.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om vi betraktar följande funktion $f(x,y) = x^2+y^2$ (enhetscirkeln) så har den en nollställesmängd som är en punkt.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om vi betraktar tomma-mängden som nollställesmängd (dvs exempelvis $f(x,y) = x^2+y^2+1$) så är det absolut en valid nollställesmängd, men en obehaglig sådan ty det inte finns en intuitiv geometrisk bild, kan vi kalla den för en kurva? $f(x,y) = x^2+1$ har ju samma nollställesmängd!
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande funktion $f(x,y)=xy$. Denna har unionen av $x$-axeln och $y$-axeln som lösningsmängd
+\par\bigskip
+\noindent En affin funktion från flervarren som vi kanske minns är faktiskt linjäriseringen av $f$:
+\begin{equation*}
+  \begin{gathered}
+    f(\bar{r})\approx f(\bar{r}_0))+\nabla f(\bar{r}_0)\cdot (\bar{r}-\bar{r}_0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent I den här kursen tillåter vi allmänna linjära basbyten, alltså ej bara isometriska avbildningar utan vi kan skala om ena axeln och krympa den/deformera den!
