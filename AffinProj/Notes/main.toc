@@ -1,1 +1,3 @@
 \contentsline {section}{\tocsection {}{1}{Plana algebraiska kurvor}}{2}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Affina avbildningar}}{3}{section.2}%
+\contentsline {section}{\tocsection {}{3}{Klassificering av andragradspolynom i två variabler}}{6}{section.3}%
