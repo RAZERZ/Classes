@@ -5,7 +5,7 @@
 \par\bigskip
 \noindent En affin avbildning är \textit{nästan} samma sak som en linjär avbildning, men inte riktigt! Den tillåter translationer (flytta saker axel-parallellt). Alltså, ej en isometri.
 \par\bigskip
-\begin{theo}[Avbildning]{thm:proj}
+\begin{theo}[Affin Avbildning]{thm:proj}
   En avbildning $F:\R^n\to\R^n$ på formen $F(\bar{v}) = L(\bar{v})+\bar{b}$\par
   \noindent Där $\bar{b}$ är en konstant vektor och $L:\R^n\to\R^n$, kallas för en \textbf{affin} avbildning
 \end{theo}
@@ -22,12 +22,12 @@
 \noindent Alternativ notation:
 \begin{equation*}
   \begin{gathered}
-    \bar{F}\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}2&3\\4&7\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}-\begin{pmatrix}1\\\pi\end{pmatrix}
+    \bar{F}\begin{pmatrix}x\\y\end{pmatrix} = \underbrace{\begin{pmatrix}2&3\\4&7\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}}_{\text{$L(\bar{v})$}}-\underbrace{\begin{pmatrix}1\\\pi\end{pmatrix}}_{\text{$\bar{b}$}}
   \end{gathered}
 \end{equation*}
 \par\bigskip
 \begin{theo}[Affin Transformation]{thm:transformation}
-  Om $det(\bar{L}) \neq 0$ så kallas $\bar{F}$ för en \textbf{affin transformation}
+  Om $det(\bar{L}) \neq 0$ så kallas $\bar{F}$ för en \textbf{affin transformation}. En affin transformation är en bijektion.
 \end{theo}
 \par\bigskip
 \begin{theo}[Euklidisk Transformation]{thm:euctrans}
@@ -132,7 +132,7 @@
 \end{prf}
 \par\bigskip
 \begin{theo}[Affint ekvivalens]{thm:affinequiv}
-  Låt $f,g\in\R[x_1,\cdots,x_n]$. Vi säger att $f$ och $g$ är \textbf{affint ekvivalenta} om det finns en affin transformation $\bar{F}:±R^n\to\R^n$ och ett tal ($\lambda\neq0$) så att:
+  Låt $f,g\in\R[x_1,\cdots,x_n]$. Vi säger att $f$ och $g$ är \textbf{affint ekvivalenta} om det finns en affin transformation $\bar{F}:\R^n\to\R^n$ och ett tal ($\lambda\neq0$) så att:
   \begin{equation*}
     \begin{gathered}
       F^*(f) = \lambda g
@@ -160,3 +160,28 @@
     \par\bigskip
     \noindent Vi samlar alla konstanter till en och gör ett variabelbyte på $x,y$ $\Rightarrow x^2+\lambda y^2+F$
 \end{itemize}
+\par\bigskip
+\begin{theo}[Signaturen av en kvadratisk form]{thm:sign}
+  Hur många positiva resp. negativa egenvärden = signaturen. Betecknas som koordinater ($x,y$) där $x=$ hur många positiva och $y=$ hur många negativa.
+  \par\bigskip
+  \noindent Notera! Signaturen är oförändrad under affina transformationer (invariant)
+\end{theo}
+\par\bigskip
+\begin{theo}
+  OOm $f(x,y) = f_1(x,y)\cdot f_2(x,y)$, så är nollställesmängden unionen:
+  \begin{equation*}
+    \begin{gathered}
+      V(f) = V(f_1)\cup V(f_2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Ur detta följer det att alla polynomringar $k[x_1,\cdots,x_n]$ är \textit{faktoriella ringar} (varje polynom har en entydig faktorisering i irreducibla polynom). Detta är inte så lätt att visa om vi har fler variabler än 1.
+\par\bigskip
+\begin{theo}[Irreducibla komponenter]
+  DDet faktoriserade polynomet kommer ha bitar (faktorer) som korresponderar till element i nollställesmängden. Dessa kallar vi för \textbf{irreducibla komponenter}
+\end{theo}
+\par\bigskip
+\begin{theo}
+  TTvå irreducibla kurvor $f$ och $g$ sammafaller (skär varandra) i högst \textit{ändligt} många punkter
+\end{theo}
