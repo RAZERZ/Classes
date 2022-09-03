@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  16 MAY 2022 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  23 MAY 2022 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1223,11 +1223,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-[27]) [28] (./pages/F7/1.tex
+
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+ [27])
+[28] (./pages/F7/1.tex
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
@@ -1364,16 +1368,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
  []
 
 ) [42] (./main.aux (./includes/title.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A42A137007EAE757D845380027DCC258;13179.
  ) 
 Here is how much of TeX's memory you used:
  24354 strings out of 478238
  448590 string characters out of 5850457
- 741799 words of memory out of 5000000
+ 740799 words of memory out of 5000000
  41814 multiletter control sequences out of 15000+600000
  477370 words of font info for 60 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1393,7 +1394,7 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
 usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (43 pages, 378004 bytes).
+Output written on main.pdf (43 pages, 378449 bytes).
 PDF statistics:
  673 PDF objects out of 1000 (max. 8388607)
  563 compressed objects within 6 object streams

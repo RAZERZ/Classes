@@ -1,0 +1,187 @@
+\noindent I linjär algebra 2 skiljde vi på t.ex ellipser med olika halvaxlar (och andra former) genom att undersöka egenvärden $\{\lambda_1, \lambda_2\}$ i motsvarande kvadratiska form.\par
+\noindent I linjär algebra använde vi ortonormala avbildningar som var isometriska, det ska vi strunta i här eftersom vi vill kunna deformera kurvor utan att bevara längd/vinklar
+\par\bigskip
+\section{Affina avbildningar}
+\par\bigskip
+\noindent En affin avbildning är \textit{nästan} samma sak som en linjär avbildning, men inte riktigt! Den tillåter translationer (flytta saker axel-parallellt). Alltså, ej en isometri.
+\par\bigskip
+\begin{theo}[Affin Avbildning]{thm:proj}
+  En avbildning $F:\R^n\to\R^n$ på formen $F(\bar{v}) = L(\bar{v})+\bar{b}$\par
+  \noindent Där $\bar{b}$ är en konstant vektor och $L:\R^n\to\R^n$, kallas för en \textbf{affin} avbildning
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}
+\noindent I en linjär avbildning är den konstanta vektorn $\bar{b} = 0$, alltså är alla linjära avbildning affina.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande avbildning: $\bar{F}(x,y) = (ax+by+e, cx+dy+f)$ $a,b,c,d,e,f\in\R$\par
+\noindent Det är +$e$ och +$f$ som gör avbildningen affin\par
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent I exemplet är det $e,f$ som är "translationerna" (translationsfaktor). Det enda de gör är att flytta saker, de bevarar längder och vinklar
+\noindent Alternativ notation:
+\begin{equation*}
+  \begin{gathered}
+    \bar{F}\begin{pmatrix}x\\y\end{pmatrix} = \underbrace{\begin{pmatrix}2&3\\4&7\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}}_{\text{$L(\bar{v})$}}-\underbrace{\begin{pmatrix}1\\\pi\end{pmatrix}}_{\text{$\bar{b}$}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Affin Transformation]{thm:transformation}
+  Om $det(\bar{L}) \neq 0$ så kallas $\bar{F}$ för en \textbf{affin transformation}. En affin transformation är en bijektion.
+\end{theo}
+\par\bigskip
+\begin{theo}[Euklidisk Transformation]{thm:euctrans}
+  En transformation som bevarar längd och vinklar, även kallad för ortonormal transformation
+\end{theo}
+\par\bigskip
+\noindent\textbf{Notation:} Mängden affina avbildningar noteras $Aff(n) = \{\text{affina transformationer} \R^n\to\R^n\}$
+\par\bigskip
+\noindent\textbf{Egenskaper:}
+\begin{itemize}
+  \item $F,G\in Aff(n)\Rightarrow F\circ G\in Aff(n)$
+  \item Om $det(\bar{L})\neq0$ så är $\bar{F}$ inverterbar ($\bar{L}$ är inverterbar)
+  \item $id_{R^n}$ är affin 
+\end{itemize}
+\par\bigskip
+\begin{prf}[Egenskap 1]{prf:g}
+  \begin{equation*}
+    \begin{gathered}
+      F(\bar{v}) = L(\bar{v})+\bar{b}\qquad G(\bar{w}) = M(\bar{w})+\bar{c}\\
+      F(\bar{G}(\bar{w})) = F(\bar{M}(\bar{w})+\bar{c})=L(\bar{M}(\bar{w})+\bar{c})+\bar{b} = L(\bar{M}(\bar{w}))+L(\bar{c})+\bar{b}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\begin{prf}[Egenskap 2]{prf:g2}
+  \begin{equation*}
+    \begin{gathered}
+      \bar{y} = \bar{F}(\bar{x}) = \bar{L}(\bar{x})+\bar{b}\\
+      \bar{F}^{-1}(\bar{y}) = \bar{L}^{-1}(\bar{y}-\bar{b})
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Man kan betrakta Aff($n$) som en grupp, där identiteten är identitetsavbildningen ($\bar{b} = 0$, linjär identitet = enhetsmatrisen)
+\par\bigskip
+\noindent\textbf{Geometriska egenskaper hos Aff($n$)}\par
+\begin{itemize}
+  \item Om $l$ är en linjne, $\bar{F}\in AffA(n) \Rightarrow\bar{F}(l)$ är en linje
+  \item Om $l,l^{\prime}$ är paralella linjer så är $\bar{F}(l) = \bar{F}(l^{\prime})$
+  \item Om två kurvor skär varandra transversellt så gäller detsamma bilderna av kurvorna 
+  \item Säg att vi har 4 punkter på en linje, så bevarar $\bar{F}$ längdförhållandet mellan dem:
+    \begin{equation*}
+      \begin{gathered}
+        \dfrac{\left|\bar{AB}\right|}{\left|\bar{CD}\right|} = \dfrac{\left|\bar{F(A)}\bar{F(B)}\right|}{\left|\bar{F(C)}\bar{F(D)}\right|}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Affina avbildningar bevarade nödvändigtvis inte längder och vinklar, men 4:e egenskapen här verkar tyda på att någonting bevaras.
+\par\bigskip
+\begin{theo}
+  SSäg att vi har en affin transformation $\bar{F}\in Aff(n)$, vi inducerar en avbildning:
+  \begin{equation*}
+    \begin{gathered}
+      \R[x_1,x_2\cdots,x_n]\underbrace{\to}_{\text{$F^*$}}\R[x_1,x_2,\cdots,x_n]\\
+      \underbrace{\R^n\underbrace{\to}_{\text{$F$}}\R^n\underbrace{\to}_{\text{$f$}}\R}_{\text{$f\circ F$}}\qquad f\mapsto f\circ \bar{F}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}
+\par
+\noindent Betrakta följande avbildning: $\bar{F}:\R^2\to\R^2$ sådant att $(x,y)\mapsto(x+y,x-y)$.\par
+\noindent $f\in \R[x,y] = x^2+y^2$ ger följande:
+\begin{equation*}
+  \begin{gathered}
+    F^*(f)(x,y) = f\circ\bar{F}(x,y)\\
+    (x+y)^2+(x-y)^2 = 2(x^2+y^2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  OOm $deg(f) =k$ så $deg(F^*(f))=k$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det här $\R[x_1,\cdots,x_n]$ är en ring med $1$:a (identitet). Det är också en $\R$-algebra (ett vektorrum över $\R$ så att multiplikation med $\lambda\in\R$ beter sig civiliserat m.a.p ringstruktur).
+\par\bigskip
+\noindent Då är $F^*:\R[x_1,\cdots,x_n]\to\R[x_1,\cdots,x_n]$ en $\R$-algebraringhomomorfi, det vill säga:
+\begin{itemize}
+  \item $F^*(f+g) = F*(f)+F*(g)$
+  \item $F^*(fg) = F^*(f)F^*(g)$
+  \item $F^*(1) = 1$
+  \item $F^*(\lambda f) = \lambda F^*(f)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Notation:}\par
+\noindent Mängden av alla $\R$-algebraringhomomorfi betecknas för $Auf(\R[x_1,\cdots,x_n]) = \{\R\text{-algebraringhomomorfi}\}$
+\par\bigskip
+\begin{theo}
+  AAvbildningen Aff($n$)$\underbrace{\to}_{\text{*}}Auf(\R[x_1,\cdots,x_n])$ $F\mapsto F^*$ har egenskapen $(F\circ G)^* = G^*\circ F^*$
+\end{theo}
+\par\bigskip
+\begin{prf}[Bevis av föregående sats]{prf:prevthe}
+  \begin{equation*}
+    \begin{gathered}
+      (F\circ G)^*(f) = f\circ (F\circ G) = (f\circ F)\circ G = G^*(F^*(f)) = (G^*\circ F^*)(f)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}[Affint ekvivalens]{thm:affinequiv}
+  Låt $f,g\in\R[x_1,\cdots,x_n]$. Vi säger att $f$ och $g$ är \textbf{affint ekvivalenta} om det finns en affin transformation $\bar{F}:\R^n\to\R^n$ och ett tal ($\lambda\neq0$) så att:
+  \begin{equation*}
+    \begin{gathered}
+      F^*(f) = \lambda g
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta är en ekvivalensrelation på $\R[x_1,\cdots,x_n]$$\qquad$($f\sim g$)
+\end{theo}
+\newpage
+\section{Klassificering av andragradspolynom i två variabler}
+\par\bigskip
+\noindent Vi vill veta hur många "andragradskurvor" det finns och vilka. Det är planen.\par
+\noindent Vi kikar på det allmänna fallet $f(x,y)=ax^2+bxy+cy^2+dx+ey+f$.\par
+\noindent Vi försöker förenkla $f(x,y)$ (som är ett allmänt polynom) m.h.a affina transformationer och multiplikation med konstanter $\lambda \neq0$
+\par\bigskip
+\noindent Vi noterar från $f(x,y)$ att vi har en bit som är en rent kvadratisk form ($ax^2+bxy+cy^2$), och vi vet att vi alltid kan diagnolisera kvadratiska former, m.h.a variabelbyte. Vi ser vad som händer om vi gör detta:
+\begin{equation*}
+  \begin{gathered}
+    f(x,y)\Rightarrow x^2+\lambda y^2 + Dx+Ey+f
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $\lambda\in\{0,1,-1\}$. Vi falluppdelar:
+\begin{itemize}
+  \item $\lambda = \pm 1\Rightarrow$ Vi kan kvadratkomplettera och vi får $\left(x+\dfrac{D}{2}\right)^2-\dfrac{D^2}{4}+\lambda\left(y+\dfrac{E}{2\lambda}\right)^2-\dfrac{E^2}{4\lambda}+f$
+    \par\bigskip
+    \noindent Vi samlar alla konstanter till en och gör ett variabelbyte på $x,y$ $\Rightarrow x^2+\lambda y^2+F$
+\end{itemize}
+\par\bigskip
+\begin{theo}[Signaturen av en kvadratisk form]{thm:sign}
+  Hur många positiva resp. negativa egenvärden = signaturen. Betecknas som koordinater ($x,y$) där $x=$ hur många positiva och $y=$ hur många negativa.
+  \par\bigskip
+  \noindent Notera! Signaturen är oförändrad under affina transformationer (invariant)
+\end{theo}
+\par\bigskip
+\begin{theo}
+  OOm $f(x,y) = f_1(x,y)\cdot f_2(x,y)$, så är nollställesmängden unionen:
+  \begin{equation*}
+    \begin{gathered}
+      V(f) = V(f_1)\cup V(f_2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Ur detta följer det att alla polynomringar $k[x_1,\cdots,x_n]$ är \textit{faktoriella ringar} (varje polynom har en entydig faktorisering i irreducibla polynom). Detta är inte så lätt att visa om vi har fler variabler än 1.
+\par\bigskip
+\begin{theo}[Irreducibla komponenter]
+  DDet faktoriserade polynomet kommer ha bitar (faktorer) som korresponderar till element i nollställesmängden. Dessa kallar vi för \textbf{irreducibla komponenter}
+\end{theo}
+\par\bigskip
+\begin{theo}
+  TTvå irreducibla kurvor $f$ och $g$ sammafaller (skär varandra) i högst \textit{ändligt} många punkter
+\end{theo}

@@ -1,0 +1,93 @@
+\section{Övningsuppgifter}
+\par\bigskip
+\noindent Vi påminner att om $f(x,y) = a^2+bxy+cy^2+dx+ey+f$ så är $f(x,y)$ affint ekvivalent med exakt en av följande:
+\par\bigskip
+\begin{itemize}
+  \item $x^2+y^2-1$ (cirkel)
+  \item $x^2-y^2-1$ (hyperbel)
+  \item $x^2-y$ (parabel)
+  \item $x^2-y^2$ (linjekon)
+  \item $x^2+y^2$ (punkt)
+  \item$x(x-1)$ (två parallella linjer)
+  \item $x^2$ ("dubbellinje")
+  \item $x^2+1$ (tom)
+  \item $x^2+y^2+1$ (tom)
+\end{itemize}
+\par\bigskip
+\noindent Man skulle kunna säga att målet med första halvan av kurvan är att bevisa följande sats:
+\par\bigskip
+\begin{theo}[Bezoutes Pseudosats]
+  OOm $f,g$ är algebraiska kurvor så skär de varandra precis (deg $f$)(deg $g$) gånger
+\end{theo}
+\par\bigskip
+\noindent I nuläget är det här väldigt fel, vi kan hitta motexempel, men det ska inte stoppa oss! Vi vill gärna att den ska vara sann, för den är så elegant, så vi skapar en miljö där detta stämmer (eskapism i matematisk form).\par
+\noindent Det finns 3 huvudsakliga skäl till varför den är falsk:
+\begin{itemize}
+  \item Betrakta $f(x,y) = y-x^2$ och $g(x,y) = y+1$ (har inga reella lösningar)
+  \item Betrakta $f(x,y) = y-x^2$ och $g(x,y) = y$ (ej transversell skärning)
+  \item Betrakta 2 parallella linjer $f(x,y)=x$ oh $g(x,y) = x-1$ (måste införa projektiv geometi, från affina planet till det projektiva)
+\end{itemize}
+\par\bigskip
+\section{Komplexa planet $\C^2$}
+\par\bigskip
+\noindent $\C^2 = \C$x$\C$, består alltå av ordnade par $(a+ib, c+id)$. Man kan tänka på det som $\R^4\Rightarrow (a,b,c,d)$.\par
+\noindent Naturligtvis kan vi generalisera, upp till $\C^n  = \{x_1,\cdots,x_n : x_i\in\C\}$.\par
+\noindent Man kan addera dessa vektorer precis som vanligt, multiplicera med $\lambda\in\C$ osv, hela den grundläggande teorin bakom vektorrum bevaras. Vi har alltså bara vektorrum över $\C$ istället för över $\R$
+\par\bigskip
+\noindent Vi kan exempelvis definiera en parametriserad linje på samma sätt som i $\R^2$:
+\begin{equation*}
+  \begin{gathered}
+    \bar{r}(t) = \bar{r}_0+t\bar{v}\qquad t\in\C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Kuriosa:}\par
+\noindent Detta är en linje:
+\begin{equation*}
+  \begin{gathered}
+    \C\text{x}\{0\}\subseteq\C^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  GGenom två olika punkter i $\C^n$ går endast en linje
+\end{theo}
+\par\bigskip
+\begin{theo}
+  I $\C^2$, om två linjer inte är parallella (skiljer sig åt med en komplex faktor) så skär de varandra i en entydig punkt
+\end{theo}
+\par\bigskip
+\noindent Nu kan vi prata om $V(f)$ till polynom $f(x,y)\in\C[x,y]$. Det är vad vi menar med plana affina algebraiska kurvor (nu har vi någonstans där de kan bo).
+\par\bigskip
+\noindent Vi definierar singularitet på samma sätt, det vill säga om Taylorutvecklingen inte har en linjär faktor så är den singulär i den punkten.
+\par\bigskip
+\noindent Vi kan nu tala om linjära \& affina avbildningar över $\C^n$, dvs Aff$_\C(n)$. De definieras på samma sätt:
+\begin{equation*}
+  \begin{gathered}
+    \bar{F}(\bar{v}) = \bar{L}(\bar{v})+\bar{b}\qquad\bar{L}\in\text{GL}(n,\C)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Där GL($n,\C$) = mängden av alla inverterbara $n$x$n$-matriser
+\par\bigskip
+\noindent Vi kan även här på samma sätt definiera $F^*:\C[x_1,\cdots,x_n]\to\C[x_1,\cdots,x_n]$ 
+\par\bigskip
+\noindent Återigen, på samma sätt kan vi definiera ekvivalens mellan polynom samt att det bara finns en linje i $\C^2$ precis som i $\R$ 
+\par\bigskip
+\noindent En kvadratisk form över $\C^n$ är ekvivalent med en diagonalform med bara ettor och nollor\par
+\noindent I $\C^2$ har vi alltså följande kvadratiska former:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}1&0\\0&1\end{pmatrix}\qquad\begin{pmatrix}1&0\\0&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Klassificering av andragradskurvor i $\C^2$]{thm:f}
+  \begin{itemize}
+    \item $x^2+y^2-1$ (cirkel)
+    \item $x^2-y$ (parabel) (här kan vi använda $T(x,y) = (x,iy)$ för att få cirkel)
+    \item $x^2´y^2$ (linjekors)
+    \item $x(x-1)$ (parallell linje)
+    \item $x^2$ ("dubbellinje")
+  \end{itemize}
+\end{theo}

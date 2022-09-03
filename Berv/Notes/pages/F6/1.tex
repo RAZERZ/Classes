@@ -98,7 +98,8 @@
     \begin{cases*}
       \left|\Delta x_{i+1}\right| = C\left|\Delta x_i\right|^r\\
       \left|\Delta x_i\right| = C\left|\Delta x_{i-1}\right|^r
-    \end{cases*}
+    \end{cases*} \Rightarrow \dfrac{\left|\Delta x_{i+1}\right|}{\left|\Delta x_i\right|} = \left(\dfrac{\left|\Delta x_i\right|}{\left|\Delta x_{i-1}\right|}\right)^r\\
+    \Lrarr r = \dfrac{\ln\left|\dfrac{\Delta x_{i+1}}{\Delta x_i}\right|}{\ln\left|\dfrac{\Delta x_i}{\Delta x_{i-1}}\right|}
   \end{gathered}
 \end{equation*}\par
 \noindent Givet att vi vet värden på $\left|\Delta x_i\right|$

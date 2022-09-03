@@ -1,0 +1,115 @@
+\section{Determiniska finita (ändliga) automater [DFA]}
+\par\bigskip
+\noindent Förr i tiden programmerades datorer genom att man hade "punch-cards", det vill säga kort av styvt papper som hade "hål" som agerade som dagens transistorer gör.\par
+\noindent DFA:er påminner lite om hur dessa fungerar, det vill säga att vi ska tänka oss en slags textremsa som inmatning:
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $a$&$b$&$a$&$b$&$b$&$\cdots$\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Där ändligt många inledande rutor innehåller tecken från en sådan textremsa med alfabet $\Sigma$.
+\par\bigskip
+\noindent Vi har också en "kontrollmekanism", det vill säga själva DFA:n som vi kan tänka oss har ett "läshuvud" som avläser en ruta i taget (det är viktigt att precisera, DFA:er läser EN ruta i taget).\par
+\noindent DFA:n befinner sig alltid i ett tillstånd, av ändliga antal möjliga. När den avläser en ruta så övergår den till ett nytttillstånd samt flyttar läshuvudet ett steg till höger.\par
+\noindent Det nya tillståndet beror (endast) på det tidigare tillståndet samt det just avlästna tecknet (i föregående ruta).
+\par\bigskip
+\noindent De två "viktigaste" tillstånd kallas för \textbf{starttillståndet} och \textbf{accepterande tillståndet}.\par
+\noindent Vi antar att en DFA alltid befinner sig i starttillståndet då den sätts igång.\par
+\noindent Om en DFA befinner sig i ett accepterande tillstånd då en sträng har avlästs (det vill säga, läshuvudet befinner sig på den första blanka rutan till höger om strängen) så säger vi att DFA:n \textbf{accepterar }strängen. Om strängen inte accepteras, så avvisas strängen. 
+\par\bigskip
+\subsection{Grafisk beskrivning av en DFA}\hfill\\\par
+\noindent Vi väljer att representera tillstånden med hjälp av noder, och tillståndsövergångar med pilar:\par
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p){$p$};
+      \node[state, right of=p, xshift=1cm](q){$q$};
+      \path[-stealth] (p) edge[above, bend left] node{$a$} (q);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Figur 1 betyder att om DFA:n befinner sig i tillstånd $p$ och avläser $a$ på textremsan så övergår DFA:n till tillstånd $q$ (och flyttar därmed läshuvudet ett steg till höger).
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent För varje tillstånd och varje tecken från input-alfabetet skall det finnas \textit{preci} en utgående pil som bär detta tecken.
+\par\bigskip
+\noindent Starttillstånd markeras med en pil mot sig:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial, initial text=](){};
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Accepterande tillstånd markeras med en pil från sig \textit{eller} dubbelrand:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, accepting right](p){};
+      \node[state, accepting, right of=p, xshift=2cm](){};
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent\textbf{Exempel:}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial, initial text=, accepting above](p0){$p_0$};
+      \node[state, accepting left, below left of=p0, yshift=-.5cm](p1){$p_1$};
+      \node[state, below right of=p1, yshift=-.5cm](p2){$p_2$};
+      \path[-stealth] (p0) edge[loop right] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$a$} (p1);
+      \path[-stealth] (p1) edge[right, bend right] node{$b$} (p0);
+      \path[-stealth] (p1) edge[left, bend right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop right] node{$a,b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Kom ihåg att en sträng accepteras om vi befinner oss i ett accepterande tillstånd då hela strängen är avläst.\par
+\noindent Vilka strängar accepterar av ovanstående DFA? ($(b\cup ab)^*(\varepsilon\cup a)$)
+\par\bigskip
+\begin{theo}
+  AAntag att $M$ är en DFA.\par
+  \noindent Mängden av strängar som $M$ accepterar kallas för \textbf{$M$:s språk} och betecknas $L(M)$
+\end{theo}
+\par\bigskip
+\begin{theo}[Formell definition av DFA]{thm:dfa}
+  En \textbf{DFA} är en 5-tupel $M = (Q,\Sigma,\delta,s,F)$ där:\par
+  \begin{itemize}
+    \item $Q$ är en ändlig mängd (tillståndsmängden)
+    \item $\Sigma$ är en ändlig mängd (inputalfabet)
+    \item $\delta$ är en funktion (övergångsfunktion) från $Q$x$\Sigma\to Q$
+    \item $s\in Q$ ($s$ är Starttillstånd)
+    \item $F\subseteq Q$ (accepterande tillstånden)
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent För att formellt kunna definiera \textit{acceptans} av en sträng behöver vi en \textbf{utvidgad övergångsfunktion}. Denna kan vi löst definiera på följande vis:
+\par\bigskip
+\begin{theo}[Utvidgad övergångsfunktion]{thm:transfunc}
+  En funktion $T(\text{nuvarande tillstånd}, \text{nuvarande symbol på läshuvu})\to\text{nästa tillstånd}$
+\end{theo}
+\newpage
+\section{Icke-Determiniska Finita (åndliga) automater [NFA]}
+\par\bigskip
+\noindent En NFA är en generalisering av en DFA på följande sätt:\par
+\begin{itemize}
+  \item En NFA kan ha flera Starttillstånd
+  \item En NFA tillåts kunna läsa flera tecken på en gång, dvs vi kan tillståndsövergångar på formen:
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p){$p$};
+      \node[state, right of=p, xshift=2cm](q){$q$};
+      \path[-stealth] (p) edge[above, bend left] node{$abb$} (q);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}

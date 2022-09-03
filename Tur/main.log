@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.4.30)  3 MAY 2022 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  5 AUG 2022 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24>
+L3 programming layer <2022-04-10>
 (/usr/share/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2020/05/29 v2.20.6
 \linespacing=\dimen138
@@ -267,10 +267,10 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-02-24 L3 programming layer (loader) 
+Package: expl3 2022-04-10 L3 programming layer (loader) 
 
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count284
 \l__pdf_internal_box=\box57
 ))
@@ -281,10 +281,10 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count285
 )
 (/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty
-Package: zref-abspage 2020-07-03 v2.32 Module abspage for zref (HO)
+Package: zref-abspage 2022-04-07 v2.34 Module abspage for zref (HO)
 
 (/usr/share/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2020-07-03 v2.32 Module base for zref (HO)
+Package: zref-base 2022-04-07 v2.34 Module base for zref (HO)
 
 (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -302,16 +302,16 @@ Package pdftexcmds Info: \pdfdraftmode found.
 (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-Package zref Info: New property list: main on input line 764.
-Package zref Info: New property: default on input line 765.
-Package zref Info: New property: page on input line 766.
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
 )
 (/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 \c@abspage=\count286
-Package zref Info: New property: abspage on input line 66.
+Package zref Info: New property: abspage on input line 65.
 )
 (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
@@ -824,25 +824,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-) [7] (./main.aux (./includes/title.aux)) ) 
+) [7] (./pages/F3/2.tex) (./main.aux (./includes/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 17669 strings out of 478276
- 342644 string characters out of 5853013
- 640736 words of memory out of 5000000
- 35350 multiletter control sequences out of 15000+600000
+ 17696 strings out of 478238
+ 343436 string characters out of 5850457
+ 641759 words of memory out of 5000000
+ 35405 multiletter control sequences out of 15000+600000
  477525 words of font info for 59 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  110i,7n,107p,742b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (8 pages, 137503 bytes).
+</usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
+sc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+>
+Output written on main.pdf (8 pages, 137672 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream
