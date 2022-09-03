@@ -1,0 +1,285 @@
+\section{Mål med kursen}
+\par\bigskip
+\noindent Målet med kursen är att studera matematiska modeller för beräkningar/beräkningsbarhet\par
+\noindent På detta vis vill vi kunna förstå vilka problem som överhuvudtaget är beräkningsbara samt nå en förståelse om hur svåra olika beräkningsbara problem är att lösa. Vi vill även bli bekanta med matematiska modeller för beräkningar som tillämpas inom datavetenskap och andra ämnen. Vi kommer även kika lite på användbara algoritmer inom programkonstruktion.
+\par\bigskip
+\subsection{Några tillämpningar av teorin}\hfill\\
+\par
+\noindent De bästa metoderna för översättning av hög-nivå språk såsom Python till maskinkod bygger på teorin om \textit{sammanhangsfria grammatiker}\par\bigskip
+\noindent Det visar sig även att data som följer ett visst mönster kan metoder som är beroende på \textit{ändliga automater} och \textit{reguljära uttryck} användas för att exempelvis söka i datan/databaser.\par\bigskip
+\noindent Det går även att tillämpa teorin för att bestämma om ett konkret problem ens är lösbart algoritmiskt (dvs beräkningsbar)\par\bigskip
+\noindent Fler tillämpningsområden:
+\begin{itemize}
+  \item Lingvistik
+  \item Bio-informatik
+\end{itemize}
+\newpage
+\section{Alfabet och Strängar}
+\subsection{Terminologi}\hfill\\
+\par
+\begin{theo}[Alfabet]{thm:alfabet}
+  En ändlig (icke-tom) mängd av tecken/symboler. Brukar betecknas stora sigma ($\Sigma$)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par\bigskip
+\noindent Mängden $\{0,1\}$ är ändlig, icke-tom, och består av tecken/symboler. Alltså är det ett korrekt alfabet enligt vår definition\par\bigskip
+\noindent Mängden $\{\perp,\vdash,\wedge\}$ är ändlig, icke-tom, och består av symboler. Alltså är även detta ett korrekt alfabet\par\bigskip
+\noindent Mängden $\N$ däremot, är ej ändlig, den är icke-tom och består av tecken/symbler, men ej ändlig. Alltså är de naturliga talen ej ett korrekt alfabet.
+\par\bigskip
+\begin{theo}[Sträng]{thm:string}
+  En sträng definieras som en kombination av karaktärerna i alfabetet. En intuitiv fråga som kanske dyker upp är om det finns något supremum (max-längd) på strängarna och svaret är nej. Vi ska kika mer på det snart
+  \par\bigskip
+  \noindent Låt $\Sigma = \{0,1\}$ vara ett alfabet. Då är 0 en valid sträng, men även 1 och 01 och 00 och 11 och $\cdots$
+\end{theo}
+\par\bigskip
+\noindent I definitionsrutan sade vi att strängarna kan bli hur stora som helst, och eftersom vi bara kan lägga till fler symboler från vårt alfabet in i strängen så kan mängden av strängar bli oändligt stor.\par
+\noindent Men, hur oändligt stor?
+\par\bigskip
+\begin{theo}[Uppräknelig mängd]{thm:countableset}
+  En mängd $A$ kallas för en \textbf{uppräknelig mängd} om det finns en \textit{surjektiv} funktion $f:\N\to A$
+\end{theo}
+\par\bigskip
+\noindent Mycket ord att ta in, vi påminner oss om vad surjektion betyder:
+\par\bigskip
+\begin{theo}[Surjektiv]{thm:surjection}
+  En \textbf{surjektiv} funktion är en funktion vars målmängd träffas helt.\par
+  \noindent Alltså, givet en avbildning (funktion) $f:A\to B$ kommer funktionen att evalueras till alla tal i mängden $B$. Detta betyder inte nödvändigtvis att hela $A$ används
+\end{theo}
+\par\bigskip
+\noindent Ett exempel på en surjektiv funktion är en funktion $f(x)$ så att givet 2 olika $x$-värden ges samma $y$-värde. $f(x)=x^2$ är en sådan funktion
+\par\bigskip
+\noindent\textbf{Anmärkning:}
+\par
+\noindent Om en mängd $A$ är uppräknelig så kan $A$ skrivas som $A = \{a_n:n\in\N\}$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om en mängd $A$ är ändlig så är $A$ uppräknelig. Exempelvis är vår mängd $\Sigma$ alltid ändlig och därmed alltid uppräknelig.
+\par\bigskip
+\noindent\textbf{Kuriosa/Anmärkning:}\par
+\noindent Varje program kan betraktas som en ändlig sträng över alfabetet $\{0,1\}$, alltså är mängden av program uppräknelig!
+\par\bigskip
+\noindent\textbf{Påstående:}\par
+\noindent Mängden av funktioner $g:\N\to\{0,1\}$ är \textit{inte} uppräknelig
+\par\bigskip
+\begin{prf}[Bevis av påstående]{prf:countablefuncs}
+  Antag för motsägelse att mägnden av funktioner $g:\N\to\{0,1\}$ är uppräknelig.\par
+  \noindent Då kan vi göra en lista $g_0,g_1,g_2,\cdots$ av alla sådana funktioner.\par
+  \noindent Defniera nu en funktion $h$ enligt följande:
+  \begin{equation*}
+    \begin{gathered}
+      h(n) = 
+      \begin{rcases*}
+        0\text{ om } g_n(n) = 1\\
+        1\text{ om } g_n(n) = 0
+      \end{rcases*}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Då gäller att $h:\N\to\{0,1\}$, alltså finns $h$ med i mängden av funktionerna.\par
+  \noindent Men! Enligt definition av $h$ så finns det inte en funktion $g_n$ så att $g_n = h$ (vi tar ju motsatt värde till $g_n$) för varje $n\in\N$, men detta betyder att $h$ \textit{inte} finns med i lista, vilket är en motsägelse 
+\end{prf}
+\par\bigskip
+\begin{theo}
+  DDet finns någon funktion $g:\N\to\{0,1\}$ som \textit{inte} kan beräknas av något program
+\end{theo}
+\par\bigskip
+\begin{prf}
+  LLåt $A$ vara mängden av funktioner $g:\N\to\{0,1\}$ och låt $P$ vara mängden av program.\par
+  \noindent Antag att för varje $g\in A$ så finns $p_g\in P$ som beräknar $g$.\par
+  \noindent Låt $g^{\prime}\in A$ vara godtycklig funktion ur mängden $A$.
+  \par\bigskip
+  \noindent Eftersom $P$ är uppräknelig så finns en surjektiv avbildning $f:\N\to P$.\par
+  \noindent Men då kan vi definiera en surjektiv funktion $h:\N\to A$ genom att låta $h(n)$ vara $g$ om $f(n) = p_g$ för något $g\in A$ och $g^{\prime}$ annars
+  \par\bigskip
+  \noindent Detta motsäger att $A$ inte var uppräknelig.
+\end{prf}
+\par\bigskip
+\subsection{Operationer på strängar}\hfill\\
+\par
+\noindent Låt $v = a_1\cdots a_n$ och $w = b_1\cdots b_n$ vara strängar. Vi vill, likt hur man definierar plus och gånger med tal, definiera operationer för strängar:
+\par\bigskip
+\begin{theo}[Sammanfogning]{thm:concat}
+  Sammanfogning (sträng1 + sträng2) definieras enligt följande: $vw = a_1\cdots a_nb_1\cdots b_n$\par
+  \noindent Notera! Ordning spelar roll ($a_1b_1 \neq b_1a_1$)
+\end{theo}
+\par\bigskip
+\begin{theo}[Repetition $n$-gånger]{thm:repetition}
+  Detta fungerar ungefär som att ta (sträng)$^n$:\par
+  \noindent $v^n = \underbrace{vvv\cdots v}_{\text{$n$ gånger}}$
+\end{theo}
+\par\bigskip
+\begin{theo}[Reversering]{thm:revers}
+  Här vill vi härma "ta ordet baklänges" fast med strängar, alltså:\par
+  \noindent $v^{rev} = a_n\cdots a_1$ istället för $v = a_1\cdots a_n$
+  \par\bigskip
+  \noindent Givetvis finns det strängar där $v=v^{rev}$, låt $v= $ racecar och se vad som händer om vi reverserar den!
+\end{theo}
+\par\bigskip
+\noindent En ganska central grej med både addition och multiplikation inom matematik är "enheten", det vill säga 1-1 = 0 (där 0 är enheten för addition) och $2\cdot\dfrac{1}{2}=1$ (där 1 är enheten för multiplikation).\par
+\noindent Vi vill försöka härma enheten, det vill säga, finna en sträng sådant att den inte påverkas av operationerna vi tidigare har definierat.\par
+\noindent En egenskap hos dessa enheter som vi vill bevara är deras "längd", tänk exempelvis enhetsvektorn som har längd 1 för att åstadkomma att vi ej förflyttar oss. Med addition och multiplikation får vi tänka oss tallinjen, 0 i addition betyder att vi inte rör oss i tallinjen på samma sätt som 1an gör med multiplikation.
+\par\bigskip
+\begin{theo}[Längd av sträng]{thm:strlen}
+  Längden av en sträng $v = a_1\cdots a_n$ betecknas $\left|v\right|=n$ och betyder "hur många tecken från alfabetet $\Sigma$ har jag använt?" 
+\end{theo}
+\par\bigskip
+\begin{theo}[Tomma strängen]{thm:emptystring}
+  Vi definierar den \textbf{tomma strängen} ($\varepsilon$)\par
+  \noindent Under operationer beter sig $\varepsilon$ på följande sätt:
+  \begin{equation*}
+    \begin{gathered}
+      \varepsilon^{\text{rev}} = \varepsilon\\
+      \varepsilon\varepsilon = \varepsilon\\
+      v\varepsilon = v = \varepsilon v
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Varför kallas den för tomma strängen om det är en enhet? Jo! Vi testar att evaluera längden av $\varepsilon$:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\varepsilon\right| = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Det som kan vara ointuitivt är att den tomma strängen \textit{inte} finns i något alfabet omm (om och endast om) det inte specifieras i definitionen, men $\varepsilon$ den är en valid sträng i alla alfabet.\par
+\noindent Den beter sig lite som tomma mängden, i den att följande gäller för en godtycklig mängd $A$:
+\begin{equation*}
+  \begin{gathered}
+    \O\notin A\qquad\varepsilon\notin\Sigma\\
+    \O\subseteq A\qquad\varepsilon\subseteq\Sigma
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Låt $x,y$ vara strängar, då gäller följande:
+\par\bigskip
+\begin{theo}[Prefix]{thm:prefix}
+  Vi säger att $x$ är en \textbf{prefix} till $y$ om det finns en sträng $z$ så att $xz = y$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $y = $ sportbil, $x=$ sport, då är $z=$ bil och "sport" ($x$) är prefixet.
+\par\bigskip
+\begin{theo}[Suffix]{thm:suffix}
+  Vi kallar $x$ för \textbf{suffix} till $y$ om det finns en sträng $z$ så att $zx=y$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent I föregående exempel med strängen "sportbil", så är "bil" suffixet till "sportbil".
+\newpage
+\section{Språk}
+\par\bigskip
+\noindent Vi har definierat vårt alfabet (exvis siffror), bildat strängar m.h.a operationer (operationer med tal).\par
+\noindent Kombinerar vi dessa bör vi rimligtvis få ut något som påminner om vektorrum, det vill säga en mängd med tal med några operationer (i vårat fall är mängden tal = mängden strängar, och operationerna de operationer vi definierat överst).
+\par\bigskip
+\begin{theo}[Språk]{thm:lang}
+  Ett \textbf{språk} över ett alfabet $\Sigma$ är en mängd strängar över $\Sigma$
+  \par\bigskip
+  \noindent Några speciella språk:
+  \begin{itemize}
+    \item $\O$ (tomma mängden)
+    \item $\{\varepsilon\}$
+    \item $\Sigma$
+    \item $\Sigma^*$ (mängden av alla strängar över $\Sigma$)
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent Med liknande resonemang som tidigare kan man visa att:
+\begin{itemize}
+  \item $\Sigma^*$ är uppräknelig
+  \item Mängden av alla språk över $\Sigma$ är inte uppräknelig
+\end{itemize}
+\par\bigskip
+\subsection{Operationer på språk}\hfill\\
+\par
+\noindent Låt $\Sigma$ vara ett alfabet och låt $L, L_1, L_2$ vara språk över $\Sigma$.\par
+\noindent Nya språk (över $\Sigma$) kan bildas genom:
+\begin{itemize}
+  \item Union $L_1\cup L_2$
+  \item Snitt $L_1\cap L_2$
+  \item Differens $L_1-L_2$
+  \item Komplement i $\Sigma^*$ är $\Sigma^*-L$
+  \item Sammanfogning $L_1L_2 = \{wv:w\in L_1\wedge v\in L_2\}$
+  \item Repetition:
+    \begin{itemize}
+      \item $L^0 = \{\varepsilon\}$
+      \item $L^{n+1} = L^nL$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\subsection{Kleenestjärnatillslutning}\hfill\\\par
+\noindent Vi har använt notationen "upphöjt till en stjärna" för att på sätt och vis indikera mängden av alla kombinationer av element. Exempelvis har vi använt $\Sigma^*$ för att beteckna alla möjliga konstruerbara strängar i ett alfabet.\par
+\noindent Av dessa strängar kunde vi skapa språk, detta betecknades med $L$, och med dessa språk hade vi operationer, precis som vi hade operationer med våra strängar där vi kunde konstruera nya språk givet andra språk, då är frågan om vi kan konstruera mängden av alla språk!
+\par\bigskip
+\noindent \textit{Kleenestjärnatillslutning} går ut på följande princip:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{i=0}^{\infty}x^i = x^0+x^1+x^2+x^3\cdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Där vi på något sätt vill sammanfoga alla språk $L^i$. Detta gör vi på följande sätt:
+\begin{equation*}
+  \begin{gathered}
+    L^* = \{w:w\in L^n \text{ för något } n\in\N\} = \bigcup_{i=0}^{\infty}L^i = L^0\cup L^1\cup L^2\cup L^3\cdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $L^*$ uttalas "$L$-stjärna". Notera att vi har med mängden $\varepsilon$ eftersom vi har $L^0$, vi kan välja att omittera denna genom att använda $L$-plus istället ($L^+$).
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Sigma = \{a,b\}$, $L_1 = \{aa\}$ och $L_2 = \{aa,bb\}$. Då gäller följande:
+\begin{equation*}
+  \begin{gathered}
+  (L_1)^* = \{(aa)^n:n\in\N\} = \{\varepsilon, aa, aaaa, aaaaaa,\cdots\}\\
+  (L_1)^+ = \{aa,aaaa,aaaaaa,\cdots\}\\
+  (L_2)^* = \{\varepsilon,aa,bb,aaaa,aabb,bbaa,bbbb,\cdots\}
+  \end{gathered}
+\end{equation*}
+\newpage
+\section{Reguljära språk och uttryck}
+\par\bigskip
+\noindent Låt $\Sigma$ vara ett alfabet. Vi definierar följande:
+\par\bigskip
+\begin{theo}[Reguljära uttryck]{thm:regex}
+  \begin{itemize}
+    \item $\O$ är ett reguljärt uttryck för språket $\O$
+    \item $\varepsilon$ är ett reguljärt uttryck för språket $\left\{\varepsilon\right\}$
+    \item För varje $\sigma\in\Sigma$ så är $\sigma$ ett reguljärt uttryck för språket $\left\{\sigma\right\}$
+    \item Om $\alpha$ och $\beta$ är reguljära uttryck för språken $L_1$ och $L_2$ så är följande även reguljära uttryck för språken $L_1\cup L_2$, $L_1L_2$, $L_1^*$ och $L_1^+$:
+    \begin{itemize}
+      \item $(\alpha\cup\beta)$
+      \item $(\alpha\beta)$
+      \item ($\alpha^*$)
+      \item ($\alpha^+$)
+    \end{itemize}
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Reguljära språk]{thm:reglang}
+  Om $L$ är ett språk och det finns ett reguljärt uttryck för $L$ så säger vi att $L$ är reguljärt
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Sigma = \left\{0,1\right\}$\par
+\noindent Då är $(0\cup(1(0^*)))$ ett reguljärt uttryck för språket $L = \left\{0\right\}\cup(\left\{1\right\}(\left\{0\right\}^*)) = \left\{0\right\}\cup\left\{10^n:n\in\N\right\}$\par
+\noindent Eftersom det finns ett reguljärt uttryck för $L$, så är även språket $L$ reguljärt i detta fall.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent För notationens enkelhet så reducerar vi paranteser enligt följande paranteskonvention:\par
+\begin{itemize}
+  \item Först $^*$ eller $^+$
+  \item Sedan Sammanfogning
+  \item Sist union
+\end{itemize}
+\par\bigskip
+\noindent Jämför med paranteskonvention för aritmetiska uttryck som ser ut på följande vis:\par
+\begin{itemize}
+  \item Först exponent
+  \item Sedan multiplikation
+  \item Sedan addition
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi skriver $0\cup10^*$ istället för $(0\cup(1(0^*)))$\par
+\noindent (Notera! Det är inte siffran tio, utan siffran ett sammanfogat med noll).
