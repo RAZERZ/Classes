@@ -112,4 +112,219 @@
       \path[-stealth] (p) edge[above, bend left] node{$abb$} (q);
     \end{tikzpicture}
     \caption{}
+\end{figure}\par
+\begin{itemize}
+  \item En NFA kan göra en tillståndsövergång utan att läsa något (läser tecknet $\varepsilon$)
+  \item En NFA kan ha flera valmöjligheter i en given situation (icke-determinism), dvs vi kan ha följande situation:
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p_0$};
+      \node[state, above right of=p0, xshift=1cm](p1){$p_1$};
+      \node[state, below left of=p0, yshift=-.5cm, xshift=-1cm](p2){$p_2$};
+      \node[state, below right of=p0, yshift=-.5cm, xshift=1cm](p3){$p_3$};
+      \path[-stealth] (p0) edge[above left, bend left] node{$a$} (p1);
+      \path[-stealth] (p0) edge[below, bend left] node{$a$} (p2);
+      \path[-stealth] (p0) edge[below, bend right] node{$abb$} (p3);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\begin{itemize}
+  \item Det följer att en NFA (i allmänhet) kan "hänga sig"
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel: (På en NFA)}\par
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$p_0$};
+      \node[state, initial above, initial text=, right of=p0, xshift=2cm](p1){$p_1$};
+      \node[state, accepting below, below of=p0, xshift=1.5cm, yshift=-1cm](p2){$p_2$};
+      \path[-stealth] (p0) edge[loop left] node{$ab$} (p0);
+      \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[below] node{$\varepsilon$} (p0);
+      \path[-stealth] (p1) edge[loop right] node{$bb$} (p1);
+      \path[-stealth] (p0) edge[above] node{$a$} (p2);
+      \path[-stealth] (p2) edge[above, bend left] node{$a$} (p0);
+      \path[-stealth] (p1) edge[above] node{$b$} (p2);
+      \path[-stealth] (p2) edge[above, bend right] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
 \end{figure}
+\newpage
+\begin{theo}[NFA Acceptans]{thm:nfaacc}
+  En NFA accepterar en sträng $w$ om vi kan börja i något starttillstånd och gå från tillstånd till tillstånd genom att avläsa en del av strängen $w$ och slutligen hamna i ett accepterande tillstånd.\par
+  \noindent Det vill säga, om $w$ kan delas upp i delsträngar $w = v_1v_2\cdots v_n$ där vi tillåter $v_k = \varepsilon$ \textit{och} det finns tillstånd $p_0, p_1,\cdots, p_n$ där $p_0$ är ett starttillstånd och $p_n$ är ett accepterande tillstånd samt följande övergångar:
+\end{theo}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p_1$};
+      \node[state, right of=p0, xshift=.5cm](p1){$p_1$};
+      \node[state, below of=p0, yshift=-.5cm](p2){$p_1$};
+      \node[state, below of=p1, yshift=-.5cm](p3){$p_2$};
+      \node[state, below of=p2, yshift=-.5cm](p4){$p_{n-1}$};
+      \node[state, below of=p3, yshift=-.5cm](p5){$p_n$};
+      \path[-stealth] (p0) edge[above, bend left] node{$v_1$} (p1);
+      \path[-stealth] (p2) edge[above, bend left] node{$v_2$} (p3);
+      \path[-stealth] (p4) edge[above, bend left] node{$v_n$} (p5);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta föregående exempel och strängarna:
+\begin{equation*}
+  \begin{gathered}
+    aaa\\
+    aaaa\\
+    aabbaa\\
+    abbba
+  \end{gathered}
+\end{equation*}\par
+\noindent Vilka strängar accepteras av NFA:n?
+\par\bigskip
+\begin{theo}
+  MMängden av strängar som accepteras av en NFA $M$ kallas för $M$:s språk, och betecknas precis som i DFA fallet med $L(M)$
+\end{theo}
+\newpage
+\subsection{Omvandling av en NFA till en DFA som accepterar samma språk}\hfill\\\par
+\noindent Betrakta följande NFA:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1$};
+      \node[state, accepting below, left of=p0, xshift=-1cm](p1){$2$};
+      \node[state, accepting below, right of=p0, xshift=1cm](p2){$3$};
+      \path[-stealth] (p0) edge[below, bend right] node{$\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p2);
+      \path[-stealth] (p1) edge[loop above] node{$b$} (p1);
+      \path[-stealth] (p2) edge[loop above] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop right] node{$aba$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi konstruerar först en "icke-glupsk" NFA $M^{\prime}$ som avlöser högst ett tecken i taget (försöker gå från generaliseringen tillbaks till en DFA) och accepterar samma strängar som $M$.\par
+\noindent $M^{\prime} = $
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1$};
+      \node[state, accepting below, left of=p0, xshift=-1cm](p1){$2$};
+      \node[state, accepting below, right of=p0, xshift=1cm](p2){$3$};
+      \node[state, below right of=p2, yshift=-.25cm, xshift=.5cm](p3){$4$};
+      \node[state, right of=p3, xshift=.5cm](p4){$5$};
+      \path[-stealth] (p0) edge[below, bend right] node{$\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p2);
+      \path[-stealth] (p1) edge[loop above] node{$b$} (p1);
+      \path[-stealth] (p2) edge[loop above] node{$a$} (p2);
+      \path[-stealth] (p2) edge[left, bend right] node{$a$} (p3);
+      \path[-stealth] (p3) edge[below, bend right] node{$b$} (p4);
+      \path[-stealth] (p4) edge[above, bend right] node{$a$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Sedan använder vi den så kallade "delmängdsalgoritmen" för att konstruera en DFA $M^{\prime\prime}$ som accepterar samma strängar som $M^{\prime}$.\par
+\noindent $M^{\prime\prime}$:s starttillstånd är mängden av alla tillstånd i $M^{\prime}$ som kan nås uitan att avläsa några tecken alls.\par\bigskip
+\noindent I vårat fall når vi naturligtvis noden 1 när vi startar, men genom att använda den tomma strängen kan vi nå nod 2 och 3, alltså blir denna mängd $\left\{1,2,3\right\}$.\par
+\noindent Notera att de element från vårat alfabet som vi använder är $a$ och $b$, därför kommer vi nu följa var vi hamnar med just dessa två bokstäver.\par\bigskip
+\noindent Vi ställer oss frågan, vilka noder som nås från $\left\{1,2,3\right\}$ genom att \textit{bara} avläsa $a$. Börjar vi i nod 1 kan vi ta $\varepsilon$ till 3, loopa runt till 3 igen, och sedan nå nod 4 genom att avläsa $a$. Vi kan inte nå nod 5 och avläsa $a$ för att gå tillbaks till nod 3, ty det kräver att vi avläser $b$. Mängden här blir alltså $\left\{3,4\right\}$.\par\bigskip
+\noindent Vårat diagram ser just nu ut på följande:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1,2,3$};
+      \node[state, right of=p0,xshift=1cm](p1){$3,4$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Vi undersöker nu villka tillstånd vi kan nå genom att avläsa $b$. Vi kan avläsa $\varepsilon$ och komma till nod 2, varpå vi kan avläsa $b$ för att återigen komma till nod 2. Mängden blir därför $\left\{2\right\}$ och vårat diagram ser ut på följande sätt:\par
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1,2,3$};
+      \node[state, left of=p0, xshift=-1cm](p2){$2$};
+      \node[state, right of=p0,xshift=1cm](p1){$3,4$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi utför denna frågeställning rekursivt tills dess att mängden vi når är $\O$, det vill säga nu när vi är på nod 2 så frågar vi oss "vilka noder når vi härifrån om vi bara använder $a$" och samma sak för $b$.\par
+\noindent Vi får då följande diagram:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1,2,3$};
+      \node[state, left of=p0, xshift=-1cm](p2){$2$};
+      \node[state, right of=p0,xshift=1cm](p1){$3,4$};
+      \node[state, below of=p1, yshift=-1cm](p3){$5$};
+      \node[state, below of=p2, yshift=-1cm](p4){$\O$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p2);
+      \path[-stealth] (p2) edge[loop above] node{$b$} (p2);
+      \path[-stealth] (p1) edge[loop right] node{$a$} (p1);
+      \path[-stealth] (p1) edge[right] node{$b$} (p3);
+      \path[-stealth] (p2) edge[right] node{$a$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Givetvis fortsätter vi med $\O$ och $5$:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1,2,3$};
+      \node[state, left of=p0, xshift=-1cm](p2){$2$};
+      \node[state, right of=p0,xshift=1cm](p1){$3,4$};
+      \node[state, below of=p1, yshift=-1cm](p3){$5$};
+      \node[state, below of=p2, yshift=-1cm](p4){$\O$};
+      \node[state, below of=p3, yshift=-1cm](p5){$3$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p2);
+      \path[-stealth] (p2) edge[loop above] node{$b$} (p2);
+      \path[-stealth] (p1) edge[loop right] node{$a$} (p1);
+      \path[-stealth] (p1) edge[right] node{$b$} (p3);
+      \path[-stealth] (p2) edge[right] node{$a$} (p4);
+      \path[-stealth] (p4) edge[loop below] node{$a,b$} (p4);
+      \path[-stealth] (p3) edge[above] node{$b$} (p4);
+      \path[-stealth] (p3) edge[left] node{$a$} (p5);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Forstätter vi med $3$ får vi slutligen:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1,2,3$};
+      \node[state, left of=p0, xshift=-1cm](p2){$2$};
+      \node[state, right of=p0,xshift=1cm](p1){$3,4$};
+      \node[state, below of=p1, yshift=-1cm](p3){$5$};
+      \node[state, below of=p2, yshift=-1cm](p4){$\O$};
+      \node[state, accepting below, below of=p3, yshift=-1cm](p5){$3$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p2);
+      \path[-stealth] (p2) edge[loop above] node{$b$} (p2);
+      \path[-stealth] (p1) edge[loop right] node{$a$} (p1);
+      \path[-stealth] (p1) edge[right] node{$b$} (p3);
+      \path[-stealth] (p2) edge[right] node{$a$} (p4);
+      \path[-stealth] (p4) edge[loop below] node{$a,b$} (p4);
+      \path[-stealth] (p3) edge[above] node{$b$} (p4);
+      \path[-stealth] (p3) edge[left] node{$a$} (p5);
+      \path[-stealth] (p5) edge[below] node{$b$} (p4);
+      \path[-stealth] (p5) edge[right, bend right] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Eftersom inga nya tillstånd (noder) har tillkommit, så är vi klara. Vi kan fråga oss varför denna algoritm alltid terminerar, och då får vi inte glömma att tillståndsmängden bara har ändligt många delmängder.\par
+\noindent Notera att de tillstånd i $M^{\prime\prime}$ som innehåller något accepterande tilltånd från $M^{\prime}$ blir de accepterande tillstånden för $M^{\prime\prime}$ (det vill säga, i $M^{\prime}$ (Figure 10) hade nod 3 accepterande tillstånd, så de accepterande tillstånden i $M^{\prime\prime}$ blir de noder med enbart mängden 3).
+\par\bigskip
+\noindent Varför accepterar $M^{\prime\prime}$ då samma strängar som $M^{\prime}$?\par
+\noindent Jo, enligt konstruktion för en sträng $w$ så gäller att:
+\begin{itemize}
+  \item Det finns en avläsningsväg av $w$ igenom $M^{\prime}$ så att man till slut hamnar i ett accepterande tillstånd $\Lrarr$ Det finns en (unik) avläsningsväg av $w$ igenom $M^{\prime\prime}$ så att man till slut hamnar i ett accepterande tillstånd.
+\end{itemize}

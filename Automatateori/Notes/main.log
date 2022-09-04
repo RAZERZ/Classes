@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  3 SEP 2022 22:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.22)  4 SEP 2022 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,21 +1117,53 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 98.
- [10]) [11] (./main.aux (./includes/title.aux))
+ [10] [11]
+Package mdframed Info: mdframed works in twoside mode on input line 156.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 156.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 159.
+Package mdframed Info: Not enough space on this page on input line 159.
+Package mdframed Info: mdframed works in twoside mode on input line 189.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 189.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 190.
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+ []
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 9B4C386AF3A67A080845C9F922D38CAD;2168
-(rerunfilecheck)             After:  47E5866B9D9C161F65AAE690EC2C71D7;2501.
+[13]
+
+LaTeX Warning: Command \O invalid in math mode on input line 256.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 265.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 275.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 283.
+
+[14]
+
+LaTeX Warning: Command \O invalid in math mode on input line 306.
+
+) [15] (./main.aux (./includes/title.aux))
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: E80CB9CA93F29534360142636312ACA6;2915.
  ) 
 Here is how much of TeX's memory you used:
- 25314 strings out of 478238
- 480188 string characters out of 5850457
- 787925 words of memory out of 5000000
- 42893 multiletter control sequences out of 15000+600000
+ 25412 strings out of 478238
+ 481805 string characters out of 5850456
+ 788220 words of memory out of 5000000
+ 42974 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,15n,107p,499b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1147,10 +1179,10 @@ ts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 199937 bytes).
+Output written on main.pdf (16 pages, 217158 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 51 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
