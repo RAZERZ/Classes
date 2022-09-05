@@ -1,0 +1,54 @@
+\section{Övning}
+\par\bigskip
+\noindent En NFA för språket som beskrivs av $a(aba\cup aa)^*$:\par
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=, ](p0){};
+      \node[state, accepting right, right of=p0, xshift=1cm](p1){};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$aba$} (p1);
+      \path[-stealth] (p1) edge[loop below] node{$aa$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Skapa en DFA för samma språk, gör först NFA:n icke-glupsk (och namnge tillstånden):
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=, ](p0){1};
+      \node[state, accepting right, right of=p0, xshift=1cm](p1){2};
+      \node[state, below of=p1, yshift=-.5cm](p2){$5$};
+      \node[state, above of=p1, yshift=.5cm](p3){$3$};
+      \node[state, right of=p3, xshift=.5cm](p4){$4$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p1) edge[right, bend right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[right, bend right] node{$a$} (p1);
+      \path[-stealth] (p1) edge[left, bend left] node{$a$} (p3);
+      \path[-stealth] (p3) edge[below, bend left] node{$b$} (p4);
+      \path[-stealth] (p4) edge[below] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Med delmängdsalgoritmen får vi följande DFA:\par
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$1$};
+      \node[state, accepting above, above right of=p0, xshift=1cm, yshift=.5cm](p1){$2$};
+      \node[state, right of=p1, xshift=1cm](p2){$3,5$};
+      \node[state, below of=p2, yshift=-.5cm](p3){$4$};
+      \node[state, below of=p1, yshift=-1cm](p4){$\O$};
+      \path[-stealth] (p0) edge[left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[above, bend left] node{$a$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$a$} (p1);
+      \path[-stealth] (p2) edge[left] node{$b$} (p3);
+      \path[-stealth] (p3) edge[below] node{$b$} (p4);
+      \path[-stealth] (p0) edge[right] node{$b$} (p4);
+      \path[-stealth] (p1) edge[left] node{$b$} (p4);
+      \path[-stealth] (p3) edge[right] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}

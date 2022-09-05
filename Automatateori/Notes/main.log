@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.22)  4 SEP 2022 22:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  5 SEP 2022 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,7 +798,11 @@ File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 5.
 
-(./includes/commands.tex) (./main.aux (./includes/title.aux))
+(./includes/commands.tex) (./main.aux (./includes/title.aux)
+
+LaTeX Warning: Label `F' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -820,8 +824,7 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
@@ -1155,15 +1158,76 @@ LaTeX Warning: Command \O invalid in math mode on input line 283.
 
 LaTeX Warning: Command \O invalid in math mode on input line 306.
 
-) [15] (./main.aux (./includes/title.aux))
+Package mdframed Info: mdframed works in twoside mode on input line 338.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 338.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 339.
+Package mdframed Info: mdframed works in twoside mode on input line 342.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 342.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 343.
+Package mdframed Info: mdframed works in twoside mode on input line 347.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 347.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 348.
+[15]
+Package mdframed Info: mdframed works in twoside mode on input line 351.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 351.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 353.
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 361.
+Package mdframed Info: Not enough space on this page on input line 361.
+[16]
+Package mdframed Info: mdframed works in twoside mode on input line 424.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 424.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 426.
+Package mdframed Info: Not enough space on this page on input line 426.
+) [17] (./pages/F4.tex
+
+LaTeX Warning: Command \O invalid in math mode on input line 43.
+
+) [18] (./pages/F3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 39.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 39.
+
+) [19] [20] (./main.aux (./includes/title.aux))
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E80CB9CA93F29534360142636312ACA6;2915.
+(rerunfilecheck)             Checksum: 399B9F82104CC3A14F7B8C88D09F94BD;3515.
  ) 
 Here is how much of TeX's memory you used:
- 25412 strings out of 478238
- 481805 string characters out of 5850456
- 788220 words of memory out of 5000000
- 42974 multiletter control sequences out of 15000+600000
+ 25489 strings out of 478238
+ 482959 string characters out of 5850457
+ 788949 words of memory out of 5000000
+ 43018 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,15n,107p,499b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1179,10 +1243,10 @@ ts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 217158 bytes).
+Output written on main.pdf (21 pages, 234161 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 220 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

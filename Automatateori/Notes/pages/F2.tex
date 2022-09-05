@@ -320,7 +320,7 @@
     \caption{}
 \end{figure}
 \par\bigskip
-\noindent Eftersom inga nya tillstånd (noder) har tillkommit, så är vi klara. Vi kan fråga oss varför denna algoritm alltid terminerar, och då får vi inte glömma att tillståndsmängden bara har ändligt många delmängder.\par
+\noindent Eftersom inga nya tillstånd (noder) har tillkommit, så är vi klara. Vi kan fråga oss varför denna algoritm alltid terminerar, och då får vi inte glömma att tillståndsmängden bara har ändligt många delmängder.\par\bigskip
 \noindent Notera att de tillstånd i $M^{\prime\prime}$ som innehåller något accepterande tilltånd från $M^{\prime}$ blir de accepterande tillstånden för $M^{\prime\prime}$ (det vill säga, i $M^{\prime}$ (Figure 10) hade nod 3 accepterande tillstånd, så de accepterande tillstånden i $M^{\prime\prime}$ blir de noder med enbart mängden 3).
 \par\bigskip
 \noindent Varför accepterar $M^{\prime\prime}$ då samma strängar som $M^{\prime}$?\par
@@ -328,3 +328,99 @@
 \begin{itemize}
   \item Det finns en avläsningsväg av $w$ igenom $M^{\prime}$ så att man till slut hamnar i ett accepterande tillstånd $\Lrarr$ Det finns en (unik) avläsningsväg av $w$ igenom $M^{\prime\prime}$ så att man till slut hamnar i ett accepterande tillstånd.
 \end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Beskriv en avläsningsväg för $w = aaabaa$ igenom $M^{\prime}$ och igenom $M^{\prime\prime}$ som slutar med acceptans i båda fallen.
+\par\bigskip
+\noindent Enligt den beskrivna omvandlingsmetoden så har vi:
+\par\bigskip
+\begin{theo}
+  FFör varje NFA $M_1$ så finns en DFA $M_2$ som accepterar samma språk som $M_1$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  FFr varje NFA $M$ så finns ett reguljärt uttryk som beskriver $L(M)$
+\end{theo}
+\noindent Vi visar nu:
+\par\bigskip
+\begin{theo}
+  OOm $L$ är ett reguljärt språk så finns en NFA (och alltså även en DFA) som accepterar $L$
+\end{theo}
+\newpage
+\begin{prf}
+  IInduktion över uppbyggnaden av reguljära språk:\par
+  \begin{itemize}
+    \item Om $L = \O$ så accepteras $L$ av startnoden men ingen accepterande nod, och vice versa (se Figur 16)
+    \item Om $L = \left\{\sigma\right\}$ (godtycklig tecken) så accepteras $L$ av NFA:n med 2 noder, en start och en accepterande, där det krävs just $\sigma$ för att ta sig igenom (se Figure 17)
+    \item Antag att $L =L_1\cup L_2$ där $L_1,L_2$ accepteras av $M_1,M_2$ respektive. Då accepteras $L$ av (Figure 18)
+    \item Antag att $L=L_1L_2$ och att $L_1,L_2$ accepteras av $M_1,M_2$ respektive. Då accepteras $L$ av (Figure 19)
+    \item Antag att $L=L_1^*$ och att $L_1$ accepteras av $M_1$. Då accepteras $L$ av (Figure 20)
+    \item Fallet $L= L^+$ behandlas på liknande sätt som föregående punkt
+    \item Fallet $L=\varepsilon$ behandlas enligt Figure 21
+  \end{itemize}\par
+\end{prf}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){};
+      \node[state, accepting below, right of=p0, xshift=1.5cm](p1){};
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){};
+      \node[state, accepting below, right of=p0, xshift=1cm](p1){};
+      \path[-stealth] (p0) edge[above] node{$\sigma$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){};
+      \node[state, above right of=p0, yshift=.5cm, xshift=1cm](p1){$M_1$};
+      \node[state, below right of=p0, yshift=-.5cm, xshift=1cm](p2){$M_2$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[above, bend right] node{$\varepsilon$} (p2);
+    \end{tikzpicture}
+    \caption{"Parallellkoppling"}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$M_1$};
+      \node[state, right of=p0, xshift=1cm](p1){$M_2$};
+      \path[-stealth] (p0) edge[above] node{$\varepsilon$} (p1);
+    \end{tikzpicture}
+    \caption{"Seriekoppling"}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){};
+      \node[state, right of=p0, xshift=1cm](p1){$M$};
+      \node[state, accepting right, right of=p1, xshift=1cm](p2){};
+      \path[-stealth] (p0) edge[above] node{$\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[above] node{$\varepsilon$} (p2);
+      \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$\varepsilon$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial, initial text=](p0){};
+      \node[state, accepting right, right of=p0, xshift=1cm](p1){};
+      \node[state, initial above, accepting below, initial text=, right of=p1, xshift=2cm](p2){};
+      \path[-stealth] (p2) edge[loop right] node{$\varepsilon$} (p2);
+      \path[-stealth] (p0) edge[above] node{$\varepsilon$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\begin{theo}[Finit/ändlig automat]{thm:finiteautomat}
+  Med en \textbf{finit/ändlig automat} menar vi en NFA eller en DFA (vilken som)
+\end{theo}
