@@ -40,7 +40,7 @@
 (Fråga om det gäller att om en NFA/DFA inte har start/acc. tillstånd att den är isomorf med en annan NFA/DFA som inte heller har start/acc. tillstånd)
 \par\bigskip
 \noindent Därför kan vi anta att $M$ har minst ett starttillstånd och minst ett accepterande tillstånd.
-\par\bigskip
+\newpage
 \noindent Algoritmen går därmed ut på följande sätt:
 \begin{itemize}
   \item Lägg till ett \textit{nytt} starttillstånd och pilar som bär $\varepsilon$ från detta nya starttillstånd till alla de gamla starttillstånd som nu förlorar sin status som starttillstånd (här förändras \textit{inte} vilka strängar som accepteras)
@@ -60,7 +60,6 @@
       \path[-stealth] (p1) edge[above] node{$\beta$} (p2);
       \path[-stealth] (p4) edge[above] node{$\alpha\beta$} (p5);
     \end{tikzpicture}
-    \caption{}
 \end{figure}
 \begin{figure}[ht]
     \centering
@@ -73,8 +72,8 @@
       \path[-stealth] (p1) edge[below, bend left] node{$\beta$} (p0);
       \path[-stealth] (p3) edge[loop right] node{$\alpha\beta$} (p3);
     \end{tikzpicture}
-    \caption{}
 \end{figure}
+\vspace{-1cm}
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}
@@ -82,18 +81,112 @@
       \node[state, right of=p0, xshift=.5cm](p1){X};
       \node[state, right of=p1, xshift=.5cm](p2){};
       \node[right of=p2, xshift=1cm](p3){blir};
-      \node[state, right of=p3, xshift=1cm](p4){};
-      \node[state, right of=p4, xshift=.5cm](p5){};
+      \node[state, right of=p3, xshift=.5cm](p4){};
+      \node[state, right of=p4, xshift=1cm](p5){};
       \path[-stealth] (p0) edge[above] node{$\alpha$} (p1);
       \path[-stealth] (p1) edge[above] node{$\beta$} (p2);
       \path[-stealth] (p1) edge[loop above] node{$\gamma$} (p1);
       \path[-stealth] (p4) edge[above] node{$\alpha\gamma^*\beta$} (p5);
     \end{tikzpicture}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){};
+      \node[state, right of=p0, xshift=.5cm](p1){X};
+      \node[right of=p2, xshift=.8cm](p2){blir};
+      \node[state, right of=p3, xshift=1cm](p3){};
+      \path[-stealth] (p1) edge[loop right] node{$\gamma$} (p1);
+      \path[-stealth] (p0) edge[above, bend left] node{$\alpha$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$\beta$} (p0);
+      \path[-stealth] (p3) edge[loop right] node{$\alpha\gamma^*\beta$} (p3);
+    \end{tikzpicture}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){};
+      \node[state, right of=p0, xshift=.5cm](p1){};
+      \node[right of=p1, xshift=2cm](p2){blir};
+      \node[state, right of=p2, xshift=1cm](p3){};
+      \node[state, right of=p3, xshift=1cm](p4){};
+      \path[-stealth] (p0) edge[above, bend left] node{$\alpha$} (p1);
+      \path[-stealth] (p0) edge[below, bend right] node{$\beta$} (p1);
+      \path[-stealth] (p3) edge[above] node{$\alpha\cup\beta$} (p4);
+    \end{tikzpicture}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){};
+      \node[right of=p0, xshift=3cm](p1){blir};
+      \node[state, right of=p1, xshift=1cm](p2){};
+      \path[-stealth] (p0) edge[loop above] node{$\alpha$} (p0);
+      \path[-stealth] (p0) edge[loop below] node{$\beta$} (p0);
+      \path[-stealth] (p2) edge[loop right] node{$\alpha\cup\beta$} (p2);
+    \end{tikzpicture}
     \caption{}
 \end{figure}
 \par\bigskip
-(Fråga om det finns en strategi för att eliminera tillstånd, börja i mitten och röra sig utåt eller slumpa?)
+\noindent När alla elimineringar har upprepats tills det inte går att förenkla mer, så har vi en GFA på formen:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){};
+      \node[state, accepting right, right of=p0, xshift=1cm](p1){};
+      \path[-stealth] (p0) edge[above] node{$\alpha$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Där $\alpha$ är ett reguljärt uttryck som beskriver $L(M)$
+\newpage
+\noindent Från algoritmen följer det:
 \par\bigskip
-(Fråga, har varje tillstånd en dold loop som kan nås med $\varepsilon$?) (Svar, ja men det är onödigt, det går dock att göra på varje tillstånd men det gör diagrammet krångligare utan att förändra språket)
+\begin{theo}
+  VVarje språk som accepteras av någon finit automata är reguljärt.
+\end{theo}
 \par\bigskip
-(Fråga, varför måste starttillståndet och accepterande tillståndet vara unikt?) (Svar, ja vi vill det men det behöver inte vara det. Det är bäst för vår algoritm, ty annars blir det oklart vad det är man ska göra. $\alpha^*$ om man enbart vill ha en nod med en loop)
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande NFA samt omvandla till ett reguljärt uttryck:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial, initial text=](p0){};
+      \node[state, initial above, accepting right, initial text=, right of=p0, xshift=1cm](p1){};
+      \node[state, accepting below, below of=p0, yshift=-1cm](p2){};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop right] node{$ab$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\noindent Vi börjar med att lägga till ett nytt starttillstånd samt ett nytt accepterande tillstånd och kopplar de till de redan existerande med $\varepsilon$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){};
+      \node[state, right of=p0, xshift=1cm](p1){};
+      \node[state, below of=p0, yshift=-1cm](p2){};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop right] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[left, bend left] node{$\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%
+%(Fråga, har varje tillstånd en dold loop som kan nås med $\varepsilon$?) (Svar, ja men det är onödigt, det går dock att göra på varje tillstånd men det gör diagrammet krångligare utan att förändra språket)
+%\par\bigskip
+%(Fråga, varför måste starttillståndet och accepterande tillståndet vara unikt?) (Svar, ja vi vill det men det behöver inte vara det. Det är bäst för vår algoritm, ty annars blir det oklart vad det är man ska göra. $\alpha^*$ om man enbart vill ha en nod med en loop)
