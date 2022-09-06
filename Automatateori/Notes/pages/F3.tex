@@ -177,7 +177,7 @@
       \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
       \path[-stealth] (p2) edge[right] node{$a$} (p0);
       \path[-stealth] (p1) edge[right] node{$a$} (p2);
-      \path[-stealth] (p2) edge[loop right] node{$ab$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
       \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
       \path[-stealth] (p3) edge[left, bend left] node{$\varepsilon$} (p1);
       \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
@@ -185,7 +185,400 @@
     \end{tikzpicture}
     \caption{}
 \end{figure}
-
+\par\bigskip
+\noindent Det finns lite olika strategier för att välja vilken nod man kan börja med att elimineras, personligen föredrar jag att välja den nod med minst antal anslutningar, det gör saker lite lättare.\par
+\noindent Om det är så att det endast finns en nod som \textit{inte} har en direkt koppling till det accepterande tillståndet, föredras det eftersom det blir lättare att se vilka kopplingar som måste ersättas. Väljer man en nod som är direkt kopplad till det accepterande tillståndet så finns det flera andra pilar som kommer från andra noder som man kan råka blanda ihop.
+\par\bigskip
+\noindent Det är många små steg som görs åt gången under elimineringsprocessen, vi ska försöka köra detta exempel med detalj.
+\par\bigskip
+\noindent Vi börjar med att markera alla noder, detta kommer göra saker lättare att förklara och är inget måste.
+\newpage
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p_1$};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[left, bend left] node{$\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\noindent Notera att "den längsta vägen" till det accepterande tillståndet är via $p_0, p_1, p_3, p_4$\par
+\noindent Därför väljer vi att eliminera den noden i den vägen som inte är direkt kopplad till det accepterande tillståndet, det vill säga $p_1$: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[left, bend left] node{$\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Om vi nu ska ta bort denna nod, så måste vi fortfarande kunna avläsa samma strängar för at komma till ett accepterande tillstånd.\par
+\noindent Strategin här är att notera vilka vägar som är möjliga att ta till de noder som är kopplade till $p_1$.
+\par\bigskip
+\noindent Tidigare kunde jag använda $\varepsilon a$ för att gå från $p_0,p_1,p_2$. Eftersom $\varepsilon$ är den tomma strängen, så räcker det alltså med att säga "tidigare kunde jag läsa $a$ för att komma till $p_2$".\par
+\noindent Tar vi bort $p_1$ måste vi kunna gå från $p_0$ till $p_2$ genom att också läsa $a$. Vi kan lägga till den egenskapen genom följande:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth, thick] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent En relevant fråga man kanske ställer sig är "varför tar vi inte bor vägen $a$" från $p_2$ till $p_1$? Detta eftersom vi tidigare kunde avläsa $\varepsilon ba$ för att "loopa" runt $p_2$, och detta måste vi naturligtvis behålla:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth, thick] (p1) edge[loop right] node{$ba$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Är vi redo att ta bort de vägarna nu? Nästan. Tidigare kunde vi komma till $p_3$ via vägen $p_0,p_2,p_1,p_3$ med strängen $\varepsilon bb$ eller $\varepsilon a$. Vi måste alltså kunna gå från $p_2$ till $p_3$ med den strängen, vi gör därför följande: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$b$} (p0);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth, thick] (p1) edge[right] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Nu kan vi plocka bort $b$-pilen, eftersom vi har återskapat alla vägar:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[above, bend left] node{$a$} (p1);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Nu kan vi alldeles strax få bort $a$. Notera att vi kunde från $p_3$ nå $p_2$ genom $p_1$ genom att avläsa $aa$ (gå upp ett steg, sedan till höger), eftersom vi tar bort $p_1$ behöver vi alltså ha en pil från $p_3$ till $p_2$ med $aa$.\par
+\noindent För er som undrar varför vi inte ska ta hänsyn till det $a$ som redan står på en pil mellan $p_1$ och $p_2$ så har vi redan gjort det när vi bytte till $\varepsilon\cup a$
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a\cup bb$} (p2);
+      \path[-stealth, thick] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend right] node{$\varepsilon$} (p0);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par\bigskip
+\noindent Nästan där! Vi har kunnat läsa $\varepsilon b$ för att ta oss från $p_0$ till $p_3$ genom $p_1$, vilket är samma sak som att läsa $b$. Vi behöver alltså en koppling från $p_0$ till $p_3$ med bara $b$: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm, xshift=-1cm, yshift=-.75cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right] node{$a$} (p0);
+      \path[-stealth] (p1) edge[right] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth, thick] (p3) edge[left, bend right] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Tidigare har vi kunnat avläsa $\varepsilon babababab$ för att loopa mellan $p_1$ och $p_3$ (trots att $p_3$ redan har en loop för $ab$), vi har redan replikerat att vi kan ta $b$ för att komma till $p_3$, och eftersom loopen $ab$ redan finns, behöver vi inte replikera den.\par
+\noindent Vi kan därför nu plocka bort pilarna $a,b$: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){X};
+      \node[state, right of=p0, xshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=-1cm, xshift=-1cm, yshift=-.75cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, right of=p2, xshift=1.5cm](p4){$p_4$};
+      \path[-stealth] (p1) edge[right] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Notera att noden vi vill ta bort är fri! Den har inga kopplingar till andra noder, och vi kan därför ta bort den:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=1.5cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p1) edge[below] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi repeterar nu processen för antingen $p_3$ eller $p_2$ (det spelar ingen roll, de har precis samma antal kopplingar och kopplas med samma avstånd till det accepterande tillståndet). Vi väljer $p_3$.
+\par\bigskip
+\noindent Det som gör denna nod lite speciell är att den har en loop, och detta måste vi ta hänsyn till varje gång vi kopplar bort en koppling. Fördelen är att vi kan notera detta med $(ab)^*$ och därmed inkludera de fall då vi inte alls väljer att snurra i loopen (eftersom $\varepsilon\subseteq(ab)^*$)
+\par\bigskip
+\noindent Vi noterar att vi från $p_2$ kan avläsa $((a\cup bb)aa)^*$ för att loopa $p_2$. Men! Eftersom vi når $p_3$ (och därmed kan avläsa $ab$ och loopa $p_3$) så måste vi ha med det i vår nya loop: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth, thick] (p1) edge[below] node{$a\cup bb$} (p2);
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth, thick] (p1) edge[loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Eftersom vi inte kan nå något mer än $p_4$ via $\varepsilon$ efter att ha avläst $(a\cup bb)(ab)^*$ kan vi nu ta bort den pilen (fetmarkerad i Figure 41) och skapa en pil från $p_2$ till $p_4$: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm, yshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[below, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p1) edge[left, bend right] node{$(a\cup bb)(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent Vi vill nu försöka få bort pilen över den vi just tog bort, den går från $p_3$ till $p_2$ så vi måste se till att de strängar vi kan läsa för att komma till $p_3$ leder till $p_2$\par
+\noindent Vi noterar att vi kan avläsa $baa$ för att komma till $p_2$ från $p_3$, men vi kan ju också läsa $babaa$ och oändligt antal fler loopar runt $ab$, så vi skapar en pil från $p_0$ till $p_2$ med $b(ab)^*aa$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm, yshift=1cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth, thick] (p3) edge[below, bend left] node{$\varepsilon\cup a$} (p1);
+      \path[-stealth, thick] (p1) edge[right, bend left] node{$\varepsilon$} (p4);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth, thick] (p3) edge[above, bend right] node{$b(ab)^*aa$} (p1);
+      \path[-stealth, thick] (p1) edge[left, bend right] node{$(a\cup bb)(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Men vi har nu 2 olika pilar som går från samma till samma nod, vi kan slå ihop dessa till en enda: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p2) edge[above, bend left] node{$aa$} (p1);
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth, thick] (p3) edge[above, bend left] node{$\varepsilon\cup a\cup b(ab)^*aa$} (p1);
+      \path[-stealth] (p2) edge[below, bend right] node{$\varepsilon$} (p4);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p3) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth, thick] (p1) edge[right, bend left] node{$\varepsilon\cup(a\cup bb)(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Notera att vi kan ta vägen $b\varepsilon$ (men också givetvis loopa runt $p_3$ med $ab$ hur mycket som helst eller hur lite som helst), detta bevarar vi genom att dra en pil från $p_0$ till $p_4$ med $b(ab)^*$.\par
+\noindent Vi kan även ta bort pilarna från $p_0$ till $p_3$, pilarna från $p_3$ till $p_2$, samt pilarna från $p_3$ till $p_4$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm](p1){$p_2$};
+      \node[state, below of=p0, yshift=1cm, xshift=-.5cm](p2){$p_3$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p2) edge[loop left] node{$ab$} (p2);
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a\cup b(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p1) edge[right, loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon\cup(a\cup bb)(ab)^*$} (p4);
+      \path[-stealth] (p3) edge[left, bend right] node{$b(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\noindent $p_3$ är nu ensamt och vi kan ta bort den:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm](p1){$p_2$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a\cup b(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[loop right] node{$ba$} (p1);
+      \path[-stealth] (p1) edge[right, loop above] node{$(a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon\cup(a\cup bb)(ab)^*$} (p4);
+      \path[-stealth] (p3) edge[left, bend right] node{$b(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Notera att vi har två loopar på $p_2$, detta kan vi förenkla till en genom att använda union:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, right of=p0, xshift=3.5cm](p1){$p_2$};
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth] (p3) edge[right, bend left] node{$\varepsilon\cup a\cup b(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[loop right] node{$ba\cup (a\cup bb)(ab)^*aa$} (p1);
+      \path[-stealth] (p1) edge[right, bend left] node{$\varepsilon\cup(a\cup bb)(ab)^*$} (p4);
+      \path[-stealth] (p3) edge[left, bend right] node{$b(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Dags att börja eliminera $p_2$! De pilar som går in i $p_2$ är en pil från $p_0$, och de pilar som går ut är en pil till $p_4$, alltså bör vi kunna avläsa strängen $\varepsilon\cup a\cup b(ab)^*aa\varepsilon\cup(a\cup bb)(ab)^*$ för att ta oss från $p_0$ till $p_4$ via $p_2$, men vi har ju även en loop, alltså måste vi slänga in $(ba\cup(a\cup bb)(ab)^*aa)^*$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=, above of=p0, yshift=1cm, xshift=1cm](p3){$p_0$};
+      \node[state, accepting right, below of=p1, yshift=-.5cm](p4){$p_4$};
+      \path[-stealth, thick] (p3) edge[right, bend left] node{$(\varepsilon\cup a\cup b(ab)^*aa)(ba\cup(a\cup bb)(ab)^*aa)^*(\varepsilon\cup(a\cup bb)(ab)^*)$} (p4);
+      \path[-stealth] (p3) edge[left, bend right] node{$b(ab)^*$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi har nu 2 alternativa vägar från $p_0$ till $p_4$, antingen vägen med det långa reguljära uttrycket, eller den korta med $b(ab)^*$. Har vi en nod som går till en annan med 2 olika pilar kan dessa kombineras med union.\par
+\noindent Man kan tänka på union som ett "eller", det vill säga $b(ab)^*\cup Q$ kan översättas till "$b(ab)^*$ eller $Q$"
+\newpage
+\noindent Gör vi detta får vi:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p3){$p_0$};
+      \node[state, accepting right, right of=p3, xshift=12cm](p4){$p_4$};
+      \path[-stealth] (p3) edge[above] node{$((\varepsilon\cup a\cup b(ab)^*aa)(ba\cup(a\cup bb)(ab)^*aa)^*(\varepsilon\cup(a\cup bb)(ab)^*))\cup(b(ab)^*)$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi har nu ett starttillstånd, ett accepterande tillstånd, och inga andra noder. Bara en pil som kopplar de 2 tilltånden, och texten över den är det reguljära uttrycket för den ursprungliga NFA:n 
 %%%%%%%%%%%%%%%%%%%
 %(Fråga, har varje tillstånd en dold loop som kan nås med $\varepsilon$?) (Svar, ja men det är onödigt, det går dock att göra på varje tillstånd men det gör diagrammet krångligare utan att förändra språket)
 %\par\bigskip
