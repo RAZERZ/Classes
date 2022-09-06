@@ -1,0 +1,130 @@
+\section{Vad är bra med $\C$-kurvor?}\par
+\begin{theo}
+  OOm $f(x,y) = \C[x,y]$ samt icke-konstnat polynom, då har $V(f)\subseteq\C^2$ oändligt många punkter (överuppräknerligt) 
+\end{theo}
+\par\bigskip
+\noindent Här är det lite intuitivt lätt att klura ut hur vi skall bevisa detta. Vi arbetar med komplexa tal, så rimligtvis någon sats inom komplexa polynom, såsom algebrans fundamentalsats!
+\par\bigskip
+\begin{prf}[Bevis av föregående sats]{prf:gpre}
+  Vi vill hitta en massa lösningar genom att använda att vi vet lösnignarna till envariabelpolynom.\par
+  \noindent Det vi kan göra är att undersöka hur $V(f)$ skär linjen $y=k$ (där $k$ är en godtycklig konstant).\par
+  \noindent Matar vi in detta i polynomet har vi $f(x,c)$ som är ett polynom i en variabel, som har nollställen förutsatt att det inte är konstant $\neq0$
+  \par\bigskip
+  \noindent Vi behöver nu undersöka vad som händer om polynomet är konstant allt för ofta, men för att göra detta behöver vi svara på frågan "vad betyder det att $f(x,c)$ är konstant, säg $=d$?"\par
+  \noindent Då skulle $f(x,c)-d=0$ alltid, vilket innebär att alla koefficienter i $f$ beror på $c$, men om det skall vara 0 så måste $c$ vara en gemensam rot till alla koefficienterna i $f-d$\par\bigskip
+  \noindent Det finns max ändligt många sådana rötter, eftersom koefficienterna är bara polynom. Det finns ändligt många komplexa tal $c\in\C$ så att $f(x,c)-d=0$ 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Givet $f(x,y) = yx^2+y^2x+3$. Sätt $y=c$, vi får då:
+\begin{equation*}
+  \begin{gathered}
+    f(x,c) = cx^2+c^2x+3
+  \end{gathered}
+\end{equation*}\par
+\noindent Typiskt sett har detta polynom 2 rötter, ty det är ett andragradspolynom, men det finns vissa undantag såsom när $c$ är valt så att det blir konstant\par
+\noindent I detta fall gäller detta när $c=0$, för det är då vi får ett konstant polynom
+\par\bigskip
+\begin{theo}[Hillberts nollställessats]{thm:hillbert}
+  Denna sats gäller i allmän dimension, men vi ska formulera den för kurvor.\par
+  \noindent Tag 2st polynom $f,g\in\C[x,y]$\par
+  \noindent Vi har sett att $V(f) = V(g)$ oavsett hur olika polynomen ser ut (för reella fall), vi kikar på hur det ser ut i den komplexa världen:
+  \begin{equation*}
+    \begin{gathered}
+      V(f) = V(g)\Lrarr\text{$f,g$ har samma irreducibla faktorer}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Givet $V(f)$ finns ett "enklaste" polynom med denna nollställesmängd, nämligen den som har \textit{en} irreducibel faktor (faktorer av multiplicitet 1), exempelvis:
+\begin{equation*}
+  \begin{gathered}
+    V((x^2+y^2-1)^2)(x+y)^3 = V((x^2+y^2-1)(x+y))
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är det värsta som kan hända! Nollställesmängden bestämmer mer eller mindre polynomet upp till multiplicitet (i $\C$)
+\par\bigskip
+\noindent Hur ser $V(f)$ ut? Vi kikar närmare på definitionen av $f(x,y) = 0$:
+\begin{equation*}
+  \begin{gathered}
+    f:\C^2\to\C \Lrarr f:\R^4\to\R^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är två rella ekvationer i fyra rella variabler, vi förväntar oss (rell) dimension 2 (tänk gausseliminering, 2 ekvationer, 4 variabler, ger oftast 2 parametrar (om de är oberoende)).\par
+\noindent Vi kan användan implicita funktionssatsen för att visa att lokalt kring \textit{icke-singulära punkter} är $V(f)$ en 2D disk
+\newpage
+\noindent\textbf{Sammanfattning}:
+\begin{itemize}
+  \item Komplexa kurvor har \textbf{många} punkter (med bevis)
+  \item Komplexa kurva bestämmer $f$ nästan entydigt (Hillberts nollställessats)
+  \item Komplexa kurvor är rella ytor (Implicita funktionssatsen)
+\end{itemize}\par
+\noindent Tricket går i någon mening ut på att reducera till en variabel och sedan använda algebrans fundamentalsats, precis som man i flervarren reducerade till en variabel och bevisade envariabelfallet.
+\newpage
+\section{Skärningstalet}\par
+\noindent Vi vill försöka hitta ett sätt att räkna skärningen mellan kurvor med multiplicitet.\par
+\noindent Sättet vi kommer göra detta på är inte genom att definiera skärningstalet (detta gör vi sista föreläsningen), utan att vi komma lista upp de egenskaper vi vill ha och hitta axiom som gör att vi kan arbeta med dessa egenskaperna och hitta det vi vill hitta.
+\par\bigskip
+\noindent Vi vill definiera en funktion $I_p(f,g)$ där $p\in\C^2$ och $f,g\in\C[x,y]$. Tanken är att $I_p(f,g) =$ antalet gånger $f,g$ skär varandra i $p$, det vill säga i $\C^2$
+\par\bigskip
+\noindent Denna funktion $I_p(f,g)\in\N\cup\left\{\infty\right\}$ (vi behöver oändligheten om exempelvis 2 kurvor är lika så sammanfaller de oändligt mycket).
+\par\bigskip
+\noindent\textbf{Axiom 0}:\par
+\noindent Vi vill kunna titta på skärningen i vilket affint koordinatssystem som helst (bevaras under affin transformation): (Affint invariant)
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_{F^{-1}(p)}(F^*f,F^*g)\qquad\forall F\in\text{Aff}_\C(2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 1:}\par
+\noindent Säger att $f$ och $g$ skär varandra lika många gånger som $g$ och $f$ skär varandra:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_p(g,f)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 2:}\par
+\noindent Skärningstalet mellan $f$ och $g$ skall vara nollskillt omm punkten $p$ ligger på båda kurvorna:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g)\neq0\Lrarr f(p) = g(p) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 3:}\par
+\noindent Koordinataxlarna (speciella kurvor) skär varandra i en enda punkt, alltså borde de har skärningstalet 1:
+\begin{equation*}
+  \begin{gathered}
+    I_0(x,y) = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 4:}\par
+\noindent $I_p(f,gh) = I_p(f,g)+I_p(f,h)$ 
+\par\bigskip
+\noindent\textbf{Axiom 5:}\par
+\noindent Skärningstalet i $p$ mellan $f$ och $g$ är detsamma som skärningstalet mellan $f$ och $g+fh$:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_p(f,g+fh)\qquad\forall h\in\C[x,y]
+  \end{gathered}
+\end{equation*}\par
+\noindent\textit{Motivering:} Antag först att $p\in V(f)\cap V(g)\Lrarr f(p)=0=g(p)$. Då gäller:
+\begin{equation*}
+  \begin{gathered}
+    f(p) = 0\\
+    \underbrace{g(p)}_{\text{=0}}+\underbrace{f(p)}_{\text{=0}}h(p) = 0\Lrarr I_p(f,g+fh)\neq0
+  \end{gathered}
+\end{equation*}\par
+\noindent Dvs $I_p(f,g) = 0$ omm $I_p(f,g+fh) = 0 \forall h$.\par
+\noindent Vi kan också se att $f,g$ skär varandra transversellt i $p$ omm $,g+fh$ skär varandra transversellt i $p$ 
+\par\bigskip
+\noindent\textbf{Exempel:}Hur kan axiomen användas för beräkning?\par
+\noindent Vi vet vad vi vill i vissa situationer, betrakta $f(x,y) = y-x^2$, vi vill hitta $I_0(y,y-x^2)$. Rimligtvis borde detta vara 2
+\par\bigskip
+\noindent Vi använder axiom 5, och adderar $-y$ i andra inputen så vi får $I_0(y,-x^2)$\par
+\noindent Nu kan vi använda axiom 4, ty det är samma sak $I_0(y,x^2) + \underbrace{I_0(y,-1)}_{\text{=0}}$ (vi använder axiom 2, eftersom de skär ej varandra)\par
+\noindent $\Rightarrow I_0(y,x^2)=I_0(y,x)+I_0(y,x)=2I_0(x,y)=2$

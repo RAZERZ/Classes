@@ -3,3 +3,5 @@
 \contentsline {section}{\tocsection {}{3}{Klassificering av andragradspolynom i två variabler}}{7}{section.3}%
 \contentsline {section}{\tocsection {}{4}{Övningsuppgifter}}{8}{section.4}%
 \contentsline {section}{\tocsection {}{5}{Komplexa planet $\mathbb {C}^2$}}{8}{section.5}%
+\contentsline {section}{\tocsection {}{6}{Vad är bra med $\mathbb {C}$-kurvor?}}{10}{section.6}%
+\contentsline {section}{\tocsection {}{7}{Skärningstalet}}{12}{section.7}%

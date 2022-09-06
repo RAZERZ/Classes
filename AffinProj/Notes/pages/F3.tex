@@ -86,8 +86,23 @@
   \begin{itemize}
     \item $x^2+y^2-1$ (cirkel)
     \item $x^2-y$ (parabel) (här kan vi använda $T(x,y) = (x,iy)$ för att få cirkel)
-    \item $x^2´y^2$ (linjekors)
+    \item $x^2+y^2$ (linjekors)
     \item $x(x-1)$ (parallell linje)
     \item $x^2$ ("dubbellinje")
   \end{itemize}
 \end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande polynom: $f(x,y) = x^2+2xy+y^2+2x-3y+1$\par
+\noindent Vi behöver nldvändigtvis inte finna den kvadratiska formen här, utan vi kan göra det för hand genom att kvadratkomplettera alla kvadratiska termer med $x$ och och $xy$:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \underbrace{(x+y)^2}_{\text{kvadratiskt}}+\underbrace{2x-3y+1}_{\text{linjärt}}\\
+    \begin{rcases*}
+      x = x+y\\
+      y = 2x-3y+1
+    \end{rcases*}
+    \Rightarrow det\begin{pmatrix}1&1\\2&-3\end{pmatrix}\neq0\\
+    \Rightarrow X^2+Y \Rightarrow\text{Parabel}
+  \end{gathered}
+\end{equation*}
