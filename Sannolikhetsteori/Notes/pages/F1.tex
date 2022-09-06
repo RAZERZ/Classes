@@ -2,23 +2,52 @@
 \subsection{Mängdlära}\hfill\\
 \par
 \noindent \textbf{Tips för hela kursen!} Rita venndiagram\par
-$\Omega$ är vår grundmängd/utfallsrum\par
-\noindent $x\in\Omega$: $x$ är ett element/utfall i $\Omega$\par
-\noindent $A\subseteq\Omega$:$A$ är en delmängd/händelse till $\Omega$\par
-\noindent $2^{\Omega} = \{A:A\subseteq\Omega\}$, kallas även för potensmängden
+
 \par\bigskip
 \subsection{Begrepp}\hfill\\
 \par
-\noindent Om $A$ och $B$ är disjunkta säger vi att de är \textbf{oförenliga}, dvs $A\cap B = \O$\par\par
-\noindent $A,B$ och $C$ är disjunkta om $A\cap B = \O$ och $A\cap C = \O$ och $B\cap C=\O$\par
-\noindent $\lambda\subseteq 2^{\Omega}$ är disjunkta om $A\cap B = \O$ för alla $A,B\in\lambda$\par
-\noindent Sannolikhetsrum = ($\Omega, P$)
+\begin{itemize}
+  \item Om $A$ och $B$ är disjunkta säger vi att de är \textbf{oförenliga}, dvs $A\cap B = \O$\par\par
+  \item $A,B$ och $C$ är disjunkta om $A\cap B = \O$ och $A\cap C = \O$ och $B\cap C=\O$\par
+  \item $\lambda\subseteq 2^{\Omega}$ är disjunkta om $A\cap B = \O$ för alla $A,B\in\lambda$\par
+  \item Sannolikhetsrum = ($\Omega, P$)
+  \item $x\in\Omega$: $x$ är ett element/utfall i $\Omega$\par
+  \item $A\subseteq\Omega$:$A$ är en delmängd/händelse till $\Omega$\par
+  \item $2^{\Omega} = \{A:A\subseteq\Omega\}$, kallas även för potensmängden
+  \item $\Omega$ är vår grundmängd/utfallsrum\par
+\end{itemize}
 \par\bigskip
+\begin{theo}[Utfall, händelser, utfallsrum]{thm:a}
+  Resultatet av ett slumpförsök kallas ett \textit{utfall}. Mängden av möjliga utfall från ett visst slumpförsök kallas \textit{utfallsrum}. En viss specifierad mängd utfall kallas för en \textit{händelse}. Från detta följer det att ett utfall även är en händelse, precis som hela utfallsrummet också är en händelse 
+\end{theo}
+\par\bigskip
+\noindent Det är viktigt här att notera att vi arbetar med mängder, och element i mängder behöver nödvändigtvis inte vara tal. 
+\par\bigskip
+\noindent Det som är även viktigare att inse är att i den klassiska definitionen man kanske sett på högstadiet/gymnasiet så hade alla utfall "samma vikt", det vill säga om vi har totalt 2 möjliga utfall så har varje utfall en sannolikhet på $\dfrac{1}{2}$ att inträffa. Det som är fiffigt med denna definition är att det bilr enkelt att inse att sannolikheten för att hela utfallsrummet skall ske är $1$ (vilket är något vi bevarar i vår definition), men verkligheten är lite annorlunda. Det kanske är så att sannolikheten för ett utfall faktiskt är $\dfrac{1}{6}$ men det andra är $\dfrac{5}{6}$.\par
+\noindent Vi definierar följande:
+\par\bigskip
+\begin{theo}[Likformig sannolikhetsfördelning]{thm:equalprob}
+  Ett slumpexperiment med ändligt utfallsrum sägs ha \textit{Likformig sannolikhetsfördelning} om alla utfall har samma sannolikhet.
+\end{theo}
+\par\bigskip
+\noindent Det vi noterar från definitionen ovan är att om vi har $n$:st utfall så kommer sannolikheten för varje utfall att vara $\dfrac{1}{n}$. Detta kallade vi för "klassiska" sannolikheten eftersom det är den man kanske klassiskt stött på, men faktum är att vi faktiskt definierar klassisk sannolikhet som just det:
+\par\bigskip
+\begin{theo}[Klassiska sannolikhetsdefinitionen]{thm:classiqprob}
+  För ett slumpexperiment med ändligt utfallsrum och med likformig sannolikhetsfördelning gäller att sannolikheten för en händelse är lika med antalet utfall i händelsen dividerat med antalet utfall i utfallsrummet, dvs antalet gynnsamma utfall dividerat med antalet möjliga utfall.\par
+  \noindent Om händelsen $A$ innehåller $n(A)$ utfall och utfallsrummet har $n(\Omega)$ utfall gäller alltså att:
+  \begin{equation*}
+    \begin{gathered}
+      P(A) = \dfrac{n(A)}{n(\Omega)}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+
+\newpage
 \section{Regler för sannolikheter - (K2.2)}
 \par\bigskip
 \subsection{Kolmogorovs Axiom}\hfill\\
 \par
-Ett \textbf{sannolikhetsmått} är en funktion $P:2^{\Omega}\to\R$ som uppfyller:
+\noindent Ett \textbf{sannolikhetsmått} är en funktion $P:2^{\Omega}\to\R$ som uppfyller:
 \begin{itemize}
   \item $P(A)\geq0\quad \forall A\in2^{\Omega}$
   \item $P(\Omega) = 1$

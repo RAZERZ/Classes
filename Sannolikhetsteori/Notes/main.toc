@@ -1,11 +1,11 @@
 \contentsline {section}{\tocsection {}{1}{Repetition - (K2.1)}}{2}{section.1}%
 \contentsline {subsection}{\tocsubsection {}{1.1}{Mängdlära}}{2}{subsection.1.1}%
 \contentsline {subsection}{\tocsubsection {}{1.2}{Begrepp}}{2}{subsection.1.2}%
-\contentsline {section}{\tocsection {}{2}{Regler för sannolikheter - (K2.2)}}{2}{section.2}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Kolmogorovs Axiom}}{2}{subsection.2.1}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{$A^c$}}{4}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{B-A}}{4}{subsection.2.3}%
-\contentsline {section}{\tocsection {}{3}{Tolkning av sannolikheter}}{5}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{Sannolikhetsmåttet $P$}}{5}{subsection.3.1}%
-\contentsline {section}{\tocsection {}{4}{Betingade sannolikheten $P(A|B)$}}{7}{section.4}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Oberoende utsagor}}{8}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{2}{Regler för sannolikheter - (K2.2)}}{3}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Kolmogorovs Axiom}}{3}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{$A^c$}}{5}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{B-A}}{5}{subsection.2.3}%
+\contentsline {section}{\tocsection {}{3}{Tolkning av sannolikheter}}{6}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Sannolikhetsmåttet $P$}}{6}{subsection.3.1}%
+\contentsline {section}{\tocsection {}{4}{Betingade sannolikheten $P(A|B)$}}{8}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Oberoende utsagor}}{9}{subsection.4.1}%
