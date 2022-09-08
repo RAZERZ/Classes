@@ -1,1 +1,185 @@
-\section{}
+\section{Slumpvariabler}
+\par\bigskip
+\begin{theo}[Slumpvariabel]{thm:randomvar}
+  En \textit{slumpvariabel} är en funktion $X:\Omega\to\R$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi tar vårt favoritexempel där $\Omega = \left\{\text{Uppsalas befolkning}\right\}$ \par
+\noindent Vi kan då låta $X = $längd, och ta en annan slumpvariabel $Y = $ skostorlek, och sist men inte minst\par\noindent $Z =$ ålder\par
+\noindent Då hade $X(\text{Markus}) = 173$ och $Y(\text{Markus}) = 40$ och $Z(\text{Markus})=25$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi kan ta vår andra favorit, singla slant $n$ gånger. Istället för krona klave, skriver vi $\left\{H,T\right\}$ för heads och tails.\par
+\noindent Då är $\Omega = \left\{H,T\right\}$. Detta är ett exempel på en klassisk sannolikhet, det vill säga $P(\omega) = \dfrac{1}{2^n}\qquad\forall \omega\in\Omega$\par
+\noindent Vi kan då definiera en slumpvariabel $X=$ antalet krona (heads), då kanske det hade sett ut på följande sätt om $n=3$ och funktionen på följden hade sett ut på följande:
+\begin{equation*}
+  \begin{gathered}
+    X(H,T,H) = 2\qquad X(T,T,T) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En annna slumpvariabel vi kan skapa är $Y=$ antalet klave $=n-X$\par
+\noindent En annan slumpvariabel vi kan skapa är följande:
+\begin{equation*}
+  \begin{gathered}
+    X_1=
+    \begin{rcases*}
+      1,\text{ första slanten hamnar på krona}\\
+      0, \text{ annars}
+    \end{rcases*}\\
+    X_i =
+    \begin{rcases*}
+      1, \omega_i = H\\
+      0, \omega_i = T
+    \end{rcases*}\\
+    \Rightarrow X= \sum_{i=1}^{n}X_i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En grej slumpvariabler är bra till är att beskriva händelser.
+\par\bigskip
+\noindent\textbf{Exempel:} Samma sannoliketsrum och $X:\Omega\to\R$\par
+\noindent Då är $\left\{\omega:X(\omega)=2\right\}=$ Antalet krona är exakt $P(\left\{\omega:X(\omega)=2\right\})=\dfrac{\begin{pmatrix}n\\2\end{pmatrix}}{2^n}$
+\par\bigskip
+\noindent Ett annat exempel vi kan ta är $\left\{\omega:X(\omega)\geq2\right\} = $ Minst 2 krona. Vi vill nu hitta $P(X\geq2)$.\par
+\noindent Om vi lägger på följande: $P(\left\{X\geq2\right\}\cup\left\{X<2\right\})$ som är disjunkta och vi kan därmed summera utfallen $ = P(X\geq2)+P(X<2) = 1$\par
+\noindent Vi kan skriva om $P(X<2) = P(\left\{X=0\right\}\cup\left\{X=1\right\}) = P(X=0)+P(X=1) = \dfrac{1}{2^n}+\dfrac{n}{2^n}$\par
+\noindent Vi får då $\Rightarrow P(X\geq2) = 1-\dfrac{1}{2^n}-\dfrac{n}{2^n}$
+\par\bigskip
+\noindent Inga konstigheter, bara lite kombinatorik, hävdar föreläsaren.
+\par\bigskip
+\noindent Vi kan generalisera begreppet slumpvariabler:
+\par\bigskip
+\begin{theo}
+  EEn $n$-dimensionell slumpvariabel är en funktion $X:\Omega\to\R^n$
+\end{theo}
+\par\bigskip
+\noindent Isåfall kan vi skriva $X = (X_1,\cdots,X_n)$ där $X_i$ är slumpvariabel\par
+\noindent Vi kommer inte använda flerdimensionella slumpvariabler så mycket, men de kommer behövas för att uttrycka vissa händelser när vi har flera samtidigt.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Samma sannoliketsrum och samma definition av $X_i$. Då är $X_1,\cdots, X_n$ en $n$-dimensionell slumpvariabel
+\par\bigskip
+\noindent Det är viktigt att komma ihåg att dessa slumpvariabler måste vara definierade på samma sannoliketsrum.
+\par\bigskip
+\noindent Vi skriver till exempel $P(X=a)$ för $P(\left\{\omega:X(\omega)=a\right\})$.
+\par\bigskip
+\noindent Vi skriver även till exempel $P(a<X\leq b) = P(\left\{\omega:X(\omega)\in(a,b]\right\})$
+\par\bigskip
+\noindent Om vi skriver $P(X_1\in A_1,\cdots,X_n\in A_n)$ menar vi att vi tar sannolikheten för snittet av alla, dvs $P(\left\{\omega: X_1(\omega)\in A_1\right\}\cap\cdots\cap\left\{\omega:X_n(\omega)\in A_n\right\})$
+\par\bigskip
+\noindent Skriver vi $X^{-1}(A)\qquad(A\in\R)$ definierar vi detta genom $\omega\in X^{-1}(A)\Lrarr X(\omega)\in A$. Kallas även för urbilden av $A$ under $X$. Vi skriver $P(X\in A)$ för $P(X^{-1}(A))$
+\par\bigskip
+\noindent $P\circ X^{-1}$ definierar ett sannolikhetsmått på $\R$. Med andra ord $(P\circ X^{-1})(A) = P(X^{-1}(A)) = P(X\in A)$\par
+\noindent Om det är ett sannolikhetsmått så ska Kolmogorovs axiom gälla, detta måste vi verifiera vilket vi gör enligt föjande:\par
+\begin{itemize}
+  \item $P(X^{-1}(A))\geq0\qquad\forall A\subseteq\R$ (detta gäller eftersom $X^{-1}(A)\subseteq\Omega$)
+  \item $P(X^{-1}(\R)) = P(\Omega) = 1$
+  \item Först notera att $X^{-1}(A\cap B) = X^{-1}(A)\cap X^{-1}(B)$. Detta följer eftersom om vi tar ett element $\omega\in X^{-1}(A\cap B)$ så betyder det att $X(\omega)\in A$ och $X(\omega)\in B$
+    \par
+    \noindent Att säga det är samma sak som att säga $\omega\in X^{-1}(A)$ och $\omega\in X^{-1}(B)\Lrarr \omega\in X^{-1}(A)\cap X^{-1}(B)$\par\bigskip
+    \noindent Så om $A\cap B = \O$ så kommer $X^{-1}(A)\cap X^{-1}(B) = X^{-1}(A\cap B) = X^{-1}(\O) = \O$. Vi kan nu relatera disjunkta händelser i $\R$ till disjunkta händelser i $\Omega$\par
+    \noindent Tag nu en oändlig följd av händelser $A_1, A_2,\cdots\subseteq\R$. Då gäller
+    \begin{equation*}
+      \begin{gathered}
+        X^{-1}\left(\bigcup_{i=1}^{\infty}A_i\right) = \bigcup_{i=1}^{\infty}X^{-1}(A_i)
+      \end{gathered}
+    \end{equation*}\par
+    \noindent Så om $A_1,A_2\cdots$ är disjunkta, så måste vi kolla att följande gäller:
+    \begin{equation*}
+      \begin{gathered}
+        P\circ X^{-1}\left(\bigcup_{i=1}^{\infty}A_i\right) = P(X^{-1}\left(\bigcup_{i=1}^{\infty}A_i\right)) = P\left(\bigcup_{i=1}^{\infty}\underbrace{X^{-1}(A_i)}_{\text{disjunkta}}\right) = \sum_{i=1}^{\infty}P(X^{-1}(A_i)) = \sum P\circ X^{-1}(A_i)
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\begin{theo}[Diskreta slumpvariabler]{thm:discrandvar}
+  Vi säger att en slumpvariabel $X:\Omega\to\R^n$ är en diskret slumpvariabel om sanholikhetsmåttet $P\circ X^{-1}$ är diskret.
+\end{theo}
+\par\bigskip
+\noindent Vad betyder det att måttet var diskret? Jo, det betyder att det finns en uppräknelig mängd $\left\{x_1,x_2,\cdots,\right\}\subseteq\R^n$ så att $P(x\in\left\{x_1,x_2\cdots\right\})=1$\par
+\noindent Från tidigare föreläsningar vet vi att vissa av dessa utfall måste ha positiv sannolikhet.
+\par\bigskip
+\begin{theo}[Sannolikhetsfunktionen]{thm:probfunc}
+  \begin{equation*}
+    \begin{gathered}
+      P_X(x) = P(X=x)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Omega = \left\{H,T\right\}^n$ och slumpvariabeln $X_i$ som den är definierad ovan.\par
+\noindent Vi vill nu hitta $P(X=1)$, vilket gäller om singlingen är krona = $\dfrac{1}{2}$ som är samma sak som $P(X=0)$, alltså gäller följande:
+\begin{equation*}
+  \begin{gathered}
+    P_{X_i}(X)=
+    \begin{rcases*}
+      1/2\text{, $x=0$ eller $x=1$}\\
+      0\text{ annars}
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Tar vi $X$ till att vara antalet krona (som tidigare), så letar vi efter $P(X=k)$. Vi kan börja med att undersöka vad $P(X=0)$:
+\begin{equation*}
+  \begin{gathered}
+    P(X=0)=\dfrac{1}{2^n}\qquad P(X=k) = \dfrac{\begin{pmatrix}n\\k\end{pmatrix}}{2^n}\qquad (k=0,1,\cdots, n)\\
+    P_x(x) = 
+    \begin{cases*}
+      \dfrac{\begin{pmatrix}n\\x\end{pmatrix}}{2^n},\qquad x= 0,\cdots,n\\
+      0,\text{ annars}
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För en diskret slumpvariabel så bestäms \textit{fördelningen} till $X$ (sannolikhetsmåttet $P\circ X^{-1}$) unikt genom Sannolikhetsfunktionen.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Tag $X_i$ från tidigare. Vad är då Sannolikhetsfunktionen för den flerdimensionella slumpvariabeln?\par
+\noindent Vi söker alltså:
+\begin{equation*}
+  \begin{gathered}
+    P_{X_1,\cdots,X_n}(x_1,\cdots,x_n) = P(X_1=x_1,\cdots,X_n=x_n)
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi antar att $\left\{x_1,\cdots,x_n\right\}\in\left\{0,1\right\}$. \par
+\noindent Men vad betyder det att någon av inputen är 0? Det som är viktigt att notera är att alla händelser i detta fall är oberoende, då kan vi göra
+\begin{equation*}
+  \begin{gathered}
+    P(X_1=x_1)\cdots P(X_n=x_n)=\dfrac{1}{2^n},\qquad P_{\bar{X}}(\bar{x}) = 
+    \begin{cases*}
+    1/2^n, x_i\in\left\{0,1\right\}\quad\forall i\\
+    0\text{ annars}
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Oberoende slumpvariabler]{thm:undert}
+$X_1,\cdots,X_n$ är oberoende om för varje $A_1,\cdots,A_n\subseteq\R$ så är $\left\{x_1\in A_1\right\},\cdots,\left\{X_n\in A_n\right\}$ oberoende.
+\end{theo}
+\par\bigskip
+\noindent Med andra ord, så är sannolikheten (1) $P(X_{i_{1}}\in A_{i_{1}},\cdots,X_{i_{m}}\in A_{i_{m}}) = P(X_{i_{1}}\in A_{i_{1}})\cdots P(X_{i_{m}}\in A_{i_{m}})$\par
+\noindent Detta går att skriva om:
+\begin{equation*}
+  \begin{gathered}
+    P(X_{i_{1}}\in A_{i_{1}},\cdots, X_{i_{m}}\in A_{i_{m}}, X_{j_{1}}\in\R,\cdots, X_{j_{n-m}}\in\R)\\
+    \Rightarrow P(X_{i_{1}}\in A_{i_{1}})\cdots P(X_{i_{m}}\in A_{i_{m}})\underbrace{P(X_{j_{1}}\in\R)}_{\text{=1}}\cdots \underbrace{P(X_{j_{n-m}}\R)}_{\text{=1}}\\
+    \text{Antag } P(X_1\in A_1,\cdots, X_n\in A_n) = P(X_1\in A_1)\cdots P(X_n\in A_n)\quad (2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då gäller $(1)\Lrarr (2)$\par
+\noindent Det räcker alltså att kolla $P(X_1\in A_1,\cdots, X_n\in A_n) = P(X_1\in A_1)\cdots P(X_n\in A_n)$ för att visa obereonde.
+\newpage
+\begin{theo}
+  FFör diskreta slumpvariabler $X_1,\cdots, X_n$, har vi oberoende omm\par
+  \noindent $P_{X_1,\cdots,X_n}(x_1,\cdots,x_n) = P_{X_1}(x_1)\cdots P_{X_n}(x_n)$ 
+\end{theo}
+\par\bigskip
+\begin{prf}[Bevis av föregående sats]{prf:bwgi}
+  Riktningen $\Rightarrow$ är självklar (sätt $A_1 = \left\{X_1=x_1\right\},\cdots,\left\{X_n=x_n\right\}$)
+  \par\bigskip
+  \noindent Andra håller är mindre självklar. Vi vill visa $P(X_1\in A_1,\cdots, X_n\in A_n) = P(X_1\in A_1)\cdots P(X_n\in A_n)$ för alla delmängder $A_1,\cdots, A_n$
+\end{prf}
