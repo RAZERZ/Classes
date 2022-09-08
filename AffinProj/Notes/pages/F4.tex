@@ -62,7 +62,7 @@
 \end{itemize}\par
 \noindent Tricket går i någon mening ut på att reducera till en variabel och sedan använda algebrans fundamentalsats, precis som man i flervarren reducerade till en variabel och bevisade envariabelfallet.
 \newpage
-\section{Skärningstalet}\par
+\section{Skärningstalet (skärningsmultiplicitet)}\par
 \noindent Vi vill försöka hitta ett sätt att räkna skärningen mellan kurvor med multiplicitet.\par
 \noindent Sättet vi kommer göra detta på är inte genom att definiera skärningstalet (detta gör vi sista föreläsningen), utan att vi komma lista upp de egenskaper vi vill ha och hitta axiom som gör att vi kan arbeta med dessa egenskaperna och hitta det vi vill hitta.
 \par\bigskip
@@ -128,3 +128,124 @@
 \noindent Vi använder axiom 5, och adderar $-y$ i andra inputen så vi får $I_0(y,-x^2)$\par
 \noindent Nu kan vi använda axiom 4, ty det är samma sak $I_0(y,x^2) + \underbrace{I_0(y,-1)}_{\text{=0}}$ (vi använder axiom 2, eftersom de skär ej varandra)\par
 \noindent $\Rightarrow I_0(y,x^2)=I_0(y,x)+I_0(y,x)=2I_0(x,y)=2$
+\par\bigskip
+\subsection{Konsekvenser av axiomen}\hfill\\\par
+\noindent Vi skall titta på olika sätt att beräkna skärningstalet givet två polynom och en punkt. Framförallt, i fallet när en av kurvorna är grafen till ett envariabelpolynom ($y-p(x)=0$)
+\par\bigskip
+\noindent Vi har redan sett följande exempel:
+\begin{equation*}
+  \begin{gathered}
+    I_0(y,y-x^m)
+  \end{gathered}
+\end{equation*}\par
+\noindent (då $m=2$) så såg vi att $I_0=m$. I den räkningen såg vi även att detta var lika med $I_0(y,x^m)$, där vi har $m$-st multiplar av $y$-axeln
+\par\bigskip
+\begin{theo}
+  OOm ett polynom $h(p)\neq0$ så gäller:
+  \begin{equation*}
+    \begin{gathered}
+      I_p(f,gh) = I_p(f,g)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Detta är praktiskt, för man kan kasta bort faktorer som är nollskillda och förenkla mycket. Beviset sker genom att använda 4de axiomet samt det andra.
+\par\bigskip
+\noindent Skärningstalet verkar generalisera multipliciten för envariabelfallet, exempelvis kan vi betrakta $x^3$ som har ett nollställe, fast multiplcitet 3.
+\par\bigskip
+\begin{theo}
+  OOm $f=y-p(x)$ (graf till envariabelpolynom) och $a$ är ett nollställe till $p(x)$ med multiplcitet $k$ så:
+  \begin{equation*}
+    \begin{gathered}
+      I_{(a,0)}(y-p(x),y) = k
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[Föregående sats]{prf:jgwo}
+  $a$ nollställe av multiplcitet $k$ betyder per definition:
+  \begin{equation*}
+    \begin{gathered}
+      p(x) = (x-a)^kq(x)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent för något polynom $q$ där $q(a)\neq0$\par
+  \noindent Vi räknar:
+  \begin{equation*}
+    \begin{gathered}
+      I_{(a,0)}(y-p(x),y) = I_{(a,0)}(p(x),y) = I_{(a,0)}\left((x-a)^kq(x),y\right)\\
+      \Lrarr I_{(a,0)}\left((x-a)^k,y\right)\text{ (Theorem 7.1)}\\
+      kI_{(a,0)}((x-a),y) = kI_{(0,0)}(x,y) = k
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}
+  AAntag att $f$ är en faktor till $g$ ($g=f\cdot h$). Det betyder att $f(p) \Rightarrow I_p(f,g)=\infty$:
+  \begin{equation*}
+    \begin{gathered}
+    I_p(f,g) = I_p(f,fh) = I_p(f,0)=I_p(f,0^n) = nI_p(f,0)\geq1\geq n
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Övning}:\par
+\noindent Om $h$ delar $f$ och $h$ delar $g$ samt $h(p)=0$
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Beräkna skärningstalet mellan $y-x^2$ och $y^3+2xy+x^6$ i origo:\par
+\begin{equation*}
+  \begin{gathered}
+    I_{(0,0)}((y-x^2), (y^3+2xy+x^6)) = I_{(0,0)}(y-x^2,2xy+x^6+x^2y^2) = I_{(0,0)}(y-x^2,2xy+x^6+yx^4)\\
+    \Rightarrow I_{(0,0)}(y-x^2,(2x+x^4)y+x^6) = I_{(0,0)}(y-x^2,2(x^3+x^6))\\
+    \Rightarrow I_{(0,0)}(y-x^2,x^3\underbrace{(2+2x^3)}_{\text{$\neq0$ i $(0,0)$}})\\
+    \Rightarrow I_{(0,0)}(y-x^2,x^3) = 3I_{(0,0)}(y-x^2,x) = 3I_{(0,0)}(y,x) = 3\cdot1=3
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Tricket är att reducera till ett envariabelfall. I vårat fall så hade vi tur att $y$ inte var upphöjt till något och därmed lätt att multiplicera med polynom.
+\par\bigskip
+\noindent Detta påminner lite om polynomdivision. Det är stort sett det vi gjort, fast i två variabler (vilket man allmänt inte kan med polynomdivision).
+\par\bigskip
+\begin{theo}[Polynomdiv. av flervariabla funktioner i ringar]{thm:poly}
+  $p(x)\in k[x],\quad f(x,y)\in k[x,y]$\par
+  \noindent Då finns entydiga polynom $q(x,y)$ och $r(x)$ så att:
+  \begin{equation*}
+    \begin{gathered}
+      f(x,y) = (y-p(x))q(x,y)+r(x)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Dessutom är $r(x) = f(x,p(x))$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  LLåt $f=y-p(x)\quad g\in\C[x,y],\quad f\neq gh$. Låt även $k= $ mult$_{x=0}\quad g(x,p(x))$\par
+  \noindent Då är skärningsmultipliciten av $f$ med $g$ i origo $=k$:
+  \begin{equation*}
+    \begin{gathered}
+      I_{(0,0)}(y-p(x),g(x,y))=k
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent ($p(0)=0$ och $g(0,0)=0$)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\begin{equation*}
+  \begin{gathered}
+    I_{(0,0)}(y-\underbrace{x^2}_{\text{$p(x)$}},\underbrace{x^3+2xy+x^6}_{\text{$g(x,y)$}})\\
+    g(x,p(x)) = g(x,x^2) = x^6+2x^3+x^6 = x^3(2+2x^3)
+  \end{gathered}
+\end{equation*}\par
+\noindent Svar: 3
+\par\bigskip
+\begin{theo}[Generalisering av föregående sats]{thm:goiwh}
+  Låt $f=y-p(x)$ och $g\in\C[x,y]$ och $f$ inte delar $g$.\par
+  \noindent Om vi skriver:
+  \begin{equation*}
+    \begin{gathered}
+      g(x,p(x)) = r(x) = c(x-a_1)^{s_1}\cdots(x-a_n)^{s_n}\\
+      I_{(a_i,p(a_i))}(f,g) = s_i\text{ och 0 annars}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
