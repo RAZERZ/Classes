@@ -14,3 +14,5 @@
 \contentsline {section}{\tocsection {}{7}{Övning}}{18}{section.7}%
 \contentsline {section}{\tocsection {}{8}{Generaliserade Finita Automater [GFA]}}{19}{section.8}%
 \contentsline {subsection}{\tocsubsection {}{8.1}{Tillståndseliminationsalgoritmen}}{19}{subsection.8.1}%
+\contentsline {section}{\tocsection {}{9}{Analys av reguljära uttryck}}{30}{section.9}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{Minimering av DFA}}{30}{subsection.9.1}%

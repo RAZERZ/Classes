@@ -1,0 +1,144 @@
+\section{Analys av reguljära uttryck}\par
+\noindent Om $L$ är ett reguljärt uttryck $\Lrarr$ $L$ accpeteras av någon NFA $\Lrarr$ $L$ accpeteras av någon DFA. Detta väcker frågan, vad är den minsta DFA:n vi kan skapa givet ett reguljärt uttryck?
+\par\bigskip
+\subsection{Minimering av DFA}\hfill\\\par
+\begin{theo}
+  EEn DFA $M$ är \textit{minimal} om det inte finns en DFA som accepterar samma som $M$ och har färre tillstånd än $M$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  LLåt $M$ vara en DFA och $w$ en sträng ($w$ är en sträng över $M$:s alfabet).\par
+  \noindent Vi säger att $w$ \textit{driver} DFA:n $M$ från ett tillstnd $p$ till ett annat $q$ om när $M$ startas i tillstånd $P$ med $w$ på tapen så stannar $M$ i tillstånd $q$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$p_0$};
+      \node[state, below left of=p0, xshift=-1cm, yshift=-1cm](p1){$p_1$};
+      \node[state, right of=p1, xshift=1cm](p2){$p_2$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p1) edge (p0);
+      \path[-stealth] (p1) edge[below] node{$b$} (p2);
+      \path[-stealth] (p2) edge (p1);
+      \path[-stealth] (p0) edge[left, bend right] node{$b$} (p2);
+      \path[-stealth] (p2) edge[right, bend right] node{$a$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Här driver strängen $aaa$ $M$ från $p_2$ till $p_0$. Strängen $ab$ driver $M$ från $p_2$ till $p_2$
+\par\bigskip
+\noindent Om ingen sträng driver $M$ från starttillstånd till $q$ så kallas $q$ för \textit{isolerat} tillstånd.
+\par\bigskip
+\noindent\textbf{Exempel:}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$p_0$};
+      \node[state, below left of=p0, yshift=-1cm, xshift=-1cm](p1){$p_1$};
+      \node[state, right of=p0, xshift=1cm](p2){$p_2$};
+      \node[state, below of=p2, yshift=-1cm](p3){$p_3$};
+      \path[-stealth] (p0) edge[left] node{$a$} (p1);
+      \path[-stealth] (p1) edge (p0);
+      \path[-stealth] (p1) edge[loop left] node{$b$} (p1);
+      \path[-stealth] (p0) edge[loop below] node{$b$} (p0);
+      \path[-stealth] (p2) edge[above, bend right] node{$b$} (p0);
+      \path[-stealth] (p2) edge[right] node{$a$} (p3);
+      \path[-stealth] (p3) edge (p2);
+      \path[-stealth] (p3) edge[loop below] node{$b$} (p3);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Notera här att $p_2$ och $p_3$ är isolerade tillstånd! Då kan vi lika gärna plocka bort de utan att det påverkar vilka strängar som accepteras.
+\newpage
+\begin{theo}[Reduktion av ett tillstånd (om möjligt)]{thm:reduct}
+  Låt $M$ vara en DFA (utan isolerade tillstånd) och antag att $p$ och $q$ är olika tillstånd i $M$.\par
+  \noindent Antag att följande villkor gäller för varje sträng $w$ (även $\varepsilon$):
+  \begin{itemize}
+    \item $w$ driver $M$ från $p$ till ett accepterande tillstånd om och endast om $w$ driver $M$ från $q$ till ett accepterande tillstånd
+  \end{itemize}\par
+  \noindent Låt nu $M^{\prime}$ vara som $M$ utom att $q$ tas bort, och varje övergång i Figure 52 ersätts med Figure 53.\par
+  \noindent Då gäller $L(M^{\prime}) = L(M)$ och $M^{\prime}$ har färre tillstånd än $M$
+\end{theo}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$r$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$\sigma$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$r$};
+      \node[state, right of=p0, xshift=1cm](p1){$p$};
+      \path[-stealth] (p0) edge[above] node{$\sigma$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Detta påminner lite om tillståndeliminering, men vi vill inte skapa reguljära uttryck utan det är ok att bara koppla bort pilarna från en nod till en annan.
+\par\bigskip
+\begin{theo}[Särskiljandealgoritmen för minimering av en DFA]{thm:sfmaedj}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $M$ vara följande DFA: (\textbf{KOPIERA FRÅN ANTECKNINGAR})
+\par\bigskip
+\noindent Här är det enklare att skriva en tabell över tillståndsövergångarna:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c|c|c}
+    &1&2&3&4&5&6&7\\
+    \hline\\
+    $a$&3&3&3&3&3&3&7\\
+    $a$&1&1&6&4&4&5&7
+  \end{tabular}
+\end{center}
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c}
+    Nivå&Sönderdelningar\\
+    \hline\\
+    1&$\left\{7\right\}\left\{1,2,3,4,5,6\right\}$ (initial \& accept. tillst)\\
+    2&$\left\{7\right\}\left\{1,2,3,4,5\right\}\left\{6\right\}$\\
+    3&$\left\{7\right\}\left\{1,2,4,5\right\}\left\{3\right\}\left\{6\right\}$\\
+    4&$\left\{7\right\}\left\{1,2,4,5\right\}\left\{3\right\}\left\{6\right\}$
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Hur bildas nivå $n+1$ efter att nivå $n$ är bildad?\par
+\begin{itemize}
+  \item Om två tillstånd tillhör olika delar på nivå $n$, så gör de även det på nivå $n+1$
+  \item Antag att $p$ och $q$ är tillstånd som tillhör samma del på nivå $n$, $p$ och $q$ ska särskiljas, dvs placeras i olika delar på nivå $n+1$ \textbf{om} det finns ett $\sigma\in\Sigma$ som driver DFA:n från $p$ till en annan del på nivå $n$ än $\sigma$ som driver DFA:n från $q$ 
+\end{itemize}
+\par\bigskip
+\noindent Efter att vi kom till nivå 4 såg vi att vi inte fick några ändringar, nu kan vi konstruera en DFA $M^{\prime}$ som är minimal.\par
+\noindent $M^{\prime}$:s tillstånd är delarna på den sista nivån (4). (\textbf{KOPIERA FRÅN ANTECKNINGAR})\par
+\noindent Starttillståndet hos $M^{\prime}$ är den del/mängd som innehåller $M$:s starttillstånd. Samma gäller för accepterande tillstånd.\par
+\noindent Givet en del/mängd $P$ och tecken $\sigma$ så lägg till en övergång $P\to Q$ via $\sigma$ där $Q$ är den unika del sp att det finns $p\in P$ och $q\in Q$ så att övergången från $p\to q$ via $\sigma$ finns i $M$ 
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Betrakta följande tillståndsövergångstabell:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c|c|c|c|}
+    &1&2&3&4&5&6&7&8\\
+    \hline\\
+    $a$&1&1&2&3&5&7&8&2\\
+    $b$&1&4&6&5&5&5&6&6
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Tillstånd $4,6,7$ är accepterande och tillstånd $4$ är starttillståndet. Vi utför algoritmen:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c}
+    Nivå&Sönderdelningar\\
+    \hline\\
+  1&$\left\{1,2,3,5,8\right\}\left\{4,6,7\right\}$\\
+  2&$\left\{1,4,5\right\}\left\{2,3,8\right\}$
+  \end{tabular}
+\end{center}
