@@ -20,11 +20,38 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Snittet av 2 reguljära uttryck är \textit{inte} ett reguljärt uttryck, men snittet av 2 reguljära språk är reguljära.
-\par\bigskip
+\newpage
 \subsection{Konstruktion av en "snitt"-DFA}\hfill\\\par
 \noindent Givet input: Två DFA:er $M_1$ resp. $M_2$:\par
 \noindent $M_1$:
 \par
 \noindent $M_2$
 \par\bigskip
-\noindent En DFA som accepterar $L(M_1)\cap L(M_2)$ med ordnade par från vardera DFA. Starttillståndet blir tillståndet med starttillstånd från vardera DFA. Sedan drar man följande pilar:\textbf{RÄTTA SENARE}: Lägg till alla kombinationer, och ta bort de isolerade tillstånden. 
+\noindent En DFA som accepterar $L(M_1)\cap L(M_2)$ med ordnade par från vardera DFA. Starttillståndet blir tillståndet med starttillstånd från vardera DFA. Lägg till alla kombinationer, och ta bort de isolerade tillstånden. I vårat fall får vi:
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$3,8$};
+      \node[state, below left of=p0, xshift=-2cm, yshift=-1cm](p1){$1,5$};
+      \node[state, initial right, initial text=, right of=p1, xshift=4cm](p2){$4$};
+      \node[state, below of=p1, xshift=.5cm, yshift=-1cm](p3){$2$};
+      \node[state, accepting left, below of=p0, yshift=-3cm](p4){$7$};
+      \node[state, below of=p2, yshift=-.75cm, xshift=.5cm](p5){$6$};
+      \node[below of=p4, yshift=-1cm, xshift=3cm](x){};
+      \path[-stealth] (p1) edge[loop above] node{$a,b$} (p1);
+      \path[-stealth] (p4) edge[below, bend right] node{$b$} (p5);
+      \path[-stealth] (p5) edge[above, bend right] node{$a$} (p4);
+      \path[-stealth] (p2) edge[above, bend right] node{$a$} (p0);
+      \path[-stealth] (p4) edge[left] node{$a$} (p0);
+      \path[-stealth] (p5) edge[above] node{$b$} (p1);
+      \path[-stealth] (p3) edge[left] node{$a$} (p1);
+      \path[-stealth] (p2) edge[above] node{$b$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p5);
+      \path[-stealth] (p0) edge[above, left] node{$a$} (p3);
+      %\path[-stealth] (p3) edge[below, bend right] node{$b$} (p2);
+      \draw[-stealth] (p3) edge[bend right] (x);
+      \path[-stealth] (x) edge[right, bend right] node{$b$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}

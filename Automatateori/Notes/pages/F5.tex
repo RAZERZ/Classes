@@ -85,7 +85,34 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent Låt $M$ vara följande DFA: (\textbf{KOPIERA FRÅN ANTECKNINGAR})
+\noindent Låt $M$ vara följande DFA: 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, accepting above](p0){$5$};
+      \node[state, accepting below, xshift=-1cm, left of=p0](p1){$4$};
+      \node[state, accepting below, right of=p0, xshift=1cm](p2){$6$};
+      \node[state, above right of=p2, xshift=.5cm, yshift=1cm](p3){$7$};
+      \node[state, accepting below, below of=p0, yshift=-2cm](p4){$3$};
+      \node[state, initial left, initial text=, accepting below, left of=p4, xshift=-1cm](p5){$2$};
+      \node[state, accepting below, yshift=-1cm, below of=p5, xshift=1cm](p6){$1$};
+      \path[-stealth] (p1) edge[loop left] node{$b$} (p1);
+      \path[-stealth] (p3) edge[loop right] node{$a,b$} (p3);
+      \path[-stealth] (p4) edge[loop right] node{$a$} (p4);
+      \path[-stealth] (p6) edge[loop left] node{$b$} (p6);
+      \path[-stealth] (p0) edge[above] node{$b$} (p1);
+      \path[-stealth] (p2) edge[above] node{$b$} (p0);
+      \path[-stealth] (p2) edge[right] node{$a$} (p3);
+      \path[-stealth] (p1) edge[right] node{$a$} (p4);
+      \path[-stealth] (p0) edge[right] node{$a$} (p4);
+      \path[-stealth] (p4) edge[right] node{$b$} (p2);
+      \path[-stealth] (p5) edge[above] node{$a$} (p4);
+      \path[-stealth] (p5) edge[left] node{$b$} (p6);
+      \path[-stealth] (p6) edge[right] node{$a$} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
 \par\bigskip
 \noindent Här är det enklare att skriva en tabell över tillståndsövergångarna:
 \par\bigskip
@@ -116,7 +143,26 @@
 \end{itemize}
 \par\bigskip
 \noindent Efter att vi kom till nivå 4 såg vi att vi inte fick några ändringar, nu kan vi konstruera en DFA $M^{\prime}$ som är minimal.\par
-\noindent $M^{\prime}$:s tillstånd är delarna på den sista nivån (4). (\textbf{KOPIERA FRÅN ANTECKNINGAR})\par
+\noindent $M^{\prime}$:s tillstånd är delarna på den sista nivån (nivå 4).
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, accepting below](p0){$6$};
+      \node[state, above of=p0, yshift=1cm](p1){$7$};
+      \node[state, initial left, accepting below, initial text=, below left of=p0, xshift=-2cm, yshift=-1cm](p2){$1,2,4,5$};
+      \node[state, accepting below, right of=p2, xshift=4cm](p3){$3$};
+      \path[-stealth] (p1) edge[loop right] node{$a,b$} (p1);
+      \path[-stealth] (p2) edge[loop above] node{$b$} (p2);
+      \path[-stealth] (p3) edge[loop right] node{$a$} (p3);
+      \path[-stealth] (p0) edge[right] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$b$} (p2);
+      \path[-stealth] (p2) edge[below] node{$a$} (p3);
+      \path[-stealth] (p3) edge[above] node{$b$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+
 \noindent Starttillståndet hos $M^{\prime}$ är den del/mängd som innehåller $M$:s starttillstånd. Samma gäller för accepterande tillstånd.\par
 \noindent Givet en del/mängd $P$ och tecken $\sigma$ så lägg till en övergång $P\to Q$ via $\sigma$ där $Q$ är den unika del sp att det finns $p\in P$ och $q\in Q$ så att övergången från $p\to q$ via $\sigma$ finns i $M$ 
 \par\bigskip
@@ -175,9 +221,9 @@
   \begin{tabular}{c|c|c|c}
     &$a$&$aa$&$aaa$\\
     \hline
-    $a$&&$a$&$\varepsilon$\\
-    $aa$&&&$\varepsilon$\\
-    $aaa$&&&
+    $a$&X&$a$&$\varepsilon$\\
+    $aa$&&X&$\varepsilon$\\
+    $aaa$&&&X
   \end{tabular}
 \end{center}
 \par\bigskip
