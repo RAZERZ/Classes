@@ -1,0 +1,44 @@
+\section{Vad vi vet nu om Bezouts sats}\par
+\noindent Målet med denna kurs är i någon mening att studera denna sats, men för att göra detta behövde vi införa ett par saker såsom $\C$. Sen har vi infört $I_p$ för att räkna antal, det som verkar fattas är den projektiva delen.
+\par\bigskip
+\noindent Vi ska fortsätta tala lite om $I_p$, där vi tidigare kunde finna lösningar till grafen av en funktion av $x$ eftersom vi kunde dela bort $f = y-p(x)$ från $g$
+\par\bigskip
+\noindent Vi har en sats som vi skulle vilja ha till följd av våra axiom, om 2 kurvor skär varandra transversellt så borde skärningstalet vara 1. Nu ska vi visa att det är så:
+\par\bigskip
+\begin{theo}[$I_p=1$ för transversella skärningar]{thm:trjbsg}
+  Om $f(p) = g(p)=0$ där $p=(a,b)$ och $\nabla f(p)\neq0\neq0\nabla g(p)$
+  \par\bigskip
+  \noindent Om $\nabla\neq0$ vet vi från implicita funktionssatsen vet vi att de konvergerar mot glatta funktioner. Vi vet också att vi kan uttrycka $f,g$ som en funktion av en variabel, men det följer.\par
+  \noindent Vi antar också att $\nabla f(p)\neq\lambda\nabla g(p)$
+  \par\bigskip
+  \noindent Då är $I_p(f,g)=1$
+\end{theo}
+\par\bigskip
+\noindent Hur går vi till väga för att bevisa detta? I geometri ska vi inte bara betrakta punkter i ett plan, vi måste tänka att vi inte bara ska betrakta $f,g$ eftersom vi lever nu i den affina världen, så kom alltid ihåg att vi kan alltid använda affina transformationer för att göra det lite lättare att räkna ut.
+\par\bigskip
+\begin{theo}[Följdsats]{thm:pjgw}
+  Om $\nabla f(p)\neq0$ och $L$ är en linje genom $p$ sådan att $L\neq$ tangentlinjen till $f$, vilket betyder att linjen är transversell till $f$.
+  \par\bigskip
+  \noindent Då är skärningstalet mellan $L$ och $f$ $=1$
+  \par\bigskip
+  \noindent Om $I_p(f,L)>1$ så kan det vara så att gradienterna är parallella, dvs $L$ är parallel med tangentlinjen enligt satsen.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Standardexempel}
+\par
+\noindent Skärning mellan $y=x^2$ och $y=c$ var noll i $\R^2$, detta löste vi med att införa $\C$. Här hittar vi då 2 lösningar, $(\pm i\sqrt{\left|c\right|},c)\in\C^2$
+\par\bigskip
+\noindent\textbf{Övning:} Visa att $I_{(\pm i\sqrt{\left|c\right|},c)}(y-x^2,c)=1$
+\newpage
+\section{Projektiv Geometri över $\R$}\par
+\noindent Vår "vanliga" synsätt på geometri är euklidisk geometri. De ser ut precis som vi mäter de.
+\par\bigskip
+\noindent En rektangel är bestämd av sina vinklar som är räta och längden av sina motstående sidor som är samma. Har vi 2st rektanglar där längder skiljer sig så är även rektanglarna sklida. Vi kan inte rotera och flytta den för att den ska bli den andra rektangeln, inga euklidiska transformationer åstadkommer detta. Skalärprodukten är inte bevarad, dvs längder och vinklar.
+\par\bigskip
+\noindent I euklidisk geometri finns det cirklar som inte är samma sak som ellipser exempelvis.
+\par\bigskip
+\noindent Vi kan säga att euklidisk geometri är "som geometri är i den verkliga världen", men det må vara så det är i den verkliga världen men det är inte så det ser ut med våra ögon. Exmepelvis med tågräls som är paralella som enligt euklidisk geometri inte skär i $\infty$, men våra ögon säger att de gör de.
+\par\bigskip
+\noindent Vad projektiv geomtri gör är att omvandla euklidisk geometri till vad vi faktiskt ser. Folk som tittar på saker i världen kallar vi konstnärer, särskillt om de försöker avbilda det. Det var så projektiv geometri uppkom (under renässansen i florens)
+\par\bigskip
+\noindent Vi vill i den här kursen göra plan geometri, men sättet vi kommer göra det på är inte genom ortonormala axlar, utan betrakta planet från från $z$-axeln, vi vill "stå på" $xy$-planet och titta på vad som händer.

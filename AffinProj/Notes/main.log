@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  8 SEP 2022 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  9 SEP 2022 11:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1171,18 +1171,42 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 251.
-) [14] (./pages/F5.tex) (./main.aux (./includes/title.aux))
+) [14] (./pages/F5.tex
+Package mdframed Info: mdframed works in twoside mode on input line 8.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 8.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 15.
+Package mdframed Info: mdframed works in twoside mode on input line 19.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 19.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 25.
+ [15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 33.
+
+) [16] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3116FBEED68B563B6EE253AE7234A19C;1654.
+(rerunfilecheck)             Checksum: 792419D9CF06D8B68BB1A471F5A1CA64;2077.
  ) 
 Here is how much of TeX's memory you used:
- 24149 strings out of 478238
- 443658 string characters out of 5850457
- 748038 words of memory out of 5000000
- 41732 multiletter control sequences out of 15000+600000
+ 24167 strings out of 478238
+ 443932 string characters out of 5850457
+ 748281 words of memory out of 5000000
+ 41744 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,21n,107p,499b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1201,10 +1225,10 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (15 pages, 250479 bytes).
+Output written on main.pdf (17 pages, 258388 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

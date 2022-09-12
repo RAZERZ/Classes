@@ -1,0 +1,30 @@
+\section{Slutenhetsegenskaper hos reguljära språk}\par
+\noindent Vi vet att operationerna på språken gör att vi får ett reguljärt språk, det följer ur definitionen av ett reguljärt språk.\par
+\noindent Men! Det visar sig att om man har ett reguljärt språk så kommer komplementet vara reguljärt, det följer \textit{inte} från definitionen!
+\par\bigskip
+\noindent Antag att $L_1$ och $L_2$ är reguljära språk. Från definitionen reguljära språk, följer det att även $L_1\cup L_2$, $L_1L_2$, $L_1^*$ och $L_1^+$ är reguljära.\par
+\noindent Det finns dock fler slutenhetsegenskaper:
+\par\bigskip
+\begin{theo}
+  OOm $L_1$ och $L_2$ är reguljära, så är $\bar{L_1}$ (på samma sätt för $L_2$), och $L_1\cap L_2$, $L_1^{\text{rev}} = \left\{w^{\text{rev}}: w\in L_1\right\}$, Prefix($L_1$), Suffix($L_1$).\par
+  \noindent Alla dessa är reguljära.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Bevisskiss}:\par
+\noindent Vi tittar först på komplementet. Om $L_1$ är reguljärt, så finns en DFA $M_1$ som accepterar $L_1$. Vi kan därför konstruera en DFA med starttillstånd $M_1$ som accepterar komplementet.\par
+\noindent Vi påminner oss om att om $w\in L_1\Lrarr M_1$ accepterar $w\Lrarr w$ driver $M_1$ från $s$ till ett accepterande tillstånd.\par
+\noindent Låt $M_1^{\prime}$ vara DFA:n som fås från $M_1$ genom att göra alla $M_1$:s accepterande tillstånd till icke-accepterande och göra alla $M_1$:s icke-accepterande tillstånd till accepterande. Då accepteras $\bar{L_1}$ av $M_1^{\prime}$ och därmed är $\bar{L_1}$ reguljärt.
+\par\bigskip
+\noindent\textbf{Bevisskiss}:\par
+\noindent Vi tittar nu på snittet. Antag att $L_1$ och $L_2$ är reguljära. Enligt det vi visade i bevisskiss ovan så är $\bar{L_1}$ och $\bar{L_2}$ reguljära. Enligt definitionen av reguljära språk, så är $\bar{L_1}\cup\bar{L_2}$ och då är även komplementet av unionen också reguljärt. Men, snittet $L_1\cap L_2$ är ju komplementet till unionen.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Snittet av 2 reguljära uttryck är \textit{inte} ett reguljärt uttryck, men snittet av 2 reguljära språk är reguljära.
+\par\bigskip
+\subsection{Konstruktion av en "snitt"-DFA}\hfill\\\par
+\noindent Givet input: Två DFA:er $M_1$ resp. $M_2$:\par
+\noindent $M_1$:
+\par
+\noindent $M_2$
+\par\bigskip
+\noindent En DFA som accepterar $L(M_1)\cap L(M_2)$ med ordnade par från vardera DFA. Starttillståndet blir tillståndet med starttillstånd från vardera DFA. Sedan drar man följande pilar:\textbf{RÄTTA SENARE}: Lägg till alla kombinationer, och ta bort de isolerade tillstånden. 

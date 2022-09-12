@@ -1,7 +1,7 @@
 \section{Slumpvariabler}
 \par\bigskip
 \begin{theo}[Slumpvariabel]{thm:randomvar}
-  En \textit{slumpvariabel} är en funktion $X:\Omega\to\R$ 
+  En \textit{slumpvariabel} är en funktion $X:\Omega\to\R$ . Till varje utfall $\omega\in\Omega$ associeras en \textit{observation} $X(\omega)\in\R$
 \end{theo}
 \par\bigskip
 \noindent\textbf{Exempel:}\par
@@ -96,6 +96,8 @@
 \par\bigskip
 \begin{theo}[Diskreta slumpvariabler]{thm:discrandvar}
   Vi säger att en slumpvariabel $X:\Omega\to\R^n$ är en diskret slumpvariabel om sanholikhetsmåttet $P\circ X^{-1}$ är diskret.
+  \par\bigskip
+  \noindent Alternativt, $X$ kallas diskret om det finns en Sannolikhetsfunktion $P_x(x)$ så att $P(X\in A) = \sum P_x(x)$
 \end{theo}
 \par\bigskip
 \noindent Vad betyder det att måttet var diskret? Jo, det betyder att det finns en uppräknelig mängd $\left\{x_1,x_2,\cdots,\right\}\subseteq\R^n$ så att $P(x\in\left\{x_1,x_2\cdots\right\})=1$\par
@@ -108,6 +110,18 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\newpage
+\begin{theo}[Kontinuerlig/absolutkontinuerlig slumpvariabel]{thm:contin}
+  En \textit{Kontinuerlig/absolutkontinuerlig slumpvariabel} $X$ har en Riemann-integrerbar funktion $f:\R^n\to\R$ så att:
+  \begin{equation*}
+    \begin{gathered}
+      P(X\in A) = \int_{A}f(x)dx\qquad A\subseteq \R^n
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Fördelningen (måttet $Q$) till en diskret slumpvariabel $X$ bestäms unikt av Sannolikhetsfunktionen $P(X)$. Om $X$ är kontinuerlig, så $P(X=x)=0\quad\forall x\in\R^n$, dvs inte definierad unikt.\par
+\noindent $X$ bestäms unikt av fördelningsfunktionen $F_X(x)=P(X\leq x)$
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent Låt $\Omega = \left\{H,T\right\}^n$ och slumpvariabeln $X_i$ som den är definierad ovan.\par
@@ -172,10 +186,15 @@ $X_1,\cdots,X_n$ är oberoende om för varje $A_1,\cdots,A_n\subseteq\R$ så är
 \par\bigskip
 \noindent Då gäller $(1)\Lrarr (2)$\par
 \noindent Det räcker alltså att kolla $P(X_1\in A_1,\cdots, X_n\in A_n) = P(X_1\in A_1)\cdots P(X_n\in A_n)$ för att visa obereonde.
-\newpage
+\par\bigskip
 \begin{theo}
-  FFör diskreta slumpvariabler $X_1,\cdots, X_n$, har vi oberoende omm\par
-  \noindent $P_{X_1,\cdots,X_n}(x_1,\cdots,x_n) = P_{X_1}(x_1)\cdots P_{X_n}(x_n)$ 
+  FFör diskreta slumpvariabler $X_1,\cdots, X_n$, har vi oberoende omm:\par 
+  \begin{equation*}
+    \begin{gathered}
+      P_{X_1,\cdots,X_n}(x_1,\cdots,x_n) = P_{X_1}(x_1)\cdots P_{X_n}(x_n)\\
+      \Lrarr \left\{X_1\in A_1\right\},\cdots, \left\{X_n\in A_n\right\}\text{ är obereonde för varje } A_1,\cdots, A_n\subseteq\R^n
+    \end{gathered}
+  \end{equation*}
 \end{theo}
 \par\bigskip
 \begin{prf}[Bevis av föregående sats]{prf:bwgi}
@@ -183,3 +202,97 @@ $X_1,\cdots,X_n$ är oberoende om för varje $A_1,\cdots,A_n\subseteq\R$ så är
   \par\bigskip
   \noindent Andra håller är mindre självklar. Vi vill visa $P(X_1\in A_1,\cdots, X_n\in A_n) = P(X_1\in A_1)\cdots P(X_n\in A_n)$ för alla delmängder $A_1,\cdots, A_n$
 \end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Omega = \left\{\text{Uppsalas befolkning}\right\}$, $X= $ längd, $Y=$ vikt, $Z=$ antal syskon\par
+\noindent I detta exempel så är $X,Y$ beroende, men $X,Z$ är oberoende samtidigt är $Y,Z$ beroende
+\par\bigskip
+\noindent Vi tänker oss att $X_1,\cdots,X_n$ är oberoende om de värden de antar inte "påverkar varandra"
+\par\bigskip
+\subsection{Viktiga slumpvariabler}\hfill\\\par
+\begin{theo}[Bernoulli-fördelning]{thm:bern}
+  Vi säger att $X$ är Bernoulli-fördelad om:
+  \begin{equation*}
+    \begin{gathered}
+      P_x(1) = P\qquad P_x(0) = 1-P\qquad P\in[0,1]
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Gamla goda exemplet med singla slant är Bernoulli-Fördelad med $P=\dfrac{1}{2}$ 
+\par\bigskip
+\noindent Vi skriver $X\sim Be(P)$ eller $X\in Be(P)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Singla slant exempel, fast $P(\omega) = P(\omega_1, \cdots, \omega_n) = P^k(1-p)^{n-k}$ för något $P\in[0,1]$ där $k$ är antalet krona.\par
+\noindent Om vi definierar $X_i$ som 1 om krona och 0 om klave, så blir $X_1,\cdots, X_n$ oberoende och $Be(P)$-fördelade.
+\par\bigskip
+\noindent\textbf{Observation:}\par
+\noindent Lika fördelad är inte samma sak som lika! $P_X=P_Y$ medför inte att $X=Y$
+\par\bigskip
+\begin{theo}[Existens]{thm:lig}
+  Om $X$ är diskret med Sannolikhetsfunktion $P_X$, så finns det oberoende slumpvariabler $X_1,\cdots, X_n$ med samma fördelning som $X$.
+\end{theo}
+\par\bigskip
+\begin{prf}[Existens av oberoende slumpvariabler]{prf:wgk}
+  Låt $A=\left\{x:P_X(x)>0\right\}$, $\Omega=A^n$, $X_i(\omega) = X_i(\omega_1,\cdots, \omega_n) = \omega_i$.
+  \par\bigskip
+  \noindent Definiera $P(\omega) = P_{X_1}(\omega_1)P_{X_2}(\omega_2)\cdots P_{X_n}(\omega_n)$\par
+  \noindent Då följer $P(X_i = \omega_i) = P_X(\omega_i)$
+\end{prf}
+\par\bigskip
+\begin{theo}[Binomialt fördelat]{thm:bi}
+  Vi säger att $X$ är binomialfördelad om $P_X(k) = \begin{pmatrix}n\\k\end{pmatrix}P^k(1-P)^{n-k}$ för $k = 0,1,\cdots,n$
+  \par\bigskip
+  \noindent Vi skriver $X\sim Bin(n,p)$
+\end{theo}
+\par\bigskip
+\noindent Detta kommer från att summan av Bernoulli-fördelade variabler blir precis binomialt fördelade.
+\par\bigskip
+\begin{theo}
+  OOm $X_1,\cdots, X_n \sim Be(P)$ och oberoende så är $X = X_1+\cdots+X_n\sim Bin(n,P)$
+\end{theo}
+\par\bigskip
+\noindent Detta följer ur $P(X_1+\cdots+X_n = k) = P(X_i=1$ för $k$st $i$ och $X_i=0$ för $n-k$st $i) $\par
+\noindent $= \begin{pmatrix}n\\k\end{pmatrix}\underbrace{P(X_1=1,\cdots, X_k=1,X_{k+1}=0,\cdots,X_{n}=0)}_{\text{$\underbrace{P(X_1=1)\cdots P(X_k=1)}_{\text{$P^k$}}\cdots \underbrace{P(X_n = 0)}_{\text{$(1-P)^{n-k}$}}$}} = \begin{pmatrix}n\\k\end{pmatrix}P^k(1-P)^{n-k}$
+\par\bigskip
+\noindent Vi tänker på $Bin(n,P)$ som följande:\par
+\noindent Upprepade slumpförsök $n$ gånger. Vinst med sannolikhet $P\in[0,1]$ och förlust med sannolikhet $1-P = q$. $X\sim Bin(n,p)$ räknar antalet vinster.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $\left\{H,T\right\}^n$, $X=$ antal $H = X_1+\cdots+X_n$, $X_i=\begin{cases}1, \omega_i = H\\0, \omega_i = T\end{cases}\Rightarrow X\sim Bin(n.p)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Dra 10 lotter. Varje lott har vinstchans på 10\%. $X = $ antal vinster $\sim Bin(10,0.1)$.\par
+\noindent $P(X\geq1) = 1-P(X=0) = 1-0.9^{10}\approx 65\%$
+\par\bigskip
+\noindent Kom ihåg! Säg att vi vill räkna sannolikheten att vi har minst 5 vinster $(P(X\geq5))$. Se sida 474 i boken. Där finns tabell över binomialfördelningar. 
+\par\bigskip
+\noindent\textbf{Notera!}\par
+\noindent Säg att $X\sim Bin(n,P)$ så är $n-X\sim Bin(n, 1-P)$\par
+\noindent $P(n-X = k) = P(X=n-k)= \begin{pmatrix}n\\n-k\end{pmatrix}P^{n-k}(1-P)^{n-(n-k)} = \begin{pmatrix}n\\k\end{pmatrix}(1-P)^kP^{n-k}$
+\par\bigskip
+\begin{theo}
+  OOm $X\sim Bin(n_1,P)$ och $Y\sim Bin(n_2,P)$ är oberoende, så är $X+Y\sim Bin(n_1+n_2,P)$
+\end{theo}
+\newpage
+\begin{prf}
+  VVi vill hitta $P(X+Y=k)$:
+  \begin{equation*}
+    \begin{gathered}
+      = \sum_{j=0}^{k}P(X=j, Y=k-j)= \sum_{j=0}^{k}P(X=j)P(Y=k-j)\\
+      \sum_{j=0}^{k}\begin{pmatrix}n_1\\j\end{pmatrix}P^j(1-P)^{n_1-j}\begin{pmatrix}n_2\\k-j\end{pmatrix}P^{k-j}(1-P)^{n_2-(k-j)}\\
+      = \sum_{j=0}^{k}\begin{pmatrix}n_1\\j\end{pmatrix}\begin{pmatrix}n_2\\k-j\end{pmatrix}P^k(1-P)^{n_1+n_2-k}\\
+      = \left(\sum_{j=0}^{k}\begin{pmatrix}n_1\\j\end{pmatrix}\begin{pmatrix}n_2\\k-j\end{pmatrix}\right)P^k(1-P)^{n_1+n_2-k}\\
+      \sum_{j=0}^{k}\begin{pmatrix}n_1\\j\end{pmatrix}\begin{pmatrix}n_2\\k-j\end{pmatrix} = \begin{pmatrix}n_1+n_2\\k\end{pmatrix}\\
+      \Rightarrow X+Y\sim Bin(n_1+n_2,P)\\
+      \text{Det följer att } P(j) = \dfrac{\begin{pmatrix}n_1\\j\end{pmatrix}\begin{pmatrix}n_1\\k-j\end{pmatrix}}{\begin{pmatrix}n_1+n_2\\k\end{pmatrix}}\qquad j = 0,\cdots, k \text{ är en sannolikhetsfunktion}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Om $X$ har fördelning $P$ så skriver vi $X\sim Hyp(n_1,n_2,k)$, eller\par\noindent $X\sim Hyp(n_1+n_2,k,n_1)$, eller $X\sim Hyp(n_1+n_2,k,\underbrace{\dfrac{n_1}{n_1+n_2}}_{\text{vinstchans}})$.\par
+\noindent Kallas för \textit{Hypergeometrisk fördelning}
+\par\bigskip
+\noindent Intuition: Tänk $n_1$ som vinstlotter, och $n_2$ som lotter utan vinst. Dra $k$ lotter. Då är $X =$ antal vinstlotter, så kommer $Hyp(\underbrace{n_1+n_2}_{\text{antalet lotter}},\underbrace{k}_{\text{dragningar}},\underbrace{n_1}_{\text{vinstlotter}})$-fördelad

@@ -139,6 +139,80 @@
     Nivå&Sönderdelningar\\
     \hline\\
   1&$\left\{1,2,3,5,8\right\}\left\{4,6,7\right\}$\\
-  2&$\left\{1,4,5\right\}\left\{2,3,8\right\}$
+  2&$\left\{1,5\right\}\left\{2,3,8\right\}$\\
+3&$\left\{1,5\right\}\left\{2\right\}\left\{3,8\right\}\left\{4\right\}\left\{6\right\}\left\{7\right\}$
   \end{tabular}
 \end{center}
+\par\bigskip
+\noindent DFA:n blir följande:
+\par\bigskip
+\noindent När man väl är klar med konstruktionen så spelar det ingen roll vad tillstånden kallas (det vill säga, man behöver inte använda namnet som är mängder utan man får lov att säga $p_0$ osv)
+\par\bigskip
+\begin{theo}
+  LLåt $L$ vara ett språk över något alfabet $\Sigma$. Två strängar över alfabet ($x,y\in\Sigma^*$) \textit{särskiljs} av $L$ om det finns $z\in\Sigma^*$ så att precis en av $xz$ och $yz$ tillhör språket $L$.
+  \par\bigskip
+  \noindent Notera! Alla dessa strängar är tillåtna att vara $\varepsilon$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  EEn mängd $A\subseteq\Sigma^*$ särskiljs av $L$ om för varje par $x,y\in A$ så att $x\neq y$ så finns någon sträng $z$ så att Definition 9.5 gäller (det finns $z\in\Sigma^*$ så att precis en av $xz$ och $yz$ tillhör $L$)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L_1 = \left\{w\in\left\{a,b\right\}^*:\left|w\right|\equiv_{\text{mod}3} 0\right\}$. Låt $x=aa$ och $y=a$, här är $x\neq a$ och vi påstår att den särskiljs av $L$ eftersom vi kan hitta $z$ så att $xz\in L_1$ men att $yz\notin L_1$.\par
+\noindent Välj exempelvis $z=a$, då är $xz=aaa$ och $\left|xz\right|=3\equiv0$, men $yz=aa$ som $\left|yz\right|\equiv2\neq0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L_2 = \left\{w\in\left\{a,b\right\}^*: w\text{ innehåller minst 2 } a\text{:n}\right\}$ Låt $x=aab$ och  $y=ab$
+\noindent Om $z=\varepsilon$ så särskiljs $x$ och $y$ av $L_2$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $A=\left\{a,aa,aaa\right\}$. Vi påstår att den här mängden särskiljs av $L_1$\par
+\noindent För att visa detta måste vi visa att varje par har ett $z$ så att Definition 9.5 gäller.\par
+\noindent För att underlätta gör vi en tabell:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c|c}
+    &$a$&$aa$&$aaa$\\
+    \hline
+    $a$&&$a$&$\varepsilon$\\
+    $aa$&&&$\varepsilon$\\
+    $aaa$&&&
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Notera att diagonalen inte fylls i. Tabellen visar exempel på $z$ så att exakt en av $xz$ och $yz$ tillhör $L_1$ om $x\neq y$ och $x$ är på lodräta axeln och $y$ på vågräta axeln.
+\newpage
+\begin{theo}
+  AAntag att mängden $A$ särskiljs av språket $L$ och att $A$ innehåller $n$ strängar (de är givetvis över samma alfabet).\par
+  \noindent Då måste varje DFA $M$ sådant att $L(M)=L$ ha minst $n$ tillstånd.
+  \par\bigskip
+  \noindent Det följer att om $L(M)=L$ och $M$ har exakt $n$ tillstånd så är $M$ minimal
+\end{theo}
+\par\bigskip
+\noindent Det följer då från satsen (och de föregående exempel) att varje DFA som accepterar $L_1$ (från föregående exempel) har minst 3 tillstånd.
+\par\bigskip
+\noindent Eftersom följande DFA accepterar $L_1$ och har 3 tillstånd, så är den minimal. 
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, accepting below, initial text=](p0){$p_0$};
+      \node[state, right of=p0, xshift=1cm](p1){$p_1$};
+      \node[state, right of=p1, xshift=1cm](p2){$p_2$};
+      \path[-stealth] (p0) edge[above] node{$a,b$} (p1);
+      \path[-stealth] (p1) edge[above] node{$a,b$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$a,b$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\begin{prf}[Sats 9.7]{prf:woribh}
+  Antag att $A\subseteq\Sigma^*$ som särskiljs av $L$. Antag även att $A$ innehåller minst $n$ strängar. Låt $M$ vara en DFA som accepterar $L$.\par
+  \noindent Låt $A = \left\{x_1,x_2,\cdots,x_n\right\}$. Så om $x_i, x_j\in A$ och $i\neq j$ så finns något $z\in\Sigma^*$ så att precis en av $x_iz$ och $x_jz$ tillhör $L$, dvs accepteras av $M$
+  \par\bigskip
+  \noindent Det betyder ju att när vi läser av $x_i$ resp. $x_j$ så kommer vi till olika tillstånd på grund av att bara en av de accepteras av $M$. Kommer man till samma tillstånd skulle båda strängar accepteras eller ingen av de. 
+  \par\bigskip
+  \noindent Alternativt, det betyder att $x_i$ driver $M$ från starttillståndet $s$ till ett annat tillstånd än vad $x_j$ driver $M$ från $s$. Därför måste det finnas minst $n$ tillstånd i $M$.
+\end{prf}
+\par\bigskip
+\noindent Vad händer om det finns en oändligt stor mängd $A$ som särskiljs av ett visst språk?
