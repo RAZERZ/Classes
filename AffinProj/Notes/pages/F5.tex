@@ -42,3 +42,93 @@
 \noindent Vad projektiv geomtri gör är att omvandla euklidisk geometri till vad vi faktiskt ser. Folk som tittar på saker i världen kallar vi konstnärer, särskillt om de försöker avbilda det. Det var så projektiv geometri uppkom (under renässansen i florens)
 \par\bigskip
 \noindent Vi vill i den här kursen göra plan geometri, men sättet vi kommer göra det på är inte genom ortonormala axlar, utan betrakta planet från från $z$-axeln, vi vill "stå på" $xy$-planet och titta på vad som händer.
+\par\bigskip
+\begin{theo}[Rella projektiva planet]{thm:wpigh}
+  Det reella projektiva planet $\R P^2$ ($= P^2(\R) = P_{\R}^2$) är en följande mängd av ekvivalensklasser:
+  \begin{equation*}
+    \begin{gathered}
+      \R P^2 = \R^3\left\{\bar{0}\right\}/\sim
+    \end{gathered}
+  \end{equation*}\par
+  \noindent där $\sim$ är relationen. $\bar{x}\sim\bar{y}\Lrarr\exists\lambda\in\R \left\{0\right\}: \bar{x}=\lambda\bar{y}$
+\end{theo}
+\par\bigskip
+\noindent Punkter i $\R P^2$ representeras av en trippel av tal (3-dimensionell vektor) i $\R^3$, exempelvis på följande sätt $(x,y,z)$ och skall alltså betraktas som lika med $(tx,ty,tz)$. Det enda villkoret vi har är att $(x,y,z)\neq(0,0,0)$.\par
+\noindent Detta sätt att betrakta $(x,y,z)$ kallas för \textit{homogena koordinater}. Punkter i $\R P^2$ kallas \textit{projektiva punkter}.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Varje punkt $(x,y,z)$ i $\R P^2$ där $z\neq0$, har en unik representant där $z=1$ $\left(\dfrac{x}{z},\dfrac{y}{z},1\right)$. Varje sådan punkt ($x,y,z$) motsvarar förstås också en projektiv punkt.\par
+\noindent Vi har en injektiv funktion $(x,y)\mapsto(x,y,1)$ vars bild täcker det mesta av $\R P^2$.\par
+\noindent För att beskriva dessa punkter räcker det alltså med att ge 2 koordinater $(x,y)$. Precis som vi kan använda latitud och longitud och rita en bit av jordytan i en kartbok.\par
+\noindent Denna del av $\R P^2$ kallas för \textit{den affina ($x,y$) kartan}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Punkten $(2,1,3)$  har $z\neq0$ och har $\left(\dfrac{2}{3},\dfrac{1}{3}\right)$ som projektiv punkt i $\R P^2$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Mängden av projektiva punkter som uppfyller $zy = x^2+z^2$ och dessutom har $z\neq0$ utgör kurvan $y=x^2+1$ i $xy$-kartan eftersom vi sätter $z=1$.\par
+\noindent Men, om $z=0$ så får vi $x=0$, medan $y$ kan anta vilket värde som helst, det finns alltså en projektiv punkt kvar, nämligen $(0,1,0)$ (egentligen $(0,y,0)$ men de är homogena koordinater för samma punkt). Det motsvarar "horizonten".
+\par\bigskip
+\noindent De andra affina kartorna $xz$ och $yz$  definieras analogt.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $(2,1,3)$ har koordinater $(2,3)$ i $xz$-kartan (dela med $y$, vilket är 1)
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Den återstående punkten $(0,1,0)$ syns bara i en karta, dvs i $xz$-kartan, där den är origo.
+\par\bigskip
+\begin{theo}
+  GGivet säg, $xy$-kartan, så är linjen i oändligheten mängden:
+  \begin{equation*}
+    \begin{gathered}
+      L_{\infty}^{xy} = \left\{(x,y,z)\in\R P^2 : z=0\right\}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Homogent polynom]{thm:homo}
+  Ett polynom $F(x_1,\cdots,x_n)\in k[x_1,\cdots, x_n]$ kallas \textit{homogent} av grad $d$ om alla termer har total grad $d$.\par
+  \noindent Exmepelvis:
+  \begin{equation*}
+    \begin{gathered}
+      t^dF(x,y,z)=F(tx,ty,tz)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $F(x,y,z)\in\R[x,y,z]$ är homogent och $F(a,b,c)=0$ $\Rightarrow$ $F(ta,tb,tc)=0$\par
+\noindent Detta betyder att $V(F)$ i $\R P^2$ är väldefinierad. Vi kallar $V(F)$ för en \textit{reell plan projektiv kurva} 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $x+y+z=0$ är ett homogent polynom av grad 1. Detta beskriver ett plan, men vi ska tänka på det som en projektiv linje. Mer allmänt kan vi sätta vilka koefficienter som hels, dvs $ax+by+cz=0$.\par
+\noindent I kartan $z=1$ har linjen ekvationen $ax+by+c=0$ i $xy$-planet
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om vi bygger vidare på föregående exempel, om $a=b=0$ och $z=0$ r linjen i $\infty$ $xy$-kartan
+\par\bigskip
+\begin{theo}
+  GGivet två olika projektiva punkter, finns en entydig projektiv linje genom den (som i euklidisk geometr).
+  \par\bigskip
+  \noindent Givet två olika linjer i $\R P^2$ finns en entydig projektiv punkt som ligger på båda
+\end{theo}
+\par\bigskip
+\begin{prf}
+  TVå projektiva punkter är två olika linjer. En entydig projektiv linje är då ett plan, och detta plan spänns up av de två olika linjerna
+  \par\bigskip
+  \noindent Två olika linjer i det projektiva planet är två olika plan, och dessa plan skär varandra i en linje, som projektivt är en punkt
+\end{prf}
+\par\bigskip
+\begin{theo}
+  GGivet ett polynom $f(x,y)\in\R[x,y]$ av grad $d$, definierar vi dess \textit{homogenisering} som $F(x,y,z) = z^df\left(\dfrac{x}{z},\dfrac{y}{z}\right)$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $f(x,y) = y-x^2-1\Rightarrow F(x,y,z) = z^2\left(\dfrac{y}{z}-\left(\dfrac{x}{z}\right)^2-1\right) = zy-x^2-z^2$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Ger oss en projektiv kurva givet en affin kurva. Det omvända gäller om vi betraktar kartor till det projektiva planet.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $f(y,z)=zy-z^2-1\Rightarrow zy-z^2-x^2=F(x,y,z)$. Vad är $zy-z^2=1$? En hyperbel förstås!\par
+\noindent Detta är ju det vi visat med våra klassificeringar som vi gjort, det vill säga en cirkel = parabel = hyperbel.
