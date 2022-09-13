@@ -1,0 +1,168 @@
+\section{Medelvärde}\par
+\noindent Vi börjar med ett exempel, myntkastet såklart där $\Omega = \left\{H,T\right\}^N$ och $N$ är väldigt stort.\par
+\noindent Vi definierar sannolikhetsmåttet på rummet som $P(\omega) = \dfrac{1}{2^n}$.\par
+\noindent Vi har även de stokastiska variablerna som spottar ut vad vi får på det $i$:te kastet,\par
+\noindent $X_i(\omega) = \begin{cases}1, \omega_i = H\\0, \omega_i = T\end{cases}$
+\par\bigskip
+\noindent Om vi gör $n$ myntkast och $n$ är stort, förväntar vi oss att ha 50\% $H$ och 50\%  $T$ eller alternativt formulerat ca $\dfrac{n}{2}$ krona. Detta är en frekvenstolkning.
+\par\bigskip
+\noindent Med andra ord, förväntar vi oss följande:
+\begin{equation*}
+  \begin{gathered}
+    X_1+\cdots+X_n =\dfrac{n}{2} \text{ med stor sannolikhet}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det här med "stor sannolikhet" är viktigt, eftersom man \textit{tekniskt sett} kan dra krona krona krona $\cdots$.
+\par\bigskip
+\begin{theo}[Stora talens lag]{thm:bignumhe}
+  Om $X_1,X_2,X_3,\cdots$ är obereonde och likafördelade slumpvariabler så har vi, för varje $\varepsilon>0$:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(\left|\dfrac{x_1+\cdots+x_n}{n}-E(X_i)\right|>\varepsilon\right)\underbrace{\to}_{\text{$n\to\infty$}} 0\text{ för något tal $E(X_i)$}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent För diskreta slumpvariabler är:
+  \begin{equation*}
+    \begin{gathered}
+      E(X) = \sum_{x}xP_X(x)\text{ om summan är absolutkonvergent ($\exists$ vissa specialfall)}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent En slags mittpunkt för sannoliketsrummet
+\end{theo}
+\par\bigskip
+\begin{theo}[Väntevärdet/Medelvärde]{thm:wogh}
+  Talet $E(X)$ kallas \textit{väntevärdet}/\textit{medelvärdet} till $X$
+\end{theo}
+\par\bigskip
+\noindent Tänk såhär, om $n$ är stort, förväntar vi oss cirka $n\cdot p$st $x$ om $P_X(x) = p$, så vi förväntar oss alltså $X_1+\cdots+X_n = \sum x\cdot nP_X(x)$ och $\dfrac{X_1+\cdots+X_n}{n}\to\sum xP_X(x)$\par
+\noindent (Vi summerar över alla $X$ med positiv sannolikhet)
+\par\bigskip
+\noindent Vi kan definiera $E(X) = \sum xP_X(x)$ om summan är $\infty$ för varje ordning av termer (samma för $-\infty$), exempelvis om $X\geq0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Säg att $X\sim Be(p)$, då är $P_X(1)=p$, $P_X(0)=1-p$, $E(X) = 1\cdot p + 0\cdot(1-p) = p$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $X\sim Hyp(N,n,m)$:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \sum_{k=0}^{n}kP_X(k) = \sum_{k=0}^{n}k\dfrac{\begin{pmatrix}m\\k\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Per definition har vi att $\begin{pmatrix}n\\k\end{pmatrix} = \dfrac{n!}{(n-k)!k!} = n\dfrac{(n-1)!}{k(n-k)!(k-1)!} = \dfrac{n}{k}\begin{pmatrix}n-1\\k-1\end{pmatrix}$. Då är $E(X)$:
+\begin{equation*}
+  \begin{gathered}
+    = \sum_{k=1}^{n}k\dfrac{m}{k}\dfrac{n}{N}\dfrac{\begin{pmatrix}m-1\\k-1\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N-1\\n-1\end{pmatrix}} = m\dfrac{n}{N}\underbrace{\sum_{k=0}^{n-1}\underbrace{\dfrac{\begin{pmatrix}m-1\\k\end{pmatrix}\begin{pmatrix}N-m\\n-1-k\end{pmatrix}}{\begin{pmatrix}N-1\\n-1\end{pmatrix}}}_{\text{$Hyp(N-1,n-1,m-1)$}}
+    }_{\text{=1}} = n\dfrac{m}{N}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Från envariabelanalys vet vi att $\sum_{n=1}^{\infty}\dfrac{1}{n^2}$ konvergerar mot $c$ ($c = \dfrac{\pi^2}{6}$)\par
+\noindent Sätt $P_X(n) = \dfrac{1}{cn^2}\quad \forall n\in\N_+$. Då är $E(X)$:
+\begin{equation*}
+  \begin{gathered}
+    = \sum_{n=1}^{\infty}n\dfrac{1}{cn^2} = \sum_{n=1}^{\infty}\dfrac{1}{cn} = \infty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Law of the unconcious statistician]{thm:lotus}
+  Givet en funktion $g:\R^n\to\R$ Vi har $E(g(X)) = \sum g(x)P_X(x)$
+\end{theo}
+\par\bigskip
+\begin{prf}[Law of the unconcious statistician]{prf:lajf}
+  \begin{equation*}
+    \begin{gathered}
+      E(g(X)) = \sum_{y:g(X)=y} yP(g(X)=y) = \sum_{y:g(X)=y}\sum_{x:g(x)=y}P(X=x)\\
+      =\sum_{y:g(X)=y}\sum_{x:g(x)=y}\underbrace{y}_{\text{=$g(x)$}}P(X=x)\\
+      =\sum_{y:g(X)=y}\sum_{x:g(x)=y}g(x)P(X=x)\\
+      = \sum_{x}g(x)P(X=x)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}
+  VVi säger att $X\in L^1(\Omega)$ om $\sum\left|x\right|p_X(x)<\infty$.\par
+  \noindent Mer generellt skriver vi att $X\in L^p(\Omega)$ om $\underbrace{\sum\left|x\right|^pP_X(x)}_{\text{$E(\left|X\right|^p)$}}<\infty$\par
+  \noindent Med andra ord, $X\in L^p$ om $E(\left|X\right|^p)<\infty$
+\end{theo}
+\par\bigskip
+\begin{theo}[Väntevärdet är linjärt]{thm:woghwoeg}
+  $E(aX+bY) = aE(X)+bE(Y)\quad\forall a,b\in\R\quad X,Y\in L^1$
+  \par\bigskip
+  \noindent Eftersom $L^1$ är ett vektorrum så är $E:L^1\to\R$
+\end{theo}
+\newpage
+\begin{prf}
+  VVi sätter $g(x,y) = ax+by$. Då blir $g(X,Y) = aX+bY$\par
+  \begin{equation*}
+    \begin{gathered}
+      E(aX+bY) = E(g(X,Y)) = \sum_{x,y} g(x,y)P_{X,Y}(x,y) = \sum (ax+by)P_{X,Y}(x,y)\\
+      = a\sum_x\sum_y xP_{X,Y}(x,y)+b\sum_y\sum_x yP_{X,Y}(x,y)\\
+      = \sum_x x\underbrace{\sum_y P_{x,y}(x,y)}_{\text{=$P(X=x,y\in\R)=P_X(x)$}}+b\sum_y y\underbrace{\sum_x P_{x,y}(x,y)}_{\text{=$P_Y(y)$}}\\
+      = a\sum_x xP_X(x)+b\sum_y yP_X(y) = aE(X)+bE(Y)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Tag miljön för myntkast. Då var $X = X_1+\cdots+X_n\sim Bin(n,\dfrac{1}{2})$
+\par\bigskip
+\noindent Mer generellt, om $X_1,\cdots, X_n\sim Be(p)$ är obereonde så är $X=X_1+\cdots+X_n\sim Bin(n,p)$\par
+\noindent Eftersom väntevärdet var en linjär operator och väntevärdet för $Be(p)=p$, så kommer $E(X) = np$.
+\par\bigskip
+\noindent Så om $X\sim Bin(n,p)$ så är $E(X)=np$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Alla $X\sim Bin(n,p)$ kan inte skrivas $X=X_1+\cdots+X_n$ där $X_1,\cdots,X_n$ är Bernoulli-fördelade!
+\par\bigskip
+\noindent Men, vi vet att det finns $X_1,\cdots, X_n\sim Be(p)$ som är oberoende och $X_1+\cdots+X_n\sim Bin(n,p)$, och alla binomialfördelade variabler har samma väntevärde. Enligt definitionen av väntevärdet är det enbart sannolikhetsfunktionen som bestämmer vad väntevärdet är.
+\par\bigskip
+\begin{theo}
+  OOm $X$ är obereonde och $Y$ är obereonde, så är $E(XY) = E(X)E(Y)$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  VVi visar detta på liknande sätt som tidigare:
+  \begin{equation*}
+    \begin{gathered}
+      g(x,y) = xy\quad E(XY)\sum_{x,y}xy\underbrace{P_{X,y}(x,y)}_{\text{(oberoende) $\Rightarrow P_X(x)P_Y(y)$}}\\
+      =\sum_xxP_X(x)\underbrace{\sum_yyP_Y(y)}_{\text{$E(Y)$}}\\
+      = E(X)E(Y)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}[Varians]{thm:varians}
+  \textit{Variansen} av $X$ definieras genom:
+  \begin{equation*}
+    \begin{gathered}
+      Var(X) = E((X-E(X))^2),\quad X\in L^2
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Intuition:} \par
+\noindent $X-E(X)$ är skillnaden mellan vad vi observerar och vad medelvärdet är, så om sannolikhetsfördelningen är utspridd så kommer vi observera många grejer som avviker och ligger långt ifrån väntevärdet. Om sannolikheten är liten, borde skillnaden vara liten.\par
+\noindent Om $X$ avviker från $E(X)$ mycket så är variansen $Var(X)$ stor, om $X$ ligger nära $E(X)$ så är $Var(X)$ litet.
+\par\bigskip
+\noindent Tänk på det som ett medelvärde på hur mycket medelvärdet avviker från väntevärdet (\textbf{RÄTTA OM FEL})
+\par\bigskip
+\noindent Var kommer kvadraten ifrån då? Då måste vi kolla på standardavvikelsen som för $X$ definieras genom:
+\begin{equation*}
+  \begin{gathered}
+    D(X) = \sqrt{Var(X)}\quad X\in L^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Varför inte $D(X) = E(\left|X-E(X)\right|)$? Skillnaden mellan det vi observerar och medelvärdet? (detta är medelavvikelsen från medelvärdet). Har inte detta mer tydligt betydelse då?
+\par\bigskip
+\noindent Svaret på varför vi inte definierar det på det sättet är att det är svårare att räkna på, belopp är jobbiga att räkna med. Kvadrater är lättare att räkna på, oavsett hur vi defnierar det så kommer det vara ett mått på hur mycket variabeln avviker från väntevärdet.
+\par\bigskip
+\noindent Detta går givetvis att mäta på många sätt, men vår definition är lätt att räkna på.
+\par\bigskip
+\noindent Både $Var(X)$ och $D(X)$ är spridningsmått (hur mycket variabeln sprider sig på $\R$) och generellt är $Var(X)$ lättare att räkna på. 

@@ -296,3 +296,13 @@ $X_1,\cdots,X_n$ är oberoende om för varje $A_1,\cdots,A_n\subseteq\R$ så är
 \noindent Kallas för \textit{Hypergeometrisk fördelning}
 \par\bigskip
 \noindent Intuition: Tänk $n_1$ som vinstlotter, och $n_2$ som lotter utan vinst. Dra $k$ lotter. Då är $X =$ antal vinstlotter, så kommer $Hyp(\underbrace{n_1+n_2}_{\text{antalet lotter}},\underbrace{k}_{\text{dragningar}},\underbrace{n_1}_{\text{vinstlotter}})$-fördelad
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Givet en kortlek (52 kort) där 13st är hjärter. Dra 5 kort. Då är antal hjärter vi drar hypergeometriskt fördelad enligt $Hyp(52,5,13)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Givet samma kortlek som föregående exempel. Dra 5 kort fast med återlägg (dra kort, kolla vad det är, lägga tillbaks i högen). Antalet hjärter är binomialfördelad där parametrarna blir $Bin(5,\dfrac{13}{52})$
+\par\bigskip
+\noindent Hypergeometrisk fördelning är alltså binomialfördelad fast utan återlägg.\par
+\noindent Om $X\sim Hyp(N,n,m)$ så får vi med återlägg $Bin(n,\dfrac{m}{N})$.\par
+\noindent Om $N$ är mycket större än antalet dragningar $n$, så är $Hyp(N,n,m)\approx Bin(n,\dfrac{m}{N})$
