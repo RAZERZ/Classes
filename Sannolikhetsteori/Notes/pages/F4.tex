@@ -165,4 +165,45 @@
 \par\bigskip
 \noindent Detta går givetvis att mäta på många sätt, men vår definition är lätt att räkna på.
 \par\bigskip
-\noindent Både $Var(X)$ och $D(X)$ är spridningsmått (hur mycket variabeln sprider sig på $\R$) och generellt är $Var(X)$ lättare att räkna på. 
+\noindent Både $Var(X)$ och $D(X)$ är spridningsmått (hur mycket variabeln sprider sig på $\R$) och generellt är $Var(X)$ lättare att räkna på.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $Y$ vara en slumpvariabel med fördelningsfunktionen $F_Y(t)=P(Y\leq t) = \begin{cases}0,t<0\\t^2, t\in[0,1]\\1, t>1\end{cases}$
+\par\bigskip
+\noindent Rita upp $F(t)$\par
+\noindent Beräkna $P(Y\leq 0.5) = F_Y(0.5) = 0.5^2=0.25$\par
+\noindent Beräkna $P(0.5<Y\leq 0.9)$. $\underbrace{P(Y\leq 0.9)}_{\text{0.81}} = P(\left\{Y\leq 0.5\right\}\cup\left\{0.5<Y<0.9\right\}) = \underbrace{P(Y\leq0.5)}_{\text{0.25}}+$\par\noindent$\Rightarrow 0.81-0.25=0.56$.\par
+\noindent Eftersom de är disjunkta kan vi summera sannolikheterna.
+\par\bigskip
+\begin{theo}[Egenskaper hos fördelningsfunktioner]{thm:wigjgw}
+  \begin{equation*}
+    \begin{gathered}
+      P(X<a)=\lim_{h\to0^+}F(a-h)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vid en produktion vill vi tillverka kolvar med en viss diameter. Vi har dock inte absolut precision, felet kan beskrivas med en slumpvariabel $Y$ = absolutfelet i diametern. Täthetsfunktionen till $Y$ är omvänt proportionell mot absolutfelet.
+\par\bigskip
+\noindent Bestäm täthetsfunktionen $f_Y(y)\quad y\in[1,5]$\par
+\noindent $f_Y(y) = c\dfrac{1}{y}$. Vi måste även ha att integralen $\int_{-\infty}^{\infty}f_Y(y)dy=1$
+\par\bigskip
+\noindent Bestäm fördelningsfunktionen (primitiv funktion till täthetsfunktionen)\par
+\noindent $P(Y\leq t) = \int_{-\infty}^{t}f_Y(y)dt$\par
+\noindent Om $t\leq1\Rightarrow P(Y\leq t)=0$\par
+\noindent Om $1\leq t\leq5\Rightarrow P(Y\leq t) = \int_{-\infty}^{t}f_Y(y)dy = \int_{1}^{t}f_Y(y)dy=\dfrac{\ln(t)}{\ln(5)}$
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Med tvåpunktsfördelning menas att $P_X(a)=p$ och $P_X(b)=1-p$ (notera att detta är $Be(p)$ om $a=1$ och $b=0$)\par
+\noindent Beräkna $E(X)$ och $Var(X)$:\par
+\noindent $E(X) = ap+b(1-p)$\par
+
+\begin{equation*}
+  \begin{gathered}
+  Var(X) = E((X-E(X))^2) = E((X-(ap+b(1-p)))^2)\\
+  =E(X^2+2XE(X)+(EX)^2)=E(X^2)\underbrace{-2(E(X)E(X))+(E(X))^2}_{\text{=$(E(X))^2$}}\\
+  \Rightarrow E(X^2) = \sum x^2P_X(x) = a^2P_X(a)+b^2P_X(b) = a^2p+b^2(1-p)\\
+  \Rightarrow Var(x) = a^2p+b^2(1-p) - (ap+b(1-p))^2 = p(1-p)(a-b)^2
+  \end{gathered}
+\end{equation*}

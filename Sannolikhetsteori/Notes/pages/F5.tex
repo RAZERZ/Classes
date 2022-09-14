@@ -1,0 +1,19 @@
+\section{Sammanfattning K2}
+\subsection{Betingning}\hfill\\\par
+\noindent Givetvis kan faktumet att en annan händelse har inträffat påverka sannolikheten att en annan händelse inträffar, detta kallas för \textit{betingning}, där man undersöker sannolikheten för att en händelse $A$ inträffar, givet att en händelse $B$ inträffar.\par
+\noindent Uttallas även $A$ betingat $B$ och skrivs $P(A|B)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Antag att vi har en kortlek (52 kort, 4st av dessa 52 är ess osv) och vi ska dra två kort från en kortlek. \par
+\noindent Låt $A$ = händelsen att vi drar ett ess vid första draget och $B$ = händelsen att vi drar ett ess vid andra draget, vad är då $P(B|A)$?
+\par\bigskip
+\noindent Om $A$ har inträffat har vi inte längre 52 kort, utan 51 (vi har nämligen dragit ett) och vi har inte längre 4 ess, utan 3, alltså har vi en chans på $\dfrac{3}{51}$ givet att $A$ har inträffat, vilket vi skriver på följande: $P(B|A) = \dfrac{3}{51}$
+\par\bigskip
+\begin{theo}[Betingad sannolikhet]{thm:igown}
+  Antag $P(A)>0$. Den \textit{betingade sannolikheten} för händelsen $B$ givet att händelsen $A$ har inträffat skrivs $P(B|A)$ och definieras som
+  \begin{equation*}
+    \begin{gathered}
+      P(B|A) = \dfrac{P(B\cap A)}{P(A)}
+    \end{gathered}
+  \end{equation*}
+\end{theo}

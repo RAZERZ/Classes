@@ -9,6 +9,8 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Sannolikhetsmåttet $P$}}{6}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Betingade sannolikheten $P(A|B)$}}{8}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Oberoende utsagor}}{9}{subsection.4.1}%
-\contentsline {section}{\tocsection {}{5}{Slumpvariabler}}{13}{section.5}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{Viktiga slumpvariabler}}{16}{subsection.5.1}%
-\contentsline {section}{\tocsection {}{6}{Medelvärde}}{19}{section.6}%
+\contentsline {section}{\tocsection {}{5}{Sammanfattning K2}}{13}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Betingning}}{13}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{6}{Slumpvariabler}}{14}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Viktiga slumpvariabler}}{17}{subsection.6.1}%
+\contentsline {section}{\tocsection {}{7}{Medelvärde}}{20}{section.7}%
