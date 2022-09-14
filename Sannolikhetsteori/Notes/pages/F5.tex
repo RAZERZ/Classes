@@ -17,3 +17,55 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
+\noindent Från detta följer det givetvis att $P(B\cap A) = P(A)P(B|A)$.\par
+\noindent Coolt faktum! Eftersom snitt-operatorn är kommutativ, så innebär det faktiskt följande: $P(A|B) = P(B|A)$
+\par\bigskip
+\noindent Låt oss undersöka vad som händer som vi betraktar $P(A\cap B\cap C)$:
+\begin{equation*}
+  \begin{gathered}
+    P(A\cap B\cap C) = P(\underbrace{(A\cap B)}_{\text{$=Q$}}\cap C) = P(C\cap\underbrace{(A\cap B)}_{\text{$=Q$}})\\
+    \Rightarrow P(C|Q) = \dfrac{P(C\cap Q)}{P(Q)} = P(C|A\cap B) = \dfrac{P(C\cap A\cap B)}{P(A\cap B)}\\
+    \Rightarrow P(Q|C) = \dfrac{P(Q\cap C)}{P(C)} = P(A\cap B|C) = \dfrac{P(A\cap B\cap C)}{P(C)}\\\\
+    \Rightarrow P(C|A\cap B) = P(A\cap B|C)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Oberoende}\hfill\\\par
+\noindent Med betingning har vi undersökt hur sannolikheten påverkas av andra händelser, exempelvis hur sannolikheten att dra ett ess påverkas av att dra ett annat kort. När man studerar slumpexperiment är det ofta av intresse att veta om händelserna beror av varandra eller inte, eftersom de kan möjligen påverka slutsatserna av detta slumpexperiment.
+\par\bigskip
+\noindent Informellt säger vi att två händelser är \textit{oberoende} om de inte har med varandra att göra.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L=$ att vinna på lotto en viss dag, $R=$ att det regnar i Stockholm samma dag\par
+\noindent Eftersom dessa händelser inte har något med varandra att göra, så säger vi att dessa är \textit{oberoende}. Det vi formellt vill formulera, är att sannolikheten för att $L$ inträffar är densamma även om $R$ inträffar (och vice versa).\par
+\noindent Använder vi notationen från betingning, så uttrycker vi det på följande sätt:
+\begin{equation*}
+  \begin{gathered}
+    P(L|R) = P(L)\qquad P(R|L) = P(R)
+  \end{gathered}
+\end{equation*}\par
+\noindent Det är faktiskt så vi definierar oberoende:
+\par\bigskip
+\begin{theo}[Oberoende händelser]{thm:disjpoiwog}
+  Två händelser $A$ och $B$ sägs vara \textit{oberoende} om:\par
+  $P(A|B) = P(A)$ förutsatt att $P(B)>0$\par
+  $P(B|A)=P(B)$ förutsatt att $P(A)>0$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vi sade tidigare att betingade händelser kommuterar ($P(A|B)=P(B|A)$), detta gäller även här förutsatt att sannolikheten för vardera händelser är $>0$, men från detta följer det ju att $P(B)=P(A)$. Från detta följer det då att det räcker att verifiera att $P(A|B)=P(A)$ för att visa att både $A$ och $B$ är obereonde!
+\par\bigskip
+\noindent Låt oss undersöka vidare, eftersom vi vet hur vi kan uttrycka $P(A|B)$, så bör vi kunna hitta ett uttryck för $P(A\cap B)$ förutsatt att $A$ och $B$ är obereonde:
+\begin{equation*}
+  \begin{gathered}
+    P(A|B) = \dfrac{P(A\cap B)}{P(B)} = P(A) \Lrarr P(A\cap B) = P(A)P(B)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Intressant! Givetvis antas $P(A)$ och $P(B)$ vara $>0$
+\par\bigskip
+\noindent\textbf{Svagare obereonde:}\par
+\noindent En svagare variant av oberoende är att titta på par av oberoende händelser i utfallsrummet. Att händelser är parvis oberoende innebär \textbf{inte} att mängden av dessa händelser är fullständigt oberoende, man måste nämligen undersöka alla par och se till att även de är oberoende.\par\bigskip
+\noindent Mer formellt säger vi att en mängd händelser $\left\{A_1,\cdots\right\}$ sägs vara \textit{parvis oberoende} om för alla par $(i,j)$ (där $i\neq j $), gäller att $P(A_i\cap A_j)=P(A_i)P(A_j)$\par
+\noindent Mängden sägs vara \textit{fullständigt oberoende} om det för alla $k\geq2$ och alla delmängder $\left\{A_{i_1},\cdots, A_{i_k}\right\}$ med\par\noindent $i_1<\cdots<i_k$, gäller att $P(A_{i_1}\cap\cdots\cap A_{i_k}) = P(A_{i_1})\cdots P(A_{i_k})$
