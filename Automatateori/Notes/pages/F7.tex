@@ -1,0 +1,106 @@
+\section{Reguljära språkens gränser}\par
+\begin{theo}[Särskiljandesatsen]{thm:pwigw}
+  Låt $L$ vara ett språk över alfabetet $\Sigma$ och låt $A$ vara en oändlig delmängd av strängar över $\Sigma$ ($A\subseteq\Sigma^*$).\par
+  \noindent Om $L$ särskiljer $A$, så kan $L$ inte vara reguljär
+\end{theo}
+\par\bigskip
+\noindent\textbf{Bevisskiss}:\par
+\noindent Antag att vi har en mängd $A = \left\{x_1,x_2,\cdots\right\}$ som innehåller oändligt antal strängar. Om $A$ särskiljs av språket $L$ och vi har en DFA som accepterar $L$, då skulle varje par av strängar $x_i, x_j$ i $A$ så måste $x_i$ driva DFA:n från starttillståndet till ett tillstånd. Samma med $x_j$, men vi hamnar ju i olika tillstånd (vi antar även att $x_i\neq x_j$). En DFA har däremot bara ändligt många tillstånd. DFA:n kan inte acceptera ett språk som särskiljer en oändlig mängd.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Ett exempel på ett icke-reguljärt språk är $L = \left\{a^nb^n:n\in\N\right\}$. Notera att $a*b^*$ \textit{inte} är ett reguljärt uttryck för språket $L$, eftersom med det reguljära uttrycket kan vi uttrycka $abb$, vilket vi inte kan per definition i $L$.\par
+\noindent Detta är dock inte ett bevis, men vi kan använda satsen för att faktiskt bevisa att $L$ ej är reguljärt.\par
+\noindent Låt $A = \left\{a^n:n\in\N\right\}$, som är \textit{oändlig}.\par
+\noindent Vi visar nu att $A$ särskiljs av $L$, då följer det från satsen att $A$ inte är reguljärt. Detta kan vi göra genom att ta två skilda strängar $x,y\in A\quad x\neq y$\par
+\noindent Då finns naturliga tal $i,j\in\N$ där $i\neq j$ så att $x=a^i$ och $y=a^j$. Välj då exempelvis $z=b^i$. Vi får då att $xz=a^ib^i\in L$ och $yz = a^jb^i\notin L$\par
+\noindent Eftersom $i,j$ valdes godtycklig, så särskiljs $A$ av $L$. Det följer då från särskiljandesatsen att $L$ \textit{inte} är reguljärt.
+\par\bigskip
+\noindent\textbf{Exempel:} (och liten inledning till pumpsatsen)\par
+\noindent Betrakta följande DFA:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, initial text=](p0){$1$};
+      \node[state, right of=p0, xshift=1cm](p1){$2$};
+      \node[state, accepting below, below of=p0, xshift=1cm, yshift=-1cm](p2){$3$};
+      \path[-stealth] (p1) edge[loop right] node{$b$} (p1);
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[left] node{$b$} (p2);
+      \path[-stealth] (p1) edge[right] node{$a$} (p2);
+      \path[-stealth] (p2) edge (p0);
+      \path[-stealth] (p2) edge (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Antalet kombinationer av tecken och tillstånd är $2\cdot 3=6$. Följande sträng accepterars:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{abbaababa}_{\text{$u$}}\underbrace{baaabba}_{\text{$w$}}\underbrace{babb}_{\text{$v$}}\\
+    122232231223231322313
+  \end{gathered}
+\end{equation*}\par
+\noindent Välj en delsekvens som har längd större än 6. Vi kallar den strängen $w$:
+\begin{equation*}
+  \begin{gathered}
+    baaabba\qquad \left|baaabba\right| = 7>6
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kallar de övriga delarna $u$ och $v$
+\par\bigskip
+\noindent Ur lådprincipen följer det att eftersom $\left|w\right|>6$ så kommer någon kombination av tecken/tillstånd uppträda minst 2 gånger. Vi måste alltså "loopa" ett tillstånd minst 2 gånger när $w$ avläses. Exempelvis dyker kombinationen $(a,3)$ två gånger.
+\par\bigskip
+\noindent Vad vi ska göra nu är att dela upp $w$ i 3 delar baserat på detta:
+\begin{equation*}
+  \begin{gathered}
+  \underbrace{ba}_{\text{$x$}}\underbrace{aabb}_{\text{$y$}}\underbrace{a}_{\text{$z$}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Låt delen av $w$ fram till just före 1:a förekomsten av $(a,3)$, vi kallar den $x$. Låt delen av $w$ från 1:a förekomsten av $(a,3)$ till just före 2:a förekomsten av $(a,3)$, vi kallar den $y$. Resten av $w$ kallas för $z$.
+\par\bigskip
+\noindent På grund av att DFA:n är deterministisk så accepterars även $uxyyzv$. Faktum är att vi kan haka på hur många $y$ som helst, vi kan även \textit{ta bort} $y$ och strängen kommer fortfarande att accepterars.
+\par\bigskip
+\begin{theo}[Pumpsatsen för reguljära språk]{thm:wihewg}
+  Antag att vi har ett oändligt reguljärt språk $L$. Att det är oändligt garanterar att språket innehåller strängar av hur lång längd som helst, annars hade vi kunnat hitta ett supremum.
+  \par\bigskip
+  \noindent Då finns ett naturligt tal $N\in\N$ sådant att om vi har en sträng $uwv\in L$ och $\left|w\right|\geq N$ så finns strängar $x,y,z$ så att $w=xyz$ och $y\neq\varepsilon$ och $uxy^nzv\in L$ för alla naturliga tal $n\in\N$.\par
+  \noindent Om $n=0$ får vi $uxzv\in L$
+\end{theo}
+\par\bigskip
+\noindent Mall för att visa med pumpsatsen att ett språk $L$ inte är reguljärt:
+\begin{itemize}
+  \item Visa att $L$ är oändligt
+  \item Antag att $L$ är reguljärt
+  \item Låt $N$ vara talet som anges (för $L$) i pumpsatsen
+  \item Välj lämpliga (konkreta upp till att $N$:s värde är okänt) strängar $u,w,v$ sådant att $uwv\in L$ och $\left|w\right|\geq N$
+  \item Visa att hur än $w$ delas upp i 3 delar ($w=xyz$ där $y\neq\varepsilon$) så finns något tal $k\in\N$ så att $uxy^kzv$ \textit{inte} tillhör $L$
+  \item Anmärk att det motsäger pumpsatsen eftersom $L$ antogs vara reguljärt. 
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L = \left\{a^nb^n:n\in\N\right\}$. Vi vill visa att $L$ inte är reguljärt med pumpsatsen.
+\par\bigskip
+\noindent Vi följer mallen:
+\begin{itemize}
+  \item Vi visar att $L$ är oändligt:\par
+    $ab, a^2b^2,a^3b^3,\cdots\in L$ så $L$ oändlig\par
+  \item Vi antar att $L$ är reguljärt
+  \item Låt $N$ vara givet för $L$ av pumpsatsen
+  \item Vi kan tänka oss att pumpa ett $a$ i en given sträng, eftersom vi inte pumpar $b$ så kommer alltså vår nya sträng \textit{inte} att finnas i $L$.\par
+    \noindent Alltså, låt $u=\varepsilon$, $w=a^{N+1}$, $v=b^{N+1}$ (notera att dessa är inte konkreta eftersom vi inte vet vad $N$ är)\par
+    \noindent Så $uwv = a^{N+1}b^{N+1}\in L$ och $\left|w\right|\geq N$\par
+  \item Antag att vi har en uppdelning av $w = xyz$ där $y\neq\varepsilon$. Då gäller att $y=a^m$ för något $m>0$ och $uxy^0zv=uxzv=a^{N+1-m}b^{N+1}\notin L$
+  \item Eftersom uppdelningen skedde godtyckligt, motsäger detta pumpsatsen, alltså måste $L$ vara irreguljärt.  
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L$ vara språket med \textit{minst} lika många $b$ som $a$, dvs $L = \left\{w\in\left\{a,b\right\}^*: \text{antalet $b$ i $w$ är minst lika stort osm antalet $a$}\right\}$
+\par\bigskip
+\noindent Språket är inte ändligt och är inte reguljärt, vi visar detta med pumpsatsen. 
+\begin{itemize}
+  \item Antag att $L$ är reguljärt
+  \item Låt $N$ vara givet för $L$ av pumpsatsen
+  \item Låt $u=\varepsilon$, $w=a^{N+1}$, $v = b^{N+1}$, så $uwv = a^{N+1}b^{N+1}\in L$ och $\left|w\right|\geq N$
+  \item Antag att $w=xyz$ där $y\neq\varepsilon$. Så $y=a^m$ för $m>0$. Vi får nu att $uxy^2zv\notin L$ 
+  \item Detta motsäger antagandet att $L$ är reguljärt, därmed följer det från pumpsatsen att $L$ inte är reguljärt.
+\end{itemize}\par
+
