@@ -53,6 +53,8 @@
   \noindent där $\sim$ är relationen. $\bar{x}\sim\bar{y}\Lrarr\exists\lambda\in\R \left\{0\right\}: \bar{x}=\lambda\bar{y}$
 \end{theo}
 \par\bigskip
+\noindent Man kan säga att $\R P^2 = \left\{\text{linjer genom orio i $\R^3$}\right\}$
+\par\bigskip
 \noindent Punkter i $\R P^2$ representeras av en trippel av tal (3-dimensionell vektor) i $\R^3$, exempelvis på följande sätt $(x,y,z)$ och skall alltså betraktas som lika med $(tx,ty,tz)$. Det enda villkoret vi har är att $(x,y,z)\neq(0,0,0)$.\par
 \noindent Detta sätt att betrakta $(x,y,z)$ kallas för \textit{homogena koordinater}. Punkter i $\R P^2$ kallas \textit{projektiva punkter}.
 \par\bigskip
@@ -69,7 +71,7 @@
 \noindent Mängden av projektiva punkter som uppfyller $zy = x^2+z^2$ och dessutom har $z\neq0$ utgör kurvan $y=x^2+1$ i $xy$-kartan eftersom vi sätter $z=1$.\par
 \noindent Men, om $z=0$ så får vi $x=0$, medan $y$ kan anta vilket värde som helst, det finns alltså en projektiv punkt kvar, nämligen $(0,1,0)$ (egentligen $(0,y,0)$ men de är homogena koordinater för samma punkt). Det motsvarar "horizonten".
 \par\bigskip
-\noindent De andra affina kartorna $xz$ och $yz$  definieras analogt.
+\noindent De andra affina kartorna $xz$ och $yz$  definieras analogt. Tänk på det som $\R^2\subset \R P^2$
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent $(2,1,3)$ har koordinater $(2,3)$ i $xz$-kartan (dela med $y$, vilket är 1)
@@ -132,3 +134,100 @@
 \noindent\textbf{Exempel:}\par
 \noindent $f(y,z)=zy-z^2-1\Rightarrow zy-z^2-x^2=F(x,y,z)$. Vad är $zy-z^2=1$? En hyperbel förstås!\par
 \noindent Detta är ju det vi visat med våra klassificeringar som vi gjort, det vill säga en cirkel = parabel = hyperbel.
+\par\bigskip
+\noindent Med homogenisering kan vi tänka oss att vi kan gå från affina kurvor till projektiva kurvor med hjälp av homogenisering.
+\par\bigskip
+\begin{theo}[Projektiva tangentlinjen]{thm:ligma}
+  Den projektiva tangentlinjen till $F(x,y,z) = 0$ i punkten $P=(a,b,c)$ ges av (vi antar $\nabla F(a,b,c)\neq0$):
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial F}{\partial x} (a,b,c)x+\dfrac{\partial F}{\partial y}(a,b,c,)y+ \dfrac{\partial F}{\partial z}(a,b,c)z =0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\subsection{Projektiva transformationer}\hfill\\\par
+\noindent Kommer ersätta affina transformationer, är en större klass av avbildningar men kan vara lättare att hantera. För att begripa dessa är det bra att ha koll på linjära transformationer.
+\par\bigskip
+\noindent $\bar{F}:\R^3\to\R^3$ - en linjär avbildning med ker$\bar{F} = \left\{\bar{0}\right\}$. Detta betyder att den är injektiv (men eftersom vi går från $\R^3\to\R^3$ så är den även bijektiv).
+\par\bigskip
+\noindent Eftersom det är en bijektiv homomorfi, är det även en isomorfi.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $L$ är en linje genom origo, så är $\bar{F}(L)$ också det. Den här avbildning \textit{inducerar} en avbildning $F_P:\R P^2\to\R P^2$ på det projektiva planet.\par
+\noindent Det händer nästan ingenting här, i homogena koordinater ges $L=(x,y,z)$ $F_P(x,y,z)$ av $F(x,y,z)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande linjär avbildning $\bar{F}(x,y,z) = (2x,2y,2z)$, då är $F_P = id_{\R P^2}$ eftersom de projektivt är samma (kom ihåg ekvivalensrelationen)
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent En allmän transformation $\bar{F}$ ges av en matris $\begin{pmatrix}x\\y\\z\end{pmatrix}\mapsto\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}$\par
+\noindent Att beräkna $\bar{F}_P$ är bara att betrakta $\begin{pmatrix}x\\y\\z\end{pmatrix}$ som homogena koordinater, och räkna som vanligt.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om matrisen är exempelvis $\begin{pmatrix}a&b&c\\d&e&f\\0&0&1\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}ax+by+cz\\dx+ey+fz\\z\end{pmatrix}$
+\par\noindent Låt oss titta på den här i $xy$-kartan ($z=1$). Då ser den ut som $(x,y)\leftrightarrow(x,y,1) \Rightarrow \begin{pmatrix}ax+by+c\\dx+ey+f\\1\end{pmatrix}$\par
+\noindent I $xy$-kartan ser alltså avbildningen ut på följande vis $\begin{pmatrix}x\\y\end{pmatrix}\mapsto\begin{pmatrix}ax+by+c\\dx+ey+f\end{pmatrix}$
+\par\bigskip
+\noindent Men notera! Detta är ju bara en affin avbildning! Med andra ord, projektiva avbildningar generaliserar affina avbildningar (en projektiv avbildning med $z=1$ visade vi nu var affin).
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vilka avbildningar bevarar linjen $z=0$? Jo det måste vara en affin avbildning på följande form:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}a&0&c\\0&a&f\\0&0&i\end{pmatrix}\Rightarrow (ax,ay,0) = (x,y,0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\bar{F}(x,y,z)=(x,z,y)$. Detta är en spegling i $y=z$. Hur ser den ut i $xy$-kartan?\par
+\noindent Vi gör följande: $(x,y)\mapsto(x,y,1)=(x,1,y) = \left(\dfrac{x}{y},\dfrac{1}{y},1\right)\leftrightarrow\left(\dfrac{x}{y},\dfrac{1}{y}\right)$
+\par\bigskip
+\noindent Säg att vi har 4 punkter i planet (hörn i en rektangel), vad kan hända med dessa under en affin transformation? Under affin transformation får exempelvis vi parallelogram.
+\par\bigskip
+\begin{theo}
+  SLåt $z_1,\cdots, z_4$ och $w_1,\cdots, w_4$ vara punkter i det projektiva planet. De ska ha egenskaperna så att 3 av de ligger aldrig på en rät linje (se det som hörn i en fyrhörning)
+  \par\bigskip
+  \noindent Då finns en entydig projektiv transformation $F$ så att $F(z_i) = w_i\quad i=1\cdots4$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  BRepresentera $z_i\in\R P^2$ med en vektor $\bar{z_i}\in\R$ och samma med $w_i$
+  \par\bigskip
+  \noindent Villkoret betyder att ingen deltrippel av $\left\{\bar{z_1},\cdots,\bar{z_4}\right\}$ är i samma plan (dvs linjärt beroende). De utgör alltså en bas för $\R^3$. Detsamma för $\bar{w_i}$
+  \par\bigskip
+  \noindent Eftersom 3 nu utgör en bas så kan vi uttrycka den fjärde som en linjärkombination av de andra:
+  \begin{equation*}
+    \begin{gathered}
+      \bar{z_4} = \sum_{i=1}^{3}a_i\bar{z_i}\\
+      \bar{w_4} = \sum_{i=1}^{3}b_i\bar{w_i}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Vi definierar nu en linjär avbildning $\bar{F}:\R^3\to\R^3$ genom:
+  \begin{equation*}
+    \begin{gathered}
+      \bar{F}(\bar{z_i}) = \dfrac{b_i}{a_i}\bar{w_i}\qquad i=1,2,3
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Då får vi:
+  \begin{equation*}
+    \begin{gathered}
+      \bar{F}(\bar{z_4}) = \bar{F}\left(\sum_{i=1}^{3}a_i\bar{z_i}\right) = \sum_{i=1}^{3}a_i\bar{F}(\bar{z_i}) = \sum_{i=1}^{3}a_i\dfrac{b_i}{a_i}\bar{w_i} = \sum_{i=1}^{3}b_i\bar{w_i} = \bar{w_4}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta visar existens. Om $G:\R^3\to\R^3$ också har samma egenskap, dvs $G(\bar{z_i})=\lambda_i\bar{w_i}$\par
+  \begin{equation*}
+    \begin{gathered}
+      G(\bar{z_4}) = \sum_{i=1}^{3}a_i\bar{z_i} = \sum_{i=1}^{3}a_iG(z_i) = \sum_{i=1}^{3}a_i\lambda_i\bar{w_i}\\
+      \text{Å andra sidan } G(\bar{z_4}) = \lambda_4\bar{w_4} = \sum_{i=1}^{3}\lambda_4b_i\bar{w_i}\\
+      \Rightarrow \lambda_i = \lambda_4\dfrac{b_i}{a_i}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Så $\bar{G}(\bar{z_i}) = \lambda_4\dfrac{b_i}{a_i}\bar{w_i} = \lambda_4\bar{F}(\bar{z_i})$\par
+  \noindent Från detta följer det att $\bar{G} = \lambda_4\bar{F}$ så $\bar{G_P} = \bar{F_p}$
+\end{prf}
+\par\bigskip
