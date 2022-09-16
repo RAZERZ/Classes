@@ -230,4 +230,133 @@
   \noindent Så $\bar{G}(\bar{z_i}) = \lambda_4\dfrac{b_i}{a_i}\bar{w_i} = \lambda_4\bar{F}(\bar{z_i})$\par
   \noindent Från detta följer det att $\bar{G} = \lambda_4\bar{F}$ så $\bar{G_P} = \bar{F_p}$
 \end{prf}
+\newpage
+\subsection{Ekvivalenta polynom upp till projektiv transformation}\hfill\\\par
+\noindent Homogena polynom i 3 variabler betecknas som $\R_h[x,y,z]\subseteq\R[x,y,z]$
 \par\bigskip
+\noindent Som vanligt, om vi har ett homogent polynom $F(x,y,z)$ och en projektiv transformation $G_p(\bar{G})$ kan vi sammansätta polynomet med transformationen och göra ett "variabelbyte" (detta är inverterbart). Då kan vi betrakta polynom som ekvivalenta om vi kan få vardera polynom med en sådan transformation, dvs $F\circ\bar{G} = \bar{G}^*(F)$
+\par\bigskip
+\noindent Vår reella affina klassificeringar hade en hel klassificeringar av $\R$-kurvor: 
+\begin{itemize}
+  \item $x^2+y^2-1$ (cirkel)
+  \item $x^2-y^2-1$ (hyperbel)
+  \item $x^2-y$ (parabel)
+  \item $x^2-y^2$ (linjekon)
+  \item $x^2+y^2$ (punkt)
+  \item$x(x-1)$ (två parallella linjer)
+  \item $x^2$ ("dubbellinje")
+  \item $x^2+1$ (tom)
+  \item $x^2+y^2+1$ (tom)
+\end{itemize}
+\par\bigskip
+\noindent Vi påminner oss dock om att när vi hade parabeln $y=x^2+1$ kunde vi få en cirkel, och en hyperbel genom en bijektiv affin transformation. Då kommer alltså följande ske:\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^2+y^2-1\\
+      x^2-y^2-1\\
+      y-x^2
+    \end{rcases*}\Rightarrow x^2+y^2-z^2\text{ (kon)}\\
+    \begin{rcases*}
+      x^2-y^2\\
+      x(x-1)
+    \end{rcases*}\Rightarrow x^2-y^2\text{ (parallella linjer)}\\
+    \begin{rcases*}
+      x^2+y^2\\
+      x^2+1
+    \end{rcases*}\Rightarrow x^2+y^2 \text{ (punkt)}\\
+    x^2\Rightarrow\text{ (punkt)}\\
+    x^2+y^2+1\Rightarrow\\O
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Projektivt sätt finns det bara ett icke-singulärt polynom.
+\par\bigskip
+\subsection{Skärningstalet i $\R P^2$}\hfill\\\par
+\noindent Vi har ju bara satt upp axiom för det, men nu kommer vi defniera det genom att välja en affin karta där punkten vi vill räkna skärningstalet för ligger i, och sen använda axiomen som vanligt.\par
+\noindent Det finns en risk med detta, och det är att det kan bero på vilken karta vi använder (kurvorna kanske tangerar istället). Vi ändrar detta genom att säga att det inte är så, det vill säga inför:
+\par\bigskip
+\noindent\textbf{Axiom 0}:\par
+\noindent Vi vill kunna titta på skärningen i vilket affint koordinatssystem som helst (bevaras under affin transformation): (Affint invariant)
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_{F^{-1}(p)}(F^*f,F^*g)\qquad\forall F\in\text{Aff}_\C(2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 1:}\par
+\noindent Säger att $f$ och $g$ skär varandra lika många gånger som $g$ och $f$ skär varandra:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_p(g,f)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 2:}\par
+\noindent Skärningstalet mellan $f$ och $g$ skall vara nollskillt omm punkten $p$ ligger på båda kurvorna:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g)\neq0\Lrarr f(p) = g(p) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 3:}\par
+\noindent Koordinataxlarna (speciella kurvor) skär varandra i en enda punkt, alltså borde de har skärningstalet 1:
+\begin{equation*}
+  \begin{gathered}
+    I_0(x,y) = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 4:}\par
+\noindent $I_p(f,gh) = I_p(f,g)+I_p(f,h)$ 
+\par\bigskip
+\noindent\textbf{Axiom 5:}\par
+\noindent Skärningstalet i $p$ mellan $f$ och $g$ är detsamma som skärningstalet mellan $f$ och $g+fh$:
+\begin{equation*}
+  \begin{gathered}
+    I_p(f,g) = I_p(f,g+fh)\qquad\forall h\in\C[x,y]
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Axiom 6}: $I_p$ är invariant under projektiv transformation.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Finn de punkter i $\R P^2$ där
+\begin{equation*}
+  \begin{gathered}
+    C=x^3-3x^2y+2xy-4y-10=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Skär linjen $L_\infty (z=0)$\par
+\noindent Beräkna också skärningstalet $I_p(C,L_\infty)$ i dessa punkter.
+\par\bigskip
+\noindent\textit{Lösning:} Börja med att homogenisera:
+\begin{equation*}
+  \begin{gathered}
+    x^3-3x^2y+2xyz-4yz^2-10z^3=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Var skär denna kurva linjen $z=0$? Sätt $z=0$ och vi får då:
+\begin{equation*}
+  \begin{gathered}
+    x^3-3x^2y=0\Lrarr x^2(x-3y)=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi har alltså lösningar $x=0, z=0$ och $x=3y, z=0$, dvs $(0,1,0), (3,1,0)$\par
+\noindent Nu ska vi hitta skärningstalet i dessa punkter. Då bör vi hitta en lämplig affin karta att räkna i, vi väljer $xz$-kartan eftersom båda punkter ligger där.\par
+\noindent Våra punkter blir då $(0,0)$ resp. $(3,0)$, men hur ser ekvationerna ut här? Sätt $y=1$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \overbrace{x^3-3x^2+2xz-4z^2-10z^3=0}^{\text{$g(x,z)$}}\\
+      z=0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Här är $z=0$, vilket är grafet till ett polynom ($p(x)=0$), men det är inte $g(x,z)$ (det är inte en graf till ett envariabelpolynom)\par
+\noindent Notera, enligt Theorem 7.1 får vi skärningstalet som multipliciteten till motsvarande nollstället till $g(x,p(x)) = g(x,0) = x^3-3x^2 =x^2(x-3)$. Detta ger att $x=0, x=3$ är en lösning, och multipliciteten av $x=0$ är 2, alltså är skärningstalet i origo $=2$ och i $x=3=1$
+\par\bigskip
+\subsection{Generalisering av $\R P^2$}\hfill\\\par
+\noindent Projektiva rum existerar i varje dimension, låt oss betrakta reella projektiva \textit{linjen} $\R P^1$.\par
+\noindent Istället för att börja med $\R^3$ börjar vi med $\R^2$ där alla linjer genom genom origo är ekvivalenta. Homogena koordinater blir bara en dimension mindre $(x,y)=(\lambda x, \lambda y)$

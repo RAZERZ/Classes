@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  15 SEP 2022 10:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  16 SEP 2022 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1281,18 +1281,78 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 232.
-) [19] (./pages/F6.tex) (./main.aux (./includes/title.aux))
+ [19]
+Underfull \hbox (badness 10000) in paragraph at lines 234--234
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 275.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 275.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 275.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--275
+
+ []
+
+[20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 360.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 360.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 360.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+
+ []
+
+) [21] (./pages/F6.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Overfull \hbox (31.8808pt too wide) in paragraph at lines 2--2
+\OT1/cmr/m/n/10 Allt vi beh^^?over g^^?ora h^^?ar har vi n^^?astan redan gjort 
+n^^?ar vi be-trak-tade $\U/msb/m/n/10 C[]$\OT1/cmr/m/n/10 . Ex-em-pelvis, i $\U
+/msb/m/n/10 C[] \OT1/cmr/m/n/10 = []$ 
+ []
+
+) [22] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B13F8870C48424A58A39EA11B84186AF;2301.
+(rerunfilecheck)             Checksum: 58D7BCA4DFCDFDF81DB382F2BDB16524;3286.
  ) 
 Here is how much of TeX's memory you used:
- 24226 strings out of 478238
- 444971 string characters out of 5850457
- 749122 words of memory out of 5000000
- 41787 multiletter control sequences out of 15000+600000
+ 24237 strings out of 478238
+ 445104 string characters out of 5850457
+ 749117 words of memory out of 5000000
+ 41791 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,21n,107p,502b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1311,10 +1371,10 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 279232 bytes).
+Output written on main.pdf (23 pages, 289702 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

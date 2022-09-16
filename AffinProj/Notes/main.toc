@@ -9,3 +9,7 @@
 \contentsline {section}{\tocsection {}{8}{Vad vi vet nu om Bezouts sats}}{15}{section.8}%
 \contentsline {section}{\tocsection {}{9}{Projektiv Geometri över $\mathbb {R}$}}{16}{section.9}%
 \contentsline {subsection}{\tocsubsection {}{9.1}{Projektiva transformationer}}{18}{subsection.9.1}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{Ekvivalenta polynom upp till projektiv transformation}}{20}{subsection.9.2}%
+\contentsline {subsection}{\tocsubsection {}{9.3}{Skärningstalet i $\mathbb {R}P^2$}}{20}{subsection.9.3}%
+\contentsline {subsection}{\tocsubsection {}{9.4}{Generalisering av $\mathbb {R}P^2$}}{21}{subsection.9.4}%
+\contentsline {section}{\tocsection {}{10}{Komplexa projektiva planet $\mathbb {C}P^2$}}{22}{section.10}%

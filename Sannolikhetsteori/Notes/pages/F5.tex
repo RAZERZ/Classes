@@ -69,3 +69,25 @@
 \noindent En svagare variant av oberoende är att titta på par av oberoende händelser i utfallsrummet. Att händelser är parvis oberoende innebär \textbf{inte} att mängden av dessa händelser är fullständigt oberoende, man måste nämligen undersöka alla par och se till att även de är oberoende.\par\bigskip
 \noindent Mer formellt säger vi att en mängd händelser $\left\{A_1,\cdots\right\}$ sägs vara \textit{parvis oberoende} om för alla par $(i,j)$ (där $i\neq j $), gäller att $P(A_i\cap A_j)=P(A_i)P(A_j)$\par
 \noindent Mängden sägs vara \textit{fullständigt oberoende} om det för alla $k\geq2$ och alla delmängder $\left\{A_{i_1},\cdots, A_{i_k}\right\}$ med\par\noindent $i_1<\cdots<i_k$, gäller att $P(A_{i_1}\cap\cdots\cap A_{i_k}) = P(A_{i_1})\cdots P(A_{i_k})$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Antag att vi har två normala tärningar (6 sidor), en röd och en svart. Vi låter $A$ vara händelsen att vi slår ett udda tal på den röda tärningen, och $B$ vara händelsen att vi slår ett udda tal på den svarta tärningen. Låt nu $C$ var händelsen att summan av den röda och svarta tärningen är udda.\par
+\noindent\textit{Avgör om händelserna är parvis och eller fullständigt oberoende.}
+\par\bigskip
+\noindent Det lättaste är att avgöra om händelserna är fullständigt oberoende, så vi kollar det först. Då vill vi kolla $P(A\cap B\cap C)$, vilket översatt till ord blir "sannolikheten att $A,B,C$ inträffar". Att slå udda på båda tärningar är inte osannolikt, men tyvärr kan då inte summan bli udda eftersom udda+udda = jämnt. Alltså måste $P(A\cap B\cap C) = 0$.\par
+\noindent Om det skulle vara så att händelserna är fullständigt oberoende, så skulle även $P(A\cap B\cap C) = 0 = P(A)P(B)P(C)$, men eftersom $P(A), P(B)$ och $P(C)$ har sannolikhet $>0$, så motsäger detta att sannolikheten $=0$, alltså är de ej fullständigt oberoende.
+\par\bigskip
+\noindent Vi undersöker nu om de är parvis oberoende. $A$ och $B$ är oberoende eftersom resultatet från $A$ inte påverkar $B$ alls. Det gäller nu att undersöka om $(A,C)$ samt $(B,C)$ är oberoende, men enligt anmärkningen ovan gäller det faktiskt bara att undersöka om $A$ och $C$ är oberoende, så följer det att $B$ och $C$ är oberoende (eftersom $A$ och $C$ är obereonde).\par
+\noindent Vi vill kolla att $P(C|A) = P(C)$. Givet att $A$ är ett udda tal, så måste alltså vi slå ett jämnt tal från $B$ för att $C$ ska gälla. Att slå ett jämnt tal har sannolikheten $\dfrac{1}{2}$, alltså är $P(C|A) = \dfrac{1}{2}$. Vi måste nu visa att $P(C) = \dfrac{1}{2}$:\par
+\noindent Betrakta alla slagningar som par, vi får då $(1,1),(1,2),\cdots,(6,6)$. Det är $6\cdot6=36$st par. Hur många av dessa par har ett udda och ett jämnt tal? Rimligtvis 18 av de! Alltså är sannolikheten att $C$ inträffar $\dfrac{18}{36} = \dfrac{1}{2}$\par
+\noindent Detta var ju dock precis $P(C|A)$, alltså har vi visat att $P(C|A) = P(C)$ vilket betyder att händelserna parvis är oberoende.
+\par\bigskip
+\subsection{Lagen om total sannolikhet}\hfill\\\par
+\noindent Premisserna går ut på att det ibland är lättare att beräkna en betingad sannolikhet än att direkt räkna sannolikheten.\par
+\noindent Målet är att hitta en "sluten formel" för att räkna $P(B)$ betingat andra händelser i utfallsrummet. Vi undersöker:\par
+\begin{figure}[ht]
+    \centering
+    \incfig{initialt}
+    \caption{Initialt}
+    \label{fig:initialt}
+\end{figure}

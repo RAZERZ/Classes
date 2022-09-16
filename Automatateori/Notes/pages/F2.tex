@@ -197,7 +197,7 @@
       \node[state, initial above, initial text=](p0){$1$};
       \node[state, accepting below, left of=p0, xshift=-1cm](p1){$2$};
       \node[state, accepting below, right of=p0, xshift=1cm](p2){$3$};
-      \path[-stealth] (p0) edge[below, bend right] node{$\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[above, bend right] node{$\varepsilon$} (p1);
       \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p2);
       \path[-stealth] (p1) edge[loop above] node{$b$} (p1);
       \path[-stealth] (p2) edge[loop above] node{$a$} (p2);
@@ -215,7 +215,7 @@
       \node[state, accepting below, right of=p0, xshift=1cm](p2){$3$};
       \node[state, below right of=p2, yshift=-.25cm, xshift=.5cm](p3){$4$};
       \node[state, right of=p3, xshift=.5cm](p4){$5$};
-      \path[-stealth] (p0) edge[below, bend right] node{$\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[above, bend right] node{$\varepsilon$} (p1);
       \path[-stealth] (p0) edge[above, bend left] node{$\varepsilon$} (p2);
       \path[-stealth] (p1) edge[loop above] node{$b$} (p1);
       \path[-stealth] (p2) edge[loop above] node{$a$} (p2);
@@ -339,7 +339,7 @@
 \end{theo}
 \par\bigskip
 \begin{theo}
-  FFr varje NFA $M$ så finns ett reguljärt uttryk som beskriver $L(M)$
+  FFör varje NFA $M$ så finns ett reguljärt uttryk som beskriver $L(M)$
 \end{theo}
 \noindent Vi visar nu:
 \par\bigskip

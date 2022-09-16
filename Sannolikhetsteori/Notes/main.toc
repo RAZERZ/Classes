@@ -12,6 +12,7 @@
 \contentsline {section}{\tocsection {}{5}{Sammanfattning K2}}{13}{section.5}%
 \contentsline {subsection}{\tocsubsection {}{5.1}{Betingning}}{13}{subsection.5.1}%
 \contentsline {subsection}{\tocsubsection {}{5.2}{Oberoende}}{13}{subsection.5.2}%
-\contentsline {section}{\tocsection {}{6}{Slumpvariabler}}{15}{section.6}%
-\contentsline {subsection}{\tocsubsection {}{6.1}{Viktiga slumpvariabler}}{18}{subsection.6.1}%
-\contentsline {section}{\tocsection {}{7}{Medelvärde}}{21}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{Lagen om total sannolikhet}}{15}{subsection.5.3}%
+\contentsline {section}{\tocsection {}{6}{Slumpvariabler}}{16}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Viktiga slumpvariabler}}{19}{subsection.6.1}%
+\contentsline {section}{\tocsection {}{7}{Medelvärde}}{22}{section.7}%
