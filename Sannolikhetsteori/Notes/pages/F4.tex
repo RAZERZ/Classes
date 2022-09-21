@@ -30,7 +30,7 @@
     \end{gathered}
   \end{equation*}
   \par\bigskip
-  \noindent En slags mittpunkt för sannoliketsrummet
+  \noindent Förutsatt att summan ej beror på ordningen av termer (absolutkonvergent eller $X\geq0$ eller $0\geq X$). En slags mittpunkt för sannoliketsrummet.
 \end{theo}
 \par\bigskip
 \begin{theo}[Väntevärdet/Medelvärde]{thm:wogh}
@@ -80,15 +80,18 @@
       E(g(X)) = \sum_{y:g(X)=y} yP(g(X)=y) = \sum_{y:g(X)=y}\sum_{x:g(x)=y}P(X=x)\\
       =\sum_{y:g(X)=y}\sum_{x:g(x)=y}\underbrace{y}_{\text{=$g(x)$}}P(X=x)\\
       =\sum_{y:g(X)=y}\sum_{x:g(x)=y}g(x)P(X=x)\\
-      = \sum_{x}g(x)P(X=x)
+      = \sum_{x}g(x)P(X=x) = \sum_{x}g(x)P_X(x)
     \end{gathered}
   \end{equation*}
 \end{prf}
 \par\bigskip
 \begin{theo}
-  VVi säger att $X\in L^1(\Omega)$ om $\sum\left|x\right|p_X(x)<\infty$.\par
+  VVi säger att $X\in L^1(\Omega)$ om $\sum\left|x\right|P_X(x)<\infty$.\par
   \noindent Mer generellt skriver vi att $X\in L^p(\Omega)$ om $\underbrace{\sum\left|x\right|^pP_X(x)}_{\text{$E(\left|X\right|^p)$}}<\infty$\par
   \noindent Med andra ord, $X\in L^p$ om $E(\left|X\right|^p)<\infty$
+  \par\bigskip
+  \noindent $L^P(\Omega) = \left\{X:\Omega\to\R:E(\left|X\right|^P)<\infty, X\text{ är diskret}\right\}$\par
+  \noindent $L^1$ = absolutkonvergent = ändligt väntevärde
 \end{theo}
 \par\bigskip
 \begin{theo}[Väntevärdet är linjärt]{thm:woghwoeg}
@@ -207,3 +210,330 @@
   \Rightarrow Var(x) = a^2p+b^2(1-p) - (ap+b(1-p))^2 = p(1-p)(a-b)^2
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\subsection{Egenskaper för väntevärden}\hfill\\
+\begin{itemize}
+  \item Väntevärdet av en konstant slumpvariabel, är inget annat än en konstant
+  \item $E(X^p)=\sum x^pP_X(x)$ (här sätter vi $g(x) = x^p$)
+  \item $E(\left|X\right|) = \sum \left|X\right|P_X(x)$ (låt $g(x) = \left|x\right|$)
+  \item $E(X)$ är ändlig $\Lrarr E\left|X\right|<\infty$
+  \item $E(X+Y) = E(X)+E(Y)$ så länge väntevärderna är definierade (vi tillåter inte att ena är $\infty$ och den andra $-\infty$)
+  \item $E(cX) = cE(X)\quad c\in\R$
+  \item $\left|E(X)\right|\leq E(\left|(X)\right|)$ (Ye Olde' Triangelolikheten)
+  \item $X\geq0\Rightarrow E(X)\geq0$
+  \item $X\leq Y\Rightarrow E(X)\leq E(Y)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Proposition}:\par
+\noindent Om $q>p$ så är $L^q\subseteq L^p$
+\par\bigskip
+\begin{prf}
+  VVi skriver $1_A(\omega) = \begin{cases}1, \omega\in A\\0,\omega\notin A\end{cases}$\par\bigskip
+  \noindent $\left|X\right|^P = \left|X\right|^P1_{X\leq1}+\left|X\right|^P1_{X>1}$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow E(\left|X\right|^P) = \underbrace{E\left(\underbrace{\underbrace{\left|X\right|^P}_{\text{$\leq1$}}1_{x\leq1}}_{\text{$\leq1$}}\right)}_{\text{$\leq1$}} + E(\underbrace{\left|X\right|^P}_{\text{$\left|X\right|^q$}}\underbrace{1_{x>1}}_{\text{$\leq1$}})
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Så:
+  \begin{equation*}
+    \begin{gathered}
+      E(\left|X\right|^q)<\infty\Rightarrow E(\left|X\right|^P)\leq1+E(\left|X\right|^q)<\infty
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\noindent\textbf{Proposition:}\par
+\noindent Om $X,Y\in L^P\Rightarrow X+Y\in L^P$
+\par\bigskip
+\begin{prf}
+  NNotera att $\left|X\right|\leq \max\left\{\left|X\right|,\left|Y\right|\right\}\leq\left|X\right|+\left|Y\right|$.\par
+  \noindent Då gäller även följande (för $p\geq1$):
+  \begin{equation*}
+    \begin{gathered}
+    \left|X+Y\right|^P\leq (\left|X\right|+\left|Y\right|)^P\leq \left(2\max\left\{\left|X\right|,\left|Y\right|\right\}\right)^P\leq = 2^P\max\left\{\left|X\right|,\left|Y\right|\right\}\leq 2^P\left(\left|X\right|^P+\left|Y\right|^P\right)\\
+    \Rightarrow E(\left|X+Y\right|^P)\leq 2^P(E(\left|X\right|^P)+E(\left|Y\right|^P))<\infty
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent Om $X,Y\in L^2$ så $XY\in L^1$
+\par\bigskip
+\begin{prf}
+  UUppenbarligen gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \left|XY\right|\leq\dfrac{X^2+Y^2}{2}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Variansen av $X$ defnierades som $E(X-E(X))^2$. Ett mått på hur mycket variabeln avviker från väntevärdet.\par
+\noindent Standardavvikelsen definierade vi som $D(X) = \sqrt{Var(X)}$. En grej vi kan notera direkt är att $Var(X)$ alltid är positiv, alltså alltid defnierad.
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent $Var(X)<\infty\Lrarr X\in L^2$. För $X\in L^2$ har vi:
+\begin{equation*}
+  \begin{gathered}
+    Var(X) = E(X^2)-(E(X))^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}
+  DDetta följer från
+  \begin{equation*}
+    \begin{gathered}
+      E(X-E(X))^2= E(X^2\underbrace{-2XE(X)+(EX)^2}_{\text{ändlig}}) = E(X^2)-\underbrace{-2E(X)E(X)}_{\text{$2(E(X))^2$}}+(E(X))^2\\
+      \Rightarrow E(X^2)-(E(X))^2
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Vi säger att $X\&Y$ är \textit{okorrelerade} om $E(XY)=E(X)E(Y)$ för $X,Y\in L^2$\par
+\noindent Notera, oberonde $\Rightarrow$ okorrelerade, men inte tvärtom!
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $P_X(-1) = P_X(0)=P_X(1) = \dfrac{1}{3}$.\par
+Då är $E(X) = -1*\dfrac{1}{3}+0*\dfrac{1}{3}+1*\dfrac{1}{3} = 0$\par
+Då är $E(X^3)$ = $(-1)^3*\dfrac{1}{3}+0^3*\dfrac{1}{3}+1^3*\dfrac{1}{3} = 0$
+\par\bigskip
+\noindent Då är $X\& X^2$ okorrelerade, men $X$ och $X^2$ kan ju inte vara oberonde!\par
+\noindent $P(X=0,X^2=0) = P(X=0) = \dfrac{1}{3}\neq P(X=0)P(X^2=0)=\dfrac{1}{3}*\dfrac{1}{3}$
+\newpage
+\noindent Varför bryr vi oss om okorrelerade variabler? Jo:
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent $Var(X+Y) = Var(X)+Var(Y)\Lrarr X,Y$ är okorrelerade ($X,Y\in L^2$)
+\par\bigskip
+\begin{prf}
+  VVi betraktar $Var(X+Y)$ som var $E(X+Y)^2-\left(E(X+Y)\right)^2$. Detta blir:
+  \begin{equation*}
+    \begin{gathered}
+      E(X^2+2XY+Y^2)-\left((E(X))^2+2E(X)E(Y)+(E(Y))^2\right)\\
+      \underbrace{\left(E(X^2)-(E(X))^2\right)}_{\text{$Var(X)$}} + \underbrace{\left(2E(XY)-2E(X)E(Y)\right)}_{\text{$=0\Lrarr$ X\&Y okorr.}}+\underbrace{\left(E(Y^2)-(E(Y))^2\right)}_{\text{$Var(Y)$}}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vad är $Var(cX)$?:
+\begin{equation*}
+  \begin{gathered}
+    Var(cX) = E(cX)^2-\left(E(cX)\right)^2\\
+    E(c^2X^2)-(cE(X))^2 = c^2E(X^2)-c^2(E(X))^2= c^2Var(X)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent Om $X_1$ och $Y$ är okorrelerade och $X_2$ och $Y$ är okorrelerade, så är $X_1+X_2$ och $Y$ okorrelerade.
+\par\bigskip
+\begin{prf}
+  VVi har givet att $E(X_1Y) = E(X_1)E(Y)$ och $E(X_2Y)=E(X_2)E(Y)$.\par
+  \noindent Vi vill kolla vad $E((X_1+X_2)Y)$:
+  \begin{equation*}
+    \begin{gathered}
+      = E(X_1Y+X_2Y) = E(X_1Y)+E(X_2Y) = E(X_1)E(Y)+E(X_2)E(Y)\\
+      \Rightarrow (E(X_1)+E(X_2))E(Y) = E(X_1+X_2)E(Y)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent Om $X_1,\cdots, X_n$ är parvis okorrelerade, så $Var(X_1+\cdots+X_n) = Var(X_1)+\cdots+Var(X_n)$\par
+\noindent Viktigaste specialfallet är när de är oberoende (ty det implicerar okorrelerade och vi kan då separera summorna).
+\par\bigskip
+\begin{prf}
+  VVi kommer ihåg $Var(X_1+X_2) = Var(X_1)+Var(X_2)$. Om de är parvis okorrelerade bör ju även $X_1+X_2$ och $X_3$ vara okorrelerade enligt Bevis 7.9. Men detta betyder att:
+  \begin{equation*}
+    \begin{gathered}
+      Var(X_1+X_2+X_3) = Var(X_1+X_2)+Var(X_3)= Var(X_1)+Var(X_2)+Var(X_3)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Fortsätt med induktion
+\end{prf}
+\par\bigskip
+\begin{theo}[Markovs olikhet]{thm:markovineq}
+  Om $X\in L^1$ (dvs $E(\left|X\right|)<\infty$) så är $P(\left|X\right|\geq a)\leq\dfrac{E(\left|X\right|)}{a}$ för $a>0$\par
+  \noindent Ju större $a$ är, desto mindre borde mängden $P(\left|X\right|\geq a)$ vara.
+\end{theo}
+\newpage
+\begin{prf}[Markovs olikhet]{prf:goewughw}
+  \begin{equation*}
+    \begin{gathered}
+      \left|X\right| = \left|X\right|1>{X\geq a}+\left|X\right|1_{x<a}\\
+      E(\left|X\right|) = E(\left|X\right|1_{X\geq a})+\underbrace{E(\underbrace{\left|X\right|1_{x<a}}_{\text{$\geq0$}})}_{\text{$\geq0$}}\geq E\left(\underbrace{\left|X\right|}_{\text{$\geq a$}}1_{X\geq a}\right)\\
+      \leq E(a1_{X\geq a}) = aE(1_{X\geq a}) = a(1*P(X\geq a)+0*P(X<a)) = aP(X\geq a)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Alltså $E(\left|X\right|)\geq aP(X\geq a)$
+\end{prf}
+\par\bigskip
+\noindent En följd av detta är $X\in L^P\Rightarrow P(\left|X\right|\geq a)\leq\dfrac{E\left|X\right|^P}{a^P}$
+\par\bigskip
+\begin{prf}
+  VVi ser:
+  \begin{equation*}
+    \begin{gathered}
+      P(\left|X\right|\geq a) = P(\left|X\right|^P\geq a^P)\leq\dfrac{E\left|X\right|^P}{a^P}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}[Chebyshevs olikhet]{thm:ahvcehwc}
+  \begin{equation*}
+    \begin{gathered}
+      P(\left|X-E(X)\right|\geq\varepsilon)\leq \dfrac{Var(X)}{\varepsilon^2}\quad (\varepsilon>0, X\in L^2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[Chebyshevs olikhet]{prf:ahvcehwc}
+  Sätt $P=2$ i förra satsen:
+  \begin{equation*}
+    \begin{gathered}
+      P(\left|X\right|\geq\varepsilon)\leq\dfrac{E\left|X\right|^2}{\varepsilon^2}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Byt $\left|X\right|$ mot $\left|X-E(X)\right|$:
+  \begin{equation*}
+    \begin{gathered}
+      P(\left|X-E(X)\right|\geq\varepsilon)\leq\dfrac{E(\left|X-E(X)\right|^2)}{\varepsilon^2} = \dfrac{Var(X)}{\varepsilon^2}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}[Annorlunda Stora talens lag]{thm:biogihwgnumhe}
+  Antag $X_1,X_2\cdots\in L^2$ (oändlig följd av okorrelerade slumpvariabler)\par
+  \noindent Antag även att $E(X_1) = E(X_2)=\cdots = \mu\in\R$ och $Var(X_1)=Var(X_2)=\cdots=\sigma^2\in\R$\par
+  \noindent Vi skriver $\bar{X_n}$ för medelvärdet:
+  \begin{equation*}
+    \begin{gathered}
+      \bar{X_n} = \dfrac{X_1+\cdots+X_n}{n}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent För $\varepsilon >0$ har vi:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}P\left(\left|\bar{X_n}-\mu\right|\geq\varepsilon\right) = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\begin{prf}[Annorlunda Stora talens lag]{prf:wigbwrg}
+  \begin{equation*}
+    \begin{gathered}
+      E(\bar{X_n}) = E\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{E(X_1)+\cdots E(X_n)}{n} = \dfrac{n\mu}{n} = \mu\\
+      Var(\bar{X_n}) = Var\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{1}{n^2}Var(X_1+\cdots+X_n)\\
+      \Rightarrow \dfrac{1}{n^2}(\overbrace{Var(X_1)}^{\text{$\sigma^2$}}+\cdots+\overbrace{Var(X_n)}^{\text{$\sigma^2$}}) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}\\
+      \text{Chebyshevs olikhet sade } P\left(\left|\bar{X_n}-\underbrace{E(\bar{X_n})}_{\text{$\mu$}}\right|\geq\varepsilon\right)\leq \dfrac{Var(\bar{X_n})}{\varepsilon^2} = \dfrac{\sigma^2}{n\varepsilon^2}\overbrace{\to}^{\text{$n\to\infty$}}=0
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Detta kallas oftast för "baby stora talens lag", det finns fler, men vi håller oss till denna i denna kurs.
+\par\bigskip
+\subsection{Kovarians}\hfill\\\par
+\noindent \textit{Kovariansen} av den 2-dimensionella slumpvariabeln $(X,Y)\in L^2$ (väntevärderna av kvadraterna är ändliga) betecknas:
+\begin{equation*}
+  \begin{gathered}
+    Cov(X,Y) = E\left((X-E(X))(Y-E(Y))\right)\\
+    = E(XY-XE(Y)-YE(X)+E(X)E(Y))\\
+    = E(XY)-E(X)E(Y)-E(X)E(Y)+E(X)E(Y)\\
+    = E(XY)-E(X)E(Y) = Cov(X,Y)
+  \end{gathered}
+\end{equation*}\par
+\noindent Ett slags spridningsmått/varians för det 2-dimensionella fallet.
+\par\bigskip
+\noindent\textbf{Egenskaper:}\par
+\begin{itemize}
+  \item $Cov(X,X) = Var(X)$
+  \item $Cov(X,Y) = Cov(Y,X)$
+  \item $Cov(aX,Y) = aCov(X,Y) = Cov(X,aY)$
+  \item $Cov(X_1+X_2,Y) = Cov(X_1,Y)+Cov(X_2,Y)$
+  \item $Cov(a,X) = 0 = Cov(X,a)$
+  \item $Cov(X,Y) = 0\Lrarr E(XY) = E(X)E(Y)\Lrarr X,Y$ är okorrelerade
+  \item $X,Y$ oberonde $\Rightarrow$ okorrelerade $\Rightarrow Cov(X,Y) = 0$
+  \item $Var(X+Y) = Var(X)+Var(Y)+2Cov(X,Y)$
+  \item $Var(X-Y) = Var(X)+Var(Y)-2Cov(X,Y)$
+  \item $Var(X_1+\cdots+X_n) = Var(X_1)+\cdots+Var(X_n)+2\sum_{i<j} Cov(X_i,X_j)$
+\end{itemize}\par
+\noindent Notera! Detta betyder alltså att $Cov$ är en bilinjär funktion!\par
+\noindent Notera! första 4 punkter påminner om en inre produkt i linjär algebra, men $Cov$ är inte en inre produkt på $L^2$
+\par\bigskip
+\noindent När är $Cov(X,X) = Var(X) = 0$?
+\begin{equation*}
+  \begin{gathered}
+    Var(X) = E(X-E(X))^2 = \sum_{x}\underbrace{(x-E(X))^2P_X(x)}_{\text{positiva, alla termer =0}}= 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Om $x\neq E(X)$ så måste $P_X(x)=0\Rightarrow P_X(E(X))=1$. Alltså om $Var(X)=0$ så måste $X=E(X)$ med sannolikhet 1, med andra ord $X$ vara konstant på en mängd med sannolikhet 1. ($X$ är nästan konstant).
+\par\bigskip
+\noindent Definiera en ekvivalensrelation $\sim$ på $L^2$ genom $X\sim Y$ om $X-Y$ är konstant med sannolikhet 1 (nästan konstant). Det finns en delmängd med sannolikhet 1 och för den delmängden så spottar $X-Y$ en konstant.
+\par\bigskip
+\noindent Ekvivalensklasser: $[X] = \left\{Y:Y\sim X\right\}$\par
+\noindent Vi kan definiera $[X]+[Y] = [X+Y]$ och $a[X] = [aX]$, samt $Cov([X],[Y]) = Cov(X,Y)$. Alla dessa är väldefinierade.
+\par\bigskip
+\noindent Vi skriver $L^2/\sim = \left\{[X]:X\in L^2\right\}$ (vektorrum)\par
+\noindent Kom ihåg, $X,Y\in L^2\Rightarrow X+Y\in L^2$, samt $aX\in L^2\quad (a\in\R)$. Då är $L^2$ också ett vektorrum.
+\par\bigskip
+\noindent Kovarians är väldefinierat på $L^2/\sim$ och blir nu en inre produkt på $L^2/\sim$\par
+\noindent Från detta följer Cauchy-Schwarz olikhet, dvs $\left|Cov([X],[Y])\right|\leq Cov([X],[X])Xov([Y],[Y]) = \sqrt{Var([X])Var([Y])}$\par
+\noindent Notera, "ortogonala vektorer" ger att inre produtken är 0, vilket i vårat fall betyder att $Cov(X,Y)=0$ vilket händer om $X,Y$ är okorrelerade.
+\par\bigskip
+\begin{theo}[Korrelationskoefficienten]{thm:fowejfwe}
+  \begin{equation*}
+    \begin{gathered}
+      \rho(X,Y) = \dfrac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}\\
+      \left|\rho(X,Y)\right|\leq1\\
+      \rho(X,Y) =0\Lrarr X,Y\text{ okorrelerade}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent När är $\left|\rho(X,Y)\right|=1$?
+\begin{equation*}
+  \begin{gathered}
+    \rho([X],[Y])=1\Lrarr \left|Cov([X],[Y])\right|= \sqrt{Var([X])Var([Y])}
+  \end{gathered}
+\end{equation*}\par
+\noindent Likhet gäller $\Lrarr$ vektorerna är linjärt beroende, dvs $[Y] = a[X]\quad (a\in\R)$ eller om $[X] =0$\par
+\noindent Med anda ord är $\left|\rho(X,Y)\right| = 1\Lrarr X-aY = b$ på en mängd med sannolikhet 1 för några $a,b\in\R$.
+\par\bigskip
+\noindent Tänk på $\rho$ som något slags mått på hur beroende variablerna är.
+\par\bigskip
+\noindent Den betingade sannolikhetsfunktionen $P_{X|Y}(x|y)$ är defnierad av (givet att $P_Y(Y)>0$):
+\begin{equation*}
+  \begin{gathered}
+    P_{X|Y}(x|y) = P(X=x|Y=y) =\dfrac{P(X=x,Y=y)}{P(Y=y)}  = \dfrac{P_{X,Y}(x,y)}{P_Y(y)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Lagen om total sannolikhet för detta fall blir:
+\begin{equation*}
+  \begin{gathered}
+    P(X=x) = \sum_{y}\underbrace{P(X=x|Y=y)P(Y=y)}_{\text{$P(X=x,Y=y)$}}\\
+    P_X(x) = \sum_{y}P_{X|Y}(x|y)P_Y(y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kom ihåg: För varje $y$ så att $P_Y(y)>0$ så är $P_{X|Y}(x|y)$ en sannolikhetsfunktion. Vi säger inte till vilken slumpvariabel, men exempelvis till slumpvariabeln\par $X|Y=y=X|_{\{Y=y\}}:\underbrace{\left\{Y=y\right\}}_{\text{har sannolikhetsmått $Q(A)=P(A|Y=y)$}}\to\R$
+\par\bigskip
+\noindent Väntevärdet $E(X|Y=y) = \sum xP_{X|Y}(x|y)$
+\par\bigskip
+\noindent Det betingade väntevärdet $E(X|Y)$ är slumpvariabeln $E(X|Y)(\omega)=E(X|Y=y)$ om $Y(\omega) = y$. Detta gäller $\forall \omega\in\Omega$
+\par\bigskip
+\begin{theo}
+  O $E(E(X|Y)) = E(X)$
+\end{theo}
+\newpage
+\begin{prf}
+  VVi sätter $g(y) = E(X|Y=y)$. Då är $g(Y) = E(X|Y)$
+  \begin{equation*}
+    \begin{gathered}
+      E(E(X|Y)) = E(g(Y)) = \sum_y g(y)P_Y(y) = \sum_y E(X|Y=y)P_Y(y)\sum_y\sum_xxP_{X|Y}(x|y)P_Y(y)\\
+      =\sum_x\sum_yxP_{X|Y}(x|y)P_Y(y) =\sum_xx\underbrace{\sum_yP_{X|Y}(x|y)P_Y(y)}_{\text{$P_X(x)$}}\\
+      =\sum xP_X(x)=E(X)
+    \end{gathered}
+  \end{equation*}
+\end{prf}

@@ -1,0 +1,66 @@
+\section{Lektion 21/9}\par
+\noindent\textbf{Övning 3.8.1}\par
+\noindent Betrakta den 2-dimensionella slumpvariabeln $(X,Y)$ med sannolikhetsfunktion $P_{X,Y}(j,k) = c(j+k)$. Detta gäller för $i=1,2,3$ och $k=1,2,3$\par
+\noindent Bestäm konstanten $c$ och beräkna väntevärdet, variansen, och kovariansen. Beräkna även väntevärdet för $X$ givet att $Y=3$
+\par\bigskip
+\noindent Vi börjar med att bestämma konstanten. Om det ska vara en sannolikhetsfunktion så betyder att om vi summerar alla sannolikheter så får vi 1:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=1}^{3}\sum_{k=1}^{3}P_{X,Y}(j,k)=1\\
+    = c\sum_{j=1}^{3}\sum_{k=1}^{3}(j+k)\\
+    \sum_{k=1}^{3}(j+k)=j+1+j+2+j+3 = 3j+6\\
+    \sum_{j=1}^{3}3j+6 =3\sum_{j=1}^{3}(j+2)=3(3+4+5) = 3\cdot12=36\\
+    \Rightarrow c\cdot36 = 1\Lrarr c = \dfrac{1}{36}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi räknar väntevärdet:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \sum_{k=1}^{3}kP_X(k),\quad P_X(k)=?\\
+    P_X(k) = P(X=k)=P(X=k,Y=1)+P(X=k,Y=2)+P(X=k,Y=3)\\
+    =P_{X,Y}(k,1)+P_{X,Y}(k,2)+P_{X,Y}(k,3)\\
+    =\dfrac{k+1}{36}+\dfrac{k+2}{36}+\dfrac{k+3}{36} = \dfrac{3k+6}{36} = \dfrac{k+2}{12}\\
+    P_X(1) = \dfrac{3}{12} = \dfrac{1}{4} = P_Y(1)\\
+    P_X(2) = \dfrac{4}{12} = \dfrac{1}{3} = P_Y(2)\\
+    P_X(3) = \dfrac{5}{12} = P_Y(3)\\
+    \Lrarr E(X) = 1\cdot\dfrac{3}{12}+2\cdot\dfrac{4}{12}+3\cdot\dfrac{5}{12} = \dfrac{3+2\cdot4+3\cdot5}{12} = \dfrac{13}{6}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi räknar variansen:
+\begin{equation*}
+  \begin{gathered}
+    Var(X) = E(X^2)-(E(X))^2\\
+    = \sum_{k=1}^{3}k^2P_X(k)-\dfrac{13^2}{6^2}\\
+    \sum_{k=1}^{3}k^2P_X(k) = 1^2\cdot\dfrac{3}{12}+2^2\dfrac{4}{12}+3^2\cdot\dfrac{5}{12} = \dfrac{3+4\cdot4+9\cdot5}{12} = \dfrac{64}{12}\\
+    Var(X) = \dfrac{64}{12}-\dfrac{13^2}{6^2} = \dfrac{23}{36}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi räknar kovariansen:
+\begin{equation*}
+  \begin{gathered}
+    Cov(X,Y) =  E(XY)-\underbrace{E(X)E(Y)}_{\text{$=\dfrac{13}{6}\cdot\dfrac{13}{6}$ (symmetri)}}\\
+    E(XY) = \sum_{k:P_{X,Y}>0}kP(XY=k),\quad X,Y\in\left\{1,2,3\right\}\\
+    \Rightarrow XY\in\left\{1\cdot1,1\cdot2,1\cdot3,2\cdot1,2\cdot2,2\cdot3,3\cdot1,3\cdot2,3\cdot3\right\} = \left\{1,2,3,4,6,9\right\}\\
+    P(XY=1) = P(X=1,Y=1) = P_{X,Y}(1,1)  = \dfrac{1+1}{36} = \dfrac{1}{18}\\
+    P(XY=2) = P(X=1,Y=2) + P(X=2,Y=1) = \dfrac{1+2}{36}+\dfrac{2+1}{36} = \dfrac{1}{6}\\
+    P(XY=3) = P(X=1,Y=3)+P(X=3,Y=1) = \dfrac{1+3}{36}+\dfrac{3+1}{36} = \dfrac{2}{9}\\
+    P(XY=4)=\dfrac{4}{36} = \dfrac{1}{9}\\
+    P(XY=6) = \dfrac{5}{18}\\
+    P(XY=9) = \dfrac{1}{6}\\
+  E(XY) = \sum_{k\in\left\{1,2,3,4,6,9\right\}}kP(XY=k) = 1\cdot\dfrac{1}{18}+2\cdot\dfrac{3}{18}+3\cdot\dfrac{4}{18}+4\cdot\dfrac{2}{18}+6\cdot\dfrac{5}{18}+9\cdot\dfrac{3}{18} = \dfrac{14}{3}\\
+    \Rightarrow Cov(X,Y) = \dfrac{14}{3}-\dfrac{13^2}{6^2} = \dfrac{-1}{36}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi räknar det betingade väntevärdet:
+\begin{equation*}
+  \begin{gathered}
+    E(X|Y=3) = \sum_{k=1}^{3}kP(X=k|Y=3)\\
+    = \sum_{k=1}^{3}k\dfrac{P(X=k,Y=3)}{P(Y=3)} = \sum_{k=1}^{3}k\dfrac{P_{X,Y}(k,3)}{P_Y(3)}\\
+    = \dfrac{12}{5}\sum_{k=1}^{3}k\dfrac{P_{X,Y}(k,3)} = \dfrac{12}{5}\dfrac{1}{36}\sum_{k=1}^{3}k(k+3)\\
+    = \dfrac{1}{15}\left(1\cdot4+2\cdot5+3\cdot6\right) = \dfrac{32}{15}
+  \end{gathered}
+\end{equation*}

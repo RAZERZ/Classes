@@ -1,4 +1,54 @@
 \section{Sammanfattning K2}
+\subsection{Komplement och additionssatsen}\hfill\\\par
+\noindent Om $A$ och $B$ är godtyckliga händelser i utfallsrummet $\Omega$ så gäller följande:\par
+\begin{itemize}
+  \item $P(A^c)=1-P(A)$
+  \item $P(\O)=0$
+  \item $P(A\cup B) = P(A)+P(B)-P(A\cap B)$
+\end{itemize}\par
+\subsection{Sannolikhet på utfallsrum}\hfill\\\par
+\noindent Vi vill definiera en funktion som tar varje händelse i vårt utfallsrum och tilldelar den ett värde mellan 0 till 1 som talar om hur sannolikt det är att denna händelse inträffar.\par
+\noindent Denna reellvärda funktion $P:\Omega\to\R$, kallar vi för \textit{sannolikhetsfunktionen} på utfallsrummet.\par
+\noindent Vi kan däremot inte kalla funktionen för ett sannolikhetsfunktion om den inte uppfyller följande axiom:
+\par
+\begin{itemize}
+  \item $0\leq P\leq1$
+  \item $P(\Omega) = 1$
+  \item Om $A\cap B = \O$ så gäller $P(A\cup B) = P(A)+P(B)$
+\end{itemize}\par
+\noindent Dessa axiom, kallas för \textit{Kolmogorovs axiom}.
+\par\bigskip
+\noindent En funktion $P$ som är definierad på delmängder till utfallsrummet $\Omega$ som också uppfyller Kolmogorovs axiom kallas för ett \textit{sannolikhetsmått} på $\Omega$
+\par\bigskip
+\noindent Ur detta ska vi se vad som händer om vi definierar betingning som en sannolikhetsfunktion, uppfyller den axiomen?
+\par\bigskip
+\noindent Vi fixerar en händelse $C$ i vårt utfallsrum och defnierar en funktion $Q(A) = P(A|C) = \dfrac{P(A\cap C)}{P(C)}$ där $P(C)>0$, vi verifierar om detta är ett sannolikhetsmått på $\Omega$ genom att kolla om axiomen uppfylls:
+\par\bigskip
+\noindent\textbf{Första axiomet}: Detta följer ur att $P(C)>0$ och att $P\in[0,1]$. Då kan inte bråket hamna utanför intervallet
+\par\bigskip
+\noindent\textbf{Andra axiomet}: Vi testar att stoppa in hela $\Omega$ i funktionen:
+\begin{equation*}
+  \begin{gathered}
+    Q(\Omega) = P(\Omega|C) = \dfrac{P(\Omega\cap C)}{P(C)} = \dfrac{P(C)}{P(C)}=1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Tredje axiomet:} Här kommer vi nog behöva använda lite mängdlära, specifikt saker från komplement och additionssatsen samt distributiva lagar.\par
+\noindent Givet att $A\cap B=\O$ vill vi visa att detta betyder att $Q(A\cup B) = Q(A)+Q(C)$ 
+\begin{equation*}
+  \begin{gathered}
+    Q(A\cup B) = P(A\cup B|C)= \dfrac{P\overbrace{((A\cup B)\cap C)}^{\text{$=P((A\cap C)\cup(B\cap C))$}}}{P(C)}\\
+    =\dfrac{P((A\cap C)\cup(B\cap C))}{P(C)}\stackrel{add.}{=}\dfrac{P(A\cap C)+P(B\cap C)-\overbrace{P\overbrace{(A\cap B)}^{\text{$=\O$}}}^{\text{=0}}}{P(C)}\\
+    = Q(A)+Q(C)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Från detta, följer faktiskt följande:
+\begin{itemize}
+  \item $P(A^c|C) = 1-P(A|C)$
+  \item $P(A\cup B|C) = P(A|C)+P(B|C)-P(A\cap B|C)$
+|C\end{itemize}
+
 \subsection{Betingning}\hfill\\\par
 \noindent Givetvis kan faktumet att en annan händelse har inträffat påverka sannolikheten att en annan händelse inträffar, detta kallas för \textit{betingning}, där man undersöker sannolikheten för att en händelse $A$ inträffar, givet att en händelse $B$ inträffar.\par
 \noindent Uttallas även $A$ betingat $B$ och skrivs $P(A|B)$
@@ -91,3 +141,4 @@
     \caption{Initialt}
     \label{fig:initialt}
 \end{figure}
+\par\bigskip
