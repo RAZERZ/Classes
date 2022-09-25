@@ -1,0 +1,199 @@
+\section{Mer om Andragradskurvor}\par
+\noindent Den projektiva klassificeringen över $\C$ såg ut på följande:
+\begin{itemize}
+  \item $x^2+y^2-z^2$
+  \item $x^2+y^2$
+  \item $x^2$
+\end{itemize}
+\par\bigskip
+\noindent Ett annat sätt att se det på är kvadratiska former i 3 dimensioner i $\C^3$
+\par\bigskip
+\noindent Vi har egentligen allting som vi tycks behövs inför Bezouts Sats (vi har $\C, I_p, \C P^2$). Nedan följer definitioner innan vi kan börja definiera satsen:
+\par\bigskip
+\begin{theo}
+  A $F,G\in\C_h[x,y,z]$:
+  \begin{equation*}
+    \begin{gathered}
+      I(F,G) = \sum_{p\in V(F)\cap V(G)\in\C P^2} I_p(F,G)=\text{ totala skärningstalet} = deg(F)\cdot deg(G)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Bezouts sats]{thn:beoz}
+  Låt $F,G\in\C_h[x,y,z]$\par
+  \noindent Antag att $F,G$ inte har gemensamma faktorer (gemensamma icke-konstanta faktorer)\par 
+  \noindent Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      I(F,G) = deg(F)\cdot deg(G)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent För att visa den här satsen behöver vi ha god koll på fölajnde sats som vi diskuterat tidigare:
+\par\bigskip
+\noindent\textbf{Påminnelse}:\par
+\noindent Om $f = y-p(x), g(x,y)$ godtycklig och $f$ inte delar $g$. Då fås skärningstalen mellan $f,g$ som multiplciteterna till nollställena till polynomet $g(x,p(x))$
+\par\bigskip
+\begin{lem}[1]{lem:1}
+  Låt $F = L$ vara av grad 1 (förstagradspolynom av grad 1, linje) och $G$ ett allmänt homogent polynom $\in\C_h[x,y,z]$ (och $L$ inte delar $G$) \par
+  \noindent Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      I(G,L) = deg(G)\cdot1=deg(G)=n
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\newpage
+\begin{prf}
+  ABeviset är en direkt räkning, men för att få maximal konkression, man vill ha så lite allmänna kurvor (helst konkreta) kurvor. Linjer är linjer, vi kan välja en lämplig linje $L$ och använda oss av affina transformationer.
+  \par\bigskip
+  \noindent Vi väljer $L=y=0$, detta kan fås genom en projektiv transformation som flyttar $L$ till $y=0$ \par
+  \noindent Men då kommer vår kurva $G$ också förändras som vi kallar för $G^{\prime}$, men det blir lättare att studera skärningstalen nu. Vi kallar den nya $G$ för $G$ och inte $G^{\prime}$ (vi är lata).
+  \par\bigskip
+  \noindent Hur hittar vi då $I(G,y)$?:
+  \begin{itemize}
+    \item Finn alla skärningspunkter, välj en karta och beräkna alla lokala skärningstal $I_p(G,y)$ där
+    \item Undersök vad som händer i $L_\infty$, finns det skärningar där? Max en punkt kan vara aktuell eftersom $L\cap L_\infty = \left\{\text{punkten}\right\}$\\
+    \item Skriv $G(x,y,z) = \sum_{i,j} c_{ij}x^iy^jz^{n-i-j}$
+    \item Väljer att räkna i $xy$-kartan, där är $y=0$ och $g(x,y)=\sum_{i,j}c_{ij}x^iy^j1^{n-i-j}$
+    \item Vi undersöker graden av $g(x,0)=\sum_i c_{i_0}x^i$, notera, $deg(g) = d= \max\left\{i:c_{i_0}\neq0\right\}$
+    \item Vi måste nu undersöka vad som händer i oändligheten, den enda punkten i $L_\infty$ som är intressant har homogena koordinater $(1,0,0)$. Nu är det lämpligt att använda $yz$-kartan ty punkten vi är intresserad av då är origo:
+      \begin{equation*}
+        \begin{gathered}
+          g^{\prime}(y,z) = \sum_{i,j}c_{ij}y^jz^{n-i}\\
+          \Rightarrow I_{(0,0)}(g^{\prime},y) = \text{mult}_{y=0}\left(g^{\prime}(0,z)\right) = \text{mult}_{z=0}\left(\sum_ic_{i_0}z^{n-1}\right)
+        \end{gathered}
+      \end{equation*}\par
+      \noindent Detta borde vara $n-i$, men vilket $i$ då? Jo, största $i$ så att termen fortfarande är nollskild. Lägstagradstermen motsvarar $i=d$, vi får då att $I_{(0,0)}(g^{\prime},y)=n-d$
+    \item $I(G,L) = d+n-d=n=deg(G)$
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\begin{lem}[2]{lem:2}
+  Låt $F,G,H$ homogena polynom av grad $m,n,p$.\par
+  \noindent Låt $H = H(x,z)$ oberoende av $y$\par
+  \noindent Antag att $G,H$ saknar gemensamma faktorer\par
+  \noindent Låt $Bez(F,G)$ betyda "$I(F,G)=deg(F)\cdot deg(G)$" (att Bezouts sats gäller)
+  \par\bigskip
+  \noindent Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      Bez\left(FH,G\right)\Lrarr Bez(F,G)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\newpage
+\begin{prf}
+  ABetrakta först:
+  \begin{equation*}
+    \begin{gathered}
+      I(H,G)\qquad H =\underbrace{L_1\cdot\cdots\cdot L_p}_{\text{linjära faktorer}} \\
+      = I(L_1\cdot\cdots\cdot L_p, G) = \underbrace{I(L_1,G)}_{\text{$L_1$ linje, =$deg(G)$}}+\cdots+I(L_p,G) = np
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Nu tittar vi på:
+  \begin{equation*}
+    \begin{gathered}
+    I(FH,G) = I(F,G) + \underbrace{I(H,G)}_{\text{$np$}}\\
+    I(FH,G)=I(F,G)+np
+    \end{gathered}
+  \end{equation*}\par
+  \noindent För att visa högerpilen så antar vi VL:
+  \begin{equation*}
+    \begin{gathered}
+      (m+p)n = \underbrace{I(F,G)}_{\text{$mn$}}+np
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vänsterpilen görs på precis samma sätt
+\end{prf}
+\par\bigskip
+\begin{lem}[3]{lem:3}
+  Iden är att successivt reducera $y$-graden så långt vi kan tills dess att vi inte har något beroende av $y$.
+  \par\bigskip
+  \noindent Låt $F,G$ som i Bezouts sats och låt $deg_y(G) = t\leq deg_y(F) = s$ 
+  \par\bigskip
+  \noindent Då finns $F_1,G_1$ också som i Bezouts sats, sådan att $deg_y(F_1)<deg_y(F)$ och $deg_y(G_1) = deg_y(G)$\par
+  \noindent Bezouts sats är sann för $Bez(F,G)\Lrarr Bez(F_1,G_1)$
+\end{lem}
+\par\bigskip
+\begin{prf}
+  ABörja med att definiera $G_1$, skriv $G= \underbrace{H(x,z)}_{\text{max $y$-oberoende fakt. i $G$}}\underbrace{G_1(x,y,z)}_{\text{inga $y$ oberoende fakt.}}$
+  \par\bigskip
+  \noindent Notera att $G_1$ inte har några gemensamma faktorer med $F$ eftersom $F$ och $G$ antogs inte ha några faktorer enligt Bezouts sats. 
+  \par\bigskip
+  \noindent Notera även att $deg_y(G_1) = deg_y(G) = t$
+  \par\bigskip
+  \noindent Vi definierar nu $F_1$, skriv:
+  \begin{equation*}
+    \begin{gathered}
+      F=y^sP(x,z)+\text{termer av lägre ordning i $y$}\cdots\\
+      G_1 = y^tQ(x,z)+\text{termer av lägre ordning i $y$}\cdots\\
+      QF-y^{s-t}PG_1 = F_1
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Notera att $deg_y(F_1)<deg_y(F)$ (per konstruktion)
+  \par\bigskip
+  \noindent $F_1,G_1$ har inte gemensamma faktorer, om det finns en så är det en irreducibel faktor $K$. Om $K|F_1$ och $K|G_1$ vilket innebär att $K$ är en faktor i antingen $Q$ eller $F$. Om $K|Q$ har vi en gemensamm faktor i båda termerna i $F_1$, men detta betyder att $K(x,z)$ och $K|G_1$ vilket är en motsägelse. Däremot, om $K|F$ så motsäger det att $G_1$ inte har gemensamma faktorer med $F$ 
+  \par\bigskip
+  \begin{equation*}
+    \begin{gathered}
+      Bez(F,G)\Lrarr Bez(F,G_1H)\stackrel{Lem2}{\Lrarr} Bez(F,G_1)\stackrel{Lem2}{\Lrarr} Bez(QF,G_1)\stackrel{ax.5}{\Lrarr} Bez(QF-y^{s-t}PG_1,G_1)\\
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\begin{prf}[Bezouts Sats]{prf:bezz}
+  Tag $F,G$ som i satsen, och upprepa Lemma 3 tills ett av polynomen har $y$-grad = 0.\par
+  \noindent Dvs, vi vill visa $Bez(F(x,y,z), G(x,z))$
+  \par\bigskip
+  \noindent Då kan vi faktorisera $G = L_1\cdots L_{deg(G)}$ i linjära faktorer\par\bigskip
+  \noindent Då får vi att $I(F,G) = I(F,L_1\cdots L_{deg(G)}) = \sum_{1\leq i\leq deg(G)}I(F,L_i)=deg(G)\cdot deg(F)$
+\end{prf}
+\par\bigskip
+\noindent För att bestämma en linje i 3 variabler entydigt, behöver vi typiskt sett 3 villkor:
+\begin{itemize}
+  \item  Säg att vi kräver att linjen $L$ går igenom punkten $P_1 = (x_0,y_0,z_0)$:
+    \begin{equation*}
+      \begin{gathered}
+        ax_0+by_0+cz_0=0
+      \end{gathered}
+    \end{equation*}\par
+    \noindent Det finns färre linjer nu som vi behöver sålla ut
+  \item Vi kan specifiera en till punkt:
+    \begin{equation*}
+      \begin{gathered}
+        ax_1+by_1+cz_1=0
+      \end{gathered}
+    \end{equation*}\par
+    \noindent Man kan tänka att det här är allt som krävs, eftersom vi nu har en 1-parameterfamilj av förstagradspolynom 
+  \item Denna linje är givetvis linjärkombination av en unik förstagradspolynom 
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Diskussionsfråga:}\par
+\noindent Hur många punkter bör jag specifiera för att det ska gå en entydig andragradskurva genom den?
+\par\bigskip
+\noindent Ett allmänt andragradspolynom med två variabler:
+\begin{equation*}
+  \begin{gathered}
+    ax^2+by^2+cxy+dx+ey+g=0\in\R^6
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi behöver då 5 st ekvationer för att bestämma kurvan, vilket vi kan få genom 5st villkor exvis att 5st punkter ligger på kurvan.
+\par\bigskip
+\begin{theo}
+  GGivet 5 punkter $P_1,\cdots P_5\in\C P^2$ sådant att inte 4 av de ligger på samma linje (linjärt oberoende), så finns en entydig andragradskurva $C$ så att $P_1,\cdots P_5\in C$ 
+  \par\bigskip
+  \noindent Om inte ens tre av $P_i$ ligger på en rät linje, så är $C$ irreducibel 
+\end{theo}
+\par\bigskip
+\noindent Vad kan vi säga om vad Bezouts sats säger om entydighet? Kan det finnas 2 sådana kurvor och vad skulle det innebära?\par
+\noindent Däklart att det inte gäller! Kurvan $C$ är en andragradare, det är även $C^{\prime}$, då borde deras skärningstal vara 4, men om de skär varandra i 5 punkter så motsäger detta satsen. 
+\par\bigskip
+\noindent Vad händer om 3 av punkterna ligger på en rät linje?\par
+\noindent Givet 4 punkter $P_1,\cdots, P_4$ och $L_{ij}$ är linjen genom $P_i$ och $P_j$.\par
+\noindent Bilda andragradspolynomen $L_{12}L_{34}$  och $L_{13}L_{24}$. Vi har även en punkt $P_5$ utanför där $L_{12}L_{34}(P_5) \neq0\neq L_{13}L_{24}$, det vill säga punkten $P_5$ ligger inte på någon av linjerna.\par
+\noindent Vi kan definiera ett nytt andragradspolynom $L_{12}L_{34}-rL_{13}L_{24}$ där $r  = \dfrac{L_{12}L_{34}(P_5)}{L_{13}L_{24}(P_5)}$\par
+\noindent Då är $Q(P_5)=0$ samt $Q(P_i)=0$ för $i=1,\cdots,4$
+\par\bigskip
+\noindent\textbf{Viktigt att öva på:} Dimensionsräkningsprincipen och "pencil" (1-parameterfamilj av kurvor) i algebraisk geomtri 

@@ -17,7 +17,9 @@
 \contentsline {subsection}{\tocsubsection {}{5.5}{Lagen om total sannolikhet}}{16}{subsection.5.5}%
 \contentsline {section}{\tocsection {}{6}{Slumpvariabler}}{17}{section.6}%
 \contentsline {subsection}{\tocsubsection {}{6.1}{Viktiga slumpvariabler}}{20}{subsection.6.1}%
-\contentsline {section}{\tocsection {}{7}{Medelvärde}}{23}{section.7}%
-\contentsline {subsection}{\tocsubsection {}{7.1}{Egenskaper för väntevärden}}{27}{subsection.7.1}%
-\contentsline {subsection}{\tocsubsection {}{7.2}{Kovarians}}{31}{subsection.7.2}%
-\contentsline {section}{\tocsection {}{8}{Lektion 21/9}}{34}{section.8}%
+\contentsline {section}{\tocsection {}{7}{Sammanfattning K3}}{23}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Definition av Slumpvariabel}}{23}{subsection.7.1}%
+\contentsline {section}{\tocsection {}{8}{Medelvärde}}{24}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Egenskaper för väntevärden}}{28}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Kovarians}}{32}{subsection.8.2}%
+\contentsline {section}{\tocsection {}{9}{Lektion 21/9}}{35}{section.9}%

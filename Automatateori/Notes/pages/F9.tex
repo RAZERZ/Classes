@@ -1,0 +1,139 @@
+\section{Pushdownautomater [PDA]}\par
+\subsection{En liten informell beskrivning:}\hfill\\
+\par\bigskip
+\begin{theo}[PDA]{thm:pda}
+  En PDA har 2 taper, en för inputsträngen och en som kallas för \textit{stacken} (ett slags minne).\par
+  \noindent En PDA har även 2 alfabet, 1 input-alfabet (det som används på input tapen) och ett stackalfabet (används på stacken)
+  \par\bigskip
+  \noindent Är icke-deterministisk, har ändligt många tillstånd, samt ändliga alfabet för både input\& stackalfabet 
+\end{theo}
+\par\bigskip
+\noindent När PDA:n jobbar så konsumerar den en delsträng, likt en NFA. Den avläser alltså inte högst ett tecken, utan kan avläsa flera.\par
+\noindent Samtidigt som den avläser från inputtapen så byter den en delsträng överst på stacken med någon sträng.\par
+\noindent Samtidigt gör den även en tillståndsövergång.
+\par\bigskip
+\noindent Om vi struntar i stacken så fungerar en PDA som en NFA.
+\par\bigskip
+\noindent En PDA har dock enbart 1 starttillstånd. (Vera hävdar att detta är lite onödig konvention).
+\par\bigskip
+\subsection{Grafisk beskrivning av PDA}\hfill\\\par
+\noindent Ganska lik en NFA, men på pilarna måste vi lägga till vad som görs på stacken:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p_0$};
+      \node[state, right of=p0, xshift=1.5cm](p1){$p_1$};
+      \path[-stealth] (p0) edge[above, bend left] node{$u,\beta/\gamma$} (p1);
+    \end{tikzpicture}
+    \caption{Byte av $\beta$ mot $\gamma$ överst i stacken}
+\end{figure}\par
+\noindent Såklart så är $u$ sträng över inputalfabet och $\beta$, $\gamma$ sträng över stackalfabet.
+\par\bigskip
+\noindent PDA:n kan gå från tillstånd $p_0$ till $p_1$ genom att avläsa strängen $u$ på input-tapen ($u$ måste börja där läshuvudet står på input-tapen) och ersätta $\beta$ med $\gamma$ överst på stacken (förutsätter att $\beta$ står överst på stacken).\par
+\noindent Det är tillåtet att $u, \beta, \gamma$ är $\varepsilon$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $\beta$ inte finns överst på stacken, så kan inte den övergången tas.
+\newpage
+\subsection{Kriterier för acceptans hos PDA}\hfill\\\par
+\noindent En PDA $M$ accepterar en sträng $w$ över inputalfabet om $w$ kan delas upp $w = v_1\cdots v_n$ och man kan avläsa delarna $v_1,v_2,\cdots,v_n$ genom att följa övergångar:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$p_0$};
+      \node[state, right of=p0, xshift=1.5cm](p1){$p_1$};
+      \node[state, below of=p0, yshift=-1cm](p2){$p_1$};
+      \node[state, below of=p1, yshift=-1cm](p3){$p_2$};
+      \node[state, below of=p2, yshift=-1cm](p4){$p_n$};
+      \node[state, below of=p3, yshift=-1cm, accepting right](p5){$p_{n+1}$};
+      \path[-stealth] (p0) edge[above] node{$v_1,\varepsilon/\gamma_1$} (p1);
+      \path[-stealth] (p2) edge[above] node{$v_1,\beta_2/\gamma_2$} (p3);
+      \path[-stealth] (p4) edge[above] node{$v_n,\beta_n/\varepsilon$} (p5);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent där $p_1$ är starttillstånd, $p_{n+1}$ är accepterande och stacken är tom i början och när hela $w$ har avlästs. Det är tillåtet att $p_i = p_j$ även om $i\neq j$
+\par\bigskip
+\subsection{Språk hos PDA}\hfill\\\par
+\noindent Om $M$ är en PDA så $L(M) = \left\{w:\text{$w$ är en sträng över $M$:s inputalfabet som accepteras av $M$}\right\}$\par
+\noindent Detta är $M$:s språk.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande språk $L=\left\{a^nb^n:n\in\N\right\}$ (icke-sammanhangsfritt språk).\par
+\noindent \textit{Konstruera en PDA som accepterar $L$}:\par
+\noindent Iden är att vi bara vill läsa av så många $a$ som möjligt, och sedan för varje $a$ lägger vi till något i stacken. Då har vi koll på \textit{hur många} $a$ vi har läst. Låt $M$ vara följande PDA:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$p_0$};
+      \node[state, accepting right, right of=p0, xshift=1.5cm](p1){$p_1$};
+      \path[-stealth] (p0) edge[loop above] node{$a,\varepsilon/x$} (p0);
+      \path[-stealth] (p0) edge[above] node{$\varepsilon,\varepsilon/\varepsilon$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$b,x/\varepsilon$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Input-alfabet är $\left\{a,b\right\}$ och stackalfabet är $\left\{x\right\}$
+\par\bigskip
+\noindent Eftersom PDA:er är icke-deterministiska så finns det flera olika sätt att "köra" PDA:n. Vi ska kolla på hur denna körning ser ut:\par
+\begin{center}
+  \begin{tabular}{c|c|c}
+    Tillstånd&Input-tape&stacken\\
+    $p_0$&\textbf{\textit{a}}$abb$&$\varepsilon$\\
+    $p_0$&$a$\textbf{\textit{a}}$bb$&$x$\\
+    $p_0$&$aa$\textit{\textbf{b}}$b$&$xx$\\
+    $q$&$aa$\textit{\textbf{b}}$b$&$xx$\\
+    $q$&$aab$\textit{\textbf{b}}&$x$\\
+    $q$&$aabb$&$x$\\
+    $q$&$aabb$&$\varepsilon$\\
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Denna körning vittnar om att $aabb$ accepteras av $M$.\par
+\noindent Däremot skulle $aaabb$ \textit{inte} accepteras av följande DFA, detta eftersom det kommer finnas ett för mycket $x$ i stacken men inget $b$ att byta ut mot $\varepsilon$.
+\par\bigskip
+\begin{theo}
+  FFör varje CFG $G$ så finns det en PDA $M$ som har samma språk som $G$, dvs $L(M) = L(G)$
+\end{theo}
+\par\bigskip
+\noindent Detta kan illustreras med en så kallad "top-down" parser metoden:\par
+\noindent Låt $G = (\Sigma_n,\Sigma_T,P,S)$ där $P = \left\{A_1\to w_1, A_2\to w_2,\cdots, A_n\to w_n\right\}$ och $\Sigma_T = \left\{\sigma_1,\cdots, \sigma_k\right\}$
+\par\bigskip
+\noindent För att konstruera $M$ med detta, låter vi $M$:s inputalfabet vara $\Sigma_T$ och $M$:s stackalfabet vara $\Sigma_T\cup\Sigma_N$\par
+\noindent Låt $M$ beskrivas med (kom ihåg, $S$ är startsymbol):
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+       \node[state, initial left, initial text=](p0){$p_0$};
+       \node[state, accepting right, right of=p0, xshift=1.5cm](p1){$p_1$};
+       \path[-stealth] (p0) edge[above] node{$\varepsilon,\varepsilon/S$} (p1);
+       \path[-stealth] (p1) edge[loop above] node{$\left(\varepsilon,A_1/w_1\right)\cup\left(\varepsilon,A_2/w_2\right)\cup\cdots\cup\left(\varepsilon,A_n/w_n\right)$} (p1);
+       \path[-stealth] (p1) edge[loop below] node{$\left(\sigma_1,\sigma_1/\varepsilon\right)\cup\cdots\left(\sigma_k, \sigma_k/\varepsilon\right)$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Nu gäller att $L(M) = L(G)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $G$ vara följande CFG:\par
+$L(G) = \left\{a^nb^n:n\in\N\right\}$\par
+$P = \left\{S\to aSb, S\to\varepsilon\right\}$\par
+\noindent Konstruera en PDA med samma språk som grammatiken $G$ m.h.a top-down parser metoden:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$p_0$};
+      \node[state, accepting right, right of=p0, xshift=1.5cm](p1){$p_1$};
+      \path[-stealth] (p0) edge[above] node{$\varepsilon,\varepsilon/S$} (p1);
+      \path[-stealth] (p1) edge[loop above] node{$\left(\varepsilon,S/aSb\right)\cup\left(\varepsilon,S/\varepsilon\right)$} (p1);
+      \path[-stealth] (p1) edge[loop below] node{$\left(a,a/\varepsilon\right)\cup\left(b,b/\varepsilon\right)$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\begin{theo}
+  FFör varje PDA $M$ finns en CFG som har samma språk som $M$, dvs $L(M) = L(G)$
+\end{theo}
+\par\bigskip
+\noindent Från Sats 13.3 följer det att ett språk är sammanhangsfritt (CFL) $\Lrarr$ någon PDA accepterar språket.

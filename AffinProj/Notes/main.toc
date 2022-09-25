@@ -13,3 +13,5 @@
 \contentsline {subsection}{\tocsubsection {}{9.3}{Skärningstalet i $\mathbb {R}P^2$}}{20}{subsection.9.3}%
 \contentsline {subsection}{\tocsubsection {}{9.4}{Generalisering av $\mathbb {R}P^2$}}{21}{subsection.9.4}%
 \contentsline {section}{\tocsection {}{10}{Komplexa projektiva planet $\mathbb {C}P^2$}}{22}{section.10}%
+\contentsline {section}{\tocsection {}{11}{Mer om Andragradskurvor}}{23}{section.11}%
+\contentsline {section}{\tocsection {}{12}{Singulära kurvor}}{27}{section.12}%

@@ -19,3 +19,11 @@
 \contentsline {section}{\tocsection {}{10}{Slutenhetsegenskaper hos reguljära språk}}{35}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{Konstruktion av en "snitt"-DFA}}{36}{subsection.10.1}%
 \contentsline {section}{\tocsection {}{11}{Reguljära språkens gränser}}{37}{section.11}%
+\contentsline {section}{\tocsection {}{12}{Grammatiker}}{39}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Produktion av strängar}}{39}{subsection.12.1}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Sammanhangsfria grammatiker och språk}}{40}{subsection.12.2}%
+\contentsline {section}{\tocsection {}{13}{Pushdownautomater [PDA]}}{43}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{En liten informell beskrivning:}}{43}{subsection.13.1}%
+\contentsline {subsection}{\tocsubsection {}{13.2}{Grafisk beskrivning av PDA}}{43}{subsection.13.2}%
+\contentsline {subsection}{\tocsubsection {}{13.3}{Kriterier för acceptans hos PDA}}{44}{subsection.13.3}%
+\contentsline {subsection}{\tocsubsection {}{13.4}{Språk hos PDA}}{44}{subsection.13.4}%

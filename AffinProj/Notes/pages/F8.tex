@@ -1,0 +1,21 @@
+\section{Singulära kurvor}\par
+\noindent Vi definierar en \textbf{glatt kurva} som en kurva utan singulära punkter 
+\noindent Vi börjar med att visa en enkel sats om kurvor med singulariteter:
+\par\bigskip
+\begin{theo}
+  SVarje glatt kurva är irreducibel, dvs varje reducibel kurva har en singulär punkt.
+\end{theo}
+\par\bigskip
+\noindent Varje faktor i en reducibel kurva svarar mot en irreducibel kurva. Skärningar mellan dessa är de singulära punkterna.
+\par\bigskip
+\begin{prf}
+  VVi kallar en reducibel kurva $F=GH$ där varken $G$ eller $H$ är konstant.\par
+  \noindent Om de ej är konstanta, har de en grad som inte är 0, och då är enligt Bezouts sats så är totala skärningstalet mellan $H$ och $G$ = $deg(G)\cdot deg(H)\geq1$.\par
+  \noindent Detta betyder att det finns en punkt $P$ så att $H(P)=G(P)=0$\par
+  \noindent Hur visar vi nu att $P$ är en singulär punkt? Jo, med gradienten:
+  \begin{equation*}
+    \begin{gathered}
+      \nabla(GH)(P) = G(P)\nabla H(P)+H(P)\nabla G(P) = 0
+    \end{gathered}
+  \end{equation*}
+\end{prf}

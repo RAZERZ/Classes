@@ -1,0 +1,157 @@
+\section{Grammatiker}\par
+\noindent Detta är ett nytt sätt att se på språk. Tidigare har vi haft reguljära uttryck som beskriver ett språk, och finita automater som läser dessa.\par
+\noindent När vi istället tittar på grammatiker så talar de om hur nya strängar kan skapas från tidigare strängar. Då kommer vi inte tänka oss att vi accepterar strängar utan att vi producerar strängar givet grammatik.
+\par\bigskip
+\begin{theo}[Produktionsregel]{thm:prd}
+  En \textit{produktionsregel} är en sträng/uttryck på formen:
+  \begin{equation*}
+    \begin{gathered}
+      u\to v
+    \end{gathered}
+  \end{equation*}\par
+  \noindent där $\to$ inte förekommer i strängarna $u$ och $v$. 
+\end{theo}
+\par\bigskip
+\begin{theo}[Grammatik]{thm:grammar}
+  En \textit{grammatik} är en 4-tupel $G = (\Sigma_N,\Sigma_T,P,S)$ där:
+  \begin{itemize}
+    \item $\Sigma_N$ är ändlig mängder av symboler $n$ står för "non-terminating"
+    \item $\Sigma_T$ är ändlig mängder av symboler $T$ står för "terminating"
+    \item $P$ är ändlig mängd av produktionsregler $u\to v$ där $u,v\in \Sigma_N\cup\Sigma_T$ där $u\neq\varepsilon$
+    \item $S\in\Sigma_n$, kallas för startsymbol
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\subsection{Produktion av strängar}\hfill\\\par
+\noindent Vad är vitsen och hur fungerar det? Vi kommer i slutet vara intresserade av strängar som enbart är terminerande
+\par\bigskip
+\noindent Låt $G = (\Sigma_N,\Sigma_T, P, S)$ vara en grammatik:
+\par\bigskip
+\begin{theo}
+  EEn sträng $v$ kan produceras från en sträng $u$ i ett steg, betecknas $u\Rightarrow v$ om $u = xy_1z$ och $v=xy_2z$ och det finns en produktionsregel $\in P$ som är på formen $y_1\to y_2$ 
+\end{theo}
+\par\bigskip
+\begin{theo}
+  VVi säger att $v$ kan produceras i noll eller flera steg från en annan sträng $u$, betecknat $u\Rightarrow^* v$, om:
+  \begin{itemize}
+    \item $u=v$
+    \item $\exists n\geq2, n\in\N$ och strängar $w_1,\cdots, w_n$ så att $u=w_1\Rightarrow w_2\Rightarrow\cdots\Rightarrow w_n = v$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}
+  SSpråket som $G$ defninerar är $L(G) = \left\{w\in\Sigma_T^*:S\Rightarrow^*w\right\}$\par
+  \noindent Kan kallas för "$G$:s språk" eller "språket som $G$ producerar/beskriver".
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L = \left\{a^nb^n:n\in\N\right\}$. Vi såg att detta språk $L$ \textit{inte} var reguljärt. Det finns alltså inte en finit automat som accepterar språket. Det går heller inte att beskriva med ett reguljärt uttryck, men vi kan faktiskt ge en grammatik som producerar strängarna i det här språket.
+\par\bigskip
+\noindent Låt $G = (\Sigma_N,\Sigma_T,P,S)$ där:\par
+$\Sigma_n = \left\{S\right\}$, $\Sigma_T = \left\{a,b\right\}$, $P = \left\{S\to aSb, S\to\varepsilon\right\}$
+\par\bigskip
+\noindent Vi ska nu motivera varför denna grammatik producerar bara strängar i $L$.\par
+\noindent Vi ser att om $w\in\Sigma_T^*$ kan produceras av $G$, dvs om $S\Rightarrow^*w$, så måste $w = a^nb^n$
+\par\bigskip
+\noindent Säg att vi börjar med $S$, då kan jag antingen ta bort $S$ och få $\varepsilon = a^0b^0$, eller så kan jag använda första regeln och få $aSb$. Då kan jag antingen plocka bort $S$ och få $ab$, eller så kör jag första regeln igen och får $aaSbb$ och så fortsätter det$\hdots$\par
+\noindent Alltså kommer vi alltid få något på $a^nb^n$.
+\par\bigskip
+\noindent Ett induktionsbevis för att $a^nb^n\in L(G)\quad\forall n\in\N$:\par
+\noindent Basfall: Om $n=0$ så $S\Rightarrow^*S=a^0Sb^0$ och $S\Rightarrow\varepsilon$, så $\varepsilon\in L(G)$\par
+\noindent Induktions steg: Antag att $S\Rightarrow^*a^nSb^n$. Med regeln $S\Rightarrow aSb$ följer att $a^nSb^n\Rightarrow a^{n+1}Sb^{n+1}$\par
+\noindent Från $S\Rightarrow^*a^nSb^n\Rightarrow a^nb^n\quad\forall n\in\N$ följer att $a^nb^n\in L(G)$.\par
+\noindent Notera, detta visar enbart att $L\in L(G)$\par
+\noindent Detta är ett exempel på ett så kallat \textit{sammanhangsfri grammatik} och språket är ett \textit{sammanhangsfritt} språk.
+\par\bigskip
+\subsection{Sammanhangsfria grammatiker och språk}\hfill\\
+\par\bigskip
+\begin{theo}
+  EEn produktionsregel kallas \textit{sammanhangsfri} om den har formen $A\to w$ där $A$ är en icke terminerande symbol ($A\in\Sigma_N$) och $A$ bara är ett tecken
+\end{theo}
+\par\bigskip
+\begin{theo}[Sammanhangsfri grammatik]{thm:samgram}
+  En grammatik är sammanhangsfri om alla dess regler är sammanhangsfria. (CFG, Context Free Grammar)
+\end{theo}
+\par\bigskip
+\begin{theo}[Sammanhangsfritt språk]{thM:samlang}
+  Ett språk $L$ kallas sammanhangsfritt om det kan produceras med en sammanhangsfri grammatik $G$. (CFL, Context Free Language)
+\end{theo}
+\par\bigskip
+\noindent Från föregående exempel, följer det att $L$ är sammanhangsfritt.
+\par\bigskip
+\begin{theo}
+  VVarje reguljärt språk är sammanhangsfritt
+\end{theo}
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Antag att $L$ är reguljärt. Då finns en DFA $M$ så att DFA:ns språk $L(M) = L$.\par
+\noindent Låt $M$ vara följande DFA:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial above, accepting below, initial text=](p0){$S$};
+      \node[state, accepting below, below of=p0, xshift=-1cm, yshift=-1cm](p1){$A$};
+      \node[state, right of=p1, xshift=1cm](p2){$B$};
+      \path[-stealth] (p0) edge[loop left] node{$b$} (p0);
+      \path[-stealth] (p1) edge[loop left] node{$a$} (p1);
+      \path[-stealth] (p0) edge[left] node{$a$} (p1);
+      \path[-stealth] (p2) edge[right] node{$b$} (p0);
+      \path[-stealth] (p1) edge[above, bend left] node{$b$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent Vi omvandlar $M$ till en CFG: $G = \left(\Sigma_n,\Sigma_T,P,S\right)$ genom att låta:
+\begin{itemize}
+  \item $\Sigma_n = \left\{S,A,B\right\}$
+  \item $\Sigma_T =$ DFA:s alfabet $\left\{a,b\right\}$
+\end{itemize}\par
+\noindent och där varje tillståndsövergång i $M$ motsvaras av en produktionsregel på följande sätt:\par\noindent Övergången
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$S$};
+      \node[state, right of=p0, xshift=1cm](p1){$A$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure} blir med produktionsregel $S\to aA$\par
+\noindent På liknande sätt får vi också följande produktionsregler:
+\begin{itemize}
+  \item $A\to bB$
+  \item $B\to aA$
+  \item $B\to bS$
+  \item $\vdots$
+  \item $S\to\varepsilon$ (accepterande tillstånd)
+  \item $A\to\varepsilon$ (accepterande tillstånd)
+\end{itemize}
+\par\bigskip
+\noindent Vi bör få $3*2$ regler, kardinaliteterna $\Sigma_N*\Sigma_T$
+\par\bigskip
+\noindent Betrakta nu sträng $baaba$ (som accepteras av $M$), notera att denna sträng även produceras av $G$:
+\begin{itemize}
+  \item $baaba\qquad S$
+  \item $aaba\qquad S$
+  \item $aba\qquad A$
+  \item $ba\qquad A$
+  \item $a\qquad B$
+  \item $\qquad A$
+\end{itemize}\par
+\noindent Vilket blir, grammatiskt:
+\begin{itemize}
+  \item $S\to bS\to baA\to baaA\to baabB\to baabB\to baabaA\to baaba\varepsilon = baaba$
+\end{itemize}
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L= \left\{w\in\left\{a,b\right\}^*:w^{\text{rev}}=w\right\}$\par
+\noindent En CFG $G$ så att $L(G) = L$\par
+\noindent Notera att första tecknet måste vara lika med det sista tecknet i ett palindrom och att palindrom kan ha både udda och jämn längd. Vi inför följande produktionsregler:
+\begin{itemize}
+  \item $S\to\varepsilon$
+  \item $S\to aSa$
+  \item $S\to bSb$
+  \item $S\to a$
+  \item $S\to b$
+\end{itemize}
+\par\bigskip
+\noindent Produktion av $ababa$: $S\Rightarrow aSa\Rightarrow abSba\Rightarrow ababa$
