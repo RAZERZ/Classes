@@ -27,3 +27,7 @@
 \contentsline {subsection}{\tocsubsection {}{13.2}{Grafisk beskrivning av PDA}}{43}{subsection.13.2}%
 \contentsline {subsection}{\tocsubsection {}{13.3}{Kriterier för acceptans hos PDA}}{44}{subsection.13.3}%
 \contentsline {subsection}{\tocsubsection {}{13.4}{Språk hos PDA}}{44}{subsection.13.4}%
+\contentsline {section}{\tocsection {}{14}{De sammanhangsfria språkens gränser}}{46}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Pumpsatsen för CFL}}{46}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Slutenhetsegenskaper hos CFL}}{47}{subsection.14.2}%
+\contentsline {section}{\tocsection {}{15}{Restriktionsfria språk}}{49}{section.15}%

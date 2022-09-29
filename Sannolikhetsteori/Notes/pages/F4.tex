@@ -537,3 +537,191 @@ Då är $E(X^3)$ = $(-1)^3*\dfrac{1}{3}+0^3*\dfrac{1}{3}+1^3*\dfrac{1}{3} = 0$
     \end{gathered}
   \end{equation*}
 \end{prf}
+\par\bigskip
+\subsection{Mer om kontinuerliga sannoliketsrum}\hfill\\\par
+\noindent Standardexemplet är att slumpa ett reellt tal mellan 0 och 1. Alla möjliga utfall är givetvis talen mellan 0 och 1, så vårat utfallsrum är $\Omega=[0,1]$\par
+\noindent Detta intervall har längd 1. Säg att vi har $0\leq a\leq b\leq 1$, vad är då sannolikheten att $P(x\in [a,b]) = b-a$ (längden av intervallet), eftersom längden ger hur stor del av intervallet $[0,1]$ som utgörs av $[0,1]$
+\par\bigskip
+\noindent Samma gäller för öppna intervall, samt halvöppna intervall\par
+\noindent Givetvis finns specialfallet $P(\left\{a\right\})=P([a,a])=a-a=0$
+\par\bigskip
+\noindent Från Kolmogorovs axiom samt att $\Q$ är en uppräknelig mängd följer det att $P(\Q\cap [0,1]) = P(\bigcup_{q\in\Q\cap[0,1]}[q,q]) = \sum_{q\in\Q\cap[0,1]}P([q,q])\sum0=0$
+\par\bigskip
+\noindent För ett irrationellt tal $P([0,1\backslash\Q]) = \underbrace{P([0,1])}_{\text{1-0=1}}-\underbrace{P[0,1\cap\Q]}_{\text{0}} = 1-0=1$
+\par\bigskip
+\subsubsection{Cantormängden}
+\par\bigskip
+\noindent Låt $C_1 = [0,\dfrac{1}{3}]\cup[\dfrac{2}{3},1]$\par
+\noindent Då blir $P(C_1) = P([0,\dfrac{1}{3}])+P([\dfrac{2}{3},1]) = \dfrac{1}{3}+\dfrac{1}{3}=\dfrac{2}{3}$
+\par\bigskip
+\noindent Vi låter nu $C_2 = [0,\dfrac{1}{9}]\cup[\dfrac{2}{9},\dfrac{1}{3}]\cup[\dfrac{2}{3},\dfrac{7}{9}]\cup[\dfrac{8}{9},1]$\par
+\noindent $P(C_2) = 2^2\cdot\dfrac{1}{3^2}$\par
+\par\bigskip
+\noindent Och så fortsätter vi att dela ner intervallen i tredjedelar$\cdots$\par
+\noindent Notera att vi även dubblar antal intervall för varje indelning. Alltså blir $P(C_n) = 2^n\cdot\dfrac{1}{3^n} = \left(\dfrac{2}{3}\right)^n$
+\par\bigskip
+\noindent Cantormängden definieras som $\bigcap_{n=1}^{\infty} = C_n$\par
+\noindent Frågan är om det finns något finns kvar i mängden, för vi delar in i mindre och mindre delar.\par
+\noindent Exempelvis ligger $0\in C$ samt ändpunkterna på delintervallen
+\par\bigskip
+\noindent Mer generellt; tag $x\in[0,1]$, med decimalutveckling $x = 0.x_1x_2x_3\cdots$ i bas 3, dvs $x = \sum_{n=1}^{\infty} = \dfrac{x_n}{3^n}$\par
+\noindent Om $x_i\in\left\{0,2\right\}$ så är $x\in\bigcap_{n=1}^{\infty} C_n$. Det följer att denna mängd är ouppräknelig
+\par\bigskip
+\noindent Man kan ställa sig frågan, vad är då $P(C)$?\par
+\noindent $P(C_n) = \dfrac{2^n}{3^n}$. Vi vet att $C_n\subseteq\cdots C_3\subseteq C_2\subseteq C_1$\par
+\noindent Om Kolmogorovs axiom håller måste vi har $P(C) = P\left(\bigcap_{n=1}^{\infty}C_n\right) = \lim_{n\to\infty}P(C_n) = \lim_{n\to\infty}\left(\dfrac{2}{3}\right)^n=0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om vi ändrar lite på exemplet, det vill säga slumpa tal mellan 0 och 2. Då är $\Omega = [0,2]$ där\par\noindent $P(A) = \dfrac{\text{längden av $A$}}{2}$ 
+\par\bigskip
+\begin{theo}[Teaser: Kontinuerligt likformig slumpvariabel]{thm:woghwntoirjh}
+  En slumpvariabel $X:\Omega\to\R$ kallas \textit{kontinuerligt likformig kontinuerligt} om:
+  \begin{equation*}
+    \begin{gathered}
+      \exists I=[a,b],a<b\\
+      \text{Om } a\leq c\leq d\leq b: P\left(X\in[c,d]\right)=\dfrac{\overbrace{d-c}^{\text{$\left|[c,d]\right|$}}}{\underbrace{b-a}_{\text{$\left|[a,b]\right|$}}}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Om slumpvariabeln $X$ är likformig fördelad på ett intervall $(a,b)$ säger vi $X\sim U(a,b)$
+\begin{theo}[Absolut kontinuerlig fördelning]{thm:jfweoiv}
+  En slumpvariabel $X:\Omega\to\R^n$ kallas \textit{absolut kontinuerlig} om det finns en Riemann integrerbar funktion $f:\R^n\to\R$ så att:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(X\in A\right) = \int_{A}f_X(x)dx
+    \end{gathered}
+  \end{equation*}\par
+  \noindent För den endimensionella slumpvariabeln $X$ gäller följande:
+  \begin{equation*}
+    \begin{gathered}
+      P(a\leq X\leq b) = \int_{a}^{b}f(x)dx
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vi måste även ha:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{\infty}f(x)dx=1
+    \end{gathered}
+  \end{equation*}\par
+  \noindent för att Kolmogorovs andra axiom ska uppfyllas. \par
+  \noindent En sådan funktion $f_X(x)$ kallas för en täthetsfunktion. \par
+\end{theo}
+\par\bigskip
+\noindent Om $X\sim U(a,b)$, vad är då $f_X$?\par
+\noindent Vi antar $a\leq c<d\leq b$
+\begin{equation*}
+  \begin{gathered}
+    a\leq c\leq d \Rightarrow P\left(X\in[c,d]\right)=\dfrac{a-c}{b-a}=\int_{c}^{d}\dfrac{1}{b-a}dx\\
+  P(X\in[a,b])=\dfrac{b-a}{b-a}=1=\int_{a}^{b}\dfrac{1}{b-a}dx\\
+  \Lrarr f_X(x)=
+    \begin{cases}
+      \dfrac{1}{b-a}, a<x\leq b\\
+      0,\text{ annars}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent En endimensionell slumpvariabel $X:\Omega\to\R$ kallas normalfördelad om:
+\begin{equation*}
+  \begin{gathered}
+    P(a\leq X\leq b) = \int_{a}^{b}\dfrac{1}{\sigma\sqrt{2\pi}}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}dx\qquad \mu\in\R,\sigma>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi skriver $X\sim N(\mu,\sigma^2)$
+\newpage
+\begin{theo}[Fördelningsfunktion]{thm:fordelning}
+  Fördelningsfunktionen till en slumpvariabel $X$ är $F_X(x)=P(X\leq x)$\par
+  \noindent För kontinuerliga funktioner är vi främst intresserade över ett intervall:
+  \begin{equation*}
+    \begin{gathered}
+      P(a\leq X\leq b) = P(\left\{X\leq b\right\}\backslash\left\{X\leq a\right\}) = P(X\leq b)-P(X\leq a)\\
+        = F_X(b)-F_X(a)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Om $X$ är absolutkontinuerlig så är:
+  \begin{equation*}
+    \begin{gathered}
+      P(a\leq X\leq b) = F_X(b)-F_X(a)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent $X$ kallas \textit{kontinuerlig} om $P(X=x)=0\quad\forall x\in\R$\par
+  \noindent Om $X$ är kontinuerlig så är $P(a\leq X\leq b) = P(a<XX<b) = F_X(b)-F_X(a)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Säg att vi har $X\sim N(0,1)$, vi får då:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x) = \dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta kallas för \textit{standardiserad normalfördelning}\par
+\noindent Vi skriver $\varphi$ för fördelningsfunktionen atill $N(0,1)$, med andra ord:
+\begin{equation*}
+  \begin{gathered}
+    \varphi(x) = \dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}\quad x\in\R
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $X\sim N(,\mu,\sigma^2)$, så är
+\begin{equation*}
+  \begin{gathered}
+    P(a\leq X\leq b) = \int_{a}^{b}\dfrac{1}{\sigma\sqrt{2\pi}}e^{-\dfrac{(x-\mu)^2}{\sigma^2}}dx\\
+    \int_{\dfrac{a-\mu}{\sigma}}^{\dfrac{b-\mu}{\sigma}}\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{y^2}{2}}dy\\
+    a\leq X\leq b\Lrarr \dfrac{a-\mu}{\sigma}\leq \dfrac{X-\mu}{\sigma}\leq \dfrac{b-\mu}{\sigma}\\
+    \text{Så } P(a\leq X\leq b) = P(\dfrac{a-\mu}{\sigma}\leq \dfrac{X-\mu}{\sigma}\leq \dfrac{b-\mu}{\sigma})\\
+    = \varphi\left(\dfrac{b-\mu}{\sigma}\right)-\varphi\left(\dfrac{a-\mu}{\sigma}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Sätt $a^{\prime} = \dfrac{a-\mu}{\sigma}$, $b^{\prime} = \dfrac{b-\mu}{\sigma}$ får vi:
+\begin{equation*}
+  \begin{gathered}
+    P(a^{\prime}\leq \dfrac{X-\mu}{\sigma}\leq b^{\prime}) = \int_{a^{\prime}}^{b^{\prime}}\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{y^2}{2}}dy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Med andra ord är $X\sim N(\mu, \sigma^2)\Lrarr\dfrac{X-\mu}{\sigma}\sim N(0,1)$
+\newpage
+\begin{theo}[Centrala  gränsvärdessatsen]{thm:centralligma}
+  Om vi tar en massa slumpvariabler $X_1,X_2,\cdots\in L^2$ (de är alla oberoende), har väntevärdet $\mu$ med varians $\sigma^2>0$ och är lika fördelade (kan vara Bernoulli fördelade, Hypergeometrisk fördelade etc).
+  \par\bigskip
+  \noindent Då är medelvärdet $\bar{X_n} =\dfrac{X_1+\cdots+X_n}{n}\approx N(\mu,\sigma^2)$ fördelad, i meningen att:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(a\leq \dfrac{\bar{X_n}-\mu}{\sigma\sqrt{n}}\leq b\right)\to^{n\to\infty}\varphi(b)-\varphi(a)\\
+      = \int_{a}^{b}\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{y^2}{2}}dy\\
+      \text{Kom ihåg: } E(\bar{X_n}) = E(\dfrac{1}{n}(X_1+\cdots+X_n)) = \dfrac{n\mu}{n} = \mu\\
+      Var(\bar{X_n}) = Var(\dfrac{1}{n}(X_1+\cdots+X_n)) \dfrac{1}{2}\left(Var(X_1)+\cdots\right) = \dfrac{n\sigma^2}{n^2} = \dfrac{\sigma^2}{n}\\
+      D(\bar{X_n}) = \dfrac{\sigma}{\sqrt{n}}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att om $E(X) = \mu\in\R$, $Var(X) = \sigma^2>0$, så är:
+\begin{equation*}
+  \begin{gathered}
+    E\left(\dfrac{X-\mu}{\sigma}\right) = 0\qquad Var\left(\dfrac{X-\mu}{\sigma}\right)=1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Specialfall:}\par
+\noindent Om $X_i\sim Be(\dfrac{1}{2})$ (de Moivre's sats)\par
+\noindent Generaliserar vi det till $X_i\sim Be(p)$ (de Moivre's-Laplace sats)
+\par\bigskip
+\noindent Betrakta $X_1,X_2$ som är oberoende slumpvariabler med $Be(\dfrac{1}{2})$:
+\begin{equation*}
+  \begin{gathered}
+    X = \sum_{n=1}^{\infty}\dfrac{2X_n}{3^n}= \text{ decimalutveckling i bas 3}
+  \end{gathered}
+\end{equation*}\par
+\noindent $Be$ är antingen 0 eller 1, $2X_n\in\left\{0,2\right\}$ med båda sannolikheter $\dfrac{1}{2}$ att anta.\par
+\noindent Då gäller $X\in C$ (Cantormängden)
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att $X$ ej är diskret, ej absolutkontinuerlig, men kontinuerlig.

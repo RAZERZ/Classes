@@ -15,3 +15,6 @@
 \contentsline {section}{\tocsection {}{10}{Komplexa projektiva planet $\mathbb {C}P^2$}}{22}{section.10}%
 \contentsline {section}{\tocsection {}{11}{Mer om Andragradskurvor}}{23}{section.11}%
 \contentsline {section}{\tocsection {}{12}{Singulära kurvor}}{27}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Hur många singulära punkter kan en kurva ha? (i $\mathbb {C}P^2$)}}{28}{subsection.12.1}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Tredjegradskurvor}}{29}{subsection.12.2}%
+\contentsline {subsection}{\tocsubsection {}{12.3}{Tredjegradskurvor}}{30}{subsection.12.3}%

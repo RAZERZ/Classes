@@ -1,0 +1,60 @@
+\section{Restriktionsfria språk}\par
+\noindent En grammatik är restriktionsfri om det bara finns ett krav på produktionsreglerna:
+\par\bigskip
+\begin{theo}[Restriktionsfri grammatik]{thm:resfrigram}
+  En grammatik $G = (\Sigma_N,\Sigma_T, P, S)$ är \textit{restriktionsfri} (eller en \textit{RFG}) om det enda kravet på produktionsreglerna $u\to v$ i $P$ är att $u$ innehåller minst en icke-terminerande symbol ($\Sigma_N$).
+\end{theo}
+\par\bigskip
+\noindent När man väl har producerat en sträng som inte innehåller en icke-terminerande symbol är strängen klar, man kan inte göra något mer, just på grund av det kravet att $u$ måste innehålla minst en icke-terminerande symbol.
+\par\bigskip
+\begin{theo}[Restriktionsfritt språk]{thm:resfrilang}
+  Ett språk $L$ är per definition restriktionsfritt (en \textit{RFL}) om det finns en restriktionsfri grammatik (RFG) $G$ sådant att $L = L(G)$ (mängden av alla strängar av de terminerande symbolerna som kan produceras av $G$)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om vi tänker efter, en sammanhangsfri grammatik är restriktionsfri, för i en sammanhangsfri grammatik har vi alltid exakt en icke-terminerande i vänstersträngen. Då följer direkt att varje sammanhangsfritt språk är restriktionsfritt. Vi vet också att varje reguljärt språk är sammanhangsfritt.
+\par\bigskip
+\noindent Alltså, om $L$ är ett reguljärt språk, $L\Rightarrow$ CFL $\Rightarrow$ RFL
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L = \left\{a^nb^nc^n|n\in\N\right\}$. Vi såg att detta språk \textit{inte} var sammanhangsfritt m.h.a pumpsatsen. Däremot är $L$ faktiskt restriktionsfritt.\par
+\noindent För att visa detta behöver vi konstruera en RFG $G$ så att $L(G) = L$, ty då följer det att $L$ är en RFL.
+\par\bigskip
+\noindent Vi konsruerar regler för $G$:
+\begin{itemize}
+  \item $S\to\varepsilon|abNSc$ ($S$ ersätts med $abNSc$) (kan producera ($abN$)$^kc^k$ $\forall k\in\N$)
+  \item $bNa\to abN$ (följande 3 regler är icke-sammanhangsfria regler, sammahangskänsliga)
+  \item $bNb\to bbN$
+  \item $bNc\to bc$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta följande språk: $L = \left\{1^{2^n}|n\in\N\right\}$\par
+\noindent Bestäm om språket är reguljärt eller inte, sammanhangsfritt eller ej, och om det är restriktionsfritt så konstruera en restriktionsfri grammatik.
+\par\bigskip
+\noindent Vi vet att om språket är reguljärt, så kan vi dra slutsatsen att det är sammanhangsfritt, och om det är sammanhangsfritt så är det även restriktionsfritt. Däremot, om det inte är reguljärt, kan det hända att det fortfarande är sammanhangsfritt, vilket vi kan göra genom att konsruera en korrekt PDA/CFG. Om man inte tror att det är sammanhangsfritt så kan man visa det genom sammanhangsfria pumpsatsen. 
+\par\bigskip
+\noindent Språket är inte sammanhangsfritt och därmed inte reguljärt, men vi kan visa detta med pumpsatsen för sammanhangsfria språk:
+\begin{itemize}
+  \item $L$ är uppenbarligen oändligq
+  \item Antag att $L$ är sammanhangsfritt
+  \item Låt $K$ vara givet från den sammanhangsfria pumpsatsen
+  \item Välj jämplig sträng med längd minst $K$. Låt $w = 1^{2^K}$, så $w\in L$ och $\left|w\right|\geq K$
+  \item Antag $w = uvxyz$ och $\left|vxy\right|\leq K$ och $vy\neq\varepsilon$\par
+    \noindent Vi får då att om vi delar in en sträng med bara ettor i en sträng med längd 5 och pumpar den, så kommer vi inte längre ha ett jämt antal ettor:\par
+    \noindent $2^K<\left|uv^2xy^2z\right| = \underbrace{\left|uvxyz\right|}_{\text{$2^K$}}+\underbrace{\left|vy\right|}_{\text{$\leq K$}} \leq 2^K+K<2^K+2^K<2^{K+1}$
+  \item Punkt 5 motsäger pumpsatsen så $L$ är \textit{inte} en CFL
+\end{itemize}
+\par\bigskip
+\noindent En $RFG$ för $L$:
+\begin{itemize}
+  \item $S\to Q1T|1$
+  \item $T\to TT|P$ FÖr att bli av medd $T$ så måste man producera strängen 1 eller strängen $Q1P^n$ för något $n\in\N_+$
+  \item $1P\to P11$
+  \item $QP\to Q$
+  \item $Q\to\varepsilon$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L = \left\{ww|w\in\left\{a,b\right\}^*\right\}$. Detta är \textit{inte} en CFL (bevis finns längre upp). Vi kan testa producera en restriktionsfri grammatik för detta språk\par
+\noindent Grundiden är ganska fin, tänk oss att vi till början betraktar $A$ och $B$, och om vi skriver en sträng typ $abba$, men om vi bäddar in stora bokstav så att en stor bokstav följer efter en liten så vi får $aAbBbBaA$. I slutändan vill vi få $abbaabba$, vi behöver regler som separerar stor och liten bokstav, dvs flyttar alla stora bokstäver till höger \textit{utan} att ändra ordningen på de, och till sist kan vi byta ut stor bokstav mot motsvarande lilla bokstav. 

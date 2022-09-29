@@ -1,0 +1,138 @@
+\section{De sammanhangsfria språkens gränser}\par
+\noindent Vi börjar med att gå igenom pumpsatsen för sammanhangsfria språk
+\par\bigskip
+\subsection{Pumpsatsen för CFL}\hfill\\\par
+\noindent Vi antar först att $L$ är ett oändligt och Sammanhangsfritt språk.\par
+\noindent Då finns ett tal $K\in\N$ sådant att om vi har en sträng $w\in L$ och $\left|w\right|\geq K$, så kan $w$ delas upp i 5 delar
+\begin{equation*}
+  \begin{gathered}
+    w=uvxyz
+  \end{gathered}
+\end{equation*}\par
+\noindent så att $\left|vxy\right|\leq K$ och $vy\neq\varepsilon$, till sist ska alla pumpningar tillhöra $L$:
+\begin{equation*}
+  \begin{gathered}
+    uv^nxy^nz\in L\quad \forall n\in\N
+  \end{gathered}
+\end{equation*}\par
+\noindent Bevis finns i Veras anteckningar. 
+\par\bigskip
+\noindent\textbf{Mall för användning av pumpsatsen för CFL:} (för att visa att ett språk inte är CFL)
+\par\bigskip
+\noindent I stora drag ser den ut som använding av pumpsatsen för reguljära språk, men detaljerna (speciellt punkt 4 och 5) skiljer det sig.
+\par\bigskip
+\noindent Så går det ut:\par
+\begin{itemize}
+  \item Visa att språket $L$ är oändligt
+  \item Antag att språket $L$ är sammanhangsfritt (CFL)
+  \item Låt $K$ vara givet av pumpsatsen (för CFL) för $L$
+  \item Välj lämplig sträng $w$ (konkret upp till $K$, så pass konkret att om vi visste vad $K$ var så blir det en konkret sträng med längd minst $K$ och tillhör $L$)
+  \item Visa att hur än $w$ delas upp i 5 delar, så kommer någon av  de pumpade strängarna \textit{inte} tillhöra $L$ \par
+    \noindent Dvs, $w = uvxyz$ så att $\left|vxy\right|\leq K$ och $vy\neq\varepsilon$, $\exists n\in\N$ så att $uv^nxy^nz\notin L$
+  \item Uttryck att föregående punkt motsäger pumpsatsen för CFL, så $L$ kan \textit{inte} vara en CFL 
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L = \left\{a^nb^nc^n|n\in\N\right\}$\par
+\noindent Vi visar med pumpsatsen för CFL att $L$ ej är en CFL:\par
+\begin{itemize}
+  \item Eftersom $\varepsilon, abc,a^2b^2c^2,\cdots\in L$ så är $L$ oändligt
+  \item Antag att $L$ är en CFL
+  \item Låt $K$ vara givet av pumpsatsen för CFL och för språket $L$
+  \item Välj $w=a^Kb^Kc^K$, så $w\in L$ och $\left|w\right|\geq K$
+  \item Antag att $w = uvxyz$, $\left|vxy\right|\leq K$ och $vy\neq\varepsilon$\par
+    \noindent Då kan inte $vxy$ börja på något $a$ och sluta på $c$, eftersom det finns $K$ stycken $b$ i mitten vilket motsäger längden på $vxy$ (skulle vara högst $K$)\par
+    \noindent Vi kan därmed betrakta två fall, då $vxy$ innehåller $a,b$ eller $b,c$:
+    \begin{itemize}
+      \item Antag att $vxy$ är en delsträng till $a^Kb^K$. Så i $x$ har något $a$ eller $b$ eller båda försvunnit i jämförelse med ursprungliga $vxy$.\par
+        \noindent Därför är antalet $c$ i $uxz = uv^0xy^0z$ större än antalet $a$ eller $b$ (i $uxz$). Så $uxz\notin L$
+        \par\bigskip
+      \item Antag att $vxy$ är en delsträng till $b^Kc^K$. I $x$ har något $b$ eller $c$ försvunnit i jämförelse med $vxy$. Då är antalet $a$ i $uxz$ större än antalet $b$ eller $c$. så $uxz\notin L$
+    \end{itemize}
+  \item Föregående punkt motsäger pumpsatsen för CFL, så $L$ ej sammanhangsfritt.
+\end{itemize}
+\newpage
+\subsection{Slutenhetsegenskaper hos CFL}\hfill\\\par
+\begin{theo}
+  AOm $L_1$ och $L_2$ är CFL, så är även följande sammanhangsfria:\par
+  \begin{itemize}
+    \item $L_1\cup L_2$
+    \item $L_1L_2$
+    \item $(L_1)^*$
+  \end{itemize}\par
+  \par\bigskip
+  \noindent Notera! Det är inte säkert att $L_1\cap L_2$ eller komplementet är sammanhangsfritt! Det beror på vad $L_2$ och $L_2$ är 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Partiell motivering till satsen}
+\par\bigskip
+\noindent Antag att $L_1$ och $L_2$ är CFL. Då finns det PDA:er $M_1$ och $M_2$ så att $L(M_1) = L_1$ och $L(M_2) = L_2$ som accepterar dessa (enligt Sats 13.3)
+\par\bigskip
+\noindent En PDA $M$ så att $L(M) = L_1\cup L_2$ och då följer att $L_1\cup L_2$ är en CFL. Vi kan konstruera följande PDA:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$p_0$};
+      \node[state, above right of=p0, xshift=1cm, yshift=1cm](p1){$M_1$};
+      \node[state, below right of=p0, xshift=1cm, yshift=-1cm](p2){$M_2$};
+      \path[-stealth] (p0) edge[left, bend left] node{$\varepsilon,\varepsilon/\varepsilon$} (p1);
+      \path[-stealth] (p0) edge[left, bend right] node{$\varepsilon,\varepsilon/\varepsilon$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent En PDA $M$ så att $L(M) = L_1L_2$ och då följer att $L_1L_2$ är en CFL:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$M_1$};
+      \node[state, right of=p0, xshift=1cm](p1){$M_2$};
+      \path[-stealth] (p0) edge[above] node{$\varepsilon,\varepsilon/\varepsilon$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Vi ska kika lite närmare på varför snittet av två språk inte behöver vara CFL.
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Låt $L_1 = \left\{a^nb^mc^m|n,m\in\N\right\}$\par
+\noindent Låt $L_2 = \left\{a^nb^nc^m|n,m\in\N\right\}$\par
+\noindent Snittet, $L_1\cap L_2 = \left\{a^nb^nc^n|n\in\N\right\}$\par
+\noindent Notera, detta är ju samma språk som vi hade i pumpsats-exemplet som vi visade inte var CFL!
+\par\bigskip
+\noindent $L_1$ och $L_2$ är CFL:er för $L(G_1) = L_1$ och $L(G_2) = L_2$ om:\par
+\noindent (Stora bokstäver betecknar icke-terminerande symboler. Lilla $a,b,c$ är terminerande symboler. $S$ antas vara startsymbol)
+\begin{itemize}
+  \item $G_1$:
+    \begin{itemize}
+      \item $S\to TU$
+      \item $T\to Ta|\varepsilon$
+      \item $U\to b\cup c|\varepsilon$
+    \end{itemize}
+  \item $G_2$:
+    \begin{itemize}
+      \item $S\to TU$
+      \item $T\to aTb|\varepsilon$
+      \item $U\to cU|\varepsilon$
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $\Sigma = \left\{a,b,c\right\}$\par
+\noindent Låt $L_1 = \left\{ww^{rev}|w\in\Sigma^*\right\}$ (palindrom av jämn längd)\par
+\noindent Låt $L_2 = \left\{ww|w\in\Sigma^*\right\}$
+\par\bigskip
+\noindent Det vi vill illustrera med detta exempel är att ytlig likhet inte alls innebär att språket har samma egenskaper eftersom $L_1$ är en CFL medan $L_2$ \textit{inte} är en CFL
+\par\bigskip
+\noindent En CFG för $L_1$:
+\begin{equation*}
+  \begin{gathered}
+    S\to aSa|bSb|cSc|\varepsilon
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill nu visa att $L_2$ inte är sammanhangsfritt, och genomför pumpsatsen för CFL snabbt.\par
+\noindent Vi väljer den lämpliga strängen $w = a^Kb^Kc^Ka^Kb^Kc^K$ , så $w\in L_2$ och $\left|w\right|\geq K$\par
+\noindent Antag att $w$ nu delas upp i $uvxyz$ och $\left|vxy\right|\leq K$ och $vy\neq\varepsilon$\par
+\noindent Då måste $vxy$ vara en delsträng av $\left\{(a,b),(c,a),(b,c)\right\}$\par
+\noindent Om vi pumpar ut, så kommer tecken försvinna från ett av blocken men inte i de anra. Den strängen som uppstår när man pumpar ur kommer inte tillhöra $L_2$, vilket motsäger pumpsatsen för CFL och $L_2$ är därmed inte en CFL. 

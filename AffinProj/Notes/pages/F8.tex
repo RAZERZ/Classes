@@ -9,7 +9,7 @@
 \noindent Varje faktor i en reducibel kurva svarar mot en irreducibel kurva. Skärningar mellan dessa är de singulära punkterna.
 \par\bigskip
 \begin{prf}
-  VVi kallar en reducibel kurva $F=GH$ där varken $G$ eller $H$ är konstant.\par
+  VVi kallar en reducibel kurva $F=GH$ (i $\C P^2$) där varken $G$ eller $H$ är konstant.\par
   \noindent Om de ej är konstanta, har de en grad som inte är 0, och då är enligt Bezouts sats så är totala skärningstalet mellan $H$ och $G$ = $deg(G)\cdot deg(H)\geq1$.\par
   \noindent Detta betyder att det finns en punkt $P$ så att $H(P)=G(P)=0$\par
   \noindent Hur visar vi nu att $P$ är en singulär punkt? Jo, med gradienten:
@@ -19,3 +19,194 @@
     \end{gathered}
   \end{equation*}
 \end{prf}
+\par\bigskip
+\noindent Givet 5 punkter i $\C P^2$ så finns en entydig andragradskurva genom den. (Detta är inte helt sant, det krävs att 4 av de inte ligger på en linje). Den allmänna iden är att man kan räkna dimensionen genom de fria parametrarna.
+\par\bigskip
+\noindent Vi ska göra en ny version av en gammal sats:
+\par\bigskip
+\begin{theo}
+  LLåt $f,g$ polynom och $f(p)=g(p)=0$.\par
+  \noindent Då gäller att $I_p(f,g) = 1\Lrarr$ transversella i punkten $p$ 
+\end{theo}
+\newpage
+\begin{prf}
+  VVi har två fall:
+  \begin{itemize}
+    \item Fallet då en av kurvorna har en faktor (irreducibel komponent som är $x$-axeln) ($g=yh$).
+      \par\bigskip
+      \noindent Vi vet lite mer om $g$ och gör variabelbyte så att $p=$ origo, så skärningstalet blir då
+      \begin{equation*}
+        \begin{gathered}
+          I_p(f,g) = I_p(f,yh) = I_p(f,h)+\underbrace{I_p(f,y)}_{\text{$\geq1$}}\\
+          I_p(f,g) = 1\Lrarr I_p(f,y) = 1 \wedge \underbrace{I_p(f,h)}_{\text{$h(p)\neq0$}} = 0
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+      \noindent Detta är ekvivalent med att säga att $f,g$ är transversella i $(0,0)$ och $g$ har tangentlinje i $x$-axeln
+      \par\bigskip
+    \item Antag att varken $f$ eller $g$ har en faktor $y$. Då finns det termer i $g$ som bara innehåller $x$\par
+      \noindent Då kan vi skriva (vi antar att polynomen är moniska):
+      \begin{equation*}
+        \begin{gathered}
+          f = x^m+r(x,y)\\
+          g = x^n +s(x,y)
+        \end{gathered}
+      \end{equation*}\par
+      \noindent Där $r,s$ inte innehåller:
+      \begin{equation*}
+        \begin{gathered}
+          ax^k, k>m\wedge k>n
+        \end{gathered}
+      \end{equation*}\par
+      \noindent Vi antar att $n\geq m$ utan förlust av allmänngiltighet. Då kan vi titta på:
+      \begin{equation*}
+        \begin{gathered}
+          I_p(f,g) = I_p(f,\underbrace{g-x^{n-m}f}_{\text{$=k$ har lägre $x$ monom än $g$}})
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+      \noindent Att nu istället titta på $f,k$ istället för $f,g$ ändrar inte skärningstalet. Det ändrar inte heller transverselitetsvillkoret enligt axiom 5.\par
+      \noindent Iterera processen tills ett polynom har faktor $y$ och då kan vi gå till föregående punkt 
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent Vi har även visat att om två kurvor har en singulär punkt så kommer skärningstalet vara större än 1. Det kommer tillochmed vara större än 4. I en singulär punkt så blir bidraget minst två för varje kurva om den är singulär. 
+\par\bigskip
+\subsection{Hur många singulära punkter kan en kurva ha? (i $\C P^2$)}\hfill\\\par
+\noindent Först och främst beror det på graden. Låt oss anta att kurvan är irreducibel.
+\par\bigskip
+\noindent Vad händer om kurvan är av grad 1 (en irreducibel kurva av grad 1). Detta är en linje, och linjer har inga singulära punkter. När vi säger linje menar vi ett förstagradspolynom.
+\par\bigskip
+\noindent Vad händer om kurvan är av grad 2 (en irreducibel andragradskurva). Vi har klassificerat alla andragradskurvor, och den enda irreducibla av de klassificeringarna är cirkeln, som inte har någon singulär punkt, alltså har en irreducibel andragradskurva ingen singulär punkt.
+\par\bigskip
+\noindent Om vi låter $d=$ graden av kurvan beter sig antalet singulära punkter på följande sätt:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{(d-1)(d-2)}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om vi stoppar in $d=3$ ser vi att vi har max 1 singulär punkt.\par
+\noindent Betrakta följande tredjegradskurva $y^2=x^3$. Denna har bara singularitet i origo (inte ens någon annanstans även i $\C P^2$). Ytterliggare exempel är $y^2 = x^2(1-x)$\par
+\noindent Detta är i $xy$-kartan. Singulära punkter är på något sätt ett lokalt fenomen till $2D$-kartor
+\par\bigskip
+\noindent Varför gäller det att vi har max en singulär punkt? Vad skulle hända om vi har 2 singulära punkter? Knepet är att använda Bezouts sats.\par
+\noindent Har vi 2 punkter (våra singulära punkter) är det naturligt att dra en linje emellan de.\par
+\noindent Det som är konstigt här är att vi letar efter skärningstal 3, men detta går inte eftersom ena punkten måste ha samma skärningstal som den andra (de är linjer trotsallt). \par
+\noindent Däremot har vi "visat" ovan att $I_{p_1}(C,L) + I_{p_2}(C,L)$ (där $p_i$ är singulära punkter) $\geq 2+2=4$ vilket är en motsägelse.
+\par\bigskip
+\noindent Vad händer i grad 4? Jo vi bör få 3 singulära punkter och försöker anävnda samma trick som vi gjorte när vi hade tredjegradskurva. Vi antar att vi har 4 singulära punkter på kurvan.\par
+\noindent Låt oss hitta en kurva som går igenom de 4 singulära punkterna. En linje blir svår att hitta som uppfyller detta, men en andragradskurva blir enkelt (vi vet att det finns t.o.m genom 5 punkter.) Vi döper denna andragradskurva till $C^{\prime}$.\par
+\noindent Vi vet även att dimensionen av (det komplexa) rummet till andragradspolynom är 6 och 4 punkter = fyra homogena villkor vilket ger en icke-trivial lösning.\par
+\noindent Vi kan använda Bezouts sats, vilket ger det totala skärningstalet mellan $C$ och $C^{\prime} = 2\cdot4=8$\par
+\noindent Samma approach som för grad 3 ger ingen motsägelse då. Vad vi kan göra är att vi kan kräva mer av $C^{\prime}$. Vi kan nämligen kräva att den går igenom 5 punkter (kom ihåg, dimension 6). Så, välj en till punkt på $C$. Den behöver inte var singulär. Kurvan $C^{\prime}$ kommer ju skära $C$ i den 5te punkten, vilket ger 9 skärningspunkter medan Bezouts sats säger 8 vilket är en motsägelse.
+\par\bigskip
+\subsection{Tredjegradskurvor}\hfill\\\par
+\noindent Kurvor av grad 1 och 2 har vi "löst", vi har klassificerat de osv. Tredjegradskurvor däremot, är mer intressanta. Det finns tredjegradskurvor som är irreducibla men har singularitet exempelvis (max 1st per irreducibel kurva).\par
+\noindent Vi kommer att visa en "normalform" för icke-singulära kurvor (mer än bara de geometriska formerna)\par
+\noindent Vi kommer göra samma sak, fast med singulära kurvor.\par
+\noindent Vi kommer betrakta elliptiska kurvor som glatta tredjegradskurvor med en viss abelsk gruppstruktur (en viss additionslag)
+\par\bigskip
+\begin{theo}[Hessian]{thm:wgo}
+  Vi arbetar mestadels med homogena polynom. Låt $f\in\C_h[x,y]$ av grad $d$\par
+  \noindent Vi definierar Hessianen som:
+  \begin{equation*}
+    \begin{gathered}
+      H(x,y,z) = det\begin{pmatrix}F_{xx}&F_{xy}&F_{xz}\\F_{yx}&F_{yy}&F_{yz}\\F_{zx}&F_{zy}&F_{zz}\end{pmatrix}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Graden av $H$ är uppenbarligen $3(d-2)$ OM $H\neq0$
+\end{theo}
+\par\bigskip
+\begin{theo}[Inflexionspunkt]{thm:flex}
+  En punkt $P$ så att $F(P)=0$ kallas \textit{inflexionspunkt} eller \textit{flex} om $H(P)=0$\par
+  \noindent Vi kan tänkna det som mängden av skärningspunkter till $F$. De skär varandra precis i inflexionspunkterna till $F$
+\end{theo}
+\newpage
+\begin{lem}[Eulers lemma om homogena funktioner]{thm:eulerw}
+  En funktion $f$ kallas \textit{homogen} av grad $d$ om $F(\lambda x_1,\cdots,\lambda x_n) = \lambda^2 F(x_1,\cdots, x_n)$\par
+  \noindent För homogena funktioner gäller:
+  \begin{equation*}
+    \begin{gathered}
+      dF = d\lambda^{n-1}F(x_1,\cdots,x_n) = x_1F_1+\cdots+x_nF_n\qquad F_i \dfrac{\partial F}{\partial x_i}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Låt $F\in\C_h[x,y,z]$ av grad $d>1$\par
+  \noindent Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{z^2H(x,y,z)}{(d-1)^2} = det\begin{pmatrix}F_{xx}&F_{xy}&F_{x}\\F_{yx}&F_{yy}&F_{y}\\F_{x}&F_{y}&\dfrac{d}{d-1}F\end{pmatrix}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent Att Hessianen är 0 kommer vi se är ekvivalent med att andraderivatan i någon karta är 0.
+\par\bigskip
+\noindent Om vi betraktar en kurva $f$ i $xy$-kartan:
+\begin{equation*}
+  \begin{gathered}
+    F(x,y,1) = 0\qquad P \text{ inflexionspunkt}
+  \end{gathered}
+\end{equation*}\par
+\noindent Låt oss anta att i inflexionspunkten så är $F_y(P)\neq0$. Kurvna är alltås av formen $y = y(x)$ lokal kring $P$ (följer från implicita funktionssatsen). \par
+\noindent Då kan vi derivera $F$ implicit med avseende på $x$ 2 gånger och få:
+\begin{equation*}
+  \begin{gathered}
+    H(P) = 0\Lrarr y^{\prime\prime} = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  LLåt Flex$(C) = \left\{\text{inflexionspunkter på } C\right\}$\par
+  \noindent Låt $C\subseteq \C P^2$ vara en irreducibel kurva av grad $d$ och $C = V(F)$. Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \text{Flex}(C) = V(F)\cap V(H)\\
+      1\leq \text{\#Flex}(C)\leq 3d(d-2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Beviset faller omedelbart från Bezouts sats, om kurvorna $F,H$ inte har gemensamma faktorer, eftersom enligt Bezouts sats har kurvorna exakt $3d(d-2)$ skärningspunkter räknat \textit{med} multiplcitet. Då är $H(Q) = 0\quad\forall Q\in V(F)$, alltså alla punkter på $F$ är inflexionspunkter.\par
+\noindent Om alla punkter på kurvan är inflexionspunkter, det kan inte vara så många kurvor som har den egenskapen. Vi hävdar att $F$ måste vara en linje, ($y = kx+m$, derivera 2 gånger, få 0 överallt), ty åtminstone lokalt löser $y^{\prime\prime}=0$ så $y=kx+m$ i någon öppen omgivning i planet.
+\par\bigskip
+\noindent Kom ihåg att tangentlinjen $T_P(F)$ kan karakteriseras som den linje genom $P$ som uppfyller $I_P(T_P(F), F)\geq2$\par
+\noindent Alla linjer utom tangentlinjen skär $F$ transversellt.
+\par\bigskip
+\begin{theo}
+  VVi kan karakterisera inflexionspunkter. En punkt $P$ är en flex om och endast om:
+  \begin{equation*}
+    \begin{gathered}
+      I_P(T_P(F),F)\geq3
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Detta har varit för allmänna kurvor, men vi ska specifiera oss i tredjegradskurvor
+\par\bigskip
+\subsection{Tredjegradskurvor}\hfill\\\par
+\noindent Enligt Sats 12.5 bör antal inflexionspunkter ligga mellan 1 och 9, vi ska visa att det är exakt 9 t.o.m
+\par\bigskip
+\begin{theo}
+  EEn irreducibel glatt tredjegradskurva kurva $F =0$ (utan singulära punkter) i $\C P^2$ är projektivt ekvivalen med en på formen ($C = V(F)$):
+  \begin{itemize}
+    \item $y^2z = x(x-z)(x-\lambda z)$ där $\lambda\in\C\backslash\left\{0,1\right\}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent Varför är det inte en fullständig klassificering? Vi har inte sagt att de är olika för olika värden på $\lambda$.
+\par\bigskip
+\noindent\textbf{Strategi:}\par
+\noindent Utnyttja att det finns en inflexionspunkt $P$, i en inflexionspunkt har vi mer information än en annan (vi vet exvis saker om Hessianen) och placera $P$ lämpligt. Använd dina projektiva trasformationer maximalt (de kan förenkla). 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Projektiva transformationer bevarar inflexionspunkter
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Projektiva tangentlinjen:
+\begin{equation*}
+  \begin{gathered}
+    F_xx+F_yy+F_zz
+  \end{gathered}
+\end{equation*}

@@ -22,4 +22,7 @@
 \contentsline {section}{\tocsection {}{8}{Medelvärde}}{24}{section.8}%
 \contentsline {subsection}{\tocsubsection {}{8.1}{Egenskaper för väntevärden}}{28}{subsection.8.1}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{Kovarians}}{32}{subsection.8.2}%
-\contentsline {section}{\tocsection {}{9}{Lektion 21/9}}{35}{section.9}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{Mer om kontinuerliga sannoliketsrum}}{34}{subsection.8.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{8.3.1}{Cantormängden}}{34}{subsubsection.8.3.1}%
+\contentsline {section}{\tocsection {}{9}{Lektion 21/9}}{38}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Kort introduktion till måtteori}}{40}{section.10}%
