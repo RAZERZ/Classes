@@ -4,7 +4,141 @@
 \par\bigskip
 \begin{theo}[Slumpförsök]{thm:wpoieghwoeg}
   Ett \textit{slumpförsök} på ett utfallsrum $\Omega$ består av ett försök som resulterar i ett av utfallen ($x\in\Omega$) i utfallsrummet.\par\bigskip
-  \noindent Man vet ej på förhand vilka av utfallen som kommer inträffa, slumpförsök beskrivs genom att tala om vad sannolikheten att händelser att händelser inträffar i rummet. 
+  \noindent Man vet ej på förhand vilka av utfallen som kommer inträffa, slumpförsök beskrivs genom att tala om vad sannolikheten att händelser inträffar i rummet är.
 \end{theo}
 \par\bigskip
-\noindent
+\noindent I vårt utfallsrum så har vi en samling händelser som kan inträffa, $\omega\in\Omega$. Genom att definiera ett sannolikhetsmått så kan vi mäta sannolikheten att dessa händelser inträffar, men i någon mening så säger de inte mycket \textit{om} själva händelsen. Vi kan få ett numeriskt värde av $P(\left\{\omega\right\})\geq0$, men $\omega$ kan mycket väl vara en detaljrik händelse.
+\par\bigskip
+\noindent I vissa fall (rätt många) är det mer intressant att undersöka sannolikheten att ett numeriskt värde (som är associerat till händelser) inträffar, mer än att undersöka sannolikheten att händelser inträffar. Låt oss kika på exempel:
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Du är en virolog som precis tagit fram vaccinet mot Covid-19. Innan du får använda det, måste du ta fram hur effektivt vaccinet är. Du testar ditt vaccin på sjuke Kalle, Anna, och Lina. Vi kan då definiera ett utfallsrum $\Omega$ som består av händelserna att personerna fortfarande är sjuka efter ha tagit vaccinet. $\Omega$ består då av tupler av personer som fortfarande är sjuka:
+\begin{equation*}
+  \begin{gathered}
+    \Omega = \left\{(Kalle), (Anna), (Lina), (Kalle, Anna), (Kalle, Lina),\cdots\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent men som virolog så är detta inte av intresse.\par
+\noindent Vad som är av intresse är givetvis \textit{hur många} det var som fortfarande var sjuka efter de tagit ditt vaccin.\par
+\noindent Notera exempelvis, att effektiviteten av vaccinet inte ändras om det är $(Kalle, Anna)$ som fortfarande är sjuka eller om det är $(Kalle, Lina)$, trots att det är olika händelser i utfallsrummet. 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi vill undersöka sannolikheten att summan av två tärningar visar 7 efter de kastas. Vårt utfallsrum består då av tupler av möjliga kombinationer och summor, exempelvis $(2,3)\in\Omega$ som säger att ögonsumman är 5.\par
+\noindent Detta blir snabbt opraktiskt att skriva ut eftersom vi skrivet ut att alla följande händelser inträffar:\par(5,2), (2,5), (4,3), (3,4), (6,1), (1,6)
+\par\bigskip
+\noindent Därför definierar en så kallad \textit{slumpvariabel}:
+\par\bigskip
+\begin{theo}[Slumpvariabel]{thm:randomvarigwg}
+  En \textit{Slumpvariabel} (även kallad \textit{stokastisk variabel}) är en funktion som avbildar utfallsrummet på de reella talen
+  \par\bigskip
+  \noindent Betecknas $X:\Omega\to\R$
+\end{theo}
+\par\bigskip
+\noindent Det är ett otroligt ointuitivt namn för vad en slumpvariabel faktiskt är. Det är absolut inte en variabel, det är en funktion, och prefixed "slump" känns udda att ha med, men det för sent att ändra på namnet så vi får helt enkelt leva med det.\par
+\noindent\textit{Kuriosa:} Prefixed "slump" kommer troligtvis från att det är definierat på slumpförsök. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item Slumpvariabel sägs vara \textit{diskret} om slumpvariabeln antar ändligt/uppräkneligt många värden
+  \item Slumpvariabel behöver inte vara surjektiv 
+\end{itemize}
+\par\bigskip
+\noindent I första exemplet då du var en virolog, kan en slumpvariabel exempelvis vara antalet som \textit{inte} tillfrisknade\par
+\noindent I andra exemplet kan slumpvariabeln vara summan av ögonen på de båda tärningarna.
+\par\bigskip
+\subsection{Fördelningsfunktioner}\hfill\\\par
+\noindent Nu när vi har definierat vad en slumpvariabel är, vill vi tillämpa det på vår räkning. Vi vet att en slumpvariabels "output" är ett reellt tal, vi kan därmed undersöka sannolikheten att slumpvariabeln antar värden.\par
+\noindent Vi kan också undersöka hur en slumpvariabel varierar genom att betrakta sannolikheten att slumpvariabeln antar högst ett värde lilla $x$, dvs $P(X(\omega)\leq x)$. Brukar betecknas $P(X\leq x)$ 
+\par\bigskip
+\noindent Detta, råkar även sammanfalla med definitionen av en så kallad \textit{fördelningsfunktion}:
+\par\bigskip
+\begin{theo}[Fördelningsfunktion]{thm:fordelningsfunktion}
+  \textit{Fördelningsfunktionen} till en reellvärd slumpvariabel $X$ är funktionen givet av:
+  \begin{equation*}
+    \begin{gathered}
+      F_X(x) = P(X\leq x) = P(\left\{\omega\;|\;X(\omega)\leq x\right\})
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Fördelningsfunktionen kan komma att betecknas $P_X(x)$ framöver 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Du ska bli betald att kasta tärning enligt följande:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c}
+    Ögon&Utbetalning\\
+    \hline
+    1&1kr\\
+    2&2kr\\
+    3&2kr\\
+    4&4kr\\
+    5&4kr\\
+    6&4kr
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Notera att vi har en slumpvariabel $X$ som skickar "antal ögon" från utfallsrummet till ett reellt tal, dvs $X(6 \text{ ögon}) = 4$ 
+\par\bigskip
+\noindent Låt oss beräkna fördelningsfunktionen till slumpvariabeln $X$.\par
+\noindent Notera att vi täcker en ganska liten del av de reella talen, faktumet är att vi täcker ett ändligt diskret intervall $\left\{1,2,4\right\}$. Detta betyder att får slumpvariabel är en \textit{diskret slumpvariabel}.\par
+\noindent Vi kan ställa oss frågan vad som händer när vi hamnar utanför intervallet, vad är sannolikheten att vår slumpvariabel $=0$? Vi undersöker alltså:
+\begin{equation*}
+  \begin{gathered}
+    P_X(x) = 0\Lrarr P(X\leq x)\quad\forall x<1
+  \end{gathered}
+\end{equation*}\par
+\noindent Eftersom $0$ inte finns i vår värdemängd för $X$ är sannolikheten 0 att $X=0$, oavsett händelse.
+\par\bigskip
+\noindent Vi undersöker vad sannolikheten att få ut 1kr är, dvs:
+\begin{equation*}
+  \begin{gathered}
+    P_X(1) = 1/6\Lrarr P(X\leq1) = \dfrac{1}{6}
+  \end{gathered}
+\end{equation*}\par
+\noindent Denna händelse inträffar antingen om $X<1$ (som hade sannolikheten 0) eller om $X=1$ som har sannolikheten 1/6
+\par\bigskip
+\noindent Vi undersöker fördelningsfunktionen i $x = 2$. Notera att i tabellen är det 2 rader av 6 som har utbetalning 2kr.\par
+\noindent Sannolikheten att $X=2$ blir förstås $2/6$, men detta är inte värdet på fördelningsfunktionen i $x=2$ just för att fördelningsfunktionen hade ett "mindre än eller lika med" tecken, alltså måste vi även addera sannolikheten att vi får ut 1kr, vilket ger oss totalt $3/6$:
+\begin{equation*}
+  \begin{gathered}
+    P_X(2) = P(X\leq 2) = P(\left\{1,2,3\right\}) = \dfrac{3}{6}
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Egenskaper hos fördelningsfunktionen}:
+\begin{itemize}
+  \item $0\leq P_X(x)\leq 1\quad\forall x$
+  \item $\lim_{x\to-\infty}P_X(x) = 0$
+  \item $\lim_{x\to\infty}P_X(x) = 1$
+  \item $P(a<X\leq b) = P_X(b)-P_X(a)$
+  \item $P(X>a) = 1-P_X(a)$
+  \item $P(X<a) = \lim_{h\to0}P_X(a-h)$
+\end{itemize}
+\noindent För att beskriva när slumpvariabeln \textit{antar} ett värde inför vi så kallade \textit{sannolikhetsfunktioner}. Detta begrepp kanske känns bekant sedan tidigare, och det stämmer, det har definierats tidigare, men förhoppningsvis förvirrar detta inte alltför mycket.
+\par\bigskip
+\begin{theo}[Sannolikhetsfunktion för slumpvariabel]{thm:probfuncrandomvar}
+  Sannolikhetsfunktionen $p_X$ för en diskret slumpvariabel $X$ definieras av:
+  \begin{equation*}
+    \begin{gathered}
+      p_X(x) = P(X=x) = P(X \text{ antar värdet } x)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent I exemplet ovan med utbetalning av att kasta tärning, hade istället $p_X(2) = 2/6$ eftersom i två av utfallen blir vi betalda 2kr
+\par\bigskip
+\noindent\textbf{Egenskaper hos sannolikhetsfunktionen för slumpvariabler:}
+\begin{itemize}
+  \item $0\leq p_X(k)\leq1\quad\forall k$
+  \item $\sum_kp_X(k) = 1$
+  \item $P(a\leq X\leq b) = \sum_{\left\{k:a\leq k\leq b\right\}}p_X(k)$
+  \item $P(X\leq a) = \sum_{\left\{k:k\leq a\right\}}p_X(k)$
+  \item $P(X>a) = \sum_{\left\{k:k>a\right\}}p_X(k) = 1-\sum_{\left\{k:k\leq a\right\}}p_X(k)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Säg att vi har en slumpvariabel $X$ och vi vill räkna $P_X(x)$, men vår slumpvariabel $X$ antar bara några värden under $x$. $X$ antar värdet 0 överallt där den inte är definierad. 
+\noindent Vi har främst betraktat diskreta fördelningsfunktioner, det vore konstigt att inte nämna något om kontinuerliga fördelningsfunktioner förstås 

@@ -210,3 +210,74 @@
     F_xx+F_yy+F_zz
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Inflexionspunkter ej singulära (?). De är viktiga, de hjälper till för att visa att gvarje glatt tredjegradskurva ges på formen:
+\begin{equation*}
+  \begin{gathered}
+    C = y^2z = x(x-z)(x-\lambda z)\qquad\lambda\notin\left\{0,1\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta $y^2z = x(x-z)(x-2z)$ i $xy$-kartan, så $z=1\Rightarrow y^2 = x(x-1)(x-2)$\par
+\noindent I $xy$-kartan ser vi att vi har en punkt i oändligheten, så vi betraktar $z=0$ fallet:
+\begin{equation*}
+  \begin{gathered}
+    0 = x^3\Rightarrow (0,1,0)\text{ är punkten i }\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent Det är bara en punkt i oändligheten, så linjen i oändligheten skär $C$ i en punkt:
+\begin{equation*}
+  \begin{gathered}
+    L_\infty\cap C = \left\{(0,1,0)\right\}\Rightarrow I_{(0,1,0)}(L_\infty, C) = 3
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi ser då att $L_\infty = T_{(0,1,0)}C$ och $(0,1,0)$ är en inflexionspunkt till $C$.\par
+\noindent (Om skärningstalet större än eller lika med 3, så flexpunkt).\par
+\noindent Om vi vill titta på en karta där denna punkt syns, kan vi välja $xz$-kartan, och vi får då
+\begin{equation*}
+  \begin{gathered}
+    z = x(x-z)(x-2z)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Asymptoters riktning definierar linjen i oändligheten för den kurvan.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Varje affin kurva av grad $d$ har "$d$ puntker i $\infty$ som ligger till där vi homogeniserar. Man kan därmed visa att $\C P^2$ är kompakt och varje projektiv plan kurva är också en kompakt delmängd av $\C P^2$ \par
+\noindent Vi har redan sett att icke-singulära (glatta) kurvor (komplexa) är väluppfotstrade ytor, de ser ut som 2-dimensionella ytor, men sådana ytor kan klassificeras upp till diffeomorfi.\par
+\noindent Antingen är ytan orienterbar (sfär, torus, dubbeltorus, osv), eller icke-orienterbar (Möbius, Kleinflaska)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Orientbar betyder att det går att hitta ett sätt att välja moturs.
+\par\bigskip
+\noindent Genus på sfären är kopplat till graden på följande sätt:
+\begin{equation*}
+  \begin{gathered}
+    g = \dfrac{(d-1)(d-2)}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  VVarje irreducibel glatt tredjegradskurva har exakt 9 inflexionspunkter
+\end{theo}\par
+\noindent Betrakta Sats 12.5. Om vi kan visa att $F,H$ skär varandra transversellt överallt så är vi klara (skärningstalet aldrig större än 1).\par
+\noindent En inflexionspunkt kan flyttas till $(0,1,0)$ så att kurvan har formen
+\begin{equation*}
+  \begin{gathered}
+    y^2z=x(x-z)(x-\lambda z)
+  \end{gathered}
+\end{equation*}\par
+\noindent Beräkna $\nabla F(0,1,0)  = (0,01)$, beräknar vi Hessianen $\nabla H(0,1,0) = (24,0,8(\lambda-1))$, alltså ej parallella
+\par\bigskip
+\noindent Hur många \textit{singulära} tredjegradskurvor finns de? Det visar sig att det finns 2. Exakt 2.
+\par\bigskip
+\begin{theo}
+  V$C$ är en singulär irreducibel tredjegradskurva. Då är $C$ projektivt ekvivalent med antingen:
+  \begin{itemize}
+    \item $y^2z = x^2(x+z)$
+    \item $y^2z=x^3$
+  \end{itemize}
+\end{theo}
