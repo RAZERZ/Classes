@@ -1,0 +1,106 @@
+\section{Elliptiska kurvor}\par
+\begin{theo}[Elliptisk kurva]{thm:elipcticcurve}
+  En glatt plan projektiv tredjegradskurva $C$ med en punkt $O\in C$ och en additionslag enligt nedan, kallas för en \textit{elliptisk kurva} 
+\end{theo}
+\par\bigskip
+\noindent Vi visar konstruktionen. Säg att vi har en tredjegradskurva $C$ och vi har valt en punkt på den. \par
+\noindent Vi definierar en binär operation $*$ först:
+\begin{equation*}
+  \begin{gathered}
+    *:C\text{x}C\to C\\
+    (P,Q)\mapsto P*Q
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Har vi två punkter geometriskt så kan vi bara dra en linje mellan. Drar vi den linjen så har vi enligt Bezouts sats en tredje punkt som också skär linjen.\par
+\noindent Då kanske man undrar vad som händer om vi har skärningstal $>1$ i en av punkterna $P,Q$? Säg att $P$ har skärningstal 2, då är $P*Q = P$
+\par\bigskip
+\noindent Vi definierar $P+Q$ genom att dra linjen genom origo till $P*Q$, den punkten där linjen skär kurvan är $P+Q$:
+\begin{equation*}
+  \begin{gathered}
+    +:C\text{x}C\to C\\
+    (P,Q)\mapsto(P*Q)*O = P+Q
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $*$ är kommutativ.
+\par\bigskip
+\begin{theo}[Är en abelsk grupp]{thm:abelgroup}
+  $C$ med $+$ och $O$ är en abelskt grupp, alltså uppfyller följande:\par
+  \begin{itemize}
+  \item $O+P$ = $P$ = $P+O$ $\forall P\in C$
+  \item $\forall P\;\exists -P:\; P+(-P) = O = (-P)+P$
+  \item $(P+Q)+R = P+(Q+R)$
+  \item $P+Q = Q+P$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent Vi visar andra axiomet:\par
+\noindent Konstruktionen av $-P$:\par
+Betrakta $S = O*O$ (linjen mellan $O$ och $O$), det finns bara en linje som går genom en punkt på en kurva, nämligen tangentlinjen. Givet $P$ definierar vi $-P$ som $S*P$. Notera att linjen $S*P$ är ortogonal mot $O*O$
+\par\bigskip
+\noindent Associativiteten är lite klurig och behöver förberedelser i form av följande 2 lemman:
+\par\bigskip
+\begin{lem}[1]{lem:11}
+  Låt $P_1,\cdots, P_8$ vara 8 distinkta punkter givna i $\C P^2$\par
+  \noindent Betrakta följande rum $V_3(P_1,\cdots, P_8)$ (rummet av homogena polynom i 3 variabler som har nollställe i dessa 8 punkter) = $\left\{F\in\C_h[x,y,z]|F(P_i) = 0\right\}$\par
+  \noindent $F$ har grad 3
+  \par\bigskip
+  \noindent Vi vet från linjär-algebra att dimensionen på det här rummet är större än 2, 8 obekanta, 10 ekvationer. 
+  \par\bigskip
+  \noindent Om:\par
+  \begin{itemize}
+    \item Inte 4 av punkterna är kolinjära
+    \item Inte 7 av punkterna på samma irreducibla andragradskurva (konik)
+  \end{itemize}\par
+  \noindent Så gäller dim$V_3(P_1,\cdots, P_8) = 2$ 
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Antal koefficenter för ett polynom av grad $d$ är $\begin{pmatrix}d+2\\2\end{pmatrix}$
+\par\bigskip
+\begin{prf}[Lemma 1]{prf:lem1}
+  \begin{itemize}
+    \item Fall 1:\par
+      \noindent Antag att inte ens 3 punkter är kolinjära och att inte ens 6 av de ligger på samma konik\par
+      \noindent Vi gör ett motsägelsebevis och antar för motsägelse att dim$V_3\geq3$ \par
+      \noindent Betrakta linjen $L$ genom $P_7$ och $P_8$\par
+      \noindent Välj två punkter till på $L$ (vi kan göra detta eftersom dimensionen är större än eller lika med 3) $P_9, P_{10}$. Då kan vi betrakta $V_3(P_1,\cdots,P_{10})$.\par
+      \noindent Tag $0\neq F\in V_3$. Vi vill visa att det bara finns ett sätt att välja $F$ (upp till konstnant).\par
+      \noindent $F$ är en tredjegradskurva som går genom alla 10 punkter. Om $L$ och $F$ saknar gemensamma faktorer så är totala skärningstalet mellan de 3, men om $F$ är reducibel ($L$ ej reducibel ty projektiv linje) $F$ skär $L$ 4 gånger och $F = G\cdot L$. Detta motsäger Bezouts sats. \par
+      \noindent $L(P_i)\neq0$ i de 6 första punkterna, men då måste $G(P_i)=0$ i dessa punkter (annars hade inte $F$ legat i $V$)\par
+      \noindent Detta är en motsägelse, alltså dimensionen $\leq 2\Rightarrow 2$
+    \item Fall 2:\par
+      \noindent Antag att 3 av punkterna är kolinjära, säg $P_6,P_7,P_8$, och dra en linje mellan de.\par
+      \noindent Specifiera ny punkt $P_9$ på linjen. Tag tredjegradarn $F\neq0\in V_3(P_1,\cdots, P_9)$ som har egenskapen att den går genom alla punkter. Detta börjar likna situationen för Fall 1. \par
+      \noindent På samma sätt som Fall 1, Bezouts visar att $F = L\cdot G$, men $G$ är unikt bestämd genom att den går igenom de 5 punkter som inte är de 4 andra nämnda. Vi har visat att för 5 punkter finns det en entydig andragradskurva som går genom de, alltså är $G$ entydig, men det är även $L$\par
+      \noindent dim$_\C V_3(P_1,\cdots,P_9)=1\Rightarrow$ dim$_\C V_3(P_1,\cdots, P_8)=2$
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\begin{lem}[2]{lem:22}
+  Låt $P_1,\cdots,P_9\in\C P^2$ vara nio distinkta punkter.\par
+  \noindent Låt $F, F_1, F_2$ vara homogena tredjegradspolynom\par
+  \noindent Antag att $F_1(P_i) = F_2(P_i) = 0$ (skär varandra i de nio punkterna och inte har andra skärningspunkter) $= V(F_1)\cap V(F_2) = \left\{P_1,\cdots,P_9\right\}$\par
+  \noindent Antag även att $F(P_i) = 0$ för $i=1,\cdots, 8$ (ja, 8).\par
+  \noindent Då gäller även att $F(P_9)$
+\end{lem}
+\par\bigskip
+\noindent För att vissa detta kommer vi försöka använda Lemma 13.1, så vi måste visa att dessa kurvor uppfyller de villkoren.
+\par\bigskip
+\begin{prf}[Lemma 2]{prf:lem2}
+  Bezout$\Rightarrow$ villkoren i Lemma 1 är uppfyllda\par
+  \noindent Detta innebär att dim$_\C V_3(P_1,\cdots, P_8)=2$. Vi har alltås 3 ekvationer, i ett vektorrum med dimension 2, alltså måste en av de vara linjärt beroende:
+  \begin{equation*}
+    \begin{gathered}
+      aF_1+bF_2+cF = 0\qquad\text{(inte alla $a,b,c=0$)}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Faktum är $c\neq0$, ty annars $V(F_1) = V(F_2)$
+  \par\bigskip
+  \noindent Vi räknar $\oplus$ i $P_9\Rightarrow cF(P_9)=0\Rightarrow F(P_9)=0$
+\end{prf}
+\newpage
+\noindent Vi påminner oss om att vi vill visa associativiteten $(P+Q)+R = P+(Q+R)$, vilket vi kan göra genom att betrakta konstruktionen av $(P+Q)$ samt $(Q+R)$.\par
+\noindent Det första vi gör är att bygga $P*Q$ som bildar en linje. Sedan drar vi linjen genom origo till $P*Q$ vilket ger oss $P+Q$. Sedan bildar vi $R*(P+Q)$ och får en punkt som ger os VL. Vi gör samma konstruktion för HL

@@ -18,3 +18,4 @@
 \contentsline {subsection}{\tocsubsection {}{12.1}{Hur många singulära punkter kan en kurva ha? (i $\mathbb {C}P^2$)}}{28}{subsection.12.1}%
 \contentsline {subsection}{\tocsubsection {}{12.2}{Tredjegradskurvor}}{29}{subsection.12.2}%
 \contentsline {subsection}{\tocsubsection {}{12.3}{Tredjegradskurvor}}{30}{subsection.12.3}%
+\contentsline {section}{\tocsection {}{13}{Elliptiska kurvor}}{33}{section.13}%

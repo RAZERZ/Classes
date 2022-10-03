@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  29 SEP 2022 14:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  3 OCT 2022 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1513,19 +1513,34 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 12.
- [49]) [50] (./main.aux (./includes/title.aux))
+ [49]) [50] (./pages/F12.tex
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+
+ []
+
+[52] [53] [54]
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
+
+ []
+
+) [55] [56] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 143EE587D6B25999F69E2D96EDE2B843;7252.
+(rerunfilecheck)             Checksum: DEA887544940344080305798EA6B677A;8072.
  ) 
 Here is how much of TeX's memory you used:
- 25883 strings out of 478238
- 489477 string characters out of 5850457
- 792799 words of memory out of 5000000
- 43278 multiletter control sequences out of 15000+600000
- 477525 words of font info for 59 fonts, out of 8000000 for 9000
+ 25933 strings out of 478238
+ 490109 string characters out of 5850457
+ 792802 words of memory out of 5000000
+ 43295 multiletter control sequences out of 15000+600000
+ 478144 words of font info for 61 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,15n,107p,577b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
@@ -1542,10 +1557,10 @@ pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
 nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (51 pages, 368363 bytes).
+Output written on main.pdf (57 pages, 385604 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 550 compressed objects within 6 object streams
- 207 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 713 PDF objects out of 1000 (max. 8388607)
+ 615 compressed objects within 7 object streams
+ 235 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 

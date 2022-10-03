@@ -149,15 +149,16 @@
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent $(\R,B(\R),P)$ med $P((a,b)) = \int_{a}^{b}\dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}dx$ ($N(0,1)$-normalfördelning) är ett sannolikhetsrum.\par
-\noindent Då kommer Caratheodorys sats ge ett sannolikhetsmått på Borelmängderna:
+\noindent Då kommer Caratheodorys sats ge ett sannolikhetsmått på Borelmängderna ($A$):
 \begin{equation*}
   \begin{gathered}
     B(\R^n): P(A) = \int_{A}\dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}
   \end{gathered}
 \end{equation*}\par
 \noindent Detta är bara ett skrivsätt, vi kan exempelvis integrera över $\Q$ och få 0 (enligt samma argument som tidigare där vi visade att $P(\Q) = 0$)
-\par\bigskip
+\newpage
 \noindent En slumpvariabel kommer vi också definiera om:
+\par\bigskip
 \begin{theo}[Slumpvariabel V2]{thm:woihgqofwogwe}
   En slumpvariabel är en funktion $X:\Omega\to\R^n$ så att:
   \begin{equation*}
@@ -166,6 +167,11 @@
     \end{gathered}
   \end{equation*}\par
   \noindent Framförallt om vi kan ge en sannolikhet till $\left\{a\leq X\leq b\right\}\in F$
+  \par\bigskip
+  \noindent Kontinuerlig om $\forall x\in\R\quad P(X=x)=0$ (saknar atomer)\par
+  \noindent $X$ kallas absolutkontinuerlig om det finns en funktion $f_X$ så att $P(a\leq X\leq b) = \int_{a}^{b}f_X(x)dx\Lrarr F_X(t) = \underbrace{\int_{-\infty}^{t}f_X(x)dx}_{\text{täthetsfunktion}}$
+  \par\bigskip
+  \noindent En absolutkontinuerlig slumpvariabel bestäms unikt av $f_X$
 \end{theo}
 \par\bigskip
 \begin{theo}[Fördelning]{thm:fordelningwf}
@@ -175,8 +181,121 @@
   \par\bigskip
   \noindent Det enda som krävs är att veta $P(a\leq X\leq b)$, kvittar Borelmängderna.\par
   \noindent Den bestäms även unikt av $P(\underbrace{X}_{\text{fördeln. funk.}}\leq a)$
+  \par\bigskip
+  \noindent Fördelningsfunktioner $F_X$ har följande egenskaper:\par
+  \begin{itemize}
+    \item Om $s\leq t\Rightarrow F_X(s)\leq F_X(t)$
+    \item $\lim_{h\to0^+}F_X(t+h) = F_X(t)$
+    \item $\lim_{h\to0^-}F_X(t+h) = P(X<t)$ (Motsäger sida 25?)
+    \item $\lim_{t\to\infty}F_X(t) = 1$
+    \item $\lim_{t\to-\infty}F_X(t)=0$
+  \end{itemize}\par
+  \noindent Notera att $F_X$ är kontinuerlig i $t$ m $P(X=1)=0$\par
+  \noindent Framförallt är $F_X$ en kontinuerlig funktion $\Lrarr X$ är kontinuerlig slumpvariabel\par
+  \noindent Framförallt om $F_X$ är deriverbar så är $f_X = F_X^{\prime}$, så är $f_X$ en täthetsfunktion (gäller även om $F_X$ är deriverbar föutom i ändligt många punkter)
+  \noindent $X$ är absolutkontinuerlig $\Lrarr $ det finns en funktion $f_X\geq0$ så att $\int_{a}^{b}f_X(x)dx = F_X(b)-F_X(a) = P(a\leq X\leq b)$
 \end{theo}
-\newpage
+\par\bigskip
 \noindent\textbf{DIY Sammanfattning:}\par
 \noindent Vi kan inte alltid ge en sannolikhet till varje delmängd, så vi gör det bara i en $\sigma$-algebra ($F\subseteq2^\Omega$)\par
 \noindent På reella talen använder vi Borelmängder, och, det här är det viktigaste, bestäms sannolikhetsmåttet $P:F\to[0,1]$ unikt av $P((a,b))$ för $(a<b\in\R)$. Det bestäms också unikt av fördelningsfunktionen som var, säg $F(x) = P((-\infty,x])$ (exempelvis $P((a,b)) = \int_{a}^{b}\dfrac{1}{\sigma\sqrt{2\pi}}e^-{\dfrac{(x-\mu)^2}{2\sigma^2}}$, $\sigma>0, \mu\in\R$)
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Likformig fördelning på ett slutet intervall $[a,b]$. Då brukar vi skriva en sådan slumpvariabel som $X\sim U(a,b)$\par
+\noindent Täthetsfunktionen har vi kikat på tidigare och blev:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x) =\begin{cases}\dfrac{1}{b-a},\; x\in[a,b]\\0,\;x\notin[a,b]\end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Fördelningsfunktionen har vi också räknat på tidigare:
+\begin{equation*}
+  \begin{gathered}
+    F_X(t) = \begin{cases}0,\;x\leq a\\\dfrac{x-a}{b-a},\;x\in[a,b]\\1,\;x\geq b\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent (Exponentialfördelning) $X\sim Exp(\beta)\quad (\beta>0)$, vi skriver:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x) = \begin{cases}\beta e^{-\beta x},\; x>0\\0,\;x<0\end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Integralen behöver vara lika med 1 för att Kolmogorovs axiom skall gälla. Detta är upp till läsaren att verifiera. Vi finner fördelningsfunktionen:
+\begin{equation*}
+  \begin{gathered}
+    F_X(t) = \int_{-\infty}^{t}f_X(x)dx\begin{cases}0,\; t\leq 0\\\int_{0}^{t}\beta e^{-\beta x}dx = -e^{-\beta x}|_0^t = 1-e^{-\beta t}\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Stor lutning i normalfördelning ger stor varians, dvs liten förflyttning ger stor varians
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $X\sim N(\mu, \sigma^2)$ hade täthetsfunktion $f_X(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}$
+\par\bigskip
+\begin{theo}[Överkurs]{thm:overcourse}
+  Om $F$ uppfyller egenskaperna 1,2,3 under Sats 10.5, så är $F$ en fördelningsfunktion till någon slumpvariabel.
+  \par\bigskip
+  \noindent Mer generellt, om $F_1,F_2,\cdots$ uppfyller 1,2,3 så finns oberoende slumpvariabler $X_1,X_2,\cdots$ så att $F_k = F_{X_k}$
+\end{theo}
+\newpage
+\noindent\textbf{Egenskaper:} Absolutkontinuerliga slumpvariabler $X,Y:\Omega\to\R$\par
+\begin{itemize}
+  \item $X,Y$ oberoende $\Lrarr f_{X,Y}(x,y)= f_X(x)f_Y(y)$ 
+  \item Väntevärdet $E(X)$ definieras av:
+    \begin{equation*}
+      \begin{gathered}
+        E(X) = \int_{-\infty}^{\infty}xf_X(x)dx\quad\text{om integralen absolutkonvergent eller om den är $\infty$ eller $-\infty$}
+      \end{gathered}
+    \end{equation*}
+  \item $E(g(X)) = \int g(x)f_X(x)dx$ om integralen är definierad
+  \item $X\in L^p\Lrarr E(\left|X\right|^p) = \int\left|X\right|^pf_X(x)dx<\infty$
+  \item $Var(X) = E(X-E(X))^2 = \int(x-E(X))^2f_X(dx) = E(X)^2-(E(X))^2$ om $X\in L^2$
+  \item $Cov(X,Y) = E(X-E(X))(Y-E(Y)) = E(XY)-E(X)E(Y)$ om $X,Y\in L^2$
+  \item $E(g(X,Y)) = \int\int g(x,y)f_{X,Y}(x)dxdy$ om $(X,Y)$ är Absolutkontinuerliga
+  \item $E(aX+bY) = aE(X)+bE(Y)$, $Var(cX) = c^2Var(X)$, $Var(X+Y) = Var(X)+Var(Y)$ om $\underbrace{E(XY) = E(X)E(Y)}_{\text{okorrelerade slumpvariabler}}$, kovariansen är bilinjär osv gäller även för Absolutkontinuerliga slumpvariabler
+  \item $f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)dy$ 
+  \item Markovs olikhet är bevarad: $P(X\geq a)\leq \dfrac{E(X)}{a}$ om $a>0$
+  \item Stora talens lag: $P(\left|\bar{X_n}-\mu\right|>\varepsilon)\stackrel{n\to\infty}{\to}\quad\forall\varepsilon>0$
+  \item Faltningsformlerna: Om $X,Y$ är oberoende så:
+    \begin{equation*}
+      \begin{gathered}
+        f_{X+Y}(z) = \int_{-\infty}^{\infty}f_X(x)f_Y(z-x)dx
+      \end{gathered}
+    \end{equation*}
+  \item Betingad fördelning: $f_{X|Y}(x|y) = \dfrac{f_{X,Y}(x,y)}{f_(y)}$ om $f_Y(y)>0\;\forall y$
+  \item Betingat väntevärde: $E(X|Y = y) = \int xf_{X|Y}(x|y)dx$
+  \item $E(E(X|Y)) = E(X)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Tag en exponentialfördelad variabel $X\sim Exp(\beta)$, vad är $E(X)$?
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \int_{-\infty}^{\infty}xf_X(x)dx = \int_{0}^{\infty}x\beta e^{-\beta x}dx = \dfrac{1}{\beta}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att $Var(X) = \dfrac{1}{\beta^2}$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Tag en likformigt fördelad variabel och räkna $E(X)$\par
+\noindent Likformig fördelad var om $f_X(x) = \begin{cases}\dfrac{1}{b-a},\; x\in[a,b]\\0,\;x\notin[a,b]\end{cases}$:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \int_{-\infty}^{\infty}xf_X(x)dx = \int_{a}^{b}\dfrac{x}{b-a}dx = \dfrac{x^2}{2(b-a)}|_a^b = \dfrac{b^2-a^2}{2(b-a)} = \dfrac{b+a}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi passar på att räkna ut $Var(x):$
+\begin{equation*}
+  \begin{gathered}
+    E(X)^2 = \int_{a}^{b}x^2f_X(x)dx = \dfrac{x^2}{3(b-a)}|_a^b = \dfrac{b^3-a^3}{3(b-a)}\\
+    (E(X))^2 = \left(\dfrac{b+a}{2}\right)^2\\
+    Var(X) = \dfrac{b^3-a^3}{3(b-a)} - \left(\dfrac{b+a}{2}\right)^2 = \dfrac{4(b^2+ab+a^2)-3(b^2+2ab+a^2)}{12} = \dfrac{b^2-2ab+a^2}{12}\\
+    =\dfrac{(b-a)^2}{12}\quad\Leftarrow\text{Beror bara på $b-a$, variansen bryr sig inte om vi förflyttar intervallet}
+  \end{gathered}
+\end{equation*}

@@ -31,3 +31,7 @@
 \contentsline {subsection}{\tocsubsection {}{14.1}{Pumpsatsen för CFL}}{46}{subsection.14.1}%
 \contentsline {subsection}{\tocsubsection {}{14.2}{Slutenhetsegenskaper hos CFL}}{47}{subsection.14.2}%
 \contentsline {section}{\tocsection {}{15}{Restriktionsfria språk}}{49}{section.15}%
+\contentsline {section}{\tocsection {}{16}{Turingmaskiner [TM:er]}}{51}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Tape-konfigurationer}}{51}{subsection.16.1}%
+\contentsline {subsection}{\tocsubsection {}{16.2}{Grafiska beskrivningar a TM:er}}{52}{subsection.16.2}%
+\contentsline {subsection}{\tocsubsection {}{16.3}{Seriekoppling av TM}}{55}{subsection.16.3}%

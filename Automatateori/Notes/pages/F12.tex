@@ -1,0 +1,340 @@
+\section{Turingmaskiner [TM:er]}\par
+\noindent Turingmaskinerna påminner mest om "vanliga" datorer och att pogrammera i maskindatorer. Skillnaden mellan turingmaskinerna och finita automater är att de kan skriva på sin texttape, och flytta läshuvudet inte bara på ett håll, men kan hoppa och gå fram och tillbaka.\par
+\noindent Detta motsvarar att man har minne, inte bara skriva output och läsa input.
+\par\bigskip
+\noindent\textbf{Informell beskrivning:}\par
+\noindent En TM har en tape som är oändlig i båda riktningar (höger och vänster, likt $\Z$):
+\begin{center}
+  \begin{tabular}{c|c|c|c|c}
+    \hline
+    $\cdots$&$a$&$b$&\#&$\cdots$\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Varje ruta innehåller ett tecken varav ett kan vara "blankteknet" \#\par
+\noindent TM har en kontrollmekanism som befinner sig i ett ändligt många möjliga tillstånd\par
+\noindent Ändligt många tecken får användas på tapen.
+\par\bigskip
+\noindent Mängden av tecken som får användas för att skriva inputsträngar med kallas TM:s input-alfabet\par
+\noindent Tecknet "\#" ingår \textit{inte} i inputalfabetet\par
+\noindent Kontrollmekanismen och läshuvudet kan:\par
+\begin{itemize}
+  \item Byta tillstånt (inkl stanna i samma tillstånd) och skriva tecken i rutan som avläses
+  \item Byta tillstånd och flytta läshuvudet en ruta till vänster eller till höger
+\end{itemize}\par
+\noindent Vad en Turingmaskin gör i en given situation beror bara på vilket tecken den avläses, och vilket tillstånd den befinner sig i 
+\par\bigskip
+\noindent En TM har (exakt) ett starttilstånd och (exakt) stopptillstånd (på Engelska "Halting state", betecknas oftast med $H$). 
+\par\bigskip
+\noindent En TM sätts alltid igång i starttilståndet, och fortsätter att arbeta (göra tillståndsövergångar och eventuellt skriva på tapen) tills den hamnar i stopptillståndet, om detta sker.\par
+\noindent Det är inte säkert att en TM någonsin hamnar i stopptillstånd, precis med vanliga datorer så behöver inte varje program terminera (exvis en while-true loop)
+\par\bigskip
+\subsection{Tape-konfigurationer}\hfill\\\par
+\noindent Det kommer vara bekvämt att ha notation och veta vad som står på tapen. Vi kommer alltid anta att ändligt många rutor är icke-blanka. I någon mening betyder det att vi inte använt mer än ändlig del av minnet, samma med inputsträng (ändlig)
+\par\bigskip
+\noindent Vi vill också kunna säga vart läshuvudet står i förhållande till de icke-tomma rutorna på tapen.
+\par\bigskip
+\noindent Vi antar att TM:s tape bara har ändligt många icke-blanka rutor när den startas (och därmed vid varje senare tillfälle)
+\par\bigskip
+\noindent Om tapen ser ut så här:
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c|c|c|c}
+    \hline
+    $\cdots$&\#&$\sigma_1$&$\cdots$&$\sigma_k$&$\cdots$&$\sigma_n$&\#&$\cdots$\\
+    \hline
+  \end{tabular}
+\end{center}\par
+\noindent och $\sigma_1\neq\#$, $\sigma_n\neq\#$ och alla turot till vänster om $\sigma_1$ och till höger om $\sigma_n$ är blanka, så är tapekonfigugariotnen
+\begin{equation*}
+  \begin{gathered}
+    \sigma_1\cdots\sigma_k\cdots\sigma_n
+  \end{gathered}
+\end{equation*}\par
+\noindent Här är läshuvudet på $\sigma_k$
+\par\bigskip
+\noindent Om tapen ser ut så här:
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    \hline
+    $\cdots$&\#&$\sigma_1$&$\cdots$&$\sigma_n$&\#&$\cdots$\\
+    \hline
+  \end{tabular}
+\end{center}\par
+\noindent och $\sigma_n\neq\#$ och alla rutor till vänster om $\sigma_1$ är blanka och alla rutor till höger om $\sigma_n$ är blanka, så är tapekonfigurationen:
+\begin{equation*}
+  \begin{gathered}
+    \sigma_1\cdots\sigma_n
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att läshuvudet står på $\sigma_1$. Notera även att $\sigma_1$ kan vara blankteknet
+\newpage
+\noindent Om tapen ser ut såhär:
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    \hline
+    $\cdots$&\#&$\sigma_1$&$\cdots$&$\sigma_n$&\#&$\cdots$\\
+    \hline
+  \end{tabular}
+\end{center}\par
+\noindent och $\sigma_1\neq\#$ och alla rutor till vänster om $\sigma_1$ och till höger om $\sigma_n$ är blanka, så är tapekonfigurationen:
+\begin{equation*}
+  \begin{gathered}
+    \sigma_1\cdots\sigma_n
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera att läshuvudet står på $\sigma_n$ här.
+\par\bigskip
+\noindent Om TM:en vid ett tillfäle befinner sig i tillstånd $p$ och har tapekonfigurationen $x\sigma y$ så är \textbf{TM:ens konfiguration} vid detta tillfälle helt enkelt paret $(p,x\sigma y)$\par
+\noindent ($x$ och $y$ antas vara strängar och $\sigma$ ett tecken/symbol)
+\par\bigskip
+\noindent Vet man TM:ens konfiguration vet vi hur den kommer arbeta $n$-steg framåt, konfigurationen bestämmer dess fortsatta arbete.
+\par\bigskip
+\subsection{Grafiska beskrivningar a TM:er}\hfill\\\par
+\noindent Vi undersöker grafisk notation vs vad det betyder:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$a/b$} (p1);
+    \end{tikzpicture}
+    \caption{Betyder att $a$ byts mot $b$ vid tillståndsövergång}
+\end{figure}\par
+\noindent Betyder helt enkelt att den övergår från tillstånd $p$ till tillstånd $q$ och skriver $b$ i rutan som avläses (om det stod $a$ i den rutan innan)
+\par\bigskip
+\noindent Vi kan även skriva:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$a/R$} (p1);
+    \end{tikzpicture}
+    \caption{Flyttar läshuvudet till höger (Right)}
+\end{figure}\par
+\noindent Övergår från $p$ till $q$ och flyttar läshuvudet en ruta till höger, förutsatt att det stod $a$ i rutan som avlästes innan.
+\par\bigskip
+\noindent Vi kan även skriva (för vänster):
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$a/L$} (p1);
+    \end{tikzpicture}
+    \caption{Flyttar läshuvudet till vänster (Left)}
+\end{figure}
+\newpage
+\noindent För att det inte ska bli för många pilar i diagrammen, så kan vi använda oss av förkortningar:
+\par\bigskip
+\noindent Följande:
+\begin{figure}[ht!]
+  \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent är en förkortning för:
+\begin{figure}[ht!]
+  \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$a/a$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Följande:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent är en förkortning för:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\sigma_1$} (p1);
+      \path[-stealth] (p0) edge[above] node{$\sigma_2$} (p1);
+      \path[-stealth] (p0) edge[below, bend right] node{$\sigma_n$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Följande:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above] node{$R$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent är en förkortning för:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\sigma_1/R$} (p1);
+      \path[-stealth] (p0) edge[above] node{$\sigma_2/R$} (p1);
+      \path[-stealth] (p0) edge[below, bend right] node{$\sigma_n/R$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Följande:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\bar{\sigma_1}$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\noindent är en förkortning för:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p$};
+      \node[state, right of=p0, xshift=1cm](p1){$q$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\sigma_2$} (p1);
+      \path[-stealth] (p0) edge[above] node{$\sigma_3$} (p1);
+      \path[-stealth] (p0) edge[below, bend right] node{$\sigma_n$} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt TM $M$ beskrivas av diagrammet/"grafen":
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left](p0){$S$};
+      \node[state, right of=p0, xshift=1cm](p1){$1$};
+      \node[state, right of=p1, xshift=1cm](p2){$2$};
+      \node[state, below of=p1, yshift=-1cm, accepting](p3){$H$};
+      \path[-stealth] (p0) edge[above] node{$R$} (p1);
+      \path[-stealth] (p1) edge[above, bend left] node{$a/b$} (p2);
+      \path[-stealth] (p1) edge[above] node{$b/a$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$R$} (p1);
+      \path[-stealth] (p1) edge[left] node{$\#$} (p3);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Vi gör en "körning" på följande inputsträng "$abba$":\par
+\noindent Turingmaskinen startar alltid på $S$, och börjar alltid med läshuvudet på det första blanka rutan till vänster om inputsträngen (samma konvention som finita automater):
+\begin{itemize}
+  \item $(S,\textbf{\#}abba)$
+  \item $(1, \textbf{a}bba)$
+  \item $(2, \textbf{b}bba)$
+  \item $(1, b\textbf{b}ba)$
+  \item $(2,b\textbf{a}ba)$
+  \item $(1,ba\textbf{b}a)$
+  \item $(2,ba\textbf{a}a)$
+  \item $(1,baa\textbf{a})$
+  \item $(2,baa\textbf{b})$
+  \item $(1, baab\textbf{\#})$
+  \item $(H, baab\textbf{\#})$
+\end{itemize}\par
+\noindent När TM har kommit till stopptillståndet så stannar den.\par
+\noindent Denna TM har bytt ut $a$ mot $b$.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vi kommer bara titta på deterministiska TM i denna kurs (man måste tala om vad den ska göra i varje tillstånd i kombination med varje tecken i alfabetet).
+\newpage
+\noindent\textbf{Några standard TM med egna namn:}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$S$};
+      \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
+      \path[-stealth] (p0) edge[above] node{$L$} (p1);
+    \end{tikzpicture}
+    \caption{$L$ - Flyttar läshuvudet ett steg till vänster}
+\end{figure}
+\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$S$};
+      \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
+      \path[-stealth] (p0) edge[above] node{$R$} (p1);
+    \end{tikzpicture}
+    \caption{$R$ - Flyttar läshuvudet ett steg till höger}
+\end{figure}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state, initial left, initial text=](p0){$S$};
+      \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
+      \path[-stealth] (p0) edge[above, bend left] node{$\sigma_1/a$} (p1);
+      \path[-stealth] (p0) edge[above] node{$\sigma_2/a$} (p1);
+      \path[-stealth] (p0) edge[below, bend right] node{$\sigma_n/a$} (p1);
+    \end{tikzpicture}
+    \caption{$a$ - Skriver $a$ i rutan som avläses}
+\end{figure}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[initial left, initial text=](p0){$R$};
+      \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
+      \path[-stealth] (p0) edge[above] node{$a$} (p1);
+      \path[-stealth] (p0) edge[loop below] node{$\bar{a}$} (p0);
+    \end{tikzpicture}
+    \caption{$R_a$ - Söker efter första rutan till höger som har ett $a$, varpå termination}
+\end{figure}\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[initial left, initial text=](p0){$R$};
+      \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
+      \path[-stealth] (p0) edge[above] node{$\bar{a}$} (p1);
+      \path[-stealth] (p0) edge[loop below] node{$a$} (p0);
+    \end{tikzpicture}
+    \caption{$R_{\bar{a}}$ - Söker efter första rutan till höger som inte innehåller ett $a$, varpå termination}
+\end{figure}\par
+\noindent Figure 83 och Figure 84 kallas för \textit{teckenletare}.\par
+\noindent $L_a$ och $L_{\bar{a}}$ fungerar på samma sätt, förutom att de söker till vänster istället för till höger.
+\par\bigskip
+\subsection{Seriekoppling av TM}\hfill\\\par
+\noindent Antag att vi har två TM $M_1$ och $M_2$ som beskrivs grafiskt\par
+\noindent Seriekopplingen ska börja på $M_1$ starttilstånd och gå till $M_1$ stopptillstånd, men istället för att stoppa så hoppar den över till $M_2$ starttilstånd \textit{utan} att förändra vad som står på tapen.\par
+\noindent Detta kallar vi för \textit{seriekoppling} mellan TM:arna, vi får då en ny TM, som vi betecknar $M_1M_2$ 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta Turingmaskinen $Ra$, som flyttar läshuvudet till höger och skriver $a$, sedan stannar den. $R$ och $a$ är separata TM\par
+\noindent Vi kan ha en annan, exvis $RRa$, som flyttar läshuvudet 2 steg till höger, och skriver $a$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Konstruera en TM som terminerar om inputsträngen (inputalfabetet innehåller $a,b$) innehåller \textit{minst} 2st $a$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[initial, initial text=](p0){$R$};
+      \node[below of=p0, yshift=-1cm](p1){$R_a$};
+      \node[state, right of=p0, xshift=1cm](p2){$p_1$};
+      \node[state, accepting, right of=p2, xshift=1cm](p3){$p_2$};
+      \path[-stealth] (p0) edge[right] node{$\#$} (p1);
+      \path[-stealth] (p0) edge[loop above] node{$b$} (p0);
+      \path[-stealth] (p0) edge[above] node{$a$} (p2);
+      \path[-stealth] (p2) edge[below] node{$\#$} (p1);
+      \path[-stealth] (p2) edge[loop above] node{$b/R$} (p2);
+      \path[-stealth] (p2) edge[above] node{$a$} (p3);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}

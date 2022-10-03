@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  2 OCT 2022 22:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  3 OCT 2022 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1775,21 +1775,30 @@ Package mdframed Info: mdframed detected package amsthm
 
 LaTeX Warning: Command \O invalid in math mode on input line 140.
 
-Package mdframed Info: mdframed works in twoside mode on input line 161.
+[44]
+Package mdframed Info: mdframed works in twoside mode on input line 162.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 161.
+(mdframed)              on input line 162.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 169.
-Package mdframed Info: mdframed works in twoside mode on input line 171.
+(mdframed)              on input line 175.
+Package mdframed Info: mdframed works in twoside mode on input line 177.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 171.
+(mdframed)              on input line 177.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 178.
-[44]) [45] (./main.aux (./includes/title.aux))
+(mdframed)              on input line 197.
+ [45]
+Package mdframed Info: mdframed works in twoside mode on input line 238.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 238.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 242.
+ [46]) [47] (./pages/F9.tex) (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1797,10 +1806,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 50DB2F0A06CE23869C9BF61366FF76B9;4933.
  ) 
 Here is how much of TeX's memory you used:
- 24595 strings out of 478238
- 451383 string characters out of 5850457
- 756971 words of memory out of 5000000
- 42059 multiletter control sequences out of 15000+600000
+ 24608 strings out of 478238
+ 451580 string characters out of 5850457
+ 757103 words of memory out of 5000000
+ 42066 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,29n,107p,676b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1820,10 +1829,10 @@ c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (46 pages, 404829 bytes).
+Output written on main.pdf (48 pages, 414677 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 473 compressed objects within 5 object streams
- 159 named destinations out of 1000 (max. 500000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 480 compressed objects within 5 object streams
+ 162 named destinations out of 1000 (max. 500000)
  247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
