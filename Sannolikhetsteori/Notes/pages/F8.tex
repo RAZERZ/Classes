@@ -299,3 +299,223 @@
     =\dfrac{(b-a)^2}{12}\quad\Leftarrow\text{Beror bara på $b-a$, variansen bryr sig inte om vi förflyttar intervallet}
   \end{gathered}
 \end{equation*}
+\newpage
+\noindent\textbf{Övning:}\par
+\noindent Om $X\sim N(\mu, \sigma^2)$ så är $E(X) = \mu$ och $Var(X) = \sigma^2$.\par
+\noindent Tips: Utnyttja att $\int_{-\infty}^{\infty}e^{-x^2}dx = \sqrt{\pi}$\par
+\noindent Använd Faltningsformlerna för att visa att om $X\sim N(0,1), Y\sim N(0,1)$ och $X,Y$ obereonde, så är $X+Y\sim N(0,2)$ fördelad\par
+\noindent Mer generellt, om $X\sim N(\mu_1,\sigma_1^2)$ och $Y\sim N(\mu_2,\sigma_2^2)$ ($X,Y$ oberoende) så är $X+Y\sim N(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$
+\par\bigskip
+\noindent Om $X\sim Exp(\lambda)$ och $Y\sim Exp(\lambda)$ ($\lambda>0$) och $X,Y$ obereonde, vad är täthetsfunktionen till $X+Y$?\par
+\noindent Vi använder faltningsformlerna:
+\begin{equation*}
+  \begin{gathered}
+    f_{X+Y}(z) = \int_{-\infty}^{\infty}\overbrace{f_X(x)}^{\text{$>0\Lrarr x>0$}}\underbrace{f_Y(z-x)}_{\text{$x<z$}}dx\\
+    X\sim Exp(\lambda)\Lrarr F_X(t) = \begin{cases}1-e^{-\lambda t},\; t>0\\0,\;t\leq0\end{cases}\\
+    f_X(x) = \begin{cases}\lambda e^{-\lambda x},\;t>0\\0,\;t\leq0\end{cases}\quad E(X) = \dfrac{1}{\lambda}\qquad Var(X) = \dfrac{1}{X^2}\\
+    \Rightarrow f_{X+Y} = \begin{cases}0,\; z\geq0\\\int_{0}^{z}\lambda e^{-\lambda x}\lambda e^{-\lambda(z-x)}dx,\;z>0\end{cases}\\
+    =\lambda^2\int_{0}^{z}e^{-\lambda x}e^{-\lambda z+\lambda x}dx = \lambda^2\int_{0}^{z}e^{-\lambda x}e^{-\lambda z}e^{\lambda x}dx\\
+     = \lambda^2 ze^{-\lambda z}\\
+     \Rightarrow f_{X+Y}(z) = \begin{cases}\lambda^2 ze^{-\lambda z},\;z>0\\0,\;z\leq0\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $X+Y$ är alltså $\Gamma(2,\lambda)$
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att om $X_1,\cdots,X_n\sim Exp(\lambda)$ är obereonde så är $X_1+\cdots+X_n\sim\Gamma(n,\lambda)$\par
+\noindent Detta går ut på samma sätt, visa med induktion
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Om $X\sim Exp(\lambda_1)$ och $Y\sim Exp(\lambda_2)$ och $\lambda_1\neq\lambda_2$ och $X,Y$ obereonde, vad är då täthetsfunktionen $f_{X+Y}$?
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Om $X\sim Exp(\lambda_1)$ och $Y\sim Exp(\lambda_2)$ och $X,Y$ obereonde, vad är då fördelningen till $Z=\min\left\{X,Y\right\}$?\par
+\noindent Vad som menas är $Z(\omega) = \min\left\{X(\omega), Y(\omega)\right\}$ (minsta av de)
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Tricker är att kolla på fördelningsfunktionen. Vad är sannolikheten att $P(Z>z) = P(\min\left\{X,Y\right\}>z) = 1-F_Z(z)$:
+\begin{equation*}
+  \begin{gathered}
+    \min\left\{X,Y\right\}>z\Lrarr X>z\quad\& Y>z\\
+    P(Z>z) = P(X>z,\:Y>z)\stackrel{ober.}{=}P(X>z)P(Y>z)\\
+    =(1-F_X(z))(1-F_Y(z)) = \begin{cases}1,\;z\leq0\\e^{-\lambda_1z}e^{-\lambda_2z},\;z>0\end{cases}\\
+    = \begin{cases}e^{-(\lambda_1+\lambda_2)z},\;z>0\\1,\;z\leq0\end{cases}\\
+    \Rightarrow F_Z(t) = \begin{cases}1-e^{-(\lambda_1+\lambda_2)t},\;t>0\\0,\;t\leq0\end{cases}\\
+  \Rightarrow\min\left\{X,Y\right\}\sim Exp(\lambda_1+\lambda_2)
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Övning:}\par
+\noindent  Om $X\leq0$ är $Exp(\lambda_2)$-fördelad $(\lambda>0)$, vad är täthetsfunktionen till $\sqrt{X}$?
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\begin{equation*}
+  \begin{gathered}
+    F_{\sqrt{X}}(t) = P(\sqrt{X}\leq t) = \begin{cases}0,\;t\leq0\\P(X\leq t^2),\; t>0\end{cases}\\
+    = \begin{cases}F_X(t^2),\;t>0\\0,\;t\leq0\end{cases}\Rightarrow f_{\sqrt{X}}(t) = \begin{cases}\dfrac{d}{dt}F_X(t^2),\;t>0\\0,\;t\leq0\end{cases}\\
+    = \begin{cases}2tf_X(t^2),\;t>0\\0,\;t\leq0\end{cases} = \begin{cases}2\lambda te^{-\lambda t^2},\;t>0\\0,\;t\leq0\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Beskriv fördelningen till $X^2$ och $X^3$ om $X\sim Exp(\lambda)$ eller om $X\sim N(0,1)$
+\par\bigskip
+\noindent Om $X\sim Exp(\lambda)$ så gäller (betingad):
+\begin{equation*}
+  \begin{gathered}
+    P(X>s+t\;|\;X>s) = P(X>t)\qquad (s,t\leq0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent (Minneslöshet kallas detta även)
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\begin{equation*}
+  \begin{gathered}
+    P(X>s+t\;|\;X>s) = \dfrac{P(X>s+t\:\&\: X>s)}{P(X>s)}\\
+    = \dfrac{P(X>s+t)}{P(X>s)} = \dfrac{1-F_X(s+t)}{1-F_X(s)} = \dfrac{e^{-\lambda(s+t)}}{e^{-\lambda s}} = e^{-\lambda t} = 1-F_X(t) = P(X>t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel på minnelösa slumpvariabler}\par
+\noindent Om $X = $ tiden det tar innan nästa kund kommer in på ICA så är det minneslöst. Slumpvariabeln är fördelad på samma sätt även om vi hoppar fram i tiden. 
+\par\bigskip
+\noindent Ett annat exempel kan vara tiden innan det ringer i mobilen, är också minneslöst
+\par\bigskip
+\noindent Däremot, om $Z = $ tiden jag lever är ej minneslöst, om jag lever till minst 100 år, så är sannolikheten att jag lever till 150år lite annorlunda än sannolikheten att jag lever till 50år. 
+\newpage
+\begin{theo}
+  OOm $P(X>s+t\:|\:X>s) = P(X>t)$ för alla $s\geq0$ och $t\geq0$ så är $X$ exponentialfördelad.
+\end{theo}
+\par\bigskip
+\begin{prf}
+  LLåt $\varphi(t) = P(X>t)$\par
+  \noindent Då kommer alltså $P(X>s+t\:|\:X>s) = P(X>t)\Lrarr \varphi(s+t) = \varphi(s)\varphi(t)$
+  \par\bigskip
+  \noindent Vi ska försöka hitta $\varphi$ som löser ovanstående ekvationen. Notera monotont ökande.
+  \par\bigskip
+  \noindent Sätt $q = \varphi(1)$, vad är då $\varphi(2)?$:
+  \begin{equation*}
+    \begin{gathered}
+      \varphi(2) = \varphi(1+1) = \varphi(1)\varphi(1) = q^2\\
+      n\in\Z_+\Rightarrow \varphi(n) = \varphi(\underbrace{1+\cdots+1}_{\text{$n$ st}}) = \varphi(1)^n = q^n
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vi vet att $\varphi$ tar heltalen som input, men vad är $\varphi(1/n)$?:
+  \begin{equation*}
+    \begin{gathered}
+      \varphi\left(\dfrac{1}{2}\right) = \sqrt{q} = q^{1/2}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent På samma sätt är $\varphi(1)$:
+  \begin{equation*}
+    \begin{gathered}
+      \varphi\underbrace{\left(\dfrac{1}{n}+\cdots+\dfrac{1}{n}\right)}_{\text{$n$ termer}} = \varphi\left(\dfrac{1}{h}\right)^n \Rightarrow \varphi\left(\dfrac{1}{n}\right) = q^{1/n}\\
+      \dfrac{m}{n}\in\Q_{>0}\Rightarrow \varphi\left(\dfrac{m}{n}\right) = \varphi\left(\dfrac{1}{n}\right)^m = (q^{1/n})^m = q^{\dfrac{m}{n}}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Alltså $P(X>t) = q^t$ om $t\in\Q_{>0}$ så $F_X(t) = 1-q^t$ för $t\in\Q_{>0}$
+  \par\bigskip
+  \noindent Sätt $q = e^{-\lambda}$ för $\lambda>0\Rightarrow F_X(t) = 1-e^{-\lambda t}$
+  \par\bigskip
+  \noindent Vi har bara hittat funktionen för rationella tal, vad kan vi göra då?\par
+  \noindent Vi vet att fördelningsfunktionen är högerkontinuerlig och monotont ökande, så för $t>0$ $(t\in\R)$, ta rationella tal $q_n>t$ så att $q_n\to t$\par
+  \noindent Eftersom fördelningsfunktionen är högerkontinuerlig så måste $F_X(q_n)\to F_X(t)$:
+  \begin{equation*}
+    \begin{gathered}
+      1-e^{-\lambda q_n}\stackrel{n\to\infty}{\to}1-e^{-\lambda t}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent $F_X(t) = 1-e^{-\lambda t}$ för $t\leq0$, så $X\sim Exp(\lambda)$, men den är noll för alla negativa tal också 
+\end{prf}
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent På ICA kommer det in 20 kunder per timme.\par
+\noindent Om vi sätter $X = $ tiden innan nästa kund kommer in, så är $X\sim Exp(\lambda)$, vad är då paramtern $\lambda$?
+\par\bigskip
+\noindent Väntevärdet kommer vara $E(X) = \dfrac{1}{20} = \dfrac{1}{\lambda}\Lrarr \lambda = 20$\par
+\noindent $X$ är alltså exponentialfördelad med $\lambda = 20$
+\par\bigskip
+\noindent Antalet kunder som dyker upp inom ett visst tidsintervall följer något som kallas för \textit{poisson}-fördelning
+\par\bigskip
+\noindent Mer nogrannt, säg att vi tal en massa slumpvariabler $X_1,X_2,\cdots$ som är normalfördelade med paramter $\lambda$ och de alla är oberoende\par
+\noindent Tar vi en variabel $N_t$ så är antalet kunder som dyker upp i intervallet $[0,t]$\par
+\noindent Då kommer $N_t$ följa en poisson-fördelning med parameter $\lambda t$
+\par\bigskip
+\noindent Vi skriver då $X\sim Po(\lambda t)$. Säger vi att $X\sim Po(\lambda)$ så är:
+\begin{equation*}
+  \begin{gathered}
+    P_X(n) = \dfrac{\lambda^n}{n!}e^{-\lambda}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $X\sim Po(\lambda)$, vad är då $E(X)$?
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \sum_{n=0}^{\infty}\dfrac{\lambda^n}{n!}e^{-\lambda} = \sum_{n=1}^{\infty}\dfrac{\lambda^n}{(n-1)!}e^{-\lambda}\\
+    = \sum_{n=1}^{\infty}\dfrac{\lambda \lambda^{n-1}}{(n-1)!}e^{-\lambda} = \lambda\underbrace{\sum_{n=0}^{\infty}\dfrac{\lambda^n}{n!}e^{-\lambda}}_{\text{=1}} = \lambda
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att $Var(X) = \lambda$
+\par\bigskip
+\subsection{Minneslösa diskreta variabler}\hfill\\\par
+\noindent Om $P(X>m+n\:|\:X>m) = P(X>n)$ för positiva heltal $m,n$ och samma för $X$\par
+\noindent Då kan vi igen sätta $\varphi(n) = P(X>n)$ (beviset blir kortare för vi betraktar enbart heltal)
+\par\bigskip
+\noindent Då kommer $\varphi(n)$ att vara $\varphi(1)^n$ enligt samma argument som tidigare.\par
+\noindent Sätt då $\varphi(1) = q\in(0,1)$, då är $\varphi(n) = q^n$, $P(X>n) = q^n$
+\par\bigskip
+\noindent Vad är då $P_X(n)$?
+\begin{equation*}
+  \begin{gathered}
+    P(X=1) = 1-P(X>1) = 1-q^1 = 1-q = p\in(0,1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad är då sannolikheten att $X=2$?
+\begin{equation*}
+  \begin{gathered}
+    P(X=2) = 1-P(X=1)-P(X>2) = \overbrace{1-p}^{\text{$q$}}-q^2 = q(1-q) = pq
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}
+  OOm vi vill hitta $P(X=n)$ är det $pq^{n-1}$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  SStämmer om $n=1$, vi använder induktion efter det. Om det stämmer $\forall k<n$, vad händer då?
+  \begin{equation*}
+    \begin{gathered}
+      P(X=n) = 1-\overbrace{P(X>n)}^{\text{$q^n$}}-P(X<n)\\
+      = 1-q^n-\sum_{k=1}^{n-1}P(X=k) = 1-q^n-\sum_{k=1}^{n-1}pq^{k-1}
+      = 1-q^n-p\underbrace{\sum_{k=0}^{n-2}q^k}_{\text{geometrisk summa}}\\
+      = 1-q^n-p\dfrac{q^{n-1}-1}{\underbrace{q-1}_{\text{$-p$}}} = 1-q^n-(1-q^{n-1}) = q^{n-1}-q^{n} = q^{n-1}\underbrace{(1-q)}_{\text{$p$}}\\
+      = pq^{n-1}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Exempel på en sådan är singla slant
+\par\bigskip
+\begin{theo}[Första gången fördelad]{thm:firsttimevirgin}
+  $X$ kallas för \textit{första gången fördelad} ($X\sim \text{ffg}(p)$) om $P(X=n) = p(1-p)^{n-1}$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om $X_1,X_2,\cdots\sim Be(p)$ och är oberoende, då är $X = \min\left\{n:X_n=1\right\}$, med andra ord $X(\omega) = \min\left\{n:X_n(\omega) = 1\right\}$ \par
+\noindent Då är $X\sim\text{ffg}(p)$, varför det?
+\begin{equation*}
+  \begin{gathered}
+    P(X=n) = P(X_1=0,\cdots,X_{n-1}=0, X_n=1) = \underbrace{P(X_1=0)}_{\text{$1-p$}}\cdots \underbrace{P(X_{n-1}=0)}_{\text{$1-p$}\underbrace{P(X_{n}=1)}_{\text{$p$}}}\\
+    = p(1-p)^{n-1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Visa att $E(X) =\dfrac{1}{p}$ samt att $Var(X) = \dfrac{1-p}{p^2}$
