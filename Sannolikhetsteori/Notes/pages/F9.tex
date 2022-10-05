@@ -1,1 +1,141 @@
-
+\section{Lektion}\par
+\noindent Uppgifter från blandade problem samt uppgifter från förra lektion som inte hann med
+\par\bigskip
+\subsection{308}\hfill\\\par
+\noindent Givet en 2-dimensionell slumpvariabel $X,Y$ med täthetsfunktion $f_{X,Y} (x,y) = \begin{cases}cye^{-x},\;0\leq x\leq y\leq1\\0,\;\text{annars}\end{cases}$
+\par\bigskip
+\noindent Bestäm $c$, och beräkna $f_X(x)$ och $f_Y(y)$. Är $X,Y$ oberoende?
+\par\bigskip
+\noindent Vi räknar först de marginella täthetsfunktionerna:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x) = \int_{-\infty}^{\infty}f_{X,Y}(xy)dy = \begin{cases}0,\;\text{annars } x>1, x<0\\\int_{x}^{1}cye^{-x}dy,\; 0\leq x\leq1\end{cases}\\
+    \int_{x}^{1}cye^{-x}dy = ce^{-x}\int_{x}^{1}ydy = ce^{-x}\left(\dfrac{1}{2}-\dfrac{x^2}{2}\right)\\
+    \Rightarrow f_X(x)\begin{cases}c\left(\dfrac{1-x^2}{2}\right)e^{-x},\;x\in[0,1]\\0,\; x\notin[0,1]\end{cases}\\
+      f_Y(y) = \int_{-\infty}^{\infty}f_{X,Y}(x,y)dx = \begin{cases}\int_{0}^{y}cye^{-x}dx,\; y\in[0,1]\\0,\; y\notin[0,1]\end{cases}\\
+      \int_{0}^{y}cye^{-x}dx = cy(1-e^{-y})\\
+      f_Y(y) = \begin{cases}cy(1-e^{-y}),\;y\in[0,1]\\0,\; y\notin[0,1]\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vet att vi har oberoende omm $f_{X,Y}(x,y) = f_X(x)f_Y(y)$ , vi multiplicerar $f_X$ med $f_Y$ och ser vad vi får:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x)f_Y(y)= \begin{cases}0,\; (x,y)\notin[0,1]^2\\\underbrace{c^2\left(\dfrac{1-x^2}{2}\right)ye^{-x}(1-e^{-y})}_{\text{$0=\Lrarr x =\pm1$ eller $y=0$}},\; (x,y)\in[0,1]^2\end{cases}\neq f_{X,Y} (x,y) = \begin{cases}cye^{-x},\;0\leq x\leq y\leq1\\0,\;\text{annars}\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Alltså är $X,Y$ beroende.
+\par\bigskip
+\noindent Vi räknar konstanten $c$. Eftersom vi har täthetsfunktioner så måste de integreras till 1. Vi kan välja mellan att integrera $f_Y$ eller $f_X$, vi väljer den lättaste dvs $f_Y$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}f_Y(y)dy =1\\
+    \int_{-\infty}^{\infty} = \int_{0}^{1}cy(1-e^{-y})dy = c\int_{0}^{1}y-ye^{-y}dy\\
+    = c\left(\int_{0}^{1}ydy-\int_{0}^{1}ye^{-y}dy\right) = c\left(\dfrac{1}{2}-\int_{0}^{1}ye^{-y}dy\right)\\
+    \int_{0}^{1}ye^{-y}dy\Rightarrow -2e^{-1}+1 = 1-\dfrac{2}{e}\\
+    \Rightarrow \int_{-\infty}^{\infty}f_Y(y)dy = c\left(\dfrac{1}{2}-\left(1-\dfrac{2}{e}\right)\right) = c\left(\dfrac{2}{e}-\dfrac{1}{2}\right) = c\left(\dfrac{4-e}{2e}\right) = 1\\
+    \Rightarrow c = \dfrac{2e}{4-e}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{304}\hfill\\\par
+\noindent Vi har 4 glödlampor, 3st av typ $A$, 1st av typ $B$. Alla livslängder är oberoende.\par
+\noindent Typ $A$ har livslängd $Exp$-fördelad, med väntevärde $100h$, medan typ $B$ har livslängd $Exp$-fördelad med väntevärde $200h$\par
+\noindent Dra en slumpmässig glödlampa, vi noterar att den fungerar efter 200h. Vad är sannolikheten att vi har dragit lampa $A$?
+\par\bigskip
+\noindent Vi ska alltså betinga på att den fungerar efter 200$h$, men vad är det vi ska betinga med?
+\par\bigskip
+\noindent Först har vi variabler $\overbrace{X_1,X_2,X_3}^{\text{typ $A$}}\sim Exp(\lambda_1)$ och $\overbrace{X_4}^{\text{typ $B$}}\sim Exp(\lambda_2)$\par
+\noindent $E(X_1) = E(X_2)=E(X_3) = \dfrac{1}{\lambda_1} = 100\Rightarrow \lambda_1 = \dfrac{1}{100}$\par
+\noindent På samma sätt får vi $\lambda_2 \Rightarrow \dfrac{1}{200}$\par
+\noindent Låt $Y$ vara likformigt fördelad på $\left\{1,2,3,4\right\}$, med andra ord $P(Y=k) =\dfrac{1}{4}$ för $k=1,2,3,4$\par
+\noindent Vi definierar en variabel $Z = X_Y$ (vad som menas här är, $Z(\omega) = X_{Y(\omega)}(\omega)$)\par
+\noindent Sannolikheten att vi har fått en $A$ lampa kan besvaras genom:
+\begin{equation*}
+  \begin{gathered}
+    P(Y\in\left\{1,2,3\right\}|Z\geq200) = \dfrac{P(Y\in\left\{1,2,3\right\}\& Z\geq200)}{P(Z\geq200)}\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Antag att $X_1,X_2,X_3,X_4,Y$ är oberoende
+\begin{equation*}
+  \begin{gathered}
+    Z(\omega)\geq200\& Y(\omega) = 4\Lrarr X_4(\omega)\& Y(\omega) = 4
+    P(Z\geq200\& Y=4) = P(X_4\geq200\& Y=4)\\
+    = P(X_4\geq200)P(Y=4)=\dfrac{1}{4}P(X_4\geq200) = \dfrac{1}{4}\left(1-\underbrace{F{X_4}(200)}_{\text{$1-e^{\dfrac{1}{200}200}$}}\right) = \dfrac{1}{4}e^{-1}\\
+  P(Z\geq200\& Y= \left\{1,2,3\right\}) = P((\left\{Z\geq200\right\}\cap\left\{Y=1\right\})\cup(\left\{Z\geq200\right\}\cap\left\{Y=2\right\})\cup(\left\{Z\geq200\right\}\cup\left\{Y=3\right\}))\\
+  = P(Z\geq200 \& Y=1)+P(Z\geq200\& Y=2)+P(Z\geq200\& Y=3)\\\\
+  = P(X_1\geq200\& Y=1)+\cdots\\
+  P(X_1\geq200)P(Y=1)\cdots\\
+  =\dfrac{1}{4}P(X_1\geq200)+\dfrac{1}{4}P(X_2\geq200)+\dfrac{1}{4}P(X_3\geq200) = \dfrac{3}{4}e^{-\dfrac{200}{100}}=\dfrac{3e^{-2}}{4}\\
+  P(Z\geq200) = \sum_{k=1}^{4}P(Z\geq200\& Y=k) = \sum_{k=1}^{4}P(X_k\geq200)P(Y=k) = \dfrac{3e^{-2}}{4}+\dfrac{1}{4}e^{-1}\\
+  P(Y\in\left\{1,2,3\right\}|Z\geq200) = \dfrac{\dfrac{3e^{-2}}{4}}{\dfrac{3e^{-2}}{4}+\dfrac{1}{4}e^{-1}} = \dfrac{3}{3+e}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{315}\hfill\\\par
+\noindent Antalet malariaparasiter per milliliter blod är $\begin{cases}X\sim N(3200,1000^2)\text{ för vuxna}\\Y\sim N(4000,1000^2)\text{ för barn}\end{cases}$ \par
+\noindent Kraftig feber uppstår vid över 5000 per milliliter blod\par
+\noindent Hur stor del av barnen/vuxna får kraftig feber?
+\par\bigskip
+\noindent Vi ska approximera lösningen genom tabellerna i boken eftersom vi inte kan exakt integrera täthetsfunktionen (s.483 tabell 4)
+\par\bigskip
+\noindent Vi behöver bara kolla på $N(0,1)$ eftersom $\dfrac{X-3200}{1000}\sim N(0,1)\sim \dfrac{Y-4000}{1000}$
+\begin{equation*}
+  \begin{gathered}
+    P(Y>5000) = P\left(\underbrace{\dfrac{Y-4000}{1000}}_{\text{$N(0,1)$}}>\underbrace{\dfrac{5000-4000}{1000}}_{\text{=1}}\right) = P\left(\dfrac{Y-4000}{1000}>1\right) = 1-\Phi(1) = 1-\Phi(1.00)\\
+    = 1-0.8413 = 0.1587
+  \end{gathered}
+\end{equation*}\par
+\noindent Samma lösningsmetod för vuxna:
+\begin{equation*}
+  \begin{gathered}
+    P(X>5000) = P\left(\dfrac{X-3000}{1000}>\underbrace{\dfrac{5000-3200}{1000}}_{\text{=1.8}}\right) = 1-\Phi(1.8)\\
+    1-0.9641 = 0.0359
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{3.11.2}\hfill\\\par
+\noindent $X_1,X_2,\cdots$ är oberoende slumpvariabler och $\sim Be(0.4)$, $Y = \sum_{i=1}^{20}X_i=$ antalet lyckade $X_i$.\par
+\noindent Det följer även att $Y\sim Bin(20,0.4)$. Medelvärdet $\bar{X_{20}} = \dfrac{1}{20}\sum_{i=1}^{20}X_i = \dfrac{Y}{20}$
+\par\bigskip
+\noindent Beräkna $P(\left|\bar{X_{20}}-0.4\right|\geq0.2)$ med hjälp av tabell 2 (s.474)\par
+\noindent Uppskatta $P(\left|\bar{X_{20}}-0.4\right|\geq0.2)$ med hjälp av Chebyshevs olikhet
+\par\bigskip
+\noindent Det är inte $X_i$ som är $\sim Bin$ utan $Y$, så vi skriver om sannolikheten:
+\begin{equation*}
+  \begin{gathered}
+    P(\left|\bar{X_{20}}-0.4\right|\geq0.2) = P(\left|\underbrace{Y}_{\text{$\sim Bin(20,0.4)$}}-8\right|\geq4)\\
+    =P(Y\geq12,\: Y\leq4) = P(Y\geq12)+\underbrace{P(Y\leq4)}_{\text{$F_Y(4)$}} = (1-P(Y<12))+F_Y(4)\\
+    = (1-\underbrace{P(Y\leq11)}_{\text{$F_Y(11)$}})+F_Y(4) = 1-F_Y(11)+F_Y(4)\\
+    1-0.9435+0.0510=0.0565+0.0510=0.1075
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Chebyshevs olikhet}: $P(\left|X-E(X)\right|\geq\varepsilon)\leq\dfrac{Var(X)}{\varepsilon^2}$ om $X\in L^2$
+\par\bigskip
+\noindent När vi ska uppskatta:
+\begin{equation*}
+  \begin{gathered}
+    P(\left|\bar{X_{20}}-\overbrace{0.4}^{\text{$E(\bar{X_{20}})$}}\right|\geq0.2)\leq\dfrac{Var(\bar{X_{20}})}{0.2} = 0.3
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent  $0.3$ var en ganska dålig uppskattning av $0.1075$, vilket kanske inte är så förvånande. Mer generellt, om man tar medelvärdet för något, så kommer det hoppa ur en $\dfrac{1}{n}$ från $Var$:
+\begin{equation*}
+  \begin{gathered}
+    P(\left|\bar{X_n}-E(X)\right|\geq\varepsilon) \leq \dfrac{Var(X_i)}{n\varepsilon^2}\stackrel{n\to\infty}{\rightarrow} = O\left(\dfrac{1}{n}\right)\quad\text{ dålig konvergens, går mot 0 långsamt}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Ju högre $L^p$ den ligger i desto bättre uppskattning kan vi göra
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Markovs och Chebyshevs olikheter kommer på tentan!
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    Y_n\stackrel{P}{\rightarrow}0 = P(\left|Y_n\right|\geq\varepsilon)\stackrel{n\to\infty}{\rightarrow}0\quad\forall\varepsilon >0
+  \end{gathered}
+\end{equation*}
