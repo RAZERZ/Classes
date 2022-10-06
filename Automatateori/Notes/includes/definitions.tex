@@ -83,3 +83,28 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 \begin{mdframed}[]\relax%
 \label{#2}}{\qed\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Example
+\newcounter{tst}[section]\setcounter{tst}{0}
+\renewcommand{\thetst}{\arabic{section}.\arabic{tst}}
+\newenvironment{tst}[2]{%
+%\refstepcounter{tst}%
+%\ifstrempty{#1}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!30]
+%{\strut l~\thetst};}}
+%}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!30]
+%{\strut l~\thetst:~#1};}}%
+%}%
+\mdfsetup{innertopmargin=10pt,linecolor=black,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}

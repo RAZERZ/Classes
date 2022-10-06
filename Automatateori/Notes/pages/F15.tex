@@ -1,0 +1,55 @@
+\section{Rices Sats}\par
+\begin{theo}
+  AAntagg att $\Omega$ är en icke-tom mängd av accepterbara språk och att något accepterbart språk inte tillhör $\Omega$ 
+  \par\bigskip
+  \noindent Då finns ingen TM som avgör för en godtycklig TM $M$ om $L(M)$ tillhör $\Omega$ eller ej
+  \par\bigskip
+  \noindent Annorlunda uttryckt, språket
+  \begin{equation*}
+    \begin{gathered}
+      L_\Omega = \left\{K_M\:|\:M\text{ är en TM och }L(M)\in\Omega\right\}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent är oavgörbart
+\end{theo}
+\par\bigskip
+\section{Chomskys språkhierarki}\par
+\noindent Vi har följande inklusioner $(\subset)$ och likheter $(=)$ mellan de språkklasser som vi har betraktat:
+\par\bigskip
+Reguljära språk = FA-accpeterbara språk $\subset$ Sammanhangsfria språk = PDA-accepterbara språk $\subset$ Avgörbara språk $\subset$ (TM-) accepterbara språk = Restriktionsfria språk
+\par\bigskip
+\begin{tst}
+  aa
+  \begin{tst}
+    aa
+    \begin{tst}
+      aa
+      \begin{tst}
+        aa
+        Reguljära språk = FA-accpeterbara språk
+      \end{tst}
+      \par\bigskip
+      Sammanhangsfria språk = PDA-accpeterbara språk\par
+      Ex:
+      \begin{equation*}
+        \begin{gathered}
+          \left\{a^nb^n\:|\: n\in\N\right\}
+        \end{gathered}
+      \end{equation*}
+    \end{tst}
+    \par\bigskip
+    Avgörbara språk\par
+    Ex:
+    \begin{equation*}
+      \begin{gathered}
+        \left\{a^nb^nc^n\:|\: n\in\N\right\}
+      \end{gathered}
+    \end{equation*}
+  \end{tst}
+  \par\bigskip
+  (TM-) accepterbara språk\par
+  Ex: $L_{\text{stopp}}$
+\end{tst}
+\par\bigskip
+Ej (TM-) accepterbara språk\par
+Ex: $\bar{L}_{\text{stopp}}$

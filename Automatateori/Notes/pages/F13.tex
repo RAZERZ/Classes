@@ -1,0 +1,117 @@
+\section{Aritmetiska beräkningar i det binära systemet (1-systemet)}\par
+\noindent Talet $n$ representeras av strängen $1^n$ (0 representeras av $\varepsilon$)
+\par\bigskip
+\noindent $R_\#S_LL_\#$ är en \textit{additionsmaskin}.
+\par\bigskip
+\begin{theo}[Monus]{thm:monus}
+  Funktionen:
+  \begin{equation*}
+    \begin{gathered}
+      f(n,m) = \begin{cases}n-m,\;\text{om }n\geq m\\0\;\text{ annars}\end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent kallas för \textit{monus}
+\end{theo}
+\par\bigskip
+\noindent Följande är ett exempel på hur en monusmaskin ser ut:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[initial left, initial text=](p0){$aR_\#aR_\#L$};
+      \node[right of=p0, xshift=1cm](p1){$\#L_aL$};
+      \node[right of=p1, xshift=1cm](p2){$S_L$};
+      \node[below of=p0, yshift=-1cm](p3){$\#L_a\#$};
+      \node[below of=p1, yshift=-1cm](p4){$R_\#L\#L$};
+      \node[below of=p4, yshift=-1cm](p5){$\#L_\#$};
+      \path[-stealth] (p0) edge[above] node{$1$} (p1);
+      \path[-stealth] (p1) edge[above] node{$1$} (p2);
+      \path[-stealth] (p2) edge[bend right] node{} (p0);
+      \path[-stealth] (p0) edge[left] node{$a$} (p3);
+      \path[-stealth] (p1) edge[left] node{$a$} (p4);
+      \path[-stealth] (p4) edge[loop right] node{$1$} (p4);
+      \path[-stealth] (p4) edge[right, bend left] node{$a$} (p5);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Denna omvandlar $\#1^n\#1^m$ till $\#1^{n-m}$ om $n\geq m$, och annars till $\#$
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Tillverka en multiplikationsmaskin
+\par\bigskip
+\subsection{TM:ar och restriktionsfria grammatiker}\hfill\\\par
+\begin{theo}
+  LLåt $L$ vara ett språk.\par
+  \noindent Det finns en TM som accepterar $L$ om och endast om det finns en restriktionsfri grammatik $G$ som producerar $L$
+\end{theo}
+\par\bigskip
+\subsection{En universell TM}\hfill\\\par
+\noindent Om $M$ är en TM och $w$ en sträng, så låt $M(w)$ beteckna output-strängen som $M$ ger om $w$ ges som input.\par
+\noindent (Om $M$ aldrig terminerar efter start på $w$ så är $M(w)$ odefinierad)
+\par\bigskip
+\noindent Låt $A= \left\{a_0,a_1,\cdots\right\}$ vara en oändlig mängd av symboler och $Q = \left\{q_0,q_1,\cdots\right\}$ en oändlig mängd av tillstånd.\par
+\noindent Vi kan anta att varje TM:s tapealfabet är en delmängd av $A$ och dess tillstånd utgör en delmäng av $Q$
+\par\bigskip
+\noindent Symbolerna $a_0,a_1,\cdots$ kan kodas som strängar över $\left\{0,1\right\}$ och tillstånd $q_0,q_1,\cdots$ kan också kodas som strängar över $\left\{0,1\right\}$
+\par\bigskip
+\noindent Då kan också varje TM:s tillståndsövergångar kodas som strängar över $\left\{0,1\right\}$
+\par\bigskip
+\noindent Det följer att varje TM $M$ kan kodas som en sträng $K_M\in\left\{0,1\right\}^*$ och varje sträng $w$ över $M$:s tapealfabet kan kodas som en sträng $K_w\in\left\{0,1\right\}^*$
+\par\bigskip
+\begin{theo}[Universell TM]{thm:universaltm}
+  Det finns en så kallad \textit{universell TM} $U$ med följande egenskap:
+  \par\bigskip
+   Om $M$ är en godtycklig TM och $w$ en sträng i $M$:s tapealfabet och $U$ startas på tapekonfigurationen
+   \begin{equation*}
+     \begin{gathered}
+       \#K_m\#K_w
+     \end{gathered}
+   \end{equation*}\par
+   så stannar $U$ på tapekonfigurationen
+   \begin{equation*}
+     \begin{gathered}
+       \#K_{M(w)}
+     \end{gathered}
+   \end{equation*}\par
+   om $M$ stannar då $w$ ges som input
+   \par\bigskip
+   \noindent (Annars stannar inte $U$ då $K_M\#K_w$ ges som input)
+\end{theo}
+\par\bigskip
+\subsection{Funktioner}\hfill\\\par
+\noindent Låt $f:\N^k\to\N$ vara en partiell funktion. Vi säger att en TM $M$, vars input-alfabet är $\left\{1\right\}$ \textit{beräknar} $f$ om, för varje $k-tupel$ ($n_1,\cdots,n_k$)$\in\N^k$, $M$ vid start på $\#1^{n_1}\#\cdots\#1^{n_k}$ stannar med tapekonfigurationen $\#1^{f(n_1,\cdots,n_k)}$ om $f(n_1,\cdots,n_k)$ är definierad, och $M$ inte terminerar i annat fall
+\par\bigskip
+\subsection{Avgörbarhet}\hfill\\\par
+\noindent Låt $L$ vara ett språk
+\par\bigskip
+\begin{theo}
+  OOm det finns en TM $M$ som vid start på tapekonfigurationen $\#w$ ger output
+  \begin{equation*}
+    \begin{gathered}
+      \#\text{ja}\quad\text{ om } w\in L\\
+      \#\text{nej}\quad\text{ om } w\notin L
+    \end{gathered}
+  \end{equation*}\par
+  \noindent så säger vi att $L$ är \textit{avgörbart}, annars är $L$ \textit{oavgörbart}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $L$ accepteras av någno TM så säger vi att $L$ är accepterbart
+\par\bigskip
+\begin{theo}
+  OOm $L$ är avgörbart så är $\bar{L}$ avgörbart och $L$ accepterbart
+\end{theo}
+\par\bigskip
+\begin{theo}
+  OOm både $L$ och $\bar{L}$ är accepterbara så är $L$ avgörbart
+\end{theo}
+\par\bigskip
+\noindent\textbf{Bevisskiss:}\par
+\noindent Antag att $M_1$ accepterar $L$ och $M_2$ accepterar $\bar{L}$\par
+\noindent Låt $M$ vara en TM som på input $w$ kopierar $w$ till $\#w\#w$ och kör igång $M_1$ på den första kopian av $w$ och $M_2$ på den andra kopian av $w$
+\par\bigskip
+\noindent Så $M_1$ och $M_2$ arbetar "parallellt" på varsin kopia av $w$\par
+\noindent Förr eller senare så stannar precis en av $M_1$ eller $M_2$ (eftersom $w\in L$ eller $w\in\bar{L}$)\par
+\noindent Om $M_1$ stannar så skriver $M$ "ja" på tapen och stannar\par
+\noindent Om $M_2$ stannar så skriver $M$ "nej" på tapen och stannar\par
+\noindent Detta $M$ avgör $L$

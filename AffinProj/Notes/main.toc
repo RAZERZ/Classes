@@ -19,3 +19,6 @@
 \contentsline {subsection}{\tocsubsection {}{12.2}{Tredjegradskurvor}}{29}{subsection.12.2}%
 \contentsline {subsection}{\tocsubsection {}{12.3}{Tredjegradskurvor}}{30}{subsection.12.3}%
 \contentsline {section}{\tocsection {}{13}{Elliptiska kurvor}}{33}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{Elliptiska kurvor på normalform}}{35}{subsection.13.1}%
+\contentsline {section}{\tocsection {}{14}{Definition av skärningstalet}}{36}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Generalisering}}{36}{subsection.14.1}%

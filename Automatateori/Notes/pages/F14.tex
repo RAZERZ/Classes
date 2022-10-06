@@ -1,0 +1,34 @@
+\section{Stopp-problemet}\par
+\noindent Låt:\par
+\begin{itemize}
+  \item $L_{\text{stopp}} = \left\{(M,w)\:|\:\text{$M$ är en TM och $w$ en sträng sådan att $M$ stannar vid start på $w$}\right\}$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Med $(M,w)$ menar vi egentligen koden för $M$ och koden för $w$ (dvs $K_M\#K_w$)
+\par\bigskip
+\noindent Den universella TM:en $U$ accepterar $L_{\text{stopp}}$, så $L_{\text{stopp}}$ är accepterbart
+\par\bigskip
+\begin{theo}
+  L$L_{\text{stopp}}$ är \textit{inte} avgörbart
+\end{theo}
+\par\bigskip
+\begin{prf}
+  AAntag för motsägelse att $L_{\text{stopp}}$ är avgörbart. Då finns en TM SUPER som vid start på $K_M\#K_w$ svarar "ja" om $M$ stannar vid start på $w$ och svarar "nej" annars
+  \par\bigskip
+  \noindent DÅ kan vi konsruera en ny TM SUPER$^{\prime}$ som fungerar som SUPER \textit{förutom} att när SUPER stannar och svarar "ja", så leds SUPER$^{\prime}$ in i en oändlig slinga (dvs, stannar inte)
+  \par\bigskip
+  \noindent Sedan konstruerar vi en TM STUPER med följande funktion:\par
+  STUPER kopierar sitt input $w$ så att $\#w$ övergår till $\#w\#w$ och sedan körs SUPER$^{\prime}$ igång
+  \par\bigskip
+  \noindent Nu frågar vi oss vad som händer om $w$ är koden för STUPER och SUPER får $w\#w$ som input:\par
+  \begin{itemize}
+    \item Antag att SUPER svarar "ja" vid start på $w\#w$. Då stannar STUPER vid start på $w$, så SUPER$^{\prime}$ stannar vid start på $w\#w$ vilket betyder att SUPER stannar med svaret "nej" vid start på $w\#w$. Detta motsäger antagandet\par
+  \item  Antag att SUPER svarar "nej" vid start på $w\#w$. Då stannar inte STUPER vid start på $w$, så SUPER$^{\prime}$ stannar inte vid start på $w\#w$ vilket betyder att SUPER svarar "ja" vid start på $w\#w$. Detta motsäger antagandet
+  \end{itemize}
+  \par\bigskip
+  \noindent Vi får alltså under alla omständigheter en motsägelse, så $L_{\text{stopp}}$ kan inte vara avgörbart
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $L_{\text{stopp}}$ accepterbart men ej avgörbart $\Rightarrow\bar{L_{\text{stopp}}}$ är ej accepterbart

@@ -311,6 +311,21 @@
 \noindent Figure 83 och Figure 84 kallas för \textit{teckenletare}.\par
 \noindent $L_a$ och $L_{\bar{a}}$ fungerar på samma sätt, förutom att de söker till vänster istället för till höger.
 \par\bigskip
+\noindent Följande kallas en "vänsterskiftare", och betecknas med $S_L$. Det finns givetvis motsvarande som kallas för "högerskiftare":
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[initial left, initial text=](p0){$R$};
+      \node[right of=p0, xshift=1cm](p1){$L\sigma R$};
+      \node[below of=p0, yshift=-1cm](p2){$L_\#$};
+      \path[-stealth] (p0) edge[below] node{$\sigma\neq\#$} (p1);
+      \path[-stealth] (p1) edge[above, bend right] node{} (p0);
+      \path[-stealth] (p0) edge[left] node{$\#$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Denna omvandlar tapekonfigurationen $ua\sigma v$, där $a,\sigma$ är tecken och $u,v$ är strängar, till tapekonfigurationen $u\sigma v\#$ (om $\sigma\neq\#$)
 \subsection{Seriekoppling av TM}\hfill\\\par
 \noindent Antag att vi har två TM $M_1$ och $M_2$ som beskrivs grafiskt\par
 \noindent Seriekopplingen ska börja på $M_1$ starttilstånd och gå till $M_1$ stopptillstånd, men istället för att stoppa så hoppar den över till $M_2$ starttilstånd \textit{utan} att förändra vad som står på tapen.\par

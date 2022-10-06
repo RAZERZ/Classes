@@ -34,4 +34,12 @@
 \contentsline {section}{\tocsection {}{16}{Turingmaskiner [TM:er]}}{51}{section.16}%
 \contentsline {subsection}{\tocsubsection {}{16.1}{Tape-konfigurationer}}{51}{subsection.16.1}%
 \contentsline {subsection}{\tocsubsection {}{16.2}{Grafiska beskrivningar a TM:er}}{52}{subsection.16.2}%
-\contentsline {subsection}{\tocsubsection {}{16.3}{Seriekoppling av TM}}{55}{subsection.16.3}%
+\contentsline {subsection}{\tocsubsection {}{16.3}{Seriekoppling av TM}}{56}{subsection.16.3}%
+\contentsline {section}{\tocsection {}{17}{Aritmetiska beräkningar i det binära systemet (1-systemet)}}{57}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{TM:ar och restriktionsfria grammatiker}}{57}{subsection.17.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{En universell TM}}{57}{subsection.17.2}%
+\contentsline {subsection}{\tocsubsection {}{17.3}{Funktioner}}{58}{subsection.17.3}%
+\contentsline {subsection}{\tocsubsection {}{17.4}{Avgörbarhet}}{58}{subsection.17.4}%
+\contentsline {section}{\tocsection {}{18}{Stopp-problemet}}{59}{section.18}%
+\contentsline {section}{\tocsection {}{19}{Rices Sats}}{60}{section.19}%
+\contentsline {section}{\tocsection {}{20}{Chomskys språkhierarki}}{60}{section.20}%
