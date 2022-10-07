@@ -1,0 +1,95 @@
+\section{Lokalisering}\par
+\noindent Är en process som är en generalisering av hur vi fick bråkkroppen till ett integritetsområde\par
+\noindent Den beror lite på hur generell man vill vara
+\par\bigskip
+\noindent Lite repetition om $R$ integritetsområde:
+\begin{equation*}
+  \begin{gathered}
+  R\text{x}(R\left\{0\right\})/\sim\\
+  \dfrac{p}{r}\sim \dfrac{q}{s}\Lrarr ps=qr\Rightarrow Q(R)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta går att generalisera. Syftet med bråkkroppen är att invertera element, men vi utesluter 0. Däremot, ibland kanske man inte vill invertera \textit{alla} element, men ändå få ett vettigt resultat.\par
+\noindent Ibland vill vi kunna invertera bara vissa element i $R$
+\par\bigskip
+\begin{theo}
+  ALåt $R$ vara en ring. $S\subset R$ kallas för en \textit{multiplikativ mängd} om:\par
+  \begin{itemize}
+    \item $1\in S$
+    \item $S$ sluten under multiplikation $\cdot$ med element i $S$
+  \item $0\notin S$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}
+  OOm $R$ är ett integritetsområde och $S$ en multiplikativ mängd. Lokalisering av $R$ med avseende på $S$ brukar betecknas $S^{-1}R$ är följande:
+  \begin{equation*}
+    \begin{gathered}
+      S^{-1}R=R\text{x}S/\sim\qquad(p,r)\sim(q,s)\Lrarr ps=qr
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Första exemplet är givetvis $R = R$ och $S = R\backslash\left\{0\right\}$
+\par\bigskip
+\noindent Ett annat exempell är $\Z = R$ och $S = \left\{1,3,3^2,3^3,\cdots\right\}$\par
+\noindent Då är $S^{-1}\Z = \left\{\dfrac{p}{3^n}\:|\: n\in\N\right\}$\par
+\noindent Notera att detta är även en ring. 
+\par\bigskip
+\noindent Ibland används följande notation för att visa när vi lokaliserar ett element: $R_i$, i exemplet ovan blir det $\Z_3$ (här menar vi \textit{inte} $\Z/3\Z$, lite förvirrande) 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om $R=\Z$ och $S = R\backslash\left\{0\right\} = Z\backslash3\Z$ (multiplikativ ty $3\Z$ är primideal), det vill säga invertera allt som inte har en faktor 3:
+\begin{equation*}
+  \begin{gathered}
+    S^{-1}\Z = \left\{\dfrac{p}{q}\:|\: \dfrac{q}{3}\notin\Z\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Säg att $R = \C[x]$, låt $m=(x)$ vara ett maximalt ideal\par
+\noindent Låt $S = \C[x]\backslash(x) = \left\{p\in\C[x]\:|\: p(0)\neq0\right\}$ (vi inverterar allt som inte har en faktor $x$)\par
+\noindent Med andra ord, vi vill invertera polynom som inte är 0 i 0\par
+\noindent Då är $S^{-1}R$:
+\begin{equation*}
+  \begin{gathered}
+    = \C[x]_x = \left\{\dfrac{p}{q}\:|\:q(0)\neq0\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Nu låter vi $R = \C[x,y]$ och ett maximalt ideal $m = (x-a,y-b)$. Lokalisering i $(a,b)$ ger (lokalisering i en punkt menas med avseende på komplementet till maximala idealet i den punkten):
+\begin{equation*}
+  \begin{gathered}
+    \C[x,y]_m = \left\{\dfrac{p}{q}\:|\: q(a,b)\neq0\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  ADen lokala ringen i punkten $p=(a,b)\in\C^2$ är:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{O}_p =\C[x,y]_m\qquad \text{där }m=(x-a,y-b)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Kommentar:}\par
+\noindent Mer allmänt kallas en ring lokal om den har exakt ett maximalt ideal. Detta $\mathcal{O}_p$ är ett exempel på en lokal ring, det unika maximala idealet är $m\mathcal{O}_p\subseteq\mathcal{O}_p$
+\par\bigskip
+\begin{theo}
+  ALåt $R$ vara en ring (där det kan finnas nolldelare) och $S$ multiplikativ mängd (kan också innehålla nolldelare)
+  \par\bigskip
+  \noindent Lokaliseringen ges fortfarande av $S^{-1}R = R\text{x}S/\sim$
+  \par\bigskip
+  \noindent Om $S$ innehåller nolldelare, kan vi inte visa att $\sim$ är en ekvivalensrelation (transitiviteten funkar inte ty vi behöver kancellationslagar, men vi kan inte kancellera nolldelare)
+  \par\bigskip
+  \noindent Vi lägger därmed till:
+  \begin{equation*}
+    \begin{gathered}
+      (p,r)\sim(q,s)\Lrarr\exists u\in S:\; u(ps-qr)\neq0
+    \end{gathered}
+  \end{equation*}
+\end{theo}

@@ -195,7 +195,7 @@
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent I dimension 2, tag $V=x$-axeln, alltså $V = \left\{y=0\right\} = V(y)$.\par
-\noindent Koordinatringen är då $\C[x,y]/(y) \iso\C[x]$\par
+\noindent Koordinatringen är då $\C[x,y]/(y) \cong\C[x]$\par
 \noindent Vad vi vet om denna kvotring är att den saknar nilpotenta element. Detta är naturligt om vi tänker på det som en funktion av komplexa värden. \par
 \noindent $V$ är en irreducibel algebraisk mängd, kvotringen är ett integritetsområde.
 \par\bigskip
@@ -214,3 +214,138 @@
     X\to\C[X]
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $V$ är irreducibel så är $I(V)$ primideal, så $\C[V]$ har inga 0-delare
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Betrakta $f(x,y)=xy=0$, då är $\C[V]/(xy)$ \textit{inte} ett integritetsområde (det finns nolldelare, nämligen $x$ och $y$)
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases}
+      x+(xy)\neq0\\
+      y+(xy)\neq0
+    \end{rcases}\text{ är nolldelare}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Kuriosa:}\par
+\noindent Koordinatringen heter så för den genereras av $x$ och $y$
+\par\bigskip
+\noindent\textbf{Anti-Exempel:}\par
+\noindent Ett exempel på något som \textit{nästan} är en koordinatring, men som inte är det:
+\begin{equation*}
+  \begin{gathered}
+    \C[x]/(x^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent är inte en koordinatring, men "ser ut" som en. Problemet är att $(x^2)$ är inte ett radikalideal.\par
+\noindent Det kommer att visa sig att vi ändå kommer vara intresserade att studera denna ring, ty vi vill studera "dubbelpunkten 0" (punkten 0 med multiplictet 0).
+\par\bigskip
+\begin{theo}
+  ELåt $V\subset\C^m$. En reguljär avbildning $\bar{f}:V\to\C^m$ är en avbildning som ges av polynomiela funktioner ($m$st polynom i variablerna $x_1,\cdots,x_n$)
+  \par\bigskip
+  \noindent Har reguljära komponentfunktioner, med andra ord, $\bar{f}$ är restriktionen av någon\par
+  $\C^n\to\C^m$ $(x_1,\cdots,x_n)\mapsto(f_1(\bar{x}),\cdots,f_m(\bar{x}))$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Polynomfunktioner på $V$ kallas fö \textit{reguljära} funktioner. Alternativt "polynomiella avbildningar"
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent En avbildning vi är väldigt bekant med är affina avbildningar. Ett annat exempel är följande:
+\begin{equation*}
+  \begin{gathered}
+    p(x)\in\C[x]\\
+    g:\C\to\C^2\qquad x\mapsto(x,p(x))\qquad\text{(parametrisering av grafen till $p$)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en reguljär avbildning, $p$ är polynom.\par
+\noindent Bilden av grafen är $g(\C) = \Gamma\subset\C^2$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Projektionen $\pi:\C^2\to\C$ så att $(x,y)\mapsto x$ är också reguljär, $x$ är polynom.
+\par\bigskip
+\noindent Vi kan sammansätta våra exempel:
+\begin{equation*}
+  \begin{gathered}
+    \pi\circ g(x) = id_\C(x) = x\\
+    g\circ \pi|_\Gamma(x,p(x)) = (x,p(x))
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent Mer intuitivt:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[](p0){$\C$};
+      \node[right of=p0, xshift=1cm](p1){$\Gamma$};
+      \path[-stealth] (p0) edge[above] node{$g$} (p1);
+      \path[-stealth] (p1) edge[below,bend left] node{$\pi|_{_\Gamma}$} (p0);
+    \end{tikzpicture}
+    \caption{$\C$ och $\Gamma$ är isomorfa}
+\end{figure}
+\par\bigskip
+%\noindent\textbf{Anmärkning:}\par
+%\noindent Affina avbildningar får inte ändra grad
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $y^2=x^3$ är klassiskt exempel. Kalla den för $V$\par
+\noindent Betrakta nu:
+\begin{equation*}
+  \begin{gathered}
+    f:\C\to\C^2\\
+    t\mapsto (t^2,t^3)
+  \end{gathered}
+\end{equation*}\\
+\noindent Här är $f(\C) = V$, men! Inversen till denna avbildning är
+\begin{equation*}
+  \begin{gathered}\\
+    \dfrac{t^3}{t^2} = t
+    (x,y)\mapsto \dfrac{y}{x}
+  \end{gathered}
+\end{equation*}\par
+\noindent Men denna är inte definierad i 0, så det är ingen reguljär avbildning. Det finns ingen reguljär invers. Då är kurvorna \textit{inte} isomorfa. Detta beror på att $V$ har en singuläritet i origo. 
+\par\bigskip
+\subsection{Rationella fukntioner}\hfill\\\par
+\noindent Notera, fraktionskropp är bråkkropp och betecknas $Q(R)$ för en ring $R$
+\par\bigskip
+\noindent Om $V\subseteq\C^n$ är irreducibel så är $I(V)$ primideal och $\C[V]$ är därför ett integritetsområde och har därför en bråkkropp som kallas för $\C(v)$ (ringen av rationella funktioner, kallas ävne för funktionskropp)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Rationella funktioner är inte riktigt funktioner (de är inte definierade överallt). Tänk på de som funktioner som har vissa problem. De är väldit väldigt nära att bli funktioner dock! 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent En rationell funktion kallas \textit{reguljär} i punkten $p$ om den kan skrivas på följande:
+\begin{equation*}
+  \begin{gathered}
+    f = \dfrac{g}{h}\qquad\text{$h(p)\neq0$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent En rationell avbildning är en som ges av rationella funktioner i varje "lucka". En flervariabelvariant/vektorvärd variant av rationella funktioner.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Det första exemplet är exemplet med avbildningen $t\mapsto (t^2,t^3)$, även det omvända, dvs $(x,y)\mapsto\dfrac{x}{y}$ är rationell, men den har problem, men den är fortfarande en rationell avbildning.
+\par\bigskip
+\noindent Exemplet med $y^2=x^3$ är inte isomorf med $\C$, men de är \textit{birationell ekvivalenta}.
+\par\bigskip
+\noindent Rationella avbildningar är bra när man vill studera singuläriteter eller även projektiva avbildningar.\par
+\noindent Projektiva avbildningar ges av linjära avbildningar från $\C^3\to\C^3$:
+\begin{equation*}
+  \begin{gathered}
+    (x,y,z)\mapsto(ax+by+cz,dx+ey+fz,gx+hy+kz)
+  \end{gathered}
+\end{equation*}\par
+\noindent Här ser den väldigt reguljär ut, så vi betraktar den i en karta, säg $xy$-kartan:
+\begin{equation*}
+  \begin{gathered}
+    (x,y,z)\mapsto\left(\dfrac{ax+by+c}{gx+hy+k},\dfrac{dx+ey+f}{gx+hy+k}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Sammanfattning}\hfill\\\par
+\noindent Reguljära funktioner: $\C[V]$-koordinatringen \par
+\noindent Rationella funktioner: $\C(V)$-funktionskroppen\par
+\noindent Reguljära avbildningar: Viktigaste exemplet är affina transformationer\par
+\noindent Rationella avbildningar: Viktigaste exemplet är projektiva transformationer

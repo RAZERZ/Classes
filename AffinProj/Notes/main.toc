@@ -22,3 +22,6 @@
 \contentsline {subsection}{\tocsubsection {}{13.1}{Elliptiska kurvor på normalform}}{35}{subsection.13.1}%
 \contentsline {section}{\tocsection {}{14}{Definition av skärningstalet}}{36}{section.14}%
 \contentsline {subsection}{\tocsubsection {}{14.1}{Generalisering}}{36}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Rationella fukntioner}}{40}{subsection.14.2}%
+\contentsline {subsection}{\tocsubsection {}{14.3}{Sammanfattning}}{41}{subsection.14.3}%
+\contentsline {section}{\tocsection {}{15}{Lokalisering}}{42}{section.15}%
