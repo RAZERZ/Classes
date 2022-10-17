@@ -406,16 +406,16 @@ Då är $E(X^3)$ = $(-1)^3*\dfrac{1}{3}+0^3*\dfrac{1}{3}+1^3*\dfrac{1}{3} = 0$
 \begin{theo}[Annorlunda Stora talens lag]{thm:biogihwgnumhe}
   Antag $X_1,X_2\cdots\in L^2$ (oändlig följd av okorrelerade slumpvariabler)\par
   \noindent Antag även att $E(X_1) = E(X_2)=\cdots = \mu\in\R$ och $Var(X_1)=Var(X_2)=\cdots=\sigma^2\in\R$\par
-  \noindent Vi skriver $\bar{X_n}$ för medelvärdet:
+  \noindent Vi skriver $\overline{X_n}$ för medelvärdet:
   \begin{equation*}
     \begin{gathered}
-      \bar{X_n} = \dfrac{X_1+\cdots+X_n}{n}
+      \overline{X_n} = \dfrac{X_1+\cdots+X_n}{n}
     \end{gathered}
   \end{equation*}\par
   \noindent För $\varepsilon >0$ har vi:
   \begin{equation*}
     \begin{gathered}
-      \lim_{n\to\infty}P\left(\left|\bar{X_n}-\mu\right|\geq\varepsilon\right) = 0
+      \lim_{n\to\infty}P\left(\left|\overline{X_n}-\mu\right|\geq\varepsilon\right) = 0
     \end{gathered}
   \end{equation*}
 \end{theo}
@@ -423,10 +423,10 @@ Då är $E(X^3)$ = $(-1)^3*\dfrac{1}{3}+0^3*\dfrac{1}{3}+1^3*\dfrac{1}{3} = 0$
 \begin{prf}[Annorlunda Stora talens lag]{prf:wigbwrg}
   \begin{equation*}
     \begin{gathered}
-      E(\bar{X_n}) = E\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{E(X_1)+\cdots E(X_n)}{n} = \dfrac{n\mu}{n} = \mu\\
-      Var(\bar{X_n}) = Var\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{1}{n^2}Var(X_1+\cdots+X_n)\\
+      E(\overline{X_n}) = E\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{E(X_1)+\cdots E(X_n)}{n} = \dfrac{n\mu}{n} = \mu\\
+      Var(\overline{X_n}) = Var\left(\dfrac{1}{n}(X_1+\cdots+X_n)\right) = \dfrac{1}{n^2}Var(X_1+\cdots+X_n)\\
       \Rightarrow \dfrac{1}{n^2}(\overbrace{Var(X_1)}^{\text{$\sigma^2$}}+\cdots+\overbrace{Var(X_n)}^{\text{$\sigma^2$}}) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}\\
-      \text{Chebyshevs olikhet sade } P\left(\left|\bar{X_n}-\underbrace{E(\bar{X_n})}_{\text{$\mu$}}\right|\geq\varepsilon\right)\leq \dfrac{Var(\bar{X_n})}{\varepsilon^2} = \dfrac{\sigma^2}{n\varepsilon^2}\overbrace{\to}^{\text{$n\to\infty$}}=0
+      \text{Chebyshevs olikhet sade } P\left(\left|\overline{X_n}-\underbrace{E(\overline{X_n})}_{\text{$\mu$}}\right|\geq\varepsilon\right)\leq \dfrac{Var(\overline{X_n})}{\varepsilon^2} = \dfrac{\sigma^2}{n\varepsilon^2}\overbrace{\to}^{\text{$n\to\infty$}}=0
     \end{gathered}
   \end{equation*}
 \end{prf}
@@ -690,14 +690,14 @@ Då är $E(X^3)$ = $(-1)^3*\dfrac{1}{3}+0^3*\dfrac{1}{3}+1^3*\dfrac{1}{3} = 0$
 \begin{theo}[Centrala  gränsvärdessatsen]{thm:centralligma}
   Om vi tar en massa slumpvariabler $X_1,X_2,\cdots\in L^2$ (de är alla oberoende), har väntevärdet $\mu$ med varians $\sigma^2>0$ och är lika fördelade (kan vara Bernoulli fördelade, Hypergeometrisk fördelade etc).
   \par\bigskip
-  \noindent Då är medelvärdet $\bar{X_n} =\dfrac{X_1+\cdots+X_n}{n}\approx N(\mu,\sigma^2)$ fördelad, i meningen att:
+  \noindent Då är medelvärdet $\overline{X_n} =\dfrac{X_1+\cdots+X_n}{n}\approx N(\mu,\sigma^2)$ fördelad, i meningen att:
   \begin{equation*}
     \begin{gathered}
-      P\left(a\leq \dfrac{\bar{X_n}-\mu}{\sigma\sqrt{n}}\leq b\right)\to^{n\to\infty}\varphi(b)-\varphi(a)\\
+      P\left(a\leq \dfrac{\overline{X_n}-\mu}{\sigma\sqrt{n}}\leq b\right)\to^{n\to\infty}\varphi(b)-\varphi(a)\\
       = \int_{a}^{b}\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{y^2}{2}}dy\\
-      \text{Kom ihåg: } E(\bar{X_n}) = E(\dfrac{1}{n}(X_1+\cdots+X_n)) = \dfrac{n\mu}{n} = \mu\\
-      Var(\bar{X_n}) = Var(\dfrac{1}{n}(X_1+\cdots+X_n)) \dfrac{1}{2}\left(Var(X_1)+\cdots\right) = \dfrac{n\sigma^2}{n^2} = \dfrac{\sigma^2}{n}\\
-      D(\bar{X_n}) = \dfrac{\sigma}{\sqrt{n}}
+      \text{Kom ihåg: } E(\overline{X_n}) = E(\dfrac{1}{n}(X_1+\cdots+X_n)) = \dfrac{n\mu}{n} = \mu\\
+      Var(\overline{X_n}) = Var(\dfrac{1}{n}(X_1+\cdots+X_n)) \dfrac{1}{2}\left(Var(X_1)+\cdots\right) = \dfrac{n\sigma^2}{n^2} = \dfrac{\sigma^2}{n}\\
+      D(\overline{X_n}) = \dfrac{\sigma}{\sqrt{n}}
     \end{gathered}
   \end{equation*}
 \end{theo}

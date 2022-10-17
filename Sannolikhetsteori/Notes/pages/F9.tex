@@ -97,15 +97,15 @@
 \par\bigskip
 \subsection{3.11.2}\hfill\\\par
 \noindent $X_1,X_2,\cdots$ är oberoende slumpvariabler och $\sim Be(0.4)$, $Y = \sum_{i=1}^{20}X_i=$ antalet lyckade $X_i$.\par
-\noindent Det följer även att $Y\sim Bin(20,0.4)$. Medelvärdet $\bar{X_{20}} = \dfrac{1}{20}\sum_{i=1}^{20}X_i = \dfrac{Y}{20}$
+\noindent Det följer även att $Y\sim Bin(20,0.4)$. Medelvärdet $\overline{X_{20}} = \dfrac{1}{20}\sum_{i=1}^{20}X_i = \dfrac{Y}{20}$
 \par\bigskip
-\noindent Beräkna $P(\left|\bar{X_{20}}-0.4\right|\geq0.2)$ med hjälp av tabell 2 (s.474)\par
-\noindent Uppskatta $P(\left|\bar{X_{20}}-0.4\right|\geq0.2)$ med hjälp av Chebyshevs olikhet
+\noindent Beräkna $P(\left|\overline{X_{20}}-0.4\right|\geq0.2)$ med hjälp av tabell 2 (s.474)\par
+\noindent Uppskatta $P(\left|\overline{X_{20}}-0.4\right|\geq0.2)$ med hjälp av Chebyshevs olikhet
 \par\bigskip
 \noindent Det är inte $X_i$ som är $\sim Bin$ utan $Y$, så vi skriver om sannolikheten:
 \begin{equation*}
   \begin{gathered}
-    P(\left|\bar{X_{20}}-0.4\right|\geq0.2) = P(\left|\underbrace{Y}_{\text{$\sim Bin(20,0.4)$}}-8\right|\geq4)\\
+    P(\left|\overline{X_{20}}-0.4\right|\geq0.2) = P(\left|\underbrace{Y}_{\text{$\sim Bin(20,0.4)$}}-8\right|\geq4)\\
     =P(Y\geq12,\: Y\leq4) = P(Y\geq12)+\underbrace{P(Y\leq4)}_{\text{$F_Y(4)$}} = (1-P(Y<12))+F_Y(4)\\
     = (1-\underbrace{P(Y\leq11)}_{\text{$F_Y(11)$}})+F_Y(4) = 1-F_Y(11)+F_Y(4)\\
     1-0.9435+0.0510=0.0565+0.0510=0.1075
@@ -117,14 +117,14 @@
 \noindent När vi ska uppskatta:
 \begin{equation*}
   \begin{gathered}
-    P(\left|\bar{X_{20}}-\overbrace{0.4}^{\text{$E(\bar{X_{20}})$}}\right|\geq0.2)\leq\dfrac{Var(\bar{X_{20}})}{0.2} = 0.3
+    P(\left|\overline{X_{20}}-\overbrace{0.4}^{\text{$E(\overline{X_{20}})$}}\right|\geq0.2)\leq\dfrac{Var(\overline{X_{20}})}{0.2} = 0.3
   \end{gathered}
 \end{equation*}
 \par\bigskip
 \noindent  $0.3$ var en ganska dålig uppskattning av $0.1075$, vilket kanske inte är så förvånande. Mer generellt, om man tar medelvärdet för något, så kommer det hoppa ur en $\dfrac{1}{n}$ från $Var$:
 \begin{equation*}
   \begin{gathered}
-    P(\left|\bar{X_n}-E(X)\right|\geq\varepsilon) \leq \dfrac{Var(X_i)}{n\varepsilon^2}\stackrel{n\to\infty}{\rightarrow} = O\left(\dfrac{1}{n}\right)\quad\text{ dålig konvergens, går mot 0 långsamt}
+    P(\left|\overline{X_n}-E(X)\right|\geq\varepsilon) \leq \dfrac{Var(X_i)}{n\varepsilon^2}\stackrel{n\to\infty}{\rightarrow} = O\left(\dfrac{1}{n}\right)\quad\text{ dålig konvergens, går mot 0 långsamt}
   \end{gathered}
 \end{equation*}
 \par\bigskip

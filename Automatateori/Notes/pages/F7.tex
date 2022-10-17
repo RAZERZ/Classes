@@ -36,7 +36,7 @@
 \begin{equation*}
   \begin{gathered}
     \underbrace{abbaababa}_{\text{$u$}}\underbrace{baaabba}_{\text{$w$}}\underbrace{babb}_{\text{$v$}}\\
-    122232231223231322313
+    1\underbrace{222322312}_{\text{$u$}}\underbrace{2323132}_{\text{$w$}}\underbrace{2313}_{\text{$v$}}
   \end{gathered}
 \end{equation*}\par
 \noindent Välj en delsekvens som har längd större än 6. Vi kallar den strängen $w$:
@@ -47,12 +47,13 @@
 \end{equation*}\par
 \noindent Vi kallar de övriga delarna $u$ och $v$
 \par\bigskip
-\noindent Ur lådprincipen följer det att eftersom $\left|w\right|>6$ så kommer någon kombination av tecken/tillstånd uppträda minst 2 gånger. Vi måste alltså "loopa" ett tillstånd minst 2 gånger när $w$ avläses. Exempelvis dyker kombinationen $(a,3)$ två gånger.
+\noindent Ur lådprincipen följer det att eftersom $\left|w\right|>6$ så kommer någon kombination av tecken/tillstånd uppträda minst 2 gånger. Vi måste alltså "loopa" ett tillstånd minst 2 gånger när $w$ avläses. Exempelvis dyker kombinationen $(a,3)$ två gånger. \par
+\noindent För att förtydliga, betrakta $\underbrace{2323132}_{\text{$w$}}$. Vi börjar i tillstånd 2, läser av en sträng som driver DFA:n tillbaks till 2. Detta sker just eftersom att $\left|w\right|>6$ och därmed 
 \par\bigskip
 \noindent Vad vi ska göra nu är att dela upp $w$ i 3 delar baserat på detta:
 \begin{equation*}
   \begin{gathered}
-  \underbrace{ba}_{\text{$x$}}\underbrace{aabb}_{\text{$y$}}\underbrace{a}_{\text{$z$}}
+  \underbrace{b}_{\text{$x$}}\underbrace{aaabb}_{\text{$y$}}\underbrace{a}_{\text{$z$}}
   \end{gathered}
 \end{equation*}\par
 \noindent Låt delen av $w$ fram till just före 1:a förekomsten av $(a,3)$, vi kallar den $x$. Låt delen av $w$ från 1:a förekomsten av $(a,3)$ till just före 2:a förekomsten av $(a,3)$, vi kallar den $y$. Resten av $w$ kallas för $z$.
@@ -93,7 +94,7 @@
 \end{itemize}
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent Låt $L$ vara språket med \textit{minst} lika många $b$ som $a$, dvs $L = \left\{w\in\left\{a,b\right\}^*: \text{antalet $b$ i $w$ är minst lika stort osm antalet $a$}\right\}$
+\noindent Låt $L$ vara språket med \textit{minst} lika många $b$ som $a$, dvs $L = \left\{w\in\left\{a,b\right\}^*: \text{antalet $b$ i $w$ är minst lika stort som antalet $a$}\right\}$
 \par\bigskip
 \noindent Språket är inte ändligt och är inte reguljärt, vi visar detta med pumpsatsen. 
 \begin{itemize}

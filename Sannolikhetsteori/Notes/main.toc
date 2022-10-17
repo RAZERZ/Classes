@@ -20,16 +20,21 @@
 \contentsline {section}{\tocsection {}{7}{Sammanfattning K3}}{23}{section.7}%
 \contentsline {subsection}{\tocsubsection {}{7.1}{Definition av Slumpvariabel}}{23}{subsection.7.1}%
 \contentsline {subsection}{\tocsubsection {}{7.2}{Fördelningsfunktioner}}{24}{subsection.7.2}%
-\contentsline {section}{\tocsection {}{8}{Medelvärde}}{26}{section.8}%
-\contentsline {subsection}{\tocsubsection {}{8.1}{Egenskaper för väntevärden}}{30}{subsection.8.1}%
-\contentsline {subsection}{\tocsubsection {}{8.2}{Kovarians}}{34}{subsection.8.2}%
-\contentsline {subsection}{\tocsubsection {}{8.3}{Mer om kontinuerliga sannoliketsrum}}{36}{subsection.8.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{8.3.1}{Cantormängden}}{36}{subsubsection.8.3.1}%
-\contentsline {section}{\tocsection {}{9}{Lektion 21/9}}{40}{section.9}%
-\contentsline {section}{\tocsection {}{10}{Kort introduktion till måtteori}}{42}{section.10}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{Minneslösa diskreta variabler}}{51}{subsection.10.1}%
-\contentsline {section}{\tocsection {}{11}{Lektion}}{53}{section.11}%
-\contentsline {subsection}{\tocsubsection {}{11.1}{308}}{53}{subsection.11.1}%
-\contentsline {subsection}{\tocsubsection {}{11.2}{304}}{54}{subsection.11.2}%
-\contentsline {subsection}{\tocsubsection {}{11.3}{315}}{54}{subsection.11.3}%
-\contentsline {subsection}{\tocsubsection {}{11.4}{3.11.2}}{55}{subsection.11.4}%
+\contentsline {subsection}{\tocsubsection {}{7.3}{Kontinuerliga slumpvariabler}}{27}{subsection.7.3}%
+\contentsline {section}{\tocsection {}{8}{Medelvärde}}{28}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Egenskaper för väntevärden}}{32}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{Kovarians}}{36}{subsection.8.2}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{Mer om kontinuerliga sannoliketsrum}}{38}{subsection.8.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{8.3.1}{Cantormängden}}{38}{subsubsection.8.3.1}%
+\contentsline {section}{\tocsection {}{9}{Lektion 21/9}}{42}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Kort introduktion till måtteori}}{44}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Minneslösa diskreta variabler}}{53}{subsection.10.1}%
+\contentsline {section}{\tocsection {}{11}{Lektion}}{57}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{308}}{57}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{304}}{58}{subsection.11.2}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{315}}{58}{subsection.11.3}%
+\contentsline {subsection}{\tocsubsection {}{11.4}{3.11.2}}{59}{subsection.11.4}%
+\contentsline {section}{\tocsection {}{12}{Genererande funktioner till en slumpvariabel $X$}}{60}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Egenskaper för mgf}}{61}{subsection.12.1}%
+\contentsline {section}{\tocsection {}{13}{Konvergens av slumpvariabler \& centrala gränsvärdessatsen}}{63}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{Konvergens av slumpvariabler}}{63}{subsection.13.1}%

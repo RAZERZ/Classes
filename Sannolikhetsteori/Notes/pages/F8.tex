@@ -258,7 +258,7 @@
   \item $E(aX+bY) = aE(X)+bE(Y)$, $Var(cX) = c^2Var(X)$, $Var(X+Y) = Var(X)+Var(Y)$ om $\underbrace{E(XY) = E(X)E(Y)}_{\text{okorrelerade slumpvariabler}}$, kovariansen är bilinjär osv gäller även för Absolutkontinuerliga slumpvariabler
   \item $f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)dy$ 
   \item Markovs olikhet är bevarad: $P(X\geq a)\leq \dfrac{E(X)}{a}$ om $a>0$
-  \item Stora talens lag: $P(\left|\bar{X_n}-\mu\right|>\varepsilon)\stackrel{n\to\infty}{\to}\quad\forall\varepsilon>0$
+  \item Stora talens lag: $P(\left|\overline{X_n}-\mu\right|>\varepsilon)\stackrel{n\to\infty}{\to}\quad\forall\varepsilon>0$
   \item Faltningsformlerna: Om $X,Y$ är oberoende så:
     \begin{equation*}
       \begin{gathered}
@@ -519,3 +519,78 @@
 \par\bigskip
 \noindent\textbf{Övning:}\par
 \noindent Visa att $E(X) =\dfrac{1}{p}$ samt att $Var(X) = \dfrac{1-p}{p^2}$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $X = $ antalet försök som krävs för att få ett lyckat utfall (med sannolikhet $p$)\par
+\noindent $\sim $ffg$(p)$ och då vet vi att $P(X=n)p^q{n-1}\quad n=1,2\cdots$
+\newpage
+\begin{theo}[$E(X) = \dfrac{1}{p}$]{thm:wait}
+  Om vi naivt skriver upp summan:
+  \begin{equation*}
+    \begin{gathered}
+      \sum npq^{n-1} = \dfrac{d}{dq}q^n =\cdots
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Så går det att lösa ut analytiskt, men det har inte lika mycket med sannolikhet att göra och ger därmed inte så mycket förståelse.
+  \par\bigskip
+  \noindent Om vi istället betingar på första försöket:
+  \begin{equation*}
+    \begin{gathered}
+      P(X=k|X_1=1) = 1\qquad\text{om } k=1,\;0\text{ annars}\\
+      E(X|X_1=1) = \sum_{k=1}^{\infty}kP(X=k,X_1=1) = 1
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vad händer om vi betingar på de andra:
+  \begin{equation*}
+    \begin{gathered}
+      P(X =k, X_1=0) = \dfrac{P(X=k,X_1=0)}{\underbrace{P(X=0)}_{\text{$1-p$}}}\qquad P(X=k,X_1=0)=\begin{cases}0,\;k=1\\p(1-p)^{k-1},\;k>1\end{cases}\\
+      \Rightarrow \dfrac{p(1-p)^{k-1}}{1-p} = \underbrace{p(1-p)^{k-2}}_{\text{$P_{X^{\prime}(k)}$}}\\
+      \Rightarrow X^{\prime}-1\sim\text{ffg}(p)\Rightarrow E(X|X_1=1) = E(X^{\prime}) = 1+E(X)\\
+      \Rightarrow E(X|X_1=k) = \begin{cases}1,\;k=1,\;\text{ med sannolikhet } p\\1+E(X),\;k=0\;\text{ med sannolikhet $1-p$}\end{cases}\\
+      \Rightarrow \underbrace{E(E(X|X_1))}_{\text{$E(X)$}} = \sum_k kP(E(X|X_1 =k)) = 1\cdot p+(1+E(X))(1-p)\\
+      E(X) = p+(1-p)(1+E(X)) = \overbrace{p+(1-p)}^{\text{$1$}}+(1-p)E(X)\\
+      \Rightarrow 1 = \underbrace{(1-(1-p))}_{\text{$p$}}E(X)\Rightarrow E(X) =\dfrac{1}{p}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent På samma sätt visas $Var(x) = \dfrac{1-p}{p^2}$ (använd $Var(X) = E(Var(X|X_1)) + Var(E(X|X_1))$)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det finns något som liknar ffg som kallas för \textit{geometrisk fördelning}
+\par\bigskip
+\noindent Om $Y$ är antalet misslyckade fall inann första lyckade utfall = $X-1\sim Geo(p)$ \par
+\noindent Då gäller att $P(Y=n) = pq^n\quad n=0,1,2,\cdots$
+\par\bigskip
+\noindent Väntevärdet av en geometrisk fördelning:
+\begin{equation*}
+  \begin{gathered}
+    E(Y) = E(X) -1 = \dfrac{1}{p}-1 = \dfrac{1-p}{p}\\
+    Var(Y) = Var(X-1) = Var(X) = \dfrac{1-p}{p^2}
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}[Negativ binomialfördelning]{thm:negbinom}
+  $X=$ anatlet försök som krävs att få $r$st lyckade utfall\par
+  \noindent Detta betcknas som $X\sim NegBin(r,p)$
+\end{theo}\par
+\noindent Om vi vill få det $r$te lyckade utfallet på det $n$te försöket, ska vi få $r-1$ lyckat utfall på $n-1$ utfall.\par
+\noindent Hur många olika sätt kan detta ske på? Jo:
+\begin{equation*}
+  \begin{gathered}
+    P(X=n) = \begin{pmatrix}n-1\\r-1\end{pmatrix}p^{r-1}q^{(n-1)-(r-1)}p = \begin{pmatrix}n-1\\r-1\end{pmatrix}p^rq^{n-r}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att räkna väntevärdet kan det bli lite klurigt, men man kan skriv aom $X$ som en summa:
+\begin{equation*}
+  \begin{gathered}
+    X = X_1+\cdots+X_r,\;\underbrace{X_k}_{\text{ober}} = \text{ antalet försök som krävs att få lyckat utfall efter $k-1$ lyckade utfall}\sim\text{ffg}(p)
+  \end{gathered}
+\end{equation*}\par
+\noindent\textbf{Anmärkning:}\par
+\noindent Här dyker det upp någon slags minneslöshet
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $E(X) = E(X_1+\cdots+X_r) = \overbrace{E(X_1)}^{\text{$1/p$}}+\cdots \overbrace{E(X_r)}^{\text{$1/p$}} = \dfrac{r}{p}$, $Var(X) = r\dfrac{1-p}{p^2}$\par
+\noindent Eftersom de är oberoende så kan man summera sannolikheterna. 

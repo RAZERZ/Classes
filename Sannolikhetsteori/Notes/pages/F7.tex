@@ -116,6 +116,44 @@
   \item $P(X>a) = 1-P_X(a)$
   \item $P(X<a) = \lim_{h\to0^+}P_X(a-h)$
 \end{itemize}
+\par\bigskip
+\begin{theo}
+  OOm $a\leq b$ så gäller att:
+  \begin{equation*}
+    \begin{gathered}
+      F_X(b) -F_X(a) = P(a< X\leq b)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  VVi vet att $F_X(b)$ är sannolikheten att $X\leq b$. Om $X\leq b$ så kan 2 fall inträffa:\par
+  \begin{itemize}
+    \item $X\leq a$
+    \item $a< X\leq b$
+  \end{itemize}\par
+  \noindent Detta är oförenliga händelser (oberoende i någon mening), då kan vi använda additionssatsen (Kolmogorovs 3dje axiom):
+  \begin{equation*}
+    \begin{gathered}
+      F_X(b) = \underbrace{P(X\leq a)}_{\text{$F_X(a)$}} + P(a< X\leq b)\\
+      \Lrarr F_X(b)-F_X(a) = P(a<X\leq b)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Beräkna $P(51.5<X\leq 56)$ givet att $P(X\leq 56) = 0.93$ och $P(X\leq 51.5) = 0.13$
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Vi använder Sats 7.4:
+\begin{equation*}
+  \begin{gathered}
+    P(51.5<X\leq 56) = \underbrace{F_X(51.5)}_{\text{$P(X\leq 51.5)$}} - \underbrace{F_X(56)}_{\text{$P(X\leq 56)$}}\\
+    = 0.93-0.13 = 0.8
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
 \noindent För att beskriva när slumpvariabeln \textit{antar} ett värde inför vi så kallade \textit{sannolikhetsfunktioner}. Detta begrepp kanske känns bekant sedan tidigare, och det stämmer, det har definierats tidigare, men förhoppningsvis förvirrar detta inte alltför mycket.
 \par\bigskip
 \begin{theo}[Sannolikhetsfunktion för slumpvariabel]{thm:probfuncrandomvar}
@@ -141,4 +179,85 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Säg att vi har en slumpvariabel $X$ och vi vill räkna $P_X(x)$, men vår slumpvariabel $X$ antar bara några värden under $x$. $X$ antar värdet 0 överallt där den inte är definierad. 
-\noindent Vi har främst betraktat diskreta fördelningsfunktioner, det vore konstigt att inte nämna något om kontinuerliga fördelningsfunktioner förstås 
+\noindent Vi har främst betraktat diskreta fördelningsfunktioner, det vore konstigt att inte nämna något om kontinuerliga fördelningsfunktioner förstås
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Fördelningsfunktionen kan beräknas ur sannolikhetsfunktionen enligt följande:
+\begin{equation*}
+  \begin{gathered}
+    F_X(x) = \sum_{j\leq x}p_X(j)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent På motsvarande sätt kan vi faktiskt också räkna sannolikhetsfunktionen ur fördelningsfunktionen! Om vi "låser in" $X$ i ett intervall $a-1<X\leq a$, så kanske det blir mer uppenbart:
+\begin{equation*}
+  \begin{gathered}
+    p_X(a) = P(X = a) \stackrel{\text{diskret.}}{=} P(a-1<X\leq a) = F_X(a)-F_X(a-1)
+  \end{gathered}
+\end{equation*}\par
+\noindent Den nogranne kanske undrar vad som händer om vi stoppar in $a = 0$, då definierar vi följande:
+\begin{equation*}
+  \begin{gathered}
+    p_X(0) = F_X(0)
+  \end{gathered}
+\end{equation*}\par
+\noindent Således får vi följande formel för att räkna $p_X(a)$:
+\begin{equation*}
+  \begin{gathered}
+    p_X(a) = \begin{cases}F_X(0),\; a=0\\F_X(a)-F_X(a-1),\; a\neq0\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Enligt föregående anmärkning ser vi att vi kan räkna fördelningsfunktionen genom att summera sannolikhetsfunktionen, för att synliggöra i en tabell blir det:
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c}
+    $k$&$p_X(k)$&$F_X(k)$\\\\
+    \hline\\
+    0&0.05&0.05\\
+    1&0.10&0.15\\
+    2&0.20&0.35\\
+    3&0.30&0.65\\
+    4&0.20&0.85\\
+    5&0.10&0.95\\
+    6&0.05&1.00
+  \end{tabular}
+\end{center}
+
+\newpage
+\subsection{Kontinuerliga slumpvariabler}\hfill\\\par
+\noindent De slumpvariabler vi har betraktat har varit diskreta, det vill säga att de antar ändliga/uppräkneliga reella värden. Vi vill nu undersöka hur det ser ut när vår slumpvariabel kan anta ouppräknelig mängd värden, såsom ett delintervall till de reella talen.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $X$ vara en slumpvariabel. $X$ talar om energin i en viss molekyl i ett givet medium. Eftersom $X$ kan anta alla värden i ett givet intervall, så är $X$ en kontinuerlig slumpvariabel.
+\par\bigskip
+\noindent Hur kan vi då ta fram villkor som gör att vi kan särskilja mellan kontinuerliga och diskreta slumpvariabler?\par
+\noindent Om vi har en diskret slumpvariabel är det relativt enkelt att summera händelser, detta sker naturligt med $\sum$, det är "mekaniskt" möjligt att göra det för hand, givet ändliga värden.
+\par\bigskip
+\noindent För uppräkneliga värden blir detta lite svårare, men vi blickar tillbaks till envariabelanalysen, specifikt iden bakom integraltestet. Vi kan tänka på det som "summerar vi oändligt små skillnader, så integrerar vi".
+\par\bigskip
+\begin{theo}[Kontinuerlig slumpvariabel och täthetsfunktion]{thm:contrandmvar}
+  En slumpvariabel $X$ sägs vara \textit{kontinuerlig} om det finns en funktion $f_X(x)$ sådant att det för alla mängder $A$ gäller att:
+  \begin{equation*}
+    \begin{gathered}
+      P(X\in A) = \int_{A}f_X(x)dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Givet en kontinuerlig slumpvariabel $X$, beskriver täthetsfunktionen sannolikheten att $X$ antar värde i mängden $A$. I det endimensionella fallet är detta $A$ ett intervall, då ser det ut på följande (mer bekanta) form:
+\begin{equation*}
+  \begin{gathered}
+    P(a< X\leq b) = \int_{a}^{b}f_X(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Detta gäller för \textit{kontinuerliga} slumpvariabler $X$. För diskreta, är det bara att summera händelserna:
+\begin{equation*}
+  \begin{gathered}
+    P(a< X\leq b) = \sum_{k=a}^{b}p_X(k)
+  \end{gathered}
+\end{equation*}\par
+\noindent Här är $p_X$ sannolikhetsfunktionen för $X$

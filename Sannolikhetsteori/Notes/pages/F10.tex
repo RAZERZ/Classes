@@ -1,0 +1,132 @@
+\section{Genererande funktioner till en slumpvariabel $X$}\par
+\noindent Vi vill studera fördelningen till slumpvariabler samt sannolikhetsmått. Om vi associerar sannolikhetsmått till någon funktion som gör att vi kan studera måttet så vore det noice. Det ska vi försöka göra.
+\par\bigskip
+\noindent Det finns 3st genererande funktioner som vi vill studera i denna kurs. Man skulle kunna säga att fördelningsfunktionen är en genererad funktion (diskontinuitet = atom, deriverbar = absolutkont. osv) 
+\par\bigskip
+\noindent De 3 är följande:
+\begin{itemize}
+  \item Momentgenererande funktionen (mgf), $\psi_X(t) = E(e^{tX})\;t\in\R$
+  \item Karakteristiska funktionen, $\varphi_X(t) = E(e^{itX})\;t\in\R$\par
+    Väntevärdet av en komplex slumpvariabel är följande:
+    \begin{equation*}
+      \begin{gathered}
+        E(\cos(tX))+iE(\sin(tx))
+      \end{gathered}
+    \end{equation*}
+    \par
+  Notera att Karakteristiska funktionen kanske får en att tänka på $1_A(x) = \begin{cases}1,\;x\in A\\0,\; x\notin A\end{cases}$\par
+  Så är det ej.
+  \par\bigskip
+\item Sannolikhetsgenererade funktioner $g_X(s) = E(s^x)\;s\in\R_{\geq0}$\par
+  Notera att vi kan uttrycka momentgenererande funktioner med sannolikhetsgenererade funktioner:
+  \begin{equation*}
+    \begin{gathered}
+      \psi_X(t) = g_X(e^t)
+    \end{gathered}
+  \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $X$ är absolutkontinuerlig, då kommer den momentgenererande funktionen vara:
+\begin{equation*}
+  \begin{gathered}
+    \psi_X(t) = \int_{-\infty}^{\infty}e^{tx}f_X(x)dx\qquad\text{(Laplacetransform)}\\
+    \varphi_X(t) = \int_{-\infty}^{\infty}e^{itx}f_X(x)dx = \int\cos(tx)f_X(x)dx+i\int\sin(tx)dx\qquad\text{(Fouriertransform)}\\
+    g_X(s) = \sum_{n=0}^{\infty}P_X(n)\cdot s^n\text{ om } X\in\N\qquad\text{(Z-transform till $\left\{P_X(n)\right\}_{n=0}^{\infty}$)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Karakteristiska funktionen är komplexvärd, så vi kan ta absolutbelopp:
+\begin{equation*}
+  \begin{gathered}
+    \left|\varphi_X(t)\right|\leq E(\left|e^{itX}\right|) = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent Den karakteristiska funktionen är alltså begränsad, men komplexvärd
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Den momentgenererande funktionen är reellvärd men inte alltid ändlig
+\par\bigskip
+\noindent Poängen med våra karakteristiska funktionen är att den ska beskriva $X$ unikt
+\par\bigskip
+\begin{theo}
+  AOm $\psi_X(t)=\psi_Y(t) = \psi(t)$, och om $\psi(t)$ är ändlig på ett intervall $(-\delta, \delta)$ för $\delta>0$, då är $X=Y$ 
+  \par\bigskip
+  \noindent En intressant grej händer om vi tar $n$:te derivatan:
+  \begin{equation*}
+    \begin{gathered}
+      \psi^{(n)}(0) = E(X^n)\qquad\text{ $n$:te momentet}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Notera att dessa inte beskriver unikt fördelningen till en slumpvariabel 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Väntevärdet och variansen bestämmer inte fördelningen unikt
+\newpage
+\begin{theo}
+  AOm $\varphi_X(t) = \varphi_Y(t)$ $\forall t\in\R$, så kommer:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow F_X=F_Y
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Karakteristiska är alltid ändlig och bestämmer alltid unbikt fördelningen. Den är däremot inte alltid deriverbar (eller $n$ gånger deriverbar).
+\par\bigskip
+\noindent Säg att vi deriverar den momentgenererande funktionen:
+\begin{equation*}
+  \begin{gathered}
+    \psi^{(k)}(0) = \dfrac{d^k}{dt^k}|_{t=0}\int e^{tx}f_X(x)dx\\
+    \text{Om vi kan byta plats} = \int x^ke^{tx}f_X(x)dx|_{t=0} = \int x^kf_X(x)dx = E(X^k)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Egenskaper för mgf}\hfill\\\par
+\noindent Det är 2 egenskaper vi vill gå igenom:
+\par\bigskip
+\begin{itemize}
+  \item $\psi_{aX+b}(t) = E(e^{t(aX+b)}) = E(e^{taX}e^{tb}) = e^{tb}E(e^{taX}) = e^{tb}\psi(at)$
+  \item $X,Y$ oberoende, $\psi_{X+Y}(t) = E(e^{t(X+Y)}) = E(e^{tX}e^{tY})\stackrel{ober.}{=}E(E^{tX})E(e^{tY}) = \psi_X(t)\psi_Y(t)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $X\sim N(0,1)$. Då är $f_X(x) = \dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}$. Då kommer den momentgenererande funktionen till $X$ vara:
+\begin{equation*}
+  \begin{gathered}
+    E(e^{tX}) = \dfrac{1}{\sqrt{2\pi}}\int_{\infty}^{\infty}e^{tx}e^{-x^2/2}dx = \dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{t^2/2}e^{-t^2/2+tx-x^2/2}dx\\
+    = \dfrac{e^{t^2/2}}{\sqrt{2\pi}}\underbrace{\int_{-\infty}^{\infty}\underbrace{e^{-\dfrac{(x-t)^2}{2}}}_{\text{$N(t,1)$}}dx}_{\text{$\sqrt{2\pi}$}} = e^{t^2/2}\\
+    \psi_X(t) = e^{t^2/2}\text{ om } X\sim N(0,1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad händer om vi nu säger att $X\sim N(\mu,\sigma^2)$?
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \underbrace{\dfrac{X-\mu}{\sigma}}_{\text{$Y$}}\sim N(0,1)\\
+    \sigma Y+\mu = X\sim N(\mu,\sigma^2)\Rightarrow \psi_X(t) = \psi_{\sigma Y+\mu}(t) = e^{\mu t}e^{\dfrac{(\sigma t)^2}{2}} = e^{\mu t+\dfrac{\sigma^2t^2}{2}}
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}
+  OOm $X\sim N(\mu_1, \sigma_1^2)$ och $Y\sim N(\mu_2,\sigma_2^2)$, så är $X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  VVi kollar på mgf för $X,Y$:
+  \begin{equation*}
+    \begin{gathered}
+      \psi_{X+Y} = \psi_X(t)\psi_Y(t) = e^{\mu_1t+(\sigma_1^2t^2)/2}e^{\mu_2t+(\sigma_2^2t^2)/2}\\
+      = e^{(\mu_1+\mu_2)t+(\sigma_1^2+\sigma_2^2)t^2/2} = \psi_Z(t)\qquad Z\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)\\
+      \Rightarrow F_{X+Y} = F_Z
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta kunde göras utan faltning
+\end{prf}
+\par\bigskip
+\noindent\textbf{Kuriosa:}\par
+\noindent Sannolikhetsgenererade funktionen heter så för att om vi deriverar sannolikhetsgenererade funktionen i 0 för en diskret slumpvariabel, så kommer första derivatan i 0 vara sannolikheten att $X=1$, andra derivatan att $X=2$ osv... Den kommer spotta ut sannolikhetsfunktionen, varpå namnet kommer. 

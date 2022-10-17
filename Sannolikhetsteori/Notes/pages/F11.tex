@@ -1,0 +1,202 @@
+\section{Konvergens av slumpvariabler \& centrala gränsvärdessatsen}\par
+\subsection{Konvergens av slumpvariabler}\hfill\\\par
+\noindent Vad menas? Massa olika grejer, det är inte så tydligt här vad som menas, exempelvis så kanske man pratar om \textit{konvergens nästan överallt}. Då menar man:
+\begin{equation*}
+  \begin{gathered}
+  \underbrace{P(X_n\to X)}_{\text{$P(\left\{\omega|X_n(\omega)\to X(\omega)\right\})$}} = 1\\
+  (X_n)\stackrel{a.s}{\rightarrow}
+  \end{gathered}
+\end{equation*}\par
+\noindent Punktvis konvergens, konvergens nästan överallt är den vanligaste typen av konvergens
+\par\bigskip
+\noindent Det finns en annan typ som heter \textit{konvergens i sannolikhet} som är något vi förhoppningsvis känner igen:
+\begin{equation*}
+  \begin{gathered}
+    P(\left|X_n-X\right|\geq\varepsilon)\stackrel{n\to\infty}{\rightarrow}0\quad\forall\varepsilon>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Ett exempel på konvergens i sannolikhet är \textit{stora talens lag}, som säger att sannolikheten att medelvärdet konvergerar mot väntevärdet 0. Detta visade vi med Chebyshevs olikhet (när de var parvis okorrelerade). Den kallas därmed för den svaga stora talens lag, det finns en starkare variant som säger att medelvärdet konvergerar mot väntevärdet nästan överallt. (Visade detta i specialfall då vi kunde använda kovarians) 
+\par\bigskip
+\noindent Det finns ett annat begrepp som kallas för \textit{konvergens i medelvärde}: Då söker man efter att väntevärdet att $\left|X_n-X\right|^p\to0$ när $n\to\infty$:
+\begin{equation*}
+  \begin{gathered}
+    E\left|X_n-X\right|^p\stackrel{n\to\infty}{\rightarrow}0\\
+    X_n\stackrel{L^p}{\rightarrow}X
+  \end{gathered}
+\end{equation*}\par
+\begin{theo}
+  EEn intressant grej som går fort att visa är att om vi har konvergens i medelvärdet så implicerar detta konvergens i sannolikhet.
+\end{theo}
+\par\bigskip
+\begin{prf}
+  KKom ihåg Markovs olikhet:
+  \begin{equation*}
+    \begin{gathered}
+      \underbrace{P(\left|X\right|\geq t)}_{\text{$P(\left|X\right|^p)\geq t^p$}}\leq \dfrac{E(\left|X\right|)}{t}\\
+      \Rightarrow P(\left|X\right|^p\geq t^p)\leq \dfrac{E(\left|X\right|^p)}{t^p}\\
+      P(\left|X_n-X\right|\geq\varepsilon)\leq \dfrac{E(\left|X_n-X\right|^p)}{\varepsilon^p}\stackrel{n\to\infty}{\rightarrow}0
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Det finns fler konvergensbegrepp, såsom \textit{konvergens i fördelning} (kanske den mest naturliga typen, för vi använder slumpvariabler för att räkna sannolikheter. Konvergens i fördelning hanterar precis detta)\par
+\noindent Mer generellt säger den att fördelningsfunktionen till $X_n$ går mot fördelningsfunktionen till $X$:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{F_{X_n}(t)}_{\text{$P(X_n\leq t)\to P(X\leq t)$}}\rightarrow F_X(t)\qquad (X_n\stackrel{d}{\rightarrow}X)
+  \end{gathered}
+\end{equation*}\par
+\noindent Konvergensen gäller inte för alla $t$, detta gäller exempelvis om $F_X$ inte är kontinuerlig. Vi är dock mest intresserade av normalfördelning, som är kontinuerlig, så vi behöver inte oroa oss alltför mycket.\par
+\noindent Från detta följer det att:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{P(a< X_N\leq b)}_{\text{$F_{X_n}(b)-F_{X_n}(a)$}}\stackrel{n\to\infty}{\rightarrow}\underbrace{P(a< X\leq b)}_{\text{$F_X(b)-F_X(a)$}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Ytterliggare ett till konvergensbegrepp är \textit{konvergens av momentgenererande funktioner}. Detta är precis som det låter, om vi tar den momentgenererande funktione av $X_n$ så konvergerar den mot den momentgenererande funktionen till $X$:
+\begin{equation*}
+  \begin{gathered}
+    \psi_{X_n}(t)\to\psi_X(t),\qquad t\in(-\delta,\delta),\quad \delta>0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  ((Detta är en svår sats)
+  \par\bigskip
+  \noindent Om $\psi_{X_n}\to\psi_X$ så $\Rightarrow$ konvergens i fördelning ($X_n\stackrel{d}{\rightarrow}X$)
+\end{theo}
+\par\bigskip
+\noindent\textit{Konvergens av karakteristisk funktion} är som det låter. Om vi tar en karakteristisk funktion för $X_n$ och den konvergerar för $X$, så konvergerar den karakteristiska funktionen:
+\begin{equation*}
+  \begin{gathered}
+    \varphi_{X_n}(t)\stackrel{n\to\infty}{\rightarrow}\varphi_X(t)\qquad\forall t\in\R
+  \end{gathered}
+\end{equation*}\par
+\noindent Ur denna följder det en sats:
+\par\bigskip
+\begin{theo}[Levys sats]{thm:levy}
+Om $\varphi_{X_n}\to\varphi_X\Rightarrow F_{X_n}\to F_x$
+\end{theo}
+\par\bigskip
+\noindent Det finns \textit{likformig konvergens} som ger konvergens i medelvärdet, det kommer inte gås igenom.
+\par\bigskip
+\begin{theo}[Centrala gränsvärdessatsen]{thm:centralligmathem}
+  Låt:\par
+  \begin{itemize}
+    \item $E(X_i) = \mu\in\R$
+    \item $D(X_i) = \sigma>0$
+  \end{itemize}
+  \par\bigskip
+  \noindent Om $X_1,X_2,\cdots$ är oberoende och lika fördelade slumpvariabler (i.i.d.r.v), och den momentgenererande funktionen mgf till $X_i$ är ändlig på något intervall ($-\delta,\delta$). Då kommer:
+  \begin{equation*}
+    \begin{gathered}
+      Var(\overline{X_n}) = Var\left(\dfrac{X_1+\cdots+X_n}{n}\right) = \dfrac{1}{n^2}(\overbrace{Var(X_1)}^{\text{$\sigma^2$}}+\cdots+\overbrace{Var(X_n)}^{\text{$\sigma^2$}}\\
+      \dfrac{\overline{X_n}-\mu}{\sigma/\sqrt{n}} = \dfrac{X_1+\cdots+X_n-n\mu}{\sigma\sqrt{n}}\stackrel{d}{\rightarrow}X\sim N(0,1)\\
+      \Rightarrow P\left(a\leq\dfrac{\overline{X_n}-\mu}{\sigma/\sqrt{n}}\right)\stackrel{n\to\infty}{\rightarrow}\Phi(b)-\Phi(a)
+    \end{gathered}
+  \end{equation*}
+\end{theo}\par
+\noindent\textbf{Anmärkning:}\par
+\noindent Detta kommer på tentan!
+\par\bigskip
+\noindent\textbf{Beviside:}\par
+\noindent Visa att $\psi_{\dfrac{\overline{X_n}-\mu}{\sigma/\sqrt{n}}}\to\psi_{N(0,1)}$
+\par\bigskip
+\begin{theo}
+  OOm $X_1,X_2\cdots$ är oberoende och likafördelade slumpvariabler och mgf är ändlig på $(-\delta,\delta)$, så har vi att:
+  \begin{equation*}
+    \begin{gathered}
+      \overline{X_n}\stackrel{d}\mu = E(X_1)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Påminn om vad den momentgenererande funktionen är samt vad derivatan var (momenten):
+\begin{equation*}
+  \begin{gathered}
+    \psi_X^{\prime\prime}(0) = E(X^2) = \sigma^2+\mu^2\\
+    \Rightarrow \psi_X(t) = 1+\mu t+(\sigma^2+\mu^2)\dfrac{t^2}{2!}+O(t^3)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}
+  BBevis av föregående sats:
+  \begin{equation*}
+    \begin{gathered}
+      \psi_{\overline{X_n}}(t) = \psi_{\dfrac{1}{n}(X_1+\cdots+X_n)}(t) = \psi_{X_1+\cdots+X_n}(\dfrac{t}{n})\\
+      \Rightarrow\psi_{X_1}(\dfrac{t}{n})\cdots\psi_{X_n}(\dfrac{t}{n}) = \psi_{X_1}(\dfrac{t}{n})^n = (1+\mu\dfrac{t}{n}+O(\dfrac{t^2}{n^2}))^n\\
+      \stackrel{n\to\infty}{\rightarrow}e^{\mu t} = \psi_{\mu}(t)\\
+      \Rightarrow\overline{X_n}\stackrel{d}{\rightarrow}\mu
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\noindent\textbf{Uppgift 325:}\par
+\noindent 1000 hushåll, sannolikheten för att ett visst hushåll är 0.6, 0 bilar är 0.3, och 2 bilar är 0.1.\par
+\noindent\textit{Hur många parkeringsplatser ska minst planeras om sannolikheten för att alla bilar ska få plats är minst 0.9?}
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Varje hushåll har en fördelning för antalet bilar\par
+\noindent En slumpvariabel för varje hushåll: $X_1,\cdots,X_{1000}$  är oberoende och likafördelade.\par
+\noindent Sannolikhetsfunktionen:
+\begin{equation*}
+  \begin{gathered}
+    P_{X_i}(0) = 0.3,\quad P_{X_i}(1) = 0.6,\quad P_{X_i}(2) = 0.1\\
+    X = \sum_{i=1}^{1000}X_i = \text{antalet bilar}
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vill lösa $P(X\leq N)$ där $N$ är antal parkeringsplatser vi söker.
+\begin{equation*}
+  \begin{gathered}
+    P(X\leq N)\geq0.9\Lrarr P(X>N)\leq0.1
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi vill hitta $N$, vilket vi kan göra genom normalapproximation med något som heter \textit{halvkorrektion}. Halvkorrektion går ut på att, om vi vill approximera $P(X\leq N)$ (där $X$ är diskret och heltalsvärd) så är $P(X\leq N) = P(X\leq N+0.9) = P(X<N+1) = P(X\leq N+0.5)$\par
+\noindent Vi byter till "mittpunkten" av intervallet av de tal som inte påverkar sannolikheten om man adderar (i vårat fall $[0,1] = 0.5$)\par
+\noindent Vi väljer då att korrigera $P(X\leq N+0.5)$. Använd alltid halvkorrektion om det är diskreta variabler!
+\par\bigskip
+\noindent Vi vill approximera $P(X\leq N+0.5)$. Då måste vi hitta väntevärdet:
+\begin{equation*}
+  \begin{gathered}
+    0\cdot0.3+1\cdot0.6+2\cdot0.1 = 0.8 = E(X_i)\\
+    Var(X_i) = 0^2\cdot0.3+1^1\cdot0.6+2^2\cdot0.1-0.8^2 = 0.36\\
+    D(X_i) = \sqrt{(Var(X_i))} = 0.6
+  \end{gathered}
+\end{equation*}
+\begin{equation*}
+  \begin{gathered}
+    P\left(\underbrace{\dfrac{\dfrac{X}{1000}-0.8}{0.6/\sqrt{1000}}}_{\text{$\approx N(0,1)$}}> \dfrac{\dfrac{N+0.5}{1000}-0.8}{0.6/\sqrt{1000}}\right)\leq0.1\\
+    \approx 1-\Phi\left(\dfrac{\dfrac{N+0.5}{1000}-0.8}{0.6\sqrt{1000}}\right)\\
+    P(Y>\lambda_{0.1}) = 0.1\Rightarrow \lambda_{0.1}\approx 1.2816\\
+    \Rightarrow \dfrac{\dfrac{N+0.5}{1000}-0.8}{0.6\sqrt{1000}} = 1.2816\\
+    \Rightarrow N = \left(\dfrac{1.2816\cdot0.6}{\sqrt{1000}}00.8\right)\cdot1000-0.5 \approx 823.82\approx 824
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Om vi är snåla och tar 810 parkeringsplatser istället för 824, vad är då sannolikheten?
+\begin{equation*}
+  \begin{gathered}
+    P\left(\dfrac{\dfrac{X}{1000}-0.8}{0.6\sqrt{1000}}\leq \underbrace{\dfrac{\dfrac{810.5}{1000}-0.8}{0.6\sqrt{1000}}}_{\text{$\approx 0.55$}}\right) \approx 0.7088\approx 71\%
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är sannolikheten att vi har mindre bilar än parkeringsplatser.
+\newpage
+\begin{theo}[Weirestrass approximationssats]{thm:weirestrass}
+  För en kontinuerlig funktion $f:[0,1]\to\R$ (man kan låta den gå från $A$ om man vill, men då måste $A$ vara slutet), så finns en följd polynom $p_n$ så att $p_n\to f$ likformigt. \par
+  \begin{equation*}
+    \begin{gathered}
+      \text{sup}_{x\in[0,1]}\left|p_n(x)-f(x)\right|\stackrel{n\to\infty}{\rightarrow}0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Beviside:} [Bernstein, 1912]:\par
+\noindent Går ut på att tag slumpvariabler $Y_1,Y_2,\cdots\sim Be(x)$. Dessa ska vara oberoende. Vi tar medelvärdet:
+\begin{equation*}
+  \begin{gathered}
+    E(f(\overline{Y_n})),\text{ förväntas (enligt stora talens lag) }\to \underbrace{f(x)}_{\text{$E(Y_i)$}}\\
+    E(f(\overline{Y_n})) = \sum_{k=0}^{n}f\left(\dfrac{k}{n}\right)P_{\overline{Y_n}}(k) = \underbrace{\sum_{k=0}^{n}f\left(\dfrac{k}{n}\right)\begin{pmatrix}n\\k\end{pmatrix}x^k(1-x)^{n-k}}_{\text{Bernsteinpolynom}}
+  \end{gathered}
+\end{equation*}

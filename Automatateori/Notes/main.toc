@@ -19,27 +19,27 @@
 \contentsline {section}{\tocsection {}{10}{Slutenhetsegenskaper hos reguljära språk}}{35}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{Konstruktion av en "snitt"-DFA}}{36}{subsection.10.1}%
 \contentsline {section}{\tocsection {}{11}{Reguljära språkens gränser}}{37}{section.11}%
-\contentsline {section}{\tocsection {}{12}{Grammatiker}}{39}{section.12}%
-\contentsline {subsection}{\tocsubsection {}{12.1}{Produktion av strängar}}{39}{subsection.12.1}%
-\contentsline {subsection}{\tocsubsection {}{12.2}{Sammanhangsfria grammatiker och språk}}{40}{subsection.12.2}%
-\contentsline {section}{\tocsection {}{13}{Pushdownautomater [PDA]}}{43}{section.13}%
-\contentsline {subsection}{\tocsubsection {}{13.1}{En liten informell beskrivning:}}{43}{subsection.13.1}%
-\contentsline {subsection}{\tocsubsection {}{13.2}{Grafisk beskrivning av PDA}}{43}{subsection.13.2}%
-\contentsline {subsection}{\tocsubsection {}{13.3}{Kriterier för acceptans hos PDA}}{44}{subsection.13.3}%
-\contentsline {subsection}{\tocsubsection {}{13.4}{Språk hos PDA}}{44}{subsection.13.4}%
-\contentsline {section}{\tocsection {}{14}{De sammanhangsfria språkens gränser}}{46}{section.14}%
-\contentsline {subsection}{\tocsubsection {}{14.1}{Pumpsatsen för CFL}}{46}{subsection.14.1}%
-\contentsline {subsection}{\tocsubsection {}{14.2}{Slutenhetsegenskaper hos CFL}}{47}{subsection.14.2}%
-\contentsline {section}{\tocsection {}{15}{Restriktionsfria språk}}{49}{section.15}%
-\contentsline {section}{\tocsection {}{16}{Turingmaskiner [TM:er]}}{51}{section.16}%
-\contentsline {subsection}{\tocsubsection {}{16.1}{Tape-konfigurationer}}{51}{subsection.16.1}%
-\contentsline {subsection}{\tocsubsection {}{16.2}{Grafiska beskrivningar a TM:er}}{52}{subsection.16.2}%
-\contentsline {subsection}{\tocsubsection {}{16.3}{Seriekoppling av TM}}{56}{subsection.16.3}%
-\contentsline {section}{\tocsection {}{17}{Aritmetiska beräkningar i det binära systemet (1-systemet)}}{57}{section.17}%
-\contentsline {subsection}{\tocsubsection {}{17.1}{TM:ar och restriktionsfria grammatiker}}{57}{subsection.17.1}%
-\contentsline {subsection}{\tocsubsection {}{17.2}{En universell TM}}{57}{subsection.17.2}%
-\contentsline {subsection}{\tocsubsection {}{17.3}{Funktioner}}{58}{subsection.17.3}%
-\contentsline {subsection}{\tocsubsection {}{17.4}{Avgörbarhet}}{58}{subsection.17.4}%
-\contentsline {section}{\tocsection {}{18}{Stopp-problemet}}{59}{section.18}%
-\contentsline {section}{\tocsection {}{19}{Rices Sats}}{60}{section.19}%
-\contentsline {section}{\tocsection {}{20}{Chomskys språkhierarki}}{60}{section.20}%
+\contentsline {section}{\tocsection {}{12}{Grammatiker}}{40}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Produktion av strängar}}{40}{subsection.12.1}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Sammanhangsfria grammatiker och språk}}{41}{subsection.12.2}%
+\contentsline {section}{\tocsection {}{13}{Pushdownautomater [PDA]}}{44}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{En liten informell beskrivning:}}{44}{subsection.13.1}%
+\contentsline {subsection}{\tocsubsection {}{13.2}{Grafisk beskrivning av PDA}}{44}{subsection.13.2}%
+\contentsline {subsection}{\tocsubsection {}{13.3}{Kriterier för acceptans hos PDA}}{45}{subsection.13.3}%
+\contentsline {subsection}{\tocsubsection {}{13.4}{Språk hos PDA}}{45}{subsection.13.4}%
+\contentsline {section}{\tocsection {}{14}{De sammanhangsfria språkens gränser}}{47}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Pumpsatsen för CFL}}{47}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Slutenhetsegenskaper hos CFL}}{48}{subsection.14.2}%
+\contentsline {section}{\tocsection {}{15}{Restriktionsfria språk}}{50}{section.15}%
+\contentsline {section}{\tocsection {}{16}{Turingmaskiner [TM:er]}}{52}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Tape-konfigurationer}}{52}{subsection.16.1}%
+\contentsline {subsection}{\tocsubsection {}{16.2}{Grafiska beskrivningar a TM:er}}{53}{subsection.16.2}%
+\contentsline {subsection}{\tocsubsection {}{16.3}{Seriekoppling av TM}}{57}{subsection.16.3}%
+\contentsline {section}{\tocsection {}{17}{Aritmetiska beräkningar i det binära systemet (1-systemet)}}{58}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{TM:ar och restriktionsfria grammatiker}}{58}{subsection.17.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{En universell TM}}{58}{subsection.17.2}%
+\contentsline {subsection}{\tocsubsection {}{17.3}{Funktioner}}{59}{subsection.17.3}%
+\contentsline {subsection}{\tocsubsection {}{17.4}{Avgörbarhet}}{59}{subsection.17.4}%
+\contentsline {section}{\tocsection {}{18}{Stopp-problemet}}{60}{section.18}%
+\contentsline {section}{\tocsection {}{19}{Rices Sats}}{61}{section.19}%
+\contentsline {section}{\tocsection {}{20}{Chomskys språkhierarki}}{61}{section.20}%

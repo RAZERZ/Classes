@@ -25,3 +25,5 @@
 \contentsline {subsection}{\tocsubsection {}{14.2}{Rationella fukntioner}}{40}{subsection.14.2}%
 \contentsline {subsection}{\tocsubsection {}{14.3}{Sammanfattning}}{41}{subsection.14.3}%
 \contentsline {section}{\tocsection {}{15}{Lokalisering}}{42}{section.15}%
+\contentsline {section}{\tocsection {}{16}{Definiera skärningstal}}{44}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Skärningstalet}}{46}{subsection.16.1}%

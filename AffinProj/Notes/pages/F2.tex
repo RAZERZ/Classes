@@ -6,15 +6,15 @@
 \noindent En affin avbildning är \textit{nästan} samma sak som en linjär avbildning, men inte riktigt! Den tillåter translationer (flytta saker axel-parallellt). Alltså, ej en isometri.
 \par\bigskip
 \begin{theo}[Affin Avbildning]{thm:proj}
-  En avbildning $F:\R^n\to\R^n$ på formen $F(\bar{v}) = L(\bar{v})+\bar{b}$\par
-  \noindent Där $\bar{b}$ är en konstant vektor och $L:\R^n\to\R^n$, kallas för en \textbf{affin} avbildning
+  En avbildning $F:\R^n\to\R^n$ på formen $F(\overline{v}) = L(\overline{v})+\overline{b}$\par
+  \noindent Där $\overline{b}$ är en konstant vektor och $L:\R^n\to\R^n$, kallas för en \textbf{affin} avbildning
 \end{theo}
 \par\bigskip
 \noindent\textbf{Anmärkning:}
-\noindent I en linjär avbildning är den konstanta vektorn $\bar{b} = 0$, alltså är alla linjära avbildning affina.
+\noindent I en linjär avbildning är den konstanta vektorn $\overline{b} = 0$, alltså är alla linjära avbildning affina.
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent Betrakta följande avbildning: $\bar{F}(x,y) = (ax+by+e, cx+dy+f)$ $a,b,c,d,e,f\in\R$\par
+\noindent Betrakta följande avbildning: $\overline{F}(x,y) = (ax+by+e, cx+dy+f)$ $a,b,c,d,e,f\in\R$\par
 \noindent Det är +$e$ och +$f$ som gör avbildningen affin\par
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
@@ -22,12 +22,12 @@
 \noindent Alternativ notation:
 \begin{equation*}
   \begin{gathered}
-    \bar{F}\begin{pmatrix}x\\y\end{pmatrix} = \underbrace{\begin{pmatrix}2&3\\4&7\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}}_{\text{$L(\bar{v})$}}-\underbrace{\begin{pmatrix}1\\\pi\end{pmatrix}}_{\text{$\bar{b}$}}
+    \overline{F}\begin{pmatrix}x\\y\end{pmatrix} = \underbrace{\begin{pmatrix}2&3\\4&7\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}}_{\text{$L(\overline{v})$}}-\underbrace{\begin{pmatrix}1\\\pi\end{pmatrix}}_{\text{$\overline{b}$}}
   \end{gathered}
 \end{equation*}
 \par\bigskip
 \begin{theo}[Affin Transformation]{thm:transformation}
-  Om $det(\bar{L}) \neq 0$ så kallas $\bar{F}$ för en \textbf{affin transformation}. En affin transformation är en bijektion.
+  Om $det(\overline{L}) \neq 0$ så kallas $\overline{F}$ för en \textbf{affin transformation}. En affin transformation är en bijektion.
 \end{theo}
 \par\bigskip
 \begin{theo}[Euklidisk Transformation]{thm:euctrans}
@@ -39,15 +39,15 @@
 \noindent\textbf{Egenskaper:}
 \begin{itemize}
   \item $F,G\in Aff(n)\Rightarrow F\circ G\in Aff(n)$
-  \item Om $det(\bar{L})\neq0$ så är $\bar{F}$ inverterbar ($\bar{L}$ är inverterbar)
+  \item Om $det(\overline{L})\neq0$ så är $\overline{F}$ inverterbar ($\overline{L}$ är inverterbar)
   \item $id_{R^n}$ är affin 
 \end{itemize}
 \par\bigskip
 \begin{prf}[Egenskap 1]{prf:g}
   \begin{equation*}
     \begin{gathered}
-      F(\bar{v}) = L(\bar{v})+\bar{b}\qquad G(\bar{w}) = M(\bar{w})+\bar{c}\\
-      F(\bar{G}(\bar{w})) = F(\bar{M}(\bar{w})+\bar{c})=L(\bar{M}(\bar{w})+\bar{c})+\bar{b} = L(\bar{M}(\bar{w}))+L(\bar{c})+\bar{b}
+      F(\overline{v}) = L(\overline{v})+\overline{b}\qquad G(\overline{w}) = M(\overline{w})+\overline{c}\\
+      F(\overline{G}(\overline{w})) = F(\overline{M}(\overline{w})+\overline{c})=L(\overline{M}(\overline{w})+\overline{c})+\overline{b} = L(\overline{M}(\overline{w}))+L(\overline{c})+\overline{b}
     \end{gathered}
   \end{equation*}
 \end{prf}
@@ -55,24 +55,24 @@
 \begin{prf}[Egenskap 2]{prf:g2}
   \begin{equation*}
     \begin{gathered}
-      \bar{y} = \bar{F}(\bar{x}) = \bar{L}(\bar{x})+\bar{b}\\
-      \bar{F}^{-1}(\bar{y}) = \bar{L}^{-1}(\bar{y}-\bar{b})
+      \overline{y} = \overline{F}(\overline{x}) = \overline{L}(\overline{x})+\overline{b}\\
+      \overline{F}^{-1}(\overline{y}) = \overline{L}^{-1}(\overline{y}-\overline{b})
     \end{gathered}
   \end{equation*}
 \end{prf}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent Man kan betrakta Aff($n$) som en grupp, där identiteten är identitetsavbildningen ($\bar{b} = 0$, linjär identitet = enhetsmatrisen)
+\noindent Man kan betrakta Aff($n$) som en grupp, där identiteten är identitetsavbildningen ($\overline{b} = 0$, linjär identitet = enhetsmatrisen)
 \par\bigskip
 \noindent\textbf{Geometriska egenskaper hos Aff($n$)}\par
 \begin{itemize}
-  \item Om $l$ är en linjne, $\bar{F}\in AffA(n) \Rightarrow\bar{F}(l)$ är en linje
-  \item Om $l,l^{\prime}$ är paralella linjer så är $\bar{F}(l) = \bar{F}(l^{\prime})$
+  \item Om $l$ är en linjne, $\overline{F}\in AffA(n) \Rightarrow\overline{F}(l)$ är en linje
+  \item Om $l,l^{\prime}$ är paralella linjer så är $\overline{F}(l) = \overline{F}(l^{\prime})$
   \item Om två kurvor skär varandra transversellt så gäller detsamma bilderna av kurvorna 
-  \item Säg att vi har 4 punkter på en linje, så bevarar $\bar{F}$ längdförhållandet mellan dem:
+  \item Säg att vi har 4 punkter på en linje, så bevarar $\overline{F}$ längdförhållandet mellan dem:
     \begin{equation*}
       \begin{gathered}
-        \dfrac{\left|\bar{AB}\right|}{\left|\bar{CD}\right|} = \dfrac{\left|\bar{F(A)}\bar{F(B)}\right|}{\left|\bar{F(C)}\bar{F(D)}\right|}
+        \dfrac{\left|\overline{AB}\right|}{\left|\overline{CD}\right|} = \dfrac{\left|\overline{F(A)}\overline{F(B)}\right|}{\left|\overline{F(C)}\overline{F(D)}\right|}
       \end{gathered}
     \end{equation*}
 \end{itemize}
@@ -81,22 +81,22 @@
 \noindent Affina avbildningar bevarade nödvändigtvis inte längder och vinklar, men 4:e egenskapen här verkar tyda på att någonting bevaras.
 \par\bigskip
 \begin{theo}
-  SSäg att vi har en affin transformation $\bar{F}\in Aff(n)$, vi inducerar en avbildning:
+  SSäg att vi har en affin transformation $\overline{F}\in Aff(n)$, vi inducerar en avbildning:
   \begin{equation*}
     \begin{gathered}
       \R[x_1,x_2\cdots,x_n]\underbrace{\to}_{\text{$F^*$}}\R[x_1,x_2,\cdots,x_n]\\
-      \underbrace{\R^n\underbrace{\to}_{\text{$F$}}\R^n\underbrace{\to}_{\text{$f$}}\R}_{\text{$f\circ F$}}\qquad f\mapsto f\circ \bar{F}
+      \underbrace{\R^n\underbrace{\to}_{\text{$F$}}\R^n\underbrace{\to}_{\text{$f$}}\R}_{\text{$f\circ F$}}\qquad f\mapsto f\circ \overline{F}
     \end{gathered}
   \end{equation*}
 \end{theo}
 \par\bigskip
 \noindent\textbf{Exempel:}
 \par
-\noindent Betrakta följande avbildning: $\bar{F}:\R^2\to\R^2$ sådant att $(x,y)\mapsto(x+y,x-y)$.\par
+\noindent Betrakta följande avbildning: $\overline{F}:\R^2\to\R^2$ sådant att $(x,y)\mapsto(x+y,x-y)$.\par
 \noindent $f\in \R[x,y] = x^2+y^2$ ger följande:
 \begin{equation*}
   \begin{gathered}
-    F^*(f)(x,y) = f\circ\bar{F}(x,y)\\
+    F^*(f)(x,y) = f\circ\overline{F}(x,y)\\
     (x+y)^2+(x-y)^2 = 2(x^2+y^2)
   \end{gathered}
 \end{equation*}
@@ -132,7 +132,7 @@
 \end{prf}
 \par\bigskip
 \begin{theo}[Affint ekvivalens]{thm:affinequiv}
-  Låt $f,g\in\R[x_1,\cdots,x_n]$. Vi säger att $f$ och $g$ är \textbf{affint ekvivalenta} om det finns en affin transformation $\bar{F}:\R^n\to\R^n$ och ett tal ($\lambda\neq0$) så att:
+  Låt $f,g\in\R[x_1,\cdots,x_n]$. Vi säger att $f$ och $g$ är \textbf{affint ekvivalenta} om det finns en affin transformation $\overline{F}:\R^n\to\R^n$ och ett tal ($\lambda\neq0$) så att:
   \begin{equation*}
     \begin{gathered}
       F^*(f) = \lambda g

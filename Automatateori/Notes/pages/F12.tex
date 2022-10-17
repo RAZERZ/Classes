@@ -201,7 +201,7 @@
     \begin{tikzpicture}
       \node[state](p0){$p$};
       \node[state, right of=p0, xshift=1cm](p1){$q$};
-      \path[-stealth] (p0) edge[above, bend left] node{$\bar{\sigma_1}$} (p1);
+      \path[-stealth] (p0) edge[above, bend left] node{$\overline{\sigma_1}$} (p1);
     \end{tikzpicture}
     \caption{}
 \end{figure}\par
@@ -294,7 +294,7 @@
       \node[initial left, initial text=](p0){$R$};
       \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
       \path[-stealth] (p0) edge[above] node{$a$} (p1);
-      \path[-stealth] (p0) edge[loop below] node{$\bar{a}$} (p0);
+      \path[-stealth] (p0) edge[loop below] node{$\overline{a}$} (p0);
     \end{tikzpicture}
     \caption{$R_a$ - Söker efter första rutan till höger som har ett $a$, varpå termination}
 \end{figure}\par
@@ -303,13 +303,13 @@
     \begin{tikzpicture}
       \node[initial left, initial text=](p0){$R$};
       \node[state, accepting, right of=p0, xshift=1cm](p1){$H$};
-      \path[-stealth] (p0) edge[above] node{$\bar{a}$} (p1);
+      \path[-stealth] (p0) edge[above] node{$\overline{a}$} (p1);
       \path[-stealth] (p0) edge[loop below] node{$a$} (p0);
     \end{tikzpicture}
-    \caption{$R_{\bar{a}}$ - Söker efter första rutan till höger som inte innehåller ett $a$, varpå termination}
+    \caption{$R_{\overline{a}}$ - Söker efter första rutan till höger som inte innehåller ett $a$, varpå termination}
 \end{figure}\par
 \noindent Figure 83 och Figure 84 kallas för \textit{teckenletare}.\par
-\noindent $L_a$ och $L_{\bar{a}}$ fungerar på samma sätt, förutom att de söker till vänster istället för till höger.
+\noindent $L_a$ och $L_{\overline{a}}$ fungerar på samma sätt, förutom att de söker till vänster istället för till höger.
 \par\bigskip
 \noindent Följande kallas en "vänsterskiftare", och betecknas med $S_L$. Det finns givetvis motsvarande som kallas för "högerskiftare":
 \begin{figure}[ht!]

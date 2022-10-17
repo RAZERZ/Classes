@@ -99,19 +99,19 @@
 \noindent Om $L$ accepteras av någno TM så säger vi att $L$ är accepterbart
 \par\bigskip
 \begin{theo}
-  OOm $L$ är avgörbart så är $\bar{L}$ avgörbart och $L$ accepterbart
+  OOm $L$ är avgörbart så är $\overline{L}$ avgörbart och $L$ accepterbart
 \end{theo}
 \par\bigskip
 \begin{theo}
-  OOm både $L$ och $\bar{L}$ är accepterbara så är $L$ avgörbart
+  OOm både $L$ och $\overline{L}$ är accepterbara så är $L$ avgörbart
 \end{theo}
 \par\bigskip
 \noindent\textbf{Bevisskiss:}\par
-\noindent Antag att $M_1$ accepterar $L$ och $M_2$ accepterar $\bar{L}$\par
+\noindent Antag att $M_1$ accepterar $L$ och $M_2$ accepterar $\overline{L}$\par
 \noindent Låt $M$ vara en TM som på input $w$ kopierar $w$ till $\#w\#w$ och kör igång $M_1$ på den första kopian av $w$ och $M_2$ på den andra kopian av $w$
 \par\bigskip
 \noindent Så $M_1$ och $M_2$ arbetar "parallellt" på varsin kopia av $w$\par
-\noindent Förr eller senare så stannar precis en av $M_1$ eller $M_2$ (eftersom $w\in L$ eller $w\in\bar{L}$)\par
+\noindent Förr eller senare så stannar precis en av $M_1$ eller $M_2$ (eftersom $w\in L$ eller $w\in\overline{L}$)\par
 \noindent Om $M_1$ stannar så skriver $M$ "ja" på tapen och stannar\par
 \noindent Om $M_2$ stannar så skriver $M$ "nej" på tapen och stannar\par
 \noindent Detta $M$ avgör $L$
