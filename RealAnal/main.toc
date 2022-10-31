@@ -7,3 +7,5 @@
 \contentsline {subsubsection}{\tocsubsubsection {}{1.4.1}{Domän, kodomän}}{4}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.4.2}{Bilden}}{4}{subsubsection.1.4.2}%
 \contentsline {subsection}{\tocsubsection {}{1.5}{Pullback \& Pushforward}}{5}{subsection.1.5}%
+\contentsline {subsection}{\tocsubsection {}{1.6}{Abstrakt algebra}}{5}{subsection.1.6}%
+\contentsline {subsection}{\tocsubsection {}{1.7}{Kardinalitet}}{6}{subsection.1.7}%

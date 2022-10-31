@@ -124,3 +124,100 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Pushforward är invariant under union \textbf{och} snitt\par
+\noindent Pullback är \textbf{enbart} invariant under union (annars, låt $f(x) = x^2$ och visa vad som händer med $f_*(\left\{-1\right\})$ resp. $f_*(\left\{1\right\})$)
+\par\bigskip
+\noindent Detta följer från definitionen och påminner lite om lagen om total sannolikhet från kursen Sannolikhetsteori 1.
+\par\bigskip
+\subsection{Abstrakt algebra}\hfill\\\par
+\begin{theo}[Ordnad kropp]{thm:orderedfield}
+  Låt $\mathbb{F}$ vara en kropp med en strikt ordning $<$ så att:\par
+  \begin{itemize}
+    \item $x,y,z\in\mathbb{F}$ och $y<z$ så är även $x+y<x+z$
+    \item $x,y\in\mathbb{F}$ och $x,y>0$ så är även $xy>0$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Vektorrum över kropp]{thm:vectorrmoverfield}
+  En mängd $V$ är ett vektorrum över en kropp $\mathbb{F}$ om vi har följande 2 avbildningar:
+  \begin{equation*}
+    \begin{gathered}
+      V\times V\stackrel{+}{\to}V\qquad \mathbb{F}\times V\stackrel{\cdot}{\to} V\\
+      (v,w)\mapsto v+w\qquad(\alpha, v)\mapsto\alpha v
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Stödet till en avbildning]{thm:support}
+  Låt $f:M\to\mathbb{F}$ där $\mathbb{F}$ är en kropp. Vi definierar
+  \begin{equation*}
+    \begin{gathered}
+    \text{supp}(f) = \left\{m\in M\;|\; f(m)\neq0\right\}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vi kan generalisera detta till avbildningar över vektorrum $V$ och definiera:
+  \begin{equation*}
+    \begin{gathered}
+      V_{\text{fin}} = \left\{f\in V\;|\; \text{supp}(f)\text{ ändlig}\right\}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Vi har i andra kurser kikat på hur vi kan kvota mängder med ideal. Vi kan även kvota med ekvivalensrelationer enligt följande:
+\begin{equation*}
+  \begin{gathered}
+    M/_\sim\quad = \left\{[x]\in\mathcal{P}(M)\;|\; x\in M\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Givet en binär komposition $*$ över $M$ och en ekvivalensrelation $\sim$ säger vi att $\sim$ \textbf{respekterar} $*$ om:
+\begin{equation*}
+  \begin{gathered}
+    x\sim x^{\prime}\quad\& y\sim y^{\prime} \Rightarrow x*y\sim x^{\prime}*y^{\prime}\qquad\forall x,y\in M
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan då defniera den \textit{inducerade binära kompositionen} $\overline{*}$ på $M/_\sim$ genom:
+\begin{equation*}
+  \begin{gathered}
+    M/_\sim\times M/_\sim\stackrel{\overline{*}}{\to} M/_\sim\\
+    \left([x],[y]\right)\mapsto [x*y]
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Kardinalitet}\hfill\\\par
+\noindent Två mängder har samma kardinalitet om det finns en bijektion mellan de.
+\par\bigskip
+\noindent Vi säger att en mängd $A$ är uppräknelig om det finns en bijektion mellan $A$ och $\N$.\par
+Om det inte finns en bijektion säger vi att $A$ är överuppräknelig.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $A_1,A_2,\cdots,$ är uppräkneliga så är deras union uppräkneliga.
+\par\bigskip
+\begin{theo}[Cantors sats]{thm:cantorsthm}
+  Låt $X$ vara en mängd. Det finns \textbf{ingen} surjektion från $X$ till $\mathcal{P}(X)$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Schröder-Bernsteins sats]{thm:schroderbernthm}
+  Betrakta följande:
+  \begin{equation*}
+    \begin{gathered}
+      X\stackrel{f}{\to}Y\quad Y\stackrel{g}{\to}X
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Om $f,g$ är injektiva så finns en bijektion $X\stackrel{h}{\to}Y$
+\end{theo}
+\par\bigskip
+\noindent För att visa detta krävs följande sats:
+\par\bigskip
+\begin{theo}[Tarskis fixpunktssats]{thm:tarskifixpointthm}
+  Antag att $F:\mathcal{P}(X)\to\mathcal{P}(X)$ är monotont växande, dvs
+  \begin{equation*}
+    \begin{gathered}
+      A\subseteq B\Rightarrow F(A)\subseteq F(B)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Då finns det $M\subseteq X$ så att $F(M) = M$
+\end{theo}
