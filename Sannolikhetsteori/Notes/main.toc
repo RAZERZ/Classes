@@ -38,3 +38,12 @@
 \contentsline {subsection}{\tocsubsection {}{12.1}{Egenskaper för mgf}}{61}{subsection.12.1}%
 \contentsline {section}{\tocsection {}{13}{Konvergens av slumpvariabler \& centrala gränsvärdessatsen}}{63}{section.13}%
 \contentsline {subsection}{\tocsubsection {}{13.1}{Konvergens av slumpvariabler}}{63}{subsection.13.1}%
+\contentsline {section}{\tocsection {}{14}{Anmärkning om formelsamling}}{67}{section.14}%
+\contentsline {section}{\tocsection {}{15}{Räkna gamla tentor - 2021-12-22}}{68}{section.15}%
+\contentsline {subsection}{\tocsubsection {}{15.1}{Uppgift 1}}{68}{subsection.15.1}%
+\contentsline {subsection}{\tocsubsection {}{15.2}{Uppgift 2}}{68}{subsection.15.2}%
+\contentsline {subsection}{\tocsubsection {}{15.3}{Uppgift 3}}{69}{subsection.15.3}%
+\contentsline {subsection}{\tocsubsection {}{15.4}{Uppgift 4}}{69}{subsection.15.4}%
+\contentsline {subsection}{\tocsubsection {}{15.5}{Uppgift 5}}{69}{subsection.15.5}%
+\contentsline {subsection}{\tocsubsection {}{15.6}{Uppgift 7}}{70}{subsection.15.6}%
+\contentsline {subsection}{\tocsubsection {}{15.7}{Uppgift 8}}{70}{subsection.15.7}%

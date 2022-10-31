@@ -1,0 +1,126 @@
+\section{Introduction}\par
+\noindent Before proving injectivity \& surjectivity, first show it is a function 
+\par\bigskip
+\noindent Give an example of:\par
+\begin{itemize}
+  \item Abelian group (and non-abelian)
+  \item Non-commutative ring
+  \item Commutative ring which is not a field
+\end{itemize}
+\newpage
+\subsection{Sammanfattning Kap2}\hfill\\
+\subsection{Notation}\hfill\\\par
+\noindent Vi använder ett "$+$" för att beteckna om mängden innehåller positiva element. Om det är känt att mängden innehåller negativa element behöver vi tydliggöra om 0 finns i mängden, det finns olika notation.
+\par\bigskip
+\noindent Vi skriver "upphöjt i +" för att visa att mängden är helt positivt (innehåller ingen 0), och "nedsänkt i +" för att visa att mängden är positiv men innehåller 0.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent De positiva reella talen: $\R^+$\par
+\noindent Icke-negativa rella talen: $\R_+$
+\par\bigskip
+\subsection{Relationer}\hfill\\\par
+\noindent En relation $R$ på en mängd $M$ är:
+\begin{equation*}
+  \begin{gathered}
+    R\subseteq M\times M
+  \end{gathered}
+\end{equation*}
+\noindent Vi har 5 "adjektiv" att beskriva våra relationer med:\par
+\begin{itemize}
+  \item Reflexiv ($xRx\quad\forall x\in M$)
+  \item Symmetrisk ($xRy\Rightarrow yRx\quad\forall x,y\in M$)
+  \item Antisymetrisk ($xRy\;\&\;yRx\Rightarrow x=y$)
+  \item Transitiv ($xRy\;\&\;yRz\Rightarrow xRz\quad\forall x,y,z\in M$)
+  \item Connex ($xRy\text{ eller } yRx\quad\forall x,y\in M$)
+\end{itemize}
+\par\bigskip
+\noindent Som exempel på dessa kan man betrakta relationen $=$ eller relationen $<$ över $R$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $A = \left\{a,b\right\}$ och potensmängden till $A$ vara $\mathcal{P}(A) = \left\{\O,\left\{a\right\},\left\{b\right\},\left\{a,b\right\}\right\}$\par
+\noindent Vilka av de 5 kraven uppfylls om relationen är $\subseteq$?
+\par\bigskip
+\noindent För att lösa detta så kommer vi ihåg att relationer är definierade på mängdens kartesiska produkt, så vi har i själva verket en relation $\subseteq$ över $\mathcal{P}(A)\times\mathcal{P}(A)$\par
+\noindent Vi kollar reflexivitet. Om vi tar ett element från $\mathcal{P}(A)$, är det då en delmängd till sig själv? \textbf{Ja, en mängd är alltid delmängd till sig själv}. Viktigt att notera att den inte är en äkta delmängd!
+\par\bigskip
+\noindent Är relationen symmetrisk? Tag $\left\{a\right\}\in\mathcal{P}(A)$ och $\left\{a,b\right\}\in\mathcal{P}(A)$. Då gäller att $\left\{a\right\}\subseteq\left\{a,b\right\}$ men $\left\{a,b\right\}\not\subseteq\left\{a\right\}$. Eftersom relationen skulle gälla $\forall$ element i relationsmängden, så gäller \textit{inte} symmetri!
+\par\bigskip
+\noindent Är relationen antisymetrisk? Antisymetri gäller om $xRy\;\&\;yRx\Rightarrow x=y$, vi undersöker negationen, vilket är $xRy\;\&\; x\neq y\Rightarrow\neg yRx$. Detta säger i princip "om $x$ är delmängd till $y$ och $x$ inte är lika med $y$ så är $y$ inte en delmängd till $x$", vilket vi vet gäller.
+\par\bigskip
+\noindent Är relationen transitiv? Ja, om $x$ är en delmängd till $y$ och $y$ är en delmängd till $z$ så gäller att $x$ är en delmäng till $z$
+\par\bigskip
+\noindent Connex? Ja.
+\par\bigskip
+\subsubsection{Klassifikationer av relationer}\hfill\\\par
+\noindent Vi har 3st Klassifikationer för relationer:\par
+\begin{itemize}
+  \item Ekvivalensrelation (reflexiv, symmetrisk, transitiv)
+  \item Partiell ordning (reflexiv, antisymetrisk, transitiv)
+  \item Total ordning (connex, reflexiv, antisymetrisk, transitiv)
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent En total ordning är en connex partiell ordning.
+\par\bigskip
+\noindent\textbf{Exempel:} (Ekvivalensrelation)\par
+\noindent $=$ (likhet) är en ekvivalensrelation
+\par\bigskip
+\noindent\textbf{Exempel:} (Partiell ordning)\par
+\noindent $\leq$  är en partiell ordning (men inte en ekvivalensrelation)
+\par\bigskip
+\noindent\textbf{Exempel:} (Total ordning)\par
+\noindent $\leq$ är en total ordning 
+\par\bigskip
+\subsection{Funktioner}\hfill\\\par
+\subsubsection{Domän, kodomän}\hfill\\
+\noindent En funktion (eller även kallad en avbildning) definierad från en \textit{domän} $A$ till en \textit{kodomän} $B$, kan ses som en delmängd till $A\times B$.\par
+\noindent Denna brukar även kallas för \textit{grafen} till funktionen.\par
+\noindent Om $f:A\to B$ så är alltså grafen($f$) $\subseteq A\times B$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent För varje $x\in A$ så finns det ett \textit{unikt} $y\in B$ så att $f(x) = y$ (alternativ beteckning: $(x,y)\in$ graf($f$))
+\par\bigskip
+\subsubsection{Bilden}\hfill\\\par
+\noindent Något som verkar lite förvirrande först är att kodomänen inte är bilden av funktionen. Om vi exempelvis betraktar $f:\R\to\C$ $x\mapsto x$ så ser vi att de värden som faktiskt "träffas" är hela $\R$, vilket är en delmängd till $\C$ men inte hela $\C$!
+\par\bigskip
+\begin{theo}[Bilden till en avbildning]{thm:img}
+  \begin{equation*}
+    \begin{gathered}
+      f:A\to B\\
+      f(A) = \left\{y\in B\;|\;\exists x\in A\text{ s.t } y=f(x)\right\}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item Om $f,g$ är injektiva, så är $g\circ f$ injektiv
+  \item Om $f,g$ är surjektiva, så är $g\circ f$ surjektiv 
+  \item Om $f,g$ är bijektiv, så är $g\circ f$ bijektiv
+\end{itemize}
+\newpage
+\subsection{Pullback \& Pushforward}\hfill\\\par
+\noindent Antag att vi har en avbildning $f: X\to Y$, då gäller följande:
+\par\bigskip
+\begin{theo}[Pullback]{thm:pullback}
+  Inte hela kodomänen träffas av en avbildning/funktion. Det beror på vad domänen är (och hur funktionen ser ut).\par
+  \noindent Vi kan däremot korta ner domänen och undersöka hur det påverkar bilden av avbildningen, detta är \textit{pullback}:
+  \begin{equation*}
+    \begin{gathered}
+      f_*(A) = \left\{f(x)\in Y\;|\; x\in A\right\} = f(A)\qquad A\subseteq\mathcal{P}(X)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  $A\subseteq X\Rightarrow X\subseteq\mathcal{P}(X)$, samt att $f_*\subseteq Y\Lrarr f_*\subseteq\mathcal{P}(Y)$\par
+  Vi har då $f_*:\mathcal{P}(X)\to\mathcal{P}(Y)$
+\end{theo}
+\par\bigskip
+\begin{theo}[Pushforward]{thm:pushforward}
+  Liknande/Motsatsen gäller för \textit{pushforward}. Här vill vi undersöka vad som händer med domänen om vi betraktar en delmängd till kodomänen:
+  \begin{equation*}
+    \begin{gathered}
+      f^*(B) = \left\{x\in X\;|\; f(x)\in B\right\}\qquad B\subseteq\mathcal{P}(Y)
+    \end{gathered}
+  \end{equation*}
+\end{theo}

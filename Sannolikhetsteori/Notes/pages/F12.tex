@@ -1,0 +1,158 @@
+\section{Räkna gamla tentor - 2021-12-22}\par
+\subsection{Uppgift 1}\hfill\\\par
+\noindent Sannolikheten att alla har samma färg är kombinatorik. Antingen har vi plockat 4st vita, 4st blå eller 4st gröna. På hur många sätt kan man välja 4st gröna? Jo $\begin{pmatrix}8\\4\end{pmatrix}$st sätt att välja 4 gröna, $\begin{pmatrix}6\\4\end{pmatrix}$ 4st blå, osv osv.\par
+\noindent Totalt har vi $\begin{pmatrix}8\\4$$\end{pmatrix}+\begin{pmatrix}6\\4\end{pmatrix}+\begin{pmatrix}4\\4\end{pmatrix}$ och totalt finns det 18st val får vi att sannolikheten är:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\begin{pmatrix}8\\4$$\end{pmatrix}+\begin{pmatrix}6\\4\end{pmatrix}+\begin{pmatrix}4\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Sannolikheten att det finns minst en boll av alla färger bland de 4 plockade. Detta kan löses kombinatoriskt, eller så kan vi lösa det sannolikhetsteoretiskt.\par
+\noindent Låt $A=$ minst en grön boll, $B = $ minst en blå boll, $C=$ minst en vit\par
+\noindent Vi söker då $P(A\cap B\cap C)$. Notera att $P(A\cup B\cup C) = 1$.\par
+\noindent $P(A\cup B) = 1-P(\text{alla vita}) = 1- \dfrac{\begin{pmatrix}4\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\\
+\noindent $P(A\cup C) = 1-P(\text{alla blå}) = 1-\dfrac{\begin{pmatrix}6\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $P(B\cup C) = 1-\dfrac{\begin{pmatrix}8\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $P(A) = 1-P(\text{alla blå och vit}) = 1-\dfrac{\begin{pmatrix}10\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $P(B) = 1-\dfrac{\begin{pmatrix}12\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $P(C) = 1-\dfrac{\begin{pmatrix}14\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $\overbrace{P(A\cup B\cup C)}^{\text{=1}} = P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap)+P(A\cap B\cap C)$\par
+\noindent $P(A\cap B) = P(A)+P(B)-P(A\cup B) = 1-\dfrac{\begin{pmatrix}10\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}+1-\dfrac{\begin{pmatrix}12\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}-1+\dfrac{\begin{pmatrix}4\\4\end{pmatrix}}{\begin{pmatrix}18\\4\end{pmatrix}}$\par
+\noindent $P(A\cap C)$ och $P(B\cap C)$ räknas ut på samma sätt.\par
+\noindent Lös ut $P(A\cap B\cap C)$ och stoppa in värdena.
+\par\bigskip
+\subsection{Uppgift 2}\hfill\\\par
+\noindent  Axiomen är triviala. Att $F$ inträffar när $E$ inträffar, så betyder det att $E\subseteq F$ \par
+\noindent $F = \underbrace{E\cup (F\backslash E)}_{\text{disjunkta}}$, då kan vi summera sannolikheterna:
+\begin{equation*}
+  \begin{gathered}
+    P(F) = P(E)+\underbrace{P(F\backslash E)}_{\text{$\geq0$}}\geq P(E)+0 = P(E)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Uppgift 3}\hfill\\\par
+\noindent $X\sim Bin(n,p) = E(X) = np, Var(X) = np(1-p)$ (finns i formelsamlingen)
+\begin{equation*}
+  \begin{gathered}
+    E(Z) = 2E(X) + E(Y) = 2\cdot5\cdot0.1+10\cdot0.2 = 3\\
+    Var(Z) \stackrel{ober.}{=} Var(2X)+Var(Y) = 4Var(X)+Var(Y)=4\cdot5\cdot0.1\cdot(1-0.1)+10\cdot0.2\cdot0.8 = 3.4
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent För att bestämma sannolikheten att $Z=2$ kollar vi på vad det betyder att $Z=2$:
+\begin{equation*}
+  \begin{gathered}
+    Z=2 \Lrarr \left\{(0,2),(1,0)\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är disjunkta händelser:
+\begin{equation*}
+  \begin{gathered}
+    P(X=0\& Y=2)+P(X=1\&Y=0) = P(X=0)P(Y=2)+P(X=1)P(Y=0)\\
+    0.9^5\cdot\begin{pmatrix}10\\2\end{pmatrix}0.2^2(1-0.2)^{10-2}+5\cdot0.1\cdot0.9^4\cdot0.8^{10}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Uppgift 4}\hfill\\\par
+\noindent Sannolikheten att en slumpmässig planta ger en grön avkomma.\par
+\noindent Vi vet att $P(A) = 1/9$, $P(B)=P(C) = 4/9$ samt\par
+\noindent $P(\text{Grön}|A) = 1$, $P(\text{Grön}|B) = 3/4$\par
+\noindent  $P(\text{Grön}|C) = 9/16$\par
+\noindent Vi använder lagen om total sannolikhet för att hitta $P(\text{Grön})$:
+\begin{equation*}
+  \begin{gathered}
+    P(\text{Grön}) = P(\text{Grön}|A)P(A) + P(\text{Grön}|B)P(B)+ P(\text{Grön}|C)P(C)\\
+    = \dfrac{25}{36}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om avkomman är grön, vad är då sannolikheten att den kommer från $A,B,C$?\par
+\noindent Vi söker alltså $P(A|\text{Grön})$ osv. Vi kan vända på betigningen:
+\begin{equation*}
+  \begin{gathered}
+    P(A|\text{Grön}) = \dfrac{P(\text{Grön}|A)P(A)}{P(\text{Grön})}\\
+    = \dfrac{1\cdot1/9}{25/36} = \dfrac{4}{25}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Uppgift 5}\hfill\\\par
+\noindent Centrala gränsvärdessatsen för att visa:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{n\to\infty} e^{-n}\sum_{k=1}^{n}\dfrac{n^k}{k!} = 0.5
+  \end{gathered}
+\end{equation*}\par
+\noindent Notera, detta ser lite ut som:
+\begin{equation*}
+  \begin{gathered}
+    X_n\sim Po(n)\Rightarrow P(X_n=k) = \dfrac{e^{-n}n^k}{k!}
+  \end{gathered}
+\end{equation*}\par
+\noindent Det är som att vi summerar $Po(n)$, vi får då:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{n\to\infty} e^{-n}\sum_{k=1}^{n}\dfrac{n^k}{k!} = P(1\leq X_n\leq n)
+  \end{gathered}
+\end{equation*}\par
+\noindent Om $Y_1,Y_2,\cdots\sim Po(1)$ (och oberoende), då kommer:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{k=1}^{n}Y_k \sim Po(n)
+  \end{gathered}
+\end{equation*}\par
+\noindent Om vi byter ut $k=1$ mot 0:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{e^{-n}\sum_{k=0}^{n}\dfrac{n^k}{k!}}_{\text{$f_X$ för $X\sim Po(n)$}} = P(\overbrace{Y_1+\cdots+Y_n}^{\text{$n\cdot\overline{Y_n}$}}\leq n)
+  \end{gathered}
+\end{equation*}\par
+\noindent För en poisson $n$ fördlening gäller att $E(X_n) = n$ och $Var(X_n)= n$:
+\begin{equation*}
+  \begin{gathered}
+    = P(\overline{Y_n}\leq 1) = P(\underbrace{\overline{Y_n}-1}_{\text{$E(\overline{Y_n})$}}\leq 0)\\
+    = P\left(\dfrac{\overline{Y_n}-n}{D(\overline{Y_n})\leq0}\right)\\
+    \stackrel{CGS}{\Rightarrow}\Phi(0) = 0.5\\
+    \lim_{n\to\infty}e^{-n}\sum_{k=0}^{n}\dfrac{n^k}{k!} = 0.5\\
+    e^{-n}\sum_{k=1}^{n}\dfrac{n^k}{k!} = \left(e^{-n}\sum_{k=0}^{n}\dfrac{n^k}{k!}\right)-e^n\to 0.5
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Uppgift 7}\hfill\\\par
+\noindent Lösning till $a$:
+\begin{equation*}
+  \begin{gathered}
+    \psi_{X_1+X_2}(t)\stackrel{ober.}{=} = \psi_{X_1}(t)\psi_{X_2}(t) = (1-2t)^{-n_1/2}(1-2t)^{-n_2/2}\\
+    = (1-2t)^{-(n_1+n_2)/2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Kom ihåg att $E(X^k)= \psi^{(k)})(0)$, vi får:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \dfrac{d}{dt}(1-2t)^{-n/2}|_{_t=0} = \left(\dfrac{-n}{2}\right)(1-2t)^{-\dfrac{n}{2}-1}\cdot(-2)\\
+    = n(1-2\cdot0)^{\dfrac{-n}{2}-1} = n\\
+    E(X^2) = \psi_X^{\prime\prime}(0)= \dfrac{d}{dt}n(1-2)^{-n/2-1}|_{_t=0}\\
+    \Rightarrow n(n+2)\\
+    Var(X)=E(X^2)-(E(X))^2 = n(n+2)-n^2 = n^2+2n-n^2=2n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Uppgift 8}\hfill\\\par
+\noindent Finns 2 metoder, man kan räkna ut fördelningsfunktionen och ta gränsvärdet och försöka lösa det, eller så tar man gränsvärdet av momentgenererande funktionen och försöker identifiera den med en fördelning\par
+\noindent Vi vill hitta $\lim_{n\to\infty}F_{X_n}(t) = \lim_{n\to\infty}P(X_n\leq t)$:
+\begin{equation*}
+  \begin{gathered}
+    t\in\N
+    P(X_n\leq t) = 1-P(X_n> t) = 1-\left(1-\dfrac{\lambda}{\lambda+n}\right)^{t+1}\\
+    P(X_n\leq t) = 0,\; t<0\\
+    t>0\Rightarrow P(X_n/n\leq t) = 1-\left(1-\dfrac{\lambda}{\lambda+n}\right)^{\left\lfloor t\right\rfloor+1}\\
+    P\left(\dfrac{X_n}{n}\leq t\right) = 1-\left(1-\dfrac{\lambda}{\lambda+n}\right)^{\left\lfloor nt\right\rfloor+1}\\
+    \Rightarrow\lim_{n\to\infty}\left(1-\dfrac{\lambda}{\lambda+n}\right)^{\left\lfloor nt\right\rfloor+1}\\
+    \Rightarrow\lim_{m\to\infty}\left(1-\dfrac{\lambda}{m}\right)^{mt-m\lambda}\qquad m = \lambda+n\\
+    = \lim_{m\to\infty}\underbrace{\left(1-\dfrac{\lambda}{m}\right)^{mt}}_{\text{$e^{-\lambda t}$}}\cdot\underbrace{\left(1-\dfrac{\lambda}{m}\right)^{-\lambda t}}_{\text{1}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $\left\lfloor t\right\rfloor$ = största heltal $\leq t$
