@@ -48,7 +48,7 @@
     \end{tikzpicture}
     \caption{}
 \end{figure}
-\par\bigskip
+\newpage
 \noindent\textbf{Parallell edges}:\par
 \noindent $\iota(e) = \iota(e^{\prime})$
 \begin{figure}[ht!]
@@ -72,7 +72,10 @@
     \end{tikzpicture}
     \caption{$v$ is \textit{incident} to $e$ and a neighbour to $w$}
 \end{figure}
-\newpage
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent A loop means the vertex belongs to its own Neighbourhood. 
+\par\bigskip
 \begin{theo}[Finite graph]{thm:finite}
   We say that a graph $G$ is finite if we have:
   \begin{equation*}
@@ -97,11 +100,11 @@
 \par\bigskip
 \begin{theo}[Circuit]{thm:circuit}
   A \textit{circuit} is a trail where first and last vertex coincide.\par
-  \noindent Meaning I start somewhere, dont repeat edges, and return at start place (\textbf{CHECK}) 
+  \noindent Meaning I start somewhere, dont repeat edges, and return at start place  
 \end{theo}
 \par\bigskip
 \begin{theo}[Cycle]{thm:cycle}
-  A \textit{cycle} is a circuit where those are the only vertices coinciding
+  A \textit{cycle} is a circuit where the first and last vertices are the only vertices coinciding
 \end{theo}
 \par\bigskip
 \noindent\textbf{Example:}\par
@@ -111,7 +114,7 @@
 \noindent\textbf{Anmärkning:}\par
 \noindent Every path is a trail.\par
 \noindent Every cycle is a circuit.
-\newpage
+\par\bigskip
 \begin{theo}[Eulerian trails]{thm:euleriantrail}
   A trail is called \textit{Eulerian} if it uses every edge in the graph
 \end{theo}
@@ -159,7 +162,7 @@
   \par\bigskip
   \noindent In $\Leftarrow$ direction. Assume $G = (V,E\iota)$ is finite, connected, and only has even degrees.\par
   \noindent Assume $G$ as no loops (convenience). We dont know if we can build an Eulerian circuit or even if we have a circuit, but we know that there is a trail (since it is connected)\par
-  \noindent Therefore, consider a circuit/trail $J = v_0e_1v_1\cdots e_kv_k$. (\textbf{CHECK})\par
+  \noindent Therefore, consider a trail $J = v_0e_1v_1\cdots e_kv_k$. \par
   \noindent Since the graph is finite, then there is a maximum trail, suppose $J$ is a maximum trail (implying max length $k$). Then we cant possibly extend it, so any edge we see at $k$ must already be on the trail.\par
   \noindent What we want to show is that $v_0=v_k$ because of this. Then we actually have a circuit.\par
   \noindent Therefore, assume there are $2s\quad (s\in\N)$ edges incident to $v_k$. We know there is an even number of edges (because we excluded loops).\par
@@ -179,6 +182,7 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent If we have loops, we can simply traverse these loops and add them to our trail. This will not affect the proof.
+\par\bigskip
 \noindent\textbf{Corollary:}\par
 \noindent A finite connected graph admits an Eulerian trail iff either 0 or 2 of its vertex degrees are odd
 \par\bigskip
@@ -186,10 +190,15 @@
 \noindent If we have 2 vertices of odd degree, then we can draw an additional edge between $v,w$. This means that both of the vertices that had odd degrees have gotten their degrees bumped up by one, so they know have even degree, which implies the theorem (is an Eulerian circuit), so it visits all the edges (and especially the new edge). Then we can remove the new edge from the Eulerian circuit, which gives an Eulerian trail in the original graph.
 \par\bigskip
 \noindent If we look at the statement of the corollary, it leaves a graph. What happens if it has 1 odd vertex degree? We are gonna show that this is impossible.
-\par\bigskip
+\newpage
 \begin{theo}[Handshake lemma]{thm:handshake}
   Let $G = (V,E,\iota)$ be a finite graph.\par
-  \noindent Then $2\left|E\right| = \sum_{v\in V}\text{deg}(v)$
+  \noindent Then
+  \begin{equation*}
+    \begin{gathered}
+      2\left|E\right| = \sum_{v\in V}\text{deg}(v)
+    \end{gathered}
+  \end{equation*}
   \par\bigskip
   \noindent In particular, $G$ has even number of vertices of odd degree. (odd+odd = even, even + even = even)
 \end{theo}
@@ -206,4 +215,4 @@
 \noindent Start with 0 edges on $V$, which implies all the degrees are 0. Then add edges 1 by 1. And whenever you add an edge, the RHS increases by 2.
 \par\bigskip
 \noindent What happens if we have 4 vertices of odd degree?\par
-\noindent We can partition $E = E_1\cup E_2$ such that $E_1$ is a edge set of a trail and so is $E_2$.
+\noindent We can partition $E = E_1\cup E_2$ such that $E_1$ is a edge set of a trail and so is $E_2$ (but $E_1\cap E_2=\O$)
