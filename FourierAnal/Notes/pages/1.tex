@@ -1,0 +1,73 @@
+\section{Bakgrund}\par
+\noindent Låt oss betrakta $f:[0,\pi]\to\R$ så att $f(0) = f(\pi) = 0$\par
+\noindent När kan vi skriva denna funktion $f(x)$ som en analytisk funktion (potensserie), det vill säga:
+\begin{equation}
+  \begin{gathered}
+    f(x) = \sum_{n=1}^{\infty} a_n\cdot\sin(n\cdot x)
+  \end{gathered}
+\end{equation}\par
+\noindent Där $a_n\in\R$ är konstanter.
+\par\bigskip
+\noindent Inte alla funktioner tillfredställer att intervallet $[0,\pi]$ ger en konvergerande potensserie för $f$, frågan man kan ställa sig är \textit{när kan vi skriva $f$ som en serie av trigonometriska funktioner?} 
+\par\bigskip
+\noindent Vi kommer inse att \textit{om} $f$ går att skriva som en potensserie av trigonometriska funktioner, så behöver vi hitta våra koefficienter. I fallet med MacLaurin serier så kom de ($a_n$) från derivatan.\par
+\noindent I detta fall kommer det från:
+\begin{equation*}
+  \begin{gathered}
+    a_n  = \dfrac{1}{n}\int_{0}^{\pi}f(x)\sin(nx)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent I någon mening kommer analys-delen av denna kurs från att vi studerar funktioner utifrån integraler, såsom den ovan.\par
+\noindent Integralen ovan är integral-transform. 
+\par\bigskip
+\noindent Vi kan även skriva:
+\begin{equation*}
+  \begin{gathered}
+    f(x) = \sum_{n=0}^{\infty}a_n\sin(nx)+b_n\cos(nx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Något mer vi kommer undersöka, är om vår fourierserie konvergerar, och om den konvergerar mot vår funktion (detta är inte alltid uppenbart)
+\par\bigskip
+\subsection{Komplexa exponentialer}\hfill\\\par
+\noindent Det finns en viktig eulerformel. Vi alla känner till $e^x$, men vad händer om $x = a+bi$?
+\par\bigskip
+\begin{theo}[Eulers formel]{thm:eulersform}
+  Vi får då $e^{a+bi} = \underbrace{e^a}_{\text{$\in\R$}}e^{ib} = e^a\left(\cos(b)+i\sin(b)\right)$ för varje $a,b\in\R$\par
+\end{theo}
+\par\bigskip
+\noindent Kom ihåg att vi kan representera komplexa tal med polära koordinater.\par
+\noindent Vi har då att varje komplext tal $a+bi$ kan representeras som $r = \sqrt{a^2+b^2}$. Vi får då $a+bi = re^{i\theta} = e^{\log(r)+i\theta}$
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Använd Eulers formel för att visa att $\cos(2x) = \left(\cos^2(x)-\sin^2(x)\right)$ och $\sin(2x) = 2\sin(x)\cos(x)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Komplexa exponentialer är \textit{inte} injektiva, alltså fungerar inte logaritmen.\par
+\noindent Exempelvis kan vi betrakta $e^{i2\pi} = e^{i0} = 1$
+\par\bigskip
+\begin{theo}[Fourierpolynomial]{thm:fourierpoly}
+  Är på formen:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=-N}^{N}c_k\cdot e^{ikx}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Kallas för polynom för att vi har $e^{ikx} = (e^{ix})^k$ som är ett monom i $e^{ix}$
+\end{theo}
+\par\bigskip
+\noindent Vi kan uttrycka Fourierpolynom m.h.a sinus och cosinus enligt följande:
+\begin{equation*}
+  \begin{gathered}
+      \sum_{k=-N}^{N}c_k\cdot e^{ikx} = \sum_{k=-N}^{N}c_k\left(\cos(kx)+i\sin(kx)\right)\\
+      = c_0 +\sum_{k=1}^{N}(c_k+c_{-k})\cos(kx)+i(c_k-c_{-k})\sin(kx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Detta är samma fourierpolynom som var på \textit{exponential form} i \textit{trigonometrisk form}
+\par\bigskip
+\subsection{Lebesgue integralen}\hfill\\\par
+\noindent Den vanliga definitionen av integralen som vi alla är vana vid är Riemann-integralen.

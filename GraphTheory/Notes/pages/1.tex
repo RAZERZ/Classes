@@ -1,0 +1,209 @@
+\section{Bridges of Köningsberg}\par
+\noindent This was the birth of graphtheory. The idea here is that the precise location of where the person is does not matter, only the placement of the bridges and mainland. Therefore, we can encode the position by an abstract point (\textit{vertex})  and connect these to \textit{edges} to represent bridges.
+\par\bigskip
+\subsection{Vocabulary}\hfill\\\par
+
+\noindent We therefore obtain the follwing:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p0$};
+      \node[state, below of=p0, yshift=-1cm, xshift=-.5cm](p1){$p1$};
+      \node[state, right of=p1, xshift=2cm](p2){$p2$};
+      \node[state, below of=p1, xshift=.5cm, yshift=-1cm](p3){$p3$};
+      \path[-stealth] (p0) edge[left, bend right] node{$a$} (p1);
+      \path[-stealth] (p0) edge[above, bend left] node{$e$} (p2);
+      \path[-stealth] (p1) edge[right, bend right] node{$b$} (p0);
+      \path[-stealth] (p1) edge[above] node{$g$} (p2);
+      \path[-stealth] (p1) edge[left, bend right] node{$c$} (p3);
+      \path[-stealth] (p3) edge[right, bend right] node{$d$} (p1);
+      \path[-stealth] (p3) edge[below, bend right] node{$f$} (p2);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\begin{theo}[Multigraph]{thm:multigraph}
+  A \textit{multigraph} $G$ is a tripple $G = (V,E,\iota)$ consisting of:\par
+  \begin{itemize}
+    \item A set $V$ of vertices
+    \item A set $E$ of edges
+    \item $\iota:E\to\left\{A\subseteq V\;|\; \left|A\right|=1\text{ or } \left|A\right| = 2\right\}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent $\iota(c) = \left\{2,3\right\} = \iota(d)$\par
+\noindent $\iota(e) = \left\{1,4\right\}$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Notice that the graphical view (and the placement of the vertices) is not reflected in the tripple, therefore we can draw the same graph in a completely different manner.
+\par\bigskip
+\noindent\textbf{Loops:}\par
+\noindent This is what happens when $\left|A\right|=1$:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$1$};
+      \path[-stealth] (p0) edge[loop above] node{} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent\textbf{Parallell edges}:\par
+\noindent $\iota(e) = \iota(e^{\prime})$
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$p0$};
+      \node[state, right of=p0, xshift=1cm](p1){$p1$};
+      \path[-stealth] (p0) edge[above, bend left] node{$e$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$e^{\prime}$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent\textbf{Neighbours/adjacent}:\par
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$v$};
+      \node[state, right of=p0, xshift=1cm](w){$p1$};
+      \path[-stealth] (p0) edge[above, bend left] node{$e$} (p1);
+    \end{tikzpicture}
+    \caption{$v$ is \textit{incident} to $e$ and a neighbour to $w$}
+\end{figure}
+\newpage
+\begin{theo}[Finite graph]{thm:finite}
+  We say that a graph $G$ is finite if we have:
+  \begin{equation*}
+    \begin{gathered}
+      \left|V\right|+\left|E\right|< \infty
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Walk]{thm:walk}
+  Let $G = (V,E,\iota)$ be a graph\par
+  \noindent A \textit{walk} of length $k$ is a sequence $v_0e_1v_1e_2v_2\cdots e_kv_k$ where as the notation suggests, $e_1,\cdots,e_k$ are edges and $v_0,\cdots,v_k$ are vertices such that $\iota(e_i) = \left\{v_{i-1},v_i\right\}$ for $i=1,\cdots,k$
+\end{theo}
+\par\bigskip
+\begin{theo}[Trail]{thm:trail}
+  A \textit{trail} is a walk that uses no edges twice. This is something we want in the Bridges of Köningsberg
+\end{theo}
+\par\bigskip
+\begin{theo}[Path]{thm:path}
+  A \textit{path} is a walk that uses no vertex twice.
+\end{theo}
+\par\bigskip
+\begin{theo}[Circuit]{thm:circuit}
+  A \textit{circuit} is a trail where first and last vertex coincide.\par
+  \noindent Meaning I start somewhere, dont repeat edges, and return at start place (\textbf{CHECK}) 
+\end{theo}
+\par\bigskip
+\begin{theo}[Cycle]{thm:cycle}
+  A \textit{cycle} is a circuit where those are the only vertices coinciding
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Using the bridges, an example of a trail and a circuit, but not a cycle because vertex 3 is visited twice $1a3g4f2c3b1$\par
+\noindent An example of a cycle would be $1a3b1$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Every path is a trail.\par
+\noindent Every cycle is a circuit.
+\newpage
+\begin{theo}[Eulerian trails]{thm:euleriantrail}
+  A trail is called \textit{Eulerian} if it uses every edge in the graph
+\end{theo}
+\par\bigskip
+\begin{theo}[Eulerian circuits]{thm:euleriancircuits}
+  A circuit using every edge is called an \textit{Eulerian circuit}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If a graph admits an Eulerian circuit, then the graph is called \textit{simply Eulerian} 
+\par\bigskip
+\begin{theo}[Connected vertex]{thm:connvert}
+  Let $G = (V,E, \iota)$ be a graph\par
+  \noindent We say that a vertex $v\in V$ is \textit{connected} to a vertex $w\in V$ if there exists walk (or equivalently a trail/path) starting in $v$ and ending in $w$
+  \par\bigskip
+  \noindent If $v$ is connected to $w$ for all $v,w\in V$, then the graph $G$ is \textit{connected}
+\end{theo}
+\par\bigskip
+\noindent What we are saying here is that we call vertices that we can walk to connected.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $v$ is conncted to $v$ (every vertex is connected to itself)\par
+\noindent Moreover, if $v$ is connected to $w$, then $w$ is connected to $v$.\par
+\noindent $v$ is connected to $w$ and $w$ connected to $z$, then $v$ is connected to $z$.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Connection is an equivalence relation.
+\par\bigskip
+\begin{theo}[Connected components]{thm:conncomp}
+  Equivelance classes of the equivalence relation are called \textit{connected components}.
+\end{theo}
+\par\bigskip
+\begin{theo}[Degree of vertex]{thm:deg}
+  Let $G=(V,E,\iota)$ be a graph and $v\in V$. The \textit{degree} of $v$ is deg($v$) and is the number of half-edges incident to $v$.
+\end{theo}\par
+\noindent The reason we do half-edges is because we want loops to count twice (once for exit, and once on entry)
+\par\bigskip
+\begin{theo}[Euler; 1736]{thm:euler}
+  A finite connected graph is Eulerian iff all its vertex degrees are even. 
+\end{theo}
+\newpage
+\begin{prf}
+  AIn $\Rightarrow$ direction. Any vertex on the circuit needs to have even degree because you need a half-edge to go into the vertex and another one to go out.\par
+  \noindent Since it is connected, if I visit every vertex I also visit every edge and these come in pairs
+  \par\bigskip
+  \noindent In $\Leftarrow$ direction. Assume $G = (V,E\iota)$ is finite, connected, and only has even degrees.\par
+  \noindent Assume $G$ as no loops (convenience). We dont know if we can build an Eulerian circuit or even if we have a circuit, but we know that there is a trail (since it is connected)\par
+  \noindent Therefore, consider a circuit/trail $J = v_0e_1v_1\cdots e_kv_k$. (\textbf{CHECK})\par
+  \noindent Since the graph is finite, then there is a maximum trail, suppose $J$ is a maximum trail (implying max length $k$). Then we cant possibly extend it, so any edge we see at $k$ must already be on the trail.\par
+  \noindent What we want to show is that $v_0=v_k$ because of this. Then we actually have a circuit.\par
+  \noindent Therefore, assume there are $2s\quad (s\in\N)$ edges incident to $v_k$. We know there is an even number of edges (because we excluded loops).\par
+  \noindent If we look at our trail $v_0e_1v_1\cdots v_{i-1}e_i\underbrace{v_i}_{\text{$v_k$}}e_{i+1}v_{i+1}$\par
+  \noindent Then $e_i$ and $e_{i+1}$ are incident to $v_k=v_i$, but so is $v_k$. But $v_k$ only has one edge, therefore $e_1$ has to be incident to $v_k=v_0$\par
+  \noindent We have now shown we have a trail, we show it is Eulerian.\par
+  \noindent Assume for a contradiction that it is not Eulerian. This means that there are parts not in our trail. There is $e\in E$ with endpoints $\iota(e) = \left\{v,w\right\}$ s.t $e$ is not on $J$ but one of $v,w$ is.\par
+  \noindent WLOG $v$ is on $J$. Say $v = v_j$ for some $j$.\par
+  \noindent Consider $wev_je_{j+1}\cdots e_k\underbrace{v_k}_{\text{$v_0$}}e_1v_1e_2v_2\cdots e_jv_j$, we claim that this is a trail. Notice here that we have length $k+1$, which is longer than $k$. Contradiction.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent A useful proof-tool in graphtheory is setting up a situation where we fix a maxlength and argue the contrary.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Notice how $\Rightarrow$ was "obvious", we call this \textit{TONCAS} - The Obvious Necessary Conditions Are Sufficient
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we have loops, we can simply traverse these loops and add them to our trail. This will not affect the proof.
+\noindent\textbf{Corollary:}\par
+\noindent A finite connected graph admits an Eulerian trail iff either 0 or 2 of its vertex degrees are odd
+\par\bigskip
+\noindent We can show this by retracing this back to the previous theorem. If we have 0 odd degrees, then the theorem holds.\par
+\noindent If we have 2 vertices of odd degree, then we can draw an additional edge between $v,w$. This means that both of the vertices that had odd degrees have gotten their degrees bumped up by one, so they know have even degree, which implies the theorem (is an Eulerian circuit), so it visits all the edges (and especially the new edge). Then we can remove the new edge from the Eulerian circuit, which gives an Eulerian trail in the original graph.
+\par\bigskip
+\noindent If we look at the statement of the corollary, it leaves a graph. What happens if it has 1 odd vertex degree? We are gonna show that this is impossible.
+\par\bigskip
+\begin{theo}[Handshake lemma]{thm:handshake}
+  Let $G = (V,E,\iota)$ be a finite graph.\par
+  \noindent Then $2\left|E\right| = \sum_{v\in V}\text{deg}(v)$
+  \par\bigskip
+  \noindent In particular, $G$ has even number of vertices of odd degree. (odd+odd = even, even + even = even)
+\end{theo}
+\par\bigskip
+\begin{prf}[Handshake lemma]{prf:hndshalem}
+  We use a trick from combinatorics (double counting). We identify a quantity and count it in 2 different ways.
+  \par\bigskip
+  \noindent We double count half-edges. Every edge gives 2 half-edges, so we $2\left|E\right|$ half-edges. On the other hand, every vertex gives deg($v$) half-edges $\Rightarrow \sum_{v\in V}$ deg($V$) half-edges.\par
+  \noindent It does not matter how I count them, therefore these quantities have to be the same.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We can also use induction to show the Handshake lemma.\par
+\noindent Start with 0 edges on $V$, which implies all the degrees are 0. Then add edges 1 by 1. And whenever you add an edge, the RHS increases by 2.
+\par\bigskip
+\noindent What happens if we have 4 vertices of odd degree?\par
+\noindent We can partition $E = E_1\cup E_2$ such that $E_1$ is a edge set of a trail and so is $E_2$.
