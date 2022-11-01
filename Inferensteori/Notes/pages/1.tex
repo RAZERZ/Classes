@@ -66,6 +66,7 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
 \begin{theo}[Range]{thm:range}
   Variationsbredden. The differnece between the largest and the smallest values of the data 
 \end{theo}
@@ -75,9 +76,6 @@
   \noindent If we have an odd amount of data it is including the median!
 \end{theo}
 \par\bigskip
-\noindent\textbf{Example:}\par
-\noindent See slide 2
-\par\bigskip
 \begin{theo}[Lower/Upper quartile]{thm:quartile}
   The \textit{lower quartile} is the median of th elower half of the data material including the median if $n$ is odd
   \par\bigskip
@@ -85,7 +83,20 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Example:}\par
-\noindent Slide 3
+\begin{equation*}
+  \begin{gathered}
+    0\;0\;1\;1\;2\;2
+  \end{gathered}
+\end{equation*}\par
+\noindent Here, the mean is given by $\dfrac{(1+1+2+2)}{6} = 1$.\par
+\noindent Therefore, the sample variance is given by $\dfrac{4}{5}$ and the sample standard deviation $\sqrt{\dfrac{4}{5}}$\par
+\noindent We can find the inter quartile range by looking at the half, like this:
+\begin{equation*}
+  \begin{gathered}
+    [0\;\underbrace{0}_{\text{$\Delta$}}\;1]\;[1\;\underbrace{2}_{\text{$\Delta$}}\;2]
+  \end{gathered}
+\end{equation*}\par
+\noindent Therefore, the inter quartile range here is $2-0=2$
 \par\bigskip
 \subsection{Graphical illustration}\hfill\\\par
 \noindent\textbf{Stem av leafplots:}
@@ -116,16 +127,17 @@ stem(u)
   \end{gathered}
 \end{equation*}
 \par\bigskip
-\noindent If data was perfectly normal, $x_i$ would be a linear funcfion of $z$.\par
+\noindent If data was perfectly normal on both axis, $x_i$ would be a linear funcfion of $z$, ie. normally distributed $N(0,1)$\par
 \noindent We plot $z$ on the $x$-axis and $x_i$ on the $y$-axis
 \par\bigskip
+\noindent The name comes from quantile-quantile-plot (QQ-plot). It is a graphical way of comparing two probability distributions (sannolikhetsfördelning) 
 \subsection{Data materials in several dimensions}\hfill\\\par
 \noindent We can calculate correlation through sample covariance:
 \par\bigskip
 \begin{theo}[Sample covariance]{thm:samplecovar}
   \begin{equation*}
     \begin{gathered}
-      \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})
+      c_{xy} = \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})
     \end{gathered}
   \end{equation*}
 \end{theo}\par
@@ -151,7 +163,7 @@ stem(u)
   \noindent If it is 1, then there is a strong positive correlation (the linear regression has a line with positive derivative), similarly for negative.\par
   \noindent When it is 0 there is no \textit{linear} relation. There might be other, for example quadratic relation.
 \end{theo}
-\par\bigskip
+\newpage
 \begin{prf}[Sample correlation satisfaction]{prf:sccas}
   \begin{equation*}
     \begin{gathered}

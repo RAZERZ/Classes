@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  1 NOV 2022 12:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.22)  1 NOV 2022 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,76 +978,75 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 68.
 Package mdframed Info: Not enough space on this page on input line 68.
-Package mdframed Info: mdframed works in twoside mode on input line 69.
+Package mdframed Info: mdframed works in twoside mode on input line 70.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 69.
+(mdframed)              on input line 70.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 71.
-Package mdframed Info: mdframed works in twoside mode on input line 73.
+(mdframed)              on input line 72.
+Package mdframed Info: mdframed works in twoside mode on input line 74.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 73.
+(mdframed)              on input line 74.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 76.
-Package mdframed Info: mdframed works in twoside mode on input line 81.
+(mdframed)              on input line 77.
+Package mdframed Info: mdframed works in twoside mode on input line 79.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 81.
+(mdframed)              on input line 79.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 85.
+(mdframed)              on input line 83.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--90
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 125.
+Package mdframed Info: mdframed works in twoside mode on input line 137.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 125.
+(mdframed)              on input line 137.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 131.
-Package mdframed Info: mdframed works in twoside mode on input line 134.
+(mdframed)              on input line 143.
+Package mdframed Info: mdframed works in twoside mode on input line 146.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 134.
+(mdframed)              on input line 146.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 142.
-Package mdframed Info: mdframed works in twoside mode on input line 144.
+(mdframed)              on input line 154.
+Package mdframed Info: mdframed works in twoside mode on input line 156.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 144.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 153.
-Package mdframed Info: mdframed works in twoside mode on input line 155.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 155.
+(mdframed)              on input line 156.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 165.
-) [5] (./main.aux (./includes/title.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+[5]
+Package mdframed Info: mdframed works in twoside mode on input line 167.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 167.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 177.
+Package mdframed Info: Not enough space on this page on input line 177.
+) [6] (./main.aux (./includes/title.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3EC893F57338775F02DF3F59859DC783;1075.
  ) 
 Here is how much of TeX's memory you used:
- 25127 strings out of 478238
- 476904 string characters out of 5850457
- 785059 words of memory out of 5000000
+ 25128 strings out of 478238
+ 476910 string characters out of 5850456
+ 780059 words of memory out of 5000000
  42730 multiletter control sequences out of 15000+600000
  477334 words of font info for 59 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1065,10 +1064,10 @@ s/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (6 pages, 185371 bytes).
+Output written on main.pdf (7 pages, 188054 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
