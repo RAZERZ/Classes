@@ -1,0 +1,6 @@
+\contentsline {section}{\tocsection {}{1}{TODO}}{2}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Data Analysis (K6)}}{3}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Location Measures}}{3}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Dispersion measures}}{3}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Graphical illustration}}{4}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Data materials in several dimensions}}{5}{subsection.2.4}%
