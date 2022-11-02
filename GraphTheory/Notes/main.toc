@@ -1,3 +1,5 @@
 \contentsline {section}{\tocsection {}{1}{TODO}}{2}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Bridges of Köningsberg}}{3}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Vocabulary}}{3}{subsection.2.1}%
+\contentsline {section}{\tocsection {}{3}{Simple graphs}}{8}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Special graphs}}{10}{subsection.3.1}%

@@ -1,0 +1,165 @@
+\section{Simple graphs}\par
+\noindent The idea of simple graphs is to forbid parallell edges and loops. Here, we dont care how things are connected, but which things that \textit{are}.
+\par\bigskip
+\noindent For example, we can encode the game \textit{Towers of Hanoi} as a simple graph by letting $n$ disks be stacked on $3 pegs$ \par
+\noindent We can therefore encode a game state by a string of length $n$
+\par\bigskip
+\begin{theo}[Simple graph]{thm:simplegraph}
+  A \textit{simple graph} is a multigraph  without parallell edges or loops\par
+  \noindent An equivalent definition, it is a pair $G = (V,E)$ where $E\subseteq\mathcal{P}_2(V)$
+  \par\bigskip
+  \noindent By $\mathcal{P}_2$ we mean the powersets of size 2:
+  \begin{equation*}
+    \begin{gathered}
+    \mathcal{P}_2(V) = \left\{A\subseteq\;|\; \left|A\right|=2\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent Our $\iota$ is gone! This is because by not having parallell edges and loops, then $\iota:E\to\mathcal{P}_2(V)$ is injective and we can identify the output of $\iota$ with its input, and that is what the definition of a simple graph is 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Every graph is a multigraph
+\par\bigskip
+\begin{lem}
+  AAny simple graph on $n$ vertices has at most $\begin{pmatrix}n\\2\end{pmatrix}$ edges
+\end{lem}
+\par\bigskip
+\begin{prf}
+  TThe edge set $E\subseteq\mathcal{P}_2(V)$ and $\left|\mathcal{P}_2(V)\right|=\begin{pmatrix}n\\2\end{pmatrix}$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This implies that simple graphs are finite. In multigraphs, we could put arbitrary edges between vertices, but here it is not accepted. (\textbf{CHECK})
+\par\bigskip
+\noindent Our vertex set is arbitrary, it doesnt matter if $V=\left\{1,2,3,4\right\}$ or $V = \left\{a,b,c,d\right\}$, we need to set up a notion of "sameness" in graphs taking into account that the vertex set is arbitrary.
+\par\bigskip
+\begin{theo}[Labelled graph]{thm:labelledgraph}
+A \textit{labelled graph} is a graph with a fixed vertex set, commonly $V = \left\{1,2,\cdots,n\right\}$ if $V$ is finite.
+\end{theo}
+\newpage
+\begin{lem}
+  TThere are $2^{\begin{pmatrix}n\\2\end{pmatrix}}$ labelled graphs on $n$ vertices.
+\end{lem}
+\par\bigskip
+\begin{prf}
+  SSince $V = \left\{1,2,\cdot,n\right\}$ is fixed, two graphs $(V,E)$ and $(V,E^{\prime})$ coincide iff $E=E^{\prime}$
+  \par\bigskip
+  \noindent Conversely, any subset of $\mathcal{P}_2(V)$ defines an edge set. We are essentially looking for $\mathcal{P}(\mathcal{P}_2(v))$, and the cardinality of this is $2^{\left|\mathcal{P}_2(V)\right|} = 2^{\begin{pmatrix}n\\2\end{pmatrix}}$
+\end{prf}
+\par\bigskip
+\begin{theo}[Morphism]{thm:morphism}
+  Let $G = (V,E)$ and $G^{\prime} = (V^{\prime}, E^{\prime}e)$ be simple graphs.\par
+  \noindent A \textit{morphism}
+  \begin{equation*}
+    \begin{gathered}
+      \varphi:G\to G^{\prime}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is a map
+  \begin{equation*}
+    \begin{gathered}
+      \varphi:V\to V^{\prime}
+    \end{gathered}
+  \end{equation*}\par
+\noindent such that $\left\{v,w\right\}\in E\Rightarrow \left\{\varphi(v),\varphi(w)\right\}\in E^{\prime}$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See example 15
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Graph-morphisms do not need to be injective/surjective, nor do they need to exist
+\par\bigskip
+\noindent Graph-morphisms preserve edges between graphs, thats their whole point
+\par\bigskip
+\begin{theo}[Identity morphism]{thm:idgmorph}
+  For every simple graph $G$, theere is an identity morphism $id_G:G\to G$ where $id_G:V\to V$ is the identity map
+  \par\bigskip
+  \noindent For simple graphs $G,G^{\prime}, G^{\prime\prime}$ and morphisms
+  \begin{equation*}
+    \begin{gathered}
+      \varphi:G\to G^{\prime}\\
+      \varphi^{\prime}:G^{\prime}\to G^{\prime\prime}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent There is a morphisms $\varphi^{\prime}\circ\varphi:G\to G^{\prime\prime}$, given by the map $\varphi^{\prime}\circ\varphi:V\to V^{\prime\prime}$
+\end{theo}
+\par\bigskip
+\begin{theo}[Isomorphism]{thm:isomorphism}
+Two graphs $G,G^{\prime}$ are \textit{isomorphic} if there is a bijective morphism $\varphi:V\to V^{\prime}$ and $\left\{v,w\right\}\in E\Lrarr \left\{\varphi(v),\varphi(w)\right\}\in E^{\prime}$
+  \par\bigskip
+  \noindent Another way of saying this there is $\varphi:G\to G^{\prime}$ and a $\psi:G^{\prime}\to G$ such that $\varphi\circ\psi = id_{G^{\prime}}$ and $\psi\circ\varphi = id_G$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Isomorphic graphs are not necessarily the same if they are labelled. We need to make sure the degree of each vertice coincide, and that we dont lose any edges.
+\par\bigskip
+\begin{theo}
+  TThe number $g_n$ of non-isomorphic simple graphs on $n$ vertices satisfies the following:\par
+  \begin{itemize}
+    \item $g_n = \dfrac{2^{\begin{pmatrix}n\\2\end{pmatrix}}}{n!}\left(1+\dfrac{n^2-n}{2^{n-1}}+\mathcal{O}\left(\dfrac{n^3}{2^{3n/2}}\right)\right)$
+  \end{itemize}
+  \par\bigskip
+  \noindent In particular, $g_n$ behaves asymptotically as $2^{\begin{pmatrix}n\\2\end{pmatrix}}/n!$
+\end{theo}
+\par\bigskip
+\subsection{Special graphs}\hfill\\\par
+\noindent Some graphs are so special that they are given special names:\par
+\begin{itemize}
+  \item The complete graphs on $n$ vertices, denoted by $K_n$. All $\begin{pmatrix}n\\2\end{pmatrix}$ edges are present (every vertex is a neighbour of everything else)
+  \item The path graph of length $l$, denoted by $P_l$ is just a regular path as a graph
+  \item The cycle graph on $n$ vertices, denoted by $C_n$ ($n\geq3$)
+  \item The complete bipartite graphs, denoted $K_{a,b}$. Here, $V$ is partitioned as the disjoint union $V = V_a\cup V_b$. This means $\left|V\right| = a+b$. There are no edges between two vertices in the same set, but all possible edges are between the two sets.\par
+    Notice that $K_{a,b}\cong K_{b,a}$
+  \item The complete $r$-partite graphs $K_{a_1,\cdots,a_r}$ has a vertex set $V = \bigcup_{i=1}^{r}V_{a_i}$ such that $\left|V_{a_i}\right| = a_i$\par
+    We say that two vertices are neighbours iff they are in different sets.
+\end{itemize}
+\par\bigskip
+\begin{lem}
+  TThe complete $r$-partite graph $K_{a_1,\cdots,a_r}$ on $n$ vertices (sum of all $a_i = n$) has
+  \begin{equation*}
+    \begin{gathered}
+      \left|E\right| = \dfrac{1}{2}(n^2-a_1^2-\cdots-a_r^2)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}
+  AA vertex in set $V_{a_i}$ has $n-a_i$ neighbours\par
+  \noindent By the Handshake lemma, $2\left|E\right|= \sum_{v\in V}\text{deg}(v) = \sum_{i=1}^{r}a_i(n-a_i) = n\sum_{}^{}$
+  \begin{equation*}
+    \begin{gathered}
+      2\left|E\right|= \sum_{v\in V}\text{deg}(v) = \sum_{i=1}^{r}a_i(n-a_i) = n\underbrace{\sum_{i=1}^{r}a_i}_{\text{$=n$}}-\sum_{i=1}^{r}a_i^2\\
+      n^2-a_1^2-\cdots-a_r^2
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $K_{a,b}$ has $\dfrac{1}{2}(n^2-a^2-b^2) = ab$ edges and $K_n = K_{1,\cdots,1}$ has $\dfrac{1}{2}(n^2-n) = \begin{pmatrix}n\\2\end{pmatrix}$ edges
+\par\bigskip
+\begin{theo}[Subgraph]{thm:subgraph}
+  LLet $G = (V,E)$ be a simple graph.\par
+  \noindent A simple graph $H = (V^{\prime}, E^{\prime})$ is a \textit{subgraph} of $G$ if $V^{\prime}\subseteq V$ and $E^{\prime}\subseteq E$
+\end{theo}
+\par\bigskip
+\begin{theo}[Induced subgraph]{thm:inducedsubgraph}
+  An \textit{induced} subgraph, is a subgraph $H = (V^{\prime}, E^{\prime})$ of $G$, such that $E^{\prime} = \left\{\left\{x,y\right\}\in E\;|\; x,y,\in V^{\prime}\right\}$
+  \par\bigskip
+  \noindent Denoted by $H = G[V^{\prime}]$
+\end{theo}
+\par\bigskip
+\begin{theo}[Edge-induced subgraph]{thm:edgeinduced}
+  An \textit{edge-induced} subgraph is a subgraph $H = (V^{\prime}, E^{\prime})$ such that $V^{\prime} = \left\{v \in V\;|\; v\text{ is incident to some } e\in E^{\prime}\right\}$
+  \par\bigskip
+  \noindent Denoted by $H = G<E^{\prime}>$
+\end{theo}
+\par\bigskip
+\begin{theo}[Spanning subgraph]{thm:spangraph}
+  A subgraph $H = (V^{\prime}, E^{\prime})$ of $G$ is a \textit{spanning} subgraph if $V^{\prime} = V$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent There is a way to extend this into multigraphs, but you need to find a way to take care of $\iota$ 
