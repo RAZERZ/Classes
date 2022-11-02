@@ -1,0 +1,179 @@
+\section{Statistical Inference}\par
+\noindent\textbf{Anmärkning:}\par
+\noindent If $X\sim Hyp$, then for a large population $X\sim Bin$ (because the chance of picking the same one in a large population is so small)
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 1
+\par\bigskip
+\noindent The biggest difference between 
+\par\bigskip
+\begin{theo}[Sample (stickprov)]{thm:sample}
+  $x_1,x_2,\cdots,x_n$ is a \textit{sample} from the random variable $X$ with distribution $F_X$
+  \par\bigskip
+  \noindent If $X = (X_1,\cdots,X_n)$ are independent, we have a \textit{random sample} from $X$
+\end{theo}
+\par\bigskip
+\noindent We can purposely choose our random variable in such way that makes it easier for us to analyse. It also allows us to compare these observations.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 2
+\par\bigskip
+\section{Estimation}\par
+\noindent Suppose we have one unknown parameter $\theta$
+\par\bigskip
+\noindent We can write the following for our data:
+\begin{equation*}
+  \begin{gathered}
+    x = (x_1,x_2,\cdots,x_n)\\
+    X = (X_1,X_2,\cdots,X_n)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Estimate (skattning)]{thm:estimate}
+  An \textit{estimate} $\theta^* = \theta^*(x)$ is a funciton of the sample $x$
+  \par\bigskip
+  \noindent The estimate is an observation of the estimator $\theta^*(X)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 4
+\par\bigskip
+\noindent The greater the stickprov the better the estimate (because less and less variance)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The estimator is not distributed with the same distribution, since the estimator is not always an integer.
+\par\bigskip
+\noindent If we have different estimates, we need to make a reasonable choice such that our error is as little as possible (this is why we introduce estimators)
+\par\bigskip
+\subsection{Properties of estimates}\hfill\\\par
+\noindent We can take $\theta^*-\theta = E(\theta^*(X))-\theta+(\theta^*-E(\theta^*(X)))$\par
+\noindent It turns out, this is equal to the systematic error + random error
+\par\bigskip
+\begin{theo}[Unbiased (väntevärdesriktigt)]{thm:unbiased}
+  An estimate $\theta^*$ is said to be \textit{unbiased} if it satisfies $E(\theta^*(X)) = \theta$ 
+  \par\bigskip
+  \noindent This is the same as saying it has no systematic error (therefore, we only have the random error left)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent We show this by:
+\begin{equation*}
+  \begin{gathered}
+    E(\mu^*(X)) = E(\overline{X}) = \mu
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Let
+\begin{equation*}
+  \begin{gathered}
+    p^*(X) = \dfrac{X}{1000}\qquad X\sim Bin(1000,p)
+  \end{gathered}
+\end{equation*}\par
+\noindent Is $p^*(x)$ an unbiased estimate of $p$? (slide 5)
+\par\bigskip
+\noindent If we have more than one unbiased estimate, which is the best one? Well, in that case we need to start looking at the random error. We can study this by looking at the variance
+\par\bigskip
+\begin{theo}[Efficiency comparison of estimates]{thm:ecoe}
+  If $\theta_1^*$ and $\theta_2^*$ are unbiased estimates of $\theta$ and
+  \begin{equation*}
+    \begin{gathered}
+      V(\theta_1^*(X))\leq V(\theta_2^*(X))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For all $\theta$ with strict inequality for some. We say that $\theta_1^*$ is more \textit{efficient} than $\theta_2^*$ (less random error)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 6 \& 7
+\par\bigskip
+\noindent\textbf{Example:} (stratification)\par
+\noindent See slide 8
+\par\bigskip
+\noindent Here we assume that the number of men that take the plane is Binomially distributed $Bin(500,p+a)$ while for women $Bin(500,p-a)$ 
+\begin{equation*}
+  \begin{gathered}
+    p_1^*(X)  = \dfrac{1}{1000}X\Rightarrow E(p_1^*) = p\\
+    p_2^*(y,z) = \dfrac{1}{1000}y+\dfrac{1}{1000}z\\
+    \Rightarrow \dfrac{1}{1000}E(y)+\dfrac{1}{1000}E(z)\\
+    \dfrac{1}{1000}500(p+a)+\dfrac{1}{1000}500(p-a) = p\\
+    V(p_1^*) = \dfrac{p(1-p)}{1000}\geq V(p_2^*) = \dfrac{p(1-p)}{1000}-\dfrac{a^2}{1000}
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}[Standard error (medelfelet)]{thm:stderror}
+  We want to assign a numerical value to the dispersion of an estimate.\par
+  \noindent Therefore, we define the \textit{standard error} of the estimate $\theta^*$ is an estimate of the standard deviation $D(\theta^*)$
+  \par\bigskip
+  \noindent Denoted by $d(\theta^*(x)) = d(\theta^*)$
+  \par\bigskip
+  \noindent Recall that the standard deviation is given by $\sqrt{Var}$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 9
+\par\bigskip
+\subsection{Asymptotic properties}\hfill\\\par
+\noindent The accuracy of an estimate should improve as the sample size increases, seems reasonable
+\par\bigskip
+\begin{theo}[Bias]{thm:bias}
+  The \textit{bias} (väntevärdesfelet) for the estimate $\theta^*$ is defined as
+  \begin{equation*}
+    \begin{gathered}
+      B(\theta^*) = E(\theta^*)-\theta
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent An unbiased estimate has bias 0
+\par\bigskip
+\begin{theo}[Asymptotically unbiased]{thm:asympunbiased}
+  If the bias $B(\theta_n^*)$ tends to zero as $n\to\infty$ for all $\theta$, the estimate $\theta_n^*$ is said to be \textit{asymptotically unbiased} 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $x_1,\cdots,x_n$ be a random sample from $N(\mu,\sigma^2)$ where $\mu$ is unknown. We want to estimate $\sigma^2$
+\par\bigskip
+\noindent The estimate $\sigma_n^{2*} = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2$ is biased, but it is asymptotically unbiased
+\par\bigskip
+\noindent The estimate $s_n^2$  is unbiased for $\sigma^2$, why?
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    s^2 = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2 = \dfrac{1}{n-1}\left(\sum_{i=1}^{n}x_i^2-n\overline{x}^2\right)\\
+    E(s^2) = \dfrac{1}{n-1}\left(\sum_{i=1}^{n}E(x_i^2)-nE(\overline{X}^2)\right)\\
+    E(x_i^2) = V(x_i) + (E(x_i))^2 = \sigma^2+\mu^2\\
+    E(\overline{x}^2) = V(\overline{x}) + (E(\overline{x}))^2 = \dfrac{\sigma^2}{n}+\mu^2\\
+    E(s^2) = \dfrac{1}{n-1}\left(\sum_{i=1}^{n}(\sigma^2+\mu^2)-n\left(\dfrac{\sigma^2}{n}+\mu^2\right)\right)\\
+    = \dfrac{1}{n-1}\left(n(\sigma^2+\mu^2)-\sigma^2-n\mu^2\right) = \dfrac{1}{n-1}(n-1)\sigma^2 = \sigma^2
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}[Consistent estimate]{thm:consistentestimate}
+  The estimate $\theta_n^*$ is said to be \textit{consistent} for $\theta$ if the corresponding estimator converges to $\theta$ in probability for all $\theta$
+\end{theo}
+\par\bigskip
+\begin{theo}[Convergence in probability]{thm:convergenceinprob}
+  The estimator $\theta_n^*$ converges to $\theta$ in probability if $\forall \varepsilon>0$:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty} P(\left|\theta_n^*-\theta\right|>\varepsilon)=0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}
+  IIf the estimate $\theta_n^*$ is asymptotically unbiased and
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty} V(\theta_n^*) = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then it is consistent
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent See slide 11
+\par\bigskip
+\noindent If an estimate is not consistent, then it does not matter if the sample size is increased, it wont yield better results.
