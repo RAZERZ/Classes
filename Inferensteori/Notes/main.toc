@@ -7,4 +7,4 @@
 \contentsline {section}{\tocsection {}{3}{Statistical Inference}}{7}{section.3}%
 \contentsline {section}{\tocsection {}{4}{Estimation}}{7}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Properties of estimates}}{8}{subsection.4.1}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Asymptotic properties}}{9}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Asymptotic properties}}{10}{subsection.4.2}%

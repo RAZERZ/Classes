@@ -2,10 +2,26 @@
 \noindent\textbf{Anmärkning:}\par
 \noindent If $X\sim Hyp$, then for a large population $X\sim Bin$ (because the chance of picking the same one in a large population is so small)
 \par\bigskip
-\noindent\textbf{Example:}\par
-\noindent See slide 1
+\noindent\textbf{Anmärkning:}\par
+\noindent If $X_1,\cdots,X_n$ are independent and equally distributed $N(\mu,\sigma^2)$ variables, then
+\begin{equation*}
+  \begin{gathered}
+    \sum_{i=1}^{n}X_i\sim N(n\mu,n\sigma^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent In the same way, the mean of these random variables is normally distributed with
+\begin{equation*}
+  \begin{gathered}
+    \overline{X}_n \sim N(\mu,\sigma^2/n)
+  \end{gathered}
+\end{equation*}
 \par\bigskip
-\noindent The biggest difference between 
+\noindent\textbf{Example (*):}\par
+\noindent In an opinion poll, 1000 randomly selected voters are asked about their politcal sympathies. Let $X$ be the number of these voters who sympathise with the party $P$. $X\sim Hyp$, but because the number of voters is so large, we may assume that $X\sim Bin(1000,p)$\par 
+\noindent Suppose we know that 100 of the selcted voters sympathise with $P$, what can $p$ be?\par
+\noindent Well, it makes sense that $p= \dfrac{100}{1000}$, the probability of choosing 100 from our 1000 people. 
+\par\bigskip
+%\noindent The biggest difference between 
 \par\bigskip
 \begin{theo}[Sample (stickprov)]{thm:sample}
   $x_1,x_2,\cdots,x_n$ is a \textit{sample} from the random variable $X$ with distribution $F_X$
@@ -16,10 +32,28 @@
 \noindent We can purposely choose our random variable in such way that makes it easier for us to analyse. It also allows us to compare these observations.
 \par\bigskip
 \noindent\textbf{Example:}\par
-\noindent See slide 2
+\noindent Using the same environment as example (*), we can either have a random variable $X\sim Bin(1000,p)$, \textit{or} we can have let the 1000 people all have an associated Bernoulli distributed random variable.\par
+\noindent In the first case, our observed sample has size $n=1$, so our $x_1=100$ is an observation of the random variable $X_1$\par
+\noindent In the second case, our observed sample has size $n=1000$, with each $X_1,\cdots,X_{1000}\sim Be(p)$ and 
+\begin{equation*}
+  \begin{gathered}
+    \sum_{i=1}^{1000}x_i=100
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The pros in splitting up our situation into smaller random variables, is as touched upon previously, easier to analyse since it is easier to find independent random variables.
 \par\bigskip
 \section{Estimation}\par
-\noindent Suppose we have one unknown parameter $\theta$
+\noindent Suppose we already know what our distribution function $F$ is. We know this $F$ is associated to our random variable, that we have our measured observations on.
+\par
+\noindent We also know that our distribution function normally takes on certain \textit{parameters}, for example, the Poisson distribution
+\begin{equation*}
+  \begin{gathered}
+    f_X(x) = \dfrac{\lambda^x}{x!}e^{-\lambda}
+  \end{gathered}
+\end{equation*}\par
+\noindent Is actually a function of both $x$ and $\lambda$.\par
+\noindent We call $\lambda$ in our case, an \textit{unknown parameter}. Given enough data, and knowing the distribution function, we should be able to estimate what the value of this parameter is. 
 \par\bigskip
 \noindent We can write the following for our data:
 \begin{equation*}
@@ -35,22 +69,44 @@
   \noindent The estimate is an observation of the estimator $\theta^*(X)$
 \end{theo}
 \par\bigskip
+\noindent This attempts to put the previous paragraphs into "functions". Given a sample from our random variable (given in $x = x_1,\cdots$), we want to find the unknown parameter $\theta$. We can then construct a general formula for \textit{any} data given that it comes from the random variable we have agreed upon beforehand.\par
+\noindent This is the \textit{estimate} function, as defined above, of a given sample $x$
+\par\bigskip
 \noindent\textbf{Example:}\par
-\noindent See slide 4
+\noindent Let $x = (x_1,x_2,x_3,x_4,x_5) = (200,185,210,190,190)$ be a random sample from $X\sim N(\mu, 100)$ (every $X_i\sim N(\mu,100)$)
+\par\bigskip
+\noindent In order to estimate $\mu$ by the sample mean, we induce the function $\mu^*$ on our sample set and calculate the mean:
+\begin{equation*}
+  \begin{gathered}
+    \mu^*(x) = \overline{x} = 195
+  \end{gathered}
+\end{equation*}\par
+\noindent Since the estimate is an observation of the \textit{estimator}, lets look at the estimator:
+\begin{equation*}
+  \begin{gathered}
+    \mu^*(X) = \overline{X} = \dfrac{1}{5}\sum_{i=1}^{5}X_i\sim N(\mu,100) \Rightarrow\overline{X}\sim N(\mu,100/5) = N(\mu, 20)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Using the poll example from above, what we really did when we said that $p$ reasonably has to be $\dfrac{100}{1000}$ is determine an estimate $p^*$
 \par\bigskip
 \noindent The greater the stickprov the better the estimate (because less and less variance)
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent The estimator is not distributed with the same distribution, since the estimator is not always an integer.
+\noindent The estimator is not distributed with the same distribution, since the estimator is not always an integer.\par
+\noindent We saw this in the above example, where the estimator was $N(\mu, 20)$ distributed but our estimate was $N(\mu,100)$  distributed. (\textbf{CHECK})
 \par\bigskip
 \noindent If we have different estimates, we need to make a reasonable choice such that our error is as little as possible (this is why we introduce estimators)
 \par\bigskip
 \subsection{Properties of estimates}\hfill\\\par
+\noindent The purpose of our estimates is to estimate $\theta$. When we calculate using our function $\theta^*$ on our sample data we get a value that may or may not deviate from the actual value $\theta$ 
+\par\bigskip
 \noindent We can take $\theta^*-\theta = E(\theta^*(X))-\theta+(\theta^*-E(\theta^*(X)))$\par
 \noindent It turns out, this is equal to the systematic error + random error
 \par\bigskip
 \begin{theo}[Unbiased (väntevärdesriktigt)]{thm:unbiased}
-  An estimate $\theta^*$ is said to be \textit{unbiased} if it satisfies $E(\theta^*(X)) = \theta$ 
+  An estimate $\theta^*$ is said to be \textit{unbiased} if it satisfies $E(\theta^*(X)) - \theta=0$ 
   \par\bigskip
   \noindent This is the same as saying it has no systematic error (therefore, we only have the random error left)
 \end{theo}
@@ -69,7 +125,15 @@
     p^*(X) = \dfrac{X}{1000}\qquad X\sim Bin(1000,p)
   \end{gathered}
 \end{equation*}\par
-\noindent Is $p^*(x)$ an unbiased estimate of $p$? (slide 5)
+\noindent Is $p^*(x)$ an unbiased estimate of $p$?\par
+\noindent Take the expected value function on both sides:
+\begin{equation*}
+  \begin{gathered}
+    E\left(\dfrac{X}{1000}\right) = E(p^*(X))\qquad X \sim Bin(1000,p)\\
+    \dfrac{1}{1000}E(X) = \dfrac{1}{1000}\cdot1000\cdot p = p\\
+    \Rightarrow E(p^*(X)) = p\Rightarrow p-p=0
+  \end{gathered}
+\end{equation*}
 \par\bigskip
 \noindent If we have more than one unbiased estimate, which is the best one? Well, in that case we need to start looking at the random error. We can study this by looking at the variance
 \par\bigskip
@@ -88,9 +152,8 @@
 \noindent See slide 6 \& 7
 \par\bigskip
 \noindent\textbf{Example:} (stratification)\par
-\noindent See slide 8
-\par\bigskip
-\noindent Here we assume that the number of men that take the plane is Binomially distributed $Bin(500,p+a)$ while for women $Bin(500,p-a)$ 
+\noindent We are interested in the proportion $p$ of Swedish citizens that last year have traveled by plane in connection with work. Take a sample consisting of $n=1000$ people\par
+\noindent It is safe to assume that the number of men that take the plane will be greater than the number of woman, we can denote this using $p\pm a$. Since we are looking at the combinations of ways we can choose men and women from our set, a reasonable distribution would be a binomial distribution for men $Bin(500,p+a)$ while for women $Bin(500,p-a)$. One can also look at Bernoulli distributions and get the same results.
 \begin{equation*}
   \begin{gathered}
     p_1^*(X)  = \dfrac{1}{1000}X\Rightarrow E(p_1^*) = p\\
@@ -111,7 +174,7 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Example:}\par
-\noindent See slide 9
+\noindent Given $x=100$ (one observation) of the random variable $X\sim Bin(1000,p)$, estimate $p^* = \dfrac{x}{1000} = 0.1$ and calculate the standard error of this estimate.
 \par\bigskip
 \subsection{Asymptotic properties}\hfill\\\par
 \noindent The accuracy of an estimate should improve as the sample size increases, seems reasonable
@@ -174,6 +237,15 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Example:}\par
-\noindent See slide 11
+\noindent Let $x_1,\cdots,x_n$ be a random sample from $N(\mu,\sigma^2)$ where $\sigma^2$ is known.\par
+\noindent Estimate $\mu$ by
+\begin{equation*}
+  \begin{gathered}
+    \mu_n^* = \overline{x} = \dfrac{1}{n}\sum_{i=1}^{n}x_i
+  \end{gathered}
+\end{equation*}\par
+\noindent Show that the estimate is unbiased: $\mu-\mu=0$\par
+\noindent Calculate the variance for the corresponding estimator: $\dfrac{\sigma^2}{n}$\par
+\noindent Show that the estimate is consistent: $\lim_{n\to\infty}\dfrac{\sigma^2}{n} =0$
 \par\bigskip
 \noindent If an estimate is not consistent, then it does not matter if the sample size is increased, it wont yield better results.
