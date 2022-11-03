@@ -11,7 +11,7 @@
   \noindent By $\mathcal{P}_2$ we mean the powersets of size 2:
   \begin{equation*}
     \begin{gathered}
-    \mathcal{P}_2(V) = \left\{A\subseteq\;|\; \left|A\right|=2\right\}
+    \mathcal{P}_2(V) = \left\{A\subseteq V\;|\; \left|A\right|=2\right\}
     \end{gathered}
   \end{equation*}
   \par\bigskip
@@ -31,7 +31,7 @@
 \end{prf}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent This implies that simple graphs are finite. In multigraphs, we could put arbitrary edges between vertices, but here it is not accepted. (\textbf{CHECK})
+\noindent This implies that simple graphs are finite. In multigraphs, we could put arbitrary edges between vertices, but here it is not accepted. 
 \par\bigskip
 \noindent Our vertex set is arbitrary, it doesnt matter if $V=\left\{1,2,3,4\right\}$ or $V = \left\{a,b,c,d\right\}$, we need to set up a notion of "sameness" in graphs taking into account that the vertex set is arbitrary.
 \par\bigskip
@@ -44,13 +44,14 @@ A \textit{labelled graph} is a graph with a fixed vertex set, commonly $V = \lef
 \end{lem}
 \par\bigskip
 \begin{prf}
-  SSince $V = \left\{1,2,\cdot,n\right\}$ is fixed, two graphs $(V,E)$ and $(V,E^{\prime})$ coincide iff $E=E^{\prime}$
+  SSince $V = \left\{1,2,\cdots,n\right\}$ is fixed, two graphs $(V,E)$ and $(V,E^{\prime})$ coincide iff $E=E^{\prime}$
   \par\bigskip
-  \noindent Conversely, any subset of $\mathcal{P}_2(V)$ defines an edge set. We are essentially looking for $\mathcal{P}(\mathcal{P}_2(v))$, and the cardinality of this is $2^{\left|\mathcal{P}_2(V)\right|} = 2^{\begin{pmatrix}n\\2\end{pmatrix}}$
+  \noindent Conversely, any subset of $\mathcal{P}_2(V)$ defines an edge set. We are essentially looking for $\mathcal{P}(\mathcal{P}_2(V))$, and the cardinality of this is $2^{\left|\mathcal{P}_2(V)\right|} = 2^{\begin{pmatrix}n\\2\end{pmatrix}}$
 \end{prf}
 \par\bigskip
 \begin{theo}[Morphism]{thm:morphism}
-  Let $G = (V,E)$ and $G^{\prime} = (V^{\prime}, E^{\prime}e)$ be simple graphs.\par
+  Let $G = (V,E)$ and $G^{\prime} = (V^{\prime}, E^{\prime})$ be simple graphs.
+  \par\bigskip
   \noindent A \textit{morphism}
   \begin{equation*}
     \begin{gathered}
@@ -99,10 +100,10 @@ Two graphs $G,G^{\prime}$ are \textit{isomorphic} if there is a bijective morphi
 \begin{theo}
   TThe number $g_n$ of non-isomorphic simple graphs on $n$ vertices satisfies the following:\par
   \begin{itemize}
-    \item $g_n = \dfrac{2^{\begin{pmatrix}n\\2\end{pmatrix}}}{n!}\left(1+\dfrac{n^2-n}{2^{n-1}}+\mathcal{O}\left(\dfrac{n^3}{2^{3n/2}}\right)\right)$
+    \item $g_n = \dfrac{2^{\begin{pmatrix}n\\2\end{pmatrix}}}{n!}\left(1+\dfrac{n^2-n}{2^{n-1}}+\dfrac{8n!}{(n-4)!}\cdot\dfrac{(3n-7)(3n-9)}{2^{2n}}+\mathcal{O}\left(\dfrac{n^5}{2^{5n/2}}\right)\right)$
   \end{itemize}
   \par\bigskip
-  \noindent In particular, $g_n$ behaves asymptotically as $2^{\begin{pmatrix}n\\2\end{pmatrix}}/n!$
+  \noindent In particular, $g_n$ behaves asymptotically as $2^{\begin{pmatrix}n\\2\end{pmatrix}}/n!$ in the same way that the probability distribution $Hyp$ becomes $Bin$ for large populations. When we make lots of graphs, eventually, the number of graphs that are isomorphic are so small they dont matter in the grand scheme.
 \end{theo}
 \par\bigskip
 \subsection{Special graphs}\hfill\\\par
@@ -141,7 +142,7 @@ Two graphs $G,G^{\prime}$ are \textit{isomorphic} if there is a bijective morphi
 \noindent $K_{a,b}$ has $\dfrac{1}{2}(n^2-a^2-b^2) = ab$ edges and $K_n = K_{1,\cdots,1}$ has $\dfrac{1}{2}(n^2-n) = \begin{pmatrix}n\\2\end{pmatrix}$ edges
 \par\bigskip
 \begin{theo}[Subgraph]{thm:subgraph}
-  LLet $G = (V,E)$ be a simple graph.\par
+  Let $G = (V,E)$ be a simple graph.\par
   \noindent A simple graph $H = (V^{\prime}, E^{\prime})$ is a \textit{subgraph} of $G$ if $V^{\prime}\subseteq V$ and $E^{\prime}\subseteq E$
 \end{theo}
 \par\bigskip
