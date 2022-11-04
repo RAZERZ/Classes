@@ -1,0 +1,140 @@
+\section{Definition och egenskaper av tal}\par
+\subsection{Definition av $\Z$}\hfill\\\par
+\noindent Här ska $(x,y)\in\N\times\N$ vara $x-y\in\Z$\par
+\noindent Då är $(x,x)\Lrarr 0$ och om $x>y$ så $(x,y)\Lrarr x-y>0$ och $y>x$ så $(x,y)\Lrarr x-y<0$
+\par\bigskip
+\noindent Vi vill däremot vara mer träffsäkra i våra definitioner. Därför definierar vi följande binära kompositioner:
+\begin{equation*}
+  \begin{gathered}
+    (\N\times\N)\times(\N\times\N)\to\N\times\N\\
+    ((a,b),(c,d))\stackrel{+}{\mapsto} (a+c,b+d)\in\N\times\N\Lrarr (a+c-(b+d))\in\Z\\
+    ((a,b),(c,d))\stackrel{*}{\mapsto} (ac+bd-(ad+bc))\in\N\times\N\quad (ac+bd,ad+bc)\in\Z
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi definierar en ekvivalensrelation på $\N\times\N$ genom:
+\begin{equation*}
+  \begin{gathered}
+    (x,y)\sim (x^{\prime},y^{\prime})\Lrarr x+y^{\prime} = x^{\prime}+y
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta ger oss ett hum om hur vi kan definiera $\Z$, på något följande vis:
+\begin{equation*}
+  \begin{gathered}
+    \Z = \N\times\N/_\sim
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kollar om ekvivalensrelationen \textit{respekterar} våra binära operationer:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      (a,b)\sim(a^{\prime},b^{\prime})\\
+      (c,d)\sim (c^{\prime},d^{\prime})
+    \end{rcases*}\stackrel{+}{\Rightarrow} (a+c,b+d)\sim(a^{\prime}+c^{\prime},b^{\prime}+d^{\prime})\\
+    \Lrarr (ac+bd,ad+bc)\sim(a^{\prime}c^{\prime}+b^{\prime}d^{\prime}, a^{\prime}d^{\prime}+b^{\prime}c^{\prime})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Alternativ definition}:\par
+\noindent Ett annat sätt vi kan definiera $\Z$ på är:
+\begin{equation*}
+  \begin{gathered}
+    x\in\N\mapsto [(x,0)\in\Z]\\
+    x-y:=[(x,y)]\in\Z\quad\forall x,y\in\N\\
+    \Lrarr \N\hookrightarrow\Z
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Total order on $\Z$]{thm:totorder}
+  A total order on $\Z$ is given by:
+  \begin{equation*}
+    \begin{gathered}
+      [(x,y)]\leq[(x^{\prime},y^{\prime})]\Lrarr x+y^{\prime}\leq x^{\prime}+y\\
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\subsection{Definition av $\Q$}\hfill\\\par
+\noindent Vi använder en liknande teknik:
+\begin{equation*}
+  \begin{gathered}
+    (p/q)\in\Z\times(\Z\backslash\left\{0\right\})
+  \end{gathered}
+\end{equation*}\par
+\noindent Bör korrespondera till $\dfrac{p}{2}\in \Q$.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{p}{q} = \dfrac{p^{\prime}}{q^{\prime}}\Lrarr pq^{\prime} = p^{\prime}q\\
+  \end{gathered}
+\end{equation*}
+\noindent Vi vill nu "härma" det vi gjorde när vi definierade $\Z$:\par
+\begin{equation*}
+  \begin{gathered}
+    (\Z\times(\Z\backslash\left\{0\right\}))\times(\Z\times(\Z\backslash\left\{0\right\}))\to\Z\times(\Z\backslash\left\{0\right\})\\
+    ((a,b),(c,d))\stackrel{+}{\mapsto}(ad+cb,bd)\\
+    ((a,b),(c,d))\stackrel{*}{\mapsto}(ac,bd)
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent Vi definierar en ekvivalensrelation $\sim$ på $\Z\times(\Z\backslash\left\{0\right\})$:\par
+\begin{equation*}
+  \begin{gathered}
+    (p,q)\sim(p^{\prime},q^{\prime})\Lrarr pq^{\prime}=qp^{\prime}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Då får vi $\Q$:
+\begin{equation*}
+  \begin{gathered}
+    \Q:=(\Z\times(\Z\backslash\left\{0\right\}))/_\sim
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har en inducerad binär komposition ($+,*$) som respekterar $+.*$
+\par\bigskip
+\noindent Just nu har vi:
+\begin{equation*}
+  \begin{gathered}
+    \N\hookrightarrow\Z\hookrightarrow\Q
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Definition av $\R$}\hfill\\\par
+\noindent Vi kommer börja med att definiera de positiva reella talen, och sedan överföra konstruktionen till de negativa.
+\par\bigskip
+\noindent Vi kommer använda \textit{Dedekinds} konstruktion.
+\par\bigskip
+\noindent Låt $\Q_+ = \left\{\dfrac{p}{q}\in\Q\;|\;p,q\in\N,\quad q\neq0\right\}$\par
+\noindent Givet $\Q_+$ med den naturliga totala ordningen (går att använda $<$ istället för $\leq$) från:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{p}{q}\leq \dfrac{p^{\prime}}{q^{\prime}}\Lrarr pq^{\prime}\leq p^{\prime}q
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Cut]{thm:cut}
+  En äkta delmängd $S\subsetneq \Q_+$ kallas för en \textit{cut} om:
+  \begin{equation*}
+    \begin{gathered}
+      \forall x\in S\;\forall y\in \Q_+\quad (y\leq x\Rightarrow y\in S)\\
+      \forall x\in S\;\exists y\in S\quad x<y
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $\forall r\in\Q_+$ kan vi definiera $r^{\prime} = \left\{x\in\Q_+\;|\; x<r\right\}$\par
+\noindent Notera, om $r =0$ så är $r^{\prime}=\O$
+\par\bigskip
+\begin{theo}
+  Mängden av \textit{alla} icke-negativa reella tal definieras som följande:
+  \begin{equation*}
+    \begin{gathered}
+      \R_+ = \left\{S\in\mathcal{P}(\Q_+)\;|\;S\text{ är en cut}\right\}
+    \end{gathered}
+  \end{equation*}
+\end{theo}

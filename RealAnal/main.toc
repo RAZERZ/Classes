@@ -10,3 +10,7 @@
 \contentsline {subsection}{\tocsubsection {}{3.4}{Pullback \& Pushforward}}{5}{subsection.3.4}%
 \contentsline {subsection}{\tocsubsection {}{3.5}{Abstrakt algebra}}{5}{subsection.3.5}%
 \contentsline {subsection}{\tocsubsection {}{3.6}{Kardinalitet}}{6}{subsection.3.6}%
+\contentsline {section}{\tocsection {}{4}{Definition och egenskaper av tal}}{8}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Definition av $\mathbb {Z}$}}{8}{subsection.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Definition av $\mathbb {Q}$}}{8}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Definition av $\mathbb {R}$}}{9}{subsection.4.3}%

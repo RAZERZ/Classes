@@ -126,7 +126,7 @@
 \par\bigskip
 \subsection{Abstrakt algebra}\hfill\\\par
 \begin{theo}[Ordnad kropp]{thm:orderedfield}
-  Låt $\mathbb{F}$ vara en kropp med en strikt ordning $<$ så att:\par
+  Låt $\mathbb{F} = (F,+,*,<)$ vara en kropp med en strikt ordning $<$ så att:\par
   \begin{itemize}
     \item $x,y,z\in\mathbb{F}$ och $y<z$ så är även $x+y<x+z$
     \item $x,y\in\mathbb{F}$ och $x,y>0$ så är även $xy>0$
@@ -141,8 +141,11 @@
       (v,w)\mapsto v+w\qquad(\alpha, v)\mapsto\alpha v
     \end{gathered}
   \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent $(V,+)$ är en abelsk grupp
 \end{theo}
-\par\bigskip
+\newpage
 \begin{theo}[Stödet till en avbildning]{thm:support}
   Låt $f:M\to\mathbb{F}$ där $\mathbb{F}$ är en kropp. Vi definierar
   \begin{equation*}
@@ -183,6 +186,9 @@
 \subsection{Kardinalitet}\hfill\\\par
 \noindent Två mängder har samma kardinalitet om det finns en bijektion mellan de.
 \par\bigskip
+\noindent Om card$(X)\leq$ card$(Y)$ så finns det injektiva avbildningar från $X$ till $Y$\par
+\noindent Om card$(X)\geq$ card$(Y)$ så finns det surjektiva avbildningar från $X$ till $Y$
+\par\bigskip
 \noindent Vi säger att en mängd $A$ är uppräknelig om det finns en bijektion mellan $A$ och $\N$.\par
 Om det inte finns en bijektion säger vi att $A$ är överuppräknelig.
 \par\bigskip
@@ -213,4 +219,10 @@ Om det inte finns en bijektion säger vi att $A$ är överuppräknelig.
     \end{gathered}
   \end{equation*}\par
   \noindent Då finns det $M\subseteq X$ så att $F(M) = M$
+\end{theo}
+\newpage
+\begin{theo}[Index-mängd]{thm:indexmangd}
+  Låt $I,X$ vara mängder och det finns en avbildning mellan de så att $I\stackrel{f}{\to}\mathcal{P}(x)$ så att $i\mapsto f(i)=A_i$\par
+  \noindent Denna mängd kallas för \textit{indexmängden}
+  \par\bigskip
 \end{theo}
