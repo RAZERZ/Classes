@@ -2,3 +2,5 @@
 \contentsline {section}{\tocsection {}{2}{Bakgrund}}{3}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Komplexa exponentialer}}{3}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Lebesgue integralen}}{4}{subsection.2.2}%
+\contentsline {section}{\tocsection {}{3}{Laplace Transform}}{5}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Egenskaper hos Laplacetransformation}}{7}{subsection.3.1}%

@@ -1,0 +1,134 @@
+\section{Laplace Transform}\par
+\noindent Vi kommer inte se många komplexa exponentialer, detta stöter vi på senare när vi ska kika på fourierserier och fouriertransformationer.
+\par\bigskip
+\noindent Precis som alla integraltranformationer, så är tanken bakom att de ska hjälpa att lösa en ODE/PDE. Vi kan tänka på den som en maskin som man stoppar in en funktion, och så spottar den ut en annan funktion:
+\begin{equation*}
+  \begin{gathered}
+    f(t)\sim \mathcal{L}[f](s) = (f tilde (s))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Den nya funktionen har lite andra egenskaper. Notera att vi byter variabler från $t$ till $s$.  
+\par\bigskip
+\noindent Laplace transformationen har lite nice egenskaper:\par
+\begin{itemize}
+  \item $f^{\prime}(t)\sim \mathcal{L}[f^{\prime}](s) = s\cdot\mathcal{L}[f](s)$
+\end{itemize}
+\par\bigskip
+\noindent Det finns såklart en "inverse-maskin", som tar en laplace transformation som input och ger ursprungliga funktionen:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[f](s)\stackrel{\mathcal{L}^-1}{\sim}f(t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Genom att använda den nice egenskapen på en hel differentialekvation får vi istället en ekvation som består av $s\cdot$ gånger någon funktion, vilket är betydligt lättare att lösa. 
+\par\bigskip
+\begin{theo}[Laplace Transformationen]{thm:laplacetransform}
+  \textit{Laplace Transformationen} av en funktion $f:[0,\infty)\to\R$ är
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{L}[f](s) = \int_{0}^{\infty}f(t)\cdot e^{-st}dt
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent Laplace transformationen bryr sig inte om vad som händer på den negativa delen av domänen, den vill bara att den är definierad över $\R_+$, alltså:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{L}[f(t)](s) = \mathcal{L}[H(t)\cdot f(t)](s)\\
+      H(t) = 
+      \begin{cases*}
+        1,\quad t\geq0\\
+        0,\quad t<0
+      \end{cases*}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Vi tappar alltså vad som händer med funktionen i dens negativa domän.
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent Enbart om integralen är definierad. Inte alla funktioner har Laplacetransformationer
+  \par\bigskip
+  \noindent Vi kan tänka oss att vi "integrerar" bort $t$, kvar får vi en funktion som beror på $s$.
+\end{theo}
+\par\bigskip
+\noindent Ibland får man ett svar som är definierad på negativa värden av $t$ och \textit{ibland} löser den DE:n, men absolut inte alltid och detta måste verifieras för hand och kan inte hänvisas till teori.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Beräkna $\mathcal{L}[t^n](s)$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{\infty}t^ne^{-st}dt\stackrel{\text{parts}}{=} \left[t^n\cdot(-\dfrac{e^{-st}}{s})\right]_0^\infty+\int_{0}^{\infty}nt^{n-1}\cdot\dfrac{e^{-st}}{s}dt\\
+    \text{Om } s>0\Rightarrow 0+\dfrac{n}{s}\int_{0}^{\infty}t^{n-1}\cdot e^{-st}dt\stackrel{\text{parts}}{=}\dfrac{n(n-1)}{s^2}\int_{0}^{\infty}t^{n-2}e^{-st}dt\\
+    =\cdots=\dfrac{n!}{s^n}\int_{0}^{\infty}e^{-st}dt = \dfrac{n!}{s^n}\left[\dfrac{e^{-st}}{-s}\right]_0^\infty = \dfrac{n!}{s^{n+1}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Eftersom integralen för $s<0$ divergerar, så säger vi att Laplacetransformationen inte är definierad för $s<0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Beräkna $\mathcal{L}[e^{at}](s)$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{\infty}e^{at}e^{-st}dt = \int_{0}^{\infty}e^{t(a-s)}dt = \left[\dfrac{e^{t(a-s)}}{a-s}\right]_0^\infty\\
+    \text{Om } s>a\quad\Rightarrow\dfrac{1}{s-a}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  OOm $f:[0,\infty)\to\R$ är:\par
+  \begin{itemize}
+    \item Styckvis kontinuerlig (om i varje begränsat intervall $[0,b]$, så är $f$ begränsad och har ändligt många punkter av diskontinuitet)
+      \par\bigskip
+    \item Av exponential ordning, dvs det finns konstanter $M>0$ och $\alpha\in\R$ så att $\left|f(t)\right|\leq Me^{\alpha t}$ för alla $t\geq0$
+  \end{itemize}
+  \par\bigskip
+  \noindent Då kommer integralen $\mathcal{L}[f](s)$ konvergera $\forall\;s>\alpha$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om Laplacetransformationen konvergerar för $s_0$, så kommer den konvergera $\forall\;s>s_0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Varje polynom $p(t)$ är av exponentiell ordning med $\alpha=\varepsilon$. Detta för att oavsett hur litet $\alpha$ är, så kommer en exponentialfunktion växa mycket snabbare än ett polynom tillslut. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Laplacetransformationen är linjär (följer från att integralen är linjär)
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Funktionen $f(t) = e^{t^2}$ är \textit{inte} av exponentiell ordning. $t^2$ växer snabbare än vilket $\alpha$ som helst. Denna funktion har inga Laplacetransformationer oavsett värde på $s$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det finns funktioner som inte är styckvis kontinuerliga men som har konvergerande Laplacetransformation. Vi kommer i denna kurs bara bry oss om de som är styckvis kontinuerliga.
+\par\bigskip
+\noindent Även om man inte vet att lösningen till en DE uppfyller kriterierna kan man alltid testa! 
+\par\bigskip
+\begin{theo}[Convolution]{thm:convolution}
+  \textit{Convolution} * of $f,g:[0,\infty)\to\R$ is:
+  \begin{equation*}
+    \begin{gathered}
+      (f*g)(t)\int_{0}^{t}f(t-u)\cdot g(u)du
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\subsection{Egenskaper hos Laplacetransformation}\hfill\\\par
+\begin{itemize}
+  \item Om Laplacetransformationen existerar vid $s_0$, då existerar Laplacetransformationen för samma funktion i $s$ för alla $s>s_0$
+    \par\bigskip
+  \item Laplacetransformationen är linjär
+    \par\bigskip
+  \item $\mathcal{L}[e^{at}f(t)](s) = \mathcal{L}[f(t)](s-a)$
+    \par\bigskip
+  \item $\mathcal{L}[H(t-a)f(t-a)](s) = e^{-as}\cdot\mathcal{L}[f](s)\quad a>0$\par
+    \noindent Vi vill döda vad som händer på negativa sidan när vi skiftar med $a$, för vi vet inte vad som händer där, varpå "heavyside" funktionen $H(t-a)$ kommer in
+    \par\bigskip
+  \item $\mathcal{L}[f(at)](s) = \dfrac{1}{a}\mathcal{L}[f(t)]\left(\dfrac{s}{a}\right)\quad a>0$
+    \par\bigskip
+  \item $\mathcal{L}[f^{\prime}(t)](s) = s\mathcal{L}[f(t)](s)-f(0)$ (måste hålla koll på initialvärdena på DE:n)
+    \par\bigskip
+  \item $\mathcal{L}[t^nf(t)](s) = (-1)^n\dfrac{d^n}{ds^n}\left(\mathcal{L}[f](s)\right)$ (missbildad spegling av föregående punkt)
+    \par\bigskip
+  \item $\mathcal{L}[f*g](s) = \mathcal{L}[f](s)\cdot\mathcal{L}[g](s)$
+\end{itemize}
