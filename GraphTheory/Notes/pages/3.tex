@@ -1,0 +1,180 @@
+\section{Trees}
+\par\bigskip
+\begin{theo}[Tree]{thm:tree}
+  A \textit{tree} is a graph that is both connected and contains no cycles
+  \par\bigskip
+  \noindent It follows automatically that a tree is a simple graph. No cyclic subgraphs. 
+\end{theo}
+\par\bigskip
+\noindent One of the key motivations behind studying trees is sorting algorithms. The follow a binary tree, which has a root node and a left-right structure.\par
+\noindent To us, this is not that important.
+\par\bigskip
+\begin{lem}[Leaves]{thm:leave}
+  Every finite tree on at least 2 vertices contains at least 2 vertices of degree 1.
+  \par\bigskip
+  \noindent Such vertices are called \textit{leaves}
+\end{lem}
+\par\bigskip
+\begin{prf}
+  LLet $T$ be a finite tree on vertices $\geq2$.\par
+  \noindent Consider a path $P = xe_1x_1\cdots e_ky$ of maximum length
+  \par\bigskip
+  \noindent If such path exists, we will show that $x,y$ must be our desired leaves.
+  \par\bigskip
+  \noindent Assume WLOG $y$ has deg$(y)\geq2$. Then $y$ has a neighbour $z\neq x_{k-1}$\par
+  \noindent If $z$ is not on $P$ , then $xe_1\cdots e_ky{y,z}z$ is a longer path, which is a contradiction.
+  \par\bigskip
+  \noindent Otherwise $z$ is on $P$:
+  \begin{equation*}
+    \begin{gathered}
+      x-x_1-x_2\cdots-z-\cdots-x_{k-1}-y
+    \end{gathered}
+  \end{equation*}\par
+  \noindent This gives a cycle (there is a path from $y$ to $z$), which is a contradiction. Hence, deg$(y)=1$ and deg$(x)=1$
+\end{prf}
+\par\bigskip
+\noindent The trick here is that we took some suitable substructure of maximum lenght, and from thiswe arrived at this property. One could say that we initially wanted to show that this follows from the root down to the last node.
+\par\bigskip
+\begin{lem}
+  AAny tree on $n$ vertices has $n-1$ edges
+\end{lem}
+\par\bigskip
+\begin{prf}
+  WWe will use induction over $n$:\par
+  \begin{itemize}
+    \item $n=1$: has 0 edges
+    \item Assume the claim is true for some $n\geq1$, and let $T$ be a tree on $n+1$ vertices.\par
+      By Lemma 4.1, $T$ contains a leaf (at least 2) $v$. Obtain $T^{\prime}$ from $T$ by deleting $v$ and its incident edge.\par
+      Now $T^{\prime}$ has $n$ vertices, and therefore $n-1$ edges.\par
+      This means $T$ has $n= (n+1)-1$ edges
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent It is fairly easy to count number of labelled trees given $n$ vertices. Counting isomorphic trees only yields an asymptotic relationship (as previous)
+\par\bigskip
+\begin{theo}[Cayley]{thm:cayley}
+  There are $n^{n-2}$ labelled trees on $n$ vertices
+\end{theo}
+\par\bigskip
+\begin{prf}
+  TThe proof is a little difficult. The main idea is to find a bijection.
+  \par\bigskip
+  \noindent On the one hand we have labelled trees, and on the other hand we have sequences (Prufer sequences) of length $n-2$ with $n$ trees from $1,\cdots,n$ 
+  \par\bigskip
+  \noindent We will find 2 algorithms that transform one hand to the other and then show that they are the same if inverted.
+  \par\bigskip
+  \begin{itemize}
+    \item \textbf{Algorithm 1}:\par
+    Let $T$ be a tree n vertices $\left\{1,\cdots,n\right\}$\par
+    While $T$ has $\geq3$ vertices, remove the leaf with the smallest label, and write down its neighbours label as next entry in the sequences\par
+    Stop when there are 2 vertices left\par
+    Remember here that a leaf has a unique neighbour.
+    \par\bigskip
+  \item\textbf{Algorithm 2}:\par
+    We now want to go from a Prufer sequence to trees.\par
+    Let $A = (a_1,\cdots,a_{n-2})$ be a Prufer sequence.\par
+    To each $i = 1,\cdots, n$, count how often $i$ appears in the Prufer sequence, +1. Denoted by $d_i$\par
+  For $s=1,\cdots,n-2$, find the smallest $j\in\left\{1,\cdots,n\right\}$ such that $d_j=1$ (smallest value that doesnt occur in the Prufer sequence, since if $d_j=1$ and we are adding one)\par
+  Draw an edge between $j$ and $a_s$ and reduce $d_{a_s}$ and $d_j$ by 1 each.\par
+  In the end, two vertices $u,v\in\left\{1,\cdots,n\right\}$ will remain with $d_u=d_v=1$ (this is a claim, \textbf{CHECK})\par
+  Connect $u,v$ by an edge. At this point you will have a tree. 
+  \end{itemize}
+  \par\bigskip
+  \noindent\textbf{Claim:} Algorithm 1 \& 2 are mutually inverse to each other, thus establishing the bijection, and the proof follows.\par
+  \noindent (In reality we need to actually check that the algorithms work)
+\end{prf}
+\par\bigskip
+\noindent The way we defined trees as being connected and cycle free is not the only definition, in fact, we have the following theorem:
+\par\bigskip
+\begin{theo}
+  TThe following are equivalent:\par
+  \begin{itemize}
+    \item $T$ is a tree
+    \item For any two vertices $x,y\in T$, there exists a unique path from $x$ to $y$ (key-point: unique, from connectedness we already know there exists a path)
+    \item $T$ is edge-minimal among connected graphs, i.e removing an edge from $T$ will disconnect $T$
+    \item $T$ is edge-maximal among cycle-free graphs, i.e adding an edge to $T$ must create a cycle.
+  \end{itemize}
+\end{theo}
+\newpage
+\begin{prf}
+  LLet $T = (V,E)$ be a simple graph. We will show all the points above using implications. 
+  \par\bigskip
+  \begin{itemize}
+    \item\textbf{First point implies the second}\par
+      $T$ is a tree, i.e connected and cycle-free.\par
+      Take arbitrary vertices $x,y\in V$. Since $T$ is connected, there is a path from $x$ to $y$\par
+      Assume there is a second path. This contradicts that it is cycle-free, therefore the path is unique.
+      \par\bigskip
+    \item\textbf{Second point implies the third}\par
+    Consider $\left\{x,y\right\}\in E$. By the second point, this edge forms the unique path between $x,y$.\par
+    If we remove the unique path, there will not be a path between $x,y$ and thus disconnects $x$ from $y$, and we now have a disconnected graph
+    \par\bigskip
+  \item\textbf{Second point implies the fourth}\par
+    Consider 2 non-adjacent vertices $\left\{x,y\right\}$. By the second point, there is a unique path $P$ from $x$ to $y$.\par
+    Introducing the new edge $\left\{x,y\right\}$ creates a cycle.
+  \par\bigskip
+  \item\textbf{Third point implies the first}\par
+    If $T$ is edge-minimal among connected graphs, then in particular it is connected, we must now show that it is cycle-free.\par
+    Assume $T$ contains a cycle. Deleting any edge of the cycle would \textit{not} disconnect $T$, therefore $T$ cannot be edge-minimal among connected, which is a contradiction, thus it cannot contain a cycle and therefore it is a tree
+  \item\textbf{Fourth point implies the first}\par
+    $T$ is edge-minimal among cycle-free graphs, in particular $T$ is cycle-free. If $T$ is not connected, then we can introduce an edge between two different connected components, and this new edge will \textit{not} introduce a cycle, which contradicts it being edge-minimal. 
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\begin{theo}[Spanning tree]{thm:spanningtree}
+  Let $G$ be a graph. A \textit{spanning tree} of $G$ is a spanning subgraph that is a tree
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $G$ is disconnected, then a spanning subgraph of $G$ is disconnected
+\par\bigskip
+\begin{theo}
+  FIf $G$ is a connected graph, then $G$ contains a spanning tree.
+  \par\bigskip
+  \noindent If $G$ is a finite graph, then we can use the last theorem to show this. The problem arises when $G$ is infinite. In order to show this, we need a more powerful tool.
+\end{theo}
+\par\bigskip
+\begin{theo}[Zorns lemma]{thm:zorns lemma}
+  Let $A$ be a non-empty set equipped with a partial order "$\geq$".
+  \par\bigskip
+  \noindent A susbet $C\subseteq A$ is a \textit{chain}, if $\forall c,c^{\prime}\in C$ we have $c\leq c^{\prime}$ or $c^{\prime}\leq c$
+  \par\bigskip
+  \noindent Assume that for any chain $C\in A$, there is an upper bound $b\in A$ (i.e $c\leq b\;\forall c\in C$).\par
+  \noindent Then, there exists an element $m\in A$ that is maximal, which means that $m\leq a\Rightarrow m=a$
+\end{theo}
+\par\bigskip
+\begin{prf}[Theorem 4.5]{thm:45}
+  Let $A$ be the set of all cycle-free spanning subgraphs of $G$. $G$ here can be a multigraph.
+  \par\bigskip
+  \noindent We need to define a partial order. For $H, H^{\prime}\in A$, define $H\leq H^{\prime}$ is $H$ is a subgraph of $H^{\prime}$\par
+  \noindent Now you might wonder how subgraphs work wiht multigraphs, since they are cycle free it will work the same.
+  \par\bigskip
+  \noindent Then $(A,\leq)$ is a partially ordered set (\textbf{CHECK}). Furthermore, $A\neq\O$ because the graph $(V,\O)\in A$
+  \par\bigskip
+  \noindent Let $C$ be a chain in $A$, consisting of elements $(V,E_i)$ for $i\in I$ ($I$ is some index set).\par
+  \noindent What we want to show is that such a chain has an upper-bound.
+  \par\bigskip
+  \noindent Define $H_b = \left(V,\bigcup_{i\in I}E_i\right)$. We want to show that $b$ is an upper-bound for $C$.
+  \par\bigskip
+  \noindent By construction, $H_b$ is a spanning subgraph of $G$. Why? It contains all of the vertices, and the individual sets are subsets of $G$.
+  \par\bigskip
+  \noindent Moreover, assume it contains a cycle with edges $e_1,\cdots,e_r$. Then, for every $l = 1,\cdots, r$, there exists $i(l)\in I$ such that $e_l\in E_{i(l)}$ (at least one set must be in the union)
+  \par\bigskip
+  \noindent Since $C$ is a chain, one of the $H_{i(1)},\cdots,H_{i(r)}$ contains all other subgraphs simply because they are all comparable. (Say $H_{i(j)}$)
+  \par\bigskip
+  \noindent Thus, $e_1,\cdots, e_r$ is contained in the edge set $E_{i(j)}$, hence $H_{i(j)}$ contains a cycle.
+  \par\bigskip
+  \noindent This is a contradiction, because $H_b$ is cycle-free. This means $H_b\in A$
+  \par\bigskip
+  \noindent Is $H_b$ an upper-bound for the chain $C$? Yes, $H_b$ bound $C$ because
+  \begin{equation*}
+    \begin{gathered}
+      E_s\in \bigcup_{i\in I}E_i\qquad\forall s\in I
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Our chain was arbitrary, this means that we can do this for any chain.
+  \par\bigskip
+  \noindent By Zorns lemma, there is $H\in A$ that is maximal with respect to the partial order we defined. This means, $H$ is edge-maximal among cycle-free spanning subgraphs of $G$.
+  \par\bigskip
+  \noindent This means, $H$ is a spanning tree. (edge-maximal cycle free means it is a tree)
+\end{prf}
