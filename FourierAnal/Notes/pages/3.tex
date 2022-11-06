@@ -4,7 +4,7 @@
 \noindent Precis som alla integraltranformationer, så är tanken bakom att de ska hjälpa att lösa en ODE/PDE. Vi kan tänka på den som en maskin som man stoppar in en funktion, och så spottar den ut en annan funktion:
 \begin{equation*}
   \begin{gathered}
-    f(t)\sim \mathcal{L}[f](s) = (f tilde (s))
+    f(t)\sim \mathcal{L}[f](s) = (\stackrel{\sim}{f}(s))
   \end{gathered}
 \end{equation*}
 \par\bigskip
@@ -12,7 +12,7 @@
 \par\bigskip
 \noindent Laplace transformationen har lite nice egenskaper:\par
 \begin{itemize}
-  \item $f^{\prime}(t)\sim \mathcal{L}[f^{\prime}](s) = s\cdot\mathcal{L}[f](s)$
+  \item $f^{\prime}(t)\sim \mathcal{L}[f^{\prime}](s) = s\cdot\mathcal{L}[f](s) - f(0)$
 \end{itemize}
 \par\bigskip
 \noindent Det finns såklart en "inverse-maskin", som tar en laplace transformation som input och ger ursprungliga funktionen:
@@ -86,6 +86,14 @@
   \par\bigskip
   \noindent Då kommer integralen $\mathcal{L}[f](s)$ konvergera $\forall\;s>\alpha$
 \end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Med exponential ordning menas att:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{t\to\infty}\dfrac{f(t)}{Me^{\alpha t}} = 0
+  \end{gathered}
+\end{equation*}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Om Laplacetransformationen konvergerar för $s_0$, så kommer den konvergera $\forall\;s>s_0$
