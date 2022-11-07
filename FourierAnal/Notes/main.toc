@@ -4,3 +4,5 @@
 \contentsline {subsection}{\tocsubsection {}{2.2}{Lebesgue integralen}}{4}{subsection.2.2}%
 \contentsline {section}{\tocsection {}{3}{Laplace Transform}}{5}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Egenskaper hos Laplacetransformation}}{7}{subsection.3.1}%
+\contentsline {section}{\tocsection {}{4}{Tillämpningar på differentialekvationer}}{9}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Tillämpningar till integralekvationer}}{9}{subsection.4.1}%

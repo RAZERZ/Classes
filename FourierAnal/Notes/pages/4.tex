@@ -1,0 +1,74 @@
+\section{Tillämpningar på differentialekvationer}\par
+\noindent Innan vi börjar, ska vi notera unikheten av Laplacetransformationen:
+\par\bigskip
+\begin{theo}
+  OOm Laplacetransformationen för 2 kontinuerliga funktioner sammanfaller, så måste funktionerna vara samma.
+  \noindent Om de enbart är kontinuerliga i en punkt, så måste de sammanfalla i den punkten om Laplacetransformationen är densamma. 
+\end{theo}
+\par\bigskip
+\noindent Då kan vi dra slutsatsen att det finns en invers $\mathcal{L}^{-1}$ (på grund av unikhet)
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Lös följande linjära förstaordningens IVP med konstanta koefficienter med Laplace:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      y^{\prime}(t) +y(t)=3\\
+      y(0) = 2
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Det första vi gör är att köra Laplacetransformation på allt:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[y^{\prime}(t)]+\mathcal{L}[y(t)] = \mathcal{L}[3]\\
+    s\cdot\mathcal{L}[y(t)]-\underbrace{y(0)}_{\text{2}}+\mathcal{L}[y(t)] = \mathcal{L}[3]\\
+    \mathcal{L}[y(t)](s+1) -2 = \mathcal{L}[3] = \dfrac{3}{s}\\
+    \mathcal{L}[y(t)] = \dfrac{\left(\dfrac{3}{s}+2\right)}{s+1} = \dfrac{3+2s}{s(s+1)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu ska vi finna inversen till denna Laplacetransformation, då får vi $y(t)$. Vi kan kika i formelbladet för att hitta detta:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{3+2s}{s(s+1)} = \dfrac{A}{s}+\dfrac{B}{s+1} = \dfrac{3}{s}-\dfrac{1}{s+1}\\
+    y(t) = 3-e^{-t}\quad t\geq0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Lösningen till en ODE är kontinuerlig
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Integralens värde ändras inte om funktionen är diskontinuerlig i ändligt många punkter. 
+\par\bigskip
+\noindent Laplacetransformationer är hjälpsamma för att inte bara lösa differentialekvationer, men \textit{integralekvationer}
+\par\bigskip
+\subsection{Tillämpningar till integralekvationer}\hfill\\\par
+\noindent\textbf{Exempel:}\par
+\noindent Hitta en funktion $f(t)$ sådant att den löser följande ekvation:
+\begin{equation*}
+  \begin{gathered}
+    2\underbrace{\int_{0}^{t}\cos(t-x)f(x)dx}_{\text{Konvolution av $\cos*f$}} = f(t)+3
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Lösning:}\par
+\noindent Börja med Laplacetransformation och använd egenskapen att Laplacetransformationen av konvolutio blir produkt:
+\begin{equation*}
+  \begin{gathered}
+    2\dfrac{s}{s^2+1}\cdot\mathcal{L}[f] = \mathcal{L}[f]+\dfrac{3}{s}\\
+    \mathcal{L}[f]\left(1-\dfrac{2s}{s^2+1}\right) = -\dfrac{3}{s}\\
+    \Lrarr \mathcal{L}[f]\left(\dfrac{s^2-2s+1}{s^2+1}\right) = \mathcal{L}[f]\dfrac{(s-1)^2}{s^2+1} = -\dfrac{3}{s}\\
+    \Lrarr\mathcal{L}[f] = -\dfrac{3s^2+3}{s(s-1)^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi hitta inversen till Laplacetransformationen, vilket vi kan göra med partialbråksuppdelning, vi får då: (\textbf{CHECK})
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}^{-1} = f(t) = -3-6te^t
+  \end{gathered}
+\end{equation*}

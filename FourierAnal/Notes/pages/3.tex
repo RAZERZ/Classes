@@ -120,6 +120,9 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $f*g = g*f$
 \newpage
 \subsection{Egenskaper hos Laplacetransformation}\hfill\\\par
 \begin{itemize}
@@ -140,3 +143,57 @@
     \par\bigskip
   \item $\mathcal{L}[f*g](s) = \mathcal{L}[f](s)\cdot\mathcal{L}[g](s)$
 \end{itemize}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vad är $\mathcal{L}[\sin(at)]$ och $\mathcal{L}[\cos(at)]$?
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[\sin(t)] = \mathcal{L}[-\cos^{\prime}(t)] = -\mathcal{L}[\cos^{\prime}(t)] = -s\cdot\mathcal{L}[\cos(t)]+\cos(0)\\
+    = -s\cdot\mathcal{L}[\cos(t)]+1\\
+    \mathcal{L}[\cos(t)] = \mathcal{L}[\sin^{\prime}(t)]=s\mathcal{L}[\sin(t)] - \sin(0)\\
+    \Rightarrow \mathcal{L}[\sin(t)] = -s^2\mathcal{L}[\sin(t)]+1\\
+    \mathcal{L}[\sin(t)](1+s^2) = 1\Rightarrow \mathcal{L}[\sin(t)](s) = \dfrac{1}{s^2+1}\\
+    \Rightarrow\mathcal{L}[\cos(t)] = \dfrac{s}{s^2+1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi påminner om att Laplarretransformationen är bara definierad över de positiva reella talen, så vi delar upp i fall då $a<0$ och $a>0$:
+\par\bigskip
+\textbf{Fall $a>0$}:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[\sin(at)](s) = \dfrac{1}{a}\cdot\mathcal{L}[\sin(t)]\left(\dfrac{s}{a}\right) = \dfrac{1}{a}\cdot\dfrac{1}{\left(\dfrac{s}{a}\right)^2+1} = \dfrac{a}{s^2+a^2}\\
+    \mathcal{L}[\cos(at)](s) = \dfrac{1}{a}\cdot\mathcal{L}[\cos(t)]\left(\dfrac{s}{a}\right) = \dfrac{1}{a}\cdot\dfrac{s/a}{(s/a)^2+1} = \dfrac{s}{s^2+a^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\textbf{Fall $a<0$}:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[\sin(at)](s) = \mathcal{L}[\sin(-(-a)t)](s) = \mathcal{L}[-\sin(-at)](s) = -\mathcal{L}[\sin(-at)](s)\\
+    \Rightarrow -\dfrac{-a}{s^2+a^2} = \dfrac{a}{s^2+a^2}\\
+    \mathcal{L}[\cos(at)](s) = \mathcal{L}[\cos(-(-a)t)] = \mathcal{L}[\cos(-at)](s) = \dfrac{s}{s^2+a^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\textbf{Fall a=0}:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}[\sin(at)](s) = \mathcal{L}[0](s) = 0\\
+    \mathcal{L}[\cos(at)](s) = \mathcal{L}[1](s) = \dfrac{1}{s}
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent Vi visar att Laplarre av en deriverad funktion är $s$ gånger Laplarren:
+\par\bigskip
+\begin{prf}
+  VVi skriver vad vi vet:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{L}[f^{\prime}(t)](s) = \int_{0}^{\infty}f^{\prime}(t)e^{-st}dt = \lim_{A\to\infty}\int_{0}^{A}f^{\prime}(t)e^{-st}dt\\
+      \stackrel{\text{parts}}{=} \lim_{A\to\infty}[f(t)e^{-st}]_0^A+s\int_{0}^{A}f(t)e^{-st}dt\\
+      =\lim_{A\to\infty} f(A)e^{-sA}-f(0)\cdot1+\int_{0}^{A}f(t)e^{-st}dt\\
+      = 0-f(0)+s\mathcal{L}[f(t)](s)\Lrarr s\mathcal{L}[f(t)](s)-f(0)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
