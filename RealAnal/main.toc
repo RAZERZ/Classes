@@ -14,3 +14,5 @@
 \contentsline {subsection}{\tocsubsection {}{4.1}{Definition av $\mathbb {Z}$}}{8}{subsection.4.1}%
 \contentsline {subsection}{\tocsubsection {}{4.2}{Definition av $\mathbb {Q}$}}{8}{subsection.4.2}%
 \contentsline {subsection}{\tocsubsection {}{4.3}{Definition av $\mathbb {R}$}}{9}{subsection.4.3}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{Sup \& Inf}}{10}{subsection.4.4}%
+\contentsline {subsection}{\tocsubsection {}{4.5}{Sequence}}{10}{subsection.4.5}%
