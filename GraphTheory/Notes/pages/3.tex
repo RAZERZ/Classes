@@ -12,7 +12,7 @@
 \begin{lem}[Leaves]{thm:leave}
   Every finite tree on at least 2 vertices contains at least 2 vertices of degree 1.
   \par\bigskip
-  \noindent Such vertices are called \textit{leaves}
+  \noindent Such vertices (vertices of degree 1) are called \textit{leaves}
 \end{lem}
 \par\bigskip
 \begin{prf}
@@ -117,7 +117,7 @@
     If $T$ is edge-minimal among connected graphs, then in particular it is connected, we must now show that it is cycle-free.\par
     Assume $T$ contains a cycle. Deleting any edge of the cycle would \textit{not} disconnect $T$, therefore $T$ cannot be edge-minimal among connected, which is a contradiction, thus it cannot contain a cycle and therefore it is a tree
   \item\textbf{Fourth point implies the first}\par
-    $T$ is edge-minimal among cycle-free graphs, in particular $T$ is cycle-free. If $T$ is not connected, then we can introduce an edge between two different connected components, and this new edge will \textit{not} introduce a cycle, which contradicts it being edge-minimal. 
+    $T$ is edge-maximal among cycle-free graphs, in particular $T$ is cycle-free. If $T$ is not connected, then we can introduce an edge between two different connected components, and this new edge will \textit{not} introduce a cycle, which contradicts it being edge-maximal. 
   \end{itemize}
 \end{prf}
 \par\bigskip
