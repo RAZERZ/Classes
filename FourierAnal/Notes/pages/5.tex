@@ -1,0 +1,165 @@
+\section{Series of functions}\par
+\subsection{Funktionsföljder}\hfill\\\par
+\noindent Vi påminner oss om hur det såg ut för talföljder $a_1,a_2,\cdots,$\par
+\noindent Vi sade att talföljden \textit{konvergerar} till ett $a\in \R$ om:
+\begin{equation*}
+  \begin{gathered}
+    \forall\varepsilon>0\;\exists n_0\;\forall n>n_0 \quad\left|a-a_n\right|<\varepsilon
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vill nu undersöka vad som händer om vi tittar på en "funktionsföljd" och vad det betyder att de sekvenserna konvergerar.
+\par\bigskip
+\noindent Antag att vi har en följd av funktioner (som alla har samma domän), konvergens i funktionsföljder:
+\par\bigskip
+\begin{theo}
+  LLåt $S\subset\R$ och låt $f_n:S\to\C$ (\textbf{FÖR ALGEBRAISK SLUTENHET (nej, för fourierserier är komplexvärda)}) vara en funktionsföljd där $n\geq0$
+  \par\bigskip
+  \noindent Vi säger att funktionsföljden $f_n$ \textit{konvergerar}:\par
+  \begin{itemize}
+    \item \textbf{Punktvis}: Till en funktion $f:S\to\C$ om $\forall x\in S$ får vi en talföljd $f_1(x),f_2(x),\cdots$ som konvergerar till $f(x)$. 
+      \par\bigskip
+      Mer matematiskt uttryckt: $\forall x\in S\;\forall\varepsilon>0\;\exists n_0\;\forall n>n_0\quad \left|f_n(x)-f(x)\right|<\varepsilon$
+      \par\bigskip
+      \textbf{Anmärkning:}\par
+      Eftersom vi kollar efter punktvis konvergens, så behöver inte $f$ (funktionen som följden\par konvergerar till) vara kontinuerlig. 
+      \par\bigskip
+
+    \item\textbf{Likformig konvergens}: Vi säger att $f_n$ konvergerar \textit{likformigt} om vi kan fixera ett $\varepsilon>0$ och att det för alla $x$ gäller att konvergensen sker.
+      \par\bigskip
+      Mer matematiskt uttryckt: $\forall \varepsilon>0\;\exists n_0\;\forall n>n_0\;\forall x\in S\quad \left|f_n(x)-f(x)\right|<\varepsilon$
+      \par\bigskip
+      Notera här att vi fixerar både $\varepsilon$ och $n_0$ och då måste detta $n_0$ funka \textit{för alla} $x\in S$.\par
+      Då ska alla funktioner med $n>n_0$ hamna inom $f\pm \varepsilon$ för alla $x\in S$ så att \textit{hela} funktionen\par hamna inom $f\pm\varepsilon$ 
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Likformig konvergens $\Rightarrow$ punktvis konvergens
+\par\bigskip
+\noindent Hela iden mellan varför man definierar 2 olika konvergenser är att punktvis konvergens är "det första man tänker på" när man tänker på konvergens. Men, man vill gärna att följden ska kunna säga något om funktionen och vice versa.
+\par\bigskip
+\begin{theo}
+  OOm $f_n\to f$ likformigt och alla $f_n$ är kontinuerliga, då måste $f$ vara kontinuerlig
+\end{theo}
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Antag att jag har följande:
+\begin{equation*}
+  \begin{gathered}
+    f_n:[1,2]\to\R\qquad f_n(x) = \dfrac{1}{x^n}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om $x = 1$ så är $f_n(1) = \dfrac{1}{1^n} \to 1$\par
+\noindent Om $x>1$ så är $f_n(x) \dfrac{1}{x^n}\stackrel{n\to\infty}{\to}0$
+\par\bigskip
+\noindent Alltså, $f_n\to f$ punktvis konvergens där
+\begin{equation*}
+  \begin{gathered}
+    f(x) = 
+    \begin{cases*}
+      1,\quad x=1\\
+      0,\quad x>1
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Från Sats 5.2 gäller då att $f$ är diskontinuerlig.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $f$ är likformigt kontinuerlig, så gäller \textbf{inte} att $f_n$ är kontinuerliga.
+\par\bigskip
+\noindent Om vi modifierar föregående exempel så att $f_n = \begin{cases}\dfrac{1}{x^n}\quad x>1\\0\quad x=1\end{cases}$ får vi att $f$ är likformigt kontinuerlig ($f = 0$) men $f_n$ är diskontinuerlig.
+\par\bigskip
+\begin{theo}
+  OOm $f_n:[a,b]\to\C$ är en funktionsföljd av integrerbara funktioner och om $f_n\to f$ konvergerar likformigt, då är $f$ också integrerbar och
+  \begin{equation*}
+    \begin{gathered}
+      \int_{a}^{b}f(x)dx = \lim_{n\to\infty}\int_{a}^{b}f_n(x)dx \stackrel{?}{=} \int_{a}^{b}\lim_{n\to\infty}f_n(x)dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $f_n = \begin{cases}n,\quad 0< x\leq \dfrac{1}{n}\\0\quad \dfrac{1}{n}<x\leq 1\text{ eller } x= 0\end{cases}$
+\par\bigskip
+\noindent Här gäller att $f_n\stackrel{\text{punktvis}}{\to}f$ och $f(x) = 0$ för alla $x$\par
+\noindent Det som är lite ointuitivt är att $\int_{0}^{1}f(x)dx = 0$ men $\int_{0}^{1}f_n(x)dx=1$
+\par\bigskip
+\noindent Från Sats 5.3 gäller att vi \textit{inte} har likformig konvergens.
+\newpage
+\subsection{Funktionsserier}\hfill\\\par
+\begin{theo}[Konvergens av funktionsserier]{thm:convergenceofseries}
+  Låt $S\subseteq\R$ och $f_k:S\to\C$ vara en funktionsföljd där $k\geq0$.
+  \par\bigskip
+  \noindent Låt:
+  \begin{equation*}
+    \begin{gathered}
+      s_N(x) = \sum_{k=0}^{N}f_k(x)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent vara följd av partiella summor där $N\geq0$
+  \par\bigskip
+  \noindent Serien
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=0}^{\infty}f_k(x)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent \textit{konvergerar}:\par
+  \begin{itemize}
+    \item\textbf{Punktvis}: Om $s_N\stackrel{\text{punktvis}}{\to}F$, det vill säga:
+      \begin{equation*}
+        \begin{gathered}
+          \forall x\in S\;\forall \varepsilon>0\;\exists n_0\;\forall n>n_0\quad \left|\sum_{k=0}^{N}f_k(x)-F(x)\right|<\varepsilon
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item\textbf{Likformigt:} Om $s_N\stackrel{\text{likformigt}}{\to}F$, det vill säga:
+      \begin{equation*}
+        \begin{gathered}
+          \forall \varepsilon>0\;\exists n_0\;\forall n>n_0\;\forall x\in S\quad \left|\sum_{k=0}^{N}f_k(x)-F(x)\right|<\varepsilon
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item\textbf{Absolutkonvergens:} Om:
+      \begin{equation*}
+        \begin{gathered}
+          \sum_{k=0}^{\infty}\left|f_k(x)\right|
+        \end{gathered}
+      \end{equation*}\par
+      \noindent konvergerar punktvis
+      \par\bigskip
+    \item\textbf{Absolutlikformigt}: För många adjektiv :p
+  \end{itemize}
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $\sum_{k=0}^{\infty}f_k(x)$ konvergerar likformigt till någon funktion $F(x)$, så konvergerar serien punktvis till samma $F(x)$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $\sum_{k=0}^{\infty}f_k(x)$ är absolutkonvergent, så är den punktvis konvergerande. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $f_k$ är kontinuerliga och serien $\sum_{k=0}^{\infty}f_k(x)$ konvergerar likformigt till $F(x)$, så är $F(x)$ kontinuerlig
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $f_k$ är integrerbara i ett intervall $[a,b]$ och serien $\sum_{k=0}^{\infty}f_k(x) $  konvergerar likformigt till $F(x)$, så är:
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}\sum_{k=0}^{\infty}f_k(x)dx = \sum_{k=0}^{\infty}\int_{a}^{b}f_k(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Weirstrass $M$-test]{thm:weirstrassmtest}
+  Låt $f_k:[a,b]\to\C$ vara en funktionsföljd sådant att det finns tal $M_k\geq0$ som uppfyller följande:\par
+  \begin{itemize}
+    \item $\forall x\in[a,b]\quad \left|f_k(x)\right|\leq M_k\quad$ (bounds the whole function $f_k$)
+      \par\bigskip
+    \item Serien $\sum_{k=0}^{\infty}M_k<\infty$ konvergerar
+  \end{itemize}
+  \par\bigskip
+  \noindent Då gäller att $\sum_{k=0}^{\infty}f_k(x)$ är absolutkonvergent och likformigt och punktvis 
+\end{theo}

@@ -6,3 +6,6 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Egenskaper hos Laplacetransformation}}{7}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Tillämpningar på differentialekvationer}}{9}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Tillämpningar till integralekvationer}}{9}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{5}{Series of functions}}{11}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Funktionsföljder}}{11}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Funktionsserier}}{13}{subsection.5.2}%

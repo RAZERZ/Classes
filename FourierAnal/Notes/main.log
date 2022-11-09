@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  8 NOV 2022 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  9 NOV 2022 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -803,6 +803,12 @@ e 5.
 
 LaTeX Warning: Label `O' multiply defined.
 
+
+LaTeX Warning: Label `O' multiply defined.
+
+
+LaTeX Warning: Label `O' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1007,18 +1013,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--49
 
  []
 
-[9]) [10] (./main.aux (./includes/title.aux))
+[9]) [10] (./pages/5.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--2
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 35.
+Package mdframed Info: mdframed works in twoside mode on input line 43.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 43.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 44.
+[11]
+Package mdframed Info: mdframed works in twoside mode on input line 76.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 76.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 82.
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 93.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 93.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 137.
+Package mdframed Info: mdframed works in twoside mode on input line 156.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 156.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 165.
+[13]) [14] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8B7383E2EF3FAADCC848E6332B508161;1530.
+(rerunfilecheck)             Checksum: EF05C14D67F5B80F9533DA86A69F2444;2022.
  ) 
 Here is how much of TeX's memory you used:
- 25120 strings out of 478238
- 476575 string characters out of 5850456
- 777487 words of memory out of 5000000
- 42712 multiletter control sequences out of 15000+600000
+ 25163 strings out of 478238
+ 477284 string characters out of 5850457
+ 777939 words of memory out of 5000000
+ 42740 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,13n,107p,499b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1037,10 +1089,10 @@ type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 bm7.pfb>
-Output written on main.pdf (11 pages, 214849 bytes).
+Output written on main.pdf (15 pages, 231403 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
