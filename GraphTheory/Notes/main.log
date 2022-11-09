@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  8 NOV 2022 23:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  9 NOV 2022 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,6 +826,27 @@ LaTeX Warning: Label `T' multiply defined.
 
 
 LaTeX Warning: Label `L' multiply defined.
+
+
+LaTeX Warning: Label `L' multiply defined.
+
+
+LaTeX Warning: Label `A' multiply defined.
+
+
+LaTeX Warning: Label `L' multiply defined.
+
+
+LaTeX Warning: Label `W' multiply defined.
+
+
+LaTeX Warning: Label `L' multiply defined.
+
+
+LaTeX Warning: Label `L' multiply defined.
+
+
+LaTeX Warning: Label `A' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1738,21 +1759,566 @@ Package mdframed Warning: correct box splittet fails
 Package mdframed Info: You first box width is to small
  mdframed fixed it
 (mdframed)              on input line 180.
-[14]) [15] (./main.aux (./includes/title.aux))
+[14]) [15] (./pages/4.tex
+Package mdframed Info: mdframed works in twoside mode on input line 2.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4.
+Package mdframed Info: mdframed works in twoside mode on input line 11.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 11.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 18.
+Package mdframed Info: mdframed works in twoside mode on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 61.
+ [16]
+Package mdframed Info: mdframed works in twoside mode on input line 66.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 66.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 72.
+Package mdframed Info: mdframed works in twoside mode on input line 77.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 77.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 100.
+Package mdframed Info: mdframed works in twoside mode on input line 103.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 103.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 104.
+Package mdframed Info: mdframed works in twoside mode on input line 107.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 107.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 108.
+ [17]
+Package mdframed Info: mdframed works in twoside mode on input line 117.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 117.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 121.
+Package mdframed Info: mdframed works in twoside mode on input line 124.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 124.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 131.
+Package mdframed Info: mdframed works in twoside mode on input line 136.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 136.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 143.
+Package mdframed Info: mdframed works in twoside mode on input line 146.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 146.
+
+Overfull \hbox (17.49985pt too wide) in paragraph at lines 148--149
+\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 j$\OT
+1/cmr/m/n/10 , this means that $(\OML/cmm/m/it/10 DD[]\OT1/cmr/m/n/10 )[] = [][
+] \OML/cmm/m/it/10 r[] \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 D[] \OT1/cmr/m/n
+/10 = [][] \U/msb/m/n/10 1 [] \OT1/cmr/m/n/10 =
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 160.
+Package mdframed Info: mdframed works in twoside mode on input line 163.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 163.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 167.
+
+Overfull \vbox (1.93358pt too high) detected at line 167
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 167.
+
+Overfull \vbox (2.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (3.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (4.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (5.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (6.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (7.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (8.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (9.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (10.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (11.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (12.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (13.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (14.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (15.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (16.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (17.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (18.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (19.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (20.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (21.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (22.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (23.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (24.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (25.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (26.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (27.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (28.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (29.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (30.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (31.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (32.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (33.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (34.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (35.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (36.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (37.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (38.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (39.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (40.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (41.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (42.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (43.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (44.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (45.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (46.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (47.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (48.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (49.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (50.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (51.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (52.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (53.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (54.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (55.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (56.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (57.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (58.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (59.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (60.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (61.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (62.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (63.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (64.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (65.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (66.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (67.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (68.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (69.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (70.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (71.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (72.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (73.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (74.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (75.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (76.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (77.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (78.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (79.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (80.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (81.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (82.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (83.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (84.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (85.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (86.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (87.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (88.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (89.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (90.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (91.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (92.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (93.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (94.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (95.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (96.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (97.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (98.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (99.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (100.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (101.93358pt too high) detected at line 167
+ []
+
+
+Overfull \vbox (102.93358pt too high) detected at line 167
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 167.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 167.
+[18]
+Package mdframed Info: mdframed works in twoside mode on input line 170.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 170.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 199.
+Package mdframed Info: mdframed works in twoside mode on input line 201.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 201.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 207.
+Package mdframed Info: mdframed works in twoside mode on input line 209.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 209.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 213.
+ [19]
+Package mdframed Info: mdframed works in twoside mode on input line 215.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 215.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 225.
+Package mdframed Info: Not enough space on this page on input line 225.
+) [20] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C6B00A04DD302D4331D37071FE0A937;769.
+(rerunfilecheck)             Checksum: 30182CBB258245437E082AEE0CF55C2B;981.
  ) 
 Here is how much of TeX's memory you used:
- 25444 strings out of 478238
- 482613 string characters out of 5850456
- 793007 words of memory out of 5000000
- 42995 multiletter control sequences out of 15000+600000
+ 25545 strings out of 478238
+ 484439 string characters out of 5850457
+ 794675 words of memory out of 5000000
+ 43071 multiletter control sequences out of 15000+600000
  477166 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 111i,14n,107p,502b,999s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,18n,107p,502b,1001s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -1768,10 +2334,10 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 257747 bytes).
+Output written on main.pdf (21 pages, 285899 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 211 compressed objects within 3 object streams
- 73 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 313 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,3 +4,4 @@
 \contentsline {section}{\tocsection {}{3}{Simple graphs}}{8}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Special graphs}}{10}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Trees}}{12}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Kirdhoffs Matrix-Tree theorem}}{16}{section.5}%

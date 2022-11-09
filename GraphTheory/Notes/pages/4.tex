@@ -1,0 +1,237 @@
+\section{Kirdhoffs Matrix-Tree theorem}\par
+\begin{theo}[Complexity]{thm:complexity}
+  LLet $G$ be a labelled graph. The \textit{complexity} of $G$, denoted by $t(G)$ is the number of spanning trees of $G$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The complexity of a complete graph $K_n$ is $n^{n-2}$
+\par\bigskip
+\noindent From now on (this lecture), we assume that $G = (V,E)$ is a labelled ($V = \left\{1,2,\cdots,n\right\}$) finite and simple graph with $E = \left\{e_1,\cdots, e_n\right\}$
+\par\bigskip
+\begin{theo}[Ajacency matrix]{thm:adjmatr}
+  The \textit{adjacency matrix} $A$ of $G$ is the $n\times n$ matrix having entries:
+  \begin{equation*}
+    \begin{gathered}
+      A_{ij} = \begin{cases}1\quad \text{ if $i,j$ are ajacent}\\0\quad\text{ otherwise}\end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+%\begin{figure}[ht!]
+    %\centering
+    %\begin{tikzpicture}
+      %\node[state](p0){$1$};
+      %\node[state](p1){$2$};
+      %\node[state](p2){$3$};
+      %\node[state](p3){$4$};
+      %\node[state](p4){$5$};
+    %\end{tikzpicture}
+    %\caption{}
+%\end{figure}
+\noindent has adjacency matrix:
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}0&1&1&1&0\\1&0&1&0&0\\1&1&0&0&1\\1&0&0&0&1\\0&0&1&1&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item $A$ is symmetric $\Rightarrow$ real eigenvalues
+  \item $A_{i,i} = 0$ for all $i=1,\cdots,n$
+  \item $tr(A) = \sum_{i=1}^{n}A_{i,i} = 0 = \sum_{i=1}^{n}\lambda_i$
+\end{itemize}
+\par\bigskip
+\noindent We declare one part of the graph to be negative and the other to be positive. This is just a choice, and does not have an effect on the construction of the graph
+\par\bigskip
+\begin{theo}[Incidence matrix]{thm:incmatr}
+  The \textit{incidence matrix} $D$ of $G$ with respect to a fixed orientation is the $n\times n$ matrix having entries:
+  \begin{equation*}
+    \begin{gathered}
+      D_{i,j} = \begin{cases}1\quad \text{ if $i$ is the positive endpoint of $e_j$}\\-1\quad\text{ if $i$ is the negative endpoint of $e_j$}\\0\quad \text{ otherwise}\end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent $e_i\in E$
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent We may choose a vertex to be negative for one edge, but it does not have to be fixed, for another edge that same vertex might be positive. This does not affect the graph. 
+\end{theo}
+\newpage
+\noindent How do we relate these matrices to trees? Well, this is the idea of the next few lemmas:
+\par\bigskip
+\begin{lem}
+  LLet $D$ be an incidence matrix to a graph $G$. Then the following statements are true:\par
+  \begin{itemize}
+    \item The sum of any column of $D$ is 0, thus the rank($D$)$\leq n-1$\par
+    \item If $G$ is connected, then the rank$(D) = n-1$
+    \item If $G$ has $c$ components, then rank$(D) = n-c$
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\noindent This is good, because by looking at $D$ we can say something about if the graph is connected or not.
+\par\bigskip
+\begin{prf}
+  DDenote by $r_i$ the $i$-th row vector of $D$:\par
+  \begin{itemize}
+    \item The sum of any column is 0 by the definition of $D$ (each row has 2 non-zero entries that are 1 or -1).\par
+      This means that $\underbrace{\sum_{i=1}^{n}r_i}_{\text{linjärkomb.}} = 0\Rightarrow\text{rank}(D) \leq n-1$
+      \par\bigskip
+    \item Suppose there is a non-trivial linear combination of the form $\sum_{i=1}^{n}\alpha_i\cdot r_i = 0$ \par
+      Consider the row $k$ for which $a_k\neq$\par
+      In row $k$, there is a non-zero entry for every edge incident to the vertex $k$ \par
+      For each of these columns where row $k$ has non-zero entries, there is a unique second entry in the same column (column $s$), but in a different row ($r_j$).\par
+      This other entry $r_j$ will have an opposite sign\par
+      We know $\alpha_k\cdot r_{k,s}+\alpha_jr_{j,s} = 0$\par
+      This means that $\alpha_k = \alpha_j$ since they only differ by a sign
+      \par\bigskip
+      As a consequence of this, if $\alpha_k\neq0$ then $\alpha_j=\alpha_k$ for all $j$ adjacent to $k$\par
+      Since $G$ is connected, this argument extends to all of $G$:s vertices (and thereby all of $G$), hence the linear combination $\sum_{i=0}^{n}\alpha_ir_i$ is a scalar multiple of $\sum_{i=1}^{n}r_i$
+      \par\bigskip
+      This gives that the rank$(D) = n-1$
+      \par\bigskip
+    \item This follows quite easily from proof from the above point.\par
+      If $G$ has $c$ components, relabel the vertices and edges in such a way that $D$ takes the form of having edges and vertices of component 1 in the diagonal place 1,1.\par
+       Then rank$(D) = n-c$ by applying previous point to each block
+  \end{itemize}
+  \par\bigskip
+\end{prf}
+\par\bigskip
+\begin{lem}
+  AAny square submatrix of an incidence matrix $D$ has determinant 0 or $\pm1$
+\end{lem}
+\par\bigskip
+\begin{prf}
+  PPure linear algebra. Left as an exercise to the reader 
+\end{prf}
+\par\bigskip
+\noindent More intersting things that follows from Lemma 5.2 is if you pick a set of edges $S\subseteq E$. Denote by $D_s$ the submatrix containing exactly the columns that correspond exactly to the edges in $S$
+\par\bigskip
+\noindent Then $D_s$ is an incidence matrix to the spanning subgraph $(V,S)$
+\par\bigskip
+\noindent In particular, if $\left|S\right| = n-1$, then by second point of Lemma 5.1, rank$(D) = n-1$ iff $(V,S)$ is connecfted iff $(V,S)$ is a spanning tree 
+\par\bigskip
+\begin{lem}
+  LLet $S\subseteq E$ with $\left|S\right| = n-1$\par
+  \noindent Let $M$ denote any $(n-1)\times(n-1)$ submatrix of the $n\times(n-1)$ matrix $D_s$
+  \par\bigskip
+  \noindent Then $M$ is regular (invertible) iff $(V,S)$ is a spanning tree of $G$
+\end{lem}
+\par\bigskip
+\begin{prf}
+  WWe already know that the rank of $D_s = n-1$ iff $(V,S)$ is a spanning tree.\par
+  \noindent In that case, if we just take $D_s$ and delete any row from it, it will create an invertible matrix, so if I start with a spanning tree, then $M$ is regular
+  \par\bigskip
+  \noindent Conversly, assume $M$ is regular. This means that $D_s$ contains at least $n-1$ linear independent rows and the same number of linear independent columns\par
+  \noindent This means that rank$(D_s)\leq n-1$, but since this thing only has $n-1$ columns this must be equal to $n-1$\par
+  \noindent $(V,S)$ is connected on $n-1$ edges, therefore it is a spanning tree.
+  \par\bigskip
+\end{prf}
+\par\bigskip
+\noindent We now have all the criteria to decide if a subgraph is a spanning tree
+\par\bigskip
+\begin{lem}
+  LLet $A$ be the adjacency matrix of $G$ and let $D$ be an incidence matrix of $G$ (fixed labelling and ordering of edges as well as ordering of orientation)
+  \par\bigskip
+  \noindent Denote by $\Delta$ the $(n\times n)$ diagonal matrix with entries $\Delta_{i,i} = deg(i)$
+  \par\bigskip
+  \noindent Then $\Delta -A = DD^T$ and this matrix is the \textit{Laplacian matrix} of $G$
+  \par\bigskip
+  \noindent In particular, this product is independent from the orientation of $G$ (because the LHS does not rely on the orientation of the edges)
+\end{lem}
+\par\bigskip
+\begin{prf}
+  L$(DD^T)_{i,j}$ is the scalar product of the row vectors $r_i$ and $_j$ of $D$ (because of how matrix multiplication works)
+  \par\bigskip
+  \noindent If $i=j$, this means that $(DD^T)_{i,i} = \sum_{i=1}^{m}r_{i,s}^2 = \sum_{s=1}^{m}D_{i,s}^2 = \sum_{s=1}^{m}\mathbb{1}\left\{\text{edge $s$ is incident to vertex $i$}\right\} = deg(i) = (\Delta-A)_{i,i}$
+  \par\bigskip
+  \noindent If $i\neq j$, then:
+  \begin{equation*}
+    \begin{gathered}
+      (DD^T)_{i,j} = \sum_{s=1}^{m}D_{i,s}D_{j,s} = \begin{cases}0\quad\text{ if $i,j$ non-adjacent}\\-1\quad\text{ if $i,j$ adjacent}\end{cases}\\
+       = (\Delta-A)_{i,j}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This thing is non-zero iff $D_{i,s} = \pm 1$ and $D_{j,s} = \mp 1$. This only happens if $s$ is an edge connecting $i$ to $j$\par
+  \noindent But between any given vertices, there can be at most one edge
+\end{prf}
+\par\bigskip
+\begin{lem}
+  ALet $Q = \Delta -A = DD^T$ the Laplacian of $G$.\par
+  \noindent Denote by $J$ the $n\times n$ matrix with all entries $=1$
+  \par\bigskip
+  \noindent Then the adjoint matrix of the Laplacian $Q$ is a scalar multiple of $J$ 
+\end{lem}
+\par\bigskip
+\begin{prf}
+  OObserve:\par
+  \begin{itemize}
+    \item rank$(Q) = \text{rank}(D)$ (since $Q = DD^T$)
+  \end{itemize}
+  \par\bigskip
+  \noindent If $G$ is disconnected, the rank$(Q)<n-1\Rightarrow$ all cofactors are 0
+  \par\bigskip
+  \noindent If $G$ is connected, then rank$(Q) = n-1$.
+  \par\bigskip
+  \noindent We know from linear algebra that $Q\cdot\text{adj}(Q) = \text{det}(Q)\cdot I_{n\times n} = 0$
+  \par\bigskip
+  \noindent This means that every column vector of adj$(Q)$ is in ker$(Q)$
+  \par\bigskip
+  \noindent But the dimension of the kernel is $n-\text{rank}(Q) = 1$ and $(1,\cdots,1)^T\in\text{ker}(Q)$ because:
+  \begin{equation*}
+    \begin{gathered}
+      (\Delta-A)\cdot\begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix} = deg(i)-\sum_{j\text{ adj. to } i}1 = deg(i)-deg(i) = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Therefore, $(1,\cdots,1)^T$ is a basis of the kernel
+  \par\bigskip
+  \noindent This means every column of adj$(Q)$ is a scalar multiple of $(1,\cdots,1)^t$
+  \par\bigskip
+  \noindent Since $Q^T = (\Delta-A)^T = \Delta^T-A^T = \Delta -A = Q$, also adj$(Q)^T = $ adj$(Q)$
+  \par\bigskip
+  \noindent But this means that every row adj$(Q)$ is a scalar multiple of $(1,\cdots,1)^T$
+  \par\bigskip
+  \noindent If every row and every column is a scalar multiple of that vector, then since every row and column intersect, adj$(Q)$ is a scalar multiple of $J$ 
+\end{prf}
+\par\bigskip
+\begin{theo}[Kirchoff]{thm:kirchoff}
+  Let $G$ be a connected finite simple graph with Laplacian matrix $Q$.
+  \par\bigskip
+  \noindent Then, adj$(Q) = t(G)\cdot J$ (equal to any cofactor of its Laplacian matrix)
+  \par\bigskip
+  \noindent Equivelantly, if $\lambda_1,\cdots,\lambda_{n-1}$ are the non-zero eigenvalues of $Q$, then $t(G) = \dfrac{1}{n}\lambda_1\cdot\cdots\cdot\lambda_{n-1}$ (if not connected, then there are more than one non-zero eigenvalues)
+\end{theo}
+\par\bigskip
+\begin{theo}[Cauchy-Binet]{thm:cauchybinet}
+  Assume you have two $n\times n$ matrices $A,B$ where $n\leq m$
+  \par\bigskip
+  \noindent Then, det($AB^T$) = $\sum_{s\subseteq\left\{1,\cdots,m\right\}}\text{det}(A_s)\text{det}(B^T_s)$ and $\left|s\right| = n$
+\end{theo}
+\newpage
+\begin{prf}[Matrix-Tree theorem]{prf:matrixtree}
+  We already know that all the cofactors are the same, so it is enough to evaluate one cofactor of $Q$
+  \par\bigskip
+  \noindent Let $\stackrel{D}{\sim}$ be the incident matrix with the last row deleted.\par
+  \noindent This means that det$(\stackrel{D}{\sim}\stackrel{D}{\sim}^T)$ is a cofactor of $Q = DD^T$
+  \par\bigskip
+  \noindent By Cauchy-Binet we have det$(\stackrel{D}{\sim}\stackrel{D}{\sim}^T) = \sum_{S\subseteq E}(\text{det}\stackrel{D}{\sim}_s)^2$ where $\left|S\right| = n-1$
+  \par\bigskip
+  \noindent This means that it is a square $(n-1)\times(n-1)$, which by previous lemma has determinant 0 or 1.\par
+  \noindent We have also seen that the determinant is 1 iff $(V,S)$ is a spanning tree. Therefore, the sum above is just the number of spanning trees ($t(G)$) 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Assume it is the exam and you need to prove Cayleys formula but you have forgotten it and we want to find $t(K_n)$ 
+\par\bigskip
+\noindent We have $Q$ with $n-1$ on its diagonal and all the other edges are -1.
+\par\bigskip
+\noindent How do we find the eigenvalues? Its not recommended to find the characteristic polynomial, but we may be able to guess the eigenvalues (and verify using trace).
+\par\bigskip
+\noindent $Q\cdot(1,\cdots,1)^T = 0$ (sum of each row is 0) so $(1,\cdots,1)^t$ is eigenvector to eigenvalue 0\par
+\noindent We try $Q\cdot\underbrace{(0,\cdots,1,-1,\cdots,0)^T}_{\text{eigenvector to eigenvalue $n$}} = (0,\cdots,n,-n,\cdots,0)^T$. These form $n-1$ linearly independent eigenvectors
+\par\bigskip
+\noindent Now we can use Kirchoff. By the Matrix-Tree theorem, $t(K_n) = \dfrac{1}{n}n^{n-1} = n^{n-2}$
