@@ -95,7 +95,7 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent The estimator is not distributed with the same distribution, since the estimator is not always an integer.\par
-\noindent We saw this in the above example, where the estimator was $N(\mu, 20)$ distributed but our estimate was $N(\mu,100)$  distributed. (\textbf{CHECK})
+\noindent We saw this in the above example, where the estimator was $N(\mu, 20)$ distributed but our estimate was $N(\mu,100)$  distributed. 
 \par\bigskip
 \noindent If we have different estimates, we need to make a reasonable choice such that our error is as little as possible (this is why we introduce estimators)
 \par\bigskip
@@ -192,7 +192,9 @@
 \noindent An unbiased estimate has bias 0
 \par\bigskip
 \begin{theo}[Asymptotically unbiased]{thm:asympunbiased}
-  If the bias $B(\theta_n^*)$ tends to zero as $n\to\infty$ for all $\theta$, the estimate $\theta_n^*$ is said to be \textit{asymptotically unbiased} 
+  If the bias $B(\theta_n^*)$ tends to zero as $n\to\infty$ for all $\theta$, the estimate $\theta_n^*$ is said to be \textit{asymptotically unbiased}
+  \par\bigskip
+  \noindent Think of it like, the more data you gather, the less the bias.
 \end{theo}
 \par\bigskip
 \noindent\textbf{Example:}\par
@@ -204,7 +206,8 @@
 \par\bigskip
 \begin{equation*}
   \begin{gathered}
-    s^2 = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2 = \dfrac{1}{n-1}\left(\sum_{i=1}^{n}x_i^2-n\overline{x}^2\right)\\
+    s^2 = \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2 = \sum_{i=1}^{n}(x_i^2-2\overline{x}x_i+\overline{x}^2) = \sum_{i=1}^{n}x_i^2-2\overline{x}\underbrace{\sum_{i=1}^{n}x_i}_{\text{$nx$}}-n\overline{x}^2\\
+    =\dfrac{1}{n-1}\left(\sum_{i=1}^{n}x_i^2-n\overline{x}^2\right)\\
     E(s^2) = \dfrac{1}{n-1}\left(\sum_{i=1}^{n}E(x_i^2)-nE(\overline{X}^2)\right)\\
     E(x_i^2) = V(x_i) + (E(x_i))^2 = \sigma^2+\mu^2\\
     E(\overline{x}^2) = V(\overline{x}) + (E(\overline{x}))^2 = \dfrac{\sigma^2}{n}+\mu^2\\

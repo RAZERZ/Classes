@@ -1,0 +1,154 @@
+\section{Methods of estimation}\par
+\subsection{Methods of moments}\hfill\\\par
+\noindent Often, this method works quite well but it also tends to fail (\textbf{CHECK})
+\par\bigskip
+\begin{theo}[Method of moments]{thm:methodofmoments}
+  Let $x_1,\cdots,x_n$ be a random sample from the random variable $X$ with $E(X) = m(\theta)$ where $\theta$ is the parameter in teh distribution for $X$
+  \par\bigskip
+  \noindent If $\theta$ is one dimensional, the moment estimate $\theta = \theta^*$ solves the equation $m(\theta) =\overline{x}$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 1
+\par\bigskip
+\noindent $m(\beta) = E(X) = \dfrac{1}{\beta}$\par
+\noindent Solve $\overline{x} = m(\beta) = \dfrac{1}{\beta}\Rightarrow \beta = \dfrac{1}{\overline{x}}$
+\par\bigskip
+\noindent Therefore, moment estimate is $\beta^* = \dfrac{1}{\overline{x}}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 2
+\par\bigskip
+\noindent $m(p) = E(X) = np$\par
+\noindent Solve $x = \overline{x} = m(p) = np\Rightarrow p = \dfrac{x}{n}$ (recall political party example)
+\par\bigskip
+\noindent Moment estimation is $p^* = \dfrac{x}{n}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Slide 3 (a third of those 15 birds have rings, so we can get 30 from there)
+\par\bigskip
+\noindent The number of birds captured with ring = $X\sim Hyp(N,n,m)$, where $N = $ number of birds, $n = $ how many were captured the second day (15) and $m=$ how many with a ring in total the second day $ = 10$:
+\begin{equation*}
+  \begin{gathered}
+    p_X(x) = \dfrac{\begin{pmatrix}m\\x\end{pmatrix}\begin{pmatrix}N-m\\n-x\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}
+  \end{gathered}
+\end{equation*}\par
+\noindent We want to estimate $N$ using the method of moments:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = n\dfrac{m}{N} = 15\dfrac{10}{N} = \dfrac{150}{N}
+  \end{gathered}
+\end{equation*}\par
+\noindent Solve for $f = x = \overline{x} = \dfrac{150}{N}\Rightarrow N = \dfrac{150}{5} = 30$. Moment estimation is $N^* = 30$
+\par\bigskip
+\begin{theo}[Method of moments with multiple parameters]{thm:mmmm}
+  If the parameter $\theta = (\theta_1,\theta_2)$, then the moment estimates solves the system:
+  \begin{equation*}
+    \begin{gathered}
+      E(X) = m_1(\theta_1,\theta_2) = \overline{x}\\
+      E(X^2) = m_2(\theta_1,\theta_2) = \dfrac{1}{n}\sum_{i=1}^{n}x_i^2
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Slide 4
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    m_1(\mu,\sigma^2) = E(X) = \mu\\
+    m_2(\mu,\sigma^2) = E(X^2) = V(X) + (E(X))^2 = \sigma^2 + \mu^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Solve
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \mu = \overline{x}\\
+      \sigma^2+\mu^2 = \dfrac{1}{n}\sum_{i=1}^{n}x_i^2
+    \end{cases}\\
+    \Rightarrow \sigma^2  = \dfrac{1}{n}\sum_{i=1}^{n}x_i^2-\overline{x}^2 = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Almost looks like $s^2$, but here in the denominator we have $n$ instead of $n-1$
+\par\bigskip
+\noindent Moment estimates are:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \mu^* = \overline{x}\\
+      \sigma^{2^*} = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}
+  LLet $x_1,\cdots,x_n$ be a random sample from the random variable $X$ where $V(X) = \sigma^2$
+  \par\bigskip
+  \noindent Then the sample variance is given by:
+  \begin{equation*}
+    \begin{gathered}
+      s^2 = \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is an \textit{unbiased estimate of } $\sigma^2$
+\end{theo}
+\par\bigskip
+\subsection{Maximum likelihood}\hfill\\\par
+\noindent\textbf{Example:}\par
+Slide 5
+\par\bigskip
+\begin{theo}[Maximum likelihood]{thm:maxlike}
+  Let $x_1,\cdots,x_n$ be a random sample from $X$ which has distribution $F(X;\theta)$
+  \par\bigskip
+  \noindent The likelihood function $L(\theta)$ is defined by:
+  \begin{equation*}
+    \begin{gathered}
+      L(\theta) = \begin{cases}\prod_{i=1}^{n}p(x_i;\theta)\quad X\text{ discrete}\\
+      \prod_{i=1}{n}f(x_i;\theta)\quad X\text{ continous}\end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent The \textit{maximum likelihood} estimate (MLE, ML-skattning) of $\theta$ is the $\theta$ that maximizes the likelihood function
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 6
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 7
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 8
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $x_1,\cdots,x_n$ be a random sample from $X\sim N(\mu,\sigma^2)$ where $\mu$ and $\sigma^2$ are both unknown.
+\par\bigskip
+\noindent Estimate $\mu$ and $\sigma^2$ by MLE:
+\begin{equation*}
+  \begin{gathered}
+    f_X(x;\mu,\sigma^2) = \dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{1}{2\sigma^2}(x-\mu)^2}\\
+    L(\mu,\sigma^2) = \prod_{i=1}^n f_X(x_i;\mu,\sigma^2)\\
+    = \prod_{i=1}^n\dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{1}{2\sigma^2}(x-\mu)^2}\\
+    = (2\pi\sigma^2)^{-n/2}e^{-\dfrac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2}\\
+    l(\mu,\sigma^2) = ln\left((2\pi\sigma^2)^{-n/2}e^{-\dfrac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2}\right)\\
+    = -\dfrac{n}{2}ln(2\pi\sigma^2)-\dfrac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2\\
+    \dfrac{\partial l}{\partial \mu} = \dfrac{1}{\sigma^2}\sum_{i=1}^{n}(x_i-\mu) = \dfrac{1}{v}\left(\sum_{i=1}^{n}x_i-n\mu\right) = \dfrac{n}{v}\left(\overline{x}-\mu\right)\\
+    \dfrac{\partial l}{\partial\sigma^2} = -\dfrac{n}{2\sigma^2} + \dfrac{1}{2\sigma^4}\sum_{i=1}^{n}(x_i-\mu)^2\\
+    \dfrac{\partial l}{\partial \mu} = 0\Rightarrow \mu = \overline{x}\\
+    \dfrac{\partial l}{\partial \sigma^2} = 0\Rightarrow \sigma^2 = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2\qquad (\mu = \overline{x})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent MLE is therefore:
+\begin{equation*}
+  \begin{gathered}
+    \mu^* = \overline{x}\\
+    \sigma^{2^*} = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 9 (not supposed to follow, research level) (ibland för att få fram skattning måste man ta till med numeriska metoder)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.22)  2 NOV 2022 23:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  9 NOV 2022 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,39 +1109,82 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 194.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 196.
-[10]
-Package mdframed Info: mdframed works in twoside mode on input line 216.
+(mdframed)              on input line 198.
+
+Underfull \vbox (badness 2005) has occurred while \output is active []
+
+ [10]
+[11]
+Package mdframed Info: mdframed works in twoside mode on input line 219.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 216.
+(mdframed)              on input line 219.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 218.
-Package mdframed Info: Not enough space on this page on input line 218.
-Package mdframed Info: mdframed works in twoside mode on input line 220.
+(mdframed)              on input line 221.
+Package mdframed Info: Not enough space on this page on input line 221.
+Package mdframed Info: mdframed works in twoside mode on input line 223.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 220.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 227.
-Package mdframed Info: mdframed works in twoside mode on input line 230.
+(mdframed)              on input line 223.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 230.
+Package mdframed Info: mdframed works in twoside mode on input line 233.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 237.
-) [11] (./main.aux (./includes/title.aux))
+(mdframed)              on input line 233.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 240.
+) [12] (./pages/3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--2
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 9.
+Package mdframed Info: mdframed works in twoside mode on input line 44.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 44.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 52.
+[13]
+Package mdframed Info: mdframed works in twoside mode on input line 87.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 87.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 96.
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 102.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 102.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 115.
+[14]) [15] (./main.aux (./includes/title.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7D80C58258E6AACF8182A20485B053F5;1755.
+(rerunfilecheck)             Checksum: 9DD2527FB58BA6FABAB9470B7C028687;2289.
  ) 
 Here is how much of TeX's memory you used:
- 25212 strings out of 478238
- 478348 string characters out of 5850456
- 783315 words of memory out of 5000000
- 42791 multiletter control sequences out of 15000+600000
+ 25251 strings out of 478238
+ 478958 string characters out of 5850457
+ 783768 words of memory out of 5000000
+ 42816 multiletter control sequences out of 15000+600000
  477334 words of font info for 59 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,15n,107p,499b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1149,20 +1192,21 @@ Here is how much of TeX's memory you used:
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msam10.pfb>
-Output written on main.pdf (12 pages, 227634 bytes).
+extra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (16 pages, 259292 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
