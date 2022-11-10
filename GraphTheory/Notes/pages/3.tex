@@ -15,6 +15,14 @@
   \noindent Such vertices are called \textit{leaves}
 \end{lem}
 \par\bigskip
+\noindent\textbf{Intuition:}\par
+\noindent If we disregard the definition of the tree for a second, and look at how the trees \textit{actually} look like, we see that we can always find a "top" node and a "bottom" node. What makes these nodes top resp. bottom nodes? Well, they have degree one!
+\par\bigskip
+\noindent Notice how we called the top node the "top" node, now we can start baking in the definition of the trees to attempt to construct a proof.\par
+\noindent If we can show that we will always have a top and bottom node, we are done (because a tree is a connected graph, therefore there always exists a walk from the top node to the bottom, and therefore the degree of the node has to be greater than 1 and since there are no cycles, neither the top nor the bottom node can have degree 2).
+\par\bigskip
+\noindent The path of max length should start at our top node, and end at our "bottomest" node. We can now construct the following proof: 
+\par\bigskip
 \begin{prf}
   LLet $T$ be a finite tree on vertices $\geq2$.\par
   \noindent Consider a path $P = xe_1x_1\cdots e_ky$ of maximum length
@@ -83,7 +91,7 @@
   \noindent\textbf{Claim:} Algorithm 1 \& 2 are mutually inverse to each other, thus establishing the bijection, and the proof follows.\par
   \noindent (In reality we need to actually check that the algorithms work)
 \end{prf}
-\par\bigskip
+\newpage
 \noindent The way we defined trees as being connected and cycle free is not the only definition, in fact, we have the following theorem:
 \par\bigskip
 \begin{theo}
@@ -95,7 +103,7 @@
     \item $T$ is edge-maximal among cycle-free graphs, i.e adding an edge to $T$ must create a cycle.
   \end{itemize}
 \end{theo}
-\newpage
+\par\bigskip
 \begin{prf}
   LLet $T = (V,E)$ be a simple graph. We will show all the points above using implications. 
   \par\bigskip

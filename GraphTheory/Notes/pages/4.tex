@@ -1,4 +1,4 @@
-\section{Kirdhoffs Matrix-Tree theorem}\par
+\section{Kirchoffs Matrix-Tree theorem}\par
 \begin{theo}[Complexity]{thm:complexity}
   LLet $G$ be a labelled graph. The \textit{complexity} of $G$, denoted by $t(G)$ is the number of spanning trees of $G$
 \end{theo}
@@ -41,6 +41,7 @@
   \item $A$ is symmetric $\Rightarrow$ real eigenvalues
   \item $A_{i,i} = 0$ for all $i=1,\cdots,n$
   \item $tr(A) = \sum_{i=1}^{n}A_{i,i} = 0 = \sum_{i=1}^{n}\lambda_i$
+  \item If the only zeroes are in the diagonal, then the graph is complete
 \end{itemize}
 \par\bigskip
 \noindent We declare one part of the graph to be negative and the other to be positive. This is just a choice, and does not have an effect on the construction of the graph
@@ -65,7 +66,7 @@
 \begin{lem}
   LLet $D$ be an incidence matrix to a graph $G$. Then the following statements are true:\par
   \begin{itemize}
-    \item The sum of any column of $D$ is 0, thus the rank($D$)$\leq n-1$\par
+    \item The sum of any column of $D$ is 0, thus the rank($D$)$\leq n-1$ (since the values in a column are either 1 or -1 (once) and 0)\par
     \item If $G$ is connected, then the rank$(D) = n-1$
     \item If $G$ has $c$ components, then rank$(D) = n-c$
   \end{itemize}
@@ -137,7 +138,7 @@
   \par\bigskip
   \noindent Denote by $\Delta$ the $(n\times n)$ diagonal matrix with entries $\Delta_{i,i} = deg(i)$
   \par\bigskip
-  \noindent Then $\Delta -A = DD^T$ and this matrix is the \textit{Laplacian matrix} of $G$
+  \noindent Then $\Delta -A = DD^T$ and this matrix is the \textit{\textbf{Laplacian matrix}} of $G$
   \par\bigskip
   \noindent In particular, this product is independent from the orientation of $G$ (because the LHS does not rely on the orientation of the edges)
 \end{lem}
@@ -145,7 +146,7 @@
 \begin{prf}
   L$(DD^T)_{i,j}$ is the scalar product of the row vectors $r_i$ and $_j$ of $D$ (because of how matrix multiplication works)
   \par\bigskip
-  \noindent If $i=j$, this means that $(DD^T)_{i,i} = \sum_{i=1}^{m}r_{i,s}^2 = \sum_{s=1}^{m}D_{i,s}^2 = \sum_{s=1}^{m}\mathbb{1}\left\{\text{edge $s$ is incident to vertex $i$}\right\} = deg(i) = (\Delta-A)_{i,i}$
+  \noindent If $i=j$, this means that $(DD^T)_{i,i} = \sum_{i=1}^{m}r_{i,s}^2 = \sum_{s=1}^{m}D_{i,s}^2 = \sum_{s=1}^{m}\mathbbm{1}\left\{\text{edge $s$ is incident to vertex $i$}\right\} = deg(i) = (\Delta-A)_{i,i}$
   \par\bigskip
   \noindent If $i\neq j$, then:
   \begin{equation*}
@@ -161,7 +162,7 @@
 \par\bigskip
 \begin{lem}
   ALet $Q = \Delta -A = DD^T$ the Laplacian of $G$.\par
-  \noindent Denote by $J$ the $n\times n$ matrix with all entries $=1$
+  \noindent Denote by $J$ (sometimes $J_n$) the $n\times n$ matrix with all entries $=1$
   \par\bigskip
   \noindent Then the adjoint matrix of the Laplacian $Q$ is a scalar multiple of $J$ 
 \end{lem}
