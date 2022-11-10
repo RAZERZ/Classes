@@ -1,0 +1,174 @@
+\section{Fourierserier}\par
+\subsection{Notation \& Terminologi}\hfill\\\par
+\noindent Skillnaden mellan Fourierserier och Laplacetransformationen har mest att göra med funktionens domän. I Laplacetransformationen så begränar vi oss till $\R_+$, men med Fourierserier vill vi kunna nyttja hela $\R$
+\par\bigskip
+\begin{theo}[Periodisk funktion]{thm:periodic}
+  Vi säger att en funktion $f:\R\to\C$ är $2\pi$-periodisk om:
+  \begin{equation*}
+    \begin{gathered}
+      f(x+2\pi) = f(x)\qquad\forall x\in\R
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $\sin(kx)$ och $\cos(kx)$ där $k\in\Z$ är $2\pi$ periodiska.
+\par\bigskip
+\noindent Iden är att försöka uttrycka en godtycklig $2\pi$ periodisk funktion som en oändlig linjärkombination av $\sin(x)$ och $\cos(x)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent En bra fördel med $2\pi$ periodiska funktioner är att trots att funktionen är definierad på hela $\R$ så räcker det med att studera $[0,2\pi]$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om man försöker omvandla en funktion till $2\pi$ periodisk, så kan det hända att vi introducerar diskontinuitet vid ändpunkten $k\cdot2\pi$
+\par\bigskip
+\begin{theo}
+  VVi skriver följande:\par
+  \begin{itemize}
+  \item $C(\mathbb{T}) = \left\{\text{kontinuerliga funkioner} f:\R\to\C\;|\; 2\pi\text{ periodiska}\right\}$\par
+  \item $C^k(\mathbb{T}) = \left\{f:\R\to\C\;|\;2\pi\text{ periodiska med } f^{(k)}(x)\text{ kontinuerlig}\right\}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Bara för en funktion ligger i $C(\mathbb{T})$ betyder det \textbf{inte} att den ligger i $C^1(\mathbb{T})$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Anledningen till varför vi studerar just $2\pi$ periodiska funktioner är för att om vi har en annan funktion med period $p\neq 2\pi$, så kan vi med variabelbyte få den funktionen att bli $2\pi$ periodisk 
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    f:\R\to\C\qquad p>0\text{ - periodisk}\\
+    g:\R\to\C\quad g(x) = f\left(\dfrac{p}{2\pi}\cdot x\right)\qquad2\pi\text{ - periodisk}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Fråga:}\par
+\noindent Låt $f:\R\to\C$ vara en $2\pi$ periodisk funktion. Kan vi skriva $f(x)$ i termer av en fourierserie?
+\begin{equation*}
+  \begin{gathered}
+    f(x) = \sum_{k=-\infty}^{\infty}c_k\underbrace{e^{ikx}}_{\text{$\cos(kx)+i\sin(kx)$}}\qquad c_k\in\C
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Anmärkning:}\par
+\noindent Om jag har en serie $\sum_{k=-\infty}^{\infty}c_ke^{ikx}$ så kan jag skriva den som:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\sum_{k=\infty}^{\infty}c_ke^{ikx}}_{\text{Exponentialform}}= \underbrace{\dfrac{a_0}{2} + \sum_{k=1}^{\infty}a_k\cos(kx)+b_k\sin(kx)}_{\text{Trigon. form}}
+  \end{gathered}
+\end{equation*}\par
+\noindent där:
+\begin{equation*}
+  \begin{gathered}
+    a_0 = 2c_0\\
+    a_k = c_k+c_{-k}\\
+    b_k = i(c_k-c_{-k})
+  \end{gathered}
+\end{equation*}\par
+\noindent Anledningen till varför vi delar på 2 är för att det blir en finare formel senare när man väl ska använda den
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Konstanterna $c_k$ kommer från $f(x)$, vi kan därmed uttrycka $c_k$ som en funktion av $f$
+\par\bigskip
+\begin{lem}
+  GGivet $n\in\Z$
+  \begin{equation*}
+    \begin{gathered}
+      \int_{0}^{2\pi}e^{inx}dx = \begin{cases}\dfrac{e^{inx}}{in}|_{_0}^{^{2\pi}} \stackrel{2\pi-\text{per.}}{=} 0\quad n\neq0\\\\2\pi\quad n=0\end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Givet $n,m\in\Z$
+  \begin{equation*}
+    \begin{gathered}
+      \int_{0}^{2\pi}\cos(nx)\cos(mx)dx = \int_{0}^{2\pi}\sin(nx)\sin(mx)dx = \begin{cases}0\quad n\neq m\\\pi\quad n=m\neq0\end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent Antag att
+\begin{equation*}
+  \begin{gathered}
+    f(x) = \sum_{-\infty}^{\infty}c_ke^{ikx}
+  \end{gathered}
+\end{equation*}\par
+\noindent där serien är likformigt konvergent. Då måste $f$ vara kontinuerlig.\par
+\noindent Hur kan vi få ut $c_k$ ur funktionen $f(x)$? Låt oss testa lite grejs:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{2\pi}f(x)e^{ikx} dx = \int_{0}^{2\pi}\sum_{m=-\infty}^{\infty}c_me^{imx}e^{-ikx}dx\\
+    = \int_{0}^{2\pi}\sum_{m=-\infty}^{\infty}c_ne^{i(m-k)x}dx\stackrel{\text{likf. kont.}}{=} \sum_{m=-\infty}^{\infty}\int_{0}^{2\pi}c_me^{i(m-k)x}dx\\
+    \stackrel{\text{Lem}6.1}{=} 2\pi\cdot c_k\qquad\forall k\in\Z\\
+    \Rightarrow c_k = \dfrac{1}{2\pi}\int_{0}^{2\pi} f(x)e^{-ikx}dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta gäller för nice funktioner, funktioner som kommer från likformigt konvergenta fourierserier.
+\par\bigskip
+\noindent Då kan man få för sig att bara studera dessa typer av funktioner, men det finns en till tolkning.
+\par\bigskip
+\noindent\textbf{Formeln för $c_k$ funkar för alla funktioner som är integrerbara.} Vi kan konstruera en fourierserie av en given funktion, men kommer serien konvergera? Kommer serien konvergera till funktionen vi började med?\par
+\noindent Det är vad som studien av fourierserier försöker besvara. 
+\newpage
+\begin{theo}[Fourierserien av en funktion]{thm:fouriersrofcun}
+  Låt $f:\R\to\C$ vara $2\pi$ periodisk och integrerbar på intervallet $[0,2\pi]$
+  \par\bigskip
+  \noindent Funktionens fourierserie anges av:
+  \begin{equation*}
+    \begin{gathered}
+      f(x)\sim\sum_{k=-\infty}^{\infty}c_ke^{ikx}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent där:
+  \begin{equation*}
+    \begin{gathered}
+      c_k = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(x)e^{-ikx}dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Vi skall nu försöka besvara föregående frågor:\par
+\begin{itemize}
+  \item Konvergerar serien:\par
+    \begin{itemize}
+      \item Punktvis
+      \item Likformigt
+      \item Absolut
+      \item På något sätt?
+    \end{itemize}\par
+  \item Om serien konvergerar, konvergerar den till $f(x)$? 
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vi antar här att vår funktion är $2\pi$ periodisk (men det spelar egentligen ingen roll vilken period eftersom vi kan med variabelbyte få den att bli $2\pi$, viktigt att den är periodisk dock!)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Eftersom vi kan gå från exponentialform till trigonometrisk form, så gäller följande för fourierserier:
+\begin{equation*}
+  \begin{gathered}
+    f(x)\sim \dfrac{a_0}{2}+\sum_{k=1}^{\infty}a_k\cos(kx)+b_k\sin(kx)\\
+    a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}f(x)\cos(kx)dx\\
+    b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}\sin(kx)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Tidigare sa vi att $b_k$ var en multipel av $i$, men detta gällde för att $c_k$ var komplex, så $b_k = ic_k\in\R$. Det är därför vi inte behöver bry oss så mycket om $i$ när vi definierar den som vi gjorde här.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi ska köra ett exempel och speciellt se om vi kan svara på frågorna ovan.
+\par\bigskip
+\noindent Låt $f:\R\to\C$ så att $f(x) = x$ i intervallet $[-\pi,\pi)$ ($f$ är $2\pi$ periodisk)
+\par\bigskip
+\noindent Lägg märke till att $f(x)$ är en udda funktion. En linjärkombination av jämna funktioner kommer vara jämn, alltså kommer vi ha en linjärkombination av udda funktioner.\par
+\noindent Eftersom $\cos(x)$ är jämn, så kommer alla $a_k$ koefficienter vara 0 (inga jämna funktioner). Vi behöver då bara räkna fram $b_k$:\par
+$k\geq1$
+\begin{equation*}
+  \begin{gathered}
+    b_k = \dfrac{1}{\pi}\int_{-\pi}^{\pi}x\sin(kx)dx \stackrel{\text{parts}}{=} \dfrac{2(-1)^{k+1}}{k}\\
+    \Rightarrow f(x)\sim\sum_{k=1}^{\infty}\dfrac{2(-1)^{k+1}}{k}\sin(kx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi besvara frågorna.
