@@ -1,0 +1,218 @@
+\section{Weights and Distances}\par
+\begin{theo}[Weighted graph]{thm:weightgraph}
+  A \textit{weighted graph} is a finite simple graph $G = (V,E)$ together with a weight function $w:E\to(0,\infty)$
+  \par\bigskip
+  \noindent If $H = (V^{\prime}, E^{\prime})$ is a subgraph of $G$, then its weight is defined to be $w(H) = \sum_{e\in E^{\prime}}w(e)$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Minimum spanning tree]{thm:minspantree}
+  A \textit{minimum spanning tree} (MST) is a spanning tree $T$ of $G$ such that $w(T)$ is minimal among all spanning trees in $G$ 
+\end{theo}
+\par\bigskip
+\noindent It is not clear that an MST exists. We started with a simple graph which has finite edges and therefore we have finite subgraphs. We are therefore looking for the minimum of a set, which certainly exists, but it may not be unique.
+\par\bigskip
+\begin{lem}
+  LLet $G$ be a connected weighted graph.
+  \par\bigskip
+  \noindent If $w:E\to(0,\infty)$ is injective, then the MST is unique.
+\end{lem}
+\par\bigskip
+\begin{prf}
+  AAssume $w$ is injective and suppose there are MST:s $T_1 = (V,E_1)$ and $T_2 = (V,E_2)$ with $E_1\neq E_2$
+  \par\bigskip
+  \noindent Then a set $D$ (not incidence matrix) $D = \left\{e\in E\;|\; e\in E_1\vee e\in E_2\text{ but not both}\right\}$
+  \par\bigskip
+  \noindent Pick $e\in D$ such that $w(e)$ is minimal (we can do this because all of our set is finite, so there must be a minimal weighted edge).\par
+  \noindent By definition, this edge lives in one of our 2 trees.
+  \par\bigskip
+  \noindent WLOG, $e\in E_1$ and therefore $e\not\in E_2$
+  \par\bigskip
+  \noindent Add $e$ to $T_2$ creates a cycle (a tree is edge-maximal among cycle-free graphs), an don this cycle there is an edge $e^{\prime}\not\in E_1\Rightarrow e^{\prime}\in D$
+  \par\bigskip
+  \noindent We now have:\par
+  \begin{itemize}
+    \item $w(e)<w(e^{\prime})$ (by injectivity, they cannot have the same weight)\par
+    \item $w(e^{\prime})\leq w(e)$ (because otherwis $T_2$ would not be a MST)
+  \end{itemize}
+  \par\bigskip
+  \noindent Contradiction, and end of proof
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Lemma 6.1 is not an equivelance. If there are edges with equal weight, it does not mean our MST is unique. The best example is if we start with a tree.
+\newpage
+\subsection{Prims Algorithm}\hfill\\\par
+\noindent Of course, let $G = (V,E)$ be a connected, simple, weighted graph.
+\par\bigskip
+\noindent Set $T = (\left\{v\right\}, \O)$ for any $v\in V$ (contains one arbitrary vertex from the graph and no edges)
+\par\bigskip
+\noindent While $T$ is not spanning, find an edge $e\in E$ between $V(T)$ (all of the vertices that are already in the tree) and $V\backslash V(T)$ (all of the vertices are not already in the tree) such that $w(e)$ is minimal.
+\par\bigskip
+\noindent Add this edge $e$ to $T$ together with its endpoint from $V\backslash V(T)$
+\par\bigskip
+\noindent The moment $T$ is spanning, we stop the algorithm.
+\par\bigskip
+\noindent\textbf{Example:}\par
+Example 53 in lecture notes
+\par\bigskip
+When faced with 2 choices, pick as you want
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent You can get different spanning trees depending on which starting vertex you choose. Therefore, how can we know it is the MST? Theorem time! 
+\par\bigskip
+\begin{theo}[Prims algorithm produces an MST]{thm:pralgprod}
+  \textit{Prims algorithm produces an MST}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  LLet PA = Prims algorithm.\par
+  \noindent PA produces a spanning subgraph, and in fact it produces a connected spanning subgraph with $n$ vertices and $n-1$ edges (by Lemma 4.2 we have a spanning tree tree $T$)
+  \par\bigskip
+  \noindent Let $T^{\prime}$ be a MST. We show that the weight $w(T)$ is at most ($\leq$) $w(T^{\prime})$
+  \par\bigskip
+  \noindent Suppose $T\neq T^{\prime}$. Consider the earliest edge $e$ that was included in $T$ but is not in $T^{\prime}$
+  \par\bigskip
+  \noindent Partition $V$ in 2 disjoint sets $V_1$ and $V_2$ such that $V_1$ contains all vertices that PA added to $T$ before including $e$.
+  \par\bigskip
+  \noindent Before including $e$, all of the edges in $T$ were in $T^{\prime}$, so if we look at $T[V_1]$ is a subgraph of $T^{\prime}$
+  \par\bigskip
+  \noindent $T^{\prime}$ is a tree, so there must be one edge $f\neq e$ (edge $e$ does not occur in $T^{\prime}$) in $T^{\prime}$ that connectes $V_1$ to $V_2$ \textit{in} $T^{\prime}$
+  \par\bigskip
+  \noindent Transform $T^{\prime}$ by adding $e$ (creates cycle) and removing $f$ (on this cycle is $f$, remove $f$ destroys cycle)
+  \par\bigskip
+  \noindent PA chose $e$ over $f$, this means that $w(e)\leq w(f)$
+  \par\bigskip
+  \noindent What happens now when $f\sim T^{\prime\prime}$ (when we rmeove $f$)? Well, the total weight should go down, so $w(T^{\prime\prime})\leq w(T^{\prime})$.
+  \par\bigskip
+  \noindent Since $T^{\prime}$ is an MST, this implies $w(T^{\prime\prime}) = w(T^{\prime})$
+  \par\bigskip
+  \noindent We can repeat this until $T^{\prime\prime} = T$. Since we have moved the latest point in which they differ (by repeating this, we essentially move this point as far back as possible)
+  \par\bigskip
+  \noindent Then it follows that $w(T)\leq w(T^{\prime})$ so $T$ is MST
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Prims algorithm is an example of a \textit{greedy algorithm}. This is because we do a locally optimal choice.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Regarding runtime, depends on the implimantation and how we choose the minimal edge. A good implimantation has a runtime of $\mathcal{O}(\left|E\right|+\left|V\right|\log(\left|V\right|))$
+\par\bigskip
+\subsection{Kruskals Algorithm}\hfill\\\par
+\noindent We start yet again with a connected weighted graph $G = (V,E)$.
+\par\bigskip
+\noindent Let $S$ be a list of the edges in $E$, sorted by incfreasing order of weight (lightest edge is first)
+\par\bigskip
+\noindent Set $T = (V,\O)$ and do the following:
+\par\bigskip
+\noindent While $T$ is disconnected, delete the first entry in $S$ and att it to $T$ unless it creates a cycle (then just delete it)
+\par\bigskip
+\noindent\textbf{Example:}\par
+Example 54 in lecture notes 
+\par\bigskip
+\begin{theo}[Kruskals algorithm produces a MST]{thm:kruskal}
+  \textit{Kruskals algorithm produces a MST}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  ADenote Kruskals algorithm with KA.
+  \par\bigskip
+  \noindent Notice that KA by design produces a spanning cycle free connected graph (spanning tree). Denote this by $T$
+  \par\bigskip
+  \noindent If $T$ is \textit{not} MST, denote by $T^{\prime}$ MST that has the maximum number of edges in common $T$ (among all MST)
+  \par\bigskip
+  \noindent Let $e$ be the earliest edge in $T$ that is not in  $T^{\prime}$ (\textbf{is e the first one to be deleted but not added?}) (no, first one to be included in $T$ but not in $T^{\prime}$)
+  \par\bigskip
+  \noindent Adding $e$ to $T^{\prime}$ creates a cycle, and this cycle contains an edge $f\neq e$ that is not in $T$
+  \par\bigskip
+  \noindent Modify $T^{\prime}$ by adding $e$ and removing $f$, this creates a new tree $f\sim T^{\prime\prime}$
+  \par\bigskip
+  \noindent Since $T^{\prime}$ is an MST, we have that $w(T^{\prime})\leq w(T^{\prime\prime})$, but at the same time, KA chose $e$ over $f$ so by removing $f$ and adding $e$, therefore $w(T^{\prime\prime})\leq w(T^{\prime})\Rightarrow w(T^{\prime}) = w(T^{\prime\prime})$ and $T^{\prime\prime}$ is MST
+  \par\bigskip
+  \noindent However, $T^{\prime\prime}$ has one more edge in common with $T$ than $T^{\prime}$ had. This is a contradiction since $T^{\prime}$ had the most edges in common. 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent A good implimantation has a runtime of $\mathcal{O}(\left|E\right|\log(\left|V\right|))$
+\newpage
+\noindent You can interpret edge weights, as distances.
+\par\bigskip
+\begin{theo}[Graph distance]{thm:graphdist}
+  Let $G = (V,E)$ be a simple weighted graph with weight function $w:E\to(0,\infty)$ 
+  \par\bigskip
+  \noindent For vertices $v,v^{\prime}\in V$, we define the \textit{graph distance} between $v$ and $v^{\prime}$ by
+  \begin{equation*}
+    \begin{gathered}
+      d_G(v,v^{\prime}) = \text{min}\left\{\sum_{e\in E(P)}w(e)\;|\;\text{ $P$ is a path from $v$ to $v^{\prime}$}\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We set $d_G(v,v^{\prime}) = \infty$ if no path from $v$ to $v^{\prime}$ exists.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent For non-weighted graphs, we choose $w(e) = 1$ for all $e\in E$
+\par\bigskip
+\begin{lem}
+  ALet $G = (V,E)$ be a connected weighted graph. Then the following statements are true:\par
+  \begin{itemize}
+    \item $\forall v,v^{\prime}\in V$, we have $d_G(v,v^{\prime})\geq0$ and $d_G(v,v^{\prime}) =0 \Lrarr v = v^{\prime}$
+    \item $d_G(v,v^{\prime}) = d_G(v^{\prime},v)$
+    \item Triangular inequality holds: $d_G(v,v^{\prime})+d_G(v^{\prime},v^{\prime\prime})\geq d_G(v,v^{\prime\prime})$
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This is a set with a metric.
+\par\bigskip
+\begin{prf}
+  First one is obvious, and so it the second
+  \par\bigskip
+  \noindent For the Triangular inequality, let $P$ be a path of $d_G(v,v^{\prime})$ from $v$ to $v^{\prime}$  and $Q$ be a path of length $d_G(V^{\prime},v^{\prime\prime})$ from $v^{\prime}$ to $v^{\prime\prime}$ (we know this path exists because there must be some path that realises these distances)
+  \par\bigskip
+  \noindent We obtain a walk from $v$ to $v^{\prime\prime}$ by concatenating $Q$ after $P$, problem is this is not a path, but erasing cycles from this walk creates a path. This only decreases the length. We found a path from $v$ to $v^{\prime\prime}$  which is shorter than the sum of the distances
+  \par\bigskip
+  \noindent Hence, $d_G(v,v^{\prime\prime})\leq d_G(v,v^{\prime})+d_G(v^{\prime},v^{\prime\prime})$
+\end{prf}
+\par\bigskip
+\begin{theo}[Diameter]{thm:diameter}
+  The \textit{diameter} of a weighted graph $G = (V,E)$ is the maximum distance between any 2 vertices:
+  \begin{equation*}
+    \begin{gathered}
+    \text{diam}(G) = \text{max}\left\{d_G(v,v^{\prime})\;|\; v,v^{\prime}\in V\right\}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\subsection{Dijkstras Algorithm}\hfill\\\par
+\noindent Given a weighted graph $G = (V,E)$, select an inital vertex $v_0$ and initialize a distance function $d(v_0,*)$ (where $*$ is the argument of our distance function and is some other vertex)  by:
+\begin{equation*}
+  \begin{gathered}
+    d(v_0,v) = \begin{cases}0\quad v = v_0\\\infty\quad\text{otherwise}\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Define a set $Q$ of unvisited vertices. Initially, $Q = V$ 
+\par\bigskip
+\noindent Let $v_0$ be the currently visited vertex, and proceed as follows:
+\par\bigskip
+\noindent First, remove the current vertex $v$ from $Q$
+\par\bigskip
+\noindent Second, for all neighbours $v^{\prime}$ to $v$ in $Q$, check if $d(v_0,v)+w(\left\{v,v^{\prime}\right\})< d(v_0,v^{\prime})$
+\par\bigskip
+\noindent If yes, then going through $v$ is shorter than whatever path you have seen, so update $d(v_0,v^{\prime})$ to $d(v_0,v)+w(\left\{v,v^{\prime}\right\})$, otherwise keep $d(v_0,v^{\prime})$
+\par\bigskip
+\noindent Third, New current vertex is $v\in Q$ with the smallest value $d(v_0,v)$
+\par\bigskip
+\noindent Repeat first to third step until $Q$ is empty, and return $d(v_0,*)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Interested in a concrete distance between vertices we can stop as soon as we hit it in step 3
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Finding the path that realises the minimum distance, we can remember the previous vertex that we visited, and therefore we can trace back the steps and get a path
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Runtime of $\mathcal{O}(\left|E\right|+\left|V\right|\log(\left|V\right|))$
+\par\bigskip
+\noindent\textbf{Example:}\par
+Example 60 in lecture notes
