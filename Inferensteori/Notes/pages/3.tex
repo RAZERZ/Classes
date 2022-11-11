@@ -3,7 +3,7 @@
 \noindent Often, this method works quite well but it also tends to fail (\textbf{CHECK})
 \par\bigskip
 \begin{theo}[Method of moments]{thm:methodofmoments}
-  Let $x_1,\cdots,x_n$ be a random sample from the random variable $X$ with $E(X) = m(\theta)$ where $\theta$ is the parameter in teh distribution for $X$
+  Let $x_1,\cdots,x_n$ be a random sample from the random variable $X$ with $E(X) = m(\theta)$ where $\theta$ is the parameter in the distribution for $X$
   \par\bigskip
   \noindent If $\theta$ is one dimensional, the moment estimate $\theta = \theta^*$ solves the equation $m(\theta) =\overline{x}$
 \end{theo}
@@ -152,3 +152,158 @@ Slide 8
 \par\bigskip
 \noindent\textbf{Example:}\par
 Slide 9 (not supposed to follow, research level) (ibland för att få fram skattning måste man ta till med numeriska metoder)
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 1, täthetsfunk given by $f_X(x) = \dfrac{1}{\theta}$ if $0\leq x\leq \theta$ and 0 otherwise, this can be shown using the indicator function $I\left\{0\leq x\leq \theta\right\}$
+\par\bigskip
+\noindent Likelihood is given by
+\begin{equation*}
+  \begin{gathered}
+    \prod_{i=1}^{n}f_X(x_i) = \prod_{i=1}^{n}\dfrac{1}{\theta}I\left\{0\leq x_i\leq \theta\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent This product is only $\dfrac{1}{\theta^n}\neq0$ if all $x_i\in [0,\theta]$, otherwise it is 0\par
+\noindent This can be expressed using an indicationr function as follows:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{\theta^n}I\left\{0\leq \min{x_i}\leq\max{x_i}\leq\theta\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The max-point is when $\theta = \max{x_i}$, which is therfore $\theta^* = 3.0$ (from slide 1)
+\par\bigskip
+\noindent The method of moment is given by $\overline{x} = E(X) = m(\theta) = \dfrac{\theta}{2}$ \\
+\noindent Then $\theta = 2\overline{x}$ and $\overline{x} = 1.25\Rightarrow \theta^* = 2.5$
+\par\bigskip
+\noindent But $2.5$ is an unreasonable number since $3>2.5$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent MLE is always an underestimate, so we can scale it up a little
+\par\bigskip
+\subsection{Least Squares}\hfill\\\par
+\begin{theo}[Least Squares]{thm:leastsquares}
+  Let $x_1,\cdots,x_n$ be a random sample frmo the random variable $X$ with $E(X) = m(\theta)$\par
+  \noindent Moreoever, let
+  \begin{equation*}
+    \begin{gathered}
+      Q(\theta) = \sum_{i=1}^{n}\left\{x_i-m(\theta)\right\}^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent The value of $\theta$ that minimizes $Q(\theta)$ is called the \textit{least squares} estimates of $\theta$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 2. 
+\begin{equation*}
+  \begin{gathered}
+    m(\beta) = E(X) = \dfrac{1}{\beta}\\
+    Q(\beta) = \sum_{i=1}^{n}(x_i\dfrac{1}{\beta})^2\\
+    Q^{\prime}(\beta) \dfrac{2}{\beta^2}\sum_{i=1}^{n}(x_i-\dfrac{1}{\beta}) = \dfrac{2}{\beta^2}\sum_{i=1}^{n}x_i - \dfrac{n}{\beta}\\
+    = \dfrac{2n}{\beta^2}(\overline{x}-\dfrac{1}{\beta}) = \dfrac{2n\overline{x}}{\beta^2}-\dfrac{2n}{\beta^3}\\
+    Q^{\prime\prime}(\beta) = \dfrac{-4n\overline{x}}{\beta^3}+\dfrac{6n}{\beta^4}\\
+    0 = Q^{\prime}(\beta)\Rightarrow \overline{x} = \dfrac{1}{\beta} \Rightarrow\beta = \dfrac{1}{\overline{x}}\\
+    Q^{\prime\prime}\left(\dfrac{1}{\overline{x}}\right) = -\dfrac{4n\overline{x}}{(1/\overline{x})^3}+\dfrac{6n}{(1/\overline{x})^4} = 2n\overline{x}^4>0\text{ is a minimum-point}
+  \end{gathered}
+\end{equation*}\par
+\noindent Therefore, the LSE (least square estimate) is $\beta^* = \dfrac{1}{\overline{x}}$, same as moment estimator.
+\par\bigskip
+\noindent The fact that it was equal to the moment estimator was no coincidence, this is actually a special case.
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 3
+\begin{equation*}
+  \begin{gathered}
+    E(X) = m(\theta)\qquad m^{\prime}(\theta)\neq0\\
+  Q(\theta) = \sum_{i=1}^{n}\left\{x_i-m(\theta)\right\}^2\\
+  Q^{\prime}(\theta) = -2m^{\prime}(\theta)\sum_{i=1}^{n}\left\{x_i-m(\theta)\right\}\\
+  = -2n\underbrace{m^{\prime}(\theta)}_{\text{$\neq0$}}\left\{\overline{x}-m(\theta)\right\}\\
+  \end{gathered}
+\end{equation*}\par
+\noindent If the sign of the second derivative is positive, then we will see that this method of estimation yields the same answer as the moments of estimation, so let us verify the second derivative:
+\begin{equation*}
+  \begin{gathered}
+    Q^{\prime}(\theta) =0\Lrarr \overline{x} = m(\theta)\\
+    Q^{\prime}(\theta) = -2n\overline{x}m^{\prime}(\theta)+2nm^{\prime}(\theta)m(\theta)\\
+    Q^{\prime\prime}(\theta) = -2nm^{\prime\prime}(\theta)+2nm^{\prime\prime}(\theta)m(\theta)+2nm^{\prime}(\theta)m^{\prime}(\theta)\\
+    = -2nm^{\prime\prime}(\theta)\underbrace{\left\{\overline{x}-m(\theta)\right\}}_{\text{=0}} + 2n\underbrace{\left\{m^{\prime}(\theta)\right\}}_{\text{$>0$}}^2>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Ok! LSE estimation solves the equation $\overline{x} = m(\theta)\qquad\Box$
+\par\bigskip
+\noindent Therefore, if the question is to calculate with LSE, you can do it using the moment of estimation which is easier
+\par\bigskip
+\begin{theo}
+  LLet $x_1,\cdots,x_n$ be a random sample where the corresponding random variables $X_1,\cdots,X_n$ have $E(X_i) = m_i(\theta)$
+  \par\bigskip
+  \noindent Moreoever, let
+  \begin{equation*}
+    \begin{gathered}
+    Q(\theta) = \sum_{i=1}^{n}\left\{x_i-m_i(\theta)\right\}^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent  This situation may not be handled by the method of moments nor by maximum likelihood, unless the distribution of $X_i$ is specified (\textbf{is not the distribution of $X_i$ given by definition of estimation?})
+\par\bigskip
+\noindent Used in regression 
+\par\bigskip
+\noindent\textbf{Example:}\par
+slide 4
+\begin{equation*}
+  \begin{gathered}
+    m_i(v) = E(Y_i) = \text{time} = \dfrac{x_i}{v}\\
+    Q(v) = \sum_{i=1}^{n}\left(y_i-\dfrac{x_i}{v}\right)^2\\
+    Q^{\prime}(v) = \dfrac{2}{v^2}\sum_{i=1}^{n}x_i\left(y_i-\dfrac{x_i}{v}\right) = \dfrac{2}{v^2}\left(\sum_{i=1}^{n}x_iy_i-\dfrac{1}{v}\sum_{i=1}^{n}x_i^2\right)\\
+    0  =Q^{\prime}(v)\Rightarrow v = \dfrac{\sum_{i=1}^{n}x_i^2}{\sum_{i=1}^{n}x_iy_i} = \dfrac{S_{xx}}{S_{xy}}\\
+    Q^{\prime}(v) = \dfrac{2}{v^2}S_{xy}-\dfrac{2}{v^3}S_{xx}\\
+    Q^{\prime\prime}(v) = -\dfrac{4}{v^3}S_{xy}+\dfrac{6}{v^4}S_{xx}\\
+    Q^{\prime\prime}\left(\dfrac{S_{xx}}{S_{xy}}\right) = -\dfrac{4}{(S_{xx}/S_{xy})^3}S_{xy}+\dfrac{6}{(S_{xx}/S_{xy})^4}S_{xx} = \dfrac{2S_{xy}^4}{S_{xx}^3}>0\\
+    v^*\qquad= \dfrac{\sum_{i=1}^{n}x_i^2}{\sum_{i=1}^{n}x_iy_i} = \dfrac{60^2+\cdots+400^2}{60\cdot6.39+\cdots+400\cdot43.03}\approx 9.54
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Parameter estimation in standard distributions}\hfill\\\par
+\noindent\textbf{Example:}\par
+\noindent Two normally distributed random samples with $v = \sigma^2$ for both of them
+\begin{equation*}
+  \begin{gathered}
+    L(\mu_1,\mu_2,\sigma^2) = \prod_{i=1}^{n_1}f_X(x_i)\prod_{j=1}^{n_2}f_Y(y_i)\\
+    \prod_{i=1}^{n_1}\dfrac{1}{\sqrt{2\pi v}}e^{-\dfrac{1}{2v}(x_i-\mu_1)^2}\cdot\prod_{j=1}^{n_2}\dfrac{1}{\sqrt{2\pi v}}e^{-\dfrac{1}{2v}(y_j-\mu_2)^2}\\
+    = Cv^{-(n_1+n_2)/2}e^{-\dfrac{1}{2v}A}\\
+    A = \sum_{i=1}^{n_1}(x_i-\mu_1)^2-\sum_{j=1}^{n_2}(y_j-\mu_2)^2\\
+    l = \log(L(\mu_1,\mu_2,v)) = -\log(C)-\dfrac{n_1+n_2}{2}\log(v)-\dfrac{1}{2v}A\\
+    \dfrac{\partial l}{\partial \mu_1} = -\dfrac{1}{2v}\dfrac{\partial}{\partial\mu_1}A = \dfrac{1}{v}\sum_{i=1}^{n_1}(x_i-\mu_1) = \dfrac{n_1}{v}(\overline{x}-\mu_1) = 0\Rightarrow \mu_1= \overline{x}\\
+    \dfrac{\partial l}{\partial \mu_2} = 0\Rightarrow \mu_2 = \overline{y}\\
+    \dfrac{\partial l}{\partial v} = -\dfrac{n_1+n_2}{2v}+\dfrac{1}{2v^2}A = 0\\
+    \Lrarr v = \dfrac{A}{n_1+n_2}\\\\
+    \mu_1^* = \overline{x}\quad\mu_2^* = \overline{y}\quad v^* = \dfrac{1}{n_1+n_2}\left(\underbrace{\sum_{i=1}^{n}(x_i-\overline{x})^2}_{\text{$(n-1)S_x^2$}}+\underbrace{\sum_{j=1}^{n}(y_j-\overline{y})^2}_{\text{$(n-1)S_y^2$}}\right)\\
+    = \dfrac{(n_1-1)S_x^2+(n_2-1)S_y^2}{n_1+n_2}\\\\
+    E(S_x^2) = \sigma^2 = E(S_y^2)\\
+    E(V^*) = \dfrac{(n_1-1)E(S_x^2)+(n_2-1)E(S_y^2)}{n_1+n_2} = \dfrac{n_1-1+n_2-1}{n_1+n_2}\sigma^2\neq\sigma^2\\
+    \text{Men } S_p^2 = \dfrac{(n_1-1)S_x^2+(n_2-1)S_x^2}{n_1+n_2-2}\text{ är väntevärdesriktigt}
+  \end{gathered}
+\end{equation*}
+\newpage
+\subsection{Estimation of distributions}\hfill\\\par
+\noindent\textbf{Example:}\par
+slide 6\par
+\noindent We have a random sample from a random variable $X$ with an unknown distribution\par
+\noindent More generally, estimate the distribution function $F_X(x) = P(X\leq x)\quad\forall x$ 
+\par\bigskip
+\begin{theo}[Empirical distribution function]{thm:edf}
+  Let $x_1,\cdots,x_n$ be a random sample from a random variable $X$. The \textit{empirical distribution function} for $X$ is defined as 
+  \begin{equation*}
+    \begin{gathered}
+      F_n(x) = \dfrac{A_n(x)}{n}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent where $A_n(x)$ is the number of observations in the sample that are smaller than or equal to $x$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent For every given $x$, $F_n(x)$ is unbiased and consistent estimate of $F_X(x)$

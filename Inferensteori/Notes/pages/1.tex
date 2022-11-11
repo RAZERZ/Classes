@@ -65,6 +65,8 @@
       s = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2}
     \end{gathered}
   \end{equation*}
+  \par\bigskip
+  \noindent Also called \textit{sample standard deviation}
 \end{theo}
 \par\bigskip
 \begin{theo}[Range]{thm:range}
@@ -81,7 +83,7 @@
 \end{theo}
 \par\bigskip
 \begin{theo}[Lower/Upper quartile]{thm:quartile}
-  The \textit{lower quartile} is the median of th elower half of the data material including the median if $n$ is odd
+  The \textit{lower quartile} is the median of the lower half of the data material including the median if $n$ is odd
   \par\bigskip
   \noindent The \textit{upper quartile} is the median of the upper half of the data material including the median if $n$ is odd
 \end{theo}
@@ -145,6 +147,7 @@ stem(u)
     \end{gathered}
   \end{equation*}
 \end{theo}\par
+\noindent\textbf{Anmärkning:}\par
 \noindent Not scale invariant (if you measure $x$ in meters and go to cm then it is not the same). Therefore we need to norm it with something, which is where the correlation comes in:
 \par\bigskip
 \begin{theo}[Sample correlation coefficient]{thm:scc}
@@ -178,4 +181,30 @@ stem(u)
       \Rightarrow -1\leq r_{xy}
     \end{gathered}
   \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{prf}[Sample correlation satsifaction]{prf:sccas2}
+  There is yet another proof that may be more intuitive for the boundedness of the sample correlation coefficient satisfaction that goes as follows:
+  \par\bigskip
+  \noindent Recall that the covariance is an inner-product, and that the variance $Var(x) = Cov(x,x)$
+  \par\bigskip
+  \noindent The "worst" that can happen is that $x,y$ are independent, whereby the covariance $Cov(x,y) = E(XY)-E(X)E(Y) = 0$ since $E(XY) = E(X)E(Y)$
+  \par\bigskip
+  \noindent This gives the following:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\dfrac{c_{x,y}}{s_xs_y}\right| = \left|\dfrac{Cov(x,y)}{\sqrt{Var(x)}\sqrt{Var(y)}}\right|\geq0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Next, we will use the fact that the covariance is an inner product, and therefore the Cauchy-Schwartz inequality holds\par
+  \noindent Notice that $Cov(x,x) = Var(x)$
+  \begin{equation*}
+    \begin{gathered}
+      \left|Cov(x,y)\right|^2\leq\left|Var(x)Var(y)\right|\Lrarr \left|Cov(x,y)\right|\leq \left|\sqrt{Var(x)}\sqrt{Var(y)}\right|\\
+      = \left|\dfrac{Cov(x,y)}{\sqrt{Var(x)}\sqrt{Var(y)}}\right|\leq 1
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent From the properties of absolute values, we therefore get $-1\leq r_{x,y}\leq 1$ 
 \end{prf}
