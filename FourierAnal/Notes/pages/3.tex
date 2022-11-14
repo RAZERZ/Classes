@@ -96,7 +96,7 @@
 \end{equation*}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent Om Laplacetransformationen konvergerar för $s_0$, så kommer den konvergera $\forall\;s>s_0$
+\noindent Om Laplacetransformationen konvergerar för $a$, så kommer den konvergera $\forall\;s>a$
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent Varje polynom $p(t)$ är av exponentiell ordning med $\alpha=\varepsilon$. Detta för att oavsett hur litet $\alpha$ är, så kommer en exponentialfunktion växa mycket snabbare än ett polynom tillslut. 
@@ -105,7 +105,9 @@
 \noindent Laplacetransformationen är linjär (följer från att integralen är linjär)
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent Funktionen $f(t) = e^{t^2}$ är \textit{inte} av exponentiell ordning. $t^2$ växer snabbare än vilket $\alpha$ som helst. Denna funktion har inga Laplacetransformationer oavsett värde på $s$ 
+\noindent Funktionen $f(t) = e^{t^2}$ är \textit{inte} av exponentiell ordning. $t^2$ växer snabbare än vilket $\alpha$ som helst. Denna funktion har inga Laplacetransformationer oavsett värde på $s$
+\par\bigskip
+\noindent Ni kanske märker att den går att integrera, men inversen är inte längre unik. Samma sak gäller exempelvis även om $f(t) = e^{2st}$ 
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Det finns funktioner som inte är styckvis kontinuerliga men som har konvergerande Laplacetransformation. Vi kommer i denna kurs bara bry oss om de som är styckvis kontinuerliga.
@@ -130,10 +132,10 @@
     \par\bigskip
   \item Laplacetransformationen är linjär
     \par\bigskip
-  \item $\mathcal{L}[e^{at}f(t)](s) = \mathcal{L}[f(t)](s-a)$
+  \item $\mathcal{L}[e^{at}f(t)](s) = \mathcal{L}[f(t)](s-a)\Lrarr$ om $\mathcal{L}[f(t)] = F(s)$ så $\mathcal{L}^{-1}[f(s-a)] = e^{as}F(t)$ 
     \par\bigskip
   \item $\mathcal{L}[H(t-a)f(t-a)](s) = e^{-as}\cdot\mathcal{L}[f](s)\quad a>0$\par
-    \noindent Vi vill döda vad som händer på negativa sidan när vi skiftar med $a$, för vi vet inte vad som händer där, varpå "heavyside" funktionen $H(t-a)$ kommer in
+    \noindent Vi vill döda vad som händer på negativa sidan när vi skiftar med $a$, för vi vet inte vad som händer där, varpå Heaviside funktionen $H(t-a)$ kommer in
     \par\bigskip
   \item $\mathcal{L}[f(at)](s) = \dfrac{1}{a}\mathcal{L}[f(t)]\left(\dfrac{s}{a}\right)\quad a>0$
     \par\bigskip

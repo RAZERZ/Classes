@@ -1,0 +1,193 @@
+\section{Hamilton Cycles}
+\par\bigskip
+\noindent We have previously discussed \textit{Eulerian Circuits}, which was a circuit that used every edge in the graph
+\par\bigskip
+\begin{theo}[Closed Walk]{thm:closedwalk}
+  Another way of defining an Eulerian circuit is by saying \textit{a closed walk} using every \textit{edge} exactly once
+\end{theo}
+\par\bigskip
+\begin{theo}[Hamilton Cycle]{thm:hamiltoncycle}
+  Let $G = (V,E)$ be a finite simple graph.
+  \par\bigskip
+  \noindent A \textit{Hamilton Cycle} in $G$ is a cyle containing ever vertex of $G$
+  \par\bigskip
+  \noindent If $G$ admits a Hamilton cycle, then we say that $G$ is Hamiltonian 
+\end{theo}
+\par\bigskip
+\noindent You may think this looks similar to Eulerian circuits (and by definition they are similar), however with Eulerian circuits we had Eulers theorem, but there is no such thing for Hamiltonian graphs (deciding wether a graph is Hamiltonian is an $NP$-hard problem)
+\par\bigskip
+\begin{theo}[Dirac]{thm:dirac}
+  Let $G = (V,E)$ be a graph on at least 3 vertices $n\geq3$ such that every vertex has degree at least $\dfrac{n}{2}$ 
+  \par\bigskip
+  \noindent Then, $G$ is Hamiltonian
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If you have a Hamiltonian graph, introducing edges will not make it non-Hamiltonian
+\par\bigskip
+\begin{prf}
+  AAssume we have our graåh $G = (V,E)$ with $n = \left|V\right| = \geq3$ and $\text{min}_{v\in V}\text{deg}(v)\geq\dfrac{n}{2}$ 
+  \par\bigskip
+  \begin{itemize}
+    \item $G$ is connected (if it is not, we have no chance of seeing a Hamiltonian cycle):\par
+      If $G$ was not connected, then the vertices in the smallest connected component would\par violate the degree condition since if we have several connected components, we have at\par least 2 which means that the smallest component has at least $\dfrac{n}{2}$ vertices and therefore\par  has at least $\dfrac{n}{2}-1$ neighbours, which violates the condition
+      \par\bigskip
+    \item $G$ contains a cycle:\par
+      Let $P$ be a path in $G$ of maximum length, say $P = v_0e_1v_1\cdots e_kv_k$ \par
+      Since this path is maximum, all of the neighbours of $v_k$ must already be on the path.\par
+      By the degree condition we have at least $\dfrac{n}{2}$ (by the degree condition), the same is true\par for neighbours of $v_0$ \par
+      There is an edge $e_i = \left\{v_{i-1},v_i\right\}$ such that $v_i$ is adjacent to $v_0$ and $v_{i-1}$ is adjacent to $v_k$\par
+      This means we have a cycle, we can call this cycle $C$
+      \par\bigskip
+    \item $C$ is a Hamiltonian cycle:\par
+      If $C$ is not Hamiltonian, there exists a vertex that is not on the cycle (ie, a vertex $v$ not\par on $C$ but is adjacent to some $v_j$)\par
+      Consider the path beginning in $v$ and going to $v_j$ and traversen along $C$ through all\par vertices on $C$\par
+      This path is longer than $P$, which contradicts $P$ being a path of maximum length\par
+      Therefore, the path we found is a Hamiltonian cycle. 
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The bound $\dfrac{n}{2}$ for $\text{min}_{v\in V}\text{deg}(v)$ is optimal
+\par\bigskip
+\begin{theo}[Ore]{thm:ore}
+  Let $G$ be a finite simple graph on $n\geq3$ vertices such that for any pair of non-adjacent vertices $v,w\in V$ we have deg$(v)$ + deg($W$) $\geq n$
+  \par\bigskip
+  \noindent Then $G$ is Hamiltonian
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The proof for this one is the same as the proof for Diracs theorem
+\par\bigskip
+\begin{theo}[Closure]{thm:closure}
+  The \textit{closure} of a finite simple graph $ G= (V,E)$ is the result of the following procedure:\par
+  \begin{itemize}
+  \item For every pair of non-adjacent vertices $v,w\in V$, draw the edge $\left\{v,w\right\}$ if deg$(v)$ + deg$(w)\geq n$\par
+  \item Stop once no new edges can be introduced
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $G$ satisfies the condition in Ores theorem, then clos$(G) = K_n$ is a complete graph and therefore Hamiltonian
+\par\bigskip
+\begin{lem}[clos$(G)$ is well defined]{thm:closdef}
+  clos$(G)$ does not depend on the order in which edges are inserted. 
+\end{lem}
+\par\bigskip
+\begin{prf}
+  AConsider $G = (V,E)$\par
+  \noindent Assume we construct clos$(G)$ in two different ways\par
+  \begin{itemize}
+    \item First one by adding edges $e_1,e_2,\cdots,e_k$\par
+    \item Second one by adding edges $f_1,f_2,\cdots,f_{k^{\prime}}$ 
+  \end{itemize}
+  \par\bigskip
+  \noindent Observe that we do not know if $k = k^{\prime}$, however, if we construct this in 2 different ways, this means that there is a smallest $j$ such that $e_j\neq f_j$
+  \par\bigskip
+  \noindent Let $G_{j-1}$ be the graph constructed up to this point.
+  \par\bigskip
+  \noindent Let $e_j = \left\{v,w\right\}\Rightarrow\text{deg}_{G_{j-1}}(v)+deg_{G_{j-1}}(w)\geq n$
+  \par\bigskip
+  \noindent These degrees do not decrease by adding $f_j,f_{j+1},\cdots$. This means that eventually, the same edges will need to be introduced by one of the $f$:s
+  \par\bigskip
+  \noindent Hence, there is an $l>j$ with $f_l = \left\{v,w\right\}$
+  \par\bigskip
+  \noindent Modify $f_1,\cdots,f_{k^{\prime}}$ in the following way:\par
+  $f_1,\cdots,f_{j-1},f_l, f_j,f_{j+1},f_{l-1}, f_{l+1},\cdots, f_{k^{\prime}}$
+  \par\bigskip
+  \noindent These sequences now coincide later than $j$, so we can repeat this argument until  the two sequences coincide, and then the proof is finished.
+\end{prf}
+\newpage
+\begin{theo}[Bondy-Chvatal]{thm:bcthm}
+  A graph $G = (V,E)$ is Hamiltonian iff its closure is Hamiltonian
+\end{theo}
+\par\bigskip
+\begin{prf}
+  A$\Rightarrow$ is easy, because we just add edges (adding edges does not destory Hamiltonicity) 
+  \par\bigskip
+  \noindent $\Leftarrow$ is a little trickier. Assume that clos$(G)$ is constructed using edges $e_1,\cdots,e_k$ yielding graphs $G_1,\cdots,G_k = $ clos$(G)$
+  \par\bigskip
+  \noindent If $G_j$ is Hamiltonian, then $G_{j+1},\cdots,G_k$ (adding edges argument)
+  \par\bigskip
+  \noindent Assume that $G_{j+1}$ is Hamiltonian but $G_j$ is not (therefore Hamiltonicity occurs at $G_{j+1}$)\par
+  \noindent Notice that those two graphs $G_{j+1}$ and $G_j$ differ by one edge (namely $e_{j+1} = \left\{v,w\right\}$) 
+  \par\bigskip
+  \noindent This means that the Hamilton cycle in $G_{j+1}$ contains this edge $e_{j+1}$ and therefore $\left\{v,w\right\}$
+  \par\bigskip
+  \noindent $G_j$ contains a path $P$ from $v$ to $w$ traversing all vertices (take the Hamilton cycle and delete one edge)
+  \par\bigskip
+  \noindent Since $\left\{v,w\right\}$ is added to $G_j$, we have from the definition of closure that $\text{G}_j(v)+ \text{G}_j(w)\geq n $ and all neighbours to $v,w$  lie on $P$ (not surprising, every vertex lies on $P$)
+  \par\bigskip
+  \noindent Repeat the construction from the proof of Diracs theorem, this gives us a cycle which contains vertices on the path, but this path contains all vertices, and therefore we obtain a Hamilton cycle in $G_j$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we end with something Hamiltonian, we must have started with something Hamiltonian
+\par\bigskip
+\begin{theo}[Degree Sequence]{thm:degseq} 
+  Let $G$ be a simple graph on $n$ vertices. The \textit{degree sequence} of $G$ is a finite sequence $(d_1,\cdots, d_n)$ containing the vertex of $G$ in non-descending order $(d_1\leq d_2\leq\cdots\leq d_n)$ 
+  \par\bigskip
+  \noindent An arbitrary sequence $(a_1,\cdots, a_n)$ is called \textit{Hamiltonian} if all graphs with a degree sequence $d_1,\cdots,d_n$ such that $d_i\geq a_i$ for all $i = 1,\cdots,n$ are Hamiltonian
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent By Diracs theorem, the sequence $\left(\dfrac{n}{2},\cdots, \dfrac{n}{2}\right)$ is Hamiltonian
+\par\bigskip
+\begin{theo}[Chvatal]{thm:chvatarre}
+  Let $n\geq3$\par
+  \noindent An integer sequence $a_1,\cdots,a_n$ with $0<a_1\leq\cdots\leq a_n\leq n$ is Hamiltonian iff for every $i<\dfrac{n}{2}$, we have $a_i<i\Rightarrow a_{n-i}>n-i$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The $d$-dimensional cube.\par
+\noindent Fix $d\geq2$. Let the set of vertices be strings over a binary alphabet $\left\{0,1\right\}$ of length $d$ and edges: two strings are adjacent if they differ in exactly position
+\par\bigskip
+\noindent For $d = 2$ we have: 10, 11, 00, 01\par
+\noindent For $d = 3$ we have: 000, 001, 010, 011, 100, 101, 110, 111
+\par\bigskip
+\noindent Observe that all vertices in the $d$ dimensional cube have degree $d$. This follows from the definition, since we have $\begin{pmatrix}d\\1\end{pmatrix}$ ways we can change and still be adjacent
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent The $d$-dimensional cube is Hamiltonian for all $d\geq2$
+\par\bigskip
+\noindent Notice that we have $2^d$ vertices
+\par\bigskip
+\begin{prf}
+  LLet $G_d$ be the $d$ dimensional cube
+  \par\bigskip
+  \noindent Induction over $d$:\par
+  \begin{itemize}
+    \item $d = 2$ Obvious\par
+  \item Assume that $G_d$ has a Hamilton cycle using the edge from $\left\{0\cdots 0,10\cdots0\right\}$\par
+  \item Consider $G_{d+1}$. This contains 2 copies of $G_d$ (depending on the value of the first entry of the strings)\par
+  \item Build a Hamilton cycle as follows:\par
+    \begin{itemize}
+      \item Traverse the Hamilton cycle in the first copy from $00\cdots0$ to $010\cdots0$\par
+      \item Then go to $110\cdots0$ \par
+      \item Traverse the Hamilton cycle in the second copy back from $110\cdots0$ to $10\cdots0$\par
+      \item Close back to $0\cdots0$\par
+    \item This is a Hamilton cycle in $G_{d+1}$ containing the edge $\left\{0\cdots0,10\cdots0\right\}$
+    \end{itemize}
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This can be used in computer science and goes by the term \textit{Grey Code}
+\par\bigskip
+\noindent\textbf{Example (*):}\par
+\noindent\textit{Petersen graph}\par
+Vertex set: Set of all 2-element subsets of $\left\{1,2,3,4,5\right\}$\par
+Edges: Two subsets are adjacent iff they are disjoint
+\par\bigskip
+\noindent There are 10 vertices, and 15 edges
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent The Petersen graph is \textit{not} Hamiltonian, however, upon removing any one vertex, the remaining graph is Hamiltonian and the Petersen graph admits a Hamilton path (a path that contains all vertices)
+\par\bigskip
+\begin{prf}
+  WWe only have time to proof the first part (the other part is in the lecture notes)
+  \par\bigskip
+  \noindent We have 2 cycles in the graph that both are $C_5$  and 5 edges that connect the cycles together
+  \par\bigskip
+  \noindent Any Hamiltonian cycle needs to traverse each edge twice.  
+\end{prf}

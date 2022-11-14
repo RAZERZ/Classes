@@ -9,3 +9,4 @@
 \contentsline {subsection}{\tocsubsection {}{6.1}{Prims Algorithm}}{22}{subsection.6.1}%
 \contentsline {subsection}{\tocsubsection {}{6.2}{Kruskals Algorithm}}{23}{subsection.6.2}%
 \contentsline {subsection}{\tocsubsection {}{6.3}{Dijkstras Algorithm}}{25}{subsection.6.3}%
+\contentsline {section}{\tocsection {}{7}{Hamilton Cycles}}{26}{section.7}%
