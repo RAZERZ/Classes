@@ -14,3 +14,9 @@
 \contentsline {subsection}{\tocsubsection {}{5.3}{Least Squares}}{15}{subsection.5.3}%
 \contentsline {subsection}{\tocsubsection {}{5.4}{Parameter estimation in standard distributions}}{17}{subsection.5.4}%
 \contentsline {subsection}{\tocsubsection {}{5.5}{Estimation of distributions}}{18}{subsection.5.5}%
+\contentsline {section}{\tocsection {}{6}{Lesson 1}}{19}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{727}}{19}{subsection.6.1}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{7.210}}{19}{subsection.6.2}%
+\contentsline {subsection}{\tocsubsection {}{6.3}{7.2.12}}{20}{subsection.6.3}%
+\contentsline {subsection}{\tocsubsection {}{6.4}{7.2.14}}{21}{subsection.6.4}%
+\contentsline {subsection}{\tocsubsection {}{6.5}{702}}{21}{subsection.6.5}%

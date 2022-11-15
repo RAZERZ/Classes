@@ -1,0 +1,171 @@
+\section{Lesson 1}\par
+\subsection{727}\hfill\\\par
+\noindent Kalle lägger patiens, en gång per kväll, tills den går ut för första gången.\par
+\noindent Under en vecka får han observationerna
+
+\begin{equation*}
+  \begin{gathered}
+  3\; 7\; 10\; 5\; 12\; 8\; 4 
+  \end{gathered}
+\end{equation*}\par
+\noindent Bestäm ML-skattningen av $p = P(\text{patiensen går ut})$
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Här är slumpvariabeln ffg fördelad.\par
+\noindent Låt $X$ vara antalet gånger tills patiensen går ut, då är fördelningsfunktionen:
+\begin{equation*}
+  \begin{gathered}
+    p_X(k) = (1-p)^{k-1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi räknar med ML-skattning, vilket är:
+\begin{equation*}
+  \begin{gathered}
+    L(p) = \prod_{i=1}^{n}p_X(x_i) = \prod_{i=1}^{n}(1-p)^{x_i-1}p\\
+    = (1-p)^{\sum_{i=1}^{n}x_i-n}p^n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi logaritmerar:
+\begin{equation*}
+  \begin{gathered}
+  l(p) = \ln\left\{L(p)\right\} = (\sum_{i=1}^{n}x_i-n)\ln(1-p)+n\ln(p)\\
+  l^{\prime}(p) = -\left(\sum_{i=1}^{n}x_i-n\right)\dfrac{1}{1-p} + \dfrac{n}{p}\\
+  l^{\prime\prime}(p) = -\left(\sum_{i=1}^{n}x_i-n\right)\left(\dfrac{1}{1-p}\right)^2-\dfrac{n}{p^2}<0\Rightarrow\text{ max}\\
+  0 = l^{\prime}(p) \Rightarrow p = \dfrac{n}{\sum_{i=1}^{n}x_i} = \dfrac{1}{\overline{x}} = \dfrac{1}{7}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent ML-skattningen är $p^* = \dfrac{1}{7}$ vilket är samma som momentskattningen (så blir det ofta men inte alltid)
+\par\bigskip
+\subsection{7.210}\hfill\\\par
+\noindent En enarmad bandit (spel) med vinstchans $p$\par
+\noindent Albert has spelat 10 ggr och fått 2 vinster\par
+\noindent Beata spelade tills första vinst, gång 7\par
+\noindent ML-skatta $p$
+\par\bigskip
+\noindent\textbf{Lösning:}\par
+\noindent Låt $X_1 = $ antal vinster under 10 spel. Denna slumpvariabel är Binomialfördelad med 10,$p$\par
+\noindent Låt $X_2 = $ antalet spel till första vinst. Denna slumpvariabel är ffg fördelad med parameter $p$
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    L(p) = p_{X_1}(x_1;p)p_{X_2}(x_2;p)\qquad x_1 = 2\quad x_2 = 7\\
+    = \begin{pmatrix}10\\x_1\end{pmatrix}p^{x_i}(1-p)^{10-x_1}\cdot (1-p)^{x_2-1}p\\
+    = \begin{pmatrix}10\\x_1\end{pmatrix}p^{x_1+1}(1-p)^{9-x_1+x_2}\\
+  l(p) = \ln\left\{L(p)\right\} = \ln\begin{pmatrix}10\\x_1\end{pmatrix}+(x_1+1)\ln(p)+(9-x_1+x_2)\ln(1-p)\\
+  l^{\prime}(p) = (x_1+1)\dfrac{1}{p}-(9-x_1+x_2)\dfrac{1}{1-p}\\
+  l^{\prime\prime}(p) = -\left(x_1+1\right)\dfrac{1}{p^2}-(9-x_1+x_2)\dfrac{1}{(1-p)^2}<0\quad\text{ om } 9-x_1+x_2>0\quad\text{vilket vi har eftersom}9-2+7>0\\
+  0 = l^{\prime}(p)\Rightarrow p = \dfrac{x_1+1}{x_2+10} = \dfrac{2+1}{7+10} = \dfrac{3}{17} \approx 0.176
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent ML-skattningen är då $p^* = \dfrac{3}{17}$
+\par\bigskip
+\subsection{7.2.12}\hfill\\\par
+\noindent Taxi problemet. 7 taxibilar observeras. De är numrerade $1,\cdots, N$\par
+\noindent Obs, numren $07o, 234, 166, 7, 65, 17, 4$
+\par\bigskip
+\noindent ML-skatta $N$
+\par\bigskip
+\noindent $X = $ numret på en taxibil, diskret likformigt fördelad på $(1,2,\cdots, N)$
+\par\bigskip
+\noindent Sannolikhetsfunktionen är då:
+\begin{equation*}
+  \begin{gathered}
+    p_X(k) = \begin{cases}\dfrac{1}{N}\;, 1\leq k\leq N\\0,\;\text{annars}\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $N$ kan vara hur stort som helst, $N\in \N^+ = $ rummet av alla positiva heltal
+\par\bigskip
+\noindent ML-skatta $N$ (observationer $x_1,\cdots,x_n$):
+\begin{equation*}
+  \begin{gathered}
+    L(N) = \prod_{i=1}^{n}p_X(x_i) = \begin{cases}\left(\dfrac{1}{N}\right)^N\quad \text{om } \forall x_i\leq N\\0\quad\text{annars}\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent (Logaritmera/derivera funkar ej här, man måste tyvärr tänka)
+\par\bigskip
+\noindent ML-skattningen $N^*$ inträffar i max $x_i = 234$
+\par\bigskip
+\noindent Momentskattning: $m(n) = E(X) = \dfrac{N+1}{2}$\par
+\noindent Lös $\overline{x} = \dfrac{N+1}{2}\Rightarrow N = 2\overline{x}-1$\par
+\noindent Vi har $\overline{x} = 84.3$, momentskattningen blir $167.6$, vilket blir en orimlig skattning eftersom vi har en observation som är större.
+\par\bigskip
+\subsection{7.2.14}\hfill\\\par
+\noindent $x_1,x_2$ mätningar av en storhet med värdet $\mu$\par
+\noindent $x_3$ mätning av en storhet med värdet $2\mu$\par
+\noindent Mätningar saknar systematiska fel, men har en slumpfel standardavvikelse $\sigma$
+\par\bigskip
+\noindent Bestäm MK-skattningen av $\mu$ och visa att den är väntevärdesriktigt
+\par\bigskip
+\noindent Minimera $Q(\mu) = (x_1-\mu)^2+(x_2-\mu)^2+(x_3-2\mu)^2$, detta kan vi lösa med derivering:
+\begin{equation*}
+  \begin{gathered}
+    Q^{\prime}(\mu) = -2(x_1-\mu)-2(x_2-\mu)-4(x_3-2\mu)\\
+    = -2x_1-2x_2-4x_3+12\mu\\
+    Q^{\prime\prime}(\mu) = 12>0\quad\text{ ger min}\\
+    0 = Q^{\prime}(\mu) \Lrarr \mu = \dfrac{1}{12}(2x_1+2x_2+4x_3) = \dfrac{1}{6}x_1+\dfrac{1}{6}x_2+\dfrac{1}{3}x_3
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent MK-skattningen $\mu^*$\par
+\noindent Estimatorn $\mu^*(X_1+X_2+X_3) = \dfrac{1}{6}X_1+\dfrac{1}{6}X_2+\dfrac{1}{3}X_3$\par
+\noindent Då blir:
+\begin{equation*}
+  \begin{gathered}
+    E\left\{\mu^*(X_1;X_2;X_3)\right\} = \dfrac{1}{6}E(X_1)+\dfrac{1}{6}E(X_2)+\dfrac{1}{3}E(X_3)\\
+    = \dfrac{1}{6}\mu+\dfrac{1}{6}\mu+\dfrac{1}{3}2\mu = \mu
+  \end{gathered}
+\end{equation*}\par
+\noindent Då är $\mu^*$ väntevärdesriktigt
+\par\bigskip
+\noindent En annan skattning är:
+\begin{equation*}
+  \begin{gathered}
+    \mu^{\prime} = \dfrac{2x_1+2x_2+x_3}{6}
+  \end{gathered}
+\end{equation*}\par
+\noindent Är den väntevärdesriktigt? Vi tittar på motsvarande estimator:
+\begin{equation*}
+  \begin{gathered}
+    \mu^{\prime}(X_1,X_2,X_3) = \dfrac{1}{3}X_1+\dfrac{1}{3}X_2+\dfrac{1}{6}X_3\\
+    E\left\{\mu^{\prime}(X_1,X_2,X_3)\right\} = \dfrac{1}{3}E(X_1)+\dfrac{1}{3}E(X_2)+\dfrac{1}{6}E(X_3)\\
+    = \dfrac{1}{3}\mu+\dfrac{1}{3}\mu+\dfrac{1}{6}2\mu = \mu
+  \end{gathered}
+\end{equation*}\par
+\noindent Ok!
+\par\bigskip
+\noindent Vilken skattning är effektivast?\par
+\noindent Då jämför vi variansena:
+\begin{equation*}
+  \begin{gathered}
+    V(\mu) = \dfrac{6}{36}\sigma^2\\
+    V(\mu^{\prime}) = \dfrac{9}{36}\sigma^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{702}\hfill\\\par
+\noindent Observationer: 4.0, 1.1, 0.2, 1.2, 2.5, 2.0, 0.7, 1.0 är ett stickprov från en Raylerghfördelning med täthetsfunktion:
+\begin{equation*}
+  \begin{gathered}
+    F_X(x) = axe^{-\dfrac{ax^2}{2}}\qquad x\leq 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent ML-skatta $a$:
+\begin{equation*}
+  \begin{gathered}
+    L(a) = \prod_{i=1}^{n}f_X(x_i) = \prod_{i=1}^{n}ax_ie^{-\dfrac{ax_i^2}{2}}\\
+    = a^n\left(\prod_{i=1}^{n}x_i\right)e^{-\dfrac{a}{2}\sum_{i=1}^{n}x_i^2}\\
+    l(a) = \ln\left\{L(a)\right\} = n\ln(a)+\sum_{i=1}^{n}\ln x_i - \dfrac{a}{2} \sum_{i=1}^{n}x_i^2\\
+    l^{\prime}(a) = \dfrac{n}{a}-\dfrac{1}{2}\sum_{i=1}^{n}x_i^2\\
+    l^{\prime\prime}(a) = -\dfrac{n}{a^2}<0\Rightarrow\text{ max}\\
+    0 = l^{\prime}(a) \Rightarrow a = \dfrac{2n}{\sum_{i=1}^{n}x_i^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent ML skattning $a^* = \dfrac{2n}{\sum_{i=1}^{n}x_i^2} = \dfrac{2\cdot8}{30.43}\approx 0.526$
