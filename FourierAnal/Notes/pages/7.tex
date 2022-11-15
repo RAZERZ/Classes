@@ -1,0 +1,176 @@
+\section{Analys av Fourierserier}\par
+\noindent Vi vill undersöka\par
+\begin{itemize}
+  \item Konvergerar serien:\par
+    \begin{itemize}
+      \item Punktvis
+      \item Likformigt
+      \item Absolut
+      \item På något sätt?
+    \end{itemize}\par
+  \item Om serien konvergerar, konvergerar den till $f(x)$? 
+\end{itemize}
+\par\bigskip
+\noindent Om vi analyserar följande:
+\begin{equation*}
+  \begin{gathered}
+    f(x)\sim \dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4}{n^2}(-1)^n\cos(nx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Konvergerar serien?}\par
+\noindent Vi kan använda Weirstrass $M$-test eftersom:
+\begin{equation*}
+  \begin{gathered}
+    \left|\dfrac{4}{n^2}(-1)^n\cos(nx)\right| = M_n\\
+    \sum_{n=1}^{\infty}M_n = \sum_{n=1}^{4}\dfrac{4}{n^2}\Leftarrow\text{ konvergerar}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Av Weirstrass $M$ test konvergerar serien absolut, likformigt, och punktvis
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om vi sätter absolutbelopp på vår fourierserie så försvinner de trigonometriska formerna och vår kandidat för $M_n$ blir då våra koefficienter
+\par\bigskip
+\noindent\textbf{Konvergerar serien till $f(x)$?}\par
+\noindent NÄSTA FÖRELÄSNING SER VI ATT SVARET ÄR JA
+\par\bigskip
+\noindent\textbf{Evaluering av Fourierserien}\par
+\noindent Låt oss anta för tillfället att serien konvergerar till funktionen\par
+\noindent Vi vet att $f(\pi) = \pi^2$\par
+\noindent Fourierserien i $\pi$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4}{n^2}(-1)^n\underbrace{\cos(n\pi)}_{\text{$(-1)^n$}}\\
+    = \dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4}{n^2}\\
+    \Rightarrow \pi^2 = \dfrac{\pi^2}{3}+4\sum_{1}^{n^2}\Rightarrow \sum_{n=1}^{\infty}\dfrac{1}{n^2} = \dfrac{2\pi^2}{3\cdot4} = \dfrac{\pi^2}{6}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Konvergerande Fourierserier}\hfill\\\par
+\noindent I en talföljd vet vi att serien konvergerar om exempelvis $\lim_{n\to\infty}a_n = 0$
+\par\bigskip
+\noindent Vi kan översätta detta till fourierserier genom att undersöka om koefficienterna går till 0 
+\par\bigskip
+\noindent För att göra detta behöver vi införa lite nya verktyg:
+\par\bigskip
+\begin{theo}[Absolutintegrerbar]{thm:absoluteintegrable}
+  Om vi tar ett intervall $I\subset \R$ av de reella talen och vi har en $f:I\to\C$, säger vi att $f$ är absolutintegrerbar om:\par
+  $\int_I |f(x)|dx$ konvergerar (integrerbar)\par
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item Om $I = [a,b]$ är ett ändligt intervall och $f:I\to\C$ integrerbar, så är $f$ absolutintegrerbar\par
+  \item Detta gäller \textit{inte} om intervallet $I$ är oändligt:
+    \begin{equation*}
+      \begin{gathered}
+        \int_{0}^{\infty}f(x)dx = \sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n}<\infty\\
+        \int_{0}^{\infty}\left|f(x)\right|dx = \sum_{n=1}^{\infty}\dfrac{1}{n} = \infty
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\begin{theo}[Riemann-Lebesgue sats]{thm:riemannlebbsats}
+  Om vi har ett intervall $I\subset \R$ och en funktion $f:I\to\C$ som är integrerbar \textit{och} absolutintegrerbar, då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{\lambda\to\infty}\int_{I}f(x)\cdot\cos(\lambda x)dx = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Samma gäller för följande (och för $-\infty$):
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{\lambda\to\infty}\int_{I}f(x)\sin(\lambda x)dx = 0\\
+      \lim_{\lambda\to\infty}\int_{I}f(x)e^{i\lambda x}dx = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent En funktion kan vara absolutintegrerbar men \textit{inte} integrerbar, exempelvis:
+\begin{equation*}
+  \begin{gathered}
+    f:[0,1]\to\R\\
+    f(x) = \begin{cases}1\quad x\in\Q\\-1\quad x\in\R\backslash\Q\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här gäller att $\left|f(x)\right| = 1$ som är integrerbar, men funktionen går knappt att rita (ej Riemann integrerbar men Lebesgue integrerbar)
+\par\bigskip
+\noindent Varför gillar vi Riemann-Lebesgues sats? Tänk på koefficienterna! De är integrerbara på den formen (ett intervall $[0,2\pi]\subset \R$, integrerbar, absolutintegrerbar?)
+\newpage
+\noindent\textbf{Corollarium}:\par
+\noindent Om vi har en funktion $f:\R\to\C$ som är $2\pi$ periodisk och integrerbar på intervallet $[0,2\pi]$ så:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{n\to\infty}c_n = 0 = \lim_{n\to-\infty}c_n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      c_n = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(x)e^{-inx}dx
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Då följer det från Riemann-Lebesgues sats att:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}c_n = 0\\
+      I = [0,2\pi]\qquad\lambda = -n
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Vi kan göra detta för $-\infty$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Notera att kraven vi ställde för $c_n$ är samma för de för Fourierserier. 
+\par\bigskip
+\noindent För vanliga gränsvärden kan vi säga något om deras hastigheter. $\dfrac{1}{n}$ går mot 0 segare än vad $\dfrac{1}{n^2}$ gör.
+\par\bigskip
+\noindent Vi kan göra något liknande med funktioner. Det finns en "slogan" som säger följande:\par
+Ju mer integrerbar en funktion är, desto snabbare går deras fourierkoefficienter mot 0\par
+\noindent Vi skriver detta som en sats:
+\par\bigskip
+\begin{theo}
+  AOm $f\in C^k(\mathbb{T})$, så är $f^{(k)}$ kontinuerlig och därmed integrerbar med fourierkoefficienter, med följande:
+  \begin{equation*}
+    \begin{gathered}
+      c_n\text{ av } f^{(k)}(n) = (in)^kc_n
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Detta påminner om Laplacetransformationens egenskap med avseende på derivatan. Om vi struntar i IVP så har vi ju något liknande\par
+\noindent Detta följer från att Laplacetransformationen och Fourier är \textit{integral transformationer} 
+\par\bigskip
+\begin{theo}
+  OOm $f\in C^k(\mathbb{T})$, så finns det en konstant $c>0$ så att:
+  \begin{equation*}
+    \begin{gathered}
+      \forall n\in\Z\quad \left|c_n\right|\leq\dfrac{c}{\left|n\right|^k}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det är nästan som att koefficienterna vet något om funktionen :o
+\newpage
+\noindent\textbf{Corollarium}\par
+\noindent Om $f\in C^2(\mathbb{T})$, så är funktionens fourierserie likformigt, absolut, och punktvis konvergent 
+\par\bigskip
+\begin{prf}
+  DDet låter väldigt lämpligt att använda Weirstrass $M$-test:
+  \begin{equation*}
+    \begin{gathered}
+      f\sim \sum_{n=-\infty}^{\infty}c_ne^{inx}\\
+      \left|c_ne^{inx}\right| = \left|c_n\right|\leq \dfrac{c}{\left|n\right|^2} = M_n\\
+      \sum_{n=-\infty}^{\infty}M_n\text{ konvergerar}\Rightarrow \sum_{n=-\infty}^{\infty}c_ne^{inx}\text{ konvergerar}
+    \end{gathered}
+  \end{equation*}
+\end{prf}

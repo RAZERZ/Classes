@@ -11,3 +11,5 @@
 \contentsline {subsection}{\tocsubsection {}{5.2}{Funktionsserier}}{13}{subsection.5.2}%
 \contentsline {section}{\tocsection {}{6}{Fourierserier}}{15}{section.6}%
 \contentsline {subsection}{\tocsubsection {}{6.1}{Notation \& Terminologi}}{15}{subsection.6.1}%
+\contentsline {section}{\tocsection {}{7}{Analys av Fourierserier}}{19}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Konvergerande Fourierserier}}{19}{subsection.7.1}%

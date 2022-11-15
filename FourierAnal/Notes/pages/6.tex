@@ -172,3 +172,25 @@ $k\geq1$
 \end{equation*}
 \par\bigskip
 \noindent Nu kan vi besvara frågorna.
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Låt $f:\R\to\C$ vara en $2\pi$ periodisk funktion där $f(x) = x^2$ då $x\in[-\pi,\pi]$
+\par\bigskip
+\noindent Denna funktion har nollställen i jämna multiplar av $\pi$ (inkl. 0)
+\par\bigskip
+\noindent Bestäm funktionens fourierserie. Notera att vår funktion är jämn, så vi kommer \textit{inte} ha några $\sin$ eftersom sinus är udda. Detta gör det lättare att representera funktionen i trigonometrisk form:
+\begin{equation*}
+  \begin{gathered}
+    f(x)\sim \dfrac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cdot\cos(nx)
+  \end{gathered}
+\end{equation*}\par
+\noindent Vi kan använda att funktionen är symmetrisk och därmed räkna halva koefficienterna\par 
+\noindent Där $a_n$:
+\begin{equation*}
+  \begin{gathered}
+    a_n= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)dx = \dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2\cos(nx)dx\\
+    \stackrel{\text{parts}}{=} \dfrac{4}{n^2}(-1)^n\qquad n\neq0\\
+    a_0 = \dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2dx = \dfrac{1}{\pi}\dfrac{x^3}{3}\Rightarrow \dfrac{\pi^2}{3}+\dfrac{\pi^2}{3} = \dfrac{2}{3}\pi^2\\
+    f(x)\sim \dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4}{n^2}(-1)^n\cos(nx)
+  \end{gathered}
+\end{equation*}
