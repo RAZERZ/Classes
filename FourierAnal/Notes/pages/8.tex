@@ -1,0 +1,144 @@
+\section{Dirichlets convergence theorem}\par
+\noindent Vårat mål är att studera punktvis konvergens av fourierserier, då behöver vi några hjälpdefinitioner eftersom vi ska ha definiera en sats som är lite teknisk 
+\par\bigskip
+\noindent Låt $f:\R\to\C$ vara $2\pi$-periodisk
+\par\bigskip
+\begin{theo}[Horizontella/Lateral gränsvärden]{thm:lateral}
+  Vi säger att $f$ har \textit{lateral} gränsvärden i punkten $x_0\in\R$ om:\par
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{x\to x_0^-}f(x) = f(x_0^-)\\
+      \lim_{x\to x_0^+}f(x) = f(x_0^+)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent existerar
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Detta är likt definitionen av kontinuitet, men skillnaden är att kontinuitet gäller om $x_0^- = x_0^+$
+\par\bigskip
+\begin{theo}[Horizontella/Lateral gränsvärden för derivator]{thm:lateralderiv}
+  Om $f$ har \textit{lateral} gränsvärde i $x_0$ så har den \textit{lateral} derivata i $x_0$ om:\par
+  \begin{equation*}
+    \begin{gathered}
+      f_L^{\prime} = \lim_{x\to x_0^-}\dfrac{f(x)-f(x_0^-)}{x-x_0}\\
+      f_R^{\prime} = \lim_{x\to x_0^+}\dfrac{f(x)-f(x_0^+)}{x-x_0}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $f_L^{\prime} = f_R^{\prime}$ så är funktionen deriverbar i $x_0$
+\par\bigskip
+\subsection{Dirichlets konvergenskriterier (DIY sats)}\hfill\\\par
+\noindent Om $f:\R\to\C$ som är $2\pi$ periodisk och integrerbar på intervallet $[0,2\pi]$ (dvs en funktion som har en fourierserie) \textit{och} om $f$ har laterala gränsvärden \textit{och} laterala derivator i någon punkt $x_0\in\R$, så kommer funktionens fourierserie konvergera i $x_0$:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{n=-\infty}^{\infty}c_ne^{inx_0} = \dfrac{f(x_0^-)+f(x_0^+)}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det vill säga, fourierserien konvergerar i punkten $x_0$ och är medianen av de laterala gränsvärden
+\par\bigskip
+\noindent\textbf{Följder från kriterierna}\par
+\begin{itemize}
+  \item Om funktionen $f$ från kriterierna är kontinuerlig i $x_0$, så gäller att fourierserien i $x_0$ konvergerar till $f(x_0)$ 
+    \begin{equation*}
+      \begin{gathered}
+        f(x_0^+) = f(x_0^-)\Rightarrow \dfrac{2f(x_0)}{2} = f(x)
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Om $f:\R\to\C$ är $2\pi$ periodisk och differentierbar i varje $x\in\R$, så är funktionens fourierserie punktvis konvergent till $f$
+    \par\bigskip
+  \item Nu kan vi säga att om $f\in C^2(\mathbb{T})$ så är funktionens fourierserie absolut, likformigt, och punktvis konvergent till $f$
+    \par\bigskip
+\end{itemize}
+\par\bigskip
+\noindent För att bevisa Dirichlets kriterier så krävs rätt mycket tekniska saker, så vi kommer bara ge en generell bild över hur beviset går till
+\par\bigskip
+\begin{theo}[Convolution/Faltning]{thm:ocnvo}
+  Om $f,g$ är $2\pi$ periodiska och integrerbara på $[0,2\pi]$, så är deras \textit{faltning} (Convolution):
+  \begin{equation*}
+    \begin{gathered}
+      (f*g)(x) = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(x-t)g(t)dt
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Skillnaden mellan gamla och nya definitionen är att vi här har $\dfrac{1}{2\pi}$ framför integralen och lite annorlunda gränser till integralen
+\par\bigskip
+\begin{lem}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      (f*g)(x) = (g*f)(x)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent Beviset för Lemma 8.1 är att använda variabelbytet $u = x-t$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Faltningen är $2\pi$ periodisk och integrerbar
+\par\bigskip
+\begin{lem}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      c(f*g)_n = c_n(f)c_n(g)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Här menas $c()$ som fourierkoefficienterna för $f$ resp. $g$ \par
+\noindent Notera att det påminner lite om Laplarren.
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      c(f*g)_n = \dfrac{1}{2\pi}\int_{0}^{2\pi}(f*g)e^{-inx}dx\\
+      = \dfrac{1}{(2\pi)^2}\int_{0}^{2\pi}\int_{0}^{2\pi}f(x-t)g(t)dt\;e^{-inx}dx\\
+      = \dfrac{1}{(2\pi)^2}\int_{0}^{2\pi}\int_{0}^{2\pi}f(x-t)g(t)e^{-inx}dxdt\\
+      =\dfrac{1}{(2\pi)^2}\int_{0}^{2\pi}g(t)\int_{0}^{2\pi}f(x-t)e^{-inx}dxdt\\
+      \stackrel{u = x-t}{=}\dfrac{1}{(2\pi)^2}\int_{0}^{2\pi}g(t)\int_{-t}^{2\pi-t}f(u)\underbrace{e^{-in(u+t)}}_{\text{$e^{-inu}e^{-int}$}}dudt\\
+      \stackrel{2\pi\text{-per.}}{=}\dfrac{1}{(2\pi)^2}\int_{0}^{2\pi}g(t)e^{-int}dt\int_{0}^{2\pi}f(u)e^{-inu}du\\
+      \Lrarr c(f)_nc(g)_n
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vår Laplacetransformation "har blivit" våra fourierkoefficienter
+\newpage
+\noindent\textbf{Notation}\par
+\noindent Givet en funktion $f$ som har en fourierserie (alltså $f$ är integrerbar på intervallet $[0,2\pi]$ och $2\pi$ periodisk) \par
+\noindent Låt $S_N(f) = \sum_{k=-N}^{N}c_ne^{ikx}$ vara följden av partiella summor av fourierserien av $f$ 
+\par\bigskip
+\noindent Att analysera konvergensen av fourierserierna till $f$ är samma som att analysera konvergensen till följden av dessa partiella summor. 
+\par\bigskip
+\begin{theo}[Dirichlets kärna]{thm:dirker}
+  \begin{equation*}
+    \begin{gathered}
+      D_N(x) = \sum_{k=-N}^{N}e^{ikx}\qquad c_n = 1\:\forall n
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $c(D_N)_m = 1$ annars 0 om $\left|m\right|>N$ (ty vi är utanför vår fourierserie och därmed har inga termer, vilket är ekvivalent med en summa från och till oändligheten men med koefficienter 0 utanför det önskade intervallet)
+\par\bigskip
+\begin{theo}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      S_N(f)(x) = (f*D_N)(x)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Två polynom är samma om de har samma koefficienter. I vårat fall kommer $S_N$ ha koefficienterna $c(f)_k$, men $D_N$ har koefficienterna 1 i intervallet och 0 utanför medan $f$ har koefficienterna $c(f)_k$. Då följer det från faltningens egenskaper att de är samma
+\par\bigskip
+\noindent För att visa Dirichlets kriterier, studera $D_N$ och dra slutsatsen att dess egenskaper implicerar att $S_N(f)(x_0)$ konvergerar till $\dfrac{f(x_0^-)+f(x_0^+)}{2}$ 

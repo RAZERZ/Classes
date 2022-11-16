@@ -13,3 +13,5 @@
 \contentsline {subsection}{\tocsubsection {}{6.1}{Notation \& Terminologi}}{15}{subsection.6.1}%
 \contentsline {section}{\tocsection {}{7}{Analys av Fourierserier}}{19}{section.7}%
 \contentsline {subsection}{\tocsubsection {}{7.1}{Konvergerande Fourierserier}}{19}{subsection.7.1}%
+\contentsline {section}{\tocsection {}{8}{Dirichlets convergence theorem}}{23}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Dirichlets konvergenskriterier (DIY sats)}}{23}{subsection.8.1}%
