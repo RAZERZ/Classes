@@ -1,0 +1,278 @@
+\section{Max-flow-min-cut theorem}
+\par\bigskip
+\begin{theo}[Directed graph]{thm:directed}
+  A \textit{directed simple graph} is a pair $G = (V,E)$ where $E = \subseteq V\times V\backslash\left\{v,v\;|\; v\in V\right\}$ 
+  \par\bigskip
+  \noindent We interpret an edge $v,w$ as an arrow pointing of $v$ to $w$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In a directed graph $(v,w)\neq(w,v)$
+\par\bigskip
+\begin{theo}[Flow network]{thm:flownetwork}
+  A \textit{flow network} consists of a directed simple graph $G = (V,E)$ together with a weight function $w:E\to(0,\infty)$ (to every edge we assign a weight) and two distringuished vertices, a \textit{source} $s$ and a \textit{sink}  $t$
+\end{theo}
+\par\bigskip
+\begin{theo}[Capacity function]{thm:capfunc}
+  The function $c:V\times V\to[0,\infty)$ defined by:
+  \begin{equation*}
+    \begin{gathered}
+      c(v,v^{\prime}) = \begin{cases}w(v,v^{\prime})\quad\text{if } (v,v^{\prime})\in E\\0\quad\text{otherwise}\end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent is called the \textit{capacity function} of the flow network
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We do not want an edge from $v$ to $w$ and an edge from $w$ to $v$, we can do a simplification:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$v$};
+      \node[state, right of=p0, xshift=1cm](p1){$v^{\prime}$};
+      \path[-stealth] (p0) edge[above, bend left] node{$w$} (p1);
+      \path[-stealth] (p1) edge[below, bend left] node{$w^{\prime}$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
+\noindent Is replaced by:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$v$};
+      \node[state, right of=p0, xshift=1cm, yshift=.5cm](p1){$v^{\prime}$};
+      \node[state, right of=p1, xshift=1cm, yshift=-.5cm](p2){$v^{\prime\prime}$};
+      \path[-stealth] (p0) edge[above, bend left] node{$w$} (p1);
+      \path[-stealth] (p1) edge[above, bend left] node{$w$} (p2);
+      \path[-stealth] (p2) edge[below, bend left] node{$w^{\prime}$} (p0);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\newpage
+\begin{theo}[Flow function]{thm:flow}
+  A flow $f$ on the flow network $G = (V,E)$ with capacity function $c$ is a function $f:V\times V\to [0,\infty)$ such that:\par
+  \begin{itemize}
+    \item\textbf{Capacity constraint} I cannot pump more water through the pipe than I have capacity
+      \begin{equation*}
+        \begin{gathered}
+          f(v,v^{\prime})\leq c(v,v^{\prime})\quad\forall v,v^{\prime}\in V
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item\textbf{Conservation constraint} However much water I pump in, I should get out (no loss and no creation out of nothing).
+      \par\bigskip
+    \noindent For $v\in V\backslash\left\{s,t\right\}$ we have:
+    \begin{equation*}
+      \begin{gathered}
+        \sum_{x\in V}f(x,v) = \sum_{x\in V}f(v,x)
+      \end{gathered}
+    \end{equation*}
+  \end{itemize}
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\begin{theo}[Value of flow]{thm:valoflfow}
+  The \textit{value} $\left|f\right|$ of the flow is the total out flow at the source:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f\right| = \sum_{x\in V}f(s,x)-\sum_{x\in V}f(x,s)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent From the conservation consraint, this difference (value) must go away somewhere and the only place it can go is in the sink.
+\par\bigskip
+\noindent This means that the value is also equal to the total inflow at the sink, and therefore equal to:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{x\in V}f(x,t)-\sum_{x\in V}f(t,x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent How do we know this value is positive? Well, if it is negative, then by the identity above we can swap $s,t$ to ensure we have a positive value.
+\par\bigskip
+\begin{theo}[$s-t$-cut]{thm:stcut}
+  Let $G = (V,E)$ be a flow network with source $s$ and sink $t$ and capacity $c$.
+  \noindent An $s-t$-\textit{cut} is a partition of $V$ into sets $S,T$ such that $s\in S$ and $t\in T$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Capacity of cut]{thm:capcut}
+  The \textit{capacity of the cut}, denoted by $c(S,T)$ and is:
+  \begin{equation*}
+    \begin{gathered}
+      c(S,T) = \sum_{(v,v^{\prime})\in S\times T}c(v,v^{\prime})
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent FOr any flow $f$ and any $s-t$-cut $S,T$, we have that the capacity of the cut is an upperbound to the value of the flow:
+\begin{equation*}
+  \begin{gathered}
+    c(S,T)\geq \left|f\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We will show that we only have equality in the most extreme case (cut capacity is as high/low as possible)
+\newpage
+\begin{lem}
+  LLet $f$ be a flow on the flow network $G = (V,E)$ and let $S,T$ be an $s-t$ cut of $G$
+  \par\bigskip
+  \noindent Assume that the value of the flow is equal to the capacity of the cut:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f\right| = c(S,T)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then $\left|f\right|$ is maximal among all flows on $G$, and the capacity of the cut is minimal among all $S,T$ cuts 
+\end{lem}
+\par\bigskip
+\begin{prf}
+  AWe need to show there is no flow with strictly larger value and no cut with strictly smaller capacity
+  \par\bigskip
+  \noindent If $f^{\prime}$ is a flow with $\left|f\right|\geq\left|f\right|$, then it needs to pass through the $S,T$ cut as well.
+  \par\bigskip
+  \noindent Hence, $\left|f^{\prime}\right|\leq c(S,T) = \left|f\right|\Rightarrow \left|f^{\prime}\right| = \left|f\right|$ and $\left|f\right|$ is maximal
+  \par\bigskip
+  \noindent Similarly, any $s-t$-cut $S^{\prime},T^{\prime}$ needs to satisfy $c(S^{\prime},T^{\prime})\geq \left|f\right| = c(S,T)$, hence if $c(S^{\prime},T^{\prime})\leq c(S,T)$ then $c(S,T) = c(S^{\prime},T^{\prime})$ and $c(S,T)$ is minimal
+\end{prf}
+\par\bigskip
+\begin{theo}[Residual network]{thm:resnet}
+  Let $G = (V,E)$ be a flow network with source $s$ and sink $t$
+  \par\bigskip
+  \noindent Let $f$ be a flow on $G$.
+  \par\bigskip
+  \noindent The \textit{residual network} $G_f$ is the flow network with residual capacity $c_f$ set as follows:\par
+  \begin{itemize}
+    \item For $u,v\in V$, set:\par
+      \begin{equation*}
+        \begin{gathered}
+          c_f(u,v) = \begin{cases}c(u,v)-f(u,v)\quad\text{if } (u,v)\in E\\f(v,u)\quad\text{if } (v,u)\in E\\0\quad\text{otherwise}\end{cases}
+        \end{gathered}
+      \end{equation*}
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent This defines a capacity function. Let $E_f$ be the set of pairs $(u,v)$ for which we have some positive capacity ($c_f(u,v)>0$) 
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Lets look at a flow network $G = (V,E)$ which looks as follows:
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){$s$};
+      \node[state, right of=p0, xshift=1cm](p1){};
+      \node[state, below of=p0, yshift=-1cm](p2){};
+      \node[state, below of=p1, yshift=-1cm](p3){$t$};
+      \path[-stealth] (p0) edge[above] node{$2/3$} (p1);
+      \path[-stealth] (p0) edge[left] node{$0/3$} (p2);
+      \path[-stealth] (p1) edge[below] node{$1/1$} (p2);
+      \path[-stealth] (p1) edge[right] node{$1/2$} (p3);
+      \path[-stealth] (p2) edge[below] node{$1/3$} (p3);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}\par
+\par\bigskip
+\begin{theo}[Path]{thm:pathh}
+  Let $G_f$ be the residual network of a flow network $G$ with respect to a flow $f$
+  \par\bigskip
+  \noindent A $v_0-v_k$ is a sequence $v_0e_1\cdots e_kv_k$ where $v_0,v_1,\cdots,v_k$ are distinct vertices and all edges point in the same direction, namely $e_i = (v_{i-1},v_i)$  for $i = 1,\cdots,k$
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\begin{theo}[Augmenting path]{thm:augpath}
+  An $s-t$-path is called an \textit{augmenting path}
+\end{theo}
+\par\bigskip
+\begin{theo}[Capacity of path]{thm:cappath}
+  We can define the capacity of a path $P$ by $c(P) = \min_{e\in E(P)}c(e)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We are working in the residual network, which means by definition that all our capacities are positive, and therefore $c(P)>0$  for any augmenting path $P$
+\par\bigskip
+\begin{lem}
+  ALet $f$ be a flow in $G$  sich that $G_f$ admits an augmenting path $P$
+  \par\bigskip
+  \noindent Then $f^{\prime}$, defined by:
+  \begin{equation*}
+    \begin{gathered}
+      f^{\prime}(u,v) = \begin{cases}f(u,v)+c_f(P)\quad\text{if }(u,v)\text{ is an edge in }P\\f(u,v)-c_f(P)\quad\text{if }(v,u)\text{ is an edge in }P\\f(u,v)\quad\text{otherwise}\end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent for all edges $(u,v)\in E$ (in the original network) is a flow on $G$ with $\left|f^{\prime}\right| = \left|f\right|+c_f(P)>\left|f\right|$ 
+\end{lem}
+\newpage
+\begin{theo}[Ford-Fulkerson]{thm:fordfolk}
+  Let $f$ be a flow on the network $G$.\par
+  \noindent The following are equivalent:\par
+  \begin{itemize}
+    \item $f$ is a maximum flow (the value of the flow is maximum)\par
+    \item The residual network $G_f$ contains no augmenting path\par
+    \item There is an $s-t$-cut $S,T$ with capacity $c(S,T) = \left|f\right|$\par
+      \noindent In particular, $\max_{f \text{ flow}}\left|f\right| = \min_{S,T\; s-t-cut}c(S,T)$ 
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  A
+  \begin{itemize}
+    \item\textbf{Third implies first}\par
+      Already shown above
+      \par\bigskip
+    \item\textbf{First implies second}\par
+      Shown in lemma
+      \par\bigskip
+    \item\textbf{Second implies third}\par
+      Assume $G_f$ does \textit{not} contain an augmenting path $P$. This means I cant walk from $s$ to $t$ in the residual network while only going along the direction of the edges I have.
+      \par\bigskip
+      Define $S = \left\{v\in V\;|\; v\text{ can be reached by a } s-v-\text{path in } G_f\right\}$\par
+      Define $T = V\backslash S$
+      \par\bigskip
+      Then $s\in S$ and $t\in T$ (otherwise there is an augmenting path in $G_f$)\par
+      In particular, these sets define an $s-t$-cut
+      \par\bigskip
+      By construction, every arrow $(u,v)$ in $G$ where $u\in S$ and $v\in T$, must have its full capacity used by $f$.\par
+      Otherwise, in the construction of the residual network, there would still be an arrow $\cdots$ $(u,v)\in G_f$ and $v\in S$
+      \par\bigskip
+      Moreover, every arrow in the direction $(v,u)$  must have flow 0 (reason is the same)
+      \par\bigskip
+      Hence, we have that $\left|f\right|\geq c(S,T)$, but we have seen earlier that $c(S,T)\leq \left|f\right|$, which means we have equality
+      \par\bigskip
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This theorem makes no existence of a maximal flow, it only talks about what happens when we \textit{do} have a maximal flow which is a bit unsatisfying.
+\par\bigskip
+\noindent A maxflow does however exist! Regard a flow $f$ simply as a vector in $\R^{\left|E\right|}$\par
+\noindent Then the $e$-th coordinate of the vector is from $[0,c(e)]$\par
+\noindent This means that the set of all flows is closed and bounded (therefore compact in $\R^{\left|E\right|}$) (and therefore has a supremum)\par
+\noindent The map $f\mapsto\left|f\right|$ is continous.
+\par\bigskip
+\noindent We now have a continous map on a compact set. We now know from calcul\textit{us}, there is a $f$ with maximum value $\left|f\right|$ 
+\par\bigskip
+\noindent What happens if all my capacities are integers?
+\par\bigskip
+\begin{theo}[Integer flow theorem]{thm:intft}
+  If $G$ is a network with an integer-valued capacity function $c:E\to\Z_{>0}$, then there is an integer valued maximum flow. (It only assigns integers flow along every edge)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Algorithm [Ford-Fulkeson]}\par
+\noindent Given a flow network $G$, start with the flow that is 0 everywhere $f\equiv 0$
+\par\bigskip
+\noindent Repeat the following steps:\par
+\begin{itemize}
+  \item Construct $G_f$\par
+  \item Find na augmenting path $P$ in $G_f$\par
+    Use it to construct a new flow with larger value\par
+    If no augmenting path exists, stop.
+\end{itemize}
+\par\bigskip
+\noindent This is not really an algorithm, since it is not guaranteed to stop.\par
+\noindent It will however terminate if all of our capacities are rational numbers. 
