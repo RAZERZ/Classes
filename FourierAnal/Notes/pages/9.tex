@@ -1,0 +1,120 @@
+\section{Lösa PDE:er med Fourierserier}\par
+\subsection{Viktiga PDE:er som löses med separation of variabler}\hfill\\\par
+\subsubsection{Vågekvationben}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    u(x,t)\\
+    \Rightarrow\dfrac{\partial^2u}{\partial t^2} = \dfrac{\partial^2u}{\partial x^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{Värmeekvationen}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial u}{\partial t} = \dfrac{\partial u^2}{\partial x^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Det var värmeekvationen som Fourier började med
+\par\bigskip
+\subsubsection{Schrödingers ekvation}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    i\dfrac{\partial u}{\partial t}=-\dfrac{\partial^2u}{\partial x^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Separation av variabler}\hfill\\\par
+\noindent Vi inleder med ett exempel:
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Lös följande IVP (initalvärdesproblem) för $u(x,t)$:
+\begin{equation*}
+  \begin{gathered}
+    (*)\begin{cases}
+      u_t = u_{xx}+\cos(x)\quad t>0,\; 0<x<\pi\\
+      x=0\Rightarrow u(0,t) = 0\\
+      x=\pi\Rightarrow u(\pi,t) = 1\quad\forall t>0\\
+      t=0\Rightarrow u(x,0)=\dfrac{3}{\pi}x+\cos(x)\quad\forall 0< x< \pi
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Problemet är inte så lätt som den kan vara. Iden är som en vanlig DE, lös det generella problemet (som ger parametrar), stoppa in randvärderna och få lösningen. 
+\par\bigskip
+\noindent Vanligtvis kan vi ta linjärkombinationer av lösningarn för att få fler lösningar.
+\par\bigskip
+\noindent Eftersom vi har $\cos(x)$ i PDE:n och $=1$ i randvärderna, så har vi ett \textit{icke-homogent} problem. Vi måste förenkla ner problemet till ett homogent problem:
+\begin{equation*}
+  \begin{gathered}
+    u(x,t) = v(x,t) +\varphi(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent Här slänger vi all icke-homogenitet till $\varphi(x)$ som är en funktion av \textit{en} variabel (och ger oss en ODE), och $v(x,t)$ är då en homogen PDE som blir lättare att lösa
+\par\bigskip
+\noindent Nu ger vi lite info om $v$ och $\varphi$:
+\begin{equation*}
+  \begin{gathered}(**)
+    \begin{cases*}
+      v_t = v_{xx}\quad t>0,\; 0<x<\pi\\
+      v(0,t) = 0\;\&\;\underbrace{v(\pi,t)=0}_{\text{$\Rightarrow$ homogen}}\quad\forall t>0\\
+      v(x,0)=?\;=1
+    \end{cases*}\qquad(***)
+    \begin{cases*}
+      \varphi^{\prime\prime} = -\cos(x)\\
+      \varphi(0) = 0\\
+      \varphi(\pi) = 1
+    \end{cases*}\\
+    \begin{cases*}
+      u_t=v_t\\
+      u_{xx} = v_{xx}+\varphi^{\prime\prime}\\
+      \Rightarrow v_t = v_{xx} +\varphi^{\prime\prime}+\cos(x)
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu behöver vi lösa ODE:n $(***)$ för att bestämma initialvärdena till $v(x,0)$ i $(***)$ 
+\begin{equation*}
+  \begin{gathered}
+    \varphi^{\prime\prime} = -\cos(x)\\
+    \varphi^{\prime} = \int-\cos(x)dx = -\sin(x)+C\\
+    \varphi = \int\int-\cos(x)dx = \int-\sin(x)+C = \cos(x)+Ax+B\\
+    \Rightarrow \varphi(0) = 1+B = 0\Lrarr B = -1\\
+    \Rightarrow \varphi(\pi) = -1+A\pi-1 = 1\Lrarr A = \dfrac{3}{\pi}\\
+    \Rightarrow \varphi(x) = \cos(x)+\dfrac{3}{\pi}x-1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi vet att $u(x,0) = \dfrac{3}{\pi}x+\cos(x)$\par
+\noindent Däremot, per konstruktion har vi att $ u(x,0) = v(x,0)+\varphi(x)$:
+\begin{equation*}
+  \begin{gathered}
+    v(x,0)+\varphi(x) = v(x,0)+\cos(x)+\dfrac{3}{\pi}x-1\\
+    u(x,0) = v(x,t)+\varphi(x) = v(x,t)+\cos(x)+\dfrac{3}{\pi}x-1\\
+    u(x,0) = \dfrac{3}{\pi}x+\cos(x) = v(x,0)+\cos(x)+\dfrac{3}{\pi}x-1\\
+    \Rightarrow v(x,0) = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu löser vi $(**)$ genom separation av variabler metoden
+\par\bigskip
+\noindent Iden med separation av variabler metoden är att försöka hitta speciella lösningar på formen\par\noindent $v(x,t) = X(x)\cdot T(t)$ där $X$ är en funktion som bara beror på $x$ och $T$ är en funktion som bara beror på $t$
+\par\bigskip
+\noindent Vi kikar närmare på $(**)$:
+\begin{equation*}
+  \begin{gathered}
+    v_t = v_{xx}\Lrarr X(x)\cdot T^{\prime}(t) = X^{\prime\prime}(x)\cdot T(x)\\
+    \Rightarrow \dfrac{T^{\prime}(t)}{T(t)} = \dfrac{X^{\prime\prime}(x)}{X(x)} = -\lambda
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu har vi fått ner problemet till en ODE:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      X^{\prime\prime}(x) = -\lambda X(x)\\
+      T^{\prime}(t) = -\lambda T(t)
+    \end{cases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är ett system av ODE:er som beror på en parameter $\lambda$

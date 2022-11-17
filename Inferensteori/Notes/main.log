@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  15 NOV 2022 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  16 NOV 2022 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1252,18 +1252,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--152
 
  []
 
-[21]) [22] (./main.aux (./includes/title.aux))
+[21]) [22] (./pages/5.tex) [23] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FB15D705A5E35631245F46BD5423C236;3648.
+(rerunfilecheck)             Checksum: 953AD7D31F5AD5DCA700A2A4BBD38FFB;3895.
  ) 
 Here is how much of TeX's memory you used:
- 25310 strings out of 478238
- 479832 string characters out of 5850457
- 789229 words of memory out of 5000000
- 42849 multiletter control sequences out of 15000+600000
+ 25318 strings out of 478238
+ 479918 string characters out of 5850457
+ 789224 words of memory out of 5000000
+ 42852 multiletter control sequences out of 15000+600000
  477334 words of font info for 59 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,15n,107p,499b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1283,10 +1283,10 @@ c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></u
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (23 pages, 294000 bytes).
+Output written on main.pdf (24 pages, 296762 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 298 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -20,3 +20,4 @@
 \contentsline {subsection}{\tocsubsection {}{6.3}{7.2.12}}{20}{subsection.6.3}%
 \contentsline {subsection}{\tocsubsection {}{6.4}{7.2.14}}{21}{subsection.6.4}%
 \contentsline {subsection}{\tocsubsection {}{6.5}{702}}{21}{subsection.6.5}%
+\contentsline {section}{\tocsection {}{7}{Konfidensintervall/Intervallskattning}}{23}{section.7}%

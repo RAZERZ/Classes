@@ -1,0 +1,27 @@
+\section{Konfidensintervall/Intervallskattning}\par
+\noindent Instead of estimating the parameter, we estimate an interval in which the parameter is most likely to "be" in.
+\par\bigskip
+\noindent Attempts to answer the question of "was it random?"
+\par\bigskip
+\noindent\textbf{Recall:}\par
+\noindent Let $Z\sim N(0,1)$. The $\alpha$ quantile $\lambda_\alpha$ is defined through $\alpha = P(Z>\lambda_\alpha)$
+\par\bigskip
+\noindent By symmetry, this gives $P(-\lambda_{\alpha/2}<Z<\lambda_{\alpha/2}) = 1-\alpha$
+\par\bigskip
+\noindent If $1-\alpha = 0.95$ then we have $\lambda_{\alpha/2} = \lambda_{0.025} = 1.96$ and:
+\begin{equation*}
+  \begin{gathered}
+    P(-1.96<Z<1.96) = 0.95
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+Slide 7 example 2\par
+\noindent  We always start with an estimator:
+\begin{equation*}
+  \begin{gathered}
+    \mu^*(X) = \dfrac{X_1+X_2+X_3+X_4+X_5}{5}\sim N(\mu,20)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Then standardize it
