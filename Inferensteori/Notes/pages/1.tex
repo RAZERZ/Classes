@@ -58,6 +58,19 @@
   \end{equation*}
 \end{theo}
 \newpage
+\noindent A different (yet equivalent way) of writing the sample variance is by:
+\begin{equation*}
+  \begin{gathered}
+    (n-1)s^2\Rightarrow \sum_{i=1}^{n}(x_i-\overline{x})^2\\
+    \Lrarr \sum_{i=1}^{n}(x_i^2-2\overline{x}x_i+\overline{x}^2) = \sum_{i=1}^{n}x_i^2-2\overline{x}\sum_{i=1}^{n}x_i+\overbrace{\sum_{i=1}^{n}\overline{x}^2}^{\text{$n\overline{x}^2$}}\\
+    =\sum_{i=1}^{n}x_i^2-2\overline{x}n\overline{x}+n\overline{x}^2\\
+  =\sum_{i=1}^{n}x_i^2 -2n\overline{x}^2+n\overline{x}^2 = \sum_{i=1}^{n}x_i^2-n\underbrace{\overline{x}^2}_{\text{$\left(\dfrac{1}{n}\sum_{i=1}^{n}x_i\right)^2$}}\\
+  \Lrarr \sum_{i=1}^{n}x_i^2-\dfrac{n}{n^2}\left(\sum_{i=1}^{n}x_i\right)\\
+  \Lrarr \sum_{i=1}^{n}x_i^2-\dfrac{\left(\sum_{i=1}^{n}x_i\right)^2}{n}\\
+  \Rightarrow s^2 = \dfrac{\sum_{i=1}^{n}x_i^2}{n-1}-\dfrac{\left(\sum_{i=1}^{n}x_i\right)^2}{n(n-1)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
 \begin{theo}[Sample standard variance]{thm:samplestdvar}
   Is given by:
   \begin{equation*}

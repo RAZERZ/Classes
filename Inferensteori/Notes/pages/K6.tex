@@ -1,0 +1,251 @@
+\section{Important notes from the book}\par
+%\noindent Suppose we are given a sample of lengths of people in 6th grade:\bigskip
+%\begin{center}
+  %\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    %\hline
+    %159&155&148&150&175&151&153&146&168&153&138&161&164&157&146&148&143\\
+    %\hline
+  %\end{tabular}
+%\end{center}
+%\par\bigskip
+%\noindent Suppose we are analysing averages. The obvious method is to calculate the mean and perhaps work upon that, nothing wrong in that.\par
+%\noindent However, there arises some issues in wether our data contains some extremes which can affect the mean.
+%\par\bigskip
+%\noindent This is where a deeper study of the median would be necessary, especially looking at quartiles and their range.\par
+%\noindent The reason the median would be an appropriate tool here, is because the median does not care \textit{what} the values are, just the \textit{number of} values we have.
+%\par\bigskip
+%\noindent In order to find the median, we sort our data (ascending or descending does not matter) and pick out the middle value:
+%\par\bigskip
+%\begin{center}
+  %\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    %\hline
+    %138&143&146&146&\textbf{148}&148&150&151&\textbf{153}&153&155&157&\textbf{159}&161&164&168&175\\
+    %\hline
+  %\end{tabular}
+%\end{center}
+%\par\bigskip
+%\noindent Highlighted, we have the median in the middle as well as the lower resp. upper quartiles.
+%\par\bigskip
+%\noindent Looking back at our probability knowledge, it was reasonable to look at the distribution function of the random variable in order to find values less than or equal to a certain value.\par
+%\noindent Essentially, what we did was to group the outputs of the random variable into ranges (with no lower bound). If we impose a lower bound, it makes it a lot easier to analyse probabilities and statistics since we
+\subsection{Definitions/Theorems}\hfill\\\par
+\begin{theo}[Mean/Medelvärde]{thm:rmean}
+  Given $n$ samples $x_1,\cdots,x_n$, the mean:
+  \begin{equation*}
+    \begin{gathered}
+      \overline{x} = \dfrac{1}{n}\sum_{i=1}^{n}x_i
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Median]{thm:rmedian}
+  Given $n$ samples $x_1,\cdots,x_n$, the median is \textit{the middle value} of the sorted sample
+  \par\bigskip
+  \noindent If the middle value contains 2 values (if $n$ is even), the median is the mean of the two middle values 
+\end{theo}
+\par\bigskip
+\begin{theo}[Mode/Typvärde]{thm:rmode}
+  The most common number in the data set 
+\end{theo}
+\par\bigskip
+\begin{theo}[Sample variance]{thm:rsamplevar}
+  Denoted by $s^2 = \sigma^2$
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Sample standard deviation/Standardavvikelse]{thm:rstanddev}
+  Given by $\sqrt{s^2}$:
+  \begin{equation*}
+    \begin{gathered}
+      \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Range/Variationsbredd]{thm:rrange}
+  The difference between the largest number and the smallest number in the data set
+\end{theo}
+\par\bigskip
+\begin{theo}[Quartile/Kvartil]{thm:rquartile}
+  The median in the upper resp. lower half of the sorted data 
+\end{theo}
+\par\bigskip
+\begin{theo}[Inter quartile range/Kvartilavstånd]{thm:rintquart}
+  The difference between the upper and lower quartile 
+\end{theo}
+\par\bigskip
+\begin{theo}[Sample covariance/Kovarians]{thm:rsamplecovar}
+  Let the data set be 2-dimensional tuples $(x_1,y_1),\cdots,(x_n,y_n)$:
+  \begin{equation*}
+    \begin{gathered}
+      c_{xy} = \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}
+\begin{equation*}
+  \begin{gathered}
+    S_{xy} = \sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})
+  \end{gathered}
+\end{equation*}
+\newpage
+\begin{theo}[Sample correlation coefficient]{thm:rsamplecoeff}
+  Let the data set be 2-dimensional tuples $(x_1,y_1),\cdots,(x_n,y_n)$ 
+  \begin{equation*}
+    \begin{gathered}
+      r_{xy} = \dfrac{c_{xy}}{s_x\cdot s_y}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}
+\begin{equation*}
+  \begin{gathered}
+    -1\leq c_{xy}\leq 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\
+\subsubsection{601}\hfill\\
+\noindent Given $x_1,\cdots,x_5$ and $y_1,\cdots, y_9$ we have:
+\begin{equation*}
+  \begin{gathered}
+    \overline{x} = 12.2\qquad s_x = 2.1\\
+    \overline{y} = 15.8\qquad s_y = 2.9
+  \end{gathered}
+\end{equation*}\par
+\noindent We want to combine this data into one variable $z = x_1,\cdots,x_5,y_1,\cdots,y_9$
+\par\bigskip
+\noindent\textit{Calculate the mean and standard deviation for $z$}
+\par\bigskip
+\noindent\textbf{Solution:}\par
+\noindent The mean $\dfrac{1}{5+9}\sum z_i = \dfrac{1}{5+9}\left(\sum x_i + \sum y_i\right)$\par
+\noindent Notice we are given the mean for each variable, through algebraic manipulation we get:
+\begin{equation*}
+  \begin{gathered}
+    \overline{x} = \dfrac{1}{5}\sum_{i=1}^{5}x_i\Lrarr 5\overline{x} = \sum_{i=1}^{5}x_i = 61\\
+    \overline{y} = \dfrac{1}{9}\sum_{i=1}^{9}y_i\Lrarr 9\overline{y} = \sum_{i=1}^{9}y_i = 142.2
+  \end{gathered}
+\end{equation*}\par
+\noindent Therefore:
+\begin{equation*}
+  \begin{gathered}
+    \overline{z} = \dfrac{1}{14}(61+142.2) = 14.514
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The standard deviation is a little trickier, but still follows from algebraic manipulation:
+\begin{equation*}
+  \begin{gathered}
+    s_x = 2.1 \Rightarrow s_x^2 = 4.41 = \dfrac{1}{5-1}\sum_{i=1}^{5}(x_i-12.2)^2\\
+    4.41\cdot4 = \sum_{i=1}^{5}(x_i-12.2)^2 = \sum_{I=1}^{5}(x_i^2-2\cdot12.2\cdot x_i + 12.2^2)\\
+    \Rightarrow \sum_{i=1}^{5}x_i^2-2\cdot12.2\sum_{i=1}^{5}x_i+\sum_{i=1}^{5}12.2^2\\
+    =\sum_{i=1}^{5}x_i^2-2\cdot12.2\underbrace{\sum_{i=1}^{5}x_i}_{\text{$5\overline{x}$}}+5\cdot12.2^2\\
+    =\sum_{i=1}^{5}x_i^2-12.2^2 = 4\cdot4.41 = 17.64\\
+    \Lrarr \sum_{i=1}^{5}x_i^2 = 17.64+5\cdot12.2^2 = 761.84
+  \end{gathered}
+\end{equation*}\par
+\noindent Same done for $y$ gives:
+\begin{equation*}
+  \begin{gathered}
+    \Lrarr\sum_{i=1}^{9}y_i^2 = 67.28+9\cdot15.6^2 = 2314.04
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The variance for $z$:
+\begin{equation*}
+  \begin{gathered}
+    s_z = \dfrac{1}{14-1}\sum_{i=1}^{14}(z_i-\overline{z})^2 = \dfrac{1}{13}\sum_{i=1}^{14}z_i^2-2\cdot14\overline{z}^2+14\overline{z^2}\\
+    = \dfrac{1}{13}\sum_{i=1}^{14}z_i^2-14\overline{z^2} = 3.14176
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{602}\hfill\\\par
+\noindent We essentially proceed the same way as the did for the previous problem, but take into account that we need to \textit{remove} 19 and \textit{add} 91.
+\par\bigskip
+\noindent We are given $n = 100$:
+\begin{equation*}
+  \begin{gathered}
+    \overline{x} = 91.28 = \dfrac{1}{100}\sum_{i=1}^{100}x_i\\
+    s = 7.5
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textit{Find the correct mean and standard deviation}
+\par\bigskip
+\noindent To find the mean, we proceed as follows:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{100}\sum x_i = 91.28\Lrarr 91.28\cdot100 = \sum x_i\\
+    \sum x_i-19+91 = 9200\Lrarr \overline{x} =\dfrac{1}{100}9200 = 92
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Using the same trick for the standard deviation:
+\begin{equation*}
+  \begin{gathered}
+    s^2 = 56.25 = \dfrac{1}{100-1}\sum (x_i\overline{x})^2\\
+    \Rightarrow 5568.75 = \sum (x_i^2-2\overline{x}x_i+\overline{x}^2)\\
+    \sum x_i^2-100\overline{x}^2 = 5568.75\Lrarr \sum x_i^2 = 5568.75+100\overline{x}^2\\
+    = 5568.75+100\cdot(91.28)^2 = 838772.59 = \sum x_i^2\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Here, we correct with the squares of 19 and 91 respectively, since the summands are squared
+\begin{equation*}
+  \begin{gathered}
+    8838772.59-19^2+91^2 = 846692.59 =\sum x_i^2\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we can start using the real values:
+\begin{equation*}
+  \begin{gathered}
+    \sum x_i^2 -100\cdot 92^2 = 292.59\\
+    s_x = \sqrt{\dfrac{1}{100}292.59} = 1.71791455
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{605}\hfill\\\par
+\noindent Here things get a little trickier. It is greatly encouraged to look at example 6.10 in the book.
+\par\bigskip
+\noindent We begin by splitting the data into intervala 0-4, 4-8,$\cdots$ and finding the middle point of those intervals (class middle):
+\par\bigskip
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    2&6&10&14&18&22&26&30\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Looking at our data, we convert it into \textit{how many} components are breaking in an interval, and not how many we have left (frequency):
+\par\bigskip
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    3&7&6&4&2&1&1&1\\
+    \hline
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent Now we can use the estimate that $\sum x_i\approx$ the sum of the frequency ($f_i$)$\cdot$class middle $(k_i)$:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{i=1}^{8}f_ik_i = 278\approx \sum_{i=1}^{25}x_i\\
+    \overline{x}\approx \dfrac{278}{25} = 11.12
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In order to calculate the standard deviation, we need to find the variance and in order to find the variance, we need to find $\sum x_i^2$, so let us do that
+\par\bigskip
+\noindent That sum is the same as squaring the class middle, we therefore have:
+\begin{equation*}
+  \begin{gathered}
+  \sum_{i=1}^{25}x_i^2\approx \sum_{i=1}^{8}k_i^2f_i = 2^6\cdot3+\cdots 30^2\cdot1 = 4356\\
+  s_x = \sqrt{\dfrac{1}{25-1}\sum_{i=1}^{25}x_i^2-25\overline{x}^2} \approx 7.259
+  \end{gathered}
+\end{equation*}

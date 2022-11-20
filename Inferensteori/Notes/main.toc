@@ -2,22 +2,32 @@
 \contentsline {section}{\tocsection {}{2}{Data Analysis (K6)}}{3}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Location Measures}}{3}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Dispersion measures}}{3}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Graphical illustration}}{4}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Graphical illustration}}{5}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{Data materials in several dimensions}}{5}{subsection.2.4}%
-\contentsline {section}{\tocsection {}{3}{Statistical Inference}}{7}{section.3}%
-\contentsline {section}{\tocsection {}{4}{Estimation}}{7}{section.4}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Properties of estimates}}{8}{subsection.4.1}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Asymptotic properties}}{10}{subsection.4.2}%
-\contentsline {section}{\tocsection {}{5}{Methods of estimation}}{12}{section.5}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{Methods of moments}}{12}{subsection.5.1}%
-\contentsline {subsection}{\tocsubsection {}{5.2}{Maximum likelihood}}{13}{subsection.5.2}%
-\contentsline {subsection}{\tocsubsection {}{5.3}{Least Squares}}{15}{subsection.5.3}%
-\contentsline {subsection}{\tocsubsection {}{5.4}{Parameter estimation in standard distributions}}{17}{subsection.5.4}%
-\contentsline {subsection}{\tocsubsection {}{5.5}{Estimation of distributions}}{18}{subsection.5.5}%
-\contentsline {section}{\tocsection {}{6}{Lesson 1}}{19}{section.6}%
-\contentsline {subsection}{\tocsubsection {}{6.1}{727}}{19}{subsection.6.1}%
-\contentsline {subsection}{\tocsubsection {}{6.2}{7.210}}{19}{subsection.6.2}%
-\contentsline {subsection}{\tocsubsection {}{6.3}{7.2.12}}{20}{subsection.6.3}%
-\contentsline {subsection}{\tocsubsection {}{6.4}{7.2.14}}{21}{subsection.6.4}%
-\contentsline {subsection}{\tocsubsection {}{6.5}{702}}{21}{subsection.6.5}%
-\contentsline {section}{\tocsection {}{7}{Konfidensintervall/Intervallskattning}}{23}{section.7}%
+\contentsline {section}{\tocsection {}{3}{Important notes from the book}}{8}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Definitions/Theorems}}{8}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Problems and Solutions}}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.2.1}{601}}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.2.2}{602}}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.2.3}{605}}{11}{subsubsection.3.2.3}%
+\contentsline {section}{\tocsection {}{4}{Statistical Inference}}{13}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Estimation}}{13}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Properties of estimates}}{14}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Asymptotic properties}}{16}{subsection.5.2}%
+\contentsline {section}{\tocsection {}{6}{Important notes from the book}}{18}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Definitions/Theorems}}{18}{subsection.6.1}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{Problems and Solutions}}{19}{subsection.6.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{6.2.1}{7.2.2}}{19}{subsubsection.6.2.1}%
+\contentsline {section}{\tocsection {}{7}{Methods of estimation}}{20}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Methods of moments}}{20}{subsection.7.1}%
+\contentsline {subsection}{\tocsubsection {}{7.2}{Maximum likelihood}}{21}{subsection.7.2}%
+\contentsline {subsection}{\tocsubsection {}{7.3}{Least Squares}}{23}{subsection.7.3}%
+\contentsline {subsection}{\tocsubsection {}{7.4}{Parameter estimation in standard distributions}}{25}{subsection.7.4}%
+\contentsline {subsection}{\tocsubsection {}{7.5}{Estimation of distributions}}{26}{subsection.7.5}%
+\contentsline {section}{\tocsection {}{8}{Lesson 1}}{27}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{727}}{27}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{7.210}}{27}{subsection.8.2}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{7.2.12}}{28}{subsection.8.3}%
+\contentsline {subsection}{\tocsubsection {}{8.4}{7.2.14}}{29}{subsection.8.4}%
+\contentsline {subsection}{\tocsubsection {}{8.5}{702}}{29}{subsection.8.5}%
+\contentsline {section}{\tocsection {}{9}{Konfidensintervall/Intervallskattning}}{31}{section.9}%

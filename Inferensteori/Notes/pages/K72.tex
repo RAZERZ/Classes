@@ -1,0 +1,128 @@
+\section{Important notes from the book}\par
+\subsection{Definitions/Theorems}\hfill\\\par
+\begin{theo}[Sample/Stickprov]{thm:rsample}
+  A sample $x_1,\cdots,x_n$ is of size $n$ and is an observation from the random variable $X = X_,1\cdots,X_n$ with distribution $F$
+\end{theo}
+\par\bigskip
+\begin{theo}[Random Sample]{thm:rrsample}
+  If the random variables $X_1,\cdots,X_n$ are independent, then the sample is a \textit{random sample}
+\end{theo}
+\par\bigskip
+\begin{theo}[Estimate/Skattning]{thm:restimate}
+  Given a sample from random variables with known distribution function but unknown "distribution function input", an \textit{estimate} $\theta^*(x)$ is a function of the sample attempting to decote the unknown input (parameter)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The correct value one attempts to find is denoted by $\theta$
+\par\bigskip
+\begin{theo}[Estimator]{thm:restimator}
+  The estimation observed in the previous theorem, is an observation from the \textit{estimator}; an observation of observed values of a random variable. The estimator is what the estimate observates, denoted by $\theta^*(X)$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Bias]{thm:rbias}
+  \begin{equation*}
+    \begin{gathered}
+      E(\theta^*(X))-\theta
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Random error]{thm:rranderr}
+  \begin{equation*}
+    \begin{gathered}
+      \theta^*-E(\theta^*(X))
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Total error]{thm:rtotalerr}
+  \begin{equation*}
+    \begin{gathered}
+      \theta^*-\theta = E(\theta^*(X))-\theta + \theta^*-E(\theta^*(X))
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Unbiased/Väntevärdesriktig]{thm:runbiased}
+  \begin{equation*}
+    \begin{gathered}
+      E(\theta^*(X))-\theta = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\begin{theo}[Efficiency]{thm:reff}
+  Suppose $\theta_1^*$ and $\theta_2^*$ are unbiased estimates of $\theta$ and
+  \begin{equation*}
+    \begin{gathered}
+      V(\theta_1^*(X))\leq V(\theta_2^*(X))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then $\theta_1^*$ is \textit{more efficient} than $\theta_2^*$
+\end{theo}
+\par\bigskip
+\begin{theo}[Standard error/Medelfel]{thm:rstderr}
+  Estimate of the standard deviation, which is $\sqrt{Var}$:
+  \begin{equation*}
+    \begin{gathered}
+      D(\theta^*(X)) = d(\theta^*)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Mean squared error]{thm:rmserr}
+  \begin{equation*}
+    \begin{gathered}
+      M(\theta^*) = E((\theta^*(X)-\theta)^2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the estimate is unbiased, then $M(\theta^*) = V(\theta^*)$ 
+\par\bigskip
+\begin{theo}[Asymptotically unbiased/Asymptotiskt Väntevärdesriktig]{thm:rasymptconv}
+  If the bias $B(\theta_n^*)$ goes to 0 as $n\to\infty$, then it is \textit{asymptotically unbiased}
+  \par\bigskip
+  \noindent (for all $\theta$ in the parameter-space)
+\end{theo}
+\par\bigskip
+\begin{theo}[Convergence/Konvergens]{thm:rconv}
+  The estimator $\theta_n^*(X)$ \textit{converges} to $\theta$:\par
+  \begin{itemize}
+    \item\textbf{In probability}:\par
+      \begin{itemize}
+        \item If for every $\varepsilon>0$ $P(\left|\theta_n^*(X)-\theta\right|>0) = 0$ as $n\to\infty$\par
+        \item Notice the comparison sign, we are saying "the probability that our estimate is off from the true value by a lot goes to zero"
+      \end{itemize}\par
+    \item\textbf{In square means}:\par
+      \begin{itemize}
+        \item If the mean squared error $M(\theta_n^*)\to0$ as $n\to\infty$
+      \end{itemize}
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the estimator converges in square means, then it converges in probability
+\par\bigskip
+\begin{theo}[Consistent]{thm:rconsistent}
+  The estimate $\theta_n^*$ is said to be \textit{consistent} if the estimator $\theta_n^*(X)$ converges in probability for all $\theta$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  IIf the estimate $\theta_n^*$ is asymptotically unbiased and $V(\theta_n^*(X))\to0$ as $n\to\infty$ for all $\theta$, then our estimate is consistent
+\end{theo}
+\par\bigskip
+%\begin{prf}
+  %TThe mean square error goes to zero, by an earlier remark it therefore converges in probability and can be written in the following way:
+  %\begin{equation*}
+    %\begin{gathered}
+      %M(\theta_n^*) = V(\theta_n^*)B^2(\theta_n^*)
+    %\end{gathered}
+  %\end{equation*}
+%\end{prf}
+
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.2.2}\hfill\\
