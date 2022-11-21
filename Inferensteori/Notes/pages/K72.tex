@@ -71,58 +71,56 @@
   \end{equation*}
 \end{theo}
 \par\bigskip
-\begin{theo}[Mean squared error]{thm:rmserr}
-  \begin{equation*}
-    \begin{gathered}
-      M(\theta^*) = E((\theta^*(X)-\theta)^2)
-    \end{gathered}
-  \end{equation*}
-\end{theo}
-\par\bigskip
-\noindent\textbf{Anmärkning:}\par
-\noindent If the estimate is unbiased, then $M(\theta^*) = V(\theta^*)$ 
-\par\bigskip
-\begin{theo}[Asymptotically unbiased/Asymptotiskt Väntevärdesriktig]{thm:rasymptconv}
-  If the bias $B(\theta_n^*)$ goes to 0 as $n\to\infty$, then it is \textit{asymptotically unbiased}
+  \begin{theo}[Mean squared error]{thm:rmserr}
+    \begin{equation*}
+      \begin{gathered}
+        M(\theta^*) = E((\theta^*(X)-\theta)^2)
+      \end{gathered}
+    \end{equation*}
+  \end{theo}
   \par\bigskip
-  \noindent (for all $\theta$ in the parameter-space)
-\end{theo}
-\par\bigskip
-\begin{theo}[Convergence/Konvergens]{thm:rconv}
-  The estimator $\theta_n^*(X)$ \textit{converges} to $\theta$:\par
-  \begin{itemize}
-    \item\textbf{In probability}:\par
-      \begin{itemize}
-        \item If for every $\varepsilon>0$ $P(\left|\theta_n^*(X)-\theta\right|>0) = 0$ as $n\to\infty$\par
-        \item Notice the comparison sign, we are saying "the probability that our estimate is off from the true value by a lot goes to zero"
-      \end{itemize}\par
-    \item\textbf{In square means}:\par
-      \begin{itemize}
-        \item If the mean squared error $M(\theta_n^*)\to0$ as $n\to\infty$
-      \end{itemize}
-  \end{itemize}
-\end{theo}
-\par\bigskip
-\noindent\textbf{Anmärkning:}\par
-\noindent If the estimator converges in square means, then it converges in probability
-\par\bigskip
-\begin{theo}[Consistent]{thm:rconsistent}
-  The estimate $\theta_n^*$ is said to be \textit{consistent} if the estimator $\theta_n^*(X)$ converges in probability for all $\theta$
+  \noindent\textbf{Anmärkning:}\par
+  \noindent Recall that $V(X) = E(X^2)-(E(X))^2\Lrarr E(X^2) = V(X)+(E(X))^2$\par
+  \noindent Therefore, MSE can be written as $E((\theta^*(X)-\theta)^2) = V(\theta^*(X)-\theta)+\underbrace{(E(\theta^*(X)-\theta))^2}_{\text{bias$^2$}}$
+  \par\bigskip
+  \begin{theo}[Asymptotically unbiased/Asymptotiskt Väntevärdesriktig]{thm:rasymptconv}
+    If the bias $B(\theta_n^*)$ goes to 0 as $n\to\infty$, then it is \textit{asymptotically unbiased}
+    \par\bigskip
+    \noindent (for all $\theta$ in the parameter-space)
+  \end{theo}
+  \par\bigskip
+  \begin{theo}[Convergence/Konvergens]{thm:rconv}
+    The estimator $\theta_n^*(X)$ \textit{converges} to $\theta$:\par
+    \begin{itemize}
+      \item\textbf{In probability}:\par
+        \begin{itemize}
+          \item If for every $\varepsilon>0$ $P(\left|\theta_n^*(X)-\theta\right|>0) = 0$ as $n\to\infty$\par
+          \item Notice the comparison sign, we are saying "the probability that our estimate is off from the true value by a lot goes to zero"
+        \end{itemize}\par
+      \item\textbf{In square means}:\par
+        \begin{itemize}
+          \item If the mean squared error $M(\theta_n^*)\to0$ as $n\to\infty$
+        \end{itemize}
+    \end{itemize}
+  \end{theo}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent If the estimator converges in square means, then it converges in probability
+  \par\bigskip
+  \begin{theo}[Consistent]{thm:rconsistent}
+    The estimate $\theta_n^*$ is said to be \textit{consistent} if the estimator $\theta_n^*(X)$ converges in probability for all $\theta$
 \end{theo}
 \par\bigskip
 \begin{theo}
   IIf the estimate $\theta_n^*$ is asymptotically unbiased and $V(\theta_n^*(X))\to0$ as $n\to\infty$ for all $\theta$, then our estimate is consistent
 \end{theo}
 \par\bigskip
-%\begin{prf}
-  %TThe mean square error goes to zero, by an earlier remark it therefore converges in probability and can be written in the following way:
-  %\begin{equation*}
-    %\begin{gathered}
-      %M(\theta_n^*) = V(\theta_n^*)B^2(\theta_n^*)
-    %\end{gathered}
-  %\end{equation*}
-%\end{prf}
-
-\par\bigskip
-\subsection{Problems and Solutions}\hfill\\\par
-\subsubsection{7.2.2}\hfill\\
+\begin{prf}
+  TThe mean square error goes to zero, by an earlier remark it therefore converges in probability and can be written in the following way:
+  \begin{equation*}
+    \begin{gathered}
+      M(\theta_n^*) = V(\theta_n^*)+B^2(\theta_n^*)
+    \end{gathered}
+  \end{equation*}\par
+ \noindent Since the estimate is unbiased, the bias = 0, and per the theorem, the variance goes to 0 as $n\to\infty$. Then, by theorem 6.13 it converges in square means and by the remark, it also converges in probability. 
+\end{prf}

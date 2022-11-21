@@ -1,0 +1,56 @@
+\section{Important notes from the book}\par
+\subsection{Definitions/Theorems}\hfill\\\par
+\begin{theo}[Method of moments/Momentmetoden]{thm:rmm}
+  Let $x_1,\cdots,x_n$ random sample from $X$ with $E(X) = m(\theta)$\par
+  \noindent If $\theta$ is one dimensional, the moment estimate $\theta = \theta^*$ solves equation $m(\theta) = \overline{x}$ 
+\end{theo}
+\par\bigskip
+\begin{theo}
+  LLet $x_1,\cdots,x_n$ random sample from $X$ with $E(X) = \theta$\par
+  \noindent The estimate $\theta^* = \overline{x}$ is unbiased and if $\sigma^2 = V(X)<\infty$ then it is consistent as well 
+\end{theo}
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      E(\overline{X}) = E\left(\dfrac{1}{n}\sum_{i=1}^{n}X_i\right) = \dfrac{1}{n}\sum_{i=1}^{n}E(X_i) = \dfrac{n}{n}E(X_i) = \theta\\
+      V(\overline{X}) = V\left(\dfrac{1}{n}\sum_{i=1}^{n}X_i\right) = \dfrac{1}{n^2}\sum_{i=1}^{n}V(X_i) = n\dfrac{\sigma^2}{n^2} = \dfrac{\sigma^2}{n}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By theorem 6.15, the estimate is unbiased (per def. in this case) and the variance goes to 0 as $n$ increases, therefore it is consistent. 
+\end{prf}
+\par\bigskip
+\begin{theo}[Multivariate method of moments]{thm:rmmm}
+  $\theta = (\theta_1,\theta_2)$, moment estimates solve the system:
+  \begin{equation*}
+    \begin{gathered}
+      E(X) = m_1(\theta_1, \theta_2) = \overline{x}\\
+      E(X^2) = V(X) + (E(X))^2 = m_2(\theta_1,\theta_2) = \dfrac{1}{n}\sum_{i=1}^{n}x_i^2
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Sample variance is unbiased]{thm:rsviu}
+  Let $x_1,\cdots,x_n$ random sample from a random variable $X$ with variance $\sigma^2$ 
+  \par\bigskip
+  \noindent The sample variance $s^2$ is an unbiased estimation of $\sigma^2$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $E(X^4)<\infty$ then  $s^2$ is a consistent estimate of $\sigma^2$ 
+
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.2.5}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.6}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.7}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.8}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.10}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.12}\hfill\\\par
+\par\bigskip
