@@ -1,0 +1,146 @@
+\section{Matching}\par
+\begin{theo}
+  LLet $G = (V,E)$ be a finite simple graph (undirected)
+  \par\bigskip
+  \noindent A \textit{matching} on $G$ is a set $M\subseteq E$ such that no two edges in $M$ share a common endpoint
+\end{theo}
+\par\bigskip
+\noindent We shall only consider matchings in bipartite graphs (not complete bipartite, so we do not need to have all possible edges between the two sets, but all edges are within)
+\par\bigskip
+\noindent\textbf{Notation:}\par
+\noindent If we have some set of vertices, we denote by $N(S) = \left\{v\in V\;|\;\text{$v$ is adj. to some $s\in S$}\right\}$, the neighbourhood of $S$
+\par\bigskip
+\noindent\textbf{Necessary condition:} For $A$ to be matched in $B$\par
+\noindent $\left|N(Q)\right|\geq \left|Q\right|$ for all $Q\subseteq A$
+\par\bigskip
+\begin{theo}[Hall's marriage theorem]{thm:hallsmar}
+  Let $G = (V,E)$ be a finite simple undirected bipartite graph with $V = A\cup B$ 
+  \par\bigskip
+  \noindent Then $G$ has a matching of $A$ into $B$ iff $\left|N(Q)\right|\geq\left|Q\right|$ for all $Q\subseteq A$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  WWe will use flows. We have already discussed $\Rightarrow$ direction.
+  \par\bigskip
+  \noindent $\Leftarrow$, the task is to construct a matching if the condition is satisfied
+  \par\bigskip
+  \noindent Assume $\left|N(Q)\right|\geq\left|Q\right|$. Create a flow network as follows:\par
+  \begin{itemize}
+    \item Add two extra vertices on each side (source and sink). Connect the source to all vertices in $A$ and the sink to all in $B$. All the edges flow from the source to sink\par
+    \item Give the added arrows capacity of 1, and the rest capacity of something large (as close to infinity as possible)\par
+  \item Specify an $s-t$-cut $S^{\prime} = \left\{s\right\}, T^{\prime} = \left\{t\right\}\cup A\cup B$, we have $c(S^{\prime},T^{\prime}) = \left|A\right|<\infty$\par
+  \item By the max-flow-min-cut theorem, the capacity will also be finite $c(S,T)<\infty$ for any minimum cut.\par
+    \noindent This means that no edge $(u,v)$ where $u\in A\cap S$ and $v\in B\cap T$ exists since if it did it would contribute to the cut.\par
+  \item Then $N(S\cap A)\subseteq S\cap B$. With this, we can compute $c(S,T)$:
+    \begin{equation*}
+      \begin{gathered}
+        c(S,T) = \sum_{(u,t)\in S\times T} c(u,v) = \sum_{v\in T\cap A} c(s,v)+ \sum_{u\in B\cap S}c(u,t)\\
+        = \left|T\cap A\right| + \left|B\cap S\right|\geq (\left|A\right|-\left|S\cap A\right|) + \left|N(S\cap A)\right|\geq \left|A\right|-\left|S\cap A\right|+\left|S\cap A\right| = \left|A\right|\\
+      \end{gathered}
+    \end{equation*}\par
+  \item This means $S^{\prime}, T^{\prime}$ is a minimum cut and has capacity $\left|A\right|$\par
+  \item This means there exists an integer flow of $\left|f\right| = \left|A\right|$ (max flow min cut), this flow powers one unit through each vertex of $A$. Following the flow gives a matchin of $A$ into $B$
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning}:\par
+\noindent The construction in the proof gives a bijection between $\left\{\text{matchings in $G$}\right\}\leftrightarrow\left\{\text{integer flows in the associated network}\right\}$ such that $\left|M\right| = \left|f\right|$
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\noindent Let $G = (A\cup B, E)$ be a finite simple bipartite graph. If $\left|N(Q)\right|\geq \left|Q\right|-d$ for all $Q\subseteq A$ and some fixed $d\in\N$, then $G$ contains a matching with $\left|A\right|-d$ edges 
+\par\bigskip
+\begin{theo}[Vertex cover]{thm:vertexcov}
+  Let $G = (V,E)$ be a finite simple graph. A \textit{vertex cover} is a set $S\subseteq V$ such thtat every edge has an endpoint in $S$ 
+\end{theo}
+\par\bigskip
+\begin{theo}[Covering number]{thm:covnum}
+  The covering number $\beta(G)$ is the minimum cardinality of any vertex cover of $G$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we have integer flow, we have cuts. Do we have correspondance for the cuts as well? Yes we do 
+\par\bigskip
+\noindent There is a bijection ($G$ bipartite) between $\left\{\text{vertex covers in $G$}\right\}\leftrightarrow\left\{\text{$s-t$-cuts with finite capacity in the associated network}\right\}$ such that $\left|Q\right| = c(S,T)$
+\par\bigskip
+\begin{theo}[König]{thm:konig}
+  Let $G$ be a finite simple bipartite graph
+  \par\bigskip
+  \noindent Then, the maximum cardinality of a matching in $G$ equals the minimum cardinality of a vertex cover $\beta(G)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Looks a lot like max flow min cut
+\par\bigskip
+\begin{prf}
+  SSuppose we have a maximum matching $\left|M\right|$, then it corresponds through bijection to a maximum flow $\left|f\right| = \left|M\right|$. By the max flow min cut theorem, $\left|f\right| = c(S,T)$. But by another bijection, this corresponds to another minimum vertex cover $= \beta(G)$ 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Set $M$ is a set of edges
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In a general graph that is not bipartite we do not have this equality\par
+\noindent Any edge in a matching requires a separate vertex from a vertex cover. This means that the maximum cardinality of the matching $\left|M\right|\leq \beta(G)$  even in an arbitrary graph. If not bipartite, then the inequality may be strict
+\par\bigskip
+\begin{theo}[Perfect matching]{thm:perfmatch}
+  A \textit{perfect matching} or \textit{1-factor} $M$ on a finite simple graph $G = (V,E)$ is a matching on $G$ such that every vertex $v\in V$ is an endpoint of some edge $e\in M$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  LLet $k\in\N$. A $k$-regular graph is a graph where every vertex has degree $k$
+\end{theo}
+\par\bigskip
+\begin{theo}[$k$-factor]{thm:kfac}
+  A \textit{k-factor} is a $k$-regular spanning subgraph
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent A Hamilton cycle in $G$ is a 2-factor of $G$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In order to have perfect matching, the number of vertices must be even.
+\par\bigskip
+\noindent\textbf{Notation}:\par
+\noindent For a set of vertices $S\subseteq V$, write $G-S = G[V\backslash S]$\par
+\noindent If $G$ contains a perfect matching and we obtain in $G-S$  a number of connected components on an odd number of vertices (\textit{odd components}), what must have happened? These connected components must have at least one vertex that was matched and deleted.\par
+\noindent Then the number o$(G-S)$ of such odd components $\leq \left|S\right|$
+\par\bigskip
+\begin{theo}[Tuttes 1-factor theorem]{thm:boob}
+  A finite simple graph $G = (V,E)$ admits a perfect matching iff o$(G-S)\leq\left|S\right|$ for all $S\subseteq V$
+\end{theo}
+\newpage
+\begin{prf}
+  A$\Rightarrow$ is in the "Notation" section
+  \par\bigskip
+  \noindent Let $G = (V,E)$ be a graph satisfying this condition but wihtout a perfect matching. We want to show that such a graph cannot exist
+  \par\bigskip
+  \noindent Adding an edge does not affect the condition. Why? If we add this edge in such a way, it will be completely inside $S$ or completely in one of the components and does not change the fact. What can happen is that it connectes components, odd components + odd components are even, even + odd are okay, everything is okay
+  \par\bigskip
+  \noindent We can therefore add how ever many edges. Assume WLOG that $G$ is edge-maximal satisfying the condition and does not contain a perfect matching.  
+  \par\bigskip
+  \noindent Let $n = \left|V\right|$. For $S = \O$, we get o$(G-S) = 0$, so $n$ is even
+  \par\bigskip
+  \noindent Choose $S = \left\{v\in V\;|\; deg(v) = n-1\right\}$\par
+  \noindent Consider $G-S$. We get 2 cases:\par
+  \begin{itemize}
+    \item All components of $G-S$ are complete\par
+      If this happens, find a matching on each component only leaving out one vertex each. This is possible because in a complete graph I can match whatever I want. In an even componenet I dont have ot leave out anything, it is only the odd ones I need to care about
+      \par
+      The left over vertices from odd components can be matched with vertices from $S$.\par
+      Afterwards, an even number of vertices from $S$ will still be unmatched. Match them up with each other. 
+      \par\bigskip
+    \item Let $k$ be a component of $G-S$ that is \textit{not} complete.
+      \par\bigskip
+      There is a missing edge, but it is connected. In particular, this means we can have the following situation:\par
+    There are vertices $x,a,b\in V(k)$ such that $\left\{x,a\right\}, \left\{a,b\right\}$ are edges, but $\left\{x,b\right\}$ is not
+    \par\bigskip
+    Moreoever, $a\not\in S\Rightarrow \exists$ a vertex $c\in V(G)$ not adjacent to $a$\par
+    Since $G$ was edge-maximal without a perfect matching, there exists perfect matchings as follows:\par
+    \begin{itemize}
+    \item\textbf{M1} for $\left\{V,E\cup\left\{\left\{x,b\right\}\right\}\right\}$\par
+    \item\textbf{M2} for $(V,E\cup\left\{\left\{a,c\right\}\right\})$
+    \end{itemize}
+  \end{itemize}
+  \par\bigskip
+  In $G$, consider a maximum path $P$ starting at $C$ with an edge from $M_1$ and then alternating between edges from $M_2$ and $M_1$
+\end{prf}
