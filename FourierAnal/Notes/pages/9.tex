@@ -117,4 +117,127 @@
     \end{cases*}
   \end{gathered}
 \end{equation*}\par
-\noindent Detta är ett system av ODE:er som beror på en parameter $\lambda$
+\noindent Detta är ett system ODE:er som beror på en parameter $\lambda\in\R$. Det är inte tydligt att denna lösning existerar eller är på denna form, men vi ska visa att det faktiskt finns. \par
+\par\bigskip
+\noindent $\lambda$ är en konstant, occh det finns olika val av $\lambda$, men de som faktiskt löser kommer vara de negativa $\lambda$, så vi kollar vad som händer om:
+\par\bigskip
+\noindent\textbf{Fall $\lambda<0$}.
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime\prime}(x) = -lX(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent Här får vi en karaktäristisk ekvation: $\alpha^2=-\lambda\Rightarrow\alpha = \pm\sqrt{-\lambda}$\par
+\noindent Generella lösningen till ODE:n med $X$ blir då:
+\begin{equation*}
+  \begin{gathered}
+    X(X) = c_1e^{-\sqrt{-\lambda}x}+c_2e^{\sqrt{-\lambda}x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan använda initialvärdena för att lösa ut $c_1,c_2$:
+\begin{equation*}
+  \begin{gathered}
+    v(0,t) = 0\Lrarr X(0)\cdot T(t) = 0\\
+    v(\pi,t) = 0\Lrarr X(\pi)\cdot T(t) = 0\\
+    \Rightarrow\begin{cases}X(0) = 0\\X(\pi) = 0\end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Hur vet vi att inte $T(t) = 0\quad\forall t$? Ett av initialvärdena är $v(x,0) = 1$.
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow c_1e^{0}+c_2e^{0} \Rightarrow c_2 = -c_1\\
+    c_1\left(e^{-\sqrt{-\lambda}\pi}-e^{\sqrt{-\lambda}\pi}\right)\Rightarrow c_1 = 0\\
+    \Rightarrow X(x) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Med $\lambda<0$ får vi alltså en ganska tråkig lösning, vi undersöker vad som händer om vi har andra värden
+\par\bigskip
+\noindent\textbf{Fall $\lambda = 0$}
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime\prime}(x) = 0\Rightarrow \int\int X^{\prime\prime}(x) dx = Ax+B\\
+    X(0) = B = 0\\
+    X(\pi) = A\pi =0\Rightarrow A = 0\\
+    \Rightarrow A,B = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Tråkigt igen, vi kikar på positiva lambdor
+\par\bigskip
+\noindent\textbf{Fall $\lambda>0$}:
+\par\bigskip
+\noindent När vi stoppar in i vårat karaktäristiska polynom så kommer vi få icke-reella lösningar. Vi kan då skriva lösningen i termer av $e$, eller så använder vi trigonometrisk form: 
+\begin{equation*}
+  \begin{gathered}
+    X^{\prime\prime}(x) = -\lambda X(x)\\
+    \Rightarrow X(x) = c_1\cos((\sqrt{\lambda}x))+c_2\sin(\sqrt{\lambda}x)\\
+    X(0) = c_1 = 0\\
+    X(\pi) = c_2\sin(\sqrt{\lambda}\pi) = 0\Rightarrow\sqrt{\lambda}\in\Z\Rightarrow \lambda = k^2\;k\in\Z\\
+    \Rightarrow X(x) = c_2\sin(kx)\qquad k\in\N^+, c_2\in\R
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi påminner oss om att vi hittar lösningar på formen:
+\begin{equation*}
+  \begin{gathered}
+    v(x,t) = X(x)T(t)\\
+    T^{\prime}(t) = -\lambda T(t)\Rightarrow T^{\prime}(t) = -k^2 T(t)\\
+    T(t) = c_3e^{-k^2t}
+  \end{gathered}
+\end{equation*}\par
+\noindent Syftet med att kolla på $T(t)$ är för att kunna fixera $k$:et i $X(x)$, det gör det lättare att lösa
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow v(x,t) = c_2c_3\sin(kx)e^{-k^2t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Superposition principle}\par
+\noindent Vi får nya lösningar till vår homogena system\par
+\noindent VI försöker hitta alla ekvationer innan vi stoppar in initalvärderna. Vi tar alla linjärkombinationer:
+\begin{equation*}
+  \begin{gathered}
+    v(x,t) = \sum_{k=1}^{\infty} b_k\sin(kx)e^{-k^2t}\qquad b_k\in\R
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Frågan är nu vad $b_k$ är, och för att hitta det så kan vi använda oss av vårat initalvärde $v(x,0) = 1$:
+\begin{equation*}
+  \begin{gathered}
+    v(x,0) = \sum_{k=1}^{\infty}b_k\sin(kx) = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en fourierserie! $b_k$ är koefficienter till funktionen $1$, men notera att vi har en fourierserie med bara sinus (som är en udda funktion), medan funktionen $=1$ är en jämn funktion.\par
+\noindent Men! Vi behöver bara ha $v = 1$ i intervallet $0<x<\pi$. Fourierserien är $2\pi$ periodisk och udda, men det är inte högerledet 1, så vi gör om högerledet så att det blir det.
+\par\bigskip
+\noindent Låt $f:\R\to\C$ vara\par
+\begin{itemize}
+  \item $2\pi$-periodisk
+  \item $f(x) = 1$ om $0<x<\pi$
+  \item udda
+\end{itemize}\par
+\noindent Detta är funktionen som har värdet 1 mellan 0 till $\pi$ och -1 mellan $-\pi$ till 0, och inversen överallt. Denna är udda och uppfyller resten av kraven
+\par\bigskip
+\noindent Nu vill vi hitta en fourierserie för den funktionen:
+\begin{equation*}
+  \begin{gathered}
+    b_k = \dfrac{1}{\pi}\int_{-\pi}^{\pi}\underbrace{f(x)\sin(kx)}_{\text{udda$\cdot$udda = jämn}}dx\\
+    \Rightarrow \dfrac{2}{\pi}\int_{0}^{\pi}\sin(kx)dx = \dfrac{2}{\pi}\dfrac{-\cos(x)}{k} = \dfrac{2}{k\pi}\underbrace{\left((-1)^{k+1}+1\right)}_{\text{$k = 2m+1\Rightarrow 2$}}\\
+    \Rightarrow v(x,t) = \sum_{m=0}^{\infty}\dfrac{4}{(2m+1)\pi}\sin\left((2m+1)x\right)e^{-(2m+1)^2t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har hittat allt vi behöver nu! Vi påminner oss om att $u(x,t) = v(x,t)+\varphi(x)$:
+\begin{equation*}
+  \begin{gathered}
+    u(x,t) = \left(\sum_{m=0}^{\infty}\dfrac{4}{(2m+1)\pi}\sin((2m+1)x)e^{-(2m+1)^2t}\right) + \cos(x)+\dfrac{3}{\pi}x-1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Funktionen $f(x)$ som vi definierade uppfyller Dirichlets konvergens kriterium. Vi "iggar" konvergens för positiva $t$
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Föreläsaren uppmuntrar att igga konvergens
