@@ -1,12 +1,201 @@
 \section{Mean-Square konvergens av Fourierserier}\par
-\noindent Tanken här är att undersöka konvergens av funktioner i vektorrum. Vi börjar med att bevisa följande:
+\noindent Tanken här är att undersöka konvergens av funktioner i vektorrum (med funktionen som bas). Vi börjar med att bevisa följande:
 \par\bigskip
 \begin{theo}
   OOm $f:\R\to\C$ är $2\pi$-periodisk och integrerbar i intervallet $[0,2\pi]$, så:
   \begin{equation*}
     \begin{gathered}
-      \lim_{N\to\infty}\dfrac{1}{2\pi}\int_{0}^{2\pi}\left|S_n(f)(x)-f(x)\right|^2dx \to0
+      \lim_{N\to\infty}\dfrac{1}{2\pi}\int_{0}^{2\pi}\left|S_N(f)(x)-f(x)\right|^2dx \to0
     \end{gathered}
   \end{equation*}\par
   \noindent "Om genomsnittet av skillnaden konvergerar"
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Kallas för $L^2$ konvergens.
+\par\bigskip
+\noindent För att visa detta kommer vi kräva en del linjär algebra.
+\par\bigskip
+\noindent Låt $V$ vara ett vektorrum över $\C$. Vi påminner oss om vad inre-produkt är:
+\par\bigskip
+\begin{theo}[Semi Inre-produkt]{thm:innerprod}
+  En semi inre-produkt (semi för att vi inte har Lebesgue integraler) på vektorrummet $V$, är en avbildning $<\cdot,\cdot>:V\times V\to\C$ som uppfyller:\par
+  \begin{itemize}
+    \item $<u,v> = \overline{<v,u>}$ (skew-kommutativ, "taket" över är komplexa konjugatet)
+    \item $<a_1u_1+a_2u_2,v> = a_1<u_1,v>+a_2<u_2,v>$ (linjäritet i första input)
+    \item $<u,u>\geq0\in\R$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Sista punkten, det följer att det är ett reellt tal efterom reella tal är de enda som uppfyller första punkten.
+\par\bigskip
+\begin{theo}[Inre-produkt]{thm:innerprodd}
+  Om vi lägger till endast ett till krav på definitionen till semi inre-produkt, så får vi inre-produkt, nämligen att\par
+  \begin{itemize}
+    \item $<u,u> = 0\Rightarrow u = \overline{0}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Semi norm]{thm:seminorm}
+  Definieras på följande:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|u\right|\right| = \sqrt{<u,u>}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel (*):}\par
+\noindent Låt $V = \C^n$ och:
+\begin{equation*}
+  \begin{gathered}
+    <\underbrace{(u_1,\cdots,u_n)}_{\text{$\in\C^n$}},\underbrace{(w_1,\cdots,w_n)}_{\text{$\in \C^n$}}>\\
+    u_1\overline{w_1}+u_2\overline{w}+\cdots+u_n\overline{w_n}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en inre-produkt
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $V = C(a,b) = \left\{\text{kontinuerliga funktioner } f:[a,b]\to\C\right\}$\par
+\noindent Här kan vi även definiera en inre-produkt $<f,g>$ på följande vis:
+\begin{equation*}
+  \begin{gathered}
+    <f,g> = \dfrac{1}{b-a}\int_{a}^{b}f(x)\overline{g(x)}dx
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Anmärkning:}\par
+\noindent Detta är en giltig inre-produkt eftersom om:
+\begin{equation*}
+  \begin{gathered}
+    f\in C(a,b)\quad \int_{a}^{b}\left|f(x)\right|^2dx = 0\Rightarrow f(x) = 0\;\forall x
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det komplexa konjugatet för en funktion tar komplexa konjugatet av evalueringen i en punkt.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Generellt sagt, genom att fixera en kontinuerlig funktion $w:[a,b]\to(0,\infty)$, så kan vi definiera inre produkten $<f,g>$ till:
+\begin{equation*}
+  \begin{gathered}
+    <f,g> = \dfrac{1}{b-a}\int_{a}^{b}f(x)\overline{g(x)}w(x)dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta uppfyller fortfarande kraven för en inre-produkt på $C(a,b)$\par
+\noindent Vi kan se $w$ som en slags "vikt" funktion som är praktisk att ha om vi undersöker funktioner som beter sig intressant i ett intervall. 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $V = I(a,b) = \left\{\text{integrerbara funktioner } f:[a,b]\to\C\right\}$, vi definierar $<f,g>$ på fölajnde:
+\begin{equation*}
+  \begin{gathered}
+    <f,g> = \dfrac{1}{b-a}\int_{a}^{b}f(x)\overline{g(x)}dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en \textit{semi-inre-produkt}.\par
+\noindent Anledningen till varför det är en \textit{semi} och inte en vanligt inre-produkt är följande\par
+Ponera att vi har $f\in I(2,3) = \begin{cases}1\quad x=2\\0\quad x\neq2\end{cases}$\par
+Denna funktion är inte 0-funktionen, men kör vi $<f,f>$ så får vi 0
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $V = l^2(\Z) = \left\{\text{funktioner } f:\Z\to\C\;(k\mapsto a_k)\text{ så att } \sum_{k=-\infty}^{\infty}\left|a_k\right|^2<\infty\right\}$
+\par\bigskip
+\noindent Detta påminner ju om fourierserier och fourierkoefficienterna! Givet en funktion, så kan vi associera ett element i rummet $V$.\par
+\noindent Vår inre-produkt $<\left\{a_k\right\}.\left\{b_k\right\}>$ är:
+\begin{equation*}
+  \begin{gathered}
+  <\left\{a_k\right\}, \left\{b_k\right\}> = \sum_{k=-\infty}^{\infty}a_k\overline{b_k}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta är en inre-produkt och en generalisering av exempel (*)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Från och med nu ska vi låta $(V,<\cdot,\cdot>)$  vara ett semi-inre-produkt-rum ($V$ vektorrum, och $<\cdot,\cdot>$ semi-inre-produkt)
+\par\bigskip
+\begin{theo}[Egenskaper hos semi-inre-produkt]{thm:correswarre}
+  \begin{itemize}
+    \item $\left|<v,w>\right|\leq \left|\left|v\right|\right|\cdot\left|\left|w\right|\right|$ (Cauchy-Schwartz)
+    \item $\left|\left|v+w\right|\right| \leq \left|\left|v\right|\right|+\left|\left|w\right|\right|$ (Ye' Olde Triangelolikheten)
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Ortogonala vektorer]{thm:ortoganalvec}
+  Vektorerna $v,w\in V$ är \textit{ortogonala} om $<v,w> = 0$\par
+  \noindent Betecknas $v_{\perp}w$
+\end{theo}
+\par\bigskip
+\begin{theo}[Ortonormala vektorer]{thm:orthonormal}
+  Vektoerna $v,w\in V$ är \textit{ortonormala} om de är ortogonala \textit{och} $\left|\left|v\right|\right| = 1 = \left|\left|w\right|\right|$
+\end{theo}
+\par\bigskip
+\begin{theo}[Pythagoras sats]{thm:pyrresarre}
+  Om $v_{\perp}w$, så:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|v+w\right|\right|^2 = \left|\left|v\right|\right|^2+\left|\left|w\right|\right|
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[Pythagoras sats]{prf:pyrresarre}
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|v+w\right|\right|^2 \stackrel{def}{=} <v+w,v+w> = \underbrace{<v,v+w>}_{\text{$\overline{<v+w,v>} = \overline{<v,w>}+\underbrace{\overline{<w,v>}}_{\text{=0}}$}}+\overbrace{<w,v+w>}^{\text{$\overbrace{\overline{<w,v>}}^{\text{=0}}+\overline{<w,w>}$}}\\
+      \Rightarrow <v,v>+<w,w> = \left|\left|v\right|\right|^2+\left|\left|w\right|\right|^2
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Funktioner på formen $e^{inx}$ där $n\in\Z$ bildar en \textit{ortonormal mängd} av $V = I(0,2\pi)$\par
+\noindent Vad menas en ortonormal mängd? En mängd med parvis ortonormala vektorer. Vi kan visa att detta gäller i vårat fall:
+\begin{equation*}
+  \begin{gathered}
+    <e^{imx},e^{inx}> \stackrel{def}{=} \dfrac{1}{2\pi}\int_{0}^{2\pi}e^{imx}\underbrace{\overline{e^{inx}}}_{\text{$e^{-inx}$}}dx\\
+    \Rightarrow = \dfrac{1}{2\pi}\int_{0}^{2\pi}e^{i(m-n)x}dx = \begin{cases}1\quad m=n\\0\quad m\neq n\end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Fortsätter vi, tag vilken funktion som helst i detta semi-inre-produkt $f\in I(0,2\pi)$, vad är då $<f,e^{inx}>$?
+\begin{equation*}
+  \begin{gathered}
+    <f,e^{inx}> = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(x)\underbrace{e^{-inx}}_{\text{$\overline{e^{inx}}$}}dx = c_n
+  \end{gathered}
+\end{equation*}\par
+\noindent Det visar sig vara de $n$:te fourierkoefficienterna! 
+\par\bigskip
+\noindent Något som vi kanske minns från linjär algebra var att vi kunde ta ett delrum från ett ortonormalt inre-produkt-rum och så kunde vi projicera. Vi undersöker vad som händer om vi gör detta med semi-inre-produkt-rum:
+\par\bigskip
+\begin{theo}[Ortogonal projection]{thm:orthoproj}
+  Låt $v_1,\cdots,v_N\in V$ vara en ortonormal mängd\par
+  \noindent Låt $W = \text{span}(v_1,\cdots,v_n)\subset V$
+  \par\bigskip
+  \noindent Vi definierar den \textit{ortogonala projectionen} $P:V\to W$ är:
+  \begin{equation*}
+    \begin{gathered}
+      P(v) = \sum_{k=1}^{N}<v,v_k>\cdot v_k\in W
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Vi kallar $v-P(v)$ \textit{residualen} (\textbf{SVENSKA}). Residulaen är ortogonal till hela $W$
+\end{theo}
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Vi återgår lite till föregående exempel. Låt $V = I(0,2\pi)$. Fixera $N>0$ och tag \par
+$W = \text{span}\underbrace{(e^{-iNx},e^{i(-N+1)x},\cdots,1,e^{ix},\cdots,e^{iNx})}_{\text{$2N+1$}}$
+\par\bigskip
+\noindent Givet $f\in I(0,2\pi)$:
+\begin{equation*}
+  \begin{gathered}
+    P(f) = \sum_{k=-N}^{N}<f,e^{ikx}>e^{ikx} = \sum_{k=-N}^{N}c_ke^{ikx} = S_N(f)(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent När vi säger att fourierserien konvergerar så konvergerar givetvis även partiella summorna, som är funktionsföljder. Nu har vi översätt funktionsföljderna i termer av projektion vilket kommer låta oss genomföra bevis.
+\par\bigskip
+\begin{theo}[Minsta-kvadrat approximering]{thm:lsa}
+  Givet en vektor $v\in V$ ($V$ är semi-inre-produkt-rum).\par
+  \noindent Elementet $w\in W$ (där $W$ är uppspänd av spannet av en ändlig ortonormal mängd) som är närmast $v$, det vill säga $\left|\left|v-w\right|\right|$ är minimal
+  \par\bigskip
+  \noindent Detta är den ortogonala projektionen $P(v)$
 \end{theo}
