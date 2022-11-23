@@ -12,3 +12,4 @@
 \contentsline {section}{\tocsection {}{7}{Hamilton Cycles}}{26}{section.7}%
 \contentsline {section}{\tocsection {}{8}{Max-flow-min-cut theorem}}{30}{section.8}%
 \contentsline {section}{\tocsection {}{9}{Matching}}{36}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Connectivity}}{40}{section.10}%

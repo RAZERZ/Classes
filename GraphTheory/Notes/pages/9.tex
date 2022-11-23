@@ -1,0 +1,162 @@
+\section{Connectivity}\par
+\begin{theo}[Higher Connectivity]{thm:highcon}
+  Let $k\in\Z_{\geq0}$. A finite simple graph $G = (V,E)$ is $k$-\textit{conncted} if:\par
+  \begin{itemize}
+    \item $\left|V\right|>k$\par
+    \item $G-X$ is a connected graph for all sets $X\subseteq V$ with $\left|X\right|<k$
+  \end{itemize}
+  \par\bigskip
+  \noindent The largest $k$ for which $G$ is $k$-connected, is called the \textit{connectivity} of $G$, $\kappa(G)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $K_n$ be a complete graph on $n$ vertices. No matter how many vertices I remove, what remains will always be connected. $K_n$ is certainly $n-1$-connected, but not $n$ connected because we don't have strictly $>n$ vertices. Therefore $\kappa(K_n) = n-1$
+\par\bigskip
+\noindent If $\kappa(G) = 0$, then this means either that $\left|V\right| = 1$ (which is $K_1$), or $G$ is disconnected since the second point in Theorem 10.1 breaks.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Every connected graph with at least 2 vertices is $1$-connected.
+\par\bigskip
+\begin{theo}[Separation]{thm:separation}
+  Let $G = (V,E)$ be a finite simple graph, let $v,w\in V$ and $A,B\subseteq V$\par
+  \begin{itemize}
+    \item A set $X\subseteq V$ separates $v$ from $w$ if $v,w\not\in X$ and every path from $v$ to $w$ contains a vertex in $X$ (\textit{see: särskiljande in automata})\par
+    \item A set $X$ \textit{separates} $A$ from $B$ if every path from $A$ to $B$ contains a vertex in $X$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $A\cap B\subseteq X$
+\par\bigskip
+\begin{theo}
+  TThe minimum size of a set separating $v$ from $w$ is denoted by $\kappa(v,w)$, suggesting this has something to do with connectivity 
+\end{theo}
+\par\bigskip
+\begin{theo}[Vertex independent]{thm:vxinde}
+  Two path from $v$ to $w$ are called vertex-independent if they \textit{do not} share a common vertex besides the end-points
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent When we say that 2 paths are disjoint, then we mean that the vertex set it disjoint
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $X$ separating $v$ from $w$ is a stronger statement than $X$ separating $\left\{v\right\}$ from $\left\{w\right\}$
+\par\bigskip
+\begin{theo}
+  FFor a finite simple graph $G = (V,E)$ that is \textit{not} complete, we have
+  \begin{equation*}
+    \begin{gathered}
+      \kappa(G) = \min_{v,w\in V}\kappa(v,w)\quad\text{$v,w$ are non-adj.}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\begin{prf}
+  SSince $G\neq K_n$, the connectivity equals the cardinality of the smallest set $X$ whose removal disconnects $G$. This means, chose $v_0,w_0$ from different components of $G-X$. Because they get separated by $X$, this means $\min_{v,w\in V}\kappa(v,w)\leq\kappa(v_0,w_0)\leq \left|X\right| = \kappa(G)$
+  \par\bigskip
+  \noindent Choose $v_0,w_0$ such that $\kappa(v_0,w_0)$ attains the minimum value (which happens since $G$ is finite). Then there exists $X\subseteq V$ with $\left|X\right| = \kappa(v_0,w_0)$ that separates $v_0$ from $w_0$. Hence $G-X$ is disconnected, which means that teh connectivity of $G$ $\kappa(G)\leq \left|X\right| = \min_{v,w\in V}\kappa(v,w)$ ($v,w$ non-adjacent) by construction of $X$
+\end{prf}
+\par\bigskip
+\begin{theo}[Menger]{thm:menger}
+  Let $G = (V,E)$ be a finite simple graph and let $v,w\in V$ be non-adjacent. Then: $\kappa(v,w)$ equals the maximum number of independent path from $v$ to $w$.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We have a minimum of something, and claiming it is equal to the maximum of something else. We of course use the min-flow max cut theorem
+\par\bigskip
+\begin{prf}
+  RReplace every edge $\left\{x,y\right\}\in E$ by 2 directed paths with capacity $\infty$.\par
+\noindent Split every vertex besides $x\in V\backslash\left\{v,w\right\}$ into vertices $x_0,x_1$ with arrow from $x_0\to x_1$ with capacity 1 such that every incoming arrow to $x$ points to $x_0$, and every outgoing arrow starts at $x_1$
+\par\bigskip
+\noindent $v$ is the source, $w$ is the sink.
+\par\bigskip
+\noindent Integer flows $\leftrightarrow$ vertex-independent paths frmo $v$ to $w$
+\par\bigskip
+\noindent We also have $v-w$ cuts of finite capacity, which are just partitions $(S,T)$  of the vertex set of the flow network
+\par\bigskip
+\noindent $c(S,T) = \left|X\right|$
+\par\bigskip
+\noindent Now use $\max\left|f\right| = \min c(S,T)$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Corollary:} (Global version of Menger)\par
+\noindent $G = (V,E)$ is $k$-conncted iff it contains $k$ independent paths between any two vertices.
+\newpage
+\begin{prf}
+  A$\Rightarrow$:\par
+  $G$ is $k$-conncted means $\kappa(G)\geq k\Rightarrow\kappa(v,w)\geq k$ for all $v,w\in V$ that are non-adjacent $\stackrel{Mang.}{\Rightarrow}$ there exists $k$ independent paths from $v$ to $w$
+  \par\bigskip
+\noindent For $v,w$ adjacent, assume there are at most $k-1$ independent paths. After removing $\left\{v,w\right\}\in E$ will kill one of those paths and we get $G^{\prime}$. There are now at most $k-2$ independent paths and $v,w$ are non-adjacent. Now we can use Menger theorem again $v,w$ are separated by some $X$ with $\left|X\right|\leq k-2$. Observe that $G$ has strictly more than $k$ vertices(otherwise it cannot have the connectivity). There is a vertex in $y\in V\backslash X$ and $y\neq v, y\neq w$\par
+%\noindent When we remove $X$ from $G^{\prime}$, this $G$ will be in some connected component, in particular, it will be separated WLOG from $V$ 
+\noindent $v$ WLOG is separated from $y$ by $X\Rightarrow X\cup \left\{w\right\}$. Removing $X\cup \left\{w\right\}$ separates $v$ from $y$ in $G$ and removes the troublesome edge\par
+\noindent But $\left|X\cup\left\{w\right\}\right|\leq k-1$, so $\kappa(G)\leq k-1$, which is a contradiction
+\par\bigskip
+$\Leftarrow$:\par
+If there are non-adjacent vertices then by assumption and Menger, we get:
+\begin{equation*}
+  \begin{gathered}
+    \kappa(G) = \min_{v,w}\kappa(v,w)\geq k
+  \end{gathered}
+\end{equation*}\par
+\noindent If we do not have any non-adjacent vertices, then $G = K_n$ with at least $n\geq k+1\Rightarrow\kappa(G)\geq k$
+\end{prf}
+\par\bigskip
+\begin{theo}[Menger V2]{thm:menger}
+  Let $G = (V,E)$ be a finite simple graph, $A,B\subseteq V$. Then the minimum size of a set $X$ that separates $A$ from $B$ equals the maximum number of disjoint paths with one endpoint in $A$ and the other in $B$
+\end{theo}
+\par\bigskip
+\begin{theo}
+  AA finite simple graph is 2-connected iff it can be constructed from a cycle graph by succesively adding paths to it with both endpoints in the previously constructed graph.
+\end{theo}
+\par\bigskip
+\begin{theo}[Cut vertex]{thm:cutvertex}
+  Let $G = (V,E)$ be a finite simple graph\par
+  \noindent A \textit{cut vertex} whose removal increases the number of components of $G$
+\end{theo}
+\par\bigskip
+\begin{theo}[Bridge]{thm:bridge}
+  A \textit{bridge} is an edge whose removal increases the number of components of $G$
+\end{theo}
+\par\bigskip
+\begin{theo}[Block]{thm:block}
+  A \textit{block} is a maximal (with respect to inclusion) connected subgraph $H$ wihtout a cutvertex in $H$\par
+  \noindent Blocks are either:
+  \begin{itemize}
+    \item Isolated vertices
+    \item Bridges + endpoints
+    \item Max 2-connected subgraphs
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent 2 blocks intersect in $\leq1$ vertex (which is a cut vertex)$\Rightarrow$ any edge belongs to exactly one block
+\par\bigskip
+\noindent Let $A$ be the set of cutvertices, and $\mathcal{E}$ be the set of blocks
+\par\bigskip
+\begin{theo}[Block-graph]{thm:blockgraph}
+  The \textit{block-graph} of $G$ is the bipartite graph on the vertex set $A\cup B$ ($A,B$ disjoint) where an edge is draw between $a\in A$, $\varepsilon\in\mathcal{E}$
+\end{theo}
+\par\bigskip
+\begin{lem}
+  TThe block graph of a connected finite simple graph is a tree 
+\end{lem}
+\par\bigskip
+\begin{prf}
+  If the graph is connected, then the block graph is connected. The only thing we need to check is if it contains a cycle.\par
+  \noindent Since the graph is bipartite, it must be a cycle of length 4, and in particular on  this cycle there must be at least 2 blocks.\par
+  \noindent This cycle can be represented by a cycle in the original graph that goes through at least 2 blocks. The problem is that this is impossible because 2 blocks overlap in one vertex (cycles are 2-connected and therefore contained in a single block)
+\end{prf}
+\par\bigskip
+\begin{theo}[Contraction]{thm:threecon}
+  Let $G = (V,E)$. Look at an edge $e\in E$. The \textit{contraction} $G/e$ is a grpha constructed as follows:\par
+  \begin{itemize}
+    \item Replace $e = \left\{x,y\right\}$ and $x,y$ by a vertex $v_{x,y}$ that is adjacent to all neighbours of $x$ or $y$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{lem}
+  IIf $G = (V,E)$ is 3-connected and $\left|V\right|>4$, then there exists some edge $e\in E$ such that $G/e$ is again 3-connected
+\end{lem}
+\par\bigskip
+\begin{theo}[Tutte]{thm:tutte}
+  A finite simple graph $G$ is 3-connected iff there is a sequence of finite simple graphs $G_0,\cdots,G_n$ where $G_0 = K_4$ and end with $G_n = G$ and for every $i=0,\cdots,n-1$ the graph $G_{i+1}$ has an edge $\left\{x,y\right\}$ with $\text{deg}_{G_{i+1}}(x)\text{deg}_{G_{i+1}}(y)\geq3$ and $G_i = G_{i+1}/\left\{x,y\right\}$
+\end{theo}
