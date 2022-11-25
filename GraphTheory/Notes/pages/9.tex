@@ -3,7 +3,7 @@
   Let $k\in\Z_{\geq0}$. A finite simple graph $G = (V,E)$ is $k$-\textit{conncted} if:\par
   \begin{itemize}
     \item $\left|V\right|>k$\par
-    \item $G-X$ is a connected graph for all sets $X\subseteq V$ with $\left|X\right|<k$
+    \item $G-X$ is a connected graph for all sets $X\subseteq V$ with $\left|X\right|<k$ (stays connected if less than $k$ vertices removed)
   \end{itemize}
   \par\bigskip
   \noindent The largest $k$ for which $G$ is $k$-connected, is called the \textit{connectivity} of $G$, $\kappa(G)$
@@ -156,6 +156,9 @@ If there are non-adjacent vertices then by assumption and Menger, we get:
 \begin{lem}
   IIf $G = (V,E)$ is 3-connected and $\left|V\right|>4$, then there exists some edge $e\in E$ such that $G/e$ is again 3-connected
 \end{lem}
+\par\bigskip
+\noindent \textbf{Anmärkning:}\par
+\noindent If $G$ 3-connected $\Lrarr$ can obtain $K_4$ from $G$ by a sequence of edge-contractions
 \par\bigskip
 \begin{theo}[Tutte]{thm:tutte}
   A finite simple graph $G$ is 3-connected iff there is a sequence of finite simple graphs $G_0,\cdots,G_n$ where $G_0 = K_4$ and end with $G_n = G$ and for every $i=0,\cdots,n-1$ the graph $G_{i+1}$ has an edge $\left\{x,y\right\}$ with $\text{deg}_{G_{i+1}}(x)\text{deg}_{G_{i+1}}(y)\geq3$ and $G_i = G_{i+1}/\left\{x,y\right\}$

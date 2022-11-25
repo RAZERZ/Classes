@@ -1,0 +1,200 @@
+\section{Planar Graphs}\par
+\noindent When can we draw a finite simple graph without intersecting edges?
+\par\bigskip
+\noindent\textit{Plane}-ar graphs, suggesting vertices are points in $\R^2$ and edges are continous/piecewise smooth/linear curves connecting vertices. 
+\par\bigskip
+\begin{theo}[Planar Graph]{thm:plangraph}
+  Let $G = (V,E)$ be a finite simple graph
+  \par\bigskip
+  \noindent We say that $G$ is \textit{planar} if it \textit{can} be drawn (embedded) in $\R^2$ such that vertices are placed at different points and no edges intersect.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Just because a graph is not planar does not mean it \textit{cannot} be drawn in $\R^2$. We can rearrange and redraw.
+\par\bigskip
+\begin{theo}[Faces]{thm:phase}
+  Let $G$ be a planar graph. Any planar embedding (a way of drawing the graph such that no edges intersect) divides the plane $\R^2$ into connected components called \textit{faces}, all but one of which are bounded. 
+\end{theo}
+\par\bigskip
+\begin{theo}[Jordans curve theorem]{thm:jordan}
+  Any simple closed continous divides the plane into an outside region (unbounded) and an inside region (bounded)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $T$ is a tree, it is planar and any embedding has one face (the unbounded one).
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In order to have a bounded face, there must be a cycle in the graph. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $T$ is a tree $\Lrarr$ T connected, planar, and any embedding has 1 face. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Faces depend on \textit{how} we embedd our graph, so why does the number even matter since it is not defined?
+\par\bigskip
+\begin{theo}[Eulers formula]{thm:eylerform}
+  Let $G = (V,E)$ be a connected planar graph.\par
+  \noindent Denote by $f$ the number of faces of \textit{some} planar embedding of $G$
+  \par\bigskip
+  \noindent Then,  $\left|V\right|-\left|E\right|+f = 2\Lrarr 2+\left|E\right|-\left|V\right| = f$
+  \par\bigskip
+  \noindent In particular, any two planar embedding of $G$ has the same number of faces. 
+\end{theo}
+\par\bigskip
+\par\bigskip
+\begin{theo}[Planar dual]{thm:plandual}
+  Let $G = (V,E)$ be a planar graph. Fix a planar embedding of $G$. The \textit{planar dual} $G^*$ is the multigraph whose vertices are the faces of the embedding and whose edge set is $E$.
+  \par\bigskip
+  \noindent An edge $e\in E$ connects vertices $f_1,f_2$ in $G^*$ if $e$ was part of the boundary of the faces $f_1,f_2$
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent It is possible that $f_1 = f_2$; this gives loops.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $G^*$ depends on the embedding of $G$. Two different embeddings gives non-isomorphic $G^*$
+\par\bigskip
+\begin{prf}[Eulers formula]{prf:eulerform}
+  Let $G = (V,E)$ be connected and planar. Fix an embedding of $G$ and construct the planar dual $G^*$
+  \par\bigskip
+  \noindent Because $G$ is connected, we have a spanning tree, therefore, fix a spanning tree $T = (V,E_T)$  of $G$ and consider the spanning subgraph $T^* = (V(G^*), E\backslash E_T)$
+  \par\bigskip
+  \noindent If $T^*$ was disconnected, then this would mean that there is a vertex in $G^*$, i.e a face of $G$ completely surrounded by edges in $T$ but then $T$  would contain a cycle, which is not possible since $T$ is a spanning tree.
+  \par\bigskip
+  \noindent On the other hand, if $T^*$ contains a cycle, then this cycle needs to contain vertices in the interior, so $T$ has a vertex inside the cycle that is disconnected from the outside, which is not possible since $T$ is a tree (and therefore connected)
+  \par\bigskip
+  \noindent $T^*$ is connected, and cycle free, and is spanning. We therefore have a spanning tree of $G^*$
+  \par\bigskip
+  \noindent $T$ has $\left|V\right|$, and $\left|V\right|-1$ edges (tree).\par
+  \noindent $T^*$ has $f$ vertices, so $f-1$ edges
+  \par\bigskip
+  \noindent By construction, every edge in $G$ is either in $T$ or in $T^*\Rightarrow \left|E\right| = \left|E_T\right| + \left|E\backslash E_T\right| = \left|V\right|-1+f-1 = \left|V\right|+f-2$\par
+  %some vertices in $T^*$ that are completely surrounded by edges in $G$ 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\noindent If $G$ is planar on at least 3 vertices, then $\left|E\right|\leq 3\left|V\right|-6$
+\par\bigskip
+\noindent If $G$ is planar and bipartite on at least 3 vertices, then $\left|E\right|\leq 2\left|V\right|-4$
+\par\bigskip
+\begin{prf}
+  PPlace tokens/coins to each side of an edge in a planar embedding of $G$
+  \par\bigskip
+  \noindent You placed $2\left|E\right|$ coins, and at the same time at least $3f$ coins (since every cycle requires at least 3 vertices)
+  \par\bigskip
+  \noindent Therefore, $3f\leq 2\left|E\right|$, together with $f = 2+\left|E\right|-\left|V\right|$ gives $\left|E\right|\leq 3\left|V\right|-6$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We do not need to assume that $G$ is connected.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In a bipartite graph, it is essentially the same thing, except instead of $3f$ coins we have $4f$ coins
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\noindent $K_5$ and $K_{3,3}$ are therefore non-planar since $K_5$ has 10 edges and 5 vertices, but $10\not\leq 3\cdot5 -6 = 9$ and $K_{3,3}$ has 9 edges, 6 vertices, and is bipartite but $9\not\leq 2\cdot6-4 = 8$
+\newpage
+\begin{theo}[Topological minor]{thm:topminor}
+  Let $G,H$ be finite simple graphs
+  \par\bigskip
+  \noindent A \textit{subdivision} of $H$ is a graph where edges of $H$ were replaced by vertex independent paths. If $G$ contains a subdivision of $H$ as a subgraph, then $H$ is a \textit{topological minor} of $G$
+  \par\bigskip
+  \noindent Another way of looking at it is that the mapping of $H$ onto $G$ is injective
+\end{theo}
+\par\bigskip
+\begin{theo}[Minor]{thm:minor}
+  Let $G,H$ be finite simple graphs.
+  \par\bigskip
+  \noindent The graph $H$ is a \textit{minor} if $G$ has a subgraph $G^{\prime}$ such that $H$ can be obtained from $G^{\prime}$ by a sequence of edge-contractions
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $G$ contains $K_5$ or $K_{3,3}$ as topological minors, then $G$ is non-planar.
+\par\bigskip
+\noindent The point is now, that essentially these are the only two graphs that force to be non-planar, i.e these are the only obstacles that force planarity
+\par\bigskip
+\begin{theo}[Kuratowski]{thm:kuratowski}
+  A finite simple graph $G$ is planar iff it does not contain $K_5$ or $K_{3,3}$ as topological minors.
+\end{theo}
+\par\bigskip
+\begin{theo}[Wagner]{thm:wagner}
+  A finite simple graph $G$ is planar iff it does not contain $K_5$ or $K_{3,3}$ as minors.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Proof outline}:\par
+Step 1
+\par\bigskip
+\begin{lem}["Wagner$\Lrarr$Kuratowski"]{lem:ligma}
+  Let $G,H$ be finite simple graphs\par
+  \begin{itemize}
+    \item If $H$ is a topological minor of $G$, then $H$ is a minor of $G$\par
+    \item If $K_{3,3}$ is a minor of $G,H$, then $K_{3,3}$ is a topological minor of $G$\par
+    \item If $K_5$ is a minor of $G,H$, then $K_5$ or $K_{3,3}$  is a topological minor of $G$
+  \end{itemize}
+\end{lem}
+\par\bigskip
+Step 2:\par
+\noindent "True for 3-connected graphs":
+\par\bigskip
+\begin{lem}
+  LLet $G = (V,E)$ be a finite simple 3-connected graph without $K_5$ or $K_{3,3}$ as minors. Then, $G$ is planar.
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This means Wegner and Kuratowski will be true for 3-connected graphs, we need to show for all connected graphs, which will be the final step.
+\par\bigskip
+Step 3\par
+\noindent "Edge-maximal graphs without $K_5$ or $K_{3,3}$ as topological minors are 3-connected"
+\par\bigskip
+\begin{lem}
+  LLet $G = (V,E)$ be a finite simple graph with $\kappa(G)\leq 2$. Let $V_1,V_2\subseteq V$ such that $V_1\cap V_2$ is a \textit{separating set} of $G$ with $\left|V_1\cap V_2\right| = \kappa(G)$
+  \par\bigskip
+  \noindent Set $G_i = G[V_i]$ for $i = 1,2,\cdots$.\par
+  \noindent If $G$ is edge-maximal without $K_5$ or $K_{3,3}$ as a topological minor, then so are $G_1$ and $G_2$
+  \par\bigskip
+  \noindent Then $G[V_1\cap V_2] = K_2$. Using this, one can obtain a contradiction that this entire setup is impossible
+\end{lem}
+\par\bigskip
+\begin{lem}
+  LLet $G = (V,E)$ be a finite simple graph on at least 4 vertices. If $G$ is edge-maximal without $K_5$ or $K_{3,3}$ as topological minors, then $G$ is 3-connected 
+\end{lem}
+\par\bigskip
+\noindent This finished proof outline. If we have a finite simple graph that does not contain $K_5$ or $K_{3,3}$. By step 3 we can add edges till it is 3-connected wihtout introducing them as topological minor, then step 1 says they are not minor, then step 2 says it is planar.
+\newpage
+\begin{prf}[Step 2]{prf:step2}
+  Strategy is to use induction on number of vertices. For our graph to be 3-connected, we need to have at least 4 vertices
+  \par\bigskip
+  \begin{itemize}
+    \item For $\left|V\right| = 4$, we have $G = K_4$, which we know is planar\par
+    \item Assume $n:=\left|V\right|\geq 5$ and that the lemma holds for all graphs on strictly less than $n$ vertices.
+      \par\bigskip
+    \noindent $G$ by assumption is 3-connected, so there is an edge $e = \left\{x,y\right\}\in G$ such that $G/e$ is 3-connected.
+    \par\bigskip
+    \noindent If $G$ did not $K_5$ or $K_{3,3}$ as a minor, then $G$ after edge-contradiction still will not contain $K_5$ or $K_{3,3}$ as a minor.
+    \par\bigskip
+    \noindent We have a graph with less edges and still 3-connected. By induction hypothesis, this graph will be planar 
+  \end{itemize}
+  \par\bigskip
+  \noindent Fix planar embedding $G/e$. Remove vertex $v_{x,y}$  from $G/e$, then it is still planar.\par
+  \noindent In the resulting embedding of $G/e$-$\left\{v_{x,y}\right\}$ there is a face $f$ that contained $v_{x,y}$
+  \par\bigskip
+  \noindent Since $G/e$ is 3-connected, removing a vertex means at most that it is 2-connected (every vertex lies in a cycle, in particular, the boundary of $f$ is a cycle $C$).
+  \par\bigskip
+  \noindent Let $X$ be the set of neighbours of the vertex $x\in G$, except for $y$. $Y$ is the neighbours to $y$ except for $x$. Then $X\subseteq V(C)$
+  \par\bigskip
+  \noindent Take the embedding of $G/e$ which we know exists, and remove all edges of the form $\left\{v_{x,y}, w\right\}$ where $w\in Y\backslash X$ 
+  \par\bigskip
+\noindent This gives an embedding of $G-\left\{y\right\}$.
+\par\bigskip
+\noindent Note that $X$ partitions $C$ (cycle around the face) with its vertices $x_1,\cdots,x_r$ counterclockwise into paths $P_i$ going from $x_i$ to $x_{i+1}$
+\par\bigskip
+\noindent We need to show that all vertices in $Y$ lie on the same $P_i$:\par
+\begin{itemize}
+  \item $y_1\in Y\backslash X$ lies on some $P_i$ and there is $y_2\in Y$ not on $P_i$, then this is a subdivision of $K_{3,3}$ which is a contradiction since we assumed that $G$ does not have $K_{3,3}$ as topological minors\par
+  \item $y,x$ have 3 neighbours in common, then this is a subdivision of $K_5$, contradiction since we assumed $G$ does not have $K_5$ as topological minors\par
+  \item deg$(y) = 3$, 2 neighbours are shared with $x$ (say $x_i\& x_k$). If $x_k,x_i$ do'nt lie on adjoing $P_i$, then there is a vertex $x_l,x_j$ between them. This forms a subdivision of $K_{3,3}$ whic is impossible.
+\end{itemize}
+\par\bigskip
+\noindent In all other cases, they lie on the same segment on the cycle.
+\end{prf}
