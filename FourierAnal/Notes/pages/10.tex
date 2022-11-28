@@ -167,7 +167,7 @@ Denna funktion är inte 0-funktionen, men kör vi $<f,f>$ så får vi 0
 \noindent Något som vi kanske minns från linjär algebra var att vi kunde ta ett delrum från ett ortonormalt inre-produkt-rum och så kunde vi projicera. Vi undersöker vad som händer om vi gör detta med semi-inre-produkt-rum:
 \par\bigskip
 \begin{theo}[Ortogonal projection]{thm:orthoproj}
-  Låt $v_1,\cdots,v_N\in V$ vara en ortonormal mängd\par
+  Låt $v_1,\cdots,v_N\in V$ vara en ortonormal mängd (parvis ortonormal)\par
   \noindent Låt $W = \text{span}(v_1,\cdots,v_n)\subset V$
   \par\bigskip
   \noindent Vi definierar den \textit{ortogonala projectionen} $P:V\to W$ är:
@@ -193,9 +193,134 @@ $W = \text{span}\underbrace{(e^{-iNx},e^{i(-N+1)x},\cdots,1,e^{ix},\cdots,e^{iNx
 \par\bigskip
 \noindent När vi säger att fourierserien konvergerar så konvergerar givetvis även partiella summorna, som är funktionsföljder. Nu har vi översätt funktionsföljderna i termer av projektion vilket kommer låta oss genomföra bevis.
 \par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Residulaen är ortogonal mot $W$ (delrummet), dvs $(v-P(v))\perp W$
+\par\bigskip
 \begin{theo}[Minsta-kvadrat approximering]{thm:lsa}
   Givet en vektor $v\in V$ ($V$ är semi-inre-produkt-rum).\par
   \noindent Elementet $w\in W$ (där $W$ är uppspänd av spannet av en ändlig ortonormal mängd) som är närmast $v$, det vill säga $\left|\left|v-w\right|\right|$ är minimal
   \par\bigskip
   \noindent Detta är den ortogonala projektionen $P(v)$
 \end{theo}
+\par\bigskip
+\begin{prf}
+  TTag ett $v\in W$, givet något $w\in W$, då är normen:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|v-w\right|\right|^2 = \underbrace{\left|\left|\underbrace{v-P(v)}_{\text{residualen}}+\underbrace{P(v)-w}_{\text{$\in W$}}\right|\right|}_{\text{Ortogonala}}^2\\
+      (v-P(v))\perp(P(v)-w)\stackrel{Pyth.}{\Rightarrow}\left|\left|v-P(v)\right|\right|^2+\underbrace{\left|\left|P(v)-w\right|\right|^2}_{\text{$\geq0$}}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Som \textit{minst}, gäller när uttrycket $\left|\left|P(v)-w\right|\right|^2 = 0$
+\end{prf}
+\par\bigskip
+\begin{theo}[Fullständig / Komplett ortonormal mängd]{thm:comportho}
+  En ortonormal mängd $\left\{v_k\right\}$ där $k=1,\cdots$ (kan fortsätta åt oändligheten) är \textit{fullständig}/\textit{komplett} om för varje $v\in V$ och för varje $\varepsilon>0$ gäller att:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|v-\sum_{k=1}^{N}a_kv_k\right|\right|<\varepsilon\qquad N<\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta gäller för någon \textit{ändlig} mängd av koefficienter $a_1,a_2,\cdots,a_N\in\C$ 
+\end{theo}
+\newpage
+\begin{theo}[Mean-square konvergens av fourierserier]{thm:mskf}
+  Mängden vektorer $\left\{e^{ikx}\right\}$ där $k\in\Z$ (oändligt och ortonormal mängd) är fullständig i $I(\mathbb{T})$
+  \par\bigskip
+  \noindent Mer konkret, för vilken vektor som helst i mitt vektorrum $V$ (eller $f\in I(\mathbb{T})$) gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{N\to\infty}\left|\left|f-\underbrace{S_N(f)}_{\text{$=P(f)$ om $W=$span$(e^{-iNx},\cdots,1,e^{iNx})$}}\right|\right| = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta ska påminna lite om hur Taylorserier ser ut/fungerar. En funktion $f$ har bättre Taylorapproximation $S_N(f)$ ju fler termer man har med.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Glum inte att:
+\begin{equation*}
+  \begin{gathered}
+    S_N(f) = \sum_{k=-N}^{N}c_ke^{ikx}
+  \end{gathered}
+\end{equation*}\par
+\noindent och:
+\begin{equation*}
+  \begin{gathered}
+    \left|\left|f-S_N(f)\right|\right| = \sqrt{\dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(x)-S_N(f)(x)\right|^2dx}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Parsevals formel]{thm:parseval}
+  Om vi har en funktion $f\in I(\mathbb{T})$, så kan vi skriva en numerisk serie med hjälp av dess fourierkoefficienter:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=-\infty}^{\infty}\left|c(f)_k\right|^2 = \dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(x)\right|^2dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Varför är det hjälpsamt? Jo, Dirichlets konvergens kriterier gav oss verktyg för att lösa konvergenser samt evaluering av serier. Parsevals formel ger (gratis) ett annat sätt att explicit räkna ut summor av oändliga serie
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(x)\right|^2dx = \left|\left|f(x)\right|\right|^2\\
+      = ||\underbrace{\underbrace{f-\underbrace{S_N(f)}_{\text{$P(f)$}}}_{\text{residual}}+S_N(f)}_{\text{Ortogonala}}||^2\\
+      (f-S_N(f))\perp S_N(f)\stackrel{Pyth}{\Rightarrow}\underbrace{\left|\left|f-S_N(f)\right|\right|^2}_{\text{$\stackrel{N\to\infty}{\to}0$}}+\left|\left|S_N(f)\right|\right|^2 = \lim_{N\to\infty}\left|\left|S_N(f)\right|\right|^2\\
+      =\left|\left|\sum_{k=-N}^{N}c_ke^{ikx}\right|\right|^2\stackrel{Pyth}{=}\sum_{k=-N}^{N}\left|c_k\right|^2\underbrace{\left|\left|e^{ikx}\right|\right|}_{\text{=1}}\\
+      \Rightarrow \lim_{N\to\infty}\sum_{k=-N}^{N}\left|c_k\right|^2 = \sum_{k=-\infty}^{\infty}\left|c_k\right|^2
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Om $f:\R\to\C$ är $2\pi$-periodisk och $f(x) = x$ för $-\pi\leq x<\pi$, så gäller:
+\begin{equation*}
+  \begin{gathered}
+    f(x)\sim \sum_{n=1}^{\infty}\dfrac{2(-1)^{n+1}}{n}\sin(nx)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi ska visa här att Parsevals formel kommer ge oss summan för $\dfrac{1}{n^2}$. För att göra det ska vi omvandla Parsevals formel i trigonometrisk form:
+\begin{equation*}
+  \begin{gathered}
+    f(x)\sim\dfrac{a_0}{2}+\sum_{k=1}^{\infty}a_k\cos(kx)+b_k\sin(kx)\\
+    \Rightarrow \dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(x)\right|^2dx = \dfrac{\left|a_0\right|^2}{4}+\dfrac{1}{2}\sum_{k=1}^{\infty}\left(\left|a_k\right|^2+\left|b_k\right|^2\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi använda Parsevals trigonometriska formel:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{2\pi}\int_{-\pi}^{\pi}\left|x^2\right|dx = \dfrac{1}{2}\sum_{k=1}^{\infty}\left|b_k\right|^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Eftersom vår funktion är udda så har vi att $a_k = 0$, och eftersom vi inte har konstanter så är $a_0=0$. Därför har vi bara $b_k$ kvar:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{2\pi}\int_{-\pi}^{\pi}x^2dx = \dfrac{1}{2\pi}\dfrac{x^3}{3}|_{_\pi}^\pi = \dfrac{2\pi^3}{3\cdot2\pi} = \dfrac{\pi^2}{3}\\
+    = \dfrac{1}{2}\sum_{k=1}^{\infty}\dfrac{4}{k^2} = 2\sum_{k=1}^{\infty}\dfrac{1}{k^2}\\
+    \Rightarrow \sum_{k=1}^{\infty}\dfrac{1}{n^2} = \dfrac{\pi^2}{6}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har sett att Parsevals formel var en konsekvens av Mean-square konvergens. Vi ska nu kika på en följd av Parsevals formel
+\par\bigskip
+\noindent\textbf{Corollarium:} (Unikhet av fourierkoefficienter)\par
+\noindent Om $f,g\in C(\mathbb{T})$ (kontinuerliga och $2\pi$-periodiska) och $c(f)_k = c(g)_k$ för alla $k\in\Z$, så måste $f = g$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om $f,g$ är styckvis kontinuerliga på intervallet $[0,2\pi]$ och de har samma fourierkoefficienter, så kan vi fortfarande säga att $f=g$ för alla $x\in[0,2\pi]$ \textit{förutom} i de (ändliga) punkter där $f$ eller $g$ är diskontinuerliga. 
+\par\bigskip
+\begin{prf}[Skiss]{prf:kiss}
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(x)-g(x)\right|^2dx \stackrel{Parse.}{=}\sum_{k=-\infty}^{\infty}|\underbrace{c(f-g)_k}_{\text{$c(f)_k-c(g)_k = 0$}}|^2 = 0
+    \end{gathered}
+  \end{equation*}
+\end{prf}
