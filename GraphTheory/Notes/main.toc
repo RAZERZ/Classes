@@ -14,3 +14,5 @@
 \contentsline {section}{\tocsection {}{9}{Matching}}{36}{section.9}%
 \contentsline {section}{\tocsection {}{10}{Connectivity}}{40}{section.10}%
 \contentsline {section}{\tocsection {}{11}{Planar Graphs}}{44}{section.11}%
+\contentsline {section}{\tocsection {}{12}{Vertex coloring}}{49}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Greedy coloring algorithm}}{50}{subsection.12.1}%

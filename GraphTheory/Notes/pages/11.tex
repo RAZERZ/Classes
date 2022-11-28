@@ -1,0 +1,179 @@
+\section{Vertex coloring}\par
+\begin{theo}[Proper $k$-coloring]{thm:propcol}
+  Let $G = (V,E)$ be a finite simple graph
+  \par\bigskip
+\noindent A \textit{proper $k$-coloring of $G$} is a map thtat sends $V\to\left\{1,\cdots,k\right\}$ such that no two adjacent vertices mapped to the same color
+\end{theo}
+\par\bigskip
+\begin{theo}[Chromatic number]{thm:chromnom}
+  The \textit{chromatic number} $\chi(G)$ is the smallest integer $k$ such that $G$ has a proper $k$-coloring
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We will often drop the "proper" in front of coloring.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $\chi(K_n) = n$\par
+\noindent $\chi(C_n) = \begin{cases}2\quad\text{$n$ is even}\\3\quad\text{$n$ is odd}\end{cases}$
+\par\bigskip
+\begin{theo}[Clique]{thm:clique}
+  The set $C\subseteq V$ is a \textit{clique}  in $G = (V,E)$ if the induced subgraph $G[C]$ is complete
+\end{theo}
+\par\bigskip
+\begin{theo}[Clique number]{thm:clirre}
+  The \textit{clique number} $\omega(G)$ is the largest $k$ such that $G$ has a clique of size $k$
+\end{theo}
+\par\bigskip
+\begin{theo}[Independent]{thm:independent}
+  A set $S\subseteq V$ is \textit{independent} if there are no edges between any two vertices of $S$
+\end{theo}
+\par\bigskip
+\begin{theo}[Independence number]{thm:independencenum}
+  The \textit{Independence number} $\alpha(G)$ is the maximum size of an independent set in $G$
+\end{theo}
+\par\bigskip
+\begin{lem}
+  FFor $G = (V,E)$ (finite and simple), then we have $\chi(G)\cdot\alpha(G)\geq\left|V\right|$ and $\chi(G)\geq\omega(G)$
+\end{lem}
+\newpage
+\begin{prf}
+  It takes $n$ colors to color a clique on $n$ vertices. This problem does not go away if we have more than just a complete graph, so $\chi(G)\geq\omega(G)$ 
+  \par\bigskip
+  \noindent For the second part, any $\chi(G)$-coloring partitions the vertex set $V$ into independent sets $V_1,\cdots,V_{\chi(G)}$, where $V_i = \left\{v\in V\;|\;\text{$v$ has color $i$}\right\}$
+  \par\bigskip
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \left|V\right| = \sum_{i=1}^{\chi(G)}\left|V_i\right|\geq\sum_{i=1}^{\chi(G)}\alpha(G) = \chi(G)\alpha(G)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Upper bounds comes from constructing coloring.
+\par\bigskip
+\noindent Sometimes, we don't have our graph explicitly given, so how does one go about construct a coloring?
+\par\bigskip
+\subsection{Greedy coloring algorithm}\hfill\\\par
+\noindent Let $G = (V,E)$ be a finite simple graph. Suppose we have an ordering on $V$:
+\begin{equation*}
+  \begin{gathered}
+  V = \left\{v_1\prec v_2\prec v_3\cdots\prec v_n\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent And suppose we have an ordering of th eset of colors $\left\{1<2<\cdots\right\}$
+\par\bigskip
+\noindent Take the samllest (with respect to $\prec$) vertex $v_i$ that is not yet colored and give it the smallest color that has not been assignet to one of $v_i$:s already colored neighbours
+\par\bigskip
+\noindent So $v_1$ gets color 1, $v_2$ gets 1 \textit{if it is not adjacent to $v_1$}, otherwise color 2
+\par\bigskip
+\noindent The problem with this algorithm is that it is really bad. However, it is also useful because we can use this to get general upper bounds on the chromatic number.
+\par\bigskip
+\begin{lem}
+  FFor a finite simple graph $G = (V,E)$  with maximum degree $\Delta$, the chromatic number satisfies
+  \begin{equation*}
+    \begin{gathered}
+      \chi(G)\leq\Delta +1
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In the case of odd cycles or complete graphs we have equality 
+\par\bigskip
+\begin{prf}
+  TTake any ordering on $V$ and run the greedy coloring algorithm.\par
+  \noindent Any vertex has at most $\Delta$ neighbours and therfore already $\Delta$ colored neighbours, hence the algorithm will need at most $\Delta +1$ colors.
+\end{prf}
+\par\bigskip
+\begin{lem}
+  TThere exists an ordering on $V$ such that the greedy coloring algorithm with respect to this ordering requires $\chi(G)$ colors.
+\end{lem}
+\newpage
+\begin{prf}
+  %WWe can proof this by cheating because w can tak eth chromatic number and say "well there is something that realizes this chrom num"
+  FFix a $\chi(G)$ coloring of $G$ and order vertices according to their colors (list all the vertices with color 1, then all of color 2 and so on)
+  \par\bigskip
+  \noindent Every coloring class is an independent set. In particular, the greedy coloring algorithm will not require more than $\chi(G)$ colors. 
+\end{prf}
+\par\bigskip
+\begin{theo}[Brooks]{thm:brooks}
+  Let $G = (V,E)$ be a finite simple and connected graph with maximum degree $\Delta$. Then the chromatic number $\chi(G)\geq\Delta$  unless $G$ is complete or an odd cycle.
+\end{theo}
+\par\bigskip
+\begin{lem}
+  UUnder the same assumption sas the theorem, if there exists a vertex $v$ with a deg$(v)<\Delta$, then $\chi(G)\leq\Delta$
+\end{lem}
+\par\bigskip
+\begin{prf}
+  IIn order to prove the lemma, we employ something called \textit{Breadth-frist search} (BFS):\par
+  \begin{itemize}
+    \item Start at $v$\par
+    \item List the neighbours of $v$ and mark them as discovered\par
+    \item Go to the first vertex in the list, append all its yet undiscovered neighbours to the list (they are now discovered)\par
+    \item Delete the first vertex of the list\par
+    \item Repeat until the list is empty
+  \end{itemize}
+  \par\bigskip
+  \noindent In a connected graph, once the list is empty then we will have seen every vertex.
+  \par\bigskip
+  \noindent The BFS produces an ordering on $V$ which is called the BFS-ordering
+  \par\bigskip
+  \noindent To prove the lemma, we take the inverse BFS ordering:\par
+  Let $\prec$ be the inverse BFS-ordering, say $v_n\prec\cdots\prec v_2\prec v_1  = v$ and use the greedy coloring algorithm
+  \par\bigskip
+  \noindent For $i\geq2$ (all vertices but the last one), the vertex $v_i$ sees at most $\Delta-1$ already colored neighbours, and $v_1$ has at most $\Delta-1$ neighbours. Tihs means every vertex has at most $\Delta-1$ restrictions, and we can therfore do it in $\Delta-1+1 = \Delta$ colors\par
+\end{prf}
+\newpage
+\begin{prf}[Brooks]{prf:brooks}
+  We have laready done it for graphs that are \par
+  \noindent Let $G = (V,E)$ be a finte simple graph that is connected and $k-regular$ and also not complete or an odd cycle
+  \par\bigskip
+  \noindent\textbf{Case $k=1$}\par
+  Check which graph is the only possible, realize that it is impossible
+  \par\bigskip
+  \noindent\textbf{Case $k=2$}\par
+  $G$ is n even cycle, so $\chi(G) = 2$
+  \par\bigskip
+  \noindent\textbf{Assume $k\geq3$}\par
+  \begin{itemize}
+  \item$\kappa(G) = 1$. Set $G_i = \left\{G[\left\{v\right\}\cup V_i]\right\}$ where $i=1,2$
+    \par\bigskip
+    \noindent Note that the graph is $k$-regular, so therefore $\Delta(G_1) = \Delta(G_2) = k$
+    \par\bigskip
+    \noindent But $\text{deg}_{G_1}(v),\text{deg}_{G_2}(v)<k$. By the previous lemma, there exists $k$-colorings of $G_1,G_2$. All that is left to do is to glue these colorings together but we need to make sure that they have the same colors. Permute the colors to ensure that a vertex $v$ gets color say 1 in both $G_1,G_2$, then glue these colorings together to get a $k$-coloring of $G$.
+    \par\bigskip
+  \item$\kappa(G) = 2$ and there is a minimal separating set $\left\{u,v\right\}\subseteq V$ consisting of two vertices that are non-adjacent. This is a stronger assumption than saying that the connectivity is 2.\par
+    $G_i = G[V_i\cup\left\{u,v\right\}]$\par
+    If WLOG $v$ has $\text{deg}_{G_i}(u)\leq\Delta-2$ for both $i$, then we can $k$-color both $G_i$ in such a way that $u,v$ are assigned different colors, but the same colors in $G_1,G_2$. THen glue the colorings.
+    \par\bigskip
+    If this condition is not satisfied, then both $u,v$ have deg = 1 in one of $G_1,G_2$
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\begin{theo}[Perfect graphs]{thm:perfgra}
+  A finite simple graph $G = (V,E)$  is \textit{perfect} if $\chi(H) = \omega(H)$ for all induced subgraphs $H$ of $G$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Any graph containing an induced odd cycle of length $\geq5$ is \textit{not} perfect. Why? Well, because if we have the subgraphs we require 3 colors to color the subgraph, so $chi(C_5) =3$ but $\omega(C_5)=2$ 
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $G$ be a bipartite graph. If $H$ contains an edge, then $\chi(H) = 2$  and $\omega(H) = 2$ since $G$ has not triangles.
+\par\bigskip
+\begin{theo}[Complement]{thm:complement}
+  Let $G = (V,E)$ be a finite simple graph. The \textit{complement} $\overline{G}$ of $G$ is the simple graph\par\noindent$\overline{G} = (V,\mathcal{P}_2(V)\backslash E)$
+  \par\bigskip
+  \noindent Two vertices are adjacent in $\overline{G}$ iff they were non-adjacent in $G$
+\end{theo}
+\par\bigskip
+\begin{theo}[Weak perfect graph theorem, Lovasz]{thm:wpgt}
+  A finite simple graph is perfect iff its complement is perfect
+\end{theo}
+\newpage
+\begin{theo}[Strong perfect graph theorem, Chudnovski,Robertson, Seymour, Thomas]{thm:spgt}
+  A finite simple graph is perfect iff it contains neither an odd cycle of length $\geq5$ nor the complement thereof as an induced subgraph
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The strong perfect graph theorem $\Rightarrow$ weak perfect graph theorem
