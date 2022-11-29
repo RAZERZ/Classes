@@ -1,1 +1,68 @@
-
+\section{Fouriertransformation}\par
+\noindent Iden bakom detta är att försöka anpassa (läs: finna en version) fourierserier till funktioner som inte enbart är $2\pi$ periodiska, utan till \textit{alla} funktioner med inte bara integraler från $[0,\infty)$ utan \textit{överallt} :o
+\par\bigskip
+\noindent Vi påminner oss om $f\in I(\mathbb{T})$, så gällde:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      c_k = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(x)e^{-ikx} dx\qquad k\in\Z\quad(1)\\
+      f(x)\sim \sum_{k=-\infty}^{\infty}c_ke^{ikx}\quad(2)
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi söker alltså dessa saker för funktioner $f:\R\to\C$ som \textit{inte} är periodisk.
+\par\bigskip
+\begin{theo}[Fouriertransformation]{thm:fouriertransf}
+  \noindent Låt:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        c_\omega = \int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\qquad\omega\in\R\quad(1^{\prime})\\
+        f(x)\sim \dfrac{1}{2\pi}\sum_{-\infty}^{\infty}c_\omega e^{i\omega x}d\omega\qquad(2^{\prime})
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vi flyttar $\dfrac{1}{2\pi}$ från koefficienterna till framför serien 
+\par\bigskip
+\begin{theo}
+  OOm $f:\R\to\C$ är \textit{integrerbar} \textbf{och} \textit{absolutintegrerbar}, så får vi en ny funktion som vi kallar för \textit{Fouriertransformationen}:
+  \begin{equation*}
+    \begin{gathered}
+      c_\omega:\R\to\C\Leftarrow c_\omega = \int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Se till att ha koll på Lemma 7.1: Riemann-Lebesgue framöver!
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    c_0 = \int_{-\infty}^{\infty}f(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Eftersom den är integrerbar (och absolutintegrerbar), så kan vi få information om funktionen vid "tid" = 0 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $f(x) = e^{-\left|x\right|}$, hitta Fouriertransformationen.
+\begin{equation*}
+  \begin{gathered}
+    c_\omega = \int_{-\infty}^{\infty}e^{-\left|x\right|}e^{-\omega x}dx = \int_{-\infty}^{\infty}e^{-(\left|x\right|+i\omega x)} dx\\
+    = \int_{-\infty}^{0}e^{x}e^{-\omega x}dx + \int_{0}^{\infty}e^{-x}e^{-i\omega x}\\
+    \lim_{A\to-\infty}\int_{A}^{0}\underbrace{e^{x}e^{-\omega x}}_{\text{$e^{(1-i\omega)x}$}}dx = \lim_{A\to-\infty}\left[\dfrac{e^{(1-i\omega)x}}{(1-i\omega)}\right]_{A}^0 = \lim_{A\to-\infty}\dfrac{1}{1-i\omega}-\underbrace{\dfrac{e^{(1-i\omega)A}}{1-i\omega}}_{\text{$\to0$}} = \dfrac{1}{1-i\omega}\\
+    \int_{0}^{\infty}e^{-x}e^{-i\omega x}dx = \cdots = \dfrac{1}{1+i\omega}\\
+    c_\omega = \dfrac{1}{1-i\omega} + \dfrac{1}{1+i\omega} = \dfrac{2}{1+\omega^2}
+  \end{gathered}
+\end{equation*}
+\newpage
+\noindent\textbf{Anmärkning:}\par
+\noindent Får funktion var en reell-värd funktion, och vi gör grejs med komplexa tal (för att räkna ut Fouriertransformationen) men får ändå ut en reell-värd funktion
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Det finns mycket bus som kan hända när vi tar bort $2\pi$-periodiciteten, och när vi kräver integrerbarhet av funktionen så tappar vi väldigt många funktioner (exempelvis har inte polynom fouriertransformationer)

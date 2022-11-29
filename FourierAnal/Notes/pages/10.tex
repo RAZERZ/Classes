@@ -324,3 +324,81 @@ $W = \text{span}\underbrace{(e^{-iNx},e^{i(-N+1)x},\cdots,1,e^{ix},\cdots,e^{iNx
     \end{gathered}
   \end{equation*}
 \end{prf}
+\newpage
+\begin{prf}[(Skiss) Mean.-square konvergens av fourierserier]{prf:mskf}
+  För att satsen ska gälla vill vi alltså säga att för varje $\varepsilon>0$ finns det ett $N_0$ så att om $N>N_0$ så gäller $\left|\left|f-S_N(f)\right|\right|<\varepsilon$
+  \par\bigskip
+  \noindent Det första vi gör är att fixera ett $f$ och ett $\varepsilon>0$. Vi vill hitta:\par
+  \begin{itemize}
+    \item$g$ som är styckvis konstant så att $\left|\left|f-g\right|\right|<\dfrac{\varepsilon}{3}$
+    \item$h\in C^2(\mathbb{T})$ så att $\left|\left|g-h\right|\right|<\dfrac{\varepsilon}{3}$
+    \item $S_N(h)\to h$ konvergerar likformigt, så det finns $N_0$  så att för alla $N>N_0$ gäller $\left|\left|h-S_N(h)\right|\right|<\dfrac{\varepsilon}{3}$
+  \end{itemize}
+  \par\bigskip
+  \noindent Nu vill vi visa att $\left|\left|f-S_N(f)\right|\right|<\varepsilon$, men vad var $S_N(f)$? Jo, den ortogonala projectionen på något ändligt delrum (vi har betecknat det $W$), och från minsta-kvadrat approximationen sade den att fourierpolynomet (ortogonala projektionen) var den bästa approximationen vi kunde hitta i det delrummet, då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|f-S_N(f)\right|\right|\leq \underbrace{\left|\left|f-S_N(h)\right|\right|}_{\text{Min. kvad. approx.}} = \left|\left|f-g+g-h+h-S_N(h)\right|\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Nu kör vi ye' olde triangelolikheten:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|f-g+g-h+h-S_N(f)\right|\right|\leq \left|\left|f-g\right|\right|+\left|\left|g-h\right|\right| + \left|\left|h-S_N(h)\right|\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Från konstruktionen av $g,h$ och hur vi valde $N$, gäller då:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\varepsilon}{3} +\dfrac{\varepsilon}{3}+\dfrac{\varepsilon}{3} = \varepsilon\\
+      \Rightarrow\left|\left|f-g\right|\right|+\left|\left|g-h\right|\right| + \left|\left|h-S_N(h)\right|\right|<\varepsilon
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Likformig konvergens är så pass starkt att det implicerar (vanlig) konvergens.
+\par\bigskip
+\subsection{Gram-Schmidt Processen}\hfill\\
+\noindent Säg att vi har ett ändligt antal vektorer $v_1,\cdots,v_N$. Om dessa utgör en bas för ett semi-inre-produkt-vektorrummet $V$, så kan vi hitta en ortonormal bas $w_1,\cdots,w_N$  genom följande:\par
+\begin{itemize}
+  \item $w_1 = \dfrac{v_1}{\left|\left|v_1\right|\right|}\qquad \left|\left|v_1\right|\right|\neq0$
+    \par\bigskip
+  \item $w_2 = \dfrac{\overbrace{v_2-<v_2,w_1>w_1}^{\text{Residualen}}}{\underbrace{\left|\left|v_2-<v_2,w_1>w_1\right|\right|}_{\text{orthog. proj. av $v_2$ på span$(w_1)$}}}$
+    \par\bigskip
+  \item $w_3 = \dfrac{v_3-<v_3,w_1>w_1-<v_3,w_2>w_2}{\left|\left|v_3-<v_3,w_1>w_1-<v_3,w_2>w_2\right|\right|}$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Eftersom vi är i ett \textit{semi}-produktrum så kan en vektor $v_1$ inte vara nollvektorn trots att den har längd 0, därför måste vi specifiera att $\left|\left|v_1\right|\right|\neq0$ \par
+\noindent Därmed antas att nämnarna $\neq0$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt vårat vektorrum $V = C(-1,1) = \left\{f:[-1,1]\to\C\text{ $f$ kontinuerlig}\right\}$\par
+\noindent Och låt $<f,g> = \int_{-1}^{1}f(x)\overline{g(x)}dx$
+\par\bigskip
+\noindent\textit{Hitta en ortonormal bas för delrummet $W = \text{span}(1,x,x^2) = \text{span}(v_1,v_2,v_3)$}
+\par\bigskip
+\noindent Låt oss kalla $w_1,w_2,w_3$ basen för delrummen.\par
+\begin{itemize}
+  \item$w_1$\par
+    \begin{equation*}
+      \begin{gathered}
+        \left|\left|v_1\right|\right| = \sqrt{\int_{-1}^{1}1dx}\Rightarrow w_1 = \dfrac{v_1}{\left|\left|v_1\right|\right|} = \dfrac{\sqrt{2}}{2} = \dfrac{1}{\sqrt{2}}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item$w_2$:\par
+    \begin{equation*}
+      \begin{gathered}
+        <v_2,w_1> = \int_{-1}^{1}x\dfrac{\sqrt{2}}{2}dx = 0\\
+        v_2-<v_2,w_1>w_1 = v_2\\
+        \left|\left|v_2\right|\right| = \sqrt{\int_{-1}^{1}x^2dx} = \sqrt{\dfrac{2}{3}}\\
+        w_2 = \dfrac{v_2}{\left|\left|v_2\right|\right|} = \sqrt{\dfrac{3}{2}}x
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent En övning är att hitta $w_3$

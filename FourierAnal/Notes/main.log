@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  28 NOV 2022 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  29 NOV 2022 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -836,6 +836,9 @@ LaTeX Warning: Label `O' multiply defined.
 
 LaTeX Warning: Label `A' multiply defined.
 
+
+LaTeX Warning: Label `O' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1388,20 +1391,51 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 326.
-) [35]
-(./pages/11.tex) (./main.aux (./includes/title.aux))
+ [35]
+Package mdframed Info: mdframed works in twoside mode on input line 328.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 328.
+
+Overfull \hbox (8.73575pt too wide) in paragraph at lines 335--336
+[]$\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 ) \OM
+S/cmsy/m/n/10 ! \OML/cmm/m/it/10 h$ \OT1/cmr/m/n/10 kon-verg-erar lik-formigt, 
+s^^Wa det finns $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10 s^^Wa att f^^?or alla $\
+OML/cmm/m/it/10 N > N[]$ \OT1/cmr/m/n/10 g^^?aller $[] \OML/cmm/m/it/10 <
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 359.
+Package mdframed Info: Not enough space on this page on input line 359.
+[36]) [37] (./pages/11.tex
+Package mdframed Info: mdframed works in twoside mode on input line 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 26.
+Package mdframed Info: mdframed works in twoside mode on input line 32.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 32.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 38.
+ [38]) [39] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6CDF6F8885436F4BDC611FCCAC3AA939;4353.
+(rerunfilecheck)             Checksum: B23D7F301DD28F97275C83BBCB4CCA18;4732.
  ) 
 Here is how much of TeX's memory you used:
- 25440 strings out of 478238
- 481955 string characters out of 5850457
- 789021 words of memory out of 5000000
- 42930 multiletter control sequences out of 15000+600000
- 477166 words of font info for 58 fonts, out of 8000000 for 9000
+ 25468 strings out of 478238
+ 482400 string characters out of 5850457
+ 789331 words of memory out of 5000000
+ 42948 multiletter control sequences out of 15000+600000
+ 477864 words of font info for 60 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,28n,107p,499b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
@@ -1420,10 +1454,10 @@ c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (36 pages, 339429 bytes).
+Output written on main.pdf (40 pages, 352574 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 361 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 474 PDF objects out of 1000 (max. 8388607)
+ 390 compressed objects within 4 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
