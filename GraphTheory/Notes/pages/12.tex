@@ -1,0 +1,146 @@
+\section{More on colorings}\par
+\begin{theo}
+  FFor any integer $n\geq1$, there is a finite simple graph $G_n = (V_n,E_n)$ that does \textit{not}  contain a triangle (if it does not contain a triangle, then the largest clique number $\omega(G_n)\leq2$) such that $\chi(G_n)=n$
+\end{theo}
+\par\bigskip
+\begin{theo}[Mycelskian]{thm:mycelskian}
+  The \textit{Mycelskian} of a finite simple graph $G = (V,E)$, denoted by $M(G)$ is:\par
+  \begin{itemize}
+  \item $2m+1$ vertices $V = \left\{v_1,\cdots,v_m,w_1,\cdots,w_m,x\right\}$\par
+  \item Edges: On the vertices $v_1,\cdots,v_n$, we have a copy of the original graph (keep the same edges).
+    \par\bigskip
+    For each $w_i$, draw an edge between $w_i$ and all neighbours (in G) of $v_i$\par
+    Draw an edge between each $w_i$ and $x$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $M(K_2) = C_5$
+\par\bigskip
+\begin{lem}
+  LLet $G = (V,E)$ be a finite simple graph\par
+  \begin{itemize}
+    \item If $G$ is triangle-free, then so is $M(G)$\par
+    \item If $\chi(G) = k$, then $\chi(M(G)) = k+1$
+  \end{itemize}
+\end{lem}
+\newpage
+\begin{prf}
+  SSince $\left\{w_1,\cdots,w_m\right\}$ is an independent set in $M(G)$, any triangle in $M(G)$ can contain at most 1 vertex from that set. In particular, $x$ is never part of a triangle
+  \par\bigskip
+  \noindent By assumption, no triangle is spanned in $\left\{v_1,\cdots,v_m\right\}$ (our original graph is assumed to be triangle-free)
+  \par\bigskip
+  \noindent The only possible way to get a triangle is to have 2 vertices from our original vertex set and one from $\left\{w_1,\cdots,w_m\right\}$
+  \par\bigskip
+  \noindent But! If we could find such triangle $v_i,v_j,v_k,w_k$, then $w_k$ must be connected to $v_i, v_j$:s neighbour which is $v_k$. But this means we must have had a triangle on $v_i,v_j,v_k$ in $G$, which is a contradiction. Therefore, $M(G)$ is triangle-free
+  \par\bigskip
+  \par\bigskip
+  \noindent For the second statement, we have to show that $M(G)$ can be colored in $k+1$ colors, and not in $k$ colors. Therefore, suppose $\chi(M(G))\leq k+1$. Fix a $k$-coloring of $G$. Extend it to $M(G)$ by giving each $w_i$ the same color as $v_i$, now one vertex remains ($x$), give it the $(k+1)$-th color. This is a $(k+1)$-coloring of $G$
+  \par\bigskip
+  \noindent Now we show we cannot do it with fewer colors ($\chi(M(G))\geq k+1$). Therefore, suppose $M(G)$ is $k$-colorable. \par
+  \noindent Then, WLOG, $x$ has color $k$. This means that the vertices $w_1,\cdots,w_m$ are colored with $1,\cdots,k-1$ (since by construction, they are all neighbours to $x$). Because we start with an arbitrary $k$ coloring, we cannot assume it does \textit{not} occur in the vertices $v$.\par
+  \noindent Therefore, let $A\subseteq\left\{v_1,\cdots,v_m\right\}$ that are colored $k$. For each such $v_i$, change its color to the color of $w_i$\par
+  \noindent This is possible since $A$ is an independent set. Moreoever, any neighbour of $v_i\in A$ is also a neighbour to $w_i$, then I am able to assign the same color to $v_i$ as the one for $w_i$, so we get a proper $k$-coloring of $M(G)$ that only uses $k-1$ colors on $\left\{v_1,\cdots,v_m\right\}$
+  \par\bigskip
+  \noindent This is a problem, since by assumption, $\chi(G)$ is $k$, so there cannot be a $k-1$ coloring, which is a contradiction.
+\end{prf}
+\par\bigskip
+\begin{prf}
+  AFor $n=1$:\par
+  We can simply take $G_1 = K_1$
+  \par\bigskip
+  \noindent For $n=2$\par
+  We can simply take $G_2 = K_2$
+  \par\bigskip
+  \noindent Take any finite simple graph $G = (V,E)$. Say we have $V =  \left\{v_1,\cdots,v_m\right\}$
+  \par\bigskip
+  \noindent Using Lemma 13.1, iterating $M$ proves the theorem
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We have shown if we prevent large cliques, then maybe we can prevent a large chromatic number.
+\par\bigskip
+\noindent Given $k,l\in\N$, is there a $G$ such that $\chi(G)>k$ and $G$ contains no $C_3,C_4,\cdots,C_l$?
+\par\bigskip
+\begin{theo}[Erdös]{thm:erdos}
+  For any integer $k$, there exists a finite simple graph $G$ with $\chi(G)>k$ such that $G$ contains no cycle of length $\leq k$ 
+\end{theo}
+\newpage
+\begin{theo}[Heawood]{thm:fivecolortheorem}
+  If $G = (V,E)$ is a planar graph, then $\chi(G)\leq5$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  WWe will use induction on the number of vertices $\left|V\right|$.
+  \par\bigskip
+  \noindent Case $\left|V\right| = 1$, then there is only one graph, this means $G = K_1$, and $\chi(G) = 1$ which is $\leq 5$ 
+  \par\bigskip
+  \noindent Assume that for some $n\geq1$, we have $\chi(G)\leq 5$ for all planar graphs on $n$ vertices\par
+  \noindent Let $G$ be planar on $n+1$ vertices. We need to show that this $G$ is 5 colorable.\par
+  \noindent In $G$, chose a vertex of degree $\leq 5$. Let $G^{\prime} = G-v$. If we remove a vertex from a planar graph it will still be planar and on $n$  vertices, which is by the induction hypothesis $\chi(G^{\prime})\leq 5$
+  \par\bigskip
+  \begin{itemize}
+    \item\textbf{Case 1}: If deg$(v)\leq4$, then any 5-coloring of $G^{\prime}$ can be extended to $G$ since $v$ has degree 4 and can therefore see at most 4 colors but we have 5 at our disposal so we can chose the color we don't see
+      \par\bigskip
+    \item\textbf{Case 2}: deg$(v) = 5$. If any two neighbours of $v$ share a color, then we can argue in the same case as case 1. Otherwise, assume the neighbours have different colors.\par
+      \noindent Fix a planar embedding of $G$. Label the neighbours of $v$ with $v_1,\cdots,v_5$ in a counterclockwise fashion (can be counterclockwise, up to the reader). WLOG, because we can always rename our colors, $v_i$ has color $i$ for $i = 1,\cdots,5$
+      \par\bigskip
+      \noindent We define $V_{1,3} = \left\{\text{all vertices in $G^{\prime}$ colored 1 or 3}\right\}$. This vertex set gives rise to an induced subgraph $G^{\prime}[V_{1,3}]$
+      \par\bigskip
+      \noindent Then $C_{1,3}^{(1)}$ is going to be the connected component of $G^{\prime}[V_{1,3}]$  that contains $v_1$. Similarly, $C_{1,3}^{(3)}$ is going to be the connnected component of  $G^{\prime}[V_{1,3}]$  that contains $v_3$
+      \par\bigskip
+      \noindent If $C_{1,3}^{(1)}\neq C_{1,3}^{(3)}$, then the two components are disjoint, and we can switch colors 1 and 3 on $C_{1,3}^{(3)}$
+      \par\bigskip
+      \noindent Then, $v_3$ will be colored 1, and $v$ only sees 4 colors. We can then use the argument from case 1. 
+      \par\bigskip
+      \noindent If $C_{1,3}^{(1)} = C_{1,3}^{(3)}$, then there is a path from $v_1$ to $v_3$ using only colors 1 and 3A. Together with $v$ , this forms a cycle $C$. Then the complement of this cycle in the embedding ($\R^2\backslash C$) has two connected components (we talked about this when we talked about planar graphs) and $v_2$ and $v_4$ lie in different components (faces?).
+      \par\bigskip
+      \noindent Analogously (in the same way), construct $C_{2,4}^{(2)}$ and $C_{2,4}^{(4)}$\par
+      \noindent Then, $C_{2,4}^{(2)}$ and $C_{2,4}^{(4)}$ are disjoint, since one of the components is inside of the cycle, and one of the components is outside. Then we can use the same trick as earlier (swap colors 2 and 4) in $C_{2,4}^{(2)}$ to get a coloring of $G^{\prime}$  where $v_2$ and $v_4$ share a color, but then we are in a setting where case 1 works. 
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Why does this not work with 4 colors? We are not actually using $v_5$, so why not? We were using the fact that any planar graph has a vertex degree $\leq 5$, we need to work around this.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Any planar graph has a vertex of degree $\leq5$
+\par\bigskip
+\begin{theo}[4-color theorem, Appel \& Haken]{thm:appelhaken}
+  Any planar graph is 4-colorable, aka the 4-color theorem
+\end{theo}
+\par\bigskip
+\noindent Any minimal counterexample can be reduced to one of 1834 configurations. And for each of those configurations it was shown using computers that for each of those configurations the theorem holds
+\par\bigskip
+\begin{theo}[Grötzsch]{thm:grotzsch}
+  Any planar graph without triangles is 3-colorable
+\end{theo}
+\par\bigskip
+\subsection{Spectral graph theory}\hfill\\\par
+\begin{lem}
+  LLet $G = (V,E)$ be a finite simple graph, and let $H$ be an induced subgraph of $G$.\par
+  \noindent Denote their adjacency matrices by $A_G$ and $A_H$ respectively.\par
+  \noindent Then:\par
+  \begin{itemize}
+    \item $\lambda_{\min}(A_G)\leq\lambda_{\min}(A_H)\leq\lambda_{\max}(A_H)\leq\lambda_{\max}(A_G)$
+    \item The minimum degree of $G$ (denoted by $\delta(G)$) is $\delta(G)\leq \lambda_{\max(A_G)}\leq\Delta(G)$ where $\Delta$ is the maximum degree.
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{theo}[Wilf]{thm:wilf}
+  For any finite simple graph with adjacency matrix $A_G$, we have that $\chi(G)\leq 1+\lambda_{\max}(A_G)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the graph is regular, then $\lambda_{\max}(A_G) = \Delta(G)$
+\par\bigskip
+\begin{prf}[Wilf]{prf:wilf}
+  Among all induced subgraphs $H$ of $G$, there is a minimum $H$ (with respect to inclusion) such that $\chi(H) = \chi(G)$\par
+  \noindent Let $v\in V(H)$, then $H-v$ admits a $\chi(G)-1$ coloring. If deg$(v)<\chi(G)-1$, one couldextrend this coloring to a $(\chi(G)-1)$ coloring, which contradicts the condition.
+  \par\bigskip
+  \noindent Hence, we have that the minimum degre in $H$ is at least $\chi(G)-1$. $H$ is a graph with its own adjacency matrix, so $\chi(G)\leq 1+\delta(H)\leq1+\lambda_{\max}(A_H)\leq\lambda_{\max}(A_G)$
+\end{prf}
+\par\bigskip
+\begin{theo}[Hoffman]{thm:hoffman}
+  For any finite simple graph $G$ wiht $\left|E\right|\geq1$, we have that $\chi(G)\geq\dfrac{1+\lambda_{\max}(A_G)}{-\lambda_{\min}(A_G)}$
+\end{theo}

@@ -16,3 +16,5 @@
 \contentsline {section}{\tocsection {}{11}{Planar Graphs}}{44}{section.11}%
 \contentsline {section}{\tocsection {}{12}{Vertex coloring}}{49}{section.12}%
 \contentsline {subsection}{\tocsubsection {}{12.1}{Greedy coloring algorithm}}{50}{subsection.12.1}%
+\contentsline {section}{\tocsection {}{13}{More on colorings}}{54}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{Spectral graph theory}}{57}{subsection.13.1}%
