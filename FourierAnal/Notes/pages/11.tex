@@ -38,6 +38,9 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
+\noindent Likt notationen för Laplace så är notationen för en fouriertransformerad funktion $\mathcal{F}[f](\omega)$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
 \noindent Se till att ha koll på Lemma 7.1: Riemann-Lebesgue framöver!
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
@@ -55,7 +58,7 @@
   \begin{gathered}
     c_\omega = \int_{-\infty}^{\infty}e^{-\left|x\right|}e^{-\omega x}dx = \int_{-\infty}^{\infty}e^{-(\left|x\right|+i\omega x)} dx\\
     = \int_{-\infty}^{0}e^{x}e^{-\omega x}dx + \int_{0}^{\infty}e^{-x}e^{-i\omega x}\\
-    \lim_{A\to-\infty}\int_{A}^{0}\underbrace{e^{x}e^{-\omega x}}_{\text{$e^{(1-i\omega)x}$}}dx = \lim_{A\to-\infty}\left[\dfrac{e^{(1-i\omega)x}}{(1-i\omega)}\right]_{A}^0 = \lim_{A\to-\infty}\dfrac{1}{1-i\omega}-\underbrace{\dfrac{e^{(1-i\omega)A}}{1-i\omega}}_{\text{$\to0$}} = \dfrac{1}{1-i\omega}\\
+    \lim_{A\to-\infty}\int_{A}^{0}\underbrace{e^{x}e^{-\omega x}}_{\text{$e^{(1-i\omega)x}$}}dx = \lim_{A\to-\infty}\left[\dfrac{e^{(1-i\omega)x}}{(1-i\omega)}\right]_{A}^0 = \lim_{A\to-\infty}\dfrac{1}{1-i\omega}-\overbrace{\dfrac{e^{(1-i\omega)A}}{1-i\omega}}^{\text{$\to0$}} = \dfrac{1}{1-i\omega}\\
     \int_{0}^{\infty}e^{-x}e^{-i\omega x}dx = \cdots = \dfrac{1}{1+i\omega}\\
     c_\omega = \dfrac{1}{1-i\omega} + \dfrac{1}{1+i\omega} = \dfrac{2}{1+\omega^2}
   \end{gathered}
@@ -66,3 +69,104 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Det finns mycket bus som kan hända när vi tar bort $2\pi$-periodiciteten, och när vi kräver integrerbarhet av funktionen så tappar vi väldigt många funktioner (exempelvis har inte polynom fouriertransformationer)
+\par\bigskip
+\subsection{Egenskaper hos fouriertransformationen}\hfill\\\par
+\noindent Låt $f:\R\to\C$ vara en integrerbar och absolutintegrerbar funktion. Då gäller följande för fouriertransformationen av $f$:\par
+\begin{itemize}
+  \item $\left|\mathcal{F}[f](\omega)\right|\leq \underbrace{\dfrac{1}{2\pi}}_{\text{behövs ej}}\int_{-\infty}^{\infty}\left|f(x)\right|dx<\infty$ (begränsad, oavsett val på $\omega$)
+    \par\bigskip
+  \item $\lim_{\left|w\right|\to\infty}\mathcal{F}[f](\omega) = 0$
+    \par\bigskip
+  \item $\mathcal{F}[f](\omega)$ är likformigt kontinuerlig (och därmed kontinuerlig)
+    \par\bigskip
+  \item $\mathcal{F}[(f*g)](\omega) = \mathcal{F}[f](\omega)\cdot\mathcal{F}[g](\omega)$ där faltningen definieras enligt Definition 11.3
+    \par\bigskip
+  \item $\mathcal{F}[\alpha f+\beta g](\omega) = \alpha\mathcal{F}[f](\omega)+\beta\mathcal{F}[g](\omega)$ där $\alpha, \beta\in\C$
+    \par\bigskip
+  \item $\mathcal{F}[f^{\prime}](\omega) = i\omega\mathcal{F}[f](\omega)$ om $f^{\prime}$ är integrerbar och absolutintegrerbar
+    \par\bigskip
+  \item $\mathcal{F}[x\cdot f(x)](\omega) = i\dfrac{d}{d\omega}\mathcal{F}[f](\omega)$ om $x\cdot f(x)$ är integrerbar och absolutintegrerbar
+    \par\bigskip
+  \item $\mathcal{F}[f(x)\cdot e^{iax}](\omega) = \mathcal{F}[f](\omega-a)$ där $a\in\R$
+    \par\bigskip
+  \item $\mathcal{F}[f(x-a)](\omega) = e^{-ia\omega}\mathcal{F}[f](\omega)$ där $a\in\R$
+    \par\bigskip
+  \item $\mathcal{F}[ax](\omega) = \dfrac{1}{\left|a\right|}\mathcal{F}[f]\left(\dfrac{\omega}{a}\right)$ där $a\neq0\in\R$
+\end{itemize}
+\par\bigskip
+\par\bigskip
+
+\begin{theo}[Konvolution (Faltning)]{thm:convolutionv3}
+  Om både $f,g$ är funktioner från $\R\to\C$ (och integrerbara och absolutintegrerbara), så definieras deras \textit{faltning} som:
+  \begin{equation*}
+    \begin{gathered}
+      (f*g)(x) = \int_{-\infty}^{\infty}f(x-t)\cdot g(t)dt
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $(f*g)(x) = (g*f)(x)$
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $g(x) = \chi_{[a,b]}$ (där $\chi_{[a,b]} =$ karaktäristisk funktion på intervallet $[a,b]$), dvs:
+\begin{equation*}
+  \begin{gathered}
+    \chi_{[a,b]} = \begin{cases}1\quad x\in[a,b]\\0\quad x\not\in[a,b]\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi har:
+\begin{equation*}
+  \begin{gathered}
+    (f*g)(x) = \int_{-\infty}^{\infty}f(x-t)g(t)dt = \int_{a}^{b}f(x-t)dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi ser vad som händer om $u = x-t\Rightarrow du = -dt$:
+\begin{equation*}
+  \begin{gathered}
+    -\int_{x-a}^{x-b}f(u)du = --\int_{x-b}^{x-a}f(x)dx = \int_{x-b}^{x-a}f(x)dx\\
+    \Rightarrow (f*(\dfrac{1}{2b}\chi_{[-b,b]}))(x) = \dfrac{1}{2b}\int_{x-b}^{x+b}f(u)du
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta är "genomsnittet" av funktionen i intervallet $[-b,b]$ centrerad kring $x$
+\par\bigskip
+\begin{prf}[Punkt 1,2]{prf:urin}
+  \begin{itemize}
+    \item\textbf{Punkt 1}:\par
+      \begin{equation*}
+        \begin{gathered}
+          \left|\mathcal{F}[f](\omega)\right| = \left|\dfrac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\right|\stackrel{\text{triang.}}{\leq}\dfrac{1}{2\pi}\int_{-\infty}^{\infty}\underbrace{\left|f(x)e^{-i\omega x}\right|}_{\text{$\left|f(x)\right|\cdot\underbrace{\left|e^{-i\omega x}\right|}_{\text{=1}}$}}dx\\
+          = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\left|f(x)\right|dx<\infty\text{ eftersom $f$ per antagande är absolutintegrerbar}
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item\textbf{Punkt 2}:
+      \begin{equation*}
+        \begin{gathered}
+          \lim_{\omega\to\infty}\mathcal{F}[f](\omega) = \lim_{\omega\to\infty}\dfrac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{-i\omega x} = 0\text{ p.g.a Riemann-Lebesgue}
+        \end{gathered}
+      \end{equation*}
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Notera att för fouriertransformationer så bryr vi oss inte om exponentiell ordning, detta eftersom vi kräver att funktionen ska vara integrerbar \textit{och} absolutintegrerbar, så kraven att $f(x)$ inte ska "växa för mycket" uppfylls därmed
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi ska kika fouriertransformationen på den så kallade \textit{Gausiska} funktionen:
+\begin{equation*}
+  \begin{gathered}
+    f(x) = e^{-x^2/2}\qquad f^{\prime}(x) = -xe^{-x^2/2} = -x\cdot f(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta kan vi betrakta som en ODE ($f^{\prime}(x) = -x\cdot f(x)$) och använda några av egenskaperna ovan: 
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow i\omega\mathcal{F}[f](\omega) = -i\dfrac{d}{d\omega}\mathcal{F}[f](\omega)\\
+    \stackrel{\times i}{\Rightarrow}\dfrac{d}{d\omega}\left(\mathcal{F}[f](\omega)\right) = -\omega\mathcal{F}[f](\omega)\Rightarrow \mathcal{F}[f](\omega) = Ce^{-\omega^2/2}
+  \end{gathered}
+\end{equation*}

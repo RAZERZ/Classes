@@ -24,3 +24,4 @@
 \contentsline {section}{\tocsection {}{10}{Mean-Square konvergens av Fourierserier}}{30}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{Gram-Schmidt Processen}}{36}{subsection.10.1}%
 \contentsline {section}{\tocsection {}{11}{Fouriertransformation}}{38}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Egenskaper hos fouriertransformationen}}{39}{subsection.11.1}%
