@@ -1,0 +1,119 @@
+\section{Edge-coloring \& Ramsey theory}\par
+\subsection{Edge-colorings}\hfill\\
+\par\bigskip
+\begin{theo}[Proper $k$-edge coloring]{thm:properdge}
+  Let $G= (V,E)$ be a finite simple graph.
+  \par\bigskip
+  \noindent A \textit{proper $k$-edge coloring} is a map $E\to\left\{1,\cdots,k\right\}$ such that no two edges with a common endpoint share the same color
+\end{theo}
+\par\bigskip
+\begin{theo}[Chromatic index/Edge chromatic number]{thm:chromindex}
+  Denoted by $\chi^{\prime}(G)$, is the smallest integer $k$ such that $G$ has a proper $k$-edge-coloring 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The chromatic index $\chi^{\prime}(G)\geq\Delta(G)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The set of all edges of the same color are \textit{matchings} since they don't share endpoints, just like for vertices where all vertices with the same color are separated.
+\par\bigskip
+\begin{theo}[Königs line-coloring theorem]{thm:klct}
+  For every finite siple bipartite graph $G = (V,E)$ with maximum degree $\Delta$, we have $\chi^{\prime}(G) = \Delta$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  ALet $G = (V,E)$ be a finite simple bipartite graph with $V = A\cup B$ where $A\cap B =\O$. We will proceed using induction on the number of edges $m = \left|E\right|$:\par
+  \begin{itemize}
+    \item $m = 0$, then maximum degree is $\Delta = 0$ and there are no edges to color, so it works
+      \par\bigskip
+    \item Assume the theorem holds for some $m\geq0$ and consider $G$ with $m+1$ vertices.\par
+    \noindent Let $\Delta$ be the maximum degree of $G$, and fix some edge $\left\{v,w\right\}\in E$. Denote by $G^{\prime}$ the graph obtained by deleting this edge $\left\{v,w\right\}$ from $G$
+    \par\bigskip
+    \noindent By induction hypothesis, there is a $\Delta$-edge-coloring of $G^{\prime}$. In $G^{\prime}$, $v,w$ are incident to at most $\Delta-1$ edges, so they must see at least $\Delta-1$  different colors, i.e there are colors $i,j$ such that $v$ is not incident to an edge with color $i$ and $w$ is not incident to an edge with color $j$ 
+    \par\bigskip
+  \noindent If $i=j$ we can get a $\Delta$-edge-coloring of $G$ by giving $\left\{v,w\right\}$  the color $i$. So assume $i\neq j$. WLOG, $v\in A$ and $w\in B$. Consider a trail in $G^{\prime}$ starting in $v$ and using edges with colors $j$ and $i$ alternatingly. Moving along the trail alternates between vertices in $A$ and vertices in $B$. Moving from $A\to B$ we must be going via edges of color $j$  and vice versa.
+  \par\bigskip
+  \noindent Notice that no such trail can contain $w$ since $w$ is not incident to a $k$-colored edge.
+  \par\bigskip
+  \noindent Let $E_{i,j} = \left\{e\in E\;|\;\text{$e$ has color $i$ or $j$}\right\}$\par
+  \noindent Let $C_{i,j}^{(v)}$ be the connected component of $G^{\prime}<E_{i,j}>$ that contains $v$
+  \par\bigskip
+  \noindent What we have shown is that $w\not\in C_{i,j}^{(v)}$, this means that in this component, we can change the coloring without affecting $w$. Afterwards, both $v$ and $w$ will not be incident to an edge of color $j$.
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\begin{theo}[Vizing]{thm:vizing}
+  Let $G = (V,E)$ be a finite simple graph with max degree $\Delta$. Then either $\chi^{\prime}(G) = \Delta$ ($G$ is \textit{class 1}) or $\chi(G) = \Delta+1$ ($G$ is \textit{class 2})
+  \par\bigskip
+  \noindent This is all that can happen.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $K_n$ is a complete graph, then $\chi^{\prime}(K_n) = \begin{cases}n-1\quad n\text{ even}\\n\quad n\text{ odd}\end{cases}$
+\par\bigskip
+\begin{theo}
+  The \textit{line-graph} $L(G)$ of a finite simple grpah $G = (V,E)$ has vertex set $E$, where two vertices $e_1,e_2\in E$  are adjacent iff they share an endpoint in $G$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $H = G<S>$ for $S\subseteq E(G)$, then the line graph $L(H)$ will be $L(G)[S]$\par
+\noindent So $L(G<S>) = L(G)[S]$, i.e edge induced subgraph of $G$ correspond exactly to the vertex induced subgraphs of $L(G)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Proper edge-colorings of $G$ are precisely the proper vertex-coloring of $L(G)$. As a consequence, this means that $\chi^{\prime}(G) = \chi(L(G))$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vertices of degree $d$ in $G$ correspond to cliques of size $d$ in $L(G)$. This means that the maximum degree $\Delta(G) = \omega(L(G))$ 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Matchings of $G$ (edge sets that don't share an endpoint) get translated to independent sets in $L(G)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $G$ is bipartite, $S\subseteq E\Rightarrow G<S>$ is bipartite\par
+\noindent By Königs line-color theorem, this means that the chromatic index $\chi^{\prime}(G<S>) =\Delta(G<S>)$, but by earlier remarks, $\chi^{\prime}(G<S>) = \chi(L(G<S>)) = \omega(L(G<S>)) = \Delta(G<S>)$\par
+\noindent But $\chi(L(G<S>)) = \chi(L(G)[S])$, and $\omega(L(G<S>)) = \omega(L(G)[S])$
+\par\bigskip
+\noindent However, $S$ was chosen arbitrary, so we have that the chromatic number is equal to the clique number for all line-graphs of bipartite graphs. A name for this is that they were \textit{perfect} 
+\par\bigskip
+\subsection{Ramsey Theory}\hfill\\\par
+\noindent The setup is, take a complete graph $K_n$ and color the edges either red or blue. Now, we are no-longer talking about \textit{proper} edge colorings.
+\par\bigskip
+\begin{theo}
+  Let $k\in\N$. The $k$-th Ramsey number $R(k)$ is the smallest integer $n$ such that any red/blue coloring of $K_n$ contains a \textit{monochromatic } $K_k$
+\end{theo}
+\par\bigskip
+\noindent Alternatively, define $B =\left\{\text{blue edges}\right\}$. A red/blue-coloring of $K_n = (V,E)$ is uniquely corresponding to the edge-induced subgraph $(V,B)$
+\par\bigskip
+\noindent So $R(K) = n$ means $n$ is the smallest integer such that any graph on $n$ vertices either has a clique of size $k$  that corresponds to the blue monochromaticity, or the independent set of size $k$.
+\par\bigskip
+\noindent There is a problem, it is not clear that these numbers $n,k$ do exist. Maybe we can chose some exotic numbers that break this? However:
+\par\bigskip
+\begin{theo}[Ramsey]{thm:ramsey}
+  For any $k\geq 2$ we have $R(k)\leq 2^{2k-3}$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  In $K_{2^{2k-3}}$. Construct a vertex set $V_1,\cdots, V_{2k-2}$ together with some distringuished vertices $v_i\in V_1$  in each of these sets such that:\par
+  \begin{itemize}
+    \item$\left|V_i\right| =2^{2k-2-i}$ for $i = 1,\cdots,2k-2$\par
+    \item $V_i\subseteq V_{i-1}\backslash\left\{v_{i-1}\right\}$ for $i = 2,\cdots,2k-2$\par
+    \item $V_{i-1}$ has only edges of one color to all vertices in $V_i$ for $i = 2,\cdots,2k-2$
+  \end{itemize}
+  \par\bigskip
+  \noindent We have that $V_1 = V(K_{2^{2k-3}})$. Pick $v_1$ as you like (does not matter which we pick).
+  \par\bigskip
+  \noindent Assume we have $V_{i-1},v_{i-1}$ according to the points above. Then, partition $V_{i-1}\backslash\left\{v_{i-1}\right\}$ into two sets:
+  \begin{equation*}
+    \begin{gathered}
+      \left\{v\;|\;\left\{v,v_{i-1}\right\}\text{ is blue}\right\}\qquad \left\{v\;|\;\left\{v,v_{i-1}\right\}\text{ is red}\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $\left|V_{i-1}\backslash\left\{v_{i-1}\right\}\right| = 2^{2k-1-i}-1$, one of the two sets has at least $2^{2k-2-1}$ vertices. Pick $v_i$ from this set, and $v_i\in V_i$ arbitrarily
+  \par\bigskip
+  \noindent This gives vertices $v_1,v_2,\cdots,v_{2k-3}$ and $v_{2k-2}$.
+  \par\bigskip
+  \noindent These vertices $v_{i-1}$ connect to $V_i$ with all red/blue edges. How many of those do we have? Well $2k-3$, so at least $k-1$ of them must connect to blue or red.
+  \par\bigskip
+  \noindent Pick those $v_i$:s together with $v_{2k-2}$ to obtain a monochromatic $K_k$
+\end{prf}

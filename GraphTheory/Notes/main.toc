@@ -18,3 +18,6 @@
 \contentsline {subsection}{\tocsubsection {}{12.1}{Greedy coloring algorithm}}{50}{subsection.12.1}%
 \contentsline {section}{\tocsection {}{13}{More on colorings}}{54}{section.13}%
 \contentsline {subsection}{\tocsubsection {}{13.1}{Spectral graph theory}}{57}{subsection.13.1}%
+\contentsline {section}{\tocsection {}{14}{Edge-coloring \& Ramsey theory}}{58}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Edge-colorings}}{58}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Ramsey Theory}}{59}{subsection.14.2}%
