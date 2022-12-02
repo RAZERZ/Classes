@@ -117,3 +117,36 @@
   \par\bigskip
   \noindent Pick those $v_i$:s together with $v_{2k-2}$ to obtain a monochromatic $K_k$
 \end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $R(1) = 1$\par
+\noindent $R(2) = 2$\par
+\noindent $R(3) = 6$\par
+\noindent $R(4) = 18$\par
+\noindent $43\leq R(5)\leq 49$
+\par\bigskip
+\noindent\textbf{Proposition:} $R(3) = 6$\par
+\noindent There is a red/blue-coloring of $K_5$ without a monochromatic triangle. This is left as an exercise to the reader
+\par\bigskip
+\noindent Every red/blue coloring of $K_6$ has a monochromatic triangle:\par
+\begin{itemize}
+  \item $K_6$ has $\begin{pmatrix}6\\3\end{pmatrix} = 20$ triangles. Consider triplets $(x,y,z)$ of vertices such that $\left\{x,y\right\}$ is red and $\left\{y,z\right\}$ is blue.
+    \par\bigskip
+  \item \textbf{Case 1:}\par
+    \begin{itemize}
+      \item Look at $y$, which sets in $K_6$ so it sees 5 neighbours. If all of those neighbours have the same color, how many such triplets do we have that involve $y$ as a middle vertex? Trick question, there cannot be such! So $y$ belongs to 0 such triplets 
+    \end{itemize}
+    \par\bigskip
+  \item\textbf{Case 2:}\par
+    \begin{itemize}
+      \item If all neighbours of $y$ have same color except one have same color, then $y$ belongs to 4 triplets 
+    \end{itemize}
+    \par\bigskip
+  \item \textbf{Case 3:}\par
+    \begin{itemize}
+      \item Three choices for one color, two choices for the other, so 6 triplets 
+    \end{itemize}
+    \par\bigskip
+\end{itemize}
+\par\bigskip
+\noindent The worst case is having case 3 at each vertex in $K_6$. How many triplets are there? Well, $6\cdot6 = 36$ triplets.
