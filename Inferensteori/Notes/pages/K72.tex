@@ -124,3 +124,23 @@
   \end{equation*}\par
  \noindent Since the estimate is unbiased, the bias = 0, and per the theorem, the variance goes to 0 as $n\to\infty$. Then, by theorem 6.13 it converges in square means and by the remark, it also converges in probability. 
 \end{prf}
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.2.1}\hfill\\\par
+\noindent We are observing events which have the same probability of happening. This is therefore a binomially distributed observation.
+\par\bigskip
+\noindent Since they have the same probability, one can estimate the probability as $\dfrac{\text{successfull attempts}}{\text{total attempts}} = \dfrac{4}{10} = 0.4$
+\par\bigskip
+\noindent In order to determine the expected value of our estimator, we look at the expected value for \textit{any} binomially distributed chain of events:
+\begin{equation*}
+  \begin{gathered}
+    E(X) = \mu = np\\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Since we are estimating $p^* = \dfrac{X}{n}$, we get the following for our expected value of our estimator:
+\begin{equation*}
+  \begin{gathered}
+    E(p^*) = \dfrac{E(X)}{n} = p
+  \end{gathered}
+\end{equation*}

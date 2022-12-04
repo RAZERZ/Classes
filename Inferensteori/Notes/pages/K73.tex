@@ -1,7 +1,7 @@
 \section{Important notes from the book}\par
 \subsection{Definitions/Theorems}\hfill\\\par
 \begin{theo}[Method of moments/Momentmetoden]{thm:rmm}
-  Let $x_1,\cdots,x_n$ random sample from $X$ with $E(X) = m(\theta)$\par
+  Let $x_1,\cdots,x_n$ random sample from $X$ with $E(X) = m(\theta)$, where $m$ is some known function of the unknown parameter $\theta$\par
   \noindent If $\theta$ is one dimensional, the moment estimate $\theta = \theta^*$ solves equation $m(\theta) = \overline{x}$ 
 \end{theo}
 \par\bigskip
@@ -31,26 +31,131 @@
   \end{equation*}
 \end{theo}
 \par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the expected value $\mu$ is known and $\sigma^2$ is the only parameter we want to estimate, then
+\begin{equation*}
+  \begin{gathered}
+    (\sigma^2)^* = \dfrac{1}{n}\sum_{i=1}^{n}(x_i-\mu)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Is a more efficient estimate of $\sigma^2$ rather than $s^2$. It is therefore unbiased and (since it is more efficient) has less variance than $s^2$ 
+\par\bigskip
 \begin{theo}[Sample variance is unbiased]{thm:rsviu}
   Let $x_1,\cdots,x_n$ random sample from a random variable $X$ with variance $\sigma^2$ 
   \par\bigskip
   \noindent The sample variance $s^2$ is an unbiased estimation of $\sigma^2$ 
 \end{theo}
+\newpage
+\begin{prf}[Sample variance is unbiased]{thm:sviu}
+  Let $\mu = E(X)$. Through some algebraic manipulation, we obtain the following:
+  \begin{equation*}
+    \begin{gathered}
+      (x_i-\overline{x})^2 = (x_i-\mu+\mu-\overline{x})^2 = ((x_i-\mu)-(\overline{x}-\mu))^2\\
+      \Rightarrow (x_i-\mu)^2-2(x_i-\mu)(\overline{x}-\mu)+(\overline{x}-\mu)^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then we have $S_{xx}$:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{i=1}^{n}(x_i-\overline{x})^2 = \sum_{i=1}^{n}(x_i-\mu)^2+(\overline{x}-\mu)^2 -2(x_i-\mu)(\overline{x}-\mu)\\
+      = \sum_{i=1}^{n}(x_i-\mu)^2+n(\overline{x}-\mu)^2 -2(\overline{x}-\mu)\sum_{i=1}^{n}(x_i-\mu)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We use (and abuse) the fact that $\overline{x} = \dfrac{1}{n}\sum x_i\Lrarr n\overline{x}\sum x_i$:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{i=1}^{n}(x_i-\mu)^2+n(\overline{x}-\mu)^2-2(\overline{x}-\mu)(n\overline{x}-n\mu)\\
+      = \sum_{i=1}^{n}(x_i-\mu)^2 + n(\overline{x}-\mu)^2-2n(\overline{x}-\mu)(\overline{x}-\mu)\\
+      \Rightarrow \sum_{i=1}^{n}(x_i-\mu)^2-n(\overline{x}-\mu)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We will now look at the definition of the variance:
+  \begin{equation*}
+    \begin{gathered}
+      Var(X) = E((X-\mu)^2)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $\mu = E(X)$, as previous. Per assumption, $Var(X) = \sigma^2$. We have:
+  \begin{equation*}
+    \begin{gathered}
+      E((X_i-\mu)^2) = V(X_i) = \sigma^2\\
+      E((\overline{X}-\mu)^2) = Var(\overline{X}) = Var\left(\dfrac{1}{n}\sum_{i=1}^{n}X_i\right) = \dfrac{1}{n^2}Var\left(\sum_{i=1}^{n}X_i\right) = \dfrac{1}{n^2}\sum_{i=1}^{n}Var(X_i) = \dfrac{n\sigma^2}{n^2} = \dfrac{\sigma^2}{n}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We want to show that the sample variance $s^2 = \dfrac{1}{n-1}S_{xx}$ is an unbiased estimation of $\sigma^2$, this equates to showing:
+  \begin{equation*}
+    \begin{gathered}
+      E(s^2(X)) = \sigma^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Which we can show through the following:
+  \begin{equation*}
+    \begin{gathered}
+      E(s^2(X)) = E\left(\dfrac{1}{n-1}S_{xx}\right) = \dfrac{1}{n-1}E(S_{xx})\\
+      E(S_{xx}) = E\left(\sum_{i=1}^{n}(X_i-\mu)^2-n(\overline{X}-\mu)^2\right)\\
+    = E\left(\sum_{i=1}^{n}(X_i-\mu)^2\right)-nE\left((\overline{X}-\mu)^2\right) = n\sigma^2-n\dfrac{\sigma^2}{n} = \sigma^2(n-1)\\
+    \Rightarrow \dfrac{1}{n-1}E(S_{xx}) = \dfrac{1}{n-1}\sigma^2(n-1) = \sigma^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $E(s^2(X)) = \sigma^2$, the estimate is unbiased.\par 
+\end{prf}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent If $E(X^4)<\infty$ then  $s^2$ is a consistent estimate of $\sigma^2$ 
 
 \par\bigskip
 \subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.2.3}\hfill\\\par
+\noindent Using the method of moments to estimate $p^*$, we have that $E(X) = m(p) = np$ 
+\par\bigskip
+\noindent Since our parameter $p$ is one-dimensional, we have that:
+\begin{equation*}
+  \begin{gathered}
+    m(p) = \overline{x} = \dfrac{1}{10}\sum_{i=1}^{10}x_i = \dfrac{1}{10}(1+1+1+1+0+0\cdots+0) = 0.4
+  \end{gathered}
+\end{equation*}
+
+\par\bigskip
+\subsubsection{7.2.4}\hfill\\\par
+\noindent Proceeding as with the previous problem, since we have a one-dimensional parameter, we simply look at the mean:
+\begin{equation*}
+  \begin{gathered}
+    \overline{x} = \dfrac{1}{20}(1+0\cdots+0) = \dfrac{1}{20} = 0.05
+  \end{gathered}
+\end{equation*}
+\par\bigskip
 \subsubsection{7.2.5}\hfill\\\par
+\noindent This is a multivariate method of moments, i.e we would like to find $m(n,p)$. What is a little tricky about this question is \textit{not} using Theorem 8.3, but constructing a little "diy" system of equations.
+\par\bigskip
+\noindent We know the random variable is binomially distributed, therefore:
+\begin{equation*}
+  \begin{gathered}
+    m_1(n,p) = n\cdot p = \overline{x} = \dfrac{1}{2}(3+5) = 4\\
+    m_2(n,p) = n\cdot p\cdot q = s^2 = \dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\mu)^2 = \dfrac{1}{2-1}((3-4)^2 + (5-4)^2) = 2\\
+    \begin{cases}
+      n\cdot p = 4\\
+      n\cdot p \cdot q = n\cdot p\cdot(1-p) = 2
+      \end{cases}\Rightarrow\begin{cases}n = 8\\p = 0.5\end{cases}
+  \end{gathered}
+\end{equation*}
 \par\bigskip
 \subsubsection{7.2.6}\hfill\\\par
+\noindent We have that $Var(s) = E(s^2)-(E(s))^2$. Notice that $s^2$ is an unbiased estimate for $\sigma^2$, this means that $E(s^2) = \sigma^2$.\par
+\noindent We therefore have the following:
+\begin{equation*}
+  \begin{gathered}
+    Var(s) = \sigma^2 -(E(s))^2\\
+    \Lrarr (E(s))^2 = \sigma^2-Var(s)\Rightarrow (E(s))^2\leq\sigma^2\\
+    \Rightarrow E(s)\leq\sigma
+  \end{gathered}
+\end{equation*}
 \par\bigskip
-\subsubsection{7.2.7}\hfill\\\par
-\par\bigskip
-\subsubsection{7.2.8}\hfill\\\par
-\par\bigskip
-\subsubsection{7.2.10}\hfill\\\par
-\par\bigskip
-\subsubsection{7.2.12}\hfill\\\par
+\noindent In order to obtain equality, we need $Var(s) = 0$, this happens when $\exists a\;P(s = a) = 1$
 \par\bigskip
