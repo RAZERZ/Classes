@@ -83,7 +83,7 @@
     \par\bigskip
   \item $\mathcal{F}[\alpha f+\beta g](\omega) = \alpha\mathcal{F}[f](\omega)+\beta\mathcal{F}[g](\omega)$ där $\alpha, \beta\in\C$
     \par\bigskip
-  \item $\mathcal{F}[f^{\prime}](\omega) = i\omega\mathcal{F}[f](\omega)$ om $f^{\prime}$ är integrerbar och absolutintegrerbar
+  \item $\mathcal{F}[f^{\prime}](\omega) = (i\omega)\mathcal{F}[f](\omega)$ om $f^{\prime}$ är integrerbar och absolutintegrerbar
     \par\bigskip
   \item $\mathcal{F}[x\cdot f(x)](\omega) = i\dfrac{d}{d\omega}\mathcal{F}[f](\omega)$ om $x\cdot f(x)$ är integrerbar och absolutintegrerbar
     \par\bigskip
@@ -156,7 +156,7 @@
 \noindent Notera att för fouriertransformationer så bryr vi oss inte om exponentiell ordning, detta eftersom vi kräver att funktionen ska vara integrerbar \textit{och} absolutintegrerbar, så kraven att $f(x)$ inte ska "växa för mycket" uppfylls därmed
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent Vi ska kika fouriertransformationen på den så kallade \textit{Gausiska} funktionen:
+\noindent Vi ska hitta fouriertransformationen till den så kallade \textit{Gausiska} funktionen:
 \begin{equation*}
   \begin{gathered}
     f(x) = e^{-x^2/2}\qquad f^{\prime}(x) = -xe^{-x^2/2} = -x\cdot f(x)
@@ -166,7 +166,86 @@
 \noindent Detta kan vi betrakta som en ODE ($f^{\prime}(x) = -x\cdot f(x)$) och använda några av egenskaperna ovan: 
 \begin{equation*}
   \begin{gathered}
-    \Rightarrow i\omega\mathcal{F}[f](\omega) = -i\dfrac{d}{d\omega}\mathcal{F}[f](\omega)\\
+    \Rightarrow (i\omega)\mathcal{F}[f](\omega) = -i\dfrac{d}{d\omega}\mathcal{F}[f](\omega)\\
     \stackrel{\times i}{\Rightarrow}\dfrac{d}{d\omega}\left(\mathcal{F}[f](\omega)\right) = -\omega\mathcal{F}[f](\omega)\Rightarrow \mathcal{F}[f](\omega) = Ce^{-\omega^2/2}
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent Det är ju samma ODE som vi löste för! Eftersom lösningen till en ODE är unik, så får vi att de skiljer sig med en konstant $C$. Vi behöver något initalvärde (som vi inte har) men som vi kan hitta genom att stoppa in några värden!
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}[f](0) = \int_{-\infty}^{\infty}f(x)dx = \int_{-\infty}^{\infty}e^{-x^2/2} = \sqrt{2\pi}\\
+    \Rightarrow C = \sqrt{2\pi}\\
+    \Rightarrow \mathcal{F}[f](\omega) = \sqrt{2\pi}e^{-\omega^2/2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $\int_{-\infty}^{\infty}e^{-x^2/2} = \sqrt{2\pi}$ är en standardintegral
+\par\bigskip
+\noindent Vad händer om vi betraktar \textit{alla} Gausiska funktioner på formen $e^{-ax^2}$ där $a>0$?
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\mathcal{F}[e^{-ax^2}](\omega)}_{\text{$e^{(-(\sqrt{2a}x)^2/2)}$}} = \dfrac{1}{\sqrt{2a}}\mathcal{F}[e^{-x^2/2}]\left(\dfrac{\omega}{\sqrt{2a}}\right) = \dfrac{1}{\sqrt{2a}}\sqrt{2\pi}e^{-\left(\dfrac{\omega}{\sqrt{2a}}\right)^2/2}\\
+    = \dfrac{\sqrt{\pi}}{\sqrt{a}}e^{-\dfrac{\omega^2}{4a}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Inversen till fouriertransformationen}\hfill\\\par
+\noindent Det kanske inte är superuppenbart först, men förhoppningsvis blir det tydligare ju mer vi går igenom det. Sättet vi ska se det på är via Dirichlets konvergenser till fourierserier
+\par\bigskip
+\noindent Här rekommenderas det att påminna sig om Horizontella/laterala gränsvärden samt derivator och var fourierserien konvergerar (\textit{hint:} genomsnittet)
+\par\bigskip
+\begin{theo}[Inverssatsen till fouriertransformationen]{thm:inversefourier}
+  Låt $f:\R\to\C$ vara en integrerbar och absolutintegrerbar funktion (så vi kan ta fouriertransformationen) 
+  \par\bigskip
+  \noindent Antag att $f$ har \textbf{både} Horizontella/laterala gränsvärden \textit{och} \textbf{både} Horizontella/lateral derivator i någon punkt $x_0\in\R$. Då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{A\to\infty}\dfrac{1}{2\pi}\int_{-A}^{A}\mathcal{F}[f](\omega)e^{i\omega x_0}d\omega = \dfrac{f(x_0^-)+f(x_0^+)}{2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Notera }att $f$ må vara integrerbar osv, men vi vet inte om det som står innanför integraltecknet är integrerbar och absolutintegrerbar. Varpå vi har gränsvärdet 
+  \par\bigskip
+  \noindent\textbf{Notera} att om $f$ är integrerbar och absolutintegrerbar \& differentierbar, så gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{A\to\infty}\dfrac{1}{2\pi}\int_{-A}^{A}\mathcal{F}[f](\omega)e^{i\omega x_0}d\omega = f(x_0)\qquad\forall x_0\in\R
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Förutsatt att det som står i satsen ovan finns, så har vi alltså en ekvation för inversa fouriertransformationen.
+\par\bigskip
+\noindent Om vi vet att $\mathcal{F}[f](\omega)$ är absolutintegrerbar, så kan vi dra slutsatsen att:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{A\to\infty}\int_{-A}^{A}\mathcal{F}[f](\omega)e^{i\omega x_0} d\omega = \int_{-\infty}^{\infty}\mathcal{F}[f](\omega)e^{i\omega x_0}d\omega
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Corollarium:}\par
+\noindent Om $f$ är integrerbar och absolutintegrerbar \& differentierbar och $\mathcal{F}[f](\omega)$ är absolutintegrerbar, så gäller:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\mathcal{F}[f](\omega)e^{i\omega x_0}d\omega = f(x_0)\qquad\forall x_0\in\R
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om dessa krav (integrerbar, absolutintegrerbar, differentierbar, fouriertransformationen är absolutintegrerbar) hålls, så är fouriertransformationen unik. Det går även att visa unikhet med mindre krav (Horizontella/lateral differentierbar istället för differentierbar), detta görs längre ner.
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Vi har sett att $\mathcal{F}[e^{-\left|x\right|}](\omega) = \dfrac{2}{1+\omega^2}$\par
+\noindent Här är $e^{-\left|x\right|}$ integrerbar och absolutintegrerbar, och samtidigt är dess fouriertransformation absolutintegrerbar. Då har vi alltså följande:
+\begin{equation*}
+  \begin{gathered}
+    e^{-\left|x\right|} = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\dfrac{2}{1+\omega^2}e^{i\omega x}d\omega
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Corollarium:}\par
+\noindent Om $f,g$ är integrerbara, absolutintegrerbara, kontinuerliga, Horizontella/laterala differentierbara.\par
+\noindent Om $\mathcal{F}[f](\omega) = \mathcal{F}[f](\omega)$ för alla $\omega\in\R$ så kan vi dra slutsatsen att $f(x) = g(x)$ för alla $x\in\R$
