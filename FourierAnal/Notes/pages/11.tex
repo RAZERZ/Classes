@@ -249,3 +249,17 @@
 \noindent\textbf{Corollarium:}\par
 \noindent Om $f,g$ är integrerbara, absolutintegrerbara, kontinuerliga, Horizontella/laterala differentierbara.\par
 \noindent Om $\mathcal{F}[f](\omega) = \mathcal{F}[f](\omega)$ för alla $\omega\in\R$ så kan vi dra slutsatsen att $f(x) = g(x)$ för alla $x\in\R$
+\par\bigskip
+\begin{theo}[Inversa fouriertransformationen]{thm:inversefouriertransf}
+  Om vi har en funktion $f:\R\to\C$ som är integrerbar och absolutintegrerbar, så gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}^{-1}[f](\omega) = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{i\omega x}dx
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Denna kallar vi för \textit{inversa fouriertransformationen}.
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Inversa funktionen borde ta in en funktion av $\omega$ och spotta ut en funktion av $x$, men den verkar göra motsatsen. Det ska vi kika mer på nästa gång!
