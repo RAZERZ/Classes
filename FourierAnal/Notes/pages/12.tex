@@ -1,1 +1,73 @@
-\section{}
+\section{Tillämpningar på PDE:er}\par
+\noindent Vi kikar på följande IVP (InitialVärdesProblem; värmeekvationen):
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      u_t = u_{xx}\quad t>0\; x\in\R\\
+      u(x,0) = f(x)\quad x\in\R
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vad vi ska göra här är att ta fouriertransformationen av $u$ för enbart funktionen av $x$, medan vi låter $t$ vara konstant. Vi kan döpa denna till $\hat{u}(\omega, t)$:
+\begin{equation*}
+  \begin{gathered}
+    \hat{u}(\omega,t) = \int_{-\infty}^{\infty}u(x,t)e^{-i\omega x}dx\\
+    \Rightarrow \begin{cases}\hat{u}_t = (i\omega)^2\hat{u} = -\omega^2\hat{u}\\\hat{u}(\omega,0) = \hat{f}(\omega)\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Vi har nu en ODE i bara tidsvariabeln. Då kan vi betrakta $\omega$ som en konstant istället.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Allt som har en hatt över sig, är fouriertransformerad
+\par\bigskip
+\noindent Lösningen till en ODE vars derivata är en konstant gånger den funktionen är ju en exponentialfunktion:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow\hat{u}(\omega,t) = C(\omega)e^{-\omega^2t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta är den \textit{allmänna/generella} lösningen till ODE:n där $\omega$  är konstant (det är också därför $C(\omega)$ beror på enbart $\omega$)
+\par\bigskip
+\noindent Om vi stoppar in initialvärdet får vi:
+\begin{equation*}
+  \begin{gathered}
+    \hat{u}(\omega,0) = C(\omega)e^{-\omega^2\cdot0} = C(\omega) = \hat{f}(\omega)\\
+    \Rightarrow\hat{u}(\omega,t) = \hat{f}(\omega)e^{-\omega^2t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Men här ser vi att vi har en fouriertransformerad sak som är en produkt, faltnings-dax! (Konvolution)
+\par\bigskip
+\noindent Vi söker alltså en funktion $E(x,t)$  vars fouriertransformation är $e^{-\omega^2t}$ (ser ut som Gaussianen i $\omega$), ty då har vi:
+\begin{equation*}
+  \begin{gathered}
+    \hat{u}(\omega,t) = \hat{f}(\omega)\cdot \hat{E}(\omega,t)\Rightarrow u(x,t) = f(x)*E(x,t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Inversen till Gaussianen är:
+\begin{equation*}
+  \begin{gathered}
+    E(x,t) = \dfrac{1}{2\sqrt{\pi t}}e^{-\dfrac{x^2}{4t}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Här har vi använt:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[e^{-ax^2}\right](\omega) = \dfrac{\sqrt{\pi}}{\sqrt{a}}e^{-\dfrac{\omega^2}{4a}}\qquad a>0
+  \end{gathered}
+\end{equation*}\par
+\noindent där $t = \dfrac{1}{4a}$
+\par\bigskip
+\noindent\textbf{Slutsats}:\par
+\begin{equation*}
+  \begin{gathered}
+    u(x,t) = f(x)*E(x,t) = \dfrac{1}{2\sqrt{\pi t}}\int_{-\infty}^{\infty}f(y)e^{-\dfrac{(x-y)^2}{4t}}dy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Där $f$ var initalvärdet (initialfunktionen för den pedantiske)

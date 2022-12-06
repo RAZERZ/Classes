@@ -248,7 +248,7 @@
 \par\bigskip
 \noindent\textbf{Corollarium:}\par
 \noindent Om $f,g$ är integrerbara, absolutintegrerbara, kontinuerliga, Horizontella/laterala differentierbara.\par
-\noindent Om $\mathcal{F}[f](\omega) = \mathcal{F}[f](\omega)$ för alla $\omega\in\R$ så kan vi dra slutsatsen att $f(x) = g(x)$ för alla $x\in\R$
+\noindent Om $\mathcal{F}[f](\omega) = \mathcal{F}[g](\omega)$ för alla $\omega\in\R$ så kan vi dra slutsatsen att $f(x) = g(x)$ för alla $x\in\R$
 \par\bigskip
 \begin{theo}[Inversa fouriertransformationen]{thm:inversefouriertransf}
   Om vi har en funktion $f:\R\to\C$ som är integrerbar och absolutintegrerbar, så gäller:
@@ -261,5 +261,89 @@
   \noindent Denna kallar vi för \textit{inversa fouriertransformationen}.
 \end{theo}
 \par\bigskip
+\begin{prf}[Unikhet av fouriertransformationen]{prf:unique}
+  Låt $f,g$ vara kontinuerliga, integrerbara, och absolutintegrerbara. Tag, $f-g$ (som också uppfyller kraven). Då uppfylls inversa fouriertransformationen för varje $x\in\R$, alltså:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{A\to\infty}\underbrace{\int_{-A}^{A}\mathcal{F}[f-g](\omega)}_{\text{$\mathcal{F}[f](\omega)-\mathcal{F}[g](\omega) = 0\quad\forall \omega\in\R$}}e^{i\omega x}d\omega = f(x)-g(x)\qquad\forall x\in\R\\
+      \Rightarrow 0 = f(x)-g(x)\Lrarr f(x) = g(x)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Detta eftersom per antagande så är $\mathcal{F}[f](\omega) = \mathcal{F}[g](\omega)$
+\end{prf}
+\par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Inversa funktionen borde ta in en funktion av $\omega$ och spotta ut en funktion av $x$, men den verkar göra motsatsen. Det ska vi kika mer på nästa gång!
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Om vi byter ut $\omega$ mot $-\omega$ i inversa fouriertransformationen, så får vi ju fouriertransformationen!
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{2\pi}\mathcal{F}[f](\omega) = \mathcal{F}^{-1}[f](-\omega)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Vi kan göra följande omskrivning:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}^{-1}[f](x) = \dfrac{1}{2\pi}\mathcal{F}[f](-x)\stackrel{\mathcal{F}}{\Rightarrow}f(x) = \dfrac{1}{2\pi}\mathcal{F}[\mathcal{F}[f]](-x)\\
+    \Rightarrow \mathcal{F}[\mathcal{F}[f]](x) = 2\pi f(-x)\\
+    \Rightarrow \mathcal{F}[\mathcal{F}[\mathcal{F}[\mathcal{F}[f]]]](x) = (2\pi)^2f(x)=\hat{\hat{\hat{\hat{f}}}}(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Här ser vi att inversen ser \textit{nästan} ut som fouriertransformationen.
+\newpage
+\noindent\textbf{Exempel:}\par
+\noindent Vi ska kika på ett konkret exempel på dessa busiga formler. Vi har sett att
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}[e^{-\left|x\right|}](\omega) = \dfrac{2}{1+\omega^2}\\
+    \Rightarrow \mathcal{F}^{-1}\left[\dfrac{2}{1+x^2}\right](\omega) = e^{-\left|\omega\right|}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Om vi använder omskrivningen över:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[\dfrac{2}{1+x^2}\right](\omega) =2\pi\mathcal{F}^{-1}\left[\dfrac{2}{1+(-x)^2}\right](\omega) = 2\pi e^{-\left|\omega\right|}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Nu kan vara en bra ide att påminna sig själv om Parsevals formel
+\par\bigskip
+\begin{theo}[Plancherels formel]{thm:plancherel}
+  Detta är en slags DIY Parsevals formel för fouriertransformationer genom att modifiera sista kravet för fouriertransformationbarhet\par
+  \noindent Vi kräver alltså:\par
+  \begin{itemize}
+    \item $f$ är integrerbar
+    \item $\int_{-\infty}^{\infty}\left|f(x)\right|^2$ konvergerar
+  \end{itemize}
+  \par\bigskip
+  \noindent Då gäller följande: 
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{\infty}\left|f(x)\right|^2dx = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\left|\mathcal{F}\left[f\right](\omega)\right|^2d\omega
+    \end{gathered}
+  \end{equation*}\par
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vi tittar på:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[e^{-\left|x\right|}\right](\omega) = \dfrac{2}{1+\omega^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Använder vi Plancherels formel får vi:
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}\left(e^{-\left|x\right|}\right)^2dx = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\left(\dfrac{2}{1+\omega^2}\right)^2d\omega\\
+    \Rightarrow\int_{-\infty}^{\infty}e^{-2\left|x\right|}dx = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\dfrac{4}{(1+\omega^2)^2}d\omega
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notera att integralen i VL är betydligt lättare att räkna än HL. Nice gratis verktyg från fouriertransformationer! 
