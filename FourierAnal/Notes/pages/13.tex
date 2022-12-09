@@ -1,0 +1,133 @@
+\section{(Tempered) Distributioner}\par
+\noindent Än så länge har vi enbart kikat på Fouriertransformationer som har ganska nice egenskaper, bland annat att funktionen över hela $\R$ är integrerbar och detsamma för absolutintegralen.\par
+\noindent Men detta gäller generellt sett inte för polynom, eller andra funktioner. Det är en ganska "liten" del av funktionerna som uppfyller kraven.
+\par\bigskip
+\noindent Det är detta som distributioner ska försöka åtgärda.\par
+\noindent Detta gör vi genom att hitta en väldigt liten mängd funktioner (mindre än integrerbar och absolutintegrerbar) så att fouriertransformationen är en bijektiv automorfi med mängden.
+\par\bigskip
+\noindent Vi påminner oss om följande egenskap hos fouriertransformationen:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[f^{\prime}\right](\omega) = (i\omega)\mathcal{F}\left[f\right](\omega)\\
+    \Rightarrow \left|\mathcal{F}\left[f^{\prime}\right](\omega)\right| = \left|\omega\right|\mathcal{F}\left[f\right](\omega)\\
+    \Rightarrow\left|\mathcal{F}\left[f\right](\omega)\right| \leq \dfrac{\left|\mathcal{F}\left[f^{\prime}\right](\omega)\right|}{\omega}\leq\dfrac{C}{\left|\omega\right|}
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $C$ är någon konstant (eftersom fouriertransformationen är begränsad).
+\par\bigskip
+\noindent Generellt säger vi följande:\par
+\textit{Om $f^{(k)}(x)$ är integrerbar och absolutintegrerbar gäller:}
+\begin{equation*}
+  \begin{gathered}
+    \left|\mathcal{F}\left[f\right](\omega)\right|\leq\dfrac{C}{\left|\omega\right|^k}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Detta påminner lite om fourierkoefficienter, där ju mer differentierbar vi hade en funktion desto snabbare gick funktionens fourierkoefficienter till 0\par
+\noindent Samma här, ju mer differentierbar $f$ är, desto snabbare går $\left|\mathcal{F}\left[f\right](\omega)\right|$ mot 0 då $\omega\to\pm\infty$
+\par\bigskip
+\noindent Detta är i någon mening något vi vill att vår mängd av funktioner ska uppfylla:
+\par\bigskip
+\begin{theo}[Funktioner som dör snabbt]{thm:fsds}
+  Vi säger att $f:\R\to\C$ är en \textit{snabbt döende funktion} om följande gäller:\par
+  \begin{itemize}
+    \item $f$ är glatt (oändligt gånger differentierbar)
+      \par\bigskip
+    \item För alla $n$ och varje $k$ $\in\N$ vill vi att $x^nf^{(k)}(x)$ är begränsad, alltså finns det någon konstant $C_{n,k}\geq0$ så att $\left|x^nf^{(k)}(x)\right|\leq C_{n,k}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent Denna mängd av funktioner som dör snabbt kallas för Schwartzrummet och betecknas $\mathcal{S}(\R)$ (\textbf{LATEX})
+\par\bigskip
+\noindent\textbf{Exempel}:\par
+\noindent Gaussianen $f(x) = e^{-ax^2}\in\mathcal{S}(\R)\quad\forall a>0$ finns i Schwartzrummet  
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Det är oftare lättare att \textit{inte} räkna ut vad denna konstant $C$ är, det funkar lika bra att veta \textit{att} vi har en konstant.
+\par\bigskip
+\noindent\textbf{Övning:}\par
+\noindent Varför är inte $e^{-x}\in\mathcal{S}(\R)$ 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $g(x) = e^{-\sqrt{1+x^2}}\in\mathcal{S}(\R)$
+\par\bigskip
+\begin{theo}
+  OOm $f\in\mathcal{S}(\R)$, så är dess fouriertransformation $\mathcal{F}\left[f\right](\omega)\in\mathcal{S}(\R)$
+  \par\bigskip
+  \noindent Om vi ser på fouriertransformationen som $\mathcal{F}:\mathcal{S}(\R)\to\mathcal{S}(\R)$, så är den en linjär bijektion till vektorrummet $\mathcal{S}(\R)$. Den skickar även inre-produkten till inre-produkten. \par
+\end{theo}
+\par\bigskip
+\noindent Vi ska försöka göra lite analys i Schwartzrummet!
+\par\bigskip
+\begin{theo}
+  EEn följd $\varphi_j\in\mathcal{S}(\R)$ konvergerar till något $\varphi\in\mathcal{S}(\R)$ om:
+  \begin{equation*}
+    \begin{gathered}
+      \forall n\in\N\quad\forall k\in\N\quad\lim_{j\to\infty}\left|x^n\right|\left|\varphi_j^{(k)}(x)-\varphi^{(k)}(x)\right|
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Detta är samma som att säga:
+  \begin{equation*}
+    \begin{gathered}
+      \forall n\in\N\quad\forall k\in\N\quad\lim_{j\to\infty}\sup{\left|x^n\right|\left|\varphi_j^{(k)}(x)-\varphi^{(k)}(x)\right|}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Nu kommer det roliga!
+\par\bigskip
+\begin{theo}[Distribution]{thm:distribution}
+  En (tempered) \textit{distribution }är en avbildning $f:\mathcal{S}(\R)\to\C$ sådant att:\par
+  \begin{itemize}
+    \item $f$ är linjär, det vill säga $f(a\varphi_1+b\varphi_2) = af(\varphi_1)+bf(\varphi_2)$ där $a,b\in\C$ och $\varphi_1,\varphi_2\in\mathcal{S}(\R)$
+      \par\bigskip
+    \item $f$ är kontinuerlig, det vill säga $f$ bevarar konvergens för följder, det vill säga om $\varphi_j\stackrel{\mathcal{S}(\R)}{\to}\varphi$ så $f(\varphi_j)\stackrel{\C}{\to}f(\varphi)$
+  \end{itemize}
+  \par\bigskip
+  \noindent Rummet av dessa distributioner betecknas $\mathcal{S}^{\prime}(\R)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $f:\R\to\C$ vara:\par
+\begin{itemize}
+  \item lokalt integrerbar (det vill säga, $f$ är integrerbar på varje slutet intervall $[a,b]\subset\R$)
+    \par\bigskip
+  \item Moderat (\textbf{?}) tillväxt, det vill säga den växer lite segare än ett polynom, men inte som en exponential\par
+    \noindent Det finns $M>0$ och $n\geq0$ så att för alla $x\in\R$ har vi $\left|f(x)\right|\leq M(\left|x\right|^n+1)$ (polynomiell ordning)
+\end{itemize}
+\par\bigskip
+\noindent För sådana $f$ kan vi definiera en distribution $f\in\mathcal{S}^{\prime}(\R)$ genom:\par
+För varje $\varphi\in\mathcal{S}(\R)$ så är:
+\begin{equation*}
+  \begin{gathered}
+    f(\varphi) = \int_{-\infty}^{\infty}f(x)\varphi(x)dx\in\C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Om $f:\R\to\C$ är kontinuerlig, så bestäms den helt av distributionen $f\in\mathcal{S}^{\prime}(\R)$ 
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Polynom och de trigonometriska funktionera definierar distributioner.
+\par\bigskip
+\noindent\textbf{Icke-Exempel:}\par
+\noindent $f(x) = e^{x^2}$ ger \textit{inte} en distribution. Detta eftersom om $\varphi(x) = e^{-x^2}\in\mathcal{S}(\R)$ får vi:
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}f(x)\varphi(x)dx = \int_{\infty}^{\infty}1dx = \infty+\infty \not<\infty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Den växer för snabbt helt enkelt och är inte begränsad av polynom.
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Detta är ett exempel på en distribution som \textit{inte} kommer från en funktion.
+\par\bigskip
+\begin{theo}[Dirac-delta]{thm:dirarre}
+  \textit{Dirac delta} $\delta\in\mathcal{S}^{\prime}(\R)$ definieras enligt:\par
+  \begin{itemize}
+    \item För varje $\varphi\in\mathcal{S}(\R)$ så är $f(\varphi) = \varphi(0)$
+  \end{itemize}
+  \par\bigskip
+  \noindent Notera här att $f(\varphi)\neq\int_{-\infty}^{\infty}f(x)\varphi(x)dx$ eftersom vi då behöver en funktion som är noll överallt men inte i origo, men detta är inte en funktion.
+\end{theo}
