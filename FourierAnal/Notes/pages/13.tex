@@ -37,30 +37,30 @@
   \end{itemize}
 \end{theo}
 \par\bigskip
-\noindent Denna mängd av funktioner som dör snabbt kallas för Schwartzrummet och betecknas $\mathcal{S}(\R)$ (\textbf{LATEX})
+\noindent Denna mängd av funktioner som dör snabbt kallas för Schwartzrummet och betecknas $\mathscr{S}(\R)$ (\textbf{LATEX})
 \par\bigskip
 \noindent\textbf{Exempel}:\par
-\noindent Gaussianen $f(x) = e^{-ax^2}\in\mathcal{S}(\R)\quad\forall a>0$ finns i Schwartzrummet  
+\noindent Gaussianen $f(x) = e^{-ax^2}\in\mathscr{S}(\R)\quad\forall a>0$ finns i Schwartzrummet  
 \par\bigskip
 \noindent\textbf{Anmärkning}\par
 \noindent Det är oftare lättare att \textit{inte} räkna ut vad denna konstant $C$ är, det funkar lika bra att veta \textit{att} vi har en konstant.
 \par\bigskip
 \noindent\textbf{Övning:}\par
-\noindent Varför är inte $e^{-x}\in\mathcal{S}(\R)$ 
+\noindent Varför är inte $e^{-x}\in\mathscr{S}(\R)$ 
 \par\bigskip
 \noindent\textbf{Exempel:}\par
-\noindent $g(x) = e^{-\sqrt{1+x^2}}\in\mathcal{S}(\R)$
+\noindent $g(x) = e^{-\sqrt{1+x^2}}\in\mathscr{S}(\R)$
 \par\bigskip
 \begin{theo}
-  OOm $f\in\mathcal{S}(\R)$, så är dess fouriertransformation $\mathcal{F}\left[f\right](\omega)\in\mathcal{S}(\R)$
+  OOm $f\in\mathscr{S}(\R)$, så är dess fouriertransformation $\mathcal{F}\left[f\right](\omega)\in\mathscr{S}(\R)$
   \par\bigskip
-  \noindent Om vi ser på fouriertransformationen som $\mathcal{F}:\mathcal{S}(\R)\to\mathcal{S}(\R)$, så är den en linjär bijektion till vektorrummet $\mathcal{S}(\R)$. Den skickar även inre-produkten till inre-produkten. \par
+  \noindent Om vi ser på fouriertransformationen som $\mathcal{F}:\mathscr{S}(\R)\to\mathscr{S}(\R)$, så är den en linjär bijektion till vektorrummet $\mathscr{S}(\R)$. Den skickar även inre-produkten till inre-produkten. \par
 \end{theo}
 \par\bigskip
 \noindent Vi ska försöka göra lite analys i Schwartzrummet!
 \par\bigskip
 \begin{theo}
-  EEn följd $\varphi_j\in\mathcal{S}(\R)$ konvergerar till något $\varphi\in\mathcal{S}(\R)$ om:
+  EEn följd $\varphi_j\in\mathscr{S}(\R)$ konvergerar till något $\varphi\in\mathscr{S}(\R)$ om:
   \begin{equation*}
     \begin{gathered}
       \forall n\in\N\quad\forall k\in\N\quad\lim_{j\to\infty}\left|x^n\right|\left|\varphi_j^{(k)}(x)-\varphi^{(k)}(x)\right|
@@ -77,14 +77,14 @@
 \noindent Nu kommer det roliga!
 \par\bigskip
 \begin{theo}[Distribution]{thm:distribution}
-  En (tempered) \textit{distribution }är en avbildning $f:\mathcal{S}(\R)\to\C$ sådant att:\par
+  En (tempered) \textit{distribution }är en avbildning $f:\mathscr{S}(\R)\to\C$ sådant att:\par
   \begin{itemize}
-    \item $f$ är linjär, det vill säga $f(a\varphi_1+b\varphi_2) = af(\varphi_1)+bf(\varphi_2)$ där $a,b\in\C$ och $\varphi_1,\varphi_2\in\mathcal{S}(\R)$
+    \item $f$ är linjär, det vill säga $f(a\varphi_1+b\varphi_2) = af(\varphi_1)+bf(\varphi_2)$ där $a,b\in\C$ och $\varphi_1,\varphi_2\in\mathscr{S}(\R)$
       \par\bigskip
-    \item $f$ är kontinuerlig, det vill säga $f$ bevarar konvergens för följder, det vill säga om $\varphi_j\stackrel{\mathcal{S}(\R)}{\to}\varphi$ så $f(\varphi_j)\stackrel{\C}{\to}f(\varphi)$
+    \item $f$ är kontinuerlig, det vill säga $f$ bevarar konvergens för följder, det vill säga om $\varphi_j\stackrel{\mathscr{S}(\R)}{\to}\varphi$ så $f(\varphi_j)\stackrel{\C}{\to}f(\varphi)$
   \end{itemize}
   \par\bigskip
-  \noindent Rummet av dessa distributioner betecknas $\mathcal{S}^{\prime}(\R)$
+  \noindent Rummet av dessa distributioner betecknas $\mathscr{S}^{\prime}(\R)$
 \end{theo}
 \par\bigskip
 \noindent\textbf{Exempel:}\par
@@ -96,8 +96,8 @@
     \noindent Det finns $M>0$ och $n\geq0$ så att för alla $x\in\R$ har vi $\left|f(x)\right|\leq M(\left|x\right|^n+1)$ (polynomiell ordning)
 \end{itemize}
 \par\bigskip
-\noindent För sådana $f$ kan vi definiera en distribution $f\in\mathcal{S}^{\prime}(\R)$ genom:\par
-För varje $\varphi\in\mathcal{S}(\R)$ så är:
+\noindent För sådana $f$ kan vi definiera en distribution $f\in\mathscr{S}^{\prime}(\R)$ genom:\par
+För varje $\varphi\in\mathscr{S}(\R)$ så är:
 \begin{equation*}
   \begin{gathered}
     f(\varphi) = \int_{-\infty}^{\infty}f(x)\varphi(x)dx\in\C
@@ -105,13 +105,13 @@ För varje $\varphi\in\mathcal{S}(\R)$ så är:
 \end{equation*}
 \par\bigskip
 \noindent\textbf{Anmärkning}\par
-\noindent Om $f:\R\to\C$ är kontinuerlig, så bestäms den helt av distributionen $f\in\mathcal{S}^{\prime}(\R)$ 
+\noindent Om $f:\R\to\C$ är kontinuerlig, så bestäms den helt av distributionen $f\in\mathscr{S}^{\prime}(\R)$ 
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent Polynom och de trigonometriska funktionera definierar distributioner.
 \par\bigskip
 \noindent\textbf{Icke-Exempel:}\par
-\noindent $f(x) = e^{x^2}$ ger \textit{inte} en distribution. Detta eftersom om $\varphi(x) = e^{-x^2}\in\mathcal{S}(\R)$ får vi:
+\noindent $f(x) = e^{x^2}$ ger \textit{inte} en distribution. Detta eftersom om $\varphi(x) = e^{-x^2}\in\mathscr{S}(\R)$ får vi:
 \begin{equation*}
   \begin{gathered}
     \int_{-\infty}^{\infty}f(x)\varphi(x)dx = \int_{\infty}^{\infty}1dx = \infty+\infty \not<\infty
@@ -124,9 +124,9 @@ För varje $\varphi\in\mathcal{S}(\R)$ så är:
 \noindent Detta är ett exempel på en distribution som \textit{inte} kommer från en funktion.
 \par\bigskip
 \begin{theo}[Dirac-delta]{thm:dirarre}
-  \textit{Dirac delta} $\delta\in\mathcal{S}^{\prime}(\R)$ definieras enligt:\par
+  \textit{Dirac delta} $\delta\in\mathscr{S}^{\prime}(\R)$ definieras enligt:\par
   \begin{itemize}
-    \item För varje $\varphi\in\mathcal{S}(\R)$ så är $f(\varphi) = \varphi(0)$
+    \item För varje $\varphi\in\mathscr{S}(\R)$ så är $f(\varphi) = \varphi(0)$
   \end{itemize}
   \par\bigskip
   \noindent Notera här att $f(\varphi)\neq\int_{-\infty}^{\infty}f(x)\varphi(x)dx$ eftersom vi då behöver en funktion som är noll överallt men inte i origo, men detta är inte en funktion.
