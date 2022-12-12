@@ -37,7 +37,7 @@
   \end{itemize}
 \end{theo}
 \par\bigskip
-\noindent Denna mängd av funktioner som dör snabbt kallas för Schwartzrummet och betecknas $\mathscr{S}(\R)$ (\textbf{LATEX})
+\noindent Denna mängd av funktioner som dör snabbt kallas för Schwartzrummet och betecknas $\mathscr{S}(\R)$. Det är ett vektorrum.
 \par\bigskip
 \noindent\textbf{Exempel}:\par
 \noindent Gaussianen $f(x) = e^{-ax^2}\in\mathscr{S}(\R)\quad\forall a>0$ finns i Schwartzrummet  
@@ -50,7 +50,7 @@
 \par\bigskip
 \noindent\textbf{Exempel:}\par
 \noindent $g(x) = e^{-\sqrt{1+x^2}}\in\mathscr{S}(\R)$
-\par\bigskip
+\newpage
 \begin{theo}
   OOm $f\in\mathscr{S}(\R)$, så är dess fouriertransformation $\mathcal{F}\left[f\right](\omega)\in\mathscr{S}(\R)$
   \par\bigskip
@@ -81,7 +81,8 @@
   \begin{itemize}
     \item $f$ är linjär, det vill säga $f(a\varphi_1+b\varphi_2) = af(\varphi_1)+bf(\varphi_2)$ där $a,b\in\C$ och $\varphi_1,\varphi_2\in\mathscr{S}(\R)$
       \par\bigskip
-    \item $f$ är kontinuerlig, det vill säga $f$ bevarar konvergens för följder, det vill säga om $\varphi_j\stackrel{\mathscr{S}(\R)}{\to}\varphi$ så $f(\varphi_j)\stackrel{\C}{\to}f(\varphi)$
+    \item $f$ är kontinuerlig, det vill säga $f$ bevarar konvergens för följder, det vill säga om\par
+      \noindent$\varphi_j\stackrel{\mathscr{S}(\R)}{\to}\varphi$ så $f(\varphi_j)\stackrel{\C}{\to}f(\varphi)$
   \end{itemize}
   \par\bigskip
   \noindent Rummet av dessa distributioner betecknas $\mathscr{S}^{\prime}(\R)$
@@ -126,7 +127,7 @@ För varje $\varphi\in\mathscr{S}(\R)$ så är:
 \begin{theo}[Dirac-delta]{thm:dirarre}
   \textit{Dirac delta} $\delta\in\mathscr{S}^{\prime}(\R)$ definieras enligt:\par
   \begin{itemize}
-    \item För varje $\varphi\in\mathscr{S}(\R)$ så är $f(\varphi) = \varphi(0)$
+    \item För varje $\varphi\in\mathscr{S}(\R)$ så är $\delta(\varphi) = \varphi(0)$
   \end{itemize}
   \par\bigskip
   \noindent Notera här att $f(\varphi)\neq\int_{-\infty}^{\infty}f(x)\varphi(x)dx$ eftersom vi då behöver en funktion som är noll överallt men inte i origo, men detta är inte en funktion.

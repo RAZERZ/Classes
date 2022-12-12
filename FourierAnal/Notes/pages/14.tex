@@ -1,0 +1,134 @@
+\section{Fouriertransformationen av en Distribution}\par
+\noindent Eftersom distributioner inte egentligen är funktioner, så måste vi definiera vad alla operationerna betyder på distributioner (derivator, multiplikation, translation, etc). Detta måste vi göra för att kunna dra slutsatser om egenskaper hos fouriertransformationen.
+\par\bigskip
+\subsection{Operationer på distributioner}\hfill\\\par
+\noindent Vi kan få en distribution från ett polynom, men vi kan också derivera polynomet och få en distribution från derivatan. Då vill vi på något vis sammalänka derivatan av polynomet till derivatan av distributionen.\par
+\noindent Vi gör liknande för exempelvis translation.
+\par\bigskip
+\noindent\textit{Om} $f:\R\to\C$ är differentierbar (därmed kontinuerlig och därmed lokalt integrerbar) och av polynomiell ordning, så definierar $f$ en distribution.\par
+\noindent Men $f$ är differentierbar, vi vill länka distributionens derivata till $f^{\prime}$\par
+\noindent Vi gör detta genom att definiera derivatan till distributionen som distributionen av derivatan av polynomet.
+\par\bigskip
+\noindent Givet en test-funktion $\varphi\in\mathscr{S}(\R)$, så:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(\varphi) = \int_{\infty}^{\infty}f^{\prime}(x)\cdot\varphi(x)dx\\
+    \lim_{(a,b)\to(-\infty,\infty)}\int_{a}^{b}f^{\prime}(x)\varphi(x)dx\\
+    \stackrel{parts}{\implies}\lim_{(a,b)\to(-\infty,\infty)}\underbrace{f(x)\varphi(x)|_{_a}^b}_{\text{$\underbrace{f(b)\varphi(b)}_{\text{$=0$}}-f(a)\varphi(a)$}}-\int_{a}^{b}f(x)\varphi^{\prime}(x)dx\\
+    \Rightarrow -\int_{-\infty}^{\infty}f(x)\varphi^{\prime}(x)dx = f(-\varphi^{\prime})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $f(b)\varphi(b)=0$ eftersom $\varphi(b)\in\mathscr{S}(\R)$, så den dödar $f$
+\par\bigskip
+\noindent Slutsatsen vi har fått kan vi använda som en definition:
+\par\bigskip
+\begin{theo}[Derivatan av en distribution]{thm:derivofdistr}
+  Givet en distribution $f\in\mathscr{S}^{\prime}(\R)$, så är dess \textit{derivata} följande distribution ($f^{\prime}\in\mathscr{S}^{\prime}(\R)$):
+  \begin{equation*}
+    \begin{gathered}
+      f^{\prime}(\varphi) = f(-\varphi^{\prime}) = -f(\varphi^{\prime})\qquad\forall\varphi\in\mathscr{S}(\R)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Låt $H(x) = \begin{cases}1\quad x\geq0\\0\quad x<0\end{cases}$\par
+\noindent Givet en test-funktion $\varphi\in\mathscr{S}(\R)$, vad är då $H^{\prime}(\varphi)$?
+\begin{equation*}
+  \begin{gathered}
+    H^{\prime}(\varphi) = -H(\varphi^{\prime}) = -\int_{-\infty}^{\infty}H(x)\varphi^{\prime}(x)dx\\
+    = -\int_{0}^{\infty}\varphi^{\prime}(x)dx = \lim_{a\to\infty}-\int_{0}^{a}\varphi^{\prime}(x)dx = \lim_{a\to\infty}-[\varphi(x)]_0^a\\
+    =\lim_{a\to\infty}-\underbrace{\varphi(a)}_{\text{$\to0$}}+\varphi(0)=\varphi(0)=\delta(\varphi)
+  \end{gathered}
+\end{equation*}\par
+\noindent\textbf{Anmärkning:}\par
+\noindent Anledningen till att $\varphi(a)\to0$ är givetvis för att den är av polynomiell ordning.
+\par\bigskip
+\noindent Därmed är $H^{\prime} = \delta\in\mathscr{S}^{\prime}(\R)$. Låter detta rimligt? $H$ är diskontinuerlig i origo, men utanför det så är det ok. Om vi ritar ut $H$ så verkar det som att $H$ har oändlig derivata i origo, men dirac-delta liknar detta eftersom dirac-delta har en oändligt stor spike i bara origo. 
+\par\bigskip
+\noindent På samma sätt som vi fick fram vad som händer med distributionen vid derivering, ska vi göra det med andra egenskaper. 
+\par\bigskip
+\begin{theo}[Produkt av distribution]{thm:proddist}
+  Om $f\in\mathscr{S}^{\prime}(\R)$ och $g:\R\to\C$ är glatt av polynomiell ordning, så är deras produkt:
+  \begin{equation*}
+    \begin{gathered}
+      f\cdot g\in\mathscr{S}^{\prime}(\R) = f\underbrace{(g\cdot\varphi)}_{\text{$\in\mathscr{S}(\R)$}}\qquad\forall\varphi\in\mathscr{S}(\R)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Translation av distribution]{thm:transdist}
+  Om $f\in\mathscr{S}(\R)$ är en distribution, och $a\in\R$, så är translationen $f_a\in\mathscr{S}^{\prime}(\R)$ en distribution som är definerad enligt:
+  \begin{equation*}
+    \begin{gathered}
+      f_a(\varphi(x)) = f(\varphi(x+a)) = f(\varphi_{-a}(x))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Iden kommer från:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{\infty}\left(\text{höger translation av $f$ med $a$}\right)\cdot gdx= \int_{-\infty}^{\infty}f\cdot\left(\text{vänster tranlsation av $g$ med $-a$}\right)dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent $\delta_a$ "ser ut som" att man flyttat den oändliga peaken till $a$, vi får då $\delta_a(\varphi) = \varphi(a)$. Vi undersöker:
+\begin{equation*}
+  \begin{gathered}
+    \delta_a(\varphi) = \varphi(a) = \delta(\varphi(x+a)) \stackrel{x=0}{=}\delta(\varphi(a)) = \delta(\varphi_{-a})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Kovnolution/Faltning för distributioner]{thm:convdist}
+  Givet $f\in\mathscr{S}^{\prime}(\R)$ \textit{och} $g\in\mathscr{S}(\R)$.\par
+  \noindent Deras faltning $f*g\in\mathscr{S}^{\prime}(\R)$ sådant att
+  \begin{equation*}
+    \begin{gathered}
+      (f*g)(\varphi) = f\underbrace{(g*\varphi)}_{\text{$\in\mathscr{S}(\R)$}}\qquad\forall\varphi\in\mathscr{S}(\R)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Fouriertransformation för distributioner]{thm:fouriertransfdist}
+  Givet $f\in\mathscr{S}^{\prime}(\R)$ definerar vi dess fouriertransformation som:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}\left[f(\varphi)\right] = f(\mathcal{F}\left[\varphi\right])\qquad\forall\varphi\in\mathscr{S}(\R)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Exempel:}\par
+\noindent Vad är $\mathcal{F}\left[\delta(\varphi)\right]$?
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[\delta(\varphi)\right] = \delta(\mathcal{F}\left[\varphi\right]) = \mathcal{F}\left[\varphi(0)\right] = \int_{-\infty}^{\infty}\varphi(x)e^{-i0x}dx = 1(\varphi)\qquad\forall \varphi\in\mathscr{S}(\R)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Därmed är $\mathcal{F}\left[\delta\right]=1$. Nu kanske man kan undra vad fouriertransformationen av distributionen $1$ är:
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{F}\left[1\right] = 1(\mathcal{F}\left[\varphi\right]) = \int_{-\infty}^{\infty}\mathcal{F}\left[\varphi(x)\right]dx =\mathcal{F}\left[\mathcal{F}\left[\varphi(0)\right]\right] = 2\pi\varphi(-0) = 2\pi\varphi(0) = 2\pi\delta(\varphi)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Nu kan vi ta fouriertransformationen till polynom såsom $x$ och $x^2$, men även trigonometriska funktioner
+\newpage
+\subsection{Egenskaper hos fouriertransformationen på rummet av distributioner}\hfill\\\par
+\noindent Låt $f,g\in\mathscr{S}^{\prime}(\R)$ och $\varphi\in\mathscr{S}(\R)$, då gäller följande:\par
+\begin{itemize}
+  \item $\mathcal{F}$ är linjär: $\mathcal{F}\left[a\cdot f+b\cdot g\right] = a\mathcal{F}\left[f\right] + b\mathcal{F}\left[g\right]$ där $a,b\in\C$\par
+  \item$\mathcal{F}\left[f^{\prime}\right](\omega) = (i\omega)\mathcal{F}\left[f\right](\omega)$\par
+  \item $\mathcal{F}\left[x\cdot f\right](\omega) = i\dfrac{d}{d\omega}\mathcal{F}\left[f\right](\omega)$\par
+  \item $\mathcal{F}\left[e^{iax}\cdot f(x)\right](\omega) = \mathcal{F}\left[f\right]_a$ där $a\in\R$ (translation till höger med $a$) $=\mathcal{F}\left[f\right](\omega-a)$\par
+  \item $\mathcal{F}\left[f_a\right](\omega) = e^{-ia\omega}\mathcal{F}\left[f\right](\omega)$ där $a\in\R$\par
+  \item $\mathcal{F}\left[f*g\right](\omega) = \mathcal{F}\left[f\right](\omega)\cdot\mathcal{F}\left[g\right](\omega)$ OM antingen $f$ eller $g$ är $\in\mathscr{S}(\R)$ \par
+  \item $\mathcal{F}\left[\mathcal{F}\left[f\right]\right] = 2\pi f(-x)$ där $\left(f(-x)\right)(\varphi(x)) = f(\varphi(-x))$
+\end{itemize}
+\par\bigskip
+\noindent Fouriertransformationen för distributioner fungerar precis som den gör för funktioner som var integerbara och absolutintegrerbara!

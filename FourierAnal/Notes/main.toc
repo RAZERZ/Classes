@@ -28,3 +28,6 @@
 \contentsline {subsection}{\tocsubsection {}{11.2}{Inversen till fouriertransformationen}}{41}{subsection.11.2}%
 \contentsline {section}{\tocsection {}{12}{Tillämpningar på PDE:er}}{44}{section.12}%
 \contentsline {section}{\tocsection {}{13}{(Tempered) Distributioner}}{45}{section.13}%
+\contentsline {section}{\tocsection {}{14}{Fouriertransformationen av en Distribution}}{48}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Operationer på distributioner}}{48}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Egenskaper hos fouriertransformationen på rummet av distributioner}}{50}{subsection.14.2}%
