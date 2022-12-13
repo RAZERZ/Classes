@@ -1,0 +1,34 @@
+\section{Repetition inför tenta}
+\par\bigskip
+\subsection{Fler exempel på distributioner}\hfill\\\par
+\noindent Vi har sett att:\par
+\begin{itemize}
+  \item $\mathcal{F}\left[\delta\right] = 1$
+  \item $\mathcal{F}\left[1\right] = 2\pi\delta$
+  \item $\mathcal{F}\left[\delta_a\right] = e^{-ia\omega}\underbrace{\mathcal{F}\left[\delta\right](\omega)}_{\text{$=1$}}\Rightarrow e^{-ia\omega}$\par
+  \item $\mathcal{F}\left[x\right](\varphi) = x\left(\mathcal{F}\left[\varphi\right](\omega)\right) = \int_{-\infty}^{\infty}x\underbrace{\int_{-\infty}^{\infty}\varphi(\omega)e^{-i\omega x}d\omega}_{\text{$\mathcal{F}\left[\varphi(\omega)\right](x)$}} dx$
+    \par\bigskip
+    \noindent\textit{Alternativt}:
+    \begin{equation*}
+      \begin{gathered}
+        \mathcal{F}\left[x\right] = \mathcal{F}\left[x\cdot1\right] = i\dfrac{d}{d\omega}\mathcal{F}\left[1\right] = i2\pi\dfrac{d}{d\omega}\Rightarrow \mathcal{F}\left[x\right] = i2\pi\delta^{\prime}\\
+        \Rightarrow \mathcal{F}\left[x\right](\varphi) = -i2\pi\varphi^{\prime}(0)
+      \end{gathered}
+    \end{equation*}\par
+  \item $\mathcal{F}\left[x^2\right] = \mathcal{F}\left[x\cdot x\right] = i\dfrac{d}{d\omega}\mathcal{F}\left[x\right] = i\dfrac{d}{d\omega}\cdot2\pi i\delta^{\prime} = -2\pi\dfrac{d}{d\omega}\delta^{\prime} = -2\pi\delta^{\prime\prime} = -2\pi\varphi^{\prime\prime}(0)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Man kan använda den tredje punkten för att hitta en fouriertransformation till $\sin(x)$. Egentligen är det klurigt för att den inte är integrerbar på \textit{hela} reella linjen, men vi kan se den som en distribution. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Givet $\varphi\in\mathscr{S}(\R)$, har vi $(\delta^{\prime})(\varphi) = -\delta(\varphi^{\prime}) = -\varphi^{\prime}(0)$\par
+\noindent Då är:\par
+\begin{itemize}
+  \item $(\delta^{\prime\prime})(\varphi) = \varphi^{\prime\prime}(0)$
+  \item $(\delta^{\prime\prime\prime})(\varphi) = -\varphi^{\prime\prime\prime}(0)$
+  \item $(\delta^{(k)})(\varphi) = (-1)^k\varphi^{(k)}(0)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Antalet $x$ i fouriertransformationen motsvarar antalet derivator av $\delta$ samt antalet $i$, klura ut vad! 

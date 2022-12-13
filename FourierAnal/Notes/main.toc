@@ -31,3 +31,5 @@
 \contentsline {section}{\tocsection {}{14}{Fouriertransformationen av en Distribution}}{48}{section.14}%
 \contentsline {subsection}{\tocsubsection {}{14.1}{Operationer på distributioner}}{48}{subsection.14.1}%
 \contentsline {subsection}{\tocsubsection {}{14.2}{Egenskaper hos fouriertransformationen på rummet av distributioner}}{50}{subsection.14.2}%
+\contentsline {section}{\tocsection {}{15}{Repetition inför tenta}}{50}{section.15}%
+\contentsline {subsection}{\tocsubsection {}{15.1}{Fler exempel på distributioner}}{50}{subsection.15.1}%
