@@ -19,13 +19,119 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
+\begin{theo}[MLE]{thm:rmle}
+  Let $x_1,\cdots,x_n$ be a random sample from the random variable $X$ with distribution $F(x;\theta)$.
+  \par\bigskip
+  \noindent The \textit{maximum-likelihood estimate} of $\theta$ is the $\theta$ which maximizes the likelihood function ($\Lrarr$ Loglikelihood function)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Likelihood function depends on both $x_1,\cdots,x_n$ and $\theta$, but for MLE we fix $x_1,\cdots,x_n$ and only study how $\theta$ affects the function.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent An MLE is generally consistent
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent An MLE is not always unbiased, but can be corrected.
 
 \subsection{Problems and Solutions}\hfill\\\par
 \subsubsection{7.2.7}\hfill\\\par
+\noindent In order to start our estimation, we need to remember that our observations come from a random variabe, which has some sort of distribution which we need to figure out.\par
+\noindent Notice how Kalle plays \textit{until} something happens, this hints that our distribution is $\sim$\textit{ffg}, which is a discrete distribution with the following distribution function:
+\begin{equation*}
+  \begin{gathered}
+    p(k) = p(1-p)^{k-1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In our case, we are estimating $p$, our product becomes:
+\begin{equation*}
+  \begin{gathered}
+    \prod_{i=1}^{7}p_i(x_i;\theta) = \prod_{i=1}^{7}p(1-p)^{x_i-1}\\
+    \Rightarrow p^7(1-p)^{(\sum x_i)-7} = p^7(1-p)^{(3+7+10+\cdot+4)-7} = p^7(1-p)^{42} = L(p)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In order to find which $p$ maximizes this function, we differentiate:
+\begin{equation*}
+  \begin{gathered}
+    L^{\prime}(p) = -42\cdot7p^7(1-p)^{41}\\
+  L^{\prime}(p) \Rightarrow p\in\left\{0,1\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent These are the trivial roots, let us therefore examine the loglikelihood function:
+\begin{equation*}
+  \begin{gathered}
+    l(p) = \ln{\left(L(p)\right)} = \ln{\left(p^7\right)} + \ln{\left(1-p\right)^{42}}\\
+    = 7\ln{\left(p\right)}+42\ln{\left(1-p\right)}\\
+    l^{\prime}(p) = \dfrac{7}{p}-\dfrac{42}{1-p}
+  \end{gathered}
+\end{equation*}\par
+\noindent We maximize the loglikelihood:
+\begin{equation*}
+  \begin{gathered}
+    l^{\prime}(p) = 0 \Lrarr \dfrac{7}{p} = \dfrac{42}{1-p} \Rightarrow 6p = 1-p\\
+    p = \dfrac{1}{7}
+  \end{gathered}
+\end{equation*}
 \par\bigskip
 \subsubsection{7.2.8}\hfill\\\par
+\noindent We are given values in the range $0\leq x_i\leq 1$, and we therefore really only need to look at that specific case in our cumulative distribution function.\par
+\noindent Since the distribution function in that interval is continous, it is safe to assume our random variable is continous as wel.\par
+\noindent For a likelihood function for a continous variable, we need the probability density function, which we can obtain through taking $F_X^{\prime}$:
+\begin{equation*}
+  \begin{gathered}
+    F_X(x) = x^\alpha\\
+    F_X^{\prime} = \alpha x^{\alpha-1}
+  \end{gathered}
+\end{equation*}\par
+\noindent This gives the following likelihood function:
+\begin{equation*}
+  \begin{gathered}
+    L(\alpha) = \prod_{i=1}^{10}f_x(x_i;\alpha) = \prod_{i=1}^{10}\alpha x_i^{\alpha-1} = a^{10}\prod_{i=1}^{10}x_i^{\alpha-1}\\
+    = \alpha^{10}\left(\prod_{i=1}^{10}x_i\right)^{\alpha-1}
+  \end{gathered}
+\end{equation*}\par
+\noindent Differentiating with respect to $\alpha$ yields:
+\begin{equation*}
+  \begin{gathered}
+    L^{\prime}(\alpha) = 10\alpha^9(\Pi x_i)^{\alpha-1}+a^{10}(\Pi x_i)^{\alpha-1}\ln{\left(\Pi x_i\right)}\\
+    L^{\prime}(\alpha) = 0\Lrarr 10\alpha^9(\Pi x_i)^{\alpha-1}=-a^{10}(\Pi x_i)^{\alpha-1}\ln{\left(\Pi x_i\right)}\\
+    10 = -a\ln{\left(\Pi x_i\right)}
+  \end{gathered}
+\end{equation*}\par
+\noindent We calculate $\Pi x_i = 0.57\cdot0.81\cdots0.99\approx 0.006189$ and solve for $\alpha$:
+\begin{equation*}
+  \begin{gathered}
+    \alpha = \dfrac{-10}{\ln{\left(0.006189\right)}} \Rightarrow \alpha\approx 1.966
+  \end{gathered}
+\end{equation*}
 \par\bigskip
-\subsubsection{7.2.10}\hfill\\\par
-\par\bigskip
-\subsubsection{7.2.12}\hfill\\\par
-\par\bigskip
+\subsubsection{7.2.9}\hfill\\\par
+\noindent Since we are given the density function, all we need to do is determine the likelihood function. We are given 9 observations:
+\begin{equation*}
+  \begin{gathered}
+    \prod_{i=1}^{9}f_X(x_i;\theta) = \prod_{i=1}^{9}\dfrac{x_i}{\theta^2}e^{-x_i/\theta}\\
+    \Rightarrow \left(\dfrac{1}{\theta^2}\right)^9\prod_{i=1}^{9}x_ie^{-x_i/\theta} = \dfrac{1}{\theta^{18}}\prod_{i=1}^{9}x_i\prod_{i=1}^{9}e^{-x_i/\theta}\\
+    = \dfrac{1}{\theta^{18}}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta} = L(\theta)
+  \end{gathered}
+\end{equation*}\par
+\noindent Differentiate and fix maximum:
+\begin{equation*}
+  \begin{gathered}
+    L^{\prime}(\theta) = -18\theta^{-19}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta} + \theta^{-18}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta}\left(\dfrac{\sum x_i}{\theta^2}\right)\\
+    = -18\theta^{-19}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta}+\theta^{-20}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta}\left(\sum x_i\right)\\
+    L^{\prime}(\theta) = 0\Lrarr \theta^{-20}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta}\left(\sum x_i\right) = 18\theta^{-19}\left(\Pi x_i\right)e^{-(\sum x_i)/\theta}\\
+    \Rightarrow \theta^{-20}\left(\sum x_i\right) = 18\theta^{-19}\\
+    \Rightarrow \theta^{-20}\left(\sum x_i\right) = 18\theta^{-19}\\
+    \Rightarrow \theta = \dfrac{\sum x_i}{18}
+  \end{gathered}
+\end{equation*}\par
+\noindent We calculate $\sum x_i = 23.7$ and insert:
+\begin{equation*}
+  \begin{gathered}
+    \theta = \dfrac{23.7}{18}\approx 1.31666
+  \end{gathered}
+\end{equation*}

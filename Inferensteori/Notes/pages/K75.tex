@@ -1,0 +1,104 @@
+\section{Important notes from the book}\par
+\subsection{Definitions/Theorems}\hfill\\\par
+\begin{theo}[Least Squares Estimate (LSE) / Minsta-kvadrat skattning]{thm:rlse}
+  Let $x_1,\cdots,x_n$ be a random sample from $X$ with $E(X) = m(\theta)$, where $m$ is some known function.\par
+  \noindent Let:
+  \begin{equation*}
+    \begin{gathered}
+      Q(\theta) = \sum_{i=1}^{n}(x_i-m(\theta))^2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent The $\theta$ that minimizes $Q$ is the \textit{LSE} of $\theta$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Suppose $\theta$ is one-dimensional and $\exists m^{\prime}(\theta)$ such that $m^{\prime}(\theta)\neq0$, then:
+\begin{equation*}
+  \begin{gathered}
+    Q^{\prime}(\theta) = -2m^{\prime}(\theta)\sum_{i=1}^{n}(x_i-m(\theta))
+  \end{gathered}
+\end{equation*}\par
+\noindent Finding minimum becomes (since $m^{\prime}(\theta)\neq0$):
+\begin{equation*}
+  \begin{gathered}
+    \sum_{i=1}^{n}(x_i-m(\theta)) = 0\\
+    \Rightarrow  \left(\sum_{i=1}^{n}x_i\right)-nm(\theta) = 0\\
+    \Rightarrow \sum_{i=1}^{n}x_i = nm(\theta)\\
+    \Rightarrow \overline{x} = m(\theta)
+  \end{gathered}
+\end{equation*}\par
+\noindent LSE is given by $m(\theta) = \overline{x}$, just as in the case of method of moments.
+\par\bigskip
+\begin{theo}[Weighted LSE]{thm:rwlse}
+  If our random sample comes from different random variables with expected values $m_i(\theta)$ and have \textit{different} standard deviation, then:
+  \begin{equation*}
+    \begin{gathered}
+      Q(\theta) = \lambda\cdot\sum_{i=1}^{n}\left(\dfrac{x_i-m_i(\theta)}{\sigma_i}\right)^2\qquad\lambda\in\R
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is called the \textit{Weighted Least Squares Estimate}.\par
+  \noindent $\lambda$ is some constant.\par
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If our random sample comes from different random variables with expected value $m_i(\theta)$ but all have the \textit{same} standrad deviation, then:
+\begin{equation*}
+  \begin{gathered}
+    Q(\theta) = \sum_{i=1}^{n}(x_i-m_i(\theta))^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.2.13}\hfill\\\par
+\noindent We use the variance trick, namely:
+\begin{equation*}
+  \begin{gathered}
+    Var(X) = E(X^2)-(E(X))^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $Y = X^2$, we are essentially looking for:
+\begin{equation*}
+  \begin{gathered}
+    E(X^2) = Var(X) + (E(X)) = \sigma^2 + \mu_X = 1+\mu^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Our LSE function becomes: 
+\begin{equation*}
+  \begin{gathered}
+    Q(\mu) = \sum_{i=1}^{10}(y_i-(\mu^2+1))^2\\
+    = \sum_{i=1}^{10}\left(y_i^2-2(\mu^2+1)y_i+(\mu^2+1)^2\right) = \left(\sum_{i=1}^{10}y_i^2\right)-2(\mu^2+1)\left(\sum y_i\right) + 10(\mu^2+1)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent We differentiate and find minimum of $Q$:
+\begin{equation*}
+  \begin{gathered}
+    Q^{\prime}(\mu) = 20(\mu^2+1)(2\mu)-2\left(\sum y_i\right)(2\mu) = 0\\
+    \Rightarrow 40(\mu^2+1)\mu = 4\left(\sum y_i\right)\mu\\
+    \Lrarr 10(\mu^2+1) =\sum y_i \Rightarrow \mu = \sqrt{\dfrac{\sum y_i}{10}-1}
+  \end{gathered}
+\end{equation*}\par
+\noindent We calculate $\sum y_i = 0.17+0.06+\cdots+2.1 = 22.35$ and insert:
+\begin{equation*}
+  \begin{gathered}
+    \mu = \sqrt{2.235-1}\approx 1.1113
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{7.2.14}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.15}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.17}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.18}\hfill\\\par
+\par\bigskip
+\subsubsection{7.2.19}\hfill\\\par
+\par\bigskip
+\subsubsection{703}\hfill\\\par
+\par\bigskip
+\subsubsection{705}\hfill\\\par
+\par\bigskip
+\subsubsection{723}\hfill\\\par
+\par\bigskip

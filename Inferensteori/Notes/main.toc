@@ -1,47 +1,42 @@
 \contentsline {section}{\tocsection {}{1}{TODO}}{2}{section.1}%
-\contentsline {section}{\tocsection {}{2}{Data Analysis (K6)}}{3}{section.2}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Location Measures}}{3}{subsection.2.1}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Dispersion measures}}{3}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Graphical illustration}}{5}{subsection.2.3}%
-\contentsline {subsection}{\tocsubsection {}{2.4}{Data materials in several dimensions}}{5}{subsection.2.4}%
+\contentsline {section}{\tocsection {}{2}{Important notes from the book}}{3}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Definitions/Theorems}}{3}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Problems and Solutions}}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.1}{601}}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.2}{602}}{6}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.3}{605}}{6}{subsubsection.2.2.3}%
 \contentsline {section}{\tocsection {}{3}{Important notes from the book}}{8}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Definitions/Theorems}}{8}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{Problems and Solutions}}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.2.1}{601}}{10}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.2.2}{602}}{11}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.2.3}{605}}{11}{subsubsection.3.2.3}%
-\contentsline {section}{\tocsection {}{4}{Statistical Inference}}{13}{section.4}%
-\contentsline {section}{\tocsection {}{5}{Estimation}}{13}{section.5}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{Properties of estimates}}{14}{subsection.5.1}%
-\contentsline {subsection}{\tocsubsection {}{5.2}{Asymptotic properties}}{16}{subsection.5.2}%
-\contentsline {section}{\tocsection {}{6}{Important notes from the book}}{18}{section.6}%
-\contentsline {subsection}{\tocsubsection {}{6.1}{Definitions/Theorems}}{18}{subsection.6.1}%
-\contentsline {subsection}{\tocsubsection {}{6.2}{Problems and Solutions}}{20}{subsection.6.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{6.2.1}{7.2.1}}{20}{subsubsection.6.2.1}%
-\contentsline {section}{\tocsection {}{7}{Methods of estimation}}{21}{section.7}%
-\contentsline {subsection}{\tocsubsection {}{7.1}{Methods of moments}}{21}{subsection.7.1}%
-\contentsline {subsection}{\tocsubsection {}{7.2}{Maximum likelihood}}{22}{subsection.7.2}%
-\contentsline {subsection}{\tocsubsection {}{7.3}{Least Squares}}{24}{subsection.7.3}%
-\contentsline {subsection}{\tocsubsection {}{7.4}{Parameter estimation in standard distributions}}{26}{subsection.7.4}%
-\contentsline {subsection}{\tocsubsection {}{7.5}{Estimation of distributions}}{27}{subsection.7.5}%
-\contentsline {section}{\tocsection {}{8}{Important notes from the book}}{28}{section.8}%
-\contentsline {subsection}{\tocsubsection {}{8.1}{Definitions/Theorems}}{28}{subsection.8.1}%
-\contentsline {subsection}{\tocsubsection {}{8.2}{Problems and Solutions}}{30}{subsection.8.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{8.2.1}{7.2.3}}{30}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{8.2.2}{7.2.4}}{30}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{8.2.3}{7.2.5}}{30}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{8.2.4}{7.2.6}}{30}{subsubsection.8.2.4}%
-\contentsline {section}{\tocsection {}{9}{Important notes from the book}}{31}{section.9}%
-\contentsline {subsection}{\tocsubsection {}{9.1}{Definitions/Theorems}}{31}{subsection.9.1}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{Problems and Solutions}}{31}{subsection.9.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.2.1}{7.2.7}}{31}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.2.2}{7.2.8}}{31}{subsubsection.9.2.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.2.3}{7.2.10}}{31}{subsubsection.9.2.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.2.4}{7.2.12}}{31}{subsubsection.9.2.4}%
-\contentsline {section}{\tocsection {}{10}{Lesson 1}}{32}{section.10}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{727}}{32}{subsection.10.1}%
-\contentsline {subsection}{\tocsubsection {}{10.2}{7.210}}{32}{subsection.10.2}%
-\contentsline {subsection}{\tocsubsection {}{10.3}{7.2.12}}{33}{subsection.10.3}%
-\contentsline {subsection}{\tocsubsection {}{10.4}{7.2.14}}{34}{subsection.10.4}%
-\contentsline {subsection}{\tocsubsection {}{10.5}{702}}{34}{subsection.10.5}%
-\contentsline {section}{\tocsection {}{11}{Konfidensintervall/Intervallskattning}}{36}{section.11}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.2.1}{7.2.1}}{10}{subsubsection.3.2.1}%
+\contentsline {section}{\tocsection {}{4}{Important notes from the book}}{11}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Definitions/Theorems}}{11}{subsection.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Problems and Solutions}}{13}{subsection.4.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.1}{7.2.3}}{13}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2}{7.2.4}}{13}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.3}{7.2.5}}{13}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.4}{7.2.6}}{13}{subsubsection.4.2.4}%
+\contentsline {section}{\tocsection {}{5}{Important notes from the book}}{14}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Definitions/Theorems}}{14}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Problems and Solutions}}{14}{subsection.5.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.2.1}{7.2.7}}{14}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.2.2}{7.2.8}}{15}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.2.3}{7.2.9}}{15}{subsubsection.5.2.3}%
+\contentsline {section}{\tocsection {}{6}{Lesson 1}}{17}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{727}}{17}{subsection.6.1}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{7.210}}{17}{subsection.6.2}%
+\contentsline {subsection}{\tocsubsection {}{6.3}{7.2.12}}{18}{subsection.6.3}%
+\contentsline {subsection}{\tocsubsection {}{6.4}{7.2.14}}{19}{subsection.6.4}%
+\contentsline {subsection}{\tocsubsection {}{6.5}{702}}{19}{subsection.6.5}%
+\contentsline {section}{\tocsection {}{7}{Important notes from the book}}{21}{section.7}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{Definitions/Theorems}}{21}{subsection.7.1}%
+\contentsline {subsection}{\tocsubsection {}{7.2}{Problems and Solutions}}{21}{subsection.7.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.1}{7.2.13}}{22}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.2}{7.2.14}}{22}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.3}{7.2.15}}{22}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.4}{7.2.17}}{22}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.5}{7.2.18}}{22}{subsubsection.7.2.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.6}{7.2.19}}{22}{subsubsection.7.2.6}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.7}{703}}{22}{subsubsection.7.2.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.8}{705}}{22}{subsubsection.7.2.8}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.2.9}{723}}{22}{subsubsection.7.2.9}%
