@@ -21,7 +21,7 @@
 \contentsline {subsubsection}{\tocsubsubsection {}{9.1.2}{Värmeekvationen}}{26}{subsubsection.9.1.2}%
 \contentsline {subsubsection}{\tocsubsubsection {}{9.1.3}{Schrödingers ekvation}}{26}{subsubsection.9.1.3}%
 \contentsline {subsection}{\tocsubsection {}{9.2}{Separation av variabler}}{26}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{10}{Mean-Square konvergens av Fourierserier}}{30}{section.10}%
+\contentsline {section}{\tocsection {}{10}{Mean-Square konvergens av Fourierserier och Semi-inre-produktrum}}{30}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{Gram-Schmidt Processen}}{36}{subsection.10.1}%
 \contentsline {section}{\tocsection {}{11}{Fouriertransformation}}{38}{section.11}%
 \contentsline {subsection}{\tocsubsection {}{11.1}{Egenskaper hos fouriertransformationen}}{39}{subsection.11.1}%

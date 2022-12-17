@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  13 DEC 2022 14:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  17 DEC 2022 21:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,12 +1587,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--3
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FEE897D03501B7BBBA19483FC558B022;7122.
+(rerunfilecheck)             Checksum: 4DA90E7B4F07F82D0148A1C5EF7DA30E;7253.
  ) 
 Here is how much of TeX's memory you used:
  25655 strings out of 478238
- 485876 string characters out of 5850457
- 791511 words of memory out of 5000000
+ 485876 string characters out of 5850456
+ 791936 words of memory out of 5000000
  43077 multiletter control sequences out of 15000+600000
  478688 words of font info for 65 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1615,7 +1615,7 @@ b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf
 -dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/rsfs/rsfs7.pfb>
-Output written on main.pdf (51 pages, 403343 bytes).
+Output written on main.pdf (51 pages, 403414 bytes).
 PDF statistics:
  599 PDF objects out of 1000 (max. 8388607)
  499 compressed objects within 5 object streams
