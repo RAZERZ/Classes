@@ -1,0 +1,73 @@
+\section{Important notes from the book}
+\subsection{Definitions/Theorems}\hfill\\
+\par\bigskip
+\begin{theo}[Confidence interval]{thm:rconfin}
+  The interval $I_\theta = (\underline{\theta}(x),\overline{\theta}(x))$ is called the \textit{confidence interval} for $\theta$ with degree $1-\alpha$ if:
+  \begin{equation*}
+    \begin{gathered}
+      P(\underline{\theta}(X)<\theta<\overline{\theta}(X))=1-\alpha
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is a two-sided interval
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $\alpha$ is sometimes referred to as the error-risk (felrisk)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Think of $\alpha$ like the risk of having an interval \textit{not} containing $\theta$.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The error-risk in a two-sided interval is distributed evenly as follows:
+\begin{equation*}
+  \begin{gathered}
+    P(\underline{\theta}(X)<\theta) = P(\theta<\overline{\theta}(X))=\dfrac{\alpha}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We need to respect the values that the estimator attains in our intervals.\par
+\noindent Therefore, it is sometimes more reasonable to have a one-sided interval (if for example the estimator is always positive)
+\par\bigskip
+\begin{theo}[Reference variable/Pivot variable/Referensvariabel]{thm:rref}
+  Usually denoted by $R_\theta$ is a variable such that:\par
+  \begin{itemize}
+    \item Only depends on $\theta$
+    \item Has completely known (known values) distribution
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Normally when using CLT, our reference varible looks like:
+\begin{equation*}
+  \begin{gathered}
+    R_\mu = \dfrac{\mu^*-\mu}{\sigma/\sqrt{n}}\sim N(0,1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Construction of confidence interval]{thm:rconconf}
+  \begin{itemize}
+    \item Estimate $\theta$ using $\theta^*$
+    \item Find a reference variable $R_\theta$ based on the estimate $\theta^*(X)$
+    \item Enclose $R_\theta$ using quantiles $r$: $P(r_{1-\alpha/2}<R_\theta<r_{\alpha/2}) = 1-\alpha$
+    \item Rewrite the inequality such that $\theta$ is isolated: $P(\underline{\theta}(X)<\theta<\overline{\theta}(X))$
+    \item $I_\theta = (\underline{\theta}(X),\overline{\theta}(X))$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Confidence interval for function $\theta = g(\mu)$]{thm:rconfunc}
+  Assume $I_\mu = (\underline{\mu},\overline{\mu})$ with degree $1-\alpha$ and $\theta = g(\mu)$:\par
+  \begin{itemize}
+    \item If $g$ is a monotely increasing function, then $I_\theta = (g(\underline{\mu}), g(\overline{\theta}))$ is a confidence interval for $\theta$ with degree $1-\alpha$
+      \par\bigskip
+    \item If $g$ is a monotely decreasing function, then $I_\theta = (g(\overline{\theta}), g(\underline{\mu}))$ is a confidence interval for $\theta$ with degree $1-\alpha$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.3.1}\hfill\\
+\par\bigskip
+\subsubsection{7.3.2}\hfill\\
+\par\bigskip
+\subsubsection{7.3.3}\hfill\\

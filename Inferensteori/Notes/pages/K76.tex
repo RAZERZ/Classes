@@ -1,0 +1,109 @@
+\section{Important notes from the book}
+\subsection{Definitions/Theorems}\hfill\\
+\par\bigskip
+\begin{lem}
+  AFor normally distributed data, we have the following estimate for variance:
+  \begin{equation*}
+    \begin{gathered}
+      (\sigma^2)^* = \dfrac{S_{xx}}{n-1} = s^2
+    \end{gathered}
+  \end{equation*}\par
+  \noindent This is however assuming that $\mu$ is unknown and therefore estimated using $\mu = \overline{x}$.\par
+  \noindent If we are given $\mu$, then the following estimate is unbiased and consistent:
+  \begin{equation*}
+    \begin{gathered}
+      (\sigma^2)^* = \dfrac{\sum(x_i-\mu)^2}{n}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{lem}
+  FFor normally distributed data from $X\sim N(\mu_1,\sigma^2)$ and $Y\sim N(\mu_2,\sigma^2)$, we can estimate $\sigma^2$ through (and using $\mu_1^* = \overline{x}$ and $\mu_2^*=\overline{y}$):
+  \begin{equation*}
+    \begin{gathered}
+      (\sigma^2)^* = \dfrac{\sum_{i=1}^{n_1}(x_i-\overline{x})^2+\sum_{i=1}^{n_2}(y_i-\overline{y})^2}{n_1+n_2-2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is an unbiased estimate\par
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Anmärkning 8.2 raises the question of knowing \textit{when} the variance would be equal.\par
+\noindent If we are looking at 2 different observations, then the variation in those observations depend on the method of analysis chosen, and we have used the same method of analysis with unknown $\sigma$ for both samples.  
+\par\bigskip
+\begin{lem}
+  FFor a sample from a hypergeometric distribution, it is very difficult to maximize the likelihood function.\par
+  \noindent Through numerical observations, we may use the following estimate:
+  \begin{equation*}
+    \begin{gathered}
+      p^*\approx \dfrac{x}{n}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{lem}
+  SSuppose you have 2 samples from $X$ and $Y$ who both have the same distribution function, and same variance\par
+  \noindent We can then find the likelihood-function as a product of the likelihood-function for the two different samples:
+  \begin{equation*}
+    \begin{gathered}
+      L(\theta) = L_X(\theta)\cdot L_Y(\theta)\\
+      l(\theta) = l_X(\theta)+l_Y(\theta)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\subsection{Problems and solutions}\hfill\\\par
+\subsubsection{7.2.17}\hfill\\\par
+\noindent Using the unbiased formula for two normally distributed samples with the same variance, we have:
+\begin{equation*}
+  \begin{gathered}
+    (\sigma^2)^* = \dfrac{\overbrace{\sum_{i=1}^{n_1}(x_i-\overline{x})^2}^{\text{$S_{XX}$}}+\overbrace{\sum_{i=1}^{n_2}(y_i-\overline{y})^2}^{\text{$S_{YY}$}}}{n_1+n_2-2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Recall that $S_{XX} = (n-1)\cdot s_x^2$, this gives:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases}
+      S_{XX} = (5-1)\cdot2.85 = 11.4\\
+      S_{YY} = (9-1)\cdot3.525 = 28.2
+    \end{rcases}\Rightarrow \dfrac{11.4+28.2}{9+5-2} = 3.3
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{7.2.18}\hfill\\\par
+\noindent The samples are from a binomial distribution (and same probability for each outcome). We can therefore let $z = x+y$ and $n = n_1+n_2$. The estimate then becomes:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{z}{n} = \dfrac{x+y}{n_1+n_2} = \dfrac{15+25}{100+200} = \approx 0.13
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In orde to find the standard error, we wish to find $\sqrt{s^2/n^2}$ where $(\sigma^2)^*=s^2$
+\begin{equation*}
+  \begin{gathered}
+    (\sigma^2)^* = 300\cdot0.13\cdot(1-0.13)\Rightarrow\sqrt{\dfrac{34.66}{300^2}}\approx.0.0196
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{7.2.19}\hfill\\\par
+\noindent Here we combine the number of cars (20+40=60) and the number of minutes (60+90=150) and use this:
+\begin{equation*}
+  \begin{gathered}
+    \text{\# of cars } = \lambda\cdot t\Lrarr 60 = 150\cdot\lambda\\
+    \Rightarrow\lambda =0.4
+  \end{gathered}
+\end{equation*}\par
+\noindent The standard error is given by $\sqrt{\dfrac{\lambda}{n}}$:
+\begin{equation*}
+  \begin{gathered}
+    = \sqrt{\dfrac{0.4}{150}}\approx 0.0516
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsubsection{703}\hfill\\\par
+\par\bigskip
+\subsubsection{705}\hfill\\\par
+\par\bigskip
+\subsubsection{723}\hfill\\\par
+\par\bigskip

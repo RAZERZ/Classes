@@ -1,0 +1,141 @@
+\section{Important notes from the book}\par
+\subsection{Definitions/Theorems}\hfill\\
+\par\bigskip
+\begin{theo}[Null-hypothesis]{thm:rnull}
+  The \textit{null-hypothesis}, denoted by $H_0$ is a hypothesis we make of the parameter $\theta$, often $H_0: \theta = \theta_0$
+  \par\bigskip
+  \noindent The \textit{alternative hypothesis}, usually denoted by $H_1$ is the alternative hypothesis we are testing for. The alternative hypothesis can be \textit{simple} ($H_1: \theta = \theta_0$), or \textit{composite} (eg. $H_1: \theta>\theta_0$).\par
+  \par\bigskip
+  \noindent A hypothesis on the form $\theta>\theta_0$ or $\theta<\theta_0$ is called \textit{one-sided}, while $\theta\neq\theta_0$ is a \textit{two-sided hypothesis}
+\end{theo}
+\par\bigskip
+\begin{theo}[Significance level]{thm:rsig}
+  The \textbf{significance level} $\alpha$ is defined as the probability to reject the null-hypothesis:
+  \begin{equation*}
+    \begin{gathered}
+      \alpha = P_{H_0}(\text{reject } H_0)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Normally $\alpha = 0.05$ or $\alpha = 0.01$ or $\alpha = 0.001$
+\end{theo}
+\par\bigskip
+\begin{theo}[Power of test/Styrkefunktion]{thm:rpow}
+  The \textit{power} of a hypothesis test is given by the power-function:
+  \begin{equation*}
+    \begin{gathered}
+      h(\theta) = P_{\theta}(\text{reject } H_0)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Observe that $h(\theta_0) = \alpha$ and that $h(\theta)$ is large when $\theta\in H_1$
+\par\bigskip
+\begin{theo}[Test variable method]{thm:rtest}
+  Find a \textit{testvariable} $T(x)$ based on the sample and find the critical area $C$ for that testvariable. The test becomes:\par
+  \begin{itemize}
+    \item If $T\in C$, we reject $H_0$ and say "we have a significant result"
+    \item If $T\not\in C$, we cannot reject $H_0$ and say "the result is not significant"
+  \end{itemize}
+  \par\bigskip
+  \noindent We pick the critical area such that the significance level $\alpha$ is the one we want 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Just because we do not reject $H_0$, does \textbf{not} mean we reject $H_1$. There just is not enough empirical data.
+\par\bigskip
+\begin{theo}[Direct method]{thm:rdir}
+  The \textit{direct method} is also based on a testvariable, but the ciritcal area is not explicitly defined. Instead, we find values of the testvariable that give the emprical evidence that $H_1$ is true
+  \par\bigskip
+  \noindent We then calculate the $P$ value of the test:
+  \begin{equation*}
+    \begin{gathered}
+      P = P_{H_0}({\text{at least equally extreme case as the observed}})
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent $H_0$ is rejected if $P\leq\alpha$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The direct method is equivalent to the test variable method with the advantage that it also lets us know at what significance level the null-hypothesis is rejected
+\par\bigskip
+\begin{theo}[Confidence method]{thm:rconf}
+  The \textit{confidence method} can be describe as the following:\par
+  \begin{itemize}
+    \item Find the confidence interval $I_\theta$ for the parameter with the same significance level that we want from the test (degree $1-\alpha$)
+    \item Reject $H_0: \theta=\theta_0$ if $\theta_0\not\in I_{\theta}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{lem}[How to choose method]{lem:methodch}
+  \begin{itemize}
+    \item If you already have the confidence interval (either given or calculated), then use the confidence method
+      \par\bigskip
+    \item Direct method is more appropriate when the observations come from a discrete variable (but can absolutely be used in other cases since the $P$ value gives a mesuare on the magnitude of the significance)
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{lem}[How to choose significance level]{siglev}
+  \begin{itemize}
+    \item If rejecting $H_0$ poses a great risk, then it is research ethic to choose a low significance level
+    \item If a trial is resource heavy, then a low significance level is not sustainable and or desirable (even though it is the best option) 
+    \item If not sure, let $\alpha 0.05$
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{lem}[How to choose testvariable]{}
+  \begin{itemize}
+    \item Find a reference variable $R_\theta$ with the following properties:\par
+      \begin{itemize}
+        \item Completely known distribution
+        \item Only depends on $\theta$
+      \end{itemize}
+      \par\bigskip
+    \item Choose the testvariable $T = R_\theta$. Now $T$ can be computed from a completely known distribution
+      \par\bigskip
+  \item Choose a ciritical area $C$ adapted after the alternative hypothesis $H_1$ using the known quantiles for the distribution ($C = \left\{T\geq r_\alpha\right\}$) 
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{lem}[How to choose ciritcal area]{}
+  This completely depends on how you choose your alternative hypothesis $H_1$\par
+  \noindent The "rule of thumb" is that the have values of the testvariable that indicate that $H_1$ is true should be in the critical area
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent You need to chose your hypothesis \textit{before} collecting your data
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent It may be confusing with hypothesis-testing and confidence intervals. These are in fact very similar, and we will therefore treat them as such. 
+\newpage
+\begin{theo}[Likelihood quotient test]{}
+  Let $H_0: \theta = \theta_0$ and $H_1: \theta = \theta_1$\par
+  \noindent Let $L(\theta)$ be the likelihood function, and let $T$ be the testvariable where\par
+  $T = \dfrac{L_1}{L_0} = \dfrac{L(\theta_1)}{L(\theta_0)}$
+  \par\bigskip
+  \noindent Reject $H_0$ if $T\geq K$ where $K\in\R$ such that we achieve our chosen $\alpha$ 
+\end{theo}
+\begin{lem}
+  NNormally we define:
+  \begin{equation*}
+    \begin{gathered}
+      L_1 = \sup_{\theta\in H_1}\left\{L(\theta)\right\}\qquad L_0=\sup_{\theta\in H_0}\left\{L(\theta)\right\}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Previously, we had a fixed $x_1,\cdots,x_n$ from a random variable $X$ and studied how $\theta$ affects our function.\par
+\noindent With the likelihood quotient test we fix $\theta$, and study how our sample $x_1,\cdots,x_n$ affects our function
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If you are having trouble finding a suitable test-variable (maybe you are having difficulties finding a reference variable), then we can use the likelihood quotient test
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.4.1}\hfill\\
+\par\bigskip
+\subsubsection{7.4.2}\hfill\\
+\par\bigskip
+\subsubsection{7.4.4}\hfill\\

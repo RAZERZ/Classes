@@ -33,3 +33,7 @@
 \contentsline {subsection}{\tocsubsection {}{14.2}{Egenskaper hos fouriertransformationen på rummet av distributioner}}{50}{subsection.14.2}%
 \contentsline {section}{\tocsection {}{15}{Repetition inför tenta}}{50}{section.15}%
 \contentsline {subsection}{\tocsubsection {}{15.1}{Fler exempel på distributioner}}{50}{subsection.15.1}%
+\contentsline {subsection}{\tocsubsection {}{15.2}{Övriga bevis av egenskaper hos fouriertransformationen}}{51}{subsection.15.2}%
+\contentsline {subsection}{\tocsubsection {}{15.3}{Linjäritet}}{51}{subsection.15.3}%
+\contentsline {subsection}{\tocsubsection {}{15.4}{Förskjutning}}{51}{subsection.15.4}%
+\contentsline {subsection}{\tocsubsection {}{15.5}{Differentiering}}{52}{subsection.15.5}%

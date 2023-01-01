@@ -1,0 +1,62 @@
+\subsection{Övriga bevis av egenskaper hos fouriertransformationen}\hfill\\\par
+\subsection{Linjäritet}\hfill\\\par
+\begin{theo}[Linjär]{thm:rforlin}
+  Låt $f(x), g(x)\in C(\mathbb{T})$, då gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}\left[\alpha f(x)x+\beta g(x)\right](\omega) = \alpha\mathcal{F}\left[f(x)\right](\omega)+\beta\mathcal{F}\left[g(x)\right](\omega)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}\left[\alpha f(x)+\beta g(x)\right](\omega) = \int_{-\infty}^{\infty}\left(\alpha f(x)+\beta g(x)\right)e^{-i\omega x}dx\\
+      \stackrel{lin.}{\Rightarrow}\alpha\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx + \beta\int_{-\infty}^{\infty}g(x)e^{-i\omega x}dx
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\subsection{Förskjutning}\hfill\\\par
+\begin{theo}[Förskjutning]{thm:rforshift}
+  Låt $f(x)\in C(\mathbb{T})$\par, då gäller $\mathcal{F}\left[f(x-x_0)\right](\omega) = e^{-i\omega x_0}\mathcal{F}\left[f(x)\right](\omega)$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  A
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}\left[f(x-x_0)\right](\omega)=\int_{-\infty}^{\infty}f(x-x_0)e^{-i\omega x}dt
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Låt $(x-x_0) = z\Rightarrow x = (x_0+z)$
+  \par\bigskip
+  \noindent Variabelbytet behåller asymptoter, och därmed gäller:
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{F}\left[f(x-x_0)\right](\omega)=\int_{-\infty}^{\infty}f(z)e^{-i\omega(x_0+z)}dz = e^{-i\omega x_0}\cdot\int_{-\infty}^{\infty}f(z)e^{-i\omega z}dz\\
+      \Rightarrow \mathcal{F}\left[f(x-x_0)\right](\omega) = e^{-i\omega x_0}\cdot\mathcal{F}\left[f(x)\right](\omega)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\newpage
+\subsection{Differentiering}\hfill\\\par
+\begin{theo}[Differentiering]{thm:rfordiff}
+  Låt $f(x)\in C(\mathbb{T})$, då gäller $\dfrac{df}{dx} = (i\omega)\mathcal{F}\left[f(x)\right](\omega)$
+\end{theo}
+\par\bigskip
+\begin{prf}
+  AVi använder definitionen av inversen:
+  \begin{equation*}
+    \begin{gathered}
+      f(x) = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\mathcal{F}\left[f(x)\right](\omega)e^{-i\omega x}d\omega\\
+      \dfrac{d}{dx}f(x) = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\mathcal{F}\left[f\right](\omega)e^{-i\omega x}(i\omega)d\omega\\
+      = \dfrac{d}{dx}f(x) = \dfrac{1}{2\pi}\int_{-\infty}^{\infty}\left((i\omega)\mathcal{F}\left[f\right](\omega)\right)e^{-i\omega x}d\omega\\
+      = \dfrac{d}{dx}f(x) = \mathcal{F}^{-1}\left[(i\omega)\mathcal{F}\left[f\right](\omega)\right](\omega)\\
+      \text{Alt. }\quad\mathcal{F}\left[\dfrac{d}{dx}f(x)\right](\omega) = (i\omega)\mathcal{F}\left[f(x)\right](\omega)
+    \end{gathered}
+  \end{equation*}
+\end{prf}

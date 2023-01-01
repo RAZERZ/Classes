@@ -34,7 +34,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \begin{mdframed}[]\relax%
 \label{#2}}{\end{mdframed}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Lemma
+%Anmärkning
 \newcounter{lem}[section] \setcounter{lem}{0}
 \renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
 \newenvironment{lem}[2][]{%
@@ -44,13 +44,13 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 frametitle={%
 \tikz[baseline=(current bounding box.east),outer sep=0pt]
 \node[anchor=east,rectangle,fill=black!20]
-{\strut Lemma~\thelem};}}
+{\strut Anmärkning~\thelem};}}
 }%
 {\mdfsetup{%
 frametitle={%
 \tikz[baseline=(current bounding box.east),outer sep=0pt]
 \node[anchor=east,rectangle,fill=black!20]
-{\strut Lemma~\thelem:~#1};}}%
+{\strut Anmärkning~\thelem:~#1};}}%
 }%
 \mdfsetup{innertopmargin=10pt,linecolor=black!20,%
 linewidth=2pt,topline=true,%
