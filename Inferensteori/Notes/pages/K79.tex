@@ -1,0 +1,126 @@
+\section{Important notes from the book}\par
+\subsection{Definitions/Theorems}\hfill\\
+\par\bigskip
+\begin{theo}[$\chi^2$-distribution]{}
+  A random variable $X$ with probability density function
+  \begin{equation*}
+    \begin{gathered}
+      f(t) = C\cdot t^{f/2-1}e^{-t/2}\qquad t>0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent is $X\sim \chi^2$ with $f$-degrees of freedom
+  \noindent
+\end{theo}
+\par\bigskip
+\begin{lem}[Degrees of freedom]{}
+  In order to find the degrre of freedom, consider the rang of the quadratic matrix of random variables
+  \par\bigskip
+  \noindent In Anmärkning 11.1, second point, we have $n-1$ degrees of freedom since $\overline{X} = 1/n\sum X_i$, and therefore have linear dependence which decreases the rang.
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The probability density function of a $\chi^2$ variable can be defined through the $\Gamma$ distribution:
+\begin{equation*}
+  \begin{gathered}
+    \chi^2(f) = \Gamma(f/2,1/2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This has nice consequences (particularly since the integral is a linear operator), such as:\par
+\begin{itemize}
+  \item Let $X_1\sim\chi^2(f_1)$ and $X_2\sim\chi^2(f_2)$ (independent), then $X_1+X_2\sim\chi^2(f_1+f_2)$
+\end{itemize}
+\par\bigskip
+\begin{lem}[Properties for $\chi^2$ distribution and $N(\mu,\sigma^2)$]{}
+  \begin{itemize}
+    \item$\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_i-\mu)^2\sim\chi^2(n)$
+      \par\bigskip
+    \item $\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_i-\overline{X})^2\sim\chi^2(n-1)$
+      \par\bigskip
+    \item $\overline{X}$ and $\sum_{i=1}^{n}(X_i-\overline{X})^2$ are independent
+  \end{itemize}
+\end{lem}
+\par\bigskip
+\begin{theo}[Convergence to normal distribution]{}
+  If $Y_n\sim \chi^2$, then:
+  \begin{equation*}
+    \begin{gathered}
+      P\left(\dfrac{Y_n-n}{\sqrt{2n}}\leq x\right)\stackrel{n\to\infty}{\to}\Phi(x)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{lem}[Choice of reference variable for $\sigma^2$ using $\chi^2$]{}
+  \begin{equation*}
+    \begin{gathered}
+      R_ {\sigma^2} = \dfrac{(n-1)s^2(X)}{\sigma^2}\sim N(\mu,\sigma^2)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\newpage
+\begin{lem}[$t$-distribution contant]
+  The constant $C\in\R$ for the $t$-distribution is
+  \begin{equation*}
+    \begin{gathered}
+      C = \dfrac{1}{\sqrt{f\pi}}\cdot\dfrac{\Gamma\left(\dfrac{f+1}{2}\right)}{\Gamma\left(\dfrac{f}{2}\right)}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If $f = 1$ then:
+  \begin{equation*}
+    \begin{gathered}
+      f(t) = C\cdot\dfrac{1}{1+t^2}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent (Cauchy-distribution for $t(1)$). $C = 1/\pi$ when $f= 1$ since $\Gamma(1/2) = \sqrt{\pi}$
+\end{lem}
+\par\bigskip
+\begin{lem}
+  A\begin{equation*}
+    \begin{gathered}
+      \lim_{f\to\infty}F_{t(f)}(t) = \Phi(t)\stackrel{\alpha<0.5}{\implies}\lim_{f\to\infty}t_\alpha(f) = \lambda_\alpha
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{theo}[Common ground between $N(0,1)$, $\chi^2$, and $t$-distribution]{}
+  If $X\sim N(0,1)$ and $Y\sim\chi^2(f)$ are independent, then
+  \begin{equation*}
+    \begin{gathered}
+      Z = \dfrac{X}{\sqrt{Y/f}}\sim t(f)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Reference variable for $t$-distribution]{}
+  Let $x_1,\cdots,x_n$ be a random sample from $N(\mu,\sigma^2)$ with sample variance $s^2$\par
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      R_\mu = \dfrac{\overline{X}-\mu}{s/\sqrt{n}}\sim t(n-1)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}
+  LLet $X = \dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$
+  \par\noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      Y = \dfrac{n-1}{\sigma^2}s^2(X) = \dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_i-\overline{X})^2\sim\chi^2(n-1)\\
+      \implies\dfrac{Y}{n-1} = \dfrac{s^2}{\sigma^2} \Lrarr \sqrt{\dfrac{Y}{n-1}} = \dfrac{s}{\sigma}\\
+      \implies R_\mu = \dfrac{\overline{X}-\mu}{s/\sqrt{n}} = \dfrac{X}{\sqrt{Y/(n-1)}}\stackrel{Sats 11.4}{\sim}t(n-1)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\subsection{Problems and Solutions}\hfill\\\par
+\subsubsection{7.5.1}\hfill\\
+\par\bigskip
+\subsubsection{7.5.2}\hfill\\
+\par\bigskip
+\subsubsection{7.5.3}\hfill\\
+\par\bigskip
+\subsubsection{7.5.4}\hfill\\
