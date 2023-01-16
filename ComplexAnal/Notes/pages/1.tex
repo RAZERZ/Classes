@@ -14,6 +14,9 @@
 \noindent The set of all complex numbers is denoted by $\C$
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
+\noindent$\C$ is the \textit{smallest} field extension to $\R$ that is algebraically closed. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
 \noindent $i^2 = -1$
 \par\bigskip
 \subsection{Operations over $\C$}\hfill\\\par
@@ -49,7 +52,7 @@
   \item $z_1(z_2z_3) = (z_1z_2)z_3$
   \item $z_1(z_2+z_3) = z_1z_2+z_1z_3$
 \end{itemize}
-\par\bigskip
+\newpage
 \begin{theo}[Complex conjugate]{}
   The \textit{complex conjugate} of a complex number $z = x+iy$, denoted by $\overline{z}$, is defined by $\overline{z} = x-iy$
   \par\bigskip
@@ -57,13 +60,62 @@
   \begin{itemize}
     \item $\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}$
     \item $\overline{z_1\cdot z_2} = \overline{z_1}\cdot\overline{z_2}$
+    \item $\overline{\dfrac{z_1}{z_2}} = \dfrac{\overline{z_1}}{\overline{z_2}}$
     \item $\overline{\overline{z}} = z$
+    \item $z\cdot\overline{z} = \left|z\right|^2$
+    \item $z^-1 = \dfrac{\overline{z}}{\left|z\right|^2}$
+    \item $z = \overline{z}\Lrarr z\in\R$
   \end{itemize}
 \end{theo}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Re$(z) = \dfrac{z+\overline{z}}{2}$\par
 \noindent Im$(z) = \dfrac{z-\overline{z}}{2i}$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Multiplication by $i$ is simply rotation by $\dfrac{\pi}{2}$ counterclockwise.
+\par\bigskip
+\begin{theo}[]{}
+  Let $z\in\C$. Then there eixsts a $w\in\C$ such that $w^2=z$ (where $-w$ also satisfies this equation)
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Let $z = a+bi$ and $w = x+iy$ such that $a+bi = (x+iy)^2 = (x^2-y^2)+i(2xy)$
+  \par\bigskip
+  \noindent Then $a = x^2-y^2$ and $b = 2xy$\par
+  \noindent We also know that $\left|z\right| = a^2+b^2 = \left|x^2+y^2\right|^2 = (x^2-y^2)^2+4x^2y^2$
+  \par\bigskip
+  \noindent Therefore, $x^2+y^2 = \sqrt{a^2+b^2}$ and:
+  \par\bigskip
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases*}
+        x^2-y^2 = a\\
+        x^2+y^2 = \sqrt{a^2+b^2}
+      \end{rcases*}\Rightarrow x^2 = \dfrac{a+\sqrt{a^2+b^2}}{2}\\\\
+      \begin{rcases*}
+        -x^2+y^2 = -a\\
+        x^2+y^2 = \sqrt{a^2+b^2}
+      \end{rcases*}\Rightarrow y^2 = \dfrac{-a+\sqrt{a^2+b^2}}{2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Now let $\alpha = \sqrt{\dfrac{a+\sqrt{a^2+b^2}}{2}}$ and $\beta = \sqrt{\dfrac{-a+\sqrt{a^2+b^2}}{2}}$ and let $\sqrt{}$ denote the positive square rroot of positive real numbers.
+  \par\bigskip
+  \noindent If $b$ is positive, then either $x = \alpha, y=\beta$ or $x=-\alpha, y=-\beta$\par
+  \noindent If $b$ is negative, then either $x = \alpha, y=-\beta$ or $x=-\alpha, y=\beta$
+  \par\bigskip
+  \noindent Therefore, the equation has solutions $\pm(\alpha+\mu\beta i)$ where $\mu=1$ if $b\geq0$ and $\mu = -1$ if $b<0$ 
+  \par\bigskip
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent From the proof above, we can conclude the following:\par
+\begin{itemize}
+  \item The square roots of a complex number are real $\Lrarr$ the complex number is real and positive
+  \item The square roots of a complex number are purely imaginary $\Lrarr$ the complex number is real and negative
+  \item The two square roots of a number coincide $\Lrarr$ the complex number is zero 
+\end{itemize}
 \par\bigskip
 \subsection{Cartesian representation}\hfill\\\par
 \noindent It is natural to represent a complex number $z = x+iy$ as a tuple $(x,y)$, and we can therefore represent it in the standard cartesian plane:
@@ -131,6 +183,18 @@
   \noindent So that $\left|z_1\right|-\left|z_2\right|\leq \left|z_1-z_2\right|$
 \end{prf}
 \par\bigskip
+\noindent The following properties holds:\par
+\begin{itemize}
+  \item $\left|z_1\cdot z_2\right| = \left|z_1\right|\cdot\left|z_2\right|$
+  \item $\left|\dfrac{z_1}{z_2}\right| = \dfrac{\left|z_1\right|}{\left|z_2\right|}$
+  \item $-\left|z\right|\leq\text{Re}(z)\leq\left|z\right|$
+  \item $-\left|z\right|\leq\text{Im}(z)\leq\left|z\right|$
+  \item $\left|\overline{z}\right| = \left|z\right|$
+  \item $\left|z_1+z_2\right|\leq\left|z_1\right|+\left|z_2\right|$
+  \item $\left|z_1-z_2\right|\geq\left|\left|z_1\right|-\left|z_2\right|\right|$
+  \item $\left|z_1w_1+\cdots+z_nw_n\right|\leq\sqrt{\left|z_1\right|^2+\cdots+\left|z_n\right|^2}\cdot\sqrt{\left|w_1\right|^2+\cdots+\left|w_n\right|^2}$
+\end{itemize}
+\par\bigskip
 \subsection{Polar form}\hfill\\\par
 \noindent Let $z = x+iy\neq0$. The point $\left(\dfrac{x}{\left|z\right|}, \dfrac{y}{\left|z\right|}\right)$ lies on the unit circle, and hence there exists $\theta$ such that:
 \par\bigskip
@@ -161,7 +225,8 @@
 \noindent We are always allowed to change an angle by multiples of $2\pi$, the principal value argument is the angle after changing the argment such that it lies between $(-\pi,\pi]$
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent One calls Arg$(z)$ a \textit{branch} of arg$(z)$. Also, note that Arg$(z)$ is "discontinous" along the negative real axis. This is called a \textit{branch-cut} 
+\noindent A specifiaction of choosing a particular range for the angles is called choosing a \textit{branch} of the argument.\par
+\noindent Also, note that Arg$(z)$ is "discontinous" along the negative real axis. This is called a \textit{branch-cut} 
 \par\bigskip
 \noindent Suppose $z_1 = r_1(\cos(\theta_1)+i\sin(\theta_1)), z_2 = r_2(\cos(\theta_2)+i\sin(\theta_2))$\par
 \noindent Then:
