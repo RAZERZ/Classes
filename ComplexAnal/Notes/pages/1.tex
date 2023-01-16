@@ -1,6 +1,232 @@
 \section{Intro}
 \noindent In this course, we shall study functions $f:\C\to\C$ (or more generally, $f:D\to\C$ where $D\subseteq\C$)
 \par\bigskip
-\begin{theo}[Complex Number]
-  A \textit{complex number}
+\begin{theo}[Complex Number]{}
+  A \textit{complex number} is a number of the form $x+iy$, where $x,y\in\R$
+  \par\bigskip
+  \noindent Two complex numbers $z_1 = x_1+iy_1$ and $z_2 = x_2+iy_2$ are said to be equal iff $x_1 = x_2$ and $y_1 = y_2$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The number $x$ is called the \textit{real part} (Re$(z) = x$) of the complex number, and $y$ is called the \textit{imaginary part} (Im$(z) = y$) of the complex number 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The set of all complex numbers is denoted by $\C$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $i^2 = -1$
+\par\bigskip
+\subsection{Operations over $\C$}\hfill\\\par
+\noindent We define the operations \textit{addition} and \textit{multiplication} of two complex unmebrs as follows:
+\par\bigskip
+\begin{theo}[Addition of complex numbers]{}
+  \begin{equation*}
+    \begin{gathered}
+      (x_1+iy_1)+(x_2+iy_2) = (x_1+x_2)+i(y_1+y_2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Multiplication of complex numbers]{}
+  \begin{equation*}
+    \begin{gathered}
+      (x_1+iy_1)\cdot(x_2+iy_2) = x_1x_2-y_1y_2+i(x_1y_2+x_2y_1)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent With respect to these two operations, $\C$ forms a commutative field.
+\par\bigskip
+\noindent This means that the following holds for addition:\par
+\begin{itemize}
+  \item $z_1+z_2 = z_2+z_1$
+  \item $z_1+(z_2+z_3) = (z_1+z_2) + z_3$
+\end{itemize}
+\par\bigskip
+\noindent And for multiplication:\par
+\begin{itemize}
+  \item $z_1z_2 = z_2z_1$
+  \item $z_1(z_2z_3) = (z_1z_2)z_3$
+  \item $z_1(z_2+z_3) = z_1z_2+z_1z_3$
+\end{itemize}
+\par\bigskip
+\begin{theo}[Complex conjugate]{}
+  The \textit{complex conjugate} of a complex number $z = x+iy$, denoted by $\overline{z}$, is defined by $\overline{z} = x-iy$
+  \par\bigskip
+  \noindent The following holds for the complex conjugate:\par
+  \begin{itemize}
+    \item $\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}$
+    \item $\overline{z_1\cdot z_2} = \overline{z_1}\cdot\overline{z_2}$
+    \item $\overline{\overline{z}} = z$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Re$(z) = \dfrac{z+\overline{z}}{2}$\par
+\noindent Im$(z) = \dfrac{z-\overline{z}}{2i}$
+\par\bigskip
+\subsection{Cartesian representation}\hfill\\\par
+\noindent It is natural to represent a complex number $z = x+iy$ as a tuple $(x,y)$, and we can therefore represent it in the standard cartesian plane:
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+  axis lines=middle,
+  axis line style={Stealth-Stealth,very thick},
+  xmin = -5,
+  xmax = 5,
+  ymin = -1,
+  ymax = 3,
+  xtick distance=1,
+  ytick distance=1,
+  xlabel=Re,
+  ylabel=Im]
+  \addplot [->,domain=0:3,samples=2] {x/2} node[above]{$z = 3+\dfrac{i}{2}$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This is sometimes called the \textit{complex plane}
+\par\bigskip
+\begin{theo}[Absolute value/Modulus]{}
+  The absolute value of a complex number $z = x+iy$ (geometrically the length of the vector), denoted by $\left|z\right|$, is defined by
+  \begin{equation*}
+    \begin{gathered}
+      \left|z\right| = \sqrt{x^2+y^2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent It holds that:\par
+  \begin{itemize}
+    \item $\left|z\right|^2 = z\cdot\overline{z}$
+    \item $\left|z_1\cdot z_2\right| = \left|z_1\right|\cdot\left|z_2\right|$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Every $z\in\C$ such that  $z\neq0$ (that is, $x\neq0$ or $y\neq0$) has a multiplcative inverse $\dfrac{1}{z}$ given by:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{z}= \dfrac{\overline{z}}{\left|z\right|^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Triangle inequality]{}
+  For $z_1,z_2 \in\C$, it holds that $\left|z_1+z_2\right|\leq \left|z_1\right|+\left|z_2\right|$
+\end{theo}
+\par\bigskip
+\begin{lem}[Reversed triangle inequality]{}
+  For $z_1,z_2\in\C$, it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|z_1\right|-\left|z_2\right|\right|\leq \left|z_1-z_2\right|
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  $z_1 = \left|(z_1-z_2)+z_2\right|\leq\left|z_1-z_2\right|+\left|z_2\right|$
+  \par\bigskip
+  \noindent So that $\left|z_1\right|-\left|z_2\right|\leq \left|z_1-z_2\right|$
+\end{prf}
+\par\bigskip
+\subsection{Polar form}\hfill\\\par
+\noindent Let $z = x+iy\neq0$. The point $\left(\dfrac{x}{\left|z\right|}, \dfrac{y}{\left|z\right|}\right)$ lies on the unit circle, and hence there exists $\theta$ such that:
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{x}{\left|z\right|} = \cos(\theta)\qquad \dfrac{y}{\left|z\right|} = \sin(\theta)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Therefore $z = x+iy$ can be written as:
+\begin{equation*}
+  \begin{gathered}
+    z = r(\cos(\theta)+i\sin(\theta))
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $r = \left|z\right|$ is uniquely determined by $z$, while $\theta$ is $2\pi$-periodic.
+\noindent This is called the \textit{polar form} of $z$ and just as the cartesian representation requires a tuple of information $(\left|z\right|,\theta)$
+\par\bigskip
+\begin{theo}[Argument]{}
+  The \textit{argument} of a complex number $z$, denoted by arg($z$), is the angle $\theta$ between $z$ and the real number line in the complex plane
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Since the argument is $2\pi$ periodic, the angle is usually given as $\theta+k2\pi\quad k\in\Z$, but we are only intersted in $\theta$\par
+\noindent This $\theta$ is called the \textit{principal value} of arg$(z)$, denoted by Arg$(z)$ and belongs to $(-\pi,\pi]$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We are always allowed to change an angle by multiples of $2\pi$, the principal value argument is the angle after changing the argment such that it lies between $(-\pi,\pi]$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One calls Arg$(z)$ a \textit{branch} of arg$(z)$. Also, note that Arg$(z)$ is "discontinous" along the negative real axis. This is called a \textit{branch-cut} 
+\par\bigskip
+\noindent Suppose $z_1 = r_1(\cos(\theta_1)+i\sin(\theta_1)), z_2 = r_2(\cos(\theta_2)+i\sin(\theta_2))$\par
+\noindent Then:
+\begin{equation*}
+  \begin{gathered}
+    z_1\cdot z_2 = r_1r_2(\cos(\theta_1)+i\sin(\theta_1))(\cos(\theta_2)+i\sin(\theta_2))\\
+    =r_1r_2[(\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1)\sin(\theta_2))+i(\sin(\theta_1)\cos(\theta_2)+\cos(\theta_1)\sin(\theta_2))]\\
+    r_1r_2(\cos(\theta_1+\theta_2)+i\sin(\theta_1+\theta_2))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item $\left|z_1\cdot z_2\right| = \left|z_1\right|\cdot\left|z_2\right|$
+  \item arg$(z_1\cdot z_2) = \text{arg}(z_1)+\text{arg}(z_2)$
+\end{itemize}
+\par\bigskip
+\subsection{Exponential form}\hfill\\\par
+\begin{theo}[]{}
+  For $z = x+iy\in\C$, let $e^z = e^x(\cos(y)+i\sin(y))$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $e^{iy} = \cos(y)+i\sin(y)\quad y\in\R$ (Eulers formula)
+\par\bigskip
+\noindent We can see that the definition holds through some Taylor expansions:
+\begin{equation*}
+  \begin{gathered}
+    e^z = e^{x+iy} = e^x\cdot e^{iy}\\
+    e^{iy} = 1+iy+\dfrac{(iy)^2}{2!}+\dfrac{(iy)^3}{3!}+\dfrac{(iy)^4}{4!}+\cdots\\
+    \Rightarrow e^{iy} = 1+iy-\dfrac{\theta^2}{2!}-i\dfrac{\theta^3}{3!}+\dfrac{\theta^4}{4!}+\cdots = \underbrace{\left(1-\dfrac{\theta^2}{2!}+\dfrac{\theta^4}{4!}-\cdots\right)}_{\text{$\cos(\theta)$}}+i\underbrace{\left(\theta-\dfrac{\theta^3}{3!}+\dfrac{\theta^5}{5!}-\cdots\right)}_{\text{$\sin(\theta)$}}\\
+    \Rightarrow e^z = e^x(\cos(\theta)+i\sin(\theta))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One can through comparing see that $\left|e^z\right| = e^x$, and that $\left|e^{iy}\right|= 1$
+\par\bigskip
+\begin{theo}[deMoivre's formula]{}
+  For $n\in\Z$, $(r(\cos(\theta)+i\sin(\theta)))^n = r^n(\cos(n\theta)+i\sin(n\theta))$ 
+\end{theo}
+\par\bigskip
+\subsection{Logarithmic form}\hfill\\\par
+\noindent In real analysis, we have defined the logarithm as the inverse of $e^x$. This has previously worked since for $x\in\R$, $e^x$ is injective.\par
+\noindent The problem is that for $e^z$ where $z\in\C$, it is not injective and should therefore not have an inverse.
+\par\bigskip
+\noindent Given $z\in\C\backslash\left\{0\right\}$, we define $\ln{\left(z\right)}$ as the cut of all $w\in\C$ whose image undre the exponential form is $z$, i.e $w = \ln{\left(z\right)}\Lrarr z = e^w$.
+\par\bigskip
+\noindent Here, $\ln{\left(z\right)}$  is a \textit{multivaled form}
+\par\bigskip
+\noindent We can use the fact that $\left|z\right| = r = e^x$ to derive some interesting properties of the logarithm:
+\begin{equation*}
+  \begin{gathered}
+    z = re^{i\theta}\qquad w= u+iv\\
+    \text{If } z=e^w\Lrarr re^{i\theta} = e^u\cdot e^{iv}\\
+    \Lrarr u = \ln{\left(r\right)} = \ln{\left(\left|z\right|\right)}\qquad v = \theta+k2\pi = \text{arg}(z)\quad k\in\Z
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Complex logarithm]{}
+  For $z\neq0$, we define the complex logarithm for $z\in\C$  as:
+  \begin{equation*}
+    \begin{gathered}
+      \ln{\left(z\right)} = \ln{\left(\left|z\right|\right)}+i\cdot\text{arg}(z)\\
+      = \ln{\left(\left|z\right|\right)}+i(\text{Arg}(z)+k2\pi)\quad k\in\Z
+    \end{gathered}
+  \end{equation*}
 \end{theo}

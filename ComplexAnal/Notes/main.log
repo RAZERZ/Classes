@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  16 JAN 2023 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  16 JAN 2023 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,7 +742,101 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip129
 )
-(/usr/share/texmf-dist/tex/latex/bbm-macros/bbm.sty
+(/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks44
+\t@pgfplots@tokb=\toks45
+\t@pgfplots@tokc=\toks46
+\pgfplots@tmpa=\dimen287
+\c@pgfplots@coordindex=\count325
+\c@pgfplots@scanlineindex=\count326
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_l
+oader.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure
+.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure
+ext.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.te
+x
+\c@pgfplotsarray@tmp=\count327
+)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.t
+ex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.t
+ex
+\c@pgfplotstable@counta=\count328
+\t@pgfplotstable@a=\toks47
+)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading
+.code.tex
+\c@pgfplotslibrarysurf@no=\count329
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.
+pgfsys-pdftex.def)))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex)))
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen288
+\pgfdecoratedremainingdistance=\dimen289
+\pgfdecoratedinputsegmentcompleteddistance=\dimen290
+\pgfdecoratedinputsegmentremainingdistance=\dimen291
+\pgf@decorate@distancetomove=\dimen292
+\pgf@decorate@repeatstate=\count330
+\pgfdecorationsegmentamplitude=\dimen293
+\pgfdecorationsegmentlength=\dimen294
+)
+\tikz@lib@dec@box=\box74
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.pathmorphing.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
+ons.pathmorphing.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.pathreplacing.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
+ons.pathreplacing.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua
+.code.tex)
+\pgfplots@numplots=\count331
+\pgfplots@xmin@reg=\dimen295
+\pgfplots@xmax@reg=\dimen296
+\pgfplots@ymin@reg=\dimen297
+\pgfplots@ymax@reg=\dimen298
+\pgfplots@zmin@reg=\dimen299
+\pgfplots@zmax@reg=\dimen300
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+plotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/share/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 (Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
@@ -769,26 +863,26 @@ File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multip
 art.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodepartlowerbox=\box74
-\pgfnodeparttwobox=\box75
-\pgfnodepartthreebox=\box76
-\pgfnodepartfourbox=\box77
-\pgfnodeparttwentybox=\box78
-\pgfnodepartnineteenbox=\box79
-\pgfnodeparteighteenbox=\box80
-\pgfnodepartseventeenbox=\box81
-\pgfnodepartsixteenbox=\box82
-\pgfnodepartfifteenbox=\box83
-\pgfnodepartfourteenbox=\box84
-\pgfnodepartthirteenbox=\box85
-\pgfnodeparttwelvebox=\box86
-\pgfnodepartelevenbox=\box87
-\pgfnodeparttenbox=\box88
-\pgfnodepartninebox=\box89
-\pgfnodeparteightbox=\box90
-\pgfnodepartsevenbox=\box91
-\pgfnodepartsixbox=\box92
-\pgfnodepartfivebox=\box93
+\pgfnodepartlowerbox=\box75
+\pgfnodeparttwobox=\box76
+\pgfnodepartthreebox=\box77
+\pgfnodepartfourbox=\box78
+\pgfnodeparttwentybox=\box79
+\pgfnodepartnineteenbox=\box80
+\pgfnodeparteighteenbox=\box81
+\pgfnodepartseventeenbox=\box82
+\pgfnodepartsixteenbox=\box83
+\pgfnodepartfifteenbox=\box84
+\pgfnodepartfourteenbox=\box85
+\pgfnodepartthirteenbox=\box86
+\pgfnodeparttwelvebox=\box87
+\pgfnodepartelevenbox=\box88
+\pgfnodeparttenbox=\box89
+\pgfnodepartninebox=\box90
+\pgfnodeparteightbox=\box91
+\pgfnodepartsevenbox=\box92
+\pgfnodepartsixbox=\box93
+\pgfnodepartfivebox=\box94
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 positioning.code.tex
@@ -800,17 +894,58 @@ File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen287
+\arrowsize=\dimen301
 ))
-\c@theo=\count325
-\c@lem=\count326
-\c@prf=\count327
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowinset=\dimen302
+\pgfarrowlength=\dimen303
+\pgfarrowwidth=\dimen304
+\pgfarrowlinewidth=\dimen305
+)
+\c@theo=\count332
+\c@lem=\count333
+\c@prf=\count334
 )
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 5.
 
-(./includes/commands.tex) (./main.aux (./includes/title.aux))
+(./includes/commands.tex) (./main.aux (./includes/title.aux)
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -832,8 +967,7 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
@@ -883,17 +1017,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count328
-\scratchdimen=\dimen288
-\scratchbox=\box94
-\nofMPsegments=\count329
-\nofMParguments=\count330
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count331
-\MPscratchDim=\dimen289
-\MPnumerator=\count332
-\makeMPintoPDFobject=\count333
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count335
+\scratchdimen=\dimen306
+\scratchbox=\box95
+\nofMPsegments=\count336
+\nofMParguments=\count337
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count338
+\MPscratchDim=\dimen307
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
+\everyMPtoPDFconversion=\toks49
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -922,7 +1056,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count334
+\c@section@level=\count341
 )
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
@@ -932,12 +1066,20 @@ LaTeX Info: Redefining \nameref on input line 9.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
+your preamble.
+ on input line 9.
+
 \openout2 = `includes/title.aux'.
 
- (./includes/title.tex [0
+(./includes/title.tex [0
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+(./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -949,41 +1091,574 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 (./pages/1.tex
-Package mdframed Info: mdframed works in twoside mode on input line 5.
+Package mdframed Info: mdframed works in twoside mode on input line 4.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 5.
+(mdframed)              on input line 4.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 6.
-) [2] (./main.aux (./includes/title.aux))
+(mdframed)              on input line 8.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 19.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 19.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 22.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 22.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 28.
+Package mdframed Info: mdframed works in twoside mode on input line 30.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 30.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 36.
+Package mdframed Info: mdframed works in twoside mode on input line 53.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 53.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 62.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 92.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 92.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 105.
+Package mdframed Info: mdframed works in twoside mode on input line 115.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 115.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 117.
+Package mdframed Info: mdframed works in twoside mode on input line 119.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 119.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 126.
+Package mdframed Info: mdframed works in twoside mode on input line 128.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 128.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 132.
+
+Overfull \vbox (2.84377pt too high) detected at line 132
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 132.
+
+Overfull \vbox (3.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (4.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (5.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (6.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (7.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (8.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (9.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (10.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (11.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (12.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (13.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (14.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (15.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (16.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (17.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (18.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (19.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (20.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (21.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (22.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (23.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (24.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (25.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (26.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (27.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (28.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (29.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (30.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (31.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (32.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (33.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (34.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (35.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (36.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (37.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (38.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (39.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (40.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (41.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (42.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (43.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (44.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (45.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (46.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (47.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (48.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (49.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (50.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (51.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (52.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (53.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (54.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (55.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (56.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (57.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (58.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (59.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (60.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (61.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (62.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (63.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (64.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (65.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (66.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (67.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (68.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (69.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (70.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (71.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (72.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (73.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (74.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (75.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (76.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (77.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (78.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (79.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (80.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (81.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (82.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (83.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (84.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (85.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (86.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (87.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (88.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (89.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (90.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (91.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (92.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (93.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (94.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (95.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (96.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (97.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (98.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (99.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (100.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (101.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (102.84377pt too high) detected at line 132
+ []
+
+
+Overfull \vbox (103.84377pt too high) detected at line 132
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 132.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 132.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 152.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 152.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 154.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 183.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 183.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 185.
+[4]
+Package mdframed Info: mdframed works in twoside mode on input line 203.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 203.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 205.
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 224.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 224.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 232.
+) [5] (./main.aux (./includes/title.aux))
+
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F398D5590A97E759BE5EB8D5CA66BC80;86.
+(rerunfilecheck)             Checksum: B7F32F3DF42D5E632995431B5C1E4BC4;944.
  ) 
 Here is how much of TeX's memory you used:
- 25103 strings out of 478238
- 476810 string characters out of 5850457
- 764040 words of memory out of 5000000
- 42715 multiletter control sequences out of 15000+600000
+ 35873 strings out of 478238
+ 836646 string characters out of 5850456
+ 1236833 words of memory out of 5000000
+ 53328 multiletter control sequences out of 15000+600000
  477990 words of font info for 63 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 111i,10n,107p,499b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,15n,107p,749b,2129s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msbm10.pfb>
-Output written on main.pdf (3 pages, 103237 bytes).
+ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (6 pages, 167437 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
