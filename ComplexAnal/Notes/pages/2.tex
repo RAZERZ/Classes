@@ -1,0 +1,230 @@
+\section{Elementary complex functions}\par
+\noindent Branching is not an exclusive phenomenon to the argument, it can be done everywhere
+\par\bigskip
+\subsection{Branches of the complex logarithm}\hfill\\\par
+\noindent In Definition 1.11, we defined the complex logarithm as:
+\begin{equation*}
+  \begin{gathered}
+    \ln{\left(\left|z\right|\right)}+i\cdot\text{arg}(z)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We also added a line below it, to show that the definition holds for the principal value argument (with multiples of $2\pi$).\par
+\noindent If we remove the multiples, we have \textit{branched} the complex logarithm and obtained a single-valued function:
+\par\bigskip
+\begin{theo}[Principal logarithm]{}
+  By branching the argument of the complex logarithm, we obtain the \textit{principal logarithm}:
+  \begin{equation*}
+    \begin{gathered}
+      \Ln{z} = \ln{\left(\left|z\right|\right)}+i\cdot\text{Arg}(z)\\
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We have essentially extended the "normal" logarithm, which is defined on $(0,\infty)$, to be defined on $\C\backslash\left\{0\right\}$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The principal logarithm is discontinous for negative reals, since their principal value argument is $=-\pi$, but the principal value argument is discontinous at $-\pi$. This is the so called \textit{branch-cut}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Even though the principal logarithm is discontinous for negative reals, it is not undefined. Any negative real number $z$ will have Arg$(z) = \pi$, which the logarithm very much is defined for.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent When branching, we do not necessarily have to pick $(-\pi,\pi]$, we can pick any interval $(\alpha,\alpha+2\pi]$. This is usually denoted by $\text{arg}_\alpha$.
+\par\bigskip
+\subsection{Complex mappings}\hfill\\\par
+\noindent One can think of a complex mapping $f:\C\to\C$ as $f(z) = f(x+iy)=w=u+iv$\par
+\noindent Then it becomes clear which regions map to where by drawing them in their respective $z$-plane and $w$-plane.
+\par\bigskip
+\subsection{Complex powers}\hfill\\\par
+\noindent Given $z\in\C$, consider the following equation:
+\begin{equation}
+  \begin{gathered}
+    w^u = z
+  \end{gathered}
+\end{equation}
+\par\bigskip
+\noindent The set of all solutions $w$ of $(1)$ is denoted $z^{1/n}$m and is called the \textit{$n$-th root of $z$}.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $z=0$, then $w=0$
+\newpage
+\noindent Suppose $z\neq0$, then we may write $w = \left|w\right|e^{i\alpha}$  and $z=\left|z\right|e^{i\theta}$\par
+\noindent By deMoivre's formula, $(1)$ becomes:
+\begin{equation*}
+  \begin{gathered}
+    \left|w\right|^ne^{in\alpha} = \left|z\right|e^{i\theta}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Then, the following follows:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \left|w\right|=\sqrt[n]{\left|z\right|}\\
+      n\alpha = \theta+k2\pi\quad k\in\Z
+    \end{rcases*}\Lrarr
+    \begin{rcases*}
+      \left|w\right|=\sqrt[n]{\left|z\right|}\\
+      \alpha = \dfrac{\theta}{n}+k\dfrac{2\pi}{n}\quad k\in\Z
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice now that every $k\in\Z$ gives a solution to $(1)$
+\par\bigskip
+\noindent Since sine and cosine are both $2\pi$-periodic, then only $k = 0,1,\cdots,n-1$ actually give \textit{different} solutions (since $k=n\Rightarrow \alpha = \dfrac{\theta}{n}+n\dfrac{2\pi}{n}$)
+\par\bigskip
+\noindent Suppose $z\neq0$. For $n\in\Z$ it holds that:
+\begin{equation*}
+  \begin{gathered}
+    z^n = e^{n\ln{\left(z\right)}}
+  \end{gathered}
+\end{equation*}\par
+\noindent For every value that $\ln{\left(z\right)}$ attains.
+\par\bigskip
+\noindent It is also true, that for $n = 1,2,3,\cdots$:
+\begin{equation*}
+  \begin{gathered}
+    z^{\dfrac{1}{n}} = e^{\dfrac{1}{n}\ln{\left(z\right)}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can let $n\in\C$, and obtain the following definition:
+\par\bigskip
+\begin{theo}[Complex power]{}
+  For $\alpha\in\C$, let:
+  \begin{equation*}
+    \begin{gathered}
+      z^\alpha = e^{\alpha\ln{\left(z\right)}}\qquad z\neq0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This makes $z^\alpha$ a multivalued function.
+\par\bigskip
+\noindent Just as before, whenever we are dealing with the argument, the argument (heh) of branching comes up. We can chose to branch $z^\alpha$:
+\begin{equation*}
+  \begin{gathered}
+    z^\alpha = e^{\alpha\Ln{z}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Trigonometric and Hyperbolic functions}\hfill\\\par
+\noindent We have the following:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases}
+      e^{iy} = \cos(y)+i\sin(y)\\
+      e^{-iy} = \cos(y)-i\sin(y)
+    \end{rcases}\Rightarrow
+    \begin{rcases*}
+      \cos(y) = \dfrac{e^{iy}+e^{-iy}}{2}\\
+      \sin(y) = \dfrac{e^{iy}-e^{-iy}}{2i}
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In fact, this will be used in the definition of the complex valued trigonometric functions:
+\par\bigskip
+\begin{theo}[Complex sine and cosine]{}
+  For $z\in\C$, we define:
+  \begin{equation*}
+    \begin{gathered}
+      \cos(z) = \dfrac{e^{iz}+e^{-iz}}{2}\qquad\sin(z) = \dfrac{e^{iz}-e^{-iz}}{2i}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\noindent Recall that the definition of the hyperbolic trigonometric functions are defined using reals.\par
+\noindent When defining them for complex numbers, we just extend their domain:
+\par\bigskip
+\begin{theo}[Complex hyperbolic functions]{}
+  For $z\in\C$, we define:
+  \begin{equation*}
+    \begin{gathered}
+      \cosh(z) = \dfrac{e^z+e^{-z}}{2}\qquad\sinh(z) = \dfrac{e^z-e^{-z}}{2}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Now we can look at how the addition formulas for sine and cosine change when the input is complex:
+\par\bigskip
+\begin{itemize}
+  \item\textbf{Sine}:
+\end{itemize}
+\begin{equation*}
+  \begin{gathered}
+    \sin(x+iy) = \dfrac{e^{i(x+iy)}-e^{-i(x+iy)}}{2i} = \dfrac{e^{ix-y}-e^{-ix+y}}{2i}\\
+    \Rightarrow \dfrac{e^{-y}(\cos(x)+i\sin(x))-e^y(\cos(x)-i\sin(x))}{2i} = \dfrac{(e^{-y}-e^y)\cos(x)+i(e^y-e^{-y})\sin(x)}{2i}\\
+    = \dfrac{(e^{-y}-e^y)\cos(x)}{2i}+\dfrac{(e^y-e^{-y})\sin(x)}{2}\\
+    \stackrel{i^{-1}=-i}{\implies}\quad\underbrace{\dfrac{(e^y-e^{-y})}{2}}_{\text{$\sinh(y)$}}i\cos(x)+\underbrace{\dfrac{(e^y+e^{-y})}{2}}_{\text{$\cosh(y)$}}\sin(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{itemize}
+  \item\textbf{Cosine}:
+\end{itemize}
+\begin{equation*}
+  \begin{gathered}
+    \cos(x+iy) = \dfrac{e^{i(x+iy)+}e^{-i(x+iy)}}{2} = \dfrac{e^{ix-y}+e^{-ix+y}}{2}\\
+    = \dfrac{e^{-y}(\cos(x)+i\sin(x))+e^y(\cos(x)-i\sin(x))}{2} = \dfrac{\cos(x)(e^y+e^{-y})+i(e^{-y}-e^y)\sin(x)}{2}\\
+    = \underbrace{\dfrac{e^y+e^{-y}}{2}}_{\text{$\cosh(y)$}}\cos(x)-\underbrace{\dfrac{e^y-e^{-y}}{2}}_{\text{$\sinh(y)$}}i\sin(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This leads us to the following:
+\par\bigskip
+\begin{theo}[Addition formulas for complex trigonometric functions]{}
+  \begin{itemize}
+    \item $\sin(x+iy) = \sin(x)\cosh(y)+i\cos(x)\sinh(y)$
+    \item $\cos(x+iy) = \cos(x)\cosh(y)-i\sin(x)\sinh(y)$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\subsection{Mapping properties of $\sin(z)$}\hfill\\\par
+\noindent Let $f(z) = \sin(z)$ in $-\dfrac{\pi}{2}<\text{Re}(z)<\dfrac{\pi}{2}$, let $A$ be the set of points allowed with respect to the above constraint and let $B$ be the mapping of those points by $\sin(A)$
+\par\bigskip
+\noindent\textbf{Claim:} $f:A\to B$ is a bijective mapping
+\newpage
+\begin{prf}[]{}
+  Take a $z\in\C\quad z = x+iy\quad -\dfrac{\pi}{2}<x<\dfrac{\pi}{2}$.\par
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      f(z) = \sin(x+iy)= \sin(x)\cosh(y)+i\cos(x)\sinh(y)\\
+      f(z)\in\R\Lrarr \cos(x)\sinh(y) = 0 \Lrarr \sinh(y)=0\Lrarr y=0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent If $y=0$, then:
+  \begin{equation*}
+    \begin{gathered}
+      f(z) = \sin(x)\cosh(y) = \sin(x)\in(-1,1)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Therefore, if $z\in A\Rightarrow f(z)\in B$. Now we need to show that for any $z\in B$, there is a $u$ such that $f(u) = z$
+  \par\bigskip
+  \noindent Let $u = \sin(x)\cosh(y)\quad, v = \cos(x)\sinh(y)$ and pick a vertical line at $x = a\neq0$\par
+  \noindent We will now consider the images of these lines:
+  \begin{equation*}
+    \begin{gathered}
+      \cosh(y) = \dfrac{u}{\sin(a)}\qquad\sinh(y) = \dfrac{v}{\cos(a)}\\
+      (\cosh(y))^2-(\sinh(y))^2 = 1\Rightarrow \left(\dfrac{u}{\sin(a)}\right)^2-\left(\dfrac{v}{\cos(a)}\right)^2 = 1
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent In the plane, this represents a hyperbolic function. Now pick a horizontal line $y = b\neq0$
+  \begin{equation*}
+    \begin{gathered}
+      \sin(x) = \dfrac{u}{\cosh(b)}\qquad\cos(x) = \dfrac{v}{\sinh(b)}\\
+      \cos^2(x)+\sin^2(x) =1\Rightarrow \left(\dfrac{u}{\cosh(b)}\right)^2+\left(\dfrac{v}{\sinh(b)}\right)^2=1
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This isa  half-ecliplse. Note that $v>0\Lrarr \sinh(b)>0\Lrarr b>0$
+  \par\bigskip
+\end{prf}
+\par\bigskip
