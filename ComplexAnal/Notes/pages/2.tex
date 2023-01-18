@@ -102,7 +102,27 @@
 \end{theo}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
-\noindent This makes $z^\alpha$ a multivalued function.
+\noindent This makes $z^\alpha$ a multivalued function, but it is possible to have a single-valued output from it. 
+\par\bigskip
+\begin{theo}[]{}
+  Let $a,b\in\C$ where $a\neq0$. Then $a^b$ is single-valued (does not depend on the choice of branch for the logarithm) $\Lrarr b\in\Z$
+  \par\bigskip
+  \noindent If $b\in\Q$ and is in lowest form (that is, $b = \dfrac{p}{q}$ where $p,q$ have no common factors), then $a^b$ has exactly $q$ distinct values (the $q$:th roots of $a^p$) 
+  \par\bigskip
+  \noindent If $b\in\C\backslash\Q$, then $a^b$ has infinetly many values. 
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Chose some interval (branch), say $[0,2\pi)$, for the arg function and let $\ln{\left(z\right)}$  be the corresponding branch of the logarithm. If we chose another branch, we would have $\ln{\left(a\right)}+2\pi kbi$ rather than $\ln{\left(a\right)}$ (where $k\in\Z$)\par
+  \noindent Therefore, $a^b = e^{b\ln{\left(a\right)}+2\pi kbi} = e^{b\ln{\left(a\right)}}\cdot e^{2\pi ki}$
+  \par\bigskip
+  \noindent Notice that $e^{2\pi kbi}$ stays the same regardles of $b\in\Z$, as long as it is an integer.
+  \par\bigskip
+  \noindent In the same way, it can be shown that $e^{2\pi kip/q}$ has $q$ distinct values if $p,q$ have no common factor.
+  \par\bigskip
+  \noindent If $b$ is irrational, and if $e^{2\pi kbi} = e^{2\pi mbi}$, then it follows that $e^{(2\pi bi)(k-m)} =1$, and therefore $b(k-m)$ is an integer.\par
+  \noindent Since $b$ is irrational, then $n-m = 0$
+\end{prf}
 \par\bigskip
 \noindent Just as before, whenever we are dealing with the argument, the argument (heh) of branching comes up. We can chose to branch $z^\alpha$:
 \begin{equation*}
@@ -176,7 +196,7 @@
 \end{equation*}
 \par\bigskip
 \noindent This leads us to the following:
-\par\bigskip
+\newpage
 \begin{theo}[Addition formulas for complex trigonometric functions]{}
   \begin{itemize}
     \item $\sin(x+iy) = \sin(x)\cosh(y)+i\cos(x)\sinh(y)$
@@ -184,11 +204,20 @@
   \end{itemize}
 \end{theo}
 \par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Both sine and cosine can be defined as the unique solution to an ODE, namely:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime\prime}(x)+f(x) = 0\qquad f(0) = 0,\;f^{\prime}(0)=1\qquad f(x) = \sin(x)\\
+    f^{\prime\prime}(x)+f(x)=0\qquad f(0)=1,\;f^{\prime}(0)=0\qquad f(x) = \cos(x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
 \subsection{Mapping properties of $\sin(z)$}\hfill\\\par
 \noindent Let $f(z) = \sin(z)$ in $-\dfrac{\pi}{2}<\text{Re}(z)<\dfrac{\pi}{2}$, let $A$ be the set of points allowed with respect to the above constraint and let $B$ be the mapping of those points by $\sin(A)$
 \par\bigskip
 \noindent\textbf{Claim:} $f:A\to B$ is a bijective mapping
-\newpage
+\par\bigskip
 \begin{prf}[]{}
   Take a $z\in\C\quad z = x+iy\quad -\dfrac{\pi}{2}<x<\dfrac{\pi}{2}$.\par
   \noindent Then:
