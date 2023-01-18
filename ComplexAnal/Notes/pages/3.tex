@@ -1,0 +1,44 @@
+\section{Topology of $\C$}
+\par\bigskip
+\begin{theo}[Open disc]{}
+  The set $D_r(z_0) = \left\{z\in\C\;:\;\left|z-z_0\right|<r\right\}$ is called the \textit{open-disc} with center $z_0$ and radius $r$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Since we have a strict inequality, it is open. If we had $\leq$, it would be a closed disc.
+\par\bigskip
+\begin{theo}[Open subset]{}
+  A subset $M$ of $\C$ is called \textit{open} if for every $z_0\in M$ there exists an $r>0$ such that $D_r(z_0)\subseteq M$
+\end{theo}
+\par\bigskip
+\begin{theo}[Interior point]{}
+  A point $z_0\in M$ is called an \textit{interior-point} of $M$ if there exists an $r>0$ such that $D_r(z_0)\subseteq M$
+\end{theo}
+\par\bigskip
+\begin{theo}[Boundary point]{}
+  A point$z_0\in\C$ is called a \textit{boundary point} of $M$ if $\forall r>0$ it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      D_r(z_0)\cap M\neq\phi\quad\wedge \quad D_r(z_0)\cap M^c\neq\phi
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The set of all interior points of $M$ is denoted by int$(M)$ and the set of all boundary points of $M$  is denoted by $\partial M$
+\par\bigskip
+\noindent The following equivelances hold:\par
+\begin{itemize}
+  \item $M$ is closed $\Lrarr$ $\partial M\subseteq M$
+  \item $M$ is open $\Lrarr$ $\partial M\subseteq M^c$
+\end{itemize}
+\par\bigskip
+\begin{theo}[polygonal-path-connected open set]{}
+  An open set $M$ is called \textit{polygonal-path-connected} if eveyr pair of points $z_1,z_2\in M$ can be connected by a polygonal path contained in $M$ 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Some would call this just path-connected, or even just connected. This works in $\R^n$ (recall that $\C\cong\R^2$). Topologically speaking, polygonal-path-connectedness $\implies$ path-connectedness
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One can assume the polygonal paths to have segments parallell to the ordinale ones.
