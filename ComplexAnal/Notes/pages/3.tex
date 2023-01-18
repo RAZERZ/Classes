@@ -33,6 +33,11 @@
   \item $M$ is open $\Lrarr$ $\partial M\subseteq M^c$
 \end{itemize}
 \par\bigskip
+\begin{theo}[Polygonal path]{}
+  A polygonal path $P$ (sometimes called piecewise linear curve) is a curve specified by a sequence of points $(A_1,A_2,\cdots,A_n)$.\par
+  \noindent The curve itself consists of line segments connecting the consecutive points. 
+\end{theo}
+\par\bigskip
 \begin{theo}[polygonal-path-connected open set]{}
   An open set $M$ is called \textit{polygonal-path-connected} if eveyr pair of points $z_1,z_2\in M$ can be connected by a polygonal path contained in $M$ 
 \end{theo}
@@ -42,3 +47,161 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent One can assume the polygonal paths to have segments parallell to the ordinale ones.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent An open connected set is called a \textit{domain}
+\newpage
+\begin{theo}[]{}
+  Suppose that $u(x,y)$ is a real-valued function defined in a domain $D\subseteq\R²$\par
+  \noindent Also suppose that:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial u}{\partial x} = \dfrac{\partial u}{\partial y} = 
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent in all of $D$. Then $u$ is contained in $D$
+\end{theo}
+\par\bigskip
+\begin{theo}[Simply connected]{}
+  A domain $D\subseteq\C$ is called \textit{simply connected} if ever closed curve in $D$ can be, within $D$, continously deformed to a point 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Topologically speaking, $D$ is homeomorphic to a point. 
+\newpage
+\subsection{Limits and Continuity}\hfill\\
+\par\bigskip
+\begin{theo}[Complex limit]{}
+  A sequence $\left\{z_n\right\}_{n=1}^\infty$ of complex numbers is said to have the limit $z_0$ (\textit{converges to} $z_0$) if for every given $\varepsilon>0$, there exists an integer $N\geq1$  such that
+  \begin{equation*}
+    \begin{gathered}
+      \left|z_n-z_0\right|<\varepsilon\quad \forall n\geq N
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We write this as:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}z_n = z_0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $z_n\to z_0\Lrarr \text{Re}(z_n)\to\text{Re}(z_0)$ and Im$(z_n)\to\text{Im}(z_0)$\par
+\noindent This follows from $\left|x\right|, \left|y\right|\leq\sqrt{x^2+y^2}\leq\left|x\right|+\left|y\right|$ 
+\par\bigskip
+\begin{theo}[]{}
+  Let $f$ be a function defined ina  punctured neighborhood of $z_0$
+  \par\bigskip
+  \noindent We say that $f$ has the limit $w_0$ as $z\to z_0$, if for every given $\varepsilon>0$ there exists $\delta>0$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      0<\left|z-z_0\right|<\delta\implies \left|f(z)-w_0\right|<\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We write this as:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{z\to z_0}f(z) = w_0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If a limit exists, it is unique.
+\par\bigskip
+\begin{theo}[]{}
+  For $z = x+iy$, let:
+  \begin{equation*}
+    \begin{gathered}
+      u(x,y) = \text{Re}(f(z))\qquad v(x,y) = \text{Im}(f(z))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $z_0 = x_0+iy_0$ and $w_0 = u_0+iv_0$\par
+  \noindent Then the following holds:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{z\to z_0} f(z) = w_0\Lrarr\begin{cases}\lim_{(x,y)\to(x_0,y_0)}u(x,y) = u_0\\\lim_{(x,y)\to(x_0,y_0)}v(x,y) = v_0\end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Continous function]{}
+  Let $f$ be a function defined in a neighborhood of $z_0$.
+  \par\bigskip
+  \noindent $f$ is said to be continous at $z_0$ if:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{z\to z_0} f(z) = f(z_0)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent A function $f$ is said to be \textit{continous on the (open) set} $M$ if it is continous at each point of $M$ 
+\end{theo}
+\newpage
+\noindent Assume $\lim_{z\to z_0} f(z) = A$ and $\lim_{z\to z_0}g(z) = B$\par
+\noindent The following properties from the real limit hold for the complex limit:\par
+\begin{itemize}
+  \item $\lim_{z\to z_0}(f(z)\pm g(z)) = A\pm B$
+  \item $\lim_{z\to z_0} f(z)g(z) = AB$
+  \item $\lim_{z\to z_0}\dfrac{f(z)}{g(z)} = \dfrac{A}{B}\qquad B\neq0$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $f,g$ are continous at $z_0$, then so are $f\pm g$ and $fg$. The quotient is only continous if $g(z_0)\neq0$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Constant functions, polynomials, and rational functions (whenever the denominator is non-zero) are all continous in $\C$
+\par\bigskip
+\subsection{The complex derivative}\hfill\\\par
+\noindent Analogous to the real case, we also have the following:
+\par\bigskip
+\begin{theo}[Differentiability]{}
+  Let $f$ be a complex-valued function defined in a neighborhood of $z_0$.\par
+  \noindent We say that $f$ is differentiable at $z_0$ if the limit:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{\Delta z\to0}\dfrac{f(z_0+\Delta z)-f(z_0)}{\Delta z}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent exists.\par
+  \noindent The limit is called the \textit{derivative} of $f$ at $z_0$, and is denoted by $f^{\prime}(z_0)$ or $\dfrac{df}{dz}(z_0)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Since $\Delta z$ is a complex unmber, it can approach $0$ from different directions. In order for the derivative to exist, the results must be independent of the direction of which $\Delta z$ approaches 0 (i.e, approaches 0 from all directions)
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent The function $f(z) = \overline{z}$ is nowhere differentiable since:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{f(z_0+\Delta z)-f(z_0)}{\Delta z} = \dfrac{\overline{z_0+\Delta z}-\overline{z_0}}{\Delta z} = \dfrac{\overline{\Delta z}}{\Delta z} = \dfrac{\overline{\Delta x+i\Delta y}}{\Delta x+i\Delta y}
+  \end{gathered}
+\end{equation*}\par
+\noindent As $\Delta z\to0$ from the $x$-direction (real-line), the limit becomes $\dfrac{\overline{x}}{x} = 1$\par
+\noindent However, as we approach from the $y$-direction (complex axis), the limit becomes $\dfrac{\overline{iy}}{iy} = \dfrac{-y}{y} = -1$\par
+\noindent Since $x,y$ were chosen arbitrarily, this applies to all $x,y$. Since the limits did not match, it is not differentiable and at no point.
+\par\bigskip
+\noindent Of course, all the properties from the real case hold here as well.\par
+\noindent Suppose $f,g$ are differentiable at $z$, then:\par
+\begin{itemize}
+  \item $(f\neq g)^{\prime}(z) = f^{\prime}(z)\neq g^{\prime}(z)$
+  \item $(cf)^{\prime}(z) = cf^{\prime}(z)$
+  \item $(fg)^{\prime}(z) = f^{\prime}(z)g(z)+f(z)g^{\prime}(z)$
+  \item $(f\circ g)^{\prime}(z) = f^{\prime}(g(z))g^{\prime}(z)$
+\end{itemize}
+\newpage
+\subsection{Analytic functions}\hfill\\
+\par\bigskip
+\begin{theo}[Analytic function]{}
+  A complex-valued function $f$ is said to be \textit{analytic} in an open set $G$ if $f$ is differentiable at every point in $G$.
+  \par\bigskip
+  \noindent We say that $f$ is \textit{analytic at $z_0$}  if $f$ is differentiable in a neighborhood of $z_0$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $f$ is analytic in all of $\C$, then $f$ is said to be \textit{entire} (or \textit{holomorphic}).

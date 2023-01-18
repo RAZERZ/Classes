@@ -11,3 +11,6 @@
 \contentsline {subsection}{\tocsubsection {}{2.4}{Trigonometric and Hyperbolic functions}}{10}{subsection.2.4}%
 \contentsline {subsection}{\tocsubsection {}{2.5}{Mapping properties of $\qopname \relax o{sin}(z)$}}{11}{subsection.2.5}%
 \contentsline {section}{\tocsection {}{3}{Topology of $\mathbb {C}$}}{12}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Limits and Continuity}}{14}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{The complex derivative}}{15}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Analytic functions}}{16}{subsection.3.3}%
