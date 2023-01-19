@@ -31,7 +31,15 @@
 \begin{itemize}
   \item $M$ is closed $\Lrarr$ $\partial M\subseteq M$
   \item $M$ is open $\Lrarr$ $\partial M\subseteq M^c$
+  \item $\C$ is clopen
+  \item $\O$ is clopen
+  \item The union of any collection of open subsets of $\C$ is open
+  \item The intersection of any finite collection of open subsets of $\C$ is open
 \end{itemize}
+\par\bigskip
+\begin{theo}[Closed set]{}
+  We say that a set $X\subseteq\C$ is closed if its complement $X^c$ is open
+\end{theo}
 \par\bigskip
 \begin{theo}[Polygonal path]{}
   A polygonal path $P$ (sometimes called piecewise linear curve) is a curve specified by a sequence of points $(A_1,A_2,\cdots,A_n)$.\par
@@ -46,11 +54,14 @@
 \noindent Some would call this just path-connected, or even just connected. This works in $\R^n$ (recall that $\C\cong\R^2$). Topologically speaking, polygonal-path-connectedness $\implies$ path-connectedness
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
+\noindent A set $X$ is connected $\Lrarr$ the only subsets of $X$ which are clopen are $\O$ and $X$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
 \noindent One can assume the polygonal paths to have segments parallell to the ordinale ones.
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent An open connected set is called a \textit{domain}
-\newpage
+\par\bigskip
 \begin{theo}[]{}
   Suppose that $u(x,y)$ is a real-valued function defined in a domain $D\subseteq\R²$\par
   \noindent Also suppose that:
@@ -69,6 +80,14 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Topologically speaking, $D$ is homeomorphic to a point. 
+\par\bigskip
+\begin{theo}[Non-connectedness]{}
+  A set $A\subseteq\C$ is \textit{not connected} if there are open sets $U$ and $V$ such that:\par
+  \begin{itemize}
+    \item $A\subseteq U\cup V$
+    \item $A\cap U\neq\O$ and $A\cap V\neq\O$
+  \end{itemize}
+\end{theo}
 \newpage
 \subsection{Limits and Continuity}\hfill\\
 \par\bigskip
@@ -87,6 +106,9 @@
     \end{gathered}
   \end{equation*}
 \end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Every cauchy sequence in $\C$ converges. 
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent $z_n\to z_0\Lrarr \text{Re}(z_n)\to\text{Re}(z_0)$ and Im$(z_n)\to\text{Im}(z_0)$\par
@@ -143,6 +165,15 @@
   \noindent A function $f$ is said to be \textit{continous on the (open) set} $M$ if it is continous at each point of $M$ 
 \end{theo}
 \newpage
+\noindent\textbf{Anmärkning:}\par
+\noindent The following statements are equivalent (for $f:A\to\C$):\par 
+\begin{itemize}
+  \item $f$ is continous
+  \item The inverse image of every closed set is closed relative to $A$
+  \item The inverse image of every open set is open relative to $A$
+  \item The image set $f(A)$ is connected
+\end{itemize}
+\par\bigskip
 \noindent Assume $\lim_{z\to z_0} f(z) = A$ and $\lim_{z\to z_0}g(z) = B$\par
 \noindent The following properties from the real limit hold for the complex limit:\par
 \begin{itemize}
@@ -174,6 +205,9 @@
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \noindent Since $\Delta z$ is a complex unmber, it can approach $0$ from different directions. In order for the derivative to exist, the results must be independent of the direction of which $\Delta z$ approaches 0 (i.e, approaches 0 from all directions)
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $X$ is an open connceted set and $a,b\in X$, then there is a differntiable path $\gamma:[0,1]\to X$ with $\gamma(0) = a$ and $\gamma(1) = b$
 \par\bigskip
 \noindent\textbf{Example}:\par
 \noindent The function $f(z) = \overline{z}$ is nowhere differentiable since:
@@ -213,5 +247,5 @@
       \lim_{z\to w}\dfrac{f(z)}{(z-w)}
     \end{gathered}
   \end{equation*}\par
-  \noindent is an entire function. 
+  \noindent is an entire functionf
 \end{theo}

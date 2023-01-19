@@ -13,4 +13,4 @@
 \contentsline {section}{\tocsection {}{3}{Topology of $\mathbb {C}$}}{12}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Limits and Continuity}}{14}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The complex derivative}}{15}{subsection.3.2}%
-\contentsline {subsection}{\tocsubsection {}{3.3}{Analytic functions}}{16}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Analytic functions}}{17}{subsection.3.3}%
