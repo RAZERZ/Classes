@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  18 JAN 2023 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  19 JAN 2023 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,6 +1014,15 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1861,126 +1870,137 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 25.
-Package mdframed Info: mdframed works in twoside mode on input line 36.
+
+LaTeX Warning: Command \O invalid in math mode on input line 35.
+
+Package mdframed Info: mdframed works in twoside mode on input line 40.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 36.
+(mdframed)              on input line 40.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 39.
-Package mdframed Info: mdframed works in twoside mode on input line 41.
+(mdframed)              on input line 42.
+Package mdframed Info: mdframed works in twoside mode on input line 44.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 41.
+(mdframed)              on input line 44.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 43.
+(mdframed)              on input line 47.
+Package mdframed Info: mdframed works in twoside mode on input line 49.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 49.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 51.
 [12]
-Package mdframed Info: mdframed works in twoside mode on input line 54.
+
+LaTeX Warning: Command \O invalid in math mode on input line 57.
+
+Package mdframed Info: mdframed works in twoside mode on input line 65.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 54.
+(mdframed)              on input line 65.
+
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 66.
 
 
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 55.
-
-
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 55.
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 66.
 
 Missing character: There is no ² in font cmr10!
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 64.
-Package mdframed Info: Not enough space on this page on input line 64.
-Package mdframed Info: mdframed works in twoside mode on input line 66.
+(mdframed)              on input line 75.
+Package mdframed Info: mdframed works in twoside mode on input line 77.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 66.
+(mdframed)              on input line 77.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 68.
+(mdframed)              on input line 79.
+Package mdframed Info: mdframed works in twoside mode on input line 84.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 84.
+
+LaTeX Warning: Command \O invalid in math mode on input line 88.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 88.
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 90.
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 75.
+Package mdframed Info: mdframed works in twoside mode on input line 94.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 75.
+(mdframed)              on input line 94.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 89.
-Package mdframed Info: mdframed works in twoside mode on input line 95.
+(mdframed)              on input line 108.
+Package mdframed Info: mdframed works in twoside mode on input line 117.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 95.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 111.
-Package mdframed Info: mdframed works in twoside mode on input line 116.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 116.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 131.
-Package mdframed Info: mdframed works in twoside mode on input line 133.
+(mdframed)              on input line 117.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 133.
+Package mdframed Info: mdframed works in twoside mode on input line 138.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 144.
+(mdframed)              on input line 138.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 153.
+Package mdframed Info: mdframed works in twoside mode on input line 155.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 155.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 166.
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 163.
+Package mdframed Info: mdframed works in twoside mode on input line 194.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 163.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 173.
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 200.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 200.
+(mdframed)              on input line 194.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 204.
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
-LaTeX Warning: Reference `mdf@pagelabel-36' on page 16 undefined on input line 
-204.
+ []
 
-) [16] (./main.aux (./includes/title.aux))
-
-LaTeX Warning: There were undefined references.
-
+Package mdframed Info: mdframed works in twoside mode on input line 234.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 234.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 238.
+) [17] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 1242A52EB1E638B39D2C8F8FF58BDA90;2798
-(rerunfilecheck)             After:  2D36C68332C640F000DABE5F595CFDD0;2977.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 2D36C68332C640F000DABE5F595CFDD0;2977.
  ) 
 Here is how much of TeX's memory you used:
- 36039 strings out of 478238
- 839523 string characters out of 5850456
- 1236833 words of memory out of 5000000
- 53441 multiletter control sequences out of 15000+600000
+ 36051 strings out of 478238
+ 839742 string characters out of 5850457
+ 1237832 words of memory out of 5000000
+ 53450 multiletter control sequences out of 15000+600000
  478325 words of font info for 64 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  111i,17n,107p,749b,2129s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1999,10 +2019,10 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on main.pdf (17 pages, 252161 bytes).
+Output written on main.pdf (18 pages, 256033 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
