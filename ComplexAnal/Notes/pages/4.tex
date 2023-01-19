@@ -61,3 +61,141 @@
   \par\bigskip
   \noindent Then $f$ is differentiable at $z_0$
 \end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Cauchy-Riemann equations + $u,v\in C^1\Rightarrow f$ is differentiable
+\newpage
+\begin{prf}[]{}
+  In view of the continuity of the first parital derivates at $(x_0,y_0)$ , it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      u(x_0+\Delta x,y_0+\Delta y) = u(x_0,y_0)+u_x(x_0,y_0)\Delta x + u_y(x_0,y_0)\Delta y + \sqrt{(\Delta x)^2+(\Delta y)^2}\rho_1(\Delta x,\Delta y)\\
+      v(x_0+\Delta x,y_0+\Delta y) = v(x_0,y_0) + v_x(x_0,y_0)\Delta x+v_y(x_0,y_0)\Delta y + \sqrt{(\Delta x)^2+(\Delta y)^2}\rho_2(\Delta x,\Delta y)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $\rho_1,\rho_2\to0$ as $(\Delta x,\Delta y)\to(0,0)$
+  \par\bigskip
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      f(z_0+\Delta z)-f(z_0) = u_x(x_0,y_0)\Delta x + \underbrace{u_y(x_0,y_0)}_{\text{$=-v_x(x_0,y_0)$}}\Delta y + i(v_x(x_0,y_0)\Delta x+\underbrace{v_y(x_0,y_0)}_{\text{$=u_x(x_0,y_0)$}}\Delta y)\\
+      +\sqrt{(\Delta x)^2+(\Delta y)^2}(\rho_1(\Delta x,\Delta y)+i\rho_2(\Delta x,\Delta y))\\
+      \stackrel{\text{CR-eq.}}{=} u_x(x_0,y_0)\Delta z + iv_x(x_0,y_0)\Delta z + \left|\Delta z\right|(\rho_1(\Delta x,\Delta y)+i\rho_2(\Delta x,\Delta y))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $\rho_1,\rho_2\to0$ as $\Delta z\to0$, it follows that:
+  \begin{equation*}
+    \begin{gathered}
+      f^{\prime}(z_0) = \lim_{\Delta z\to0} \dfrac{f(z_0+\Delta z)-f(z_0)}{\Delta z}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent exists and is equal to $u_x(x_0,y_0)+iv_x(x_0,y_0)$ 
+\end{prf}
+\par\bigskip
+\subsection{Inverse mappings}\hfill\\\par
+\noindent Suppose $f = u+iv$ is analytic in a domain $D$ (with $f^{\prime}$ continous).\par
+\noindent Consider the mapping:
+\begin{equation*}
+  \begin{gathered}
+  \begin{pmatrix}x\\y\end{pmatrix}\mapsto\begin{pmatrix}u(x,y)\\v(x,y)\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent As a mappiong of $D\subset\R^2\to\R^2$
+\par\bigskip
+\noindent Its Jacobian matrix:
+\begin{equation*}
+  \begin{gathered}
+    J_f = \begin{pmatrix}u_x&u_y\\v_x&v_y\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent has determinant:
+\begin{equation*}
+  \begin{gathered}
+    \text{det}(J_f) = u_xv_y-u_yv_x\stackrel{\text{CR-eq.}}{=} u_x^2+v_x^2 = \left|f^{\prime}(z)\right|^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The inverse function then leads to the following:
+\par\bigskip
+\begin{theo}[Inverse function theorem]{}
+  Suppose $f(z)$ is analytic on a domain $D$ with $f^{\prime}(z)\neq0$ continous.\par
+  \noindent Then there is a neighborhood $U$ of $z_0$ and a neighborhood $V$ of $f(z_0)$ such that $f:U\to V$ is bijective, and the inverse function $f^{-1}:V\to U$ is analytic with derivative:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{d}{d w}f^{-1}(w) = \dfrac{1}{f^{\prime}(z)}\qquad w = f(z)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\section{Harmonic Functions}
+\par\bigskip
+\begin{theo}[Harmonic function]{}
+  A real-valued function $\phi(x,y)$ is said to be \textit{harmonic} in a domain $D$ if $\phi\in C^2(D)$ and $\phi$ satisfies Laplace's equations:
+  \begin{equation*}
+    \begin{gathered}
+      \Delta\phi = \phi_{xx}+\phi_{yy} = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent in $D$
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $f = u+iv$ is analytic in a domain $D$. Then $u,v$ are harmonic in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  One can show that $u,v\in C^\infty$:
+  \begin{equation*}
+    \begin{gathered}
+      u_x = v_y\Rightarrow u_{xx} = v_{y_x}\\
+      u_y = -v_x\Rightarrow u_{yy} = -v_{xy}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent As $v_{yx} = v_{xy}$, we have $u_{xx}+u_{yy} = 0$
+  \par\bigskip
+  \noindent Similarly, $v_{xx}+v_{yy} = 0$
+  \par\bigskip
+\end{prf}
+\par\bigskip
+\begin{theo}[Harmonic Conjugacy]{}
+  If $u$ is harmonic in a domain $D$ and $v$ is a harmonic function in $D$ such that $u+iv$ is analytic in $D$, then we say that $v$ is a \textit{harmonic conjugate}  of $u$ in $D$
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  If $u$ is harmonic in a simply connected domain $D\subseteq\C$, then there exists a harmonic conjugate $v$ of $u$ in $D$, and $v$ is unique up to addition of a real constant
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose $u$ is harmonic in $D\subseteq\C$
+  \par\bigskip
+  \noindent Consider the vector-field $\overline{F} = (-u_y,u_x)\in C^1(0)$.\par
+  \noindent Note that:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\partial F_1}{\partial y} = -u_{yy} \stackrel{u\text{ harm.}}{=} u_{xx} = \dfrac{\partial F_2}{\partial x}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $D$ is simply connected $\Rightarrow\overline{F}$ is conservative $\Rightarrow\exists v:\; \nabla v = \overline{F}$, i.e $(v_x,v_y) = (-u_y,u_x)$
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow\begin{rcases}u_x = v_y\\u_y=-v_x\end{rcases}\Rightarrow f = u+iv\text{ is analytic in $D$}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If $\overline{v}$ is another harmonic conjugate, then:
+  \begin{equation*}
+    \begin{gathered}
+      \overline{v}_x = -u_y = v_x\\
+      \overline{v}_y = u_x = v_y\\
+      \Rightarrow\nabla(v-\overline{v}) = \overline{0}\Rightarrow v-\overline{v} = c\in\C
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent A vector field is conservative if it is the gradient of some function.\par
+\noindent It has the property that its line integral is path independent.
