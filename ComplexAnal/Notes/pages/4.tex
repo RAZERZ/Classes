@@ -1,0 +1,63 @@
+\section{Cauchy-Riemann's equations}\par
+\noindent Suppose $f(z) = f(x+iy) = u(x,y)+iv(x,y)$ is differentiable at $z_0 = x_0+iy_0$\par
+\noindent Then:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z_0) = \lim_{\Delta z\to0} \dfrac{f(z_0+\Delta z)-f(z_0)}{\Delta z} = \lim_{\Delta z\to0} \dfrac{u(x_0+\Delta x, y_0+\Delta y)+iv(x_0+\Delta x,y_0+ \Delta y)-(u(x_0,y_0)+iv(x_0,y_0))}{\Delta z}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{1)} Let $\Delta z = \Delta x$ (i.e $\Delta y = 0$):
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z_0) = \lim_{\Delta x\to0}\dfrac{(u(x_0+\Delta x,y_0)-u(x_0,y_0))+i(v(x_0+\Delta x,y_0)-v(x_0,y_0))}{\Delta x}\\
+    = u_x(x_0,y_0)+iv_x(x_0,y_0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{2)} Let $\Delta z = i\Delta y$ (i.e $\Delta x = 0$):
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z_0) = \lim_{\Delta y\to0}\dfrac{(u(x_0,y_0+\Delta y)-u(x_0,y_0))+i(v(x_0,y_0+\Delta y)-v(x_0,y_0))}{i\Delta y}\\
+    = -iu_y(x_0,y_0)+v_y(x_0,y_0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent It must therefore hold that:
+\begin{equation*}
+  \begin{gathered}
+    u_x+iv_x = -iu_y+v_y
+  \end{gathered}
+\end{equation*}\par
+\noindent This leads to the Cauchy-Riemann equations:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      u_x = v_y\\
+      u_y = -v_x
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We have therefore arrived at the following:
+\par\bigskip
+\begin{theo}[]{}
+  A necessary condition for $f = u+iv$ to be differentiable at $z_0 = x_0+iy_0$ is that the Cauchy-Riemann equations are satisfied at $(x_0,y_0)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We also saw that if $f$ is differentiable at the point $z_0$, then the derivative is given by:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z_0) = u_x(x_0,y_0)+iv_x(x_0,y_0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The following provides a sufficient condition for Differentiability:
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $f = u+iv$ is defined in a open set $G$ containing $z_0 = x_0+iy_0$.\par
+  \noindent Suppose also that $u_x,u_y,v_x,v_y$ exists in $G$ and are continous at $(x_0,y_0)$, and satisfy the Cauchy-Riemann equations at $(x_0,y_0)$
+  \par\bigskip
+  \noindent Then $f$ is differentiable at $z_0$
+\end{theo}
