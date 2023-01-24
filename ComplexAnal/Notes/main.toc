@@ -17,3 +17,6 @@
 \contentsline {section}{\tocsection {}{4}{Cauchy-Riemann's equations}}{18}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Inverse mappings}}{19}{subsection.4.1}%
 \contentsline {section}{\tocsection {}{5}{Harmonic Functions}}{20}{section.5}%
+\contentsline {section}{\tocsection {}{6}{Conformal mappings}}{22}{section.6}%
+\contentsline {section}{\tocsection {}{7}{Stereographic projection}}{23}{section.7}%
+\contentsline {section}{\tocsection {}{8}{Möbius transformations}}{24}{section.8}%

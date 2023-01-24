@@ -1,0 +1,231 @@
+\section{Conformal mappings}\par
+\noindent Let $D$ be a domain in $\C$, $z_0\in D$.\par
+\noindent Suppose $f:D\to\C$ is analytic with $f^{\prime}(z_0)\neq0$. Let $\gamma(t) = x(t)+iy(t)$ be a $C^1$-curve in $D$ through $z_0 = \gamma(0)$ with $\gamma^{\prime}(0)\neq0$. Then $(f\circ\gamma)(t) = f(\gamma(t))$ is a $C^1$-curve through $(f\circ\gamma)(0) = f(z_0)$.
+\par\bigskip
+\noindent Moreover,
+\begin{equation*}
+  \begin{gathered}
+    (f\circ\gamma)^{\prime}(0) = \dfrac{d}{dt}f(\gamma(t))|_{_{t=0}} = \lim_{t\to0}\dfrac{f(\gamma(t))-f(\gamma(0))}{t}\\
+    = \lim_{t\to0}\dfrac{f(\gamma(t))-f(\gamma(0))}{\gamma(t)-\gamma(0)}\cdot\dfrac{\gamma(t)-\gamma(0)}{t} = f^{\prime}(z_0)\gamma^{\prime}(0)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent From this, we can conclude $(f\circ\gamma)^{\prime}(0) = f^{\prime}(z_0)\gamma^{\prime}(0)$  is a tangent vector to $f\circ\gamma$ at $f(z_0)$
+\par\bigskip
+\noindent Note that arg$(f\circ\gamma)^{\prime}(0) =\text{arg}(f^{\prime}(z_0)+\text{arg}(\gamma^{\prime}(0)))$
+\par\bigskip
+\noindent If $\gamma_1$ and $\gamma_2$ are two $C^1$-curves which intersect at $z_0$, then the angle from $(f\circ\gamma_1)^{\prime}(0)$  to $(f\circ\gamma_2)^{\prime}(0)$ is the same as the angle from $\gamma_1^{\prime}(0)$  to $\gamma_2^{\prime}(0)$
+\par\bigskip
+\begin{theo}[Conformal $C^1$-mapping]{}
+  A $C^1$-mapping $f:D\to\C$ is said to be \textit{conformal} at $z_0$ if it satisfies the above paragraph.
+  \par\bigskip
+  \noindent If $f$ maps $D$ bijectively onto $V$, and if $f$ is conformal at one point $z_0\in D$ , we call $f:D\to V$ a \textit{conformal mapping}
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  If $f$ is analytic at $z_0$ and $f^{\prime}(z_0)\neq0$, then $f$ is conformal at $z_0$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One can in fact prove the converse of this theorem.
+\newpage
+\section{Stereographic projection}\par
+\noindent Consider the unit sphere $S\in\R^3$.\par
+\noindent Given any point $P = (x_1,x_2,x_3)\in S$ other than the north pole $N = (0,0,1)$, we draw the line through $N$ and $P$.\par
+\noindent We define the \textit{stereographic projection} of $P$ to be the point $z = x+iy\in\C\sim (x,y,0)$, where the line intersects the plane $x_3 = 0$. Then the following holds:
+\begin{equation*}
+  \begin{gathered}
+    (x,y,0) = (0,0,1)+t[(x_1,x_2,x_3)-(0,0,1)]
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $t$ is given by $1+t(x_3-1)=0\Lrarr t= \dfrac{1}{1-x_3}$. We arrive at the following:
+\begin{equation*}
+  \begin{gathered}
+    z = x+iy = \dfrac{x_1+ix_2}{1-x_3}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Conversely, given $z = x+iy\in\C\sim (x,y,0)$ teh line through $N$ and $z$ is given by:
+\begin{equation*}
+  \begin{gathered}
+    (x_1,x_2,x_3) = (0,0,1)+t[(x,y,0)-(0,0,1)]\qquad t\in\R
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\textbf{Anmärkning:}\par
+\noindent The line intersects $S$ when:
+\begin{equation*}
+  \begin{gathered}
+    x_1^2+x_2^2+x_3^2 = 1\\
+    \Lrarr (tx)^2+(ty)^2+(1-t)^2 = 1\\
+    \Lrarr t^2(x^2+y^2+1)-2t=0\\
+    \Lrarr t=0\vee t=\dfrac{2}{x^2+y^2+1} = \dfrac{2}{\left|z\right|^2+1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This corresponds to $P = N$ or:
+\begin{equation*}
+  \begin{gathered}
+    P = \left(\dfrac{2x}{\left|z\right|^2+1},\dfrac{2y}{\left|z\right|^2+1},\dfrac{\left|z\right|^2-1}{\left|z\right|^2+1}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Thus, stereographic projections $s:S\backslash N\to\C$ define a bijection.
+\par\bigskip
+\noindent Letting $\widehat{C} = \C\cup\left\{\infty\right\}$ denote the \textit{extended complex plane} and define $s(N) = \infty$, then $s$ becomes a bijective map from $S$ onto $\widehat{\C}$
+\par\bigskip
+\begin{theo}[]{}
+  Under stereographic projections, circles on $S$ correspond to circles and lines in $\C$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We therefore call circles and lines in $\C$ "circles" in $\widehat{\C} = \C\cup\left\{\infty\right\}$, where lines are considered as "circles through $\infty$"
+\newpage
+\begin{prf}[]{}
+  The general equation for a circle or line in the $z = x+iy$ plane is:
+  \begin{equation*}
+    \begin{gathered}
+      A(x^2+y^2)+Cx+Dy+E = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Using $z = x+iy = \dfrac{x_1+ix_2}{1-x_3}$, we get:
+  \begin{equation*}
+    \begin{gathered}
+      A\left(\left(\dfrac{x_1}{1-x_3}\right)^2+\left(\dfrac{x_2}{1-x_3}\right)^2\right)+\dfrac{Cx_1}{1-x_3}+\dfrac{Dx_2}{1-x_3}+E=0\\
+      \Lrarr A(x_1^2+x_2^2)+Cx_1(1-x_3)+Dx_2(1-x_3)E(1-x_3)^2=0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Using $x_1^2+x_2^2+x_3^2=1$, we get:
+  \begin{equation*}
+    \begin{gathered}
+      A(1-x_3^2)+Cx_1(1-x_3)+Dx_2(1-x_3)+E(1-x_3)^2 = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Dividing by $1-x_3$ yields:
+  \begin{equation*}
+    \begin{gathered}
+      A(1+x_3)+Cx_1+Dx_2+E(1-x_3)=0\\
+      \Lrarr Cx_1+Dx_2+(A-E)x_3+A+E=0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is the equation for a plane in $\R^3$ , which intersects $S$ in a circle
+\end{prf}
+\par\bigskip
+\section{Möbius transformations}
+\par\bigskip
+\begin{theo}[Moebius transformation]{}
+  A \textit{Möbius transformation} is a mapping of the form:
+  \begin{equation*}
+    \begin{gathered}
+      T(z) = \dfrac{az+b}{cz+d}\qquad a,b,c,d\in\C
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $ad-bc\neq0$ ($T$ is not constant)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $c=0$, we let $T(\infty) = \infty$. Then $T:\widehat{\C}\to\widehat{\C}$ is bijective
+\par\bigskip
+\noindent If $c\neq0$, then:
+\begin{equation*}
+  \begin{gathered}
+    T:\C\backslash\left\{-\dfrac{d}{c}\right\}\to\C\backslash\left\{\dfrac{a}{c}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent is a bijection. Letting $T\left(-\dfrac{d}{c}\right)=\infty$, and $T(\infty) = \dfrac{a}{c}$, we extend $T$  to a bijective map $T:\widehat{\C}\to\widehat{C}$
+\par\bigskip
+\noindent The inverse is found by solving:
+\begin{equation*}
+  \begin{gathered}
+    w = T(z)
+  \end{gathered}
+\end{equation*}\par
+\noindent which gives:
+\begin{equation*}
+  \begin{gathered}
+    z = T^{-1}(w)=
+    \begin{cases}
+    \dfrac{-dw+b}{cw-a},\;\text{ if } w\neq\dfrac{a}{c}\; w\neq\infty\\
+    \infty\;\text{ if } w=\dfrac{a}{c}\\
+    \dfrac{-d}{c}\;\text{ if } w =\infty
+  \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we interpret $\dfrac{a}{c}$ and $-\dfrac{d}{c}$ as $\infty$, it also holds for $c=0$
+\newpage
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    T^{\prime}(z) = \dfrac{d}{dt}\left(\dfrac{ax+b}{cz+d}\right) = \dfrac{a(cz+d)-(az+b)\cdot c}{(cz+d)^2}\\
+    = \dfrac{ad-bc}{(xz+d)^2}\neq0
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $T:\widehat{\C}\to\widehat{\C}$ is conformal
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If:
+\begin{equation*}
+  \begin{gathered}
+    T(z) = \dfrac{az+b}{cz+d}\qquad S(z) = \dfrac{\alpha z+\beta}{\gamma z+\delta}\\
+    \Rightarrow (S\circ T)(z) = \dfrac{\alpha T(z)+\beta}{\gamma T(z)+\delta}\\
+    = \dfrac{\alpha\left(\dfrac{az+b}{cz+d}\right)+\beta}{\gamma\left(\dfrac{az+b}{cz+d}\right)+\delta} = \dfrac{(\alpha a+\beta c)z+(\alpha b+\beta d)}{(\gamma a+\delta c)z+(\gamma b+\delta d)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This shows that compositions of Moebius transformations are Möbius transformations.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}\alpha&\beta\\\gamma&\delta\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix} = \begin{pmatrix}\alpha a+\beta\delta&ab+\beta d\\\gamma a+\delta c &\gamma b+\delta d\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[]{}
+  If a Moebius transformation $T$ has more than two fixed points in $\widehat{\C}$ ($z_0$ is a fixpoint if $T(z_0) = z_0$), then $T(z) = z$ $\forall z\in\widehat{\C}$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  If $c=0$, then $T(z) = \dfrac{az+b}{d}$, so:
+  \begin{equation*}
+    \begin{gathered}
+      T(z) = z\Lrarr \dfrac{az+b}{d}=z\Lrarr (a-d)z+b = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $T$ has at most one fixed point in $\C$ unless $a = d$ and $b=0$ $\Lrarr T(z) = z$ $\forall z\in\C$
+  \par\bigskip
+  \noindent So if $c=0$, $T$ has at most 2 fixed points in $\widehat{\C}$ ($T(\infty) = \infty$) unless $T(z) = z$  $\forall z\in\C$
+  \par\bigskip
+  \noindent If $c\neq0$, then:
+  \begin{equation*}
+    \begin{gathered}
+      T(z) = z \Lrarr \dfrac{az+b}{cz+d} = z\\
+      \Lrarr cz^2+(d-c)z-b=0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So $T$ has at most 2 fixed points in $\C$ (and $T(\infty) = \dfrac{a}{c}\neq\infty$) unless $c=0,a=d,b=0$\par
+  \noindent This contradicts $c\neq0$
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  If $S,T$ are Möbius transformations such that $S(z_i) = T(z_i)$ at three different points $z_1,z_2,z_3\in \widehat{\C}$, then $S = T$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  If $S(z_i) = T(z_i)$ for $i=1,2,3$, then the Moebius transformation $T^{-1}\circ S$ has at least 3 fixed points.\par
+  \noindent By the previous lemma:
+  \begin{equation*}
+    \begin{gathered}
+      T^{-1}\circ S(z) = z\quad\forall z\in\widehat{\C}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent i.e $S(z) = T(z)$ $\forall z\in\widehat{\C}$
+\end{prf}
