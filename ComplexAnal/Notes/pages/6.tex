@@ -1,0 +1,96 @@
+\section{Dirichlets problem}\par
+\noindent We have previously discussed harmonic function over a domain $D$. These have many applications in solving Dirichlets problem:
+\par\bigskip
+ Find a function $\phi(x,y)$ continous on $D\cup\partial D$ of class $C^2$ in $D$ such that\par
+ \begin{itemize}
+   \item$\Delta\phi = \phi_{xx}+\phi_{yy} =0$ in $D$
+   \item $\phi = $ some given function on $\partial D$ 
+ \end{itemize}
+\par\bigskip
+\subsection{Standard cases}\hfill\\\par
+\noindent This can be easily solved in some standard cases:
+\par\bigskip
+\begin{itemize}
+  \item$\begin{cases}\Delta\phi=0\text{ in $D$}\\\phi(a,y) = A\\\phi(b,y)=B\end{cases}\qquad$ Let $\phi(x,y) = \alpha x+\beta$, choose $\alpha,\beta$ such that\par$\quad\qquad\qquad\qquad\qquad\begin{cases}\alpha a+\beta = A\\\alpha b+\beta = B\end{cases}\Lrarr\begin{cases}\alpha = \dfrac{B-A}{b-a}\\\beta = A-\dfrac{a(B-A)}{b-a}=\dfrac{AB-aB}{b-a}\end{cases}$\par\bigskip
+    $\quad\qquad\qquad\qquad\qquad\Rightarrow\phi(x,y) = \dfrac{(B-A)x+Ab-aB}{b-a}$
+    \par\bigskip
+  \item $\phi(x,y) = \dfrac{2}{\pi}\text{Arg}(z) = \dfrac{2}{\pi}\arctan\left(\dfrac{y}{x}\right)$
+    \par\bigskip
+  \item $\phi(x,y) = \alpha\text{Arg}(z)+\beta$ leads to:
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases}
+          \alpha\dfrac{\pi}{2}+\beta = A\\
+          -\alpha\dfrac{\pi}{2}+\beta = B
+          \end{cases}\Lrarr\begin{cases}
+        \alpha = \dfrac{A-B}{\pi}\\\beta = \dfrac{A+B}{2}\end{cases}
+      \end{gathered}
+    \end{equation*}\par
+    i.e $\phi(x,y) = \dfrac{A-B}{\pi}\text{Arg}(z)+\dfrac{A+B}{2}$
+    \par\bigskip
+  \item $\phi(x,y) = \dfrac{1}{\alpha}\text{Arg}(z)$
+    \par\bigskip
+  \item $\phi(x,y) = \dfrac{1}{\pi}\text{Arg}(z-z_0)$
+    \par\bigskip
+  \item $\phi(x,y) = a_n+\dfrac{1}{\pi}\sum_{b=1}^{n}(a_{k-1}-a_k)\text{Arg}(z-x_k)$:
+    \begin{equation*}
+      \begin{gathered}
+        \text{Arg}(z-x_k) = \begin{cases}\pi\; x<x_k\\0\;x>x_k\end{cases}\\
+      \end{gathered}
+    \end{equation*}\par
+    $\Rightarrow$ if $x_j<x<x_{j+1}$ then:
+    \begin{equation*}
+      \begin{gathered}
+        \phi(x,0) = a_n+\sum_{k=j+1}^{n}(a_{k-1}-a_k) = a_j
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item $\phi(x,y) = \alpha\ln{\left(\left|z\right|\right)}+\beta$ leads to:
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases}
+          \alpha\ln{\left(r_1\right)}+\beta = A\\
+          \alpha\ln{\left(r_2\right)}+\beta = B
+        \end{cases}\Lrarr
+        \begin{cases}
+          \alpha = \dfrac{B-A}{1-r_2-\ln{\left(r_1\right)}}\\
+          \beta = \dfrac{A\ln{\left(r_2\right)}-B\ln{\left(r_1\right)}}{\ln{\left(r_2\right)}-\ln{\left(r_1\right)}}
+        \end{cases}\\
+        \Rightarrow \phi(x,y) = \dfrac{B-A}{1-r_2-\ln{\left(r_1\right)}}\ln{\left(\left|z\right|\right)}+\dfrac{A\ln{\left(r_2\right)}-B\ln{\left(r_1\right)}}{\ln{\left(r_2\right)}-\ln{\left(r_1\right)}}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent How about more complicated Dirichlet problems?\par
+\noindent The idea is to simplify the complicated problems to an easier one using a conformal mapping.
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $f:D\to D^{\prime}$ is analytic, $f = u+iv$.\par
+  \noindent If $\psi(u,v)$ is harmonic in $D^{\prime}$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \phi(x,y):= \psi(u(x,y),v(x,y))
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is harmonic in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Take $z_0\in D$. Then $w_0 = f(z_0)\in D^{\prime}$ and since $D^{\prime}$  is open, there is a disk $w_0\in V$  contained in $D^{\prime}$.
+  \par\bigskip
+  \noindent Since $f$ is continous, there is a disk $z_0\in U$ in $D$ such that $f(U)\subseteq V$. Since $\psi$ is harmonic in $V$, which is simply connected, there is an analytic function $g$  in $V$  such that $\text{Re}(g) = \psi$
+  \par\bigskip
+  \noindent But then $g\circ f$ is an analytic function in $U$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \text{Re}(g\circ f)(z) = \psi(u(x,y),v(x,y)) = \phi(x,y)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Hence, $\phi$ is harmonic in $U$. Sinze $z_0$ wazs arbitrarily chosen, $\phi$ is harmonic in $D$
+\end{prf}
+\par\bigskip
+\noindent Suppose now that the analytic function $f:D\to D^{\prime}$ maps $D$ bijectively onto $D^{\prime}$ and extends to a continous bijection $f:\overline{D}\to \overline{D^{\prime}}$.\par
+\noindent Suppose also that the bohndary conditions for $\psi$ in $D^{\prime}$ corresponds to the boundary conditions for $\phi$ in $D$.
+\par\bigskip
+\noindent Then, if we can solve the Dirichlet problem for $\psi$, we can also solve it for $\phi$

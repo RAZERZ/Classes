@@ -229,3 +229,147 @@
   \end{equation*}\par
   \noindent i.e $S(z) = T(z)$ $\forall z\in\widehat{\C}$
 \end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Particular cases of the Möbius transformation are:\par
+\begin{itemize}
+  \item $T(z) = z+b$ (\textit{translation})
+  \item $T(z) = az = \left|a\right|e^{i\text{arg}(a)z}$ (\textit{rotation \& magnification})
+  \item $T(z) = \dfrac{1}{z}$ (\textit{inversion})
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $c\neq0$:
+\begin{equation*}
+  \begin{gathered}
+    T(z) = \dfrac{az+b}{cz+d} = \dfrac{\dfrac{a}{c}(cz+d)-\dfrac{ad}{c}+b}{cz+d} = \dfrac{a}{c}-\dfrac{ad-bc}{c^2}\dfrac{1}{z+\dfrac{d}{c}}
+  \end{gathered}
+\end{equation*}\par
+\noindent This means that every Moebius transformation is a composition of translations, rotations, magnifications, and inversions. 
+\par\bigskip
+\begin{theo}[]{}
+  Every Möbius transformation maps "circles" onto "circles"
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Recall that a "circle" in $\widehat{\C} = \C\cup\left\{\infty\right\}$ is a circle or line in $\C$ . A line in $\C$ is a "circle" through $\infty$ in $\widehat{\C}$
+\par\bigskip
+\begin{prf}[]{}
+  It is easy to see that translations and rotations/magnifications map circles onto circles and line onto lines. This gives enough to prove that inversion:
+  \begin{equation*}
+    \begin{gathered}
+      T(z) = \dfrac{1}{x+iy} = \dfrac{x-iy}{x^2+y^2} 0 \dfrac{x}{x^2+y^2}+i\dfrac{-y}{x^2+y^2} = u+iv
+    \end{gathered}
+  \end{equation*}\par
+  \noindent maps circles onto circles
+  \par\bigskip
+  A circle in $\widehat{\C}$ has the equation:
+  \begin{equation*}
+    \begin{gathered}
+      A(x^2+y^2)+Cx+Dy+E = 0\\
+      \Lrarr A+C\dfrac{x}{x^2+y^2} + D\dfrac{y}{x^2+y^2}+E\dfrac{1}{x^2+y^2} = 0\\
+      \Lrarr E(u^2+v^2) +Cu-Dv+A = 0
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Given a "circle" $C_z$ in the $z$-plane and a "circle" $C_w$ in the $w$-plane, can one find a Moebius transformation $T:\widehat{\C}\to\widehat{\C}$  such tath $T(C_z) = C_w$? Yes!
+\newpage
+\subsection{The cross-ratio}\hfill\\
+\par\bigskip
+\begin{theo}[Cross-ratio]{}
+  Let $z_1,z_2,z_3\in\widehat{\C}$ be distinct and put:
+  \begin{equation*}
+    \begin{gathered}
+      (z,z_1,z_2,z_3) = \dfrac{z-z_1}{z-z_3}\cdot\dfrac{z_2-z_3}{z_2-z_1}\in\widehat{\C}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If some of the $z_i$ is $\infty$, the right hand side should be interpret as:
+  \begin{equation*}
+    \begin{gathered}
+      (z,z_1,z_2,z_3)= 
+      \begin{cases}
+        \dfrac{z_2-z_3}{z-z_3}\;\text{ if } z_1=\infty\\
+        \dfrac{z-z_1}{z-z_3}\;\text{ if } z_2=\infty\\
+        \dfrac{z-z_1}{z_2-z_1}\;\text{ if } z_3 = \infty
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent $(z,z_1,z_2,z_3)$ is called the \textit{cross-ratio} of the four points 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $S(z) = (z,z_1,z_2,z_3)$ is a Möbius transformation such that:
+\begin{equation*}
+  \begin{gathered}
+    S(z_1) = 0\qquad S(z_2) =1\qquad S(z_3) = \infty
+  \end{gathered}
+\end{equation*}\par
+\noindent By an earlier remark, this is the unique Moebius transformation mapping $z_1,z_2,z_3$  to $0,1,\infty$
+\par\bigskip
+\begin{theo}[]{}
+  Given a tripple $z_1,z_2,z_3\in\widehat{\C}$ of distinct points, and another tripple $w_1,w_2,w_3\in\widehat{\C}$ of distinct points, then there is a unique Möbius transformation $T$ such that $T(z_i) = w_i$
+  \par\bigskip
+  \noindent The mappings $w = T(z)$ is found by solving the cross-ratio equation:
+  \begin{equation*}
+    \begin{gathered}
+      (w,w_1,w_2,w_3) = (z,z_1,z_2,z_3)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  By an earlier remark, there is at most one such mapping. We now prove that there is exactly one by contradicting it.
+  \par\bigskip
+  \noindent Put $S(z) = (z,z_1,z_2,z_3)$, $U(w) = (w,w_1,w_2,w_3)$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow T(z) = (U^{-1}\circ S)(z) = U^{-1}(S(z))
+    \end{gathered}
+  \end{equation*}\par
+  \noindent $U^{-1}(S(z))$ is a Moebius transformation such that:
+  \begin{equation*}
+    \begin{gathered}
+      T(z_1) = U^{-1}(S(z_1)) = U^{-1}(0) = w_1\\
+      T(z_2)= \cdots\\
+      \vdots
+    \end{gathered}
+  \end{equation*}
+  \par
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      w = T(z) \Lrarr w = U^{-1}(S(z))\Lrarr U(w) =S(z)\\
+      \Lrarr (w,w_1,w_2,w_3) = (z,z_1,z_2,z_3)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent This theorem can be used to construct a $T$ as above, mappiong $C_z$ to $C_w$
+\par\bigskip
+\noindent Let $z_1,z_2,z_3$ be three distinct points on a circle $C_z$ in $\widehat{\C}$. Note that $C_z$ is \textit{oriented} by the order of these points, that is $C_z$ aquires an orientation by proceeding through $z_1,z_2,z_3$ in succession
+\par\bigskip
+\noindent Since a Möbius transformation is conformed, it maps the region to the left of $C_z$, oriented by $z_1,z_2,z_3$, to the region left of $C_w = T(C_z)$  oriented by $w_1,w_2,w_3$
+\par\bigskip
+\subsection{Symmetry-preserving property}\hfill\\\par
+\noindent Two points $z_1$ and $z_2$ are said to be \textit{symmetric} with respect to a line $L$ if $L$ is the perpendicular bisector of the line-segment joining $z_1$ and $z_2$
+\par\bigskip
+\noindent This means that every circle or line through $z_1$  and $z_2$ intersects $L$ orthogonally
+\par\bigskip
+\begin{theo}[]{}
+  Two points $z_1$ and $z_2$ are said to be \textit{symmetric} with respect to a circle $C$ if every circle of line through $z_1$ and $z_2$ intersects $C$ orthogonally
+\end{theo}
+\par\bigskip
+\noindent In particular, the center $a$ of $C$ and $\infty$ are symmetric with respect to $C$
+\par\bigskip
+\begin{theo}[Symmetry principle]{}
+  Let $C_z$ be a circle or line in the $z$-plane and $w = T(z)$ be any Moebius transformation. Then two points $z_1$ and $z_2$ are symmetric with respect to $C_z$ if and only if their images $w_1 = T(z_1)$ and $w_2 = T(z_2)$ are symmetric with respect to the image $C_w = T(C_z)$ under $T$.
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  "Two points are symmetric with respect to a given circle if and only if every circle containing the points intersects the given circle orthogonally" is a re-formulation of the theorem.
+  \par\bigskip
+  \noindent Möbius transformations preserve the class of circles, and they also preserve orthogonallity. Hence, they preserve the symmetric condition. 
+\end{prf}
