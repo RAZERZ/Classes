@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.6)  25 JAN 2023 20:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.7)  30 JAN 2023 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2333,12 +2333,18 @@ Package mdframed Info: mdframed detected package amsthm
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8D1F84951C459A71E77366A26136117C;4721.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 8D1F84951C459A71E77366A26136117C;4721
+(rerunfilecheck)             After:  3F5FA1061EEBD45FEB0CC4494C1847FC;4721.
  ) 
 Here is how much of TeX's memory you used:
  36250 strings out of 478238
- 843257 string characters out of 5850456
+ 843257 string characters out of 5850457
  1239309 words of memory out of 5000000
  53587 multiletter control sequences out of 15000+600000
  478325 words of font info for 64 fonts, out of 8000000 for 9000
@@ -2359,7 +2365,7 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on main.pdf (31 pages, 310714 bytes).
+Output written on main.pdf (31 pages, 310768 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  386 compressed objects within 4 object streams

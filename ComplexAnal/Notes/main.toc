@@ -22,5 +22,5 @@
 \contentsline {section}{\tocsection {}{8}{Möbius transformations}}{24}{section.8}%
 \contentsline {subsection}{\tocsubsection {}{8.1}{The cross-ratio}}{27}{subsection.8.1}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{Symmetry-preserving property}}{28}{subsection.8.2}%
-\contentsline {section}{\tocsection {}{9}{Dirichlets problem}}{29}{section.9}%
+\contentsline {section}{\tocsection {}{9}{Dirichlet problems}}{29}{section.9}%
 \contentsline {subsection}{\tocsubsection {}{9.1}{Standard cases}}{29}{subsection.9.1}%

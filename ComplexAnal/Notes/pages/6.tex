@@ -1,9 +1,9 @@
-\section{Dirichlets problem}\par
+\section{Dirichlet problems}\par
 \noindent We have previously discussed harmonic function over a domain $D$. These have many applications in solving Dirichlets problem:
 \par\bigskip
  Find a function $\phi(x,y)$ continous on $D\cup\partial D$ of class $C^2$ in $D$ such that\par
  \begin{itemize}
-   \item$\Delta\phi = \phi_{xx}+\phi_{yy} =0$ in $D$
+   \item$\nabla^2\phi = \phi_{xx}+\phi_{yy} =0$ in $D$ (second derivatives are 0)
    \item $\phi = $ some given function on $\partial D$ 
  \end{itemize}
 \par\bigskip
@@ -11,7 +11,7 @@
 \noindent This can be easily solved in some standard cases:
 \par\bigskip
 \begin{itemize}
-  \item$\begin{cases}\Delta\phi=0\text{ in $D$}\\\phi(a,y) = A\\\phi(b,y)=B\end{cases}\qquad$ Let $\phi(x,y) = \alpha x+\beta$, choose $\alpha,\beta$ such that\par$\quad\qquad\qquad\qquad\qquad\begin{cases}\alpha a+\beta = A\\\alpha b+\beta = B\end{cases}\Lrarr\begin{cases}\alpha = \dfrac{B-A}{b-a}\\\beta = A-\dfrac{a(B-A)}{b-a}=\dfrac{AB-aB}{b-a}\end{cases}$\par\bigskip
+  \item$\begin{cases}\nabla^2\phi=0\text{ in $D$}\\\phi(a,y) = A\\\phi(b,y)=B\end{cases}\qquad$ Let $\phi(x,y) = \alpha x+\beta$, choose $\alpha,\beta$ such that\par$\quad\qquad\qquad\qquad\qquad\begin{cases}\alpha a+\beta = A\\\alpha b+\beta = B\end{cases}\Lrarr\begin{cases}\alpha = \dfrac{B-A}{b-a}\\\beta = A-\dfrac{a(B-A)}{b-a}=\dfrac{AB-aB}{b-a}\end{cases}$\par\bigskip
     $\quad\qquad\qquad\qquad\qquad\Rightarrow\phi(x,y) = \dfrac{(B-A)x+Ab-aB}{b-a}$
     \par\bigskip
   \item $\phi(x,y) = \dfrac{2}{\pi}\text{Arg}(z) = \dfrac{2}{\pi}\arctan\left(\dfrac{y}{x}\right)$
