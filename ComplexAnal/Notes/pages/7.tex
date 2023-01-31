@@ -1,0 +1,216 @@
+\section{Complex Integration}\par
+\noindent We shall now study so-called \textit{contour integrals} (or the line integrals) of complex-valued functions.
+\par\bigskip
+\noindent This theory will teach us more about the properties of analytic functions
+\par\bigskip
+\subsection{Contours}\hfill\\
+\par\bigskip
+\begin{theo}[Smooth arc]{}
+  A point set $\gamma\in\C$ is said to be a \textit{smooth arc}  if it is the image of some continous complex-valued function $z = z(t)$, $a\leq t\leq b$ such that:\par
+  \begin{itemize}
+    \item $z(t)$ has a continous derivative on $[a,b]$
+    \item $z^{\prime}(t):= x^{\prime}\left|t\right|+iy^{\prime}\left|t\right|\neq0$ on $[a,b]$
+    \item $z(t)$ is bijective on $[a,b]$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Smooth closed curve]{}
+  A point set $\gamma$ in $\C$ is said to be a \textit{smooth closed curve} if it is the range of some continous function $z = z(t)$, $a\leq t\leq b$ satisfying the requirements for a smooth arc and:\par
+  \begin{itemize}
+    \item $z(t)$ is bijective on $[a,b)$ but:
+  \end{itemize}
+  \begin{equation*}
+    \begin{gathered}
+      z(a) = z(b)\qquad z^{\prime}(a) = z^{\prime}(b)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The phrase "$\gamma$ is a smooth curve" means that $\gamma$ is either a smooth arc or a smooth closed curve. 
+\par\bigskip
+\noindent There are infinetly many choices of "admissible" parametrizations of a curve. One can, for example, change the direction of a parametrizations yet still represent the same fundamental curve. 
+\par\bigskip
+\noindent There is of cource, a natural choice of the orientation of curves.
+\par\bigskip
+\begin{theo}[Directed smooth curve]{}
+  A smooth curve with a speicified orientation is called a \textit{directed smooth curve}
+\end{theo}
+\par\bigskip
+\begin{theo}[Contour]{}
+  A \textit{contour} $\Gamma$ is either a single point or a finite sequence $(\gamma_1,\cdots,\gamma_n)$ of directed smooth curves such that the terminal point on $\gamma_k$  coincides with the initial point on $\gamma_{k+1}$
+  \par\bigskip
+  \noindent We write $\Gamma = \gamma_1+\cdots+\gamma_n$
+\end{theo}
+\par\bigskip
+\begin{theo}[Closed contour]{}
+  $\Gamma$ is said to be a \textit{closed contour} if the initial poin on $\gamma_1$ coincides with the terminal point on $\gamma_n$. 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the only two coinciding points on a closed contour is the inital and the terminal point, then we say it is a \textit{simple closed contour}.
+\newpage
+\begin{theo}[Lenght of curve]{}
+  If $\gamma$ is a smooth curve, then the lenght of the curve is given by the multivariate-curve length:
+  \begin{equation*}
+    \begin{gathered}
+      L(\gamma) = \int_{a}^{b}\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The length of $\Gamma = \gamma_1+\cdots+\gamma_n$ is given by:
+\begin{equation*}
+  \begin{gathered}
+    L(\Gamma) = L(\gamma_1)+\cdots+L(\gamma_n)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Contour integrals}\hfill\\\par
+\noindent Lets see how to define $\int_{\Gamma}f(z)dz$, aka the contour integral of a complex-valued function $f$ over the contour $\Gamma$.
+\par\bigskip
+\noindent We start by defining:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz
+  \end{gathered}
+\end{equation*}\par
+\noindent where $\gamma$ is a directed smooth curve.
+\par\bigskip
+\noindent For each $i\in\left\{0,\cdots,n\right\}$, we form a partition $\mathcal{P}_n = \left\{z_0,\cdots,z_n\right\}$ of $\gamma_i$\par
+\noindent Let $L(\gamma; z_{k-1}, z_k)$ denote the length of $\gamma$ from $z_{k-1}$ to $z_k$, then:
+\begin{equation*}
+  \begin{gathered}
+    \mu(\mathcal{P}_n) = \max_{1\leq k\leq n} L(\gamma;z_{k-1},z_k)
+  \end{gathered}
+\end{equation*}\par
+\noindent is a measure of the "firmness" (\textbf{CHECK}) of the partition.
+\par\bigskip
+\noindent Take, for $k = 1,\cdots,n$ an arbitrary point $c_k$ on $\gamma$ between $z_{k-1}$ and $z_k$.\par
+\noindent Then form the Riemann-sum:
+\begin{equation*}
+  \begin{gathered}
+    S(\mathcal{P}_n) = \sum_{k=1}^{n}f(c_k)(z_k-z_{k-1}) = \sum_{k=1}^{n}f(c_k)\delta z_k
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  We say that $f$ is integrable along the directed smooth curve $\gamma$ if there exists a complex number $L\in\C$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\mu(\mathcal{P}_n) = 0\Rightarrow \lim_{n\to\infty}S(\mathcal{P}_n) = L
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent (independent of the choice of partition and Riemann-sum)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The number $L$ is called the \textit{integral of $f$ along $\gamma$}, and is denoted:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\gamma}f(z)dz
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The integral has the following properties:
+\par\bigskip
+\begin{itemize}
+  \item $\int_{\gamma}(f(z)\pm g(z))dz = \int_{\gamma}f(z)dz\pm\int_{\gamma}g(z)dz$
+    \par\bigskip
+  \item $\int_{\gamma}c\cdot f(z)dz = c\int_{\gamma}f(z)dz$
+    \par\bigskip
+  \item $\int_{-\gamma}f(z)dz = -\int_{\gamma}f(z)dz$
+\end{itemize}
+\newpage
+\begin{theo}[]{}
+  If $f$ is continous along $\gamma$, then $f$ is integrable along $\gamma$
+\end{theo}
+\par\bigskip
+\subsection{How to compute the contour integral}\hfill\\\par
+\noindent First, consider $\int_{a}^{b}f(t)dt$, where $f(t) = u(t)+iv(t)$, and $u,v$ is continous on $[a,b]$
+\par\bigskip
+\noindent Let $F(t)$ be an antiderivative of $f(t)$, i.e:
+\begin{equation*}
+  \begin{gathered}
+    F(t) = U(t)+iV(t)\qquad U^{\prime} = u\quad V^{\prime} = v\\
+    \Rightarrow \int_{a}^{b}f(t)dt = \int_{a}^{b}(u(t)+iv(t))dt = \int_{a}^{b}u(t)dt+i\int_{a}^{b}v(t)dt\\
+    U(t)|_{_a}^{^b}+iV|_{_a}^{^b} = F(b)-F(a)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  If $f$ is continous on $[a,b]$, and $F^{\prime}(t) = f(t)$ for $t\in[a,b]$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{a}^{b}f(t)dt = F(b)-F(a)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The integral of $f$ along an arbitrary directed smooth curve can be reduced to integrals as above, by the parametrization $z(t)$ ($a\leq t\leq b$)
+\par\bigskip
+\noindent Let: 
+\begin{equation*}
+  \begin{gathered}
+    z_0 = z(t_0)\qquad z_1 = z(t_1)\qquad\cdots\qquad z_n = z(t_n)
+  \end{gathered}
+\end{equation*}\par
+\noindent where $a = t_0<t_1<\cdots<t_n = b$:
+\begin{equation*}
+  \begin{gathered}
+    \stackrel{c_k = z_k}{\Rightarrow} \sum_{k=1}^{n}f(z_k)\Delta z_k = \sum_{k=1}^{n}f(z(t_0))\Delta z_k\\
+    \Delta z_k = z_k-z_{k-1} = z(t_k) - z(t_{k-1}) \approx z^{\prime}(t_k)(t_k-t_{k-1}) = z^{\prime}(t_k)\Delta t_k\\
+    \Rightarrow \sum_{k=1}^{n}f(z(t_k))z^{\prime}(t_k)\Delta t_k
+  \end{gathered}
+\end{equation*}\par
+\noindent This is a Riemann-sum for the continous function $f(z(t))z^{\prime}(t)$  on $[a,b]$
+\par\bigskip
+\noindent This suggests the following:
+\par\bigskip
+\begin{theo}[Curve integral]{}
+  Let $f$ be a continous function on a directed smooth curve having admissible parametrization $z(t)$ ($a\leq t\leq b$), then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\gamma}f(z)dz = \int_{a}^{b}f(z(t))z^{\prime}(t)dt
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $\Gamma = \gamma_1+\cdots+\gamma_n$ nad let $f$ be continous on $\Gamma$, then we let:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz:=\sum_{k=1}^{n}\int_{\gamma_k}f(z)dz
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent (if $\Gamma  = \left\{z_0\right\}$, we let $\int_{\Gamma}f(z)dz = 0$)
+\end{theo}
+\par\bigskip
+\begin{theo}[ML-inequality]{}
+  Suppose $\left|f(z)\right|\leq M$ $\forall z\in\gamma$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \left|\sum_{k=1}^{n}f(c_k)\Delta z_k\right|\leq\sum_{k=1}^{n}\left|f(c_k)\left|\Delta z_k\right|\right|\leq M\sum_{k=1}^{n}\left|\Delta z_k\right|\leq ML(\gamma)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent As $\mu(\mathcal{P}_n)\to0$, this implies:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\gamma}f(z)dz\right|\leq ML(\gamma)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $f$ is continous on $\Gamma$ and that $\left|f(z)\right|\leq M$, $z\in\Gamma$\par
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\Gamma}f(z)dz\right|\leq ML\quad\text{ where } L = L(\Gamma)
+    \end{gathered}
+  \end{equation*}
+\end{theo}

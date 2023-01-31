@@ -24,3 +24,7 @@
 \contentsline {subsection}{\tocsubsection {}{8.2}{Symmetry-preserving property}}{28}{subsection.8.2}%
 \contentsline {section}{\tocsection {}{9}{Dirichlet problems}}{29}{section.9}%
 \contentsline {subsection}{\tocsubsection {}{9.1}{Standard cases}}{29}{subsection.9.1}%
+\contentsline {section}{\tocsection {}{10}{Complex Integration}}{31}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Contours}}{31}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Contour integrals}}{32}{subsection.10.2}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{How to compute the contour integral}}{33}{subsection.10.3}%
