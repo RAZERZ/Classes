@@ -1,0 +1,1354 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181a1b !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body, input, textarea, select, button, dialog {
+    background-color: #181a1b;
+}
+html, body, input, textarea, select, button {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #404400 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+* {
+    scrollbar-color: #454a4d #202324;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}</style>
+<title> Tensor products </title>
+<meta name="darkreader" content="4dfab071c8bb4a078a9311d69e556657"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #0f3a48 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #032029 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0a0a !important;
+}
+.tou-uknfeu {
+    background-color: #231603 !important;
+}
+.tou-6i3zyv {
+    background-color: #19576c !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><style>.refunder-serp-3AR8A4 {
+  display: flex;
+  flex-direction: column;
+  z-index: 999999999999;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.refunder-serp__logo-1v26z- {
+  min-width: 23px;
+  height: 23px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOMSURBVHgBjVRLbIxRFP7OP6OlXqUkXmGwISEZYSGxUKws0JAQjzBCIiRoRSyEIISEhIkQ0qCaViS6MIg0YaFlI5Lq2AgL0UeaVtLqVD3a/p05zr33n/nvdLR1k/Pfcx/nu98597s/YYTGD/cXw8EmUKoEhEKwmDiyEpc+jiRV0vY7dcPF0z9BqwQ0QBVgDoG8LczQvu7TG8UcagLTWdpRXjkqOFceiEp31EQO3WrNkTdmrydEaXd52bDgfOdgI4jDejrNNOsQe2zT98aMOO2/tSwHnG8f8hh7AGMLgKLZwMSpJj590IRp/lldrWJtQG+XTSBKB26WZcD5+uEIHK4wIGKTioCSIwZ4tPbjO1BbDnS2WSXAGjp8o87Rg5RzBq64SbFBsSVr/g9YtUmyb9UWE6ctoHAq1FKQr5QWw0Uoq/xjxpm+R1jF7gF7jpvxq8dAw2u/zGtLgOWrgelzoMn5pQnxpdLioJy0J+vSlJtfYPyEgP/q99fa28HCjtL78rx9+eMMa/uuGZsEnMJKThlxqJbnMf/TJylaGYlPaYYbtwFLVxi//kUWc3N1XBLEgBM2J1no7PV9/WCX/IL19oGDBaAdkuy8BbIuh9c+BeINEuNY6tTwhUGdjnlq8mWQ0avHVLYkAz6jvPGggxGgcArQ3Q1UV+lSGVTKqNicwRo8IV5h9msiP79BP13atVv0PxZoE8DKanB3QpKV9YXzgS9fbQCdSRAuJVQKWY+P/UM4aZVFAb9rFAU9B8t9UJHIcPtmA37stKUL7cQdJIMxxU7VFsoGxVIeXMqbS7e3jfJTi4F7B3RGHFpggBWcjpU5iVeKSrmOgLt4YoDNA2Bbrwr854A/FlnSjJmgyVOlnwVautjMt3aIigKamOpJwJ0B3A/S7XN1vO9ckyQSMoKxmcu4R8A/NQOL5gHrVhob2lo6NDD7BWxy7p6vNzT7U3vVaUoZnH4Mv0VmH1v0mK/XAG8+5ILKHn7/GVz90sQpDFdZ4KwWQOYKdl64xkylerB4LtD8TYL7cwEL8sXkYjt7cpb01VMqSg9OlWWB6ypsvdhITGHOKMc8LGJfnVnNUwelnwZz3Kk5mfmf238bOI9kIelEzeV6fzjXMSm7vpHlG6XJ3CCiNnAO8wyhDZcj0p2RCwphtEbcJJlF6NmJ+pylkeJ4/dXVUsOIqEj93MJerglRUYIoFQMCMao9Vj9c/F8tBHXXG6JfBQAAAABJRU5ErkJggg==) no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.refunder-serp__info-CwmsWU {
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px 0;
+  cursor: pointer;
+}
+.refunder-serp__description-full-TOhtcT {
+  width: 100%;
+  background: transparent;
+  color: #f54787;
+  font-style: normal;
+  box-shadow: 0 1px 0 0 #f54787;
+  font-family: Lato, sans-serif;
+}
+.refunder-serp__description-short-1lP51E {
+  width: 360px;
+  color: #f54787;
+  font-style: normal;
+  box-shadow: 0 1px 0 0 #f54787;
+  font-family: Lato, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.refunder-serp__campaign-2CExlJ {
+  width: 180px;
+  position: relative;
+  text-align: right;
+  color: #7adccf;
+  font-style: normal;
+  box-shadow: 0 1px 0 0 #7adccf;
+  font-family: Lato, sans-serif;
+}
+.refunder-serp__campaign-2CExlJ::after {
+  content: "!";
+  color: white;
+  font-size: 21px;
+  line-height: 25px;
+  position: absolute;
+  right: -23px;
+  top: -4px;
+}
+.refunder-serp__campaign-icon-vq7oez {
+  min-width: 25px;
+  height: 25px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAC4jAAAuIwF4pT92AAAFIklEQVR4nNWaW2wUVRiAz8GCMRgxYjU2oS/0Qmm7Lb26S0II+kRiFUJpDDVUWi4FbEj6QmLEqGh84aWxFrRoi8WES1SqQWMkGpLu2tva7raUlvqCSY2hGiuSBhTG7+xM291ut92Vmd3pSc+c+///35zZc+b80yRN04RV4eCwZwnJMSHFHdLD72U4LVOWZJXgA8Oeh6QQbWS3CmW+FCsPjnj2AnPXCn2WgBwY/vFxLG/XhOaUU5WaqAbmMWBeBOa22TpjBqkd6tqJQSvIurGuv2lN6T/B7UCkkVwkpqtpAEYEwWyhcBGYF4C5GTyubsT9KEkBnYro81tD+vpWy0D2DXVJjHoLg1bp1slbtVc7u2UASniI6k6fplPyzKgwmE0ULgFzhBYHNYU6gFgtVWf1p2mjlK0DIbh43FdJ3SClczmXjRi6cdpQZTgLiJTBw8Jgiil8rWqkmPn96yID/dPqRjqyGzLWD1oEIitEwCRD4XRmlqHRweg3PzLM81zMB9k71L0EBdt0NXGBUSDvmA5C2ICCp4y7FQ+YYhaAlIYM15jZINtDbLYeRpIrIz1uCsieKz0pUhdYMaU5jjBHXxlx51J9jvxlZudeTCB7rvTmIFIZ/xyxFLFS6suiiDPMSuJ+cvupHuNRO0vrORo97DMhrzshILsHe18iOULHNGkYGKojITBT1erJOETjIYRcr7vW8Rowp+YEITxBTFOjNGkYbi+YKV2pCHkkWEIICB29wcJsDuOOCEKjF2G6/faGuUW1LyJIc3bBRM2gdxRh6TafmS5WsH8jghjBy8j02cJsBhPyWEUC6RVqz5hDmI1gogLxzyfMJjAhZ6AwkOqBnx4meWMhYTaAOc15xsXhbDQMBIgHST6nV0k0whIMkyz0k6aCGZ8G2TXQ9wBJGx2fjeXOJBgmnUI7MM8AM5m0y9+n9PKGKbf9n2lOMIyTQhsw5WpG3qWi5n6e2QTDbKVwLAkZy8z4ASYY5o6akXpkpMoZR9pig2mmcDjp49z8ey/7+yqRcYlK5yKDOU+ffY2ZTi2wagEzCUwZMtxSOdYWB8x3xEogAi7Y6X0EmHFgNhswyTaHUZ7CLY2ZT0+7XkN2dmBGgdmBjG9tvgC83phZ+new9jneteRSM18nLILJJX6zAIhwmbw0WgFTONvoMBDGuCxY582GmR+kyt+vyiVWvbWaCLO69mrniqY1pRNzgtDRIQIedst2YLNglBT1KeL7uUGEdMXjPGESTGQQ2v9C2HWEpdocZpTMjWANISCtDsepnT7fJwjjVUUrZ4RyXKfYAEZ17aTiS7LtTVklA2JWCFu1gFGy1OHeXeXrr0fYBvLlVFbIgC82rjB/kLxKsf14VvG8nxfm9ca3OPKU9/sHFVnR/ChoivPMnDmRVWTOZ4Wg0E58X014HGHORmtc1CAtuXljzEq3iN8+8yvxsukghrIL6CkJsdk6mPMfrC2K+GHn/kCEvIA1b8dpaT4Ti2UxgbQ4HINVPh9ruJZmaFaL5M9S9xf3UvRRfpNy8QIwN4DZQUH50pxqI6ZPMX2WGzC/ABPmFjUNRNchjnK3nsSaHmzy8tv5M7id80wHfb7AqE0RYK5R3tycvW7KS/iVutQMepfSJ08G3r7FxIdrCzURQ4gZhH2mdb52Dmc3jZPmpzLcoeEhW3YyZ9347HHN2QXKn9tjxJiDJf8dBMxtYLbDcALDqw2Yz7hUnszJn7RCp2X/rwXMXWB2k/2duIxY/1FOftSrUKzhPwdikWe0DkTOAAAAAElFTkSuQmCC);
+  background-size: contain;
+  cursor: pointer;
+}
+.refunder-serp__dropdown-1Pr0g2 {
+  display: none;
+  width: 350px;
+  position: absolute;
+  margin-top: 12px;
+  margin-left: 620px;
+  box-shadow: 0 0 3px 0 #ccc;
+  border-radius: 2px;
+  z-index: 10000000;
+  background: white;
+  font-family: Lato, sans-serif;
+}
+.refunder-serp__merch-logo-3YqHPv {
+  width: 100%;
+  height: 70px;
+  margin: 7px 0 7px 0;
+  object-fit: contain;
+}
+.refunder-serp__campaign-logo-1HPjYy {
+  width: 100%;
+  height: 250px;
+}
+.refunder-serp__campaign-title-3X4IuX {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: normal;
+}
+.refunder-serp__campaign-description-3WdcV7 {
+  margin: 0 10px;
+  text-align: center;
+  font-size: 16px;
+  line-height: normal;
+}
+.refunder-serp__campaign-date-JKzth7 {
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 700;
+}
+.refunder-serp__campaign-button-1HCQFZ {
+  width: 300px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+  color: white;
+  background: #2ac5b6;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0 #ccc;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.refunder-serp__close-button-2NxY6e {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAC4jAAAuIwF4pT92AAAEsklEQVR4nO2ZbUxbVRjHL9zbFli7FaoEi7QYCias0cjcxgjqBxN1YoCaCRSctItf/GKMX8wSnS8f/OAnY0w0Mco+rGzyEmEZGWMxaiBBh1vEJWgMA+ItYJeBrLalL7T1f4jXNQS859x7F5ut/6TpS57znOfX8/I851whnU5zd4KE/zsArZQDyTblQLJNOZBs090Jcsrne1UnCC9H1teder0+gNenLxw58q7aIPoHBt6IxWKvJxKJe3U63RJ++ujFrq4PWHxQgXzR01NRXl5+vP7gwS6r1bq7sLCQ29jYKFtcXHyr5+TJd2DyttfjeY8V4Mu+vsLS0tKRurq6x+02Gw8Rv+Wi3//m2MWL1X6///1jXu+8ZiDFxcUnnHv3egDxr70gCJzdbuc93d3c7OxsA/5VE0bnLxaIZDIZqKmuNsHvrYDg94HKSpNBr/cuLy834Sfrzl4YQDAaFoC0ZUJslcPhePrylSsiYCpoYCQId0eHaScb9Mc7qqpS6L8RozIh51MWBHO2uba21ihn197WtgcBysLQQEiy2e3Wufn5J/FRPUh+fr7DuGtXvpwdkRwMC8RmcDyfh3VjprKVM4jH4zM3g8EgWeQ0DneCYYUgCkHo/xcaW1kQ7Ea+02fOfFjtcGwuRBpthVECQfTz1at/plKpYRpbqsgKCgrqsR3++Ozhw1TDTCTBnBsZuR8QS6wQ2NY5i8XyFBZ6gMaeCsTV2nptaHj4+fGJid7HGhvLaIMhMBiVVUDoaNsQTU5O/nFg//4Dl6amQrRtqDN7a0vLN4DpZIXB1GKGCFy/fqyhoUF0Op3U7ZhKFKUwtJIgMAPOs7ZlLhoJzFdDQ27AnNYSRg0EkaLqF519qyWMWggixWW8VjBaQBCpOo+ohUGV+xsgXlMLQaT6YIU1892FsbHg2tpamdlMnWY2tbCwsI6yXbaOopEqEKUZWxJG8WH4+B25xsZyBNhOikHUQkhC0jRrAaMIRCsISVrAMINoDSFJLQwTyO2CkKQGhhpEKcTMzEwSJ0ye1l6CSafTlry8vBRtO+pblJKSkvGW5mYmCJLsQuHwKyurq58wVs1mnIFuRqPRhzS7RQEEj+Pur4Aoog2EaDNjBwJel8s1iqS5xpo0MbWMGJkpfLyHxp5mROofrKmJ4p0aJBOCfFdSAZDTqKOqStDyFuUZm81WQtM50VYISUpg7Hb7nmtzcy5Oi1sUKLKRTNL0uyOEJFaYf55vUnUuC5JIJL4WRXHFVlFh+S87OQhJLDAoKG/EYrFxuRiJZEEwPy+d8vmij+7bxxkMhm1tsLv8BIjjchCSMmFwNi/bzi8AuOnpaXIFdY7GJ9X2G4/HDw2fPfvDc01N9xUV3VrzyCvcwOAgOKJJT3c3FYQkAoMt9sSgKH6MClqf6TcUCnHnR0eXUqkUWehUz8+pQOBMxJvV19s7yfN8zW6TKYH8YMC/ljAajZUd7e0RFghJSK6fYR183tfffxlfK01GY+zGykqxThC+d7vdT7D4YipRujo7D2E7NEUiEbJeVgEYZGm/nUj2RgJ8hPgNh8PEr/jS0aN0u0uGmItGBE9qIFVnh9vh9+589JbNyoFkm3Ig2aY7BuRv4lbBp2MeqQkAAAAASUVORK5CYII=);
+  background-size: 20px;
+  background-position: center;
+  background-color: #444;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.refunder-serp__container-1qmOsl {
+  display: flex;
+  width: 100%;
+  margin-bottom: 4px;
+}
+.refunder-iframe-2kI_aG {
+  display: block;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style></head>
+
+<body style="filter: grayscale(1) sepia(0.1);">
+<h1> How to lose your fear of tensor products </h1>
+
+<p> If you are not in the slightest bit afraid of tensor
+products, then obviously you do not need to read this page.
+However, if you have just met the concept and are like most
+people, then you will have found them difficult to understand.
+The aim of this page is to answer three questions: </p>
+
+<ol>
+ 
+1. What is the point of tensor products? <br>
+
+2. Why are they defined as they are? <br>
+
+3. How should one answer questions involving them? <br>
+</ol>
+
+<hr>
+
+<h2> Why bother to introduce tensor products? </h2>
+
+<p> One of the best ways to appreciate the need for a 
+definition is to think about a natural problem and find
+oneself more or less forced to make the definition in
+order to solve it. Here, then, is a very basic question
+that leads, more or less inevitably, to the notion of
+a tensor product. (If you <em> really </em> want to lose
+your fear of tensor products, then read the question and
+try to answer it for yourself.) </p>
+
+<p> Let V,W and X be vector spaces over R. (What I have 
+to say works for any field F, and in fact under more general
+circumstances as well.) A function f:VxW--&gt; X is called
+<em> bilinear </em> if it is linear in each variable
+separately. That is, f(av+bv',w)=af(v,w)+bf(v',w) and
+f(v,cw+dw')=cf(v,w)+df(v,w') for all possible choices
+of a,b,c,d,v,v',w,w'. </p>
+
+<p> I shall take it for granted that bilinear maps are 
+worth knowing about - they crop up all over the place - 
+and try to justify tensor products given that assumption. </p>
+
+<p> Now, bilinear maps are clearly related to linear
+maps, and there are questions one can ask about linear
+maps that one can also ask about bilinear ones. For
+example, if f:V--&gt;W is a linear map between finite-dimensional
+vector spaces V and W, then one thing we like to do is
+<em> encode </em> it using a collection of numbers.
+The usual way to do this is to take bases of V and W
+and define a matrix A. To obtain the j<sup>th</sup> column
+of this matrix, one takes the j<sup>th</sup> basis vector
+e<sub>j</sub> of V, writes f(e<sub>j</sub>) as a linear
+combination of the vectors in the basis of W, and uses
+those coefficients. </p>
+
+<p> The reason that the matrix encodes the linear map
+is that if you know f(e<sub>j</sub>) for every j then
+you know f: if v is a linear combination of
+the e<sub>j</sub> then f(v) is the corresponding linear
+combination of the f(e<sub>j</sub>). </p>
+
+<p> This suggests two questions about bilinear maps: </p>
+
+<ol> 
+1. Can bilinear maps be encoded in a natural way using just a
+few real numbers? <br>
+
+2. Let V, W and X be finite-dimensional vector spaces, let
+f:VxW--&gt;X be a bilinear map, and let 
+{(v<sub>i</sub>,w<sub>i</sub>):i=1,2,...,n} be a collection
+of pairs of vectors in VxW. When is f completely determined
+by the values of the f(v<sub>i</sub>,w<sub>i</sub>)? <br>
+</ol>
+
+<p> The first question has an easy answer. Pick bases of
+V, W and X. If you know f(v<sub>i</sub>,w<sub>j</sub>)
+whenever v<sub>i</sub> and w<sub>j</sub> are basis vectors
+then you know f(v,w) for all pairs (v,w) in VxW - by bilinearity.
+But each f(v<sub>i</sub>,w<sub>j</sub>) is a vector in X and
+can therefore be written in terms of the basis of X. Thus,
+if the dimensions of V, W, and X are p, q and r respectively,
+it is enough to specify pqr numbers (in a sort of 3-dimensional
+matrix) in order to specify f. Furthermore, it is not hard to
+see that every p-by-q-by-r grid of numbers specifies a bilinear
+map : the number in position (i,j,k) tells us the k<sup>th</sup>
+coordinate of f(v<sub>i</sub>,w<sub>j</sub>). </p>
+
+<p> This observation provides a partial answer to the second
+question as well. If the pairs (v<sub>i</sub>,w<sub>i</sub>)
+run over all pairs (e<sub>i</sub>,f<sub>j</sub>), where 
+(e<sub>i</sub>) and (f<sub>j</sub>) are bases of V and W,
+then the values of f(v<sub>i</sub>,w<sub>i</sub>) determine
+f. However, this is not the only way to fix f. For example,
+let V=W=R<sup>2</sup> and let X=R. Let e<sub>1</sub>=(1,0)
+and e<sub>2</sub>=(0,1). If you know the values of
+f(e<sub>1</sub>,e<sub>1</sub>), f(e<sub>2</sub>,e<sub>2</sub>)
+f(e<sub>1</sub>+e<sub>2</sub>,e<sub>1</sub>+e<sub>2</sub>)
+and f(e<sub>1</sub>+e<sub>2</sub>,e<sub>1</sub>+2e<sub>2</sub>)
+then you know f. Why? Well, </p>
+
+<p align="center"> f(e<sub>1</sub>+e<sub>2</sub>,e<sub>1</sub>+e<sub>2</sub>)
+-f(e<sub>1</sub>,e<sub>1</sub>)-f(e<sub>2</sub>,e<sub>2</sub>)
+=f(e<sub>1</sub>,e<sub>2</sub>)+f(e<sub>2</sub>,e<sub>1</sub>) </p>
+
+<p> and </p>
+
+<p align="center"> f(e<sub>1</sub>+e<sub>2</sub>,e<sub>1</sub>+2e<sub>2</sub>)
+-f(e<sub>1</sub>,e<sub>1</sub>)-2f(e<sub>2</sub>,e<sub>2</sub>)
+=2f(e<sub>1</sub>,e<sub>2</sub>)+f(e<sub>2</sub>,e<sub>1</sub>) </p>
+ 
+<p> which allows us to work out f(e<sub>1</sub>,e<sub>2</sub>)
+and f(e<sub>2</sub>,e<sub>1</sub>), and hence determines f. </p>
+
+<p> On the other hand, f is not determined by 
+f(e<sub>1</sub>,e<sub>1</sub>), f(e<sub>2</sub>,e<sub>2</sub>)
+f(e<sub>1</sub>+e<sub>2</sub>,e<sub>1</sub>+e<sub>2</sub>)
+and f(e<sub>1</sub>-e<sub>2</sub>,e<sub>1</sub>-e<sub>2</sub>).
+For example, if these values are all 0, then f could be identically
+0 or it could be defined by f((a,b),(c,d))=ad-bc. </p>
+
+<p> How, then, are we to say which sets of pairs fix f and which
+do not? This is the point at which, if you do not know the answer
+already, I would suggest reading no further and trying to work
+it out for yourself. </p>
+
+<hr>
+
+<p> There is no doubt that what we are looking for is something
+<em> like </em> a `basis' of pairs (v,w) in VxW. This should be
+`independent' in the sense that the value of f on any pair cannot
+be deduced from the value of f on the other pairs (or, equivalently,
+we can choose the values of f at the pairs however we like), and 
+`spanning' in the sense discussed above - that f is determined by its 
+values on the given pairs. </p>
+
+<p> Equally, there is no doubt that we are not looking for a basis
+of the vector space VxW itself. For example, if V and W are both
+R, then (1,0) and (0,1) form a basis of VxW, but to be told the
+values of a bilinear map f:RxR--&gt;R at (1,0) and (0,1) is to be
+told nothing at all, since they have to be 0. </p>
+
+<p> To get a feel for what is happening, let us solve the problem
+in this special case (that is, when V=W=R). Suppose we know the
+value of f(a,b). We have just seen that this information is
+useless if either a or b is zero, but otherwise it completely
+determines f, since f(x,y)=(xy/ab)f(a,b). </p>
+
+<p> Perhaps that was too simple for any generalization to suggest
+itself, so let us try V=W=R<sup>2</sup>. Suppose that we know the
+value of f(v,w). That tells us f(av,bw) for any pair of scalars
+a and b, so if we want to introduce a second pair (v',w') which
+is independent of the first (not that we know quite what 
+this means) then we had better make sure that either v' is
+not a multiple of v or w' is not a multiple of w. If we have
+done that, then what can we deduce from the values of f(v,w)
+and f(v',w')? Well, we have the values of all f(cv',dw'),
+but unless v' is a multiple of v or w' is a multiple of w it 
+seems to be difficult to deduce much else, because in order
+to use the fact that f(x,y+z)=f(x,y)+f(x,z) or f(x+y,z)=
+f(x,z)+f(y,z) we need to have one coordinate kept constant. </p>
+
+<p> One thing we <em> can </em> say, which doesn't determine
+other values of f but at least places some restriction on them,
+is that </p>
+
+<p align="center"> f(v+v',w+w')=f(v,w)+f(v,w')+f(v',w)+f(v',w'). </p>
+
+<p> Since we know f(v,w) and f(v',w'), this means that f(v,w'),
+f(v',w) and f(v+v',w+w') cannot be freely and independently chosen 
+- once you've chosen two of them it fixes the third. But this 
+isn't terribly exciting, so let's look at more pairs. </p>
+
+<p> Because subscripts and superscripts are a nuisance in html,
+I shall now change notation, and imagine that we know the values
+of f(s,t), f(u,v), f(w,x) and f(y,z). If s, u and w are all multiples
+of a single vector, then some of this information is redundant, 
+since t, v and x are not linearly independent (they live in R<sup>2</sup>).
+So let us suppose that no three of the first vectors are multiples
+and no three of the second are. It follows easily that we can take
+two pairs, without loss of generality (s,t) and (u,v), and assume 
+that s and u are linearly independent, and that so are t and v. </p>
+
+<p> We can now write w=as+bu, x=ct+dv, y=es+gu, z=ht+kv, and we
+know, by bilinearity, that </p>
+
+<p align="center"> f(w,x)=acf(s,t)+adf(s,v)+bcf(u,t)+bdf(u,v) </p>
+
+<p> and </p>
+
+<p align="center"> f(y,z)=ehf(s,t)+ekf(s,v)+ghf(u,t)+gkf(u,v). </p>
+
+<p> Since we know f(s,t), f(u,v), f(w,x) and f(y,z), this gives
+us two linear equations for f(s,v) and f(u,t). They will have
+a unique solution as long as adgh does not equal bcek. In this
+case we have determined f completely, since </p>
+
+<p align="center"> f(a's+b'u,c't+d'v)=a'c'f(s,t)+a'd'f(s,v)
++b'c'f(u,t)+b'd'f(u,v), </p>
+
+<p> the pair on the left hand side can be anything and
+we know all about values of f on the right hand side. </p>
+
+<p> Notice that if adgh does equal bcek then an appropriate
+linear combination of the above two equations (ek times the
+first minus ad times the second) gives a linear equation
+that is automatically satisfied by f(s,t), f(u,v), f(w,x) 
+and f(y,z). In other words, the pairs (s,t), (u,v), (w,x)
+and (y,z) are not `independent', in the sense that f of
+three of them determines f of the fourth. </p>
+
+<p> So now we understand the case V=W=R<sup>2</sup> reasonably
+well, but it is not quite obvious how to generalize the above
+argument to arbitrary spaces V and W. Before we try, let us
+think a little further about what we have already proved,
+and how we did it. In particular, let us see if we can
+be more specific about `independence' of pairs in VxW. </p>
+
+<p> Why, for instance, did we say that (s,t), (u,v), (w,x)
+and (y,z) were not `independent' when adgh=bcek? Was there
+some `linear combination' that gave a `dependence'? Well,
+I mentioned that there was a linear equation automatically
+satisfied by f(s,t), f(u,v), f(w,x) and f(y,z). To be 
+specific, it is </p>
+
+<p align="center"> ekf(w,x)-adf(y,z)=(ekac-adeh)f(s,t)+
+(ekbd-adgk)f(u,v). </p>
+
+<p> This looks like a linear dependence between f(w,x), f(y,z), f(s,t)
+and f(u,v), but it isn't quite that because these are just four real
+numbers, and we are trying to say something more interesting than that
+the dimension of R is less than 4. What we are saying is more like
+this: if f is an <em> arbitrary </em> bilinear function, then the
+above linear equation will <em> always </em> be satisfied. </p>
+
+<p> How can we express that statement in terms of straightforward
+linear algebra? Here are a few suggestions. </p>
+
+<hr>
+
+<h2> A first way of making sense of `independence' of pairs. </h2>
+
+<p> We could think of f, in an expression like f(u,v), as standing 
+for all bilinear functions at once. So then we would make a statement
+like f(u,v)=2f(w,x) only if this equation was true for <em> every </em> 
+f, rather than for some specific f. We could even make this
+formal in a rather naughty way as follows. Let B be the set 
+of all bilinear maps defined on VxW. (That's the naughtiness -
+B is too big to be a set, but actually we will see in a moment that
+it is enough to look just at bilinear maps into R.) Now regard
+(u,v) as a function defined on B - if f is a map in B then
+(u,v)(f) is just f(u,v). Then the statement that f(u,v) always
+equals 2f(w,x) is the statement that (u,v), considered as a
+function on B, is twice (w,x), considered as a function on B. </p>
+
+<p> Just so that we don't have to keep writing the phrase
+`considered as a function on B', let us invent some notation.
+When I want to think of (u,v) as a function on B I'll
+write [u,v] instead. So now the dependence that I wrote
+earlier becomes </p>
+
+<p align="center"> ek[w,x]-ad[y,z]=(ekac-adeh)[s,t]+
+(ekbd-adgk)[u,v]. </p>
+
+<p> This dependence really is genuine linear dependence,
+in the vector space of functions from B to ... well, 
+some rather complicated big sum of vector spaces or
+something. Instead of bothering to sort out that 
+little difficulty, let's see why it is in fact enough
+to let B be the set of all bilinear functions to R,
+otherwise known as bilinear forms. </p>
+
+<hr>
+
+<h3> Reducing to the case of bilinear maps into R. </h3>
+
+<p> Here again there is an analogy with linear maps.
+Suppose that V and W are finite-dimensional vector
+spaces and f:V--&gt;W is a linear map. Let 
+w<sub>1</sub>,...,w<sub>m</sub> be a basis for W.
+If we write vectors in W in coordinate form using
+this basis, then we will write f(v) as
+(f<sub>1</sub>v,...,f<sub>m</sub>v), and in that
+way we see that a linear map to an m-dimensional
+vector space can be thought of as a sequence of 
+m linear maps to R. </p>
+
+<p> Exactly the same is true of a bilinear map
+f:VxW--&gt;X if X is m-dimensional - we can
+think of it as a sequence (f<sub>1</sub>,...,f<sub>m</sub>)
+of bilinear maps from VxW to R. From this
+observation we can make the following simple
+deduction. If </p>
+
+<p> a<sub>1</sub>f(v<sub></sub>,w<sub></sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear map f:VxW--&gt;R, then it is 
+zero for every bilinear map from VxW to <em> any </em>
+finite-dimensional vector space X. </p>
+
+<p> In fact, one can even do away with the condition
+that X should be finite-dimensional, as follows. 
+If f:VxW--&gt;X is a bilinear map such that </p>
+
+<p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=x </p>
+
+<p> for some non-zero vector x, then let g be a
+linear map from X to R such that g(x) is not zero.
+The existence of this map can be proved as follows.
+Using the axiom of choice, one can show that the
+vector x can be extended to a basis of X. Let g(x)=1,
+let g(y)=0 and extend linearly. Once we have g, we
+have a bilinear map gf:VxW--&gt;R such that </p> 
+
+<p align="center"> a<sub>1</sub>gf(v<sub></sub>,w<sub></sub>)+...+
+a<sub>n</sub>gf(v<sub>n</sub>,w<sub>n</sub>) </p>
+
+<p> is non-zero. </p>
+
+<p> This use of the axiom of choice was not very
+pleasant, but we shall soon see that it can be avoided. </p>
+
+<hr>
+
+<h3> Back to the main discussion. </h3>
+
+<p> Let us therefore redefine B to be the set of all bilinear
+maps from VxW to R, and regard [v,w] as notation for the 
+function from B to R defined by [v,w](f)=f(v,w). (This is
+the same definition as before, apart from the restriction
+of B to real-valued bilinear maps.) Now that [v,w] is a
+function from B to R it is completely clear in what sense
+it lives in a vector space, what is meant by linear
+dependence and so on. Everything takes place inside the
+vector space of all real-valued functions on B. </p>
+
+<p> The idea of defining functions such as [v,w] was that
+it gave us a way of reformulating our original problem -
+when does a set of pairs (v<sub>i</sub>,w<sub>i</sub>)
+fix all bilinear maps? - in terms of concepts we know
+from linear algebra - it fixes all bilinear maps if and
+only if the vector space spanned by the functions
+[v<sub>i</sub>,w<sub>i</sub>] contains all functions
+of the form [v,w]. Moreover, the set of pairs contains
+no redundancies if and only if the functions 
+[v<sub>i</sub>,w<sub>i</sub>] are linearly independent. </p>
+
+<hr>
+
+<h2> A second way of converting the problem into linear algebra. </h2>
+
+<p> Have we really said anything at all? It might seem
+not. After all, if we are given a set of pairs 
+(v<sub>i</sub>,w<sub>i</sub>) and asked whether the
+corresponding functions [v<sub>i</sub>,w<sub>i</sub>]
+span all functions [v,w], we will find ourselves 
+making exactly the same calculations that we would
+make if instead we asked whether the values of
+f(v<sub>i</sub>,w<sub>i</sub>), for some unknown
+bilinear function f, determined the value of f(v,w). </p>
+
+<p> However, turning the problem into linear algebra
+does clarify it somewhat, especially if we can say
+something about the vector space generated by the
+functions [v,w] (which contains all the functions
+on B we will ever need to worry about). It also 
+gives us a more efficient notation. </p>
+
+<p> Let me write down a few facts about this vector
+space. </p>
+
+<ol>
+
+1. [v,w+w']=[v,w]+[v,w'] <br>
+2. [v+v',w]=[v,w]+[v',w] <br>
+3. [av,w]=a[v,w] <br>
+4. [v,aw]=a[v,w] <br>
+</ol>
+
+<p> The above relations hold for all vectors v,v' in V and
+w,w' in W, and all real numbers a. Now if we regard an equation
+like [v,w+w']=[v,w]+[v,w'] as nothing but a shorthand for the
+statement that f(v,w+w')=f(v,w)+f(v,w') for all bilinear maps
+f, then it would seem that everything about the space spanned
+by the functions [v,w] ought to follow from these four facts.
+After all, the linear relationships between the functions
+[v,w] are supposed to be the ones that we can deduce about
+the corresponding vectors f(v,w) when <em> all </em> we know 
+about f is that it is bilinear. So they ought to follow from the
+axioms for bilinearity - which translate into facts 1-4 above. </p>
+
+<p> Let us try to make this hunch precise and prove it. 
+To do this we must ask ourselves which linear dependences
+can be deduced from 1-4, and then whether those are all the
+linear relationships that hold for every bilinear function. 
+In a moment I will express this less wordily, but for now
+let us note that the first question is easy. Facts 1-4
+give us four linear equations, which we can make a bit
+more symmetrical by rewriting them as </p>
+
+<ol>
+
+1. [v,w+w']-[v,w]-[v,w']=0 <br>
+2. [v+v',w]-[v,w]-[v',w]=0 <br>
+3. [av,w]-a[v,w]=0 <br>
+4. [v,aw]-a[v,w]=0 <br>
+</ol> 
+
+<p> Which other linear combinations of pairs must be zero
+if these ones are? Answer: all linear combinations
+of these combinations, and nothing else. This is because
+the only method we have of deducing linear equations 
+from other linear equations is forming linear combinations
+of those equations. </p>
+
+<p> There was something not quite satisfactory about what
+I have just said. It does seem to be true, but let us try
+to state and prove it more mathematically, without appealing
+to phrases like `method of deducing'. It is certainly clear
+that if </p>
+
+<p align="center"> a<sub>1</sub>[v<sub>1</sub>,w<sub>1</sub>]+
+a<sub>2</sub>[v<sub>2</sub>,w<sub>2</sub>]+...+
+a<sub>n</sub>[v<sub>n</sub>,w<sub>n</sub>] </p>
+
+<p> is a linear combination of functions of the forms on the 
+left-hand sides of 1-4 (in the second version), then 
+
+</p><p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear function f. What is not quite so obvious
+is the converse: that for every <em> other </em> function of the 
+form </p>
+
+<p align="center"> a<sub>1</sub>[v<sub>1</sub>,w<sub>1</sub>]+
+a<sub>2</sub>[v<sub>2</sub>,w<sub>2</sub>]+...+
+a<sub>n</sub>[v<sub>n</sub>,w<sub>n</sub>] </p>
+
+<p> we can find some bilinear map f such that </p>
+
+<p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)</p>
+
+<p> does not equal 0. However, it turns out that there is
+an almost trivial way to show this. For every pair (v,w)
+in VxW, regard [[v,w]] as a meaningless symbol. We can
+define a rather large vector space Z by taking formal linear
+combinations of these symbols. By that I mean that Z consists
+of all expressions of the form </p>
+
+<p align="center"> a<sub>1</sub>[[v<sub>1</sub>,w<sub>1</sub>]]+
+a<sub>2</sub>[[v<sub>2</sub>,w<sub>2</sub>]]+...+
+a<sub>n</sub>[[v<sub>n</sub>,w<sub>n</sub>]] </p>
+
+<p> with obvious definitions for addition and scalar multiplication. </p>
+
+<p> Next, we let E be the subspace of Z generated by all 
+vectors of one of the following four forms (which you should
+be able to guess): </p>
+
+<ol>
+
+1. [[v,w+w']]-[[v,w]]-[[v,w']] <br>
+2. [[v+v',w]]-[[v,w]]+[[v',w]] <br>
+3. [[av,w]]-a[[v,w]] <br>
+4. [[v,aw]]-a[[v,w]] <br>
+</ol> 
+
+<p> We want everything in E to `be zero', in some appropriate sense.
+The standard way to make that happen is to take a quotient space
+Z/E. (If you are hazy about the definition, here is a reminder.
+Two vectors z and z' in Z are regarded as equivalent if z-z'
+belongs to E. The vectors in Z/E are equivalence classes, which
+can be written in the form z+E. That is, if K is an equivalence
+class and z belongs to K, then it is easy to see that 
+K={z+e: e is in E}=z+E. Addition and scalar multiplication
+are defined by (z+E)+(z'+E)=z+z'+E and a(z+E)=az+E. It is
+not hard to check that these are well defined - that is,
+independent of the particular choices of z and z'.) </p>
+
+<p> Why does this quotient space Z/E help us? Because it gives
+us a trivial proof of the assertion we wanted before. If </p>
+
+<p align="center"> a<sub>1</sub>[v<sub>1</sub>,w<sub>1</sub>]+
+a<sub>2</sub>[v<sub>2</sub>,w<sub>2</sub>]+...+
+a<sub>n</sub>[v<sub>n</sub>,w<sub>n</sub>] </p>
+
+<p> is not a linear combination of expressions of the
+form </p>
+
+<ol>
+
+1. [v,w+w']-[v,w]-[v,w'] <br>
+2. [v+v',w]-[v,w]+[v',w] <br>
+3. [av,w]-a[v,w] <br>
+4. [v,aw]-a[v,w] <br>
+</ol> 
+
+<p> then trivially </p>
+
+<p align="center"> z=a<sub>1</sub>[[v<sub>1</sub>,w<sub>1</sub>]]+
+a<sub>2</sub>[[v<sub>2</sub>,w<sub>2</sub>]]+...+
+a<sub>n</sub>[[v<sub>n</sub>,w<sub>n</sub>]] </p>
+
+<p> is not a linear combination of vectors of the form </p>
+
+<ol>
+
+1. [[v,w+w']]-[[v,w]]-[[v,w']] <br>
+2. [[v+v',w]]-[[v,w]]+[[v',w]] <br>
+3. [[av,w]]-a[[v,w]] <br>
+4. [[v,aw]]-a[[v,w]] <br>
+</ol> 
+
+<p> In other words, z does not belong to the subspace E. 
+In other words again, z+E is not zero in the quotient space
+Z/E. To complete the proof, it is enough to find a bilinear
+map f from VxW to Z/E such that </p>
+
+<p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=z+E </p>
+
+<p> and in particular is non zero. What is the most
+obvious map one can possibly think of? Well, f(v,w)=[[v,w]]+E
+seems a good bet. Is it bilinear? Yes, by the way we designed
+E. For example, f(v,w+w')=[[v,w+w']]+E, and since 
+[[v,w+w']]-[[v,w]]-[[v,w']] belongs to E, we may deduce that </p>
+
+<p align="center"> f(v,w+w')=[[v,w]]+[[v,w']]+E=([[v,w]]+E)+([[v,w']]+E)
+=f(v,w)+f(v,w') </p>
+
+<p> To sum up, we have just proved the following (not very
+surprising) proposition. </p>
+
+<h3> Proposition </h3>
+
+<p> <em> A linear combination of functions of the form </em> [v,w]
+<em> is zero if and only if it is generated by functions of the
+form </em> [av,w]-a[v,w], [v,aw]-a[v,w], [v,w+w']-[v,w]-[v,w']
+<em> and </em> [v+v',w]-[v,w]-[v',w]. </p>
+
+<h2> How to think about tensor products. </h2>
+
+<p> What has all this to do with tensor products? Now is the
+time to admit that I have already defined tensor products - in 
+two different ways. They are a good example of the phenomenon
+discussed in my page about <a href="https://www.dpmms.cam.ac.uk/~wtg10/definition.html">
+definitions </a>: exactly how they are defined is not important:
+what matters is the properties they have. </p>
+
+<p> The usual notation for the tensor product of two vector
+spaces V and W is V followed by a multiplication symbol with
+a circle round it followed by W. Since this is html, I shall
+write V@W instead, and a typical element of V@W will be a linear
+combination of elements written v@w. You can regard v@w as an 
+alternative notation for [v,w], or for [[v,w]]+E - it doesn't 
+matter which as the above discussion shows that the space
+spanned by [v,w] is isomorphic to the space spanned by 
+[[v,w]]+E, via the (well-defined) linear map that takes
+[v,w] to [[v,w]]+E and extends linearly. </p>
+
+<p> A tempting mistake for beginners is to think that every element of
+V@W is of the form v@w, but this is just plain false. For example, if
+v, v', w and w' are vectors with no linear dependences, then v@w+v'@w'
+cannot be written in that form. (If it could then there would be some
+pair (v'',w'') such that a bilinear map f satisfied f(v'',w'')=0 if
+and only if f(v,w)+f(v',w')=0. It is not hard to convince yourself 
+that there is no such pair - indeed I more or less proved it in
+the discussion above about two-dimensional spaces.) </p>
+
+<p> Another tempting mistake is to pay undue attention to
+how tensor products are constructed. I should say that the
+standard construction is the second one I gave, that is, the
+quotient space. Suppose that we try to solve problems by
+directly using this definition, or rather construction.
+They suddenly seem rather hard. For example, let v' and w'
+be non-zero vectors in V and W. How can we show that
+v'@w' is not zero? Well, to do so directly from the quotient
+space definition, we need to show that the pair [[v',w']]
+does not belong to the space E defined earlier. In order
+to prove that, we somehow need to find a property of
+[[v',w']] that is not shared by any linear combination of
+vectors of the four forms listed above. </p>
+
+<p> Let us ask ourselves a very general question: how does
+one ever show that a certain point v does not lie in a certain
+subspace W of a vector space? If the space is R<sup>n</sup>
+and we are given a basis of the subspace, then our task
+is to show that a system of linear equations has no solution.
+In a more abstract set-up, the natural method - in fact,
+more or less the only method - is to find a linear map
+T from V to some other vector space (R will always be
+possible) such that Tv is not zero but Tw is zero for
+every w in W. </p>
+
+<p> Returning to the example at hand, can we find a
+linear map that sends everything in E to zero and 
+[[v',w']] to something non-zero? Let us remind ourselves
+of our earlier proposition.
+
+</p><h4> Proposition (repeated) </h4>
+
+<p> <em> A linear combination of functions of the form </em> [v,w]
+<em> is zero if and only if it is generated by functions of the
+form </em> [av,w]-a[v,w], [v,aw]-a[v,w], [v,w+w']-[v,w]-[v,w']
+<em> and </em> [v+v',w]-[v,w]-[v',w]. </p>
+
+<p> That gives us an obvious map that takes everything in 
+E to zero: just map [[v,w]] to [v,w] and extend linearly.
+So we are then done if [v',w'] is non-zero. But for [v',w']
+not to be zero, all we have to do is come up with a 
+bilinear map f from VxW to R such that f(v',w') is not
+zero. To do this, extend the singletons {v'} and {w'}
+to bases of V and W and for any pair of basis vectors
+(x,y) let f(x,y)=0 unless x=v' and y=w' in which case
+let f(x,y)=1. Then extend f bilinearly. </p>
+
+<p> Well, we have solved the problem, but we didn't
+really do it directly from the quotient-space definition.
+Indeed, we got out of the quotient space as quickly as
+we could. How much simpler it would have been to start
+thinking immediately about bilinear functions. In order
+to show that v@w is non-zero, we could have regarded it
+as [v,w] instead, and instantly known that v@w is non-zero
+if and only if there is a bilinear function f defined
+on VxW such that f(v,w) does not vanish. </p>
+
+<p> So, here is a piece of advice for interpreting a
+linear equation involving expressions of the form v@w.
+<em> Do not </em> worry about what the objects themselves
+mean, and instead use the fact that </p>
+
+<p align="center"> a<sub>1</sub>v<sub>1</sub>@w<sub>1</sub>+
+a<sub>2</sub>v<sub>2</sub>@w<sub>2</sub>+...+
+a<sub>n</sub>v<sub>n</sub>@w<sub>n</sub>=0 </p>
+
+<p> if and only if </p> 
+
+<p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear function f defined on VxW. (We proved
+this earlier, except that instead of 
+v<sub>i</sub>@w<sub>i</sub> we wrote 
+[v<sub>i</sub>,w<sub>i</sub>].) </p>
+
+<p> Now algebraists have a more grown-up way of saying this,
+which runs as follows. Here is a sentence from earlier in 
+this page: </p>
+
+<p align="center"> What we are saying is more like
+this: if f is an <em> arbitrary </em> bilinear function, then the
+above linear equation will <em> always </em> be satisfied. </p>
+
+<p> It would be nice if there were a bilinear map g on VxW
+that was so `generic' that we could regard it itself as
+an `arbitrary' bilinear map. But there <em> is </em> such
+a map, and we have more or less defined it. It takes
+(v,w) to v@w. The bilinearity of this map is obvious
+(if you don't find it obvious then you are forgetting to 
+use the fact I have just mentioned and recommended).
+As for its `arbitrariness', the fact above can be
+translated as follows:
+
+</p><p align="center"> a<sub>1</sub>g(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>g(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>g(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> if and only if </p> 
+
+<p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear function f defined on VxW. In brief, 
+no linear equation holds for g unless it holds for all 
+bilinear functions. </p>
+
+<p> How do algebraists express this `arbitrariness'? They
+say that the tensor product has a <em> universal property </em>.
+The bilinear map g is in a certain sense `as big as possible'.
+To see what this sense is, let us return to our main fact
+in its v<sub>i</sub>@w<sub>i</sub> formulation. Let f:VxW--&gt;U
+be some bilinear map, and let us try to define a linear map 
+h:V@W--&gt;U by sending v@w to f(v,w) and extending linearly.
+It is not quite obvious that this is well-defined, since
+we must check that if we write an element of V@W in two 
+different ways as linear combinations of v@ws, then the
+corresponding linear combinations of f(v,w)s are equal.
+But this is exactly what is guaranteed by the main fact. 
+So h is a well-defined linear map, and hg=f, since
+hg(v,w)=h(v@w)=f(v,w), by the definition of h. Moreover,
+it is clear that h is the only linear map such that
+hg=f, since h(v@w) is forced to be f(v,w) and we are
+forced to extend linearly. We have therefore proved
+the following. </p>
+
+<h3> Proposition </h3>
+
+<p> <em> For every bilinear map </em> f:VxW--&gt;U <em> there is a
+unique linear map </em> h:V@W--&gt;U <em> such that </em> hg=f, <em> 
+where </em> g <em> is the bilinear map from </em> VxW <em> to </em>
+V@W <em> that takes </em> (v,w) <em> to </em> v@w. </p><p>
+
+</p><p> The map f is said to <em> factor uniquely 
+through </em> g. </p>
+
+<p> Now let us see why this proposition says 
+exactly the same as what I have called the main 
+fact about V@W. Since it followed from the main
+fact, all I have to do is show that reverse 
+implication holds as well: assuming this proposition
+we can recover the main fact. Suppose therefore
+that there is a bilinear function f such that
+
+</p><p align="center"> a<sub>1</sub>f(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>f(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>f(v<sub>n</sub>,w<sub>n</sub>) </p>
+
+<p> is not zero. Since we can write f as hg, and since
+h is linear, it follows that
+
+</p><p align="center"> a<sub>1</sub>g(v<sub>1</sub>,w<sub>1</sub>)+
+a<sub>2</sub>g(v<sub>2</sub>,w<sub>2</sub>)+...+
+a<sub>n</sub>g(v<sub>n</sub>,w<sub>n</sub>), </p>
+
+<p> which equals </p>
+
+<p align="center"> a<sub>1</sub>v<sub>1</sub>@w<sub>1</sub>+
+a<sub>2</sub>v<sub>2</sub>@w<sub>2</sub>+...+
+a<sub>n</sub>v<sub>n</sub>@w<sub>n</sub>, </p>
+
+<p> is also non-zero. And that establishes the fact. </p>
+
+<p> A useful lemma about the tensor product is that it
+is unique, in the following sense. </p>
+
+<h3> Lemma </h3>
+
+<p> <em> Let </em> U <em> and </em> V <em> be vector spaces, and let
+</em> b:UxV--&gt;X <em> be a bilinear map from </em> UxV <em> to a vector
+space </em> X. <em> Suppose that for every bilinear map </em> f <em>
+defined on </em> UxV <em> there is a unique linear map </em> c <em>
+defined on </em> X <em> such that </em> f=cb. <em> Then there is an
+isomorphism </em> i:X--&gt;U@V <em> such that </em> u@v=ib(u,v) <em> for
+every </em> (u,v) <em> in </em> U@V. </p>
+
+<p> We can avoid mentioning u@v if we use the map g:UxV--&gt;U@V. 
+Then the lemma says that g=ib. Briefly, the point of the lemma is
+that any bilinear map b:UxV--&gt;X satisfying the universal property
+is isomorphic to the map g:UxV--&gt;U@V in an obvious sense. </p>
+
+<h3> Proof </h3>
+
+<p> Applying the hypothesis about b to the bilinear map
+g:UxV--&gt;U@V, we obtain a linear map i:X--&gt;U@V such that
+g=ib. Similarly, applying the universal property of g
+to the bilinear map b, we obtain a linear map j:U@V--&gt;X
+such that b=jg. It follows that b=jg=jib. Now let c be
+the identity on X. Then b=cb. So by the uniqueness part
+of the hypothesis on X (applied when f=b) we find that
+ji=c. Similarly, ij is the identity on U@V, which shows
+that i is an isomorphism. </p>
+
+<p> The reason algebraists prefer to talk about the
+universal property of V@W and factorization of maps
+is that it enables them to avoid dirtying their hands
+by considering the actual <em> elements </em> of
+V@W. It can be hard to get used to this 
+spaces-rather-than-objects way of thinking, so let
+me prove that the tensor product is associative (in 
+the sense that there is a natural isomorphism between 
+U@(V@W) and (U@V)@W), first by using the main fact and
+then by using the universal property. </p>
+
+<hr>
+
+<h2> The associativity of the tensor product </h2>
+
+<p> Since V@W is a vector space, it makes perfectly
+good sense to talk about U@(V@W) when U is another
+vector space. A typical element of U@(V@W) will
+be a linear combination of elements of the form
+u@x, where x itself is a linear combination of
+elements of V@W of the form v@w. Hence, we can
+write any element of U@(V@W) as </p>
+
+<p align="center"> u<sub>1</sub>@(v<sub>1</sub>@w<sub>1</sub>)+...+
+u<sub>n</sub>@(v<sub>n</sub>@w<sub>n</sub>). </p>
+
+<p> (Here I have used facts such as that a(x@y)=x@ay=ax@y
+and x@(y+z)=x@y+x@z.) Since we can say something very
+similar about elements of (U@V)@W, there is a very tempting
+choice for the definition of a (potential) isomorphism 
+between the two spaces, namely that the above vector should
+map to </p>
+
+<p align="center"> (u<sub>1</sub>@v<sub>1</sub>)@w<sub>1</sub>+...+
+(u<sub>n</sub>@v<sub>n</sub>)@w<sub>n</sub>. </p>
+
+<p> Indeed, this works, but I haven't proved it yet because
+I haven't demonstrated that it is well-defined. For this it
+is enough to prove that if the first vector is zero then
+the second must be as well. And now there
+is a slight problem. We would like to make everything simple
+by converting the question into one about bilinear maps, but
+we find ourselves looking at bilinear maps on Ux(V@W), and
+V@W is itself an object that we want to try to avoid thinking
+about too directly. </p>
+
+<p> Let us think, though, what a bilinear map f defined on 
+Ux(V@W) is like. By definition it is linear in each variable
+when the other is held fixed. So every u in U defines for us
+a linear map f<sub>u</sub> on V@W by the formula 
+f<sub>u</sub>(x)=f(u,x). But linear maps on V@W correspond
+to <em> bilinear </em> maps on VxW: given a bilinear map 
+on VxW we have seen how to associate a linear map on V@W,
+and the reverse process is trivial - just compose it with
+the bilinear map g:VxW--&gt;V@W. So it looks as though
+bilinear maps on Ux(V@W) ought to correspond to <em> trilinear </em>
+maps on Ux(VxW)=UxVxW. (That last equality is, strictly speaking,
+a very natural bijection rather than an exact equality, since
+(u,(v,w)) is not the same object as (u,v,w).) </p>
+
+<p> This should interest us, because the definition of
+trilinear maps on UxVxW makes no mention of how you bracket
+the product, and that ought to help if we are searching
+for an associativity proof. So let us try to make the
+connection precise. </p>
+
+<p> First, then, let us take a bilinear map f defined on
+Ux(V@W) and try to associate with it a trilinear map e
+on UxVxW. There is an obvious candidate: e(u,v,w)=f(u,v@w),
+and it is easy to check that e is indeed trilinear. </p>
+
+<p> As for the other direction, let e be a trilinear map
+defined on UxVxW. It isn't immediately obvious how to
+proceed, so let us remind ourselves what we do know: that
+bilinear maps on VxW correspond to linear maps on V@W. Do
+we have any bilinear maps on VxW? Yes we do: for each 
+fixed u in U we can define e<sub>u</sub>(v,w) to be
+e(u,v,w). This then gives us, again for each u, a
+linear map f<sub>u</sub> defined on V@W by the formula
+f<sub>u</sub>(v@w)=e<sub>u</sub>(v,w)=e(u,v,w) (extended
+linearly). But now it follows from the trilinearity of e 
+that the map f(u,v@w)=f<sub>u</sub>(v@w) is linear in u
+for fixed v@w - and because we extended f<sub>u</sub>(v@w)
+linearly, this is true of f(u,x) for more general elements
+x of V@W. </p>
+
+<p> We have now shown that bilinear maps on Ux(V@W) are in
+a natural one-to-one correspondence with trilinear maps
+on UxVxW. But a very similar argument will clearly prove
+the same for bilinear maps on (U@V)xW. This observation
+has solved our problem, because </p>
+
+<p align="center"> u<sub>1</sub>@(v<sub>1</sub>@w<sub>1</sub>)+...+
+u<sub>n</sub>@(v<sub>n</sub>@w<sub>n</sub>)=0 </p>
+
+<p> if and only if </p>
+
+<p align="center"> f(u<sub>1</sub>,(v<sub>1</sub>@w<sub>1</sub>))+...+
+f(u<sub>n</sub>,(v<sub>n</sub>@w<sub>n</sub>))=0 </p>
+
+<p> for every bilinear map f. By what we have just
+proved, this is true if and only if </p>
+
+<p align="center"> e(u<sub>1</sub>,v<sub>1</sub>,w<sub>1</sub>)+...+
+e(u<sub>n</sub>,v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every trilinear map e. But this, again by 
+what we have just proved, is true if and only if </p>
+
+<p align="center"> d((u<sub>1</sub>@v<sub>1</sub>),w<sub>1</sub>)+...+
+d((u<sub>n</sub>@v<sub>n</sub>),w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear map d, this time defined on 
+(U@V)xW. Finally, this is true if and only if </p>
+
+<p align="center"> (u<sub>1</sub>@v<sub>1</sub>)@w<sub>1</sub>+...+
+(u<sub>n</sub>@v<sub>n</sub>)@w<sub>n</sub>=0. </p>
+
+<hr>
+
+<p> Now let me give a slightly slicker, high-level 
+proof of the same fact. We have just discovered the 
+(not terribly surprising - none of these results are
+supposed to be surprising) relevance of trilinear
+functions on UxVxW. This strongly suggests that we
+should do to trilinear maps what we have already
+done to bilinear ones - that is, define a sort
+of triple tensor product U@V@W. What should this
+be? Well, presumably we would like a typical 
+element to be a linear combination of elements of
+the form u@v@w and for </p>
+
+<p align="center">  u<sub>1</sub>@v<sub>1</sub>@w<sub>1</sub>+...+
+u<sub>n</sub>@v<sub>n</sub>@w<sub>n</sub> </p>
+
+<p> to be zero if and only if </p>
+
+<p align="center"> e(u<sub>1</sub>,v<sub>1</sub>,w<sub>1</sub>)+...+
+e(u<sub>n</sub>,v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every trilinear map e. This can be done,
+and since the proofs are very closely analogous to
+those for products of two spaces, I shall not give them. 
+Let me simply note that the universal property of 
+U@V@W is that every trilinear map e:UxVxW decomposes
+uniquely as hg, where g is the obvious map from UxVxW 
+to U@V@W and h is linear. Moreover, any other 
+space with this sort of universal property is 
+naturally isomorphic to U@V@W. </p>
+
+<p> In order to prove the associativity of @, it is enough to show
+that U@(V@W) is naturally isomorphic to U@V@W. By the uniqueness
+result just mentioned, all we have to do in order for this is to prove
+that every trilinear map e:UxVxW--&gt;X factors uniquely through U@(V@W).
+(More precisely, f=cg, where c is linear and g(u,v,w)=u@(v@w).)
+How might that work? Well, for every u we have a bilinear map
+e<sub>u</sub>:VxW--&gt;X given by e<sub>u</sub>(v,w)=e(u,v,w).  The
+universal property of ordinary tensor products gives us for each u a
+unique linear map f<sub>u</sub>:V@W--&gt;X such that
+e(u,v,w)=f<sub>u</sub>(v@w).  Defining f(u,v@w) to be
+f<sub>u</sub>(v@w) gives us a map f which is unique, clearly bilinear 
+(we have seen this already) and defined on Ux(V@W). Hence, it factors 
+uniquely through U@(V@W). </p>
+
+<hr>
+
+<h2> Yet another way of regarding tensor products </h2>
+
+<p> There is one further way, which is useful as a psychological
+crutch, but has disadvantages which I shall mention below. Suppose
+that V and W are finite-dimensional vector spaces with given bases,
+so that we can think of a typical vector in V in coordinate form
+as v=(a<sub>1</sub>,...,a<sub>m</sub>), and a typical vector in W
+as w=(b<sub>1</sub>,...,b<sub>n</sub>). Then v@w can be thought of
+as the m-by-n matrix A<sub>ij</sub>=a<sub>i</sub>b<sub>j</sub>.
+Notice that matrices of the form v@w are only a small subset of
+all m-by-n matrices. In fact, they are the matrices of rank one.
+For exactly this reason, an element of V@W of the form v@w is called
+a rank-one tensor, and in general the <em> rank </em> of an element
+x of V@W is defined to be the smallest number of v@ws you need to
+add together to make x. This coincides with the usual definition of
+the rank of a matrix. (Exercise: prove this.) </p>
+
+<p> Why does this `construct' the tensor product? To answer this
+question, let us prove the main fact. Just to avoid ambiguity, I
+will invent yet another piece of notation - let {v,w} stand for
+the rank-one matrix defined above, and let us show that </p>
+
+<p align="center"> {v<sub>1</sub>,w<sub>1</sub>}+...
++{v<sub>n</sub>,w<sub>n</sub>}=0 </p>
+
+<p> if and only if </p>
+
+<p align="center"> f(v<sub></sub>,w<sub></sub>)+...+
+f(v<sub>n</sub>,w<sub>n</sub>)=0 </p>
+
+<p> for every bilinear map f defined on VxW. One direction is
+trivial, since the map taking (v,w) to {v,w} is bilinear. As for
+the other, if the first sum is a non-zero matrix A, then pick
+(i,j) such that A<sub>ij</sub> is non-zero and define a bilinear
+map f by f(v,w)=v<sub>i</sub>w<sub>j</sub>. It is clear that the
+second sum is non-zero for this choice of f. </p>
+
+<p> An advantage of this way of thinking of tensor products is
+that it makes them easier to visualize. Its main disadvantage
+is that it relies on a particular choice of basis. Not only is
+there no canonical choice of basis for a general vector space
+(even if it is finite-dimensional), but also the tensor product
+can be defined for other algebraic structures where you don't
+have a basis at all. </p>
+
+<p> Rather than define these other algebraic structures, let
+me give one example of a type of object which is not a vector
+space, but on which a tensor product can be defined. Let G, H
+and K be abelian groups, and write the operations on them as +.
+Let us call a map f:GxH--&gt;K a <em> bihomomorphism </em> if 
+f(g,h) is a homomorphism in h for each fixed g and in g for
+each fixed h. We can ask ourselves what the most general sort
+of bihomomorphism is, and we will find that we can answer this
+question exactly as we did for vector spaces - either by 
+considering all bihomomorphisms at once, or by taking the
+free abelian group generated by all expressions of the form
+[[g,h]] and quotienting out by the subgroup generated by 
+expressions of two obvious forms. This will construct for
+us a tensor product G@H, which will have the property that </p>
+
+<p align="center"> 
+g<sub>1</sub>@h<sub></sub>+...+g<sub>n</sub>@h<sub>n</sub>=0 </p>
+
+<p> if and only if </p>
+
+<p align="center"> r(g<sub>1</sub>,h<sub>1</sub>)+...+
+r(g<sub>n</sub>,h<sub>n</sub>)=0 </p>
+
+<p> for every bihomomorphism r. As a quick (and surprising if
+you have not seen it before) example, let Z<sub>p</sub> be
+the group of integers mod p under addition and let us work
+out Z<sub>2</sub>@Z<sub>3</sub>. To do this, we must look
+at what bihomomorphisms there are. Well, it is not hard to
+see that a bihomomorphism r will be determined by what it
+does to (1,1). But r(1,1)+r(1,1)=r(0,1)=0, as r is a homomorphism
+in the first variable, and r(1,1)+r(1,1)+r(1,1)=r(1,0)=0, as
+r is a homomorphism in the second variable. Subtracting, it 
+follows that r(1,1)=0 and hence that r is identically 0. From 
+this it follows that Z<sub>2</sub>@Z<sub>3</sub>=0. </p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="refunder-rework-slider"></div></body></html>
