@@ -1,0 +1,46 @@
+\section{Independence of paths \& Cauchy's integral theorem}
+\par\bigskip
+\subsection{Independence of paths}\hfill\\
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $f(z)$ is continous in a domain $D$ and that $f(z)$ has an antiderivative $F(z)$ in $D$, i.e $F^{\prime}(z) = f(z)$ $\forall z\in D$
+  \par\bigskip
+  \noindent Let $\Gamma $ be a contour in $D$ with initial point $z_I$ and terminal point $z_T$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = F(z_T)-F(z_T)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z) = \sum_{k}\int_{\gamma_k}f(z)dz = \sum_{k}\int_{\tau_{k-1}}^{\tau_k}f(z(t))z^{\prime}(t)dt
+    \end{gathered}
+  \end{equation*}\par
+  \noindent where $z(t)$, $\tau_{k-1}\leq t\leq\tau_k$ is a parametrization of $\gamma_k$
+  \par\bigskip
+  \noindent Now:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{d}{dt}F(z(t)) = F^{\prime}(z(t))z^{\prime}(t) = f(z(t))z^{\prime}(t)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So by Sats 11.66, we have:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\tau_{k-1}}^{\tau_k}f(z(t))z^{\prime}(t)dt = F(z(\tau_k))-F(z(\tau_{k-1}))
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Sum over $k$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If $f$ is continous in a domain $D$ and has an antiderivative in $D$, then:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent for every closed contour in $D$

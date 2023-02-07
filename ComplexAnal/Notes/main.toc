@@ -28,3 +28,5 @@
 \contentsline {subsection}{\tocsubsection {}{10.1}{Contours}}{31}{subsection.10.1}%
 \contentsline {subsection}{\tocsubsection {}{10.2}{Contour integrals}}{32}{subsection.10.2}%
 \contentsline {subsection}{\tocsubsection {}{10.3}{How to compute the contour integral}}{33}{subsection.10.3}%
+\contentsline {section}{\tocsection {}{11}{Independence of paths \& Cauchy's integral theorem}}{35}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Independence of paths}}{35}{subsection.11.1}%
