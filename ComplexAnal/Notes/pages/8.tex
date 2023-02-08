@@ -44,3 +44,136 @@
   \end{gathered}
 \end{equation*}\par
 \noindent for every closed contour in $D$
+\par\bigskip
+\begin{theo}[]{}
+  Let $f$ be continous in a domain $D$ , then the following are equivalent:\par
+  \begin{itemize}
+    \item $f$ has an antiderivative in $D$
+    \item $\int_{\Gamma}f(z)dz = 0$ for every closed contour $\Gamma$ in $D$
+    \item Contour integrals are independent of path in $D$\par
+      \begin{itemize}
+        \item If $\Gamma_1$ and $\Gamma_2$ are 2 contours with the same initial and terminal point, then $\int_{\Gamma_1}f(z) dz = \int_{\Gamma_2}f(z)dz$ 
+      \end{itemize}
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \textbf{(I) }$\Rightarrow$\textbf{ (II)}: see anmärkning above.
+  \par\bigskip
+  \noindent\textbf{(II) }$\Rightarrow$\textbf{ (III)}: Given $\Gamma_1$ and $\Gamma_2$, let:
+  \begin{equation*}
+    \begin{gathered}
+      \Gamma = \Gamma_1+(-\Gamma_2)\Rightarrow = 0 = \int_{\Gamma} = \int_{\Gamma_1}+\int_{-\Gamma_2} = \int_{\Gamma_1}-\int_{\Gamma_2}\\
+      \Rightarrow \int_{\Gamma_1} = \int_{\Gamma_2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{(III) }$\Rightarrow$\textbf{ (I)}: Fix $z_0\in D$. Since $D$ is a domain, $\Rightarrow$ for any $z\in D$ there is a polygonal path $\Gamma$ from $z_0$ to $z$
+  \par\bigskip
+  \noindent Define $F(z)$ = $\int_{\Gamma}f(s)ds$
+  \par\bigskip
+  \noindent $F(z)$ is well defined, i.e independed of the choice of $\Gamma$. By \textbf{(III)}.
+  \par\bigskip
+  \noindent We now show that $F^{\prime}(z) = f(z)$ $\forall z\in D$ by looking at a line segment $L$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow F(z+\Delta z)-F(z) = \int_{L}f(s)ds = \int_{L}f(z)ds +\int_{L}(f(s)-f(z))ds\\
+      = f(z)\Delta z + \int_{L}(f(s)-f(z))ds
+    \end{gathered}
+  \end{equation*}\par
+  \noindent i.e:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{F(z+\Delta z)-F(z)}{\Delta z} = f(z)+\dfrac{1}{\Delta z}\int_{L}(f(s)-f(z))ds
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By the ML-inequality:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\dfrac{1}{\Delta z}\int_{L}(f(s)-f(z))ds\right|\leq\dfrac{1}{\left|\Delta z\right|}\cdot\max_{s\in L}\left|f(s)-f(z)\right|\cdot\left|\Delta z\right|\stackrel{\Delta z\to0}{\to}0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Thus:
+  \begin{equation*}
+    \begin{gathered}
+      F^{\prime}(z) = \lim_{\Delta z\to0}\dfrac{F(z+\Delta z)-F(z)}{\Delta z} = f(z)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\subsection{Cauchy's integral theorem}\hfill\\\par
+\noindent Let $\Gamma$ bea  simple closed contour in $\C$ parametrized by $z = z(t)$ $a\leq t\leq b$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz = \int_{a}^{b}f(z(t))\dfrac{dz}{dt}dt\\
+    = \int_{a}^{b}(u(x(t),y(t))+iv(x(t), y(t)))\left(\dfrac{dx}{dt}+i\dfrac{dy}{dt}\right)dt\\
+    = \int_{a}^{b}\left(u(x(t),y(t))\dfrac{dx}{dt}-v(x(t),y(t))\dfrac{dy}{dt}\right)dt+i\int_{a}^{b}(v(x(t),y(t))+u(x(t),y(t))\dfrac{dy}{dt})dt
+  \end{gathered}
+\end{equation*}\par
+\noindent This leads us to:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz = \int_{\Gamma}(udx-vdy)+i\int_{\Gamma}(vdx+udy)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can use Greens theorem:
+\par\bigskip
+\begin{theo}[Greens theorem]{}
+  Let $\overline{F}(x,y) = (F_1(x,y),F_2(x,y))$ be a $C^1$-vector field defined on a simply connected domain $D$, and let $\Gamma$ be a positively oriented simple closed contour in $D$
+  \par\bigskip
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}(F_1dz+F_2dy) = \iint_{\Omega}\left(\dfrac{\partial F_2}{\partial x}-\dfrac{\partial F_1}{\partial y}\right)dxdy
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $\Omega$ denotes the region interior to $\Gamma$
+\end{theo}
+\par\bigskip
+\noindent Let's see if we can use this on the expression for $\int_{\Gamma}f(z)dz$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz = \int_{\Gamma}(udx-vdy)+i\int_{\Gamma}(vdx+udy) = \iint_{\Omega}\left(-\dfrac{\partial v}{\partial x}-\dfrac{\partial u}{\partial y}\right)dxdy + i\iint_{\Omega}\left(\dfrac{\partial u}{\partial x}-\dfrac{\partial v}{\partial y}\right)dxdy
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now, if we suppose that $u,v\in C^1$ and assume that $f$ is analytic in $D$, then:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}f(z)dz = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent In view of the Cauchy-Riemann equations
+\par\bigskip
+\noindent The following holds:
+\par\bigskip
+\begin{theo}[Cauchy's integral theorem]{}
+  Suppose that $f$ is analytic in a simply connected domain $D$, and let $\Gamma$ be any closed contour in $D$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The theorem generalizes our discussion in two ways.\par
+\noindent First, $\Gamma$ can be any closed contour, it does not need to be simple.\par
+\noindent Second, the assumption that $u,v\in C^2$ has been dropped. The fact that the second assumption is not necessary was first demonstrated by Edouard Goursat
+\par\bigskip
+\begin{theo}[Cauchy-Gourat theorem]{}
+  If $f$ is analytic inside and on a simple closed contour, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Combined with the theorem of path Independence, we have the following:
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $f$ is analytic in a simply connected domain. Then $f$ has an antiderivative, contour integrals are independent of path, and integrals over closed contours are 0
+\end{theo}
