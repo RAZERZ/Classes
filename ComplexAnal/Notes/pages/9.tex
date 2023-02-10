@@ -1,0 +1,185 @@
+\section{Goursat's argument}
+\par\bigskip
+\begin{theo}[Goursat]{}
+  Let $R$ be a rectangle, and let $f$ be analytic on $R$. Then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\partial R}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Decompose $R$ into four sub-rectangles by bisecting the sides.
+  \par\bigskip
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\partial R}f(z)dz = \sum_{j=1}^{4}\int_{\partial R_j}f(z)dz\\
+      \Rightarrow \left|\int_{\partial R}f(z)dz\right|\leq\sum_{j=1}^{4}\left|\int_{\partial R_j}f(z)dz\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then there is some rectangle $R^{(1)}$ among $R_1,R_2,R_3,R_4$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\partial R^{(1)}}f(z)dz \geq\dfrac{1}{4}\left|\int_{\partial R}f(z)dz\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Next, decompose $R^{(1)}$ into four sub-rectangles by bisecting the sides. Similarly, one of these, say $R^{(2)}$ will satisfy:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\partial R^{(2)}}f(z)dz\right|\geq\dfrac{1}{4}\left|\int_{R^{(1)}}f(z)dz\right|\geq\dfrac{1}{4^2}\left|\int_{\partial R}f(z)dz\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We continue to obtain a sequence of rectangles $R^{(1)}\supseteq R^{(2)}\supseteq\cdots$
+  \par\bigskip
+  \noindent Following this, we have:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\partial R^{(n)}}f(z)dz\right|\geq\dfrac{1}{4^n}\left|\int_{\partial R}f(z)dz\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $L$ be the length of $\partial R$ and $L_n$ the length of $\partial R^{(n)}$. Then:
+  \begin{equation*}
+    \begin{gathered}
+      L_n = \dfrac{1}{2^n}L
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent It can be shown that $\bigcap_{n=1}^{\infty}R^{(n)}$ consists of a single point $z_0$.\par
+  \noindent Since $f$ is differentiable at $z_0$:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{f(z)-f(z_0)}{z-z_0}-f^{\prime}(z_0)\stackrel{z\to z_0}{\to}0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $\varepsilon>0$ be given. Then $\exists \delta>0$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      0<\left|z-z_0\right|<\delta\Rightarrow \left|\dfrac{f(z)-f(z_0)}{z-z_0}-f^{\prime}f(z_0)\right|<\varepsilon
+    \end{gathered}
+  \end{equation*}\par
+  \noindent I.e:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f(z)-f(z_0)-f^{\prime}(z_0)(z-z_0)\right|\leq \varepsilon\left|z-z_0\right|\qquad \left|z-z_0\right|<\delta
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Choose $n$ so large that $R^{(n)}$ belongs to the disc $\left|z-z_0\right|<\delta$. Then:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\partial R}f(z)dz\right|\leq 4^n\left|\int_{\partial R^{(n)}}f(z)dz\right|\\
+      = 4^n\left|\int_{\partial R^{(n)}}\underbrace{\left(f(z)-\overbrace{f(z_0)}^{\text{0}}-\overbrace{f^{\prime}}^{\text{0}}(z_0)(z-z_0)\right)}_{\text{$1\quad 1\leq\varepsilon\left|z-z_0\right|\leq\varepsilon\cdot\text{diam}(R^{(n)})=\varepsilon2^{-n}\cdot\text{diam}(R)$}}dz\right|\\
+      \stackrel{\text{ML-ineq}}{\leq} 4^n\cdot\dfrac{\varepsilon}{2^n}\cdot\text{diam}(R)\cdot\dfrac{1}{2^n}L = L\cdot\text{diam}(R)\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where diam$(R)$ is the length of the diagonal of $R$
+  \par\bigskip
+  \noindent This is true for all $\varepsilon>0\implies \int_{\partial R}f(z)dz = 0$
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  Let $D$ be an open disc centered at $z_0$. let $f$ be continue in $D$, and assume that for each rectangle $R$ contained in $D$, we have:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\partial R}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent For any point $z\in D$, define:
+  \begin{equation*}
+    \begin{gathered}
+      F(z) = \int_{\Gamma_z}f(s)ds
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $\Gamma_z$ is the contour along the perimeter along the catheters of the triangle formed from $z_0$ to $z$
+  \par\bigskip
+  \noindent Then $F^{\prime}(z) = f(z)$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  This proof uses some similar techniques found in the proof of the path independence theorem, we have that:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{F(z+\Delta z)-F(z)}{\Delta z} = f(z)+\dfrac{1}{\Delta z}\int_{\Gamma}(f(s)-f(z))ds
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $\Gamma$ is the contour constructed in the same fashion as $\Gamma_z$
+  \par\bigskip
+  \noindent Then, by the ML-inequality:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\dfrac{1}{\Delta z}\int_{\Gamma}(f(s)-f(z))ds\right|\leq\dfrac{1}{\left|\Delta z\right|}\max_{s\in\Gamma}\left|f(s)-f(z)\right|\cdot(\underbrace{\left|\Delta x\right|+\left|\Delta y\right|}_{\text{$\leq 2\left|\Delta z\right|$}})\\
+      \leq 2\max_{s\in\Gamma}\left|f(s)-f(z)\right|\to0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So $F^{\prime}(z) = f(z)$
+\end{prf}
+\par\bigskip
+\noindent Let's see what happpens if we combine the two theorems above with the independence of point theorem.\par
+\noindent We get the following local result:
+\par\bigskip
+\begin{theo}[]{}
+  Let $D$ be an open disc and uspose that $f$ is analytic in $D$. Then $f$ has an antiderivative in $D$, contour integrals are independent of path, and integrals over closed contours are 0 
+\end{theo}
+\par\bigskip
+\section{Homotopy}
+\par\bigskip
+\noindent We operate under the assumption that $D$ is a domain, $I = [0,1]$
+\par\bigskip
+\begin{theo}[Homotopic relationship]{}
+  Suppose $\gamma_0,\gamma_1:I\to D$ is continous and that $\gamma_0(0) = \gamma_1(0)=z_0$ and $\gamma_0(1) = \gamma_1(1) = z_1$
+  \par\bigskip
+  \noindent We say that $\gamma_0$ is \textit{homotopic to $\gamma_1$ with endpoints fixed in $D$} \textbf{if} there is a continous mapping $H:I\times I\to D$ such that:\par
+  \begin{itemize}
+    \item $H(0,t)=\gamma_0(t)\qquad\forall t\in I$
+    \item $H(1,t)=\gamma_1(t)\qquad\forall t\in I$
+    \item $H(s,0) = z_0\quad H(s,1) = z_1\qquad\forall s\in I$
+  \end{itemize}
+  \par\bigskip
+  \noindent This is sometimes denoted $\gamma_0\simeq\gamma_1$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent "Homotopic" is an equivelance relation.
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $\gamma_0, \gamma_1:I\to D$ are continous and that $\gamma_0(0)= \gamma_0(1) = z_0$ and  $\gamma_1(0) = \gamma_1(1) = z_1$ (this is a closed curve)
+  \par\bigskip
+  \noindent We say that $\gamma_0$ and $\gamma_1$ are \textit{homotopic as closed curves in $D$} if there is a continous mapping $H:I\times I\to D$  such that\par
+  \begin{itemize}
+    \item $H(0,t) = \gamma_0(t)\qquad\forall t\in I$
+    \item $H(1,t) = \gamma_1(t)\qquad\forall t\in I$
+    \item $H(s,0) = H(s,1)\qquad\forall s \in I$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\begin{theo}[Simply connected domain]{}
+  A domain $D$ is called \textit{simply connected}  if every closed curve in $D$ is homotopic to a point (= constant closed curve) in $D$
+\end{theo}
+\par\bigskip
+\begin{theo}[Deformation theorem]{}
+  Suppose that $f$ is analytic in a domain $D$\par
+  \begin{itemize}
+    \item If $\Gamma_0$ and $\Gamma_1$ are contours from $z_0$ to $z_1$ which are homotopic with endpoints fixed in $D$, then:
+      \begin{equation*}
+        \begin{gathered}
+          \int_{\Gamma_0}f(z)dz = \int_{\Gamma_1}f(z)dz
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item If $\Gamma_1$ and $\Gamma1$ are closed contours which are homotopic as closed curves in $D$, then:
+      \begin{equation*}
+        \begin{gathered}
+          \int_{\Gamma_0}f(z)dz = \int_{\Gamma_1}f(z)dz
+        \end{gathered}
+      \end{equation*}
+  \end{itemize}
+\end{theo}
