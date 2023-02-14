@@ -1,0 +1,157 @@
+\section{Dyck-stigar}
+\par\bigskip
+\noindent\textbf{Anmärkning}:\par
+\noindent Betrakta stigar som alfabet för lättare räkning! (Ge exempel på detta)
+\par\bigskip
+\subsection{Hur många Dyck-stigar finns det av varje given längd?}\hfill\\
+\par\bigskip
+\noindent Vi börjar med att hitta någon rekursion som ger oss någon slags id\'e om hur vi gör. Sättet vi gör det är att rita diagonalen i Figur 1. Vi tittar på första punkten som träffar den blåa diagonalen, för när den har den träffat den diagonalen, vet vi att resten kommer vara en dyck-stig (den börjar i den punkten och går till slutet som också ligger på diagonalen). Detta är en kortare dyck-stig.
+\par\bigskip
+\noindent I termer av former betyder detta Lemma 4.\par
+\noindent Vad vi sett i bilden är att varje dyck-stig kan skrivas som steg uppåt:
+\begin{equation*}
+  \begin{gathered}
+    uw_iHw_w
+  \end{gathered}
+\end{equation*}\par
+\noindent Där $u$ är uppåt, $w_i$ en dyck-stig, $H$ punkten som träffar diagonalen.
+\par\bigskip
+\noindent Hur kan vi skapa en dyck-stig med längd $2n$? Notera att vi plockar på oss 2 extra steg ($u, H$):
+\begin{equation*}
+  \begin{gathered}
+  d_{n+1} = \sum_{k=0}^{n}\underbrace{d_k}_{\text{Val på första stigen}}\cdot \underbrace{}_{\text{Val av andra stigen}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Dyck-stigar går alltid till hörnet, dvs från $(0,0)\to(n,n)$
+\par\bigskip
+\noindent Notera att summan är $d_{n+1} = (d*d)_n$ (per definition av faltning)
+\par\bigskip
+\noindent\textbf{Proposition 5}:
+\begin{equation*}
+  \begin{gathered}
+    F_d(x) = \dfrac{1-\sqrt{1-4x}}{2x}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Bevisid\'en kommer från vår rekursion, att $d_{n+1} = (d*d)_n$. Tag genererande funktionen på båda sidorna
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{n=0}^{\infty}d_{n+1}x^n =  F_d(x)^2\\
+      \Lrarr\dfrac{1}{x}\sum_{n=0}^{\infty}d_{n+1}x^{n+1} =\dfrac{F_d(x)-1}{x}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Alltså:
+  \begin{equation*}
+    \begin{gathered}
+      F_d(x)^2 = \dfrac{F_d(x)-1}{x}\Rightarrow xF_d(x)^2 = F_d(x)-1\\
+      F_d(x) = \dfrac{1\pm\sqrt{1-4x}}{2x}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Notear $\pm$, vi måste bestämma om det ska vara ett plus-eller minus tecken.\par
+  \noindent Vi kan använda att vi vet när funktionen ska vara lika med noll, antalet stigar mellan (0,0) och (0,0) är 0:
+  \begin{equation*}
+    \begin{gathered}
+      F_d(x) = \dfrac{1\pm\sqrt{1-4x}}{2x} = \sum_{k=0}^{\infty}d_kx^k\\
+      \lim_{x\to0}\dfrac{1+\sqrt{1-4x}}{2x}\qquad\text{existerar ej, alltså måste vara ett minust-tecken}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Den viktiga id\'en bakom lösningen var att hitta en rekursion, då kunde vi använda våra kombinatoriska verktyg på den såsom genererande funktioner.
+\par\bigskip
+\noindent Vi är nästan i mål, det vi ska göra nu kommer ge oss en faktisk formel.
+\par\bigskip 
+\subsection{Newtons binomialsats och en explicit formel för $d_n$}\hfill\\
+\par\bigskip
+\noindent Notera att $x^{\underline{k}} = \dfrac{x!}{(x-k)!}$, då blir:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}x\\k\end{pmatrix} = \dfrac{x^{\underline{k}}}{k!} 
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Teorem 8}\par
+\noindent Skillnad mellan denna och "vanliga" binomialsatsen? Jo, vanliga binomialsatsen gäller för $r\in\Z$, men denna gosse gäller för $r\in\R$\par
+\noindent Beviset kanske går att få fram kombinatoriskt, se över om det ska tilläggas.
+\par\bigskip
+\begin{prf}[Bevis av Proposition 9]{}
+  När $k=0$, visa att man kan använda fallande-fakultet för att visa att:
+  \begin{equation*}
+    \begin{gathered}
+      \sqrt{1-4x} = 1+\sum_{k=1}^{\infty}\begin{pmatrix}1/2\\k\end{pmatrix}(-1)^k4^kx^k\\
+      F_d(x) = \dfrac{1-1-\sum_{k=1}^{\infty}\begin{pmatrix}1/2\\k\end{pmatrix}(-1)^k4^kx^k}{2x}\\
+      \Rightarrow \dfrac{-4\sum_{k=1}^{\infty}\begin{pmatrix}1/2\\k\end{pmatrix}(-1)^k4^{k-1}x^{k-1}}{2x} = -4\sum_{k=1}^{\infty}\begin{pmatrix}1/2\\k\end{pmatrix}(-1)^k4^{k-1}x^{k-1}\\
+      = 2\sum_{k=1}^{\infty}\begin{pmatrix}1/2\\k\end{pmatrix}(-1)^{k-1}4^{k-1}x^{k-1} = F_d(x)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{lem}[10]{}
+  Det gäller att:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{pmatrix}1/2\\n\end{pmatrix} = \dfrac{(-1)^{n+1}}{4^n(2n-1)}\begin{pmatrix}2n\\n\end{pmatrix}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  \textbf{GÖR DETTA}
+\end{prf}
+\par\bigskip
+\subsection{Kombinatoriskt bevis av Teorem 11}\hfill\\
+\newpage
+\begin{prf}[]{}
+  Metoden går ut på att titta på mängden av \textit{alla} uppåt-höger stigar från (0,0) till (n,n) som vi vet hur många de är (de är $\begin{pmatrix}2n\\n\end{pmatrix}$). Vi vet att dyck-stigar är delmängd till dessa, per definition. Det vi behöver göra nu är att räkna de stigar som inte är dyck-stigar och sedan plocka bort de från totalet.\par
+  \noindent De stigar som inte är dyck-stigar kallar vi för \textit{dåliga stigar}. Se Figur 2
+  \par\bigskip
+  \noindent Vi försöker hitta en bijektion mellan dåliga stigar och uppåt-höger stigar från (0,0) till (n+1,n-1) (vi tar oss alltså till en annan punkt). Vi identifierar den första punkten där den dåliga stigen träffar den underdiagonalen (grönt). Vi vet att det måste finnas en sådan punkt eftersom vi har antagit att det är en dålig stig (det är annars en dyck-stig). Det vi sedan gör är att vi speglar stigen i den punkten, så att varje steg höger blir ett steg uppåt och ett steg uppåt blir ett steg höger. Detta sker alltså \textit{efter} punkten som korsear den punkten.
+  \par\bigskip
+  \noindent Notera att vi hamnade i punkten ($n+1,n-1$), hur kan vi visa att det alltid sker?\par
+  \noindent Vi vet att när vi träffade den gula punkten så har vi ett steg fler åt höger än uppåt (annars hade vi hamnat på den blåa diagonalen). Vi vet att den vita stigen hamnar på den blåa, så om vi har ett steg mer åt höger än uppåt, måste vi jämna ut. Totalt har vi 2 steg fler åt höger efter spegligen, vilket gör att vi hamnar i $(n+1,n-1)$. Använd att steg innan höger = steg innan höger -1
+  \par\bigskip
+  \noindent Vi har nu gjort hälften av bijektionen, för att vi ska vara säkra på att detta är en bijektion ska vi kunna ta en uppåt-höger stig från $(0,0)$ till $(n+1,n-1)$ och skapa en dålig stig. Vi gör detta på precis samma sätt. Vi tittar på uppåt-höger stig, och tittar på den första punkten där den träffar den gröna diagonalen. Eftersom $(n+1,n-1)$  ligger utanför till höger så kommer den skära en punkt $H$. Vi får nu samma argumentation fast baklänges och vi har fått en dålig stig.
+  \par\bigskip
+  \par\bigskip
+  \noindent Vi har visat att antalet dåliga stigar $ = \left|UH:(0,0)\to(n+1,n-1)\right|$ m.h.a denna bijektion. Vi vet faktiskt hur vi ska räkna dessa uppåt höger stigar:
+  \begin{equation*}
+    \begin{gathered}
+      = \begin{pmatrix}(n+1)+(n+-1)\\n+1\end{pmatrix} = \begin{pmatrix}2n\\n+1\end{pmatrix}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Då får vi att:
+  \begin{equation*}
+    \begin{gathered}
+      d_n = \underbrace{\begin{pmatrix}2n\\n\end{pmatrix}}_{\text{UH till $(n,n)$}} - \begin{pmatrix}2n\\n+1\end{pmatrix} = \dfrac{(2n)!}{n!n!}-\dfrac{(2n)!}{(n+1)!\cdot(2n-(n+1))!}\\
+      = (2n)!\left(\dfrac{1}{n!n!}-\dfrac{1}{(n+1)!(n-1)!}\right) = (2n)!\left(\dfrac{n+1}{(n+1)!n!}-\dfrac{n}{(n+1)!n!}\right)\\
+      = \dfrac{(2n)!}{(n+1)!n!} = \dfrac{1}{n+1}\cdot\dfrac{(2n)!}{n!n!} = \dfrac{1}{n+1}\begin{pmatrix}2n\\n\end{pmatrix}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Hade vi istället valt att studera den genererande funktionen hade vi studerat:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=0}^{\infty}\dfrac{\begin{pmatrix}2k\\k\end{pmatrix}}{k+1}x^k
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Om vi hade försökt bevisa $d_{n+1} = \sum_{k=0}^{n}d_kd_{n-k}$ med rekursion är det nästintill omöjligt. Det kombinatoriska beviset är rakt på sak och tydligt, men vi missar en del sevärdheter som faktiskt kan vara intressanta. 
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning}\par
+\noindent Anledning till varför man är intresserad av Catalantal är att de räknar många olika saker
+\par\bigskip
+\noindent\textbf{Exempel 12}\par
+\noindent Vi vet att varje sådant uttryck börjar med (. Startparantes, sedan $w_1$ som är matchande uttryck med paranteser, stäng av Startparantes, sedan $w_2$. Men detta är samma som vår uppdelning av dyck-stigar.\par
+\noindent För att skapa $P_{n+1}$ väljer vi längden av $w_1$ (tillåtet att vara tomt):
+\begin{equation*}
+  \begin{gathered}
+    P_{n+1} = \sum_{k=0}^{n}P_kP_{n-k}
+  \end{gathered}
+\end{equation*}\par
+\noindent Detta uppfyller samma följd av rekursion, och ges därmed av Catalantal.  
