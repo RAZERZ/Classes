@@ -45,14 +45,14 @@
   \end{gathered}
 \end{equation*}
 \par\bigskip
-\noindent Conversely, given $z = x+iy\in\C\sim (x,y,0)$ teh line through $N$ and $z$ is given by:
+\noindent Conversely, given $z = x+iy\in\C\sim (x,y,0)$ the line through $N$ and $z$ is given by:
 \begin{equation*}
   \begin{gathered}
     (x_1,x_2,x_3) = (0,0,1)+t[(x,y,0)-(0,0,1)]\qquad t\in\R
   \end{gathered}
 \end{equation*}
 \par\bigskip
-\textbf{Anmärkning:}\par
+\noindent\textbf{Anmärkning:}\par
 \noindent The line intersects $S$ when:
 \begin{equation*}
   \begin{gathered}
@@ -118,14 +118,14 @@
 \section{Möbius transformations}
 \par\bigskip
 \begin{theo}[Moebius transformation]{}
-  A \textit{Möbius transformation} is a mapping of the form:
+  A \textit{Möbius transformation} (sometimes called \textit{fractional linear transformation}) is a conformal mapping of the form:
   \begin{equation*}
     \begin{gathered}
       T(z) = \dfrac{az+b}{cz+d}\qquad a,b,c,d\in\C
     \end{gathered}
   \end{equation*}
   \par\bigskip
-  \noindent Where $ad-bc\neq0$ ($T$ is not constant)
+  \noindent Where $ad-bc\neq0$ (we do not want $T$ as constant)
 \end{theo}
 \par\bigskip
 \noindent\textbf{Anmärkning:}\par
@@ -160,6 +160,17 @@
 \noindent\textbf{Anmärkning:}\par
 \noindent If we interpret $\dfrac{a}{c}$ and $-\dfrac{d}{c}$ as $\infty$, it also holds for $c=0$
 \newpage
+\begin{theo}[]{}
+  Any conformal map from $D = \left\{z\::\:\text{ such that }\left|z\right|<1\right\}$ to $D$ is a Möbius transformation of the form:
+  \begin{equation*}
+    \begin{gathered}
+      T(z) = e^{i\theta}\dfrac{z-z_0}{1-\overline{z}_0z}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For some fixed $z_0\in D$ and $\theta\in[0,2\pi)$, and any $T$ of this form is a conformal map of $D$ onto $D$
+\end{theo}
+\par\bigskip
 \noindent\textbf{Anmärkning:}\par
 \begin{equation*}
   \begin{gathered}
@@ -191,7 +202,7 @@
 \begin{lem}[]{}
   If a Moebius transformation $T$ has more than two fixed points in $\widehat{\C}$ ($z_0$ is a fixpoint if $T(z_0) = z_0$), then $T(z) = z$ $\forall z\in\widehat{\C}$
 \end{lem}
-\par\bigskip
+\newpage
 \begin{prf}[]{}
   If $c=0$, then $T(z) = \dfrac{az+b}{d}$, so:
   \begin{equation*}
