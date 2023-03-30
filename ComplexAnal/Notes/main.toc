@@ -41,5 +41,6 @@
 \contentsline {section}{\tocsection {}{16}{Sequences and series of functions \& Uniform convergence}}{51}{section.16}%
 \contentsline {section}{\tocsection {}{17}{Power series and Taylor series}}{57}{section.17}%
 \contentsline {subsection}{\tocsubsection {}{17.1}{Power series}}{57}{subsection.17.1}%
-\contentsline {section}{\tocsection {}{18}{Applications}}{60}{section.18}%
-\contentsline {subsection}{\tocsubsection {}{18.1}{Finding conformal mappings}}{61}{subsection.18.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{Taylor Series}}{60}{subsection.17.2}%
+\contentsline {section}{\tocsection {}{18}{Applications}}{63}{section.18}%
+\contentsline {subsection}{\tocsubsection {}{18.1}{Finding conformal mappings}}{64}{subsection.18.1}%

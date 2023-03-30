@@ -165,6 +165,165 @@
 \begin{equation*}
   \begin{gathered}
     f(z_0) = a_0\\
-    f^{\prime}(z_0) = \sum_{k=1}^{\infty}ka_k(z-z_0)^{k-1}\Big|
+    f^{\prime}(z_0) = \sum_{k=1}^{\infty}ka_k(z-z_0)^{k-1}\Big|_{z = z_0} = 1\cdot a_1\\
+    f^{\prime}\prime(z_0) = \sum_{k=2}^{\infty}k(k-1)a_k(z-z_0)^{k-2}\Big|_{z = z_0} = 2\cdot1\cdot a_2\\
+    \vdots\\
+    f^{(n)}(z_0)  =\sum_{k=n}^{\infty}k(k-1)\cdot\cdots\cdot(k-n+1)a_k(z-z_0)^{k-n}\Big|_{z= z_0} = n!a_n
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent We have that:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{1-z} = \sum_{k=0}^{\infty}z^k\qquad \left|z\right|<1
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we may differentiate termwise:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{(1-z)^2} = \sum_{k=1}^{\infty}kz^{k-1}\qquad \left|z\right|<1
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we may also integrate termwise:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{w}\dfrac{1}{1-z}dz = \sum_{k=0}^{\infty}\int_{0}^{w}z^kdz = \sum_{k=0}^{\infty}\dfrac{w^{k+1}}{k+1} = \sum_{n=1}^{\infty}\dfrac{w^n}{n}\qquad\left|w\right|<1
+  \end{gathered}
+\end{equation*}\par
+\noindent But
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{w}\dfrac{1}{1-z}dz = [-\text{Log}(1-z)] = -\text{Log}(1-w)\\
+    \Rightarrow\text{Log}(1-w) = -\sum_{n=1}^{\infty}\dfrac{w^n}{n}\qquad\left|w\right|<1
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $w = -z$:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow\text{Log}(1+z) = \sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n}z^n\qquad\left|z\right|<1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent \textbf{Example:}\par
+\noindent Let $f(z) = \sum_{n=0}^{\infty}\dfrac{z^n}{n!}$\par
+\noindent Since $R = +\infty$, $f$ is entire. One can might quickly notice that
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z) = \sum_{n=1}^{\infty}\dfrac{z^{n-1}}{(n-1)!} = f(z)\qquad f(0) = 0\\
+    \Rightarrow\dfrac{d}{dz}(f(z)e^{-z}) = \underbrace{f^{\prime}(z)}_{\text{$f(z)$}}e^{-z}-f(z)e^{-z} = 0\\
+    \Rightarrow f(z)e^{-z} = c = \text{ constant}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $z = 0\Rightarrow c=1\Rightarrow f(z) = e^z$
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow e^z = \sum_{n=0}^{\infty}\dfrac{z^n}{n!}\qquad z\in\C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Taylor Series}\hfill\\
+\par\bigskip
+\noindent We have seen that power series are analytic inside the disk of convergence $\left\{\left|z-z_0\right|<R\right\}$
+\par\bigskip
+\noindent The following is an important converse:
+\par\bigskip
+\begin{theo}[Taylors theorem]{}
+  Suppose that $f(z)$ is analytic for $\left|z-z_0\right|<R$
+  \par\bigskip
+  \noindent Then
+  \begin{equation*}
+    \begin{gathered}
+      f(z) = \sum_{k=0}^{\infty}\dfrac{f^{(k)(z_0)}}{k!}(z-z_0)^k\qquad\left|z-z_0\right|<R
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\newpage
+\begin{prf}[]{}
+  Fix $z$ and let $r$ be such that $\left|z-z_0\right|<r<R$
+  \par\bigskip
+  \noindent By Cauchys integral formula
+  \begin{equation*}
+    \begin{gathered}
+      f(z) = \dfrac{1}{2\pi i}\oint_{\left|\xi-z_0\right| = r}\dfrac{f(\xi)}{\xi-z}d\xi
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Now,
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{f(\xi)}{\xi-z} = \dfrac{f(\xi)}{\xi-z_0}\dfrac{1}{1-\dfrac{z-z_0}{\xi-z_0}} = \dfrac{f(\xi)}{\xi-z_0}\sum_{k=0}^{\infty}\left(\dfrac{z-z_0}{\xi-z_0}\right)^k\\
+      = \sum_{k=0}^{\infty}\dfrac{f(\xi)(z-z_0)^k}{(\xi-z_0)^{k+1}}\qquad \left|\xi-z_0\right| = r
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where the convergence is uniform in the variable $\xi$ on $\left|\xi-z_0\right| = r$\par
+  \noindent We can therefore interchange integration and summation
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow f(z) = \sum_{k=0}^{\infty}\dfrac{1}{2\pi i}\oint_{\left|\xi-z_0\right| = r}\dfrac{f(\xi)(z-z_0)^k}{(\xi-z_0)^{k+1}}d\xi\\
+      = \sum_{k=0}^{\infty}\left(\dfrac{1}{2\pi i}\oint_{\left|\xi-z_0\right| = r}\dfrac{f(\xi)}{(\xi-z_0)^{k+1}}d\xi\right)(z-z_0)^k\\
+      = \sum_{k=0}^{\infty}\dfrac{f^{(k)}(z_0)}{k!}(z-z_0)^k
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where we used to generalised Cauchys integral formula in the last step
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The radius of convergence of the Taylor series is the largest number $R$  such that $f(z)$ is (or can be extended to be) analytic on the disk $\left\{\left|z-z_0\right|<R\right\}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $f(z) = e^z\Rightarrow f^{(k)}(0) = 1\qquad\forall k\geq0$
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow e^z = \sum_{k=0}^{\infty}\dfrac{1}{k!}z^k\qquad z\in\C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $f(z) = \sin(z)$\par
+\noindent Then $f^{(2k)}(0) = 0,\quad f^{(2k+1)}(0) = (-1)^k$
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \sin(z) = \sum_{k=0}^{\infty}\dfrac{(-1)^k}{(2k+1)!}z^{2k+1}\qquad z\in\C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We finally mention the following:
+\par\bigskip
+\begin{theo}[]{}
+  If the power series $f(z) = \sum_{k=0}^{\infty}a_k(z-z_0)^k$ and $g(z) = \sum_{k=0}^{\infty}b_k(z-z_0)^k$ converge for $\left|z-z_0\right|<R$, then
+  \begin{equation*}
+    \begin{gathered}
+      f(z)g(z) = \sum_{k=0}^{\infty}c_k(z-z_0)^k
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where
+  \begin{equation*}
+    \begin{gathered}
+      c_k = \sum_{j=0}^{k}a_{k-j}b_j
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  $f,g$ are analytic in $\left|z-z_0\right|<R\Rightarrow u(z) = f(z)g(z)$ is analytic in $\left|z-z_0\right|<R$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow u(z) = \sum_{b=0}^{\infty}\dfrac{u^{(k)}(z_0)}{k!}(z-z_0)^k\qquad\left|z-z_0\right|<R
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Now, 
+  \begin{equation*}
+    \begin{gathered}
+      u(z_0) = f(z_0)g(z_0)\\
+      u^{\prime}(z_0) = f^{\prime}(z)g(z)+f(z)g^{\prime}(z)\Big|_{z = z_0} = f^{\prime}(z_0)g(z_0)+f(z_0)g^{\prime}(z_0)\\
+      u^{\prime}\prime(z_0) = f^{\prime}\prime(z_0)g(z_0)+2f^{\prime}(z_0)g^{\prime}(z_0)+f(z_0)g^{\prime}\prime(z_0)\\
+      u^{(k)}(z_0) = \sum_{j=0}^{k}\begin{pmatrix}k\\j\end{pmatrix}f^{(k-j)}(z_0)g^{(j)}(z_0)\\
+      \Rightarrow \dfrac{u^{(k)}(z_0)}{k!} = \sum_{j=0}^{k}\dfrac{f^{(k-j)}(z_0)}{(k-j)!}\dfrac{g^{(j)}(z_0)}{j!}\\
+      \Rightarrow \sum_{j=0}^{k}a_{k-j}b_j
+    \end{gathered}
+  \end{equation*}
+\end{prf}
