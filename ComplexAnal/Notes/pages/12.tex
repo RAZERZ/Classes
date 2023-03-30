@@ -1,0 +1,365 @@
+\section{Sequences and series of functions \& Uniform convergence}\par
+\noindent Chapter 3 covers what is meant by convergence of a sequence of complex numbers.\par
+\noindent Lets recall:
+\par\bigskip
+\setcounter{section}{3}
+\setcounter{theo}{10}
+\begin{theo}[Complex limit]{}
+  A sequence $\left\{z_n\right\}_{n=1}^\infty$ of complex numbers is said to have the limit $z_0$ (we say \textit{converges to $z_0$}) if for every given $\varepsilon>0$ there exists an integer $N\geq1$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|z_n-z_0\right|<\varepsilon\qquad\forall n\geq N
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We write this as:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}z_n = z_0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\setcounter{section}{16}
+\setcounter{theo}{0}
+\par\bigskip
+\begin{theo}[Complex series]{}
+  A \textit{series} is a formal expression of the form $c_0+c_1+c_2+\cdots$, or equivalently:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=1}^{\infty}c_j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $c_j\in\C$. 
+  \par\bigskip
+  \noindent The $n$:th partial sum of the series, denoted by $S_n$, is the sum of the first $n+1$ terms, that is:
+  \begin{equation*}
+    \begin{gathered}
+      S_n = \sum_{j=0}^{n}c_j
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If $\left\{S_n\right\}_{n=0}^\infty$ has limit $S$, the series is said to \textit{converge} to $S$ and we write:
+  \begin{equation*}
+    \begin{gathered}
+      S = \sum_{j=0}^{\infty}c_j
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If the series does not converge, it is said to \textit{diverge} 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent It holds that:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=0}^{\infty}c^j = \dfrac{1}{1-c}\qquad\left|c\right|<1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      (1-c)(1+c+\cdots+c^{n-1}+c^n) = 1+c+\cdots+c^{n-1}+c^n - (c+c^2+\cdots+c^n+c^{n+1})\\
+      = 1-c^{n+1}\Lrarr \dfrac{1}{1-c} - (1+c+\cdots+c^n) = \dfrac{c^{n+1}}{1-c}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent The result frollows ince $\dfrac{c^{n+1}}{1-c}\stackrel{n\to\infty}{\to0}$ when $\left|c\right|<1$
+\end{prf}
+\par\bigskip
+\noindent You can often show that a series converges by comparing it with another series whose convergence is known.
+\par\bigskip
+\begin{theo}[Comparison test]{}
+  Suppose that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|c_j\right|\leq M_j\qquad\forall j\geq J
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}M_j\text{ converges } \Rightarrow \sum_{j=0}^{\infty}c_j \text{ converges}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The proof is rather straightforward if one is familiar with the Cauchy convergence criterion:
+\begin{equation*}
+  \begin{gathered}
+    \left\{A_n\right\}_{n=1}^\infty\text{ converges} \Lrarr \left\{A_n\right\}_{n=0}^\infty\text{ is Cauchy sequence}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Also follows if you combine \textbf{Thm 1 and Thm 2} in 5.1 ?? (\textbf{CHECK})
+\par\bigskip
+\begin{theo}[Absolute convergence]{}
+  The series
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}c_j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is said to be \textit{absolutely convergent} if
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}\left|c_j\right|
+    \end{gathered}
+  \end{equation*}\par
+  \noindent converges.
+\end{theo}
+\par\bigskip
+\noindent\textit{An absolutely convergent series is convergent as seen by a trivial use of the comparison} (\textbf{EVAL NEED})
+\par\bigskip
+\noindent The following result can often be used to prove convergence of a series:
+\par\bigskip
+\begin{theo}[Ratio test]{}
+  Suppose that the terms of the series:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}c_j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent have the property that the rations $\left|\dfrac{c_{j+1}}{c_j}\right|\stackrel{j\to\infty}{\to L}$
+  \par\bigskip
+  \noindent Then the series converges if $L<1$, diverges if $L>1$, and provides no information if $L = 1$ 
+\end{theo}
+\par\bigskip
+\noindent (\textbf{PROOF}) 
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Show that the series
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=0}^{\infty}\dfrac{4^j}{j!}
+  \end{gathered}
+\end{equation*}\par
+\noindent Converges.
+\par\bigskip
+\noindent To solve this, let $c_j = \dfrac{4^j}{j!}$. Then, by the ratio test:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \left|\dfrac{c_{j+1}}{c_j}\right| = \dfrac{4^{j+1}}{(j+1)!}\cdot\dfrac{j!}{4^j} = \dfrac{4}{j+1}\stackrel{j\to\infty}{\to0}
+  \end{gathered}
+\end{equation*}\par
+\noindent Convergence therefore follows.
+\newpage
+\begin{theo}[Pointwise convergence]{}
+  Let $\left\{f_n\right\}_{n=0}^\infty$ be a sequence of functions defined on some set $E\subseteq\C$.\par
+  \noindent We say that the sequence $\left\{f_n\right\}_{n=0}^\infty$ \textit{converges pointwise to $f$ on } $E$ if for each $z\in E$, the sequence of complex numbers $\left\{f_n(z)\right\}_{n=0}^\infty$  converges to $f(z)$
+  \par\bigskip
+  \noindent I.e, for every $z\in E$ and every $\varepsilon>0$, there exists $N$ (dependent on $z$ and $\varepsilon$) such that:
+  \begin{equation*}
+    \begin{gathered}
+      n\geq N\Rightarrow \left|f_n(z)-f(z)\right|<\varepsilon
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Uniform convergence]{}
+  Let $\left\{f_n\right\}_{n=0}^\infty$ be a sequence of functions defined on $E\subseteq \C$. We say that the sequence $\left\{f_n\right\}_{n=0}^\infty$  of functions \textit{converges uniformly to $f$ on $E$}  if for every $\varepsilon>0$ there exists $N$ (dependent on $\varepsilon$) such that:
+  \begin{equation*}
+    \begin{gathered}
+      n\geq N\Rightarrow \left|f_n(z)-f(z)\right|<\varepsilon\qquad\forall z\in E\\
+      \Lrarr\sup_{z\in E}\left|f_n(z)-f(z)\right|\stackrel{n\to\infty}{\to0}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Why do we care about uniform convergence?\par
+\noindent Well, because uniform convergence preserves the properties of the functions under limit operators!
+\par\bigskip
+\begin{theo}[]{}
+  Let $\left\{f_n\right\}_{n=0}^\infty$ be a sequence of functions continuous on a set $E\subseteq\C$ and converging uniformly to $f$ on $E$.
+  \par\bigskip
+  \noindent Then $f$ is continuous on $E$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Take $z_0\in E$ and let $\varepsilon>0$ be given.\par
+  \noindent We want to show that there is a $\delta >0$ such that $z\in E$:
+  \begin{equation*}
+    \begin{gathered}
+      \left|z-z_0\right|<\delta\Rightarrow \left|f(z_0)-f(z)\right|<\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent First, choose $N$ so big that
+  \begin{equation*}
+    \begin{gathered}
+      \left|f(z)-f_N(z)\right|<\dfrac{\varepsilon}{3}\qquad\forall z\in E
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is possible thanks to uniform convergence.\par
+  \noindent Since $f_N$ is continuous at $z_0$, there $\exists\delta>0$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_N(z_0)-f_N(z)\right|<\dfrac{\varepsilon}{3}\qquad\forall z\in E\\
+      \text{s.t } \left|z-z_0\right|<\delta
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For small $z$ it follows that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f(z_0)-f(z)\right| = \left|f(z_0)-f_N(z_0)+f_N(z_0)-f_N(z)+f_N(z)-f(z)\right|\\
+      \leq \left|f(z_0)-f_N(z_0)\right|+\left|f_N(z_0)-f_N(z)\right|+\left|f_N(z)-f(z)\right|\\
+      < \dfrac{\varepsilon}{3}+\dfrac{\varepsilon}{3}+\dfrac{\varepsilon}{3} = \varepsilon
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent We can therefore integrate the limit $f(z)$ over contours $\Gamma$ in $E$
+\par\bigskip
+\noindent The following holds:
+\par\bigskip
+\begin{theo}[]{}
+  Let $\left\{f_n\right\}_{n=0}^{\infty}$ be a sequence of functions continuous on $E\subseteq\C$ and converging uniformly to $f$ on $E$.\par
+  \noindent Suppose that the contour $\Gamma\subset E$
+  \par\bigskip
+  \noindent Then it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f_n(z)dz\to\int_{\Gamma}f(z)dz\quad n\to\infty
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Let $L = L(\Gamma)$\par
+  \noindent Choose $N$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f(z)-f_n(z)\right|<\dfrac{\varepsilon}{L}\qquad\forall n\geq N\quad\forall z\in E
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then, for $n\geq N$:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{\Gamma}f(z)dz-\int_{\Gamma}f_n(z)dz\right| = \left|\int_{\Gamma}(f(z)-f_n(z))dz\right|\\
+      \stackrel{\text{ML}}{<}\dfrac{\varepsilon}{L}\cdot L = \varepsilon
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent We now turn to series of functions 
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=0}^{\infty}f_j(z)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Pointwise resp. uniform convergence, series of functions]{}
+  The series
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}f_j(z)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is said to \textit{converge pointwise resp. uniformly to $f(z)$ on $E$} if the sequence $\left\{S_n\right\}_{n=0}^{\infty}$ of partial sums:
+  \begin{equation*}
+    \begin{gathered}
+      S_n(z) = \sum_{j=0}^{n}f_j(z)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent converges pointwise resp. uniformly to $f(z)$ on $E$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent We saw that $\sum_{j=0}^{\infty}z^j$ converges pointwise to $\dfrac{1}{1-z}$ on $\left|z\right|<1$\par
+\noindent From the identity:
+\begin{equation*}
+  \begin{gathered}
+    \left|\dfrac{1}{1-z}-\sum_{j=0}^{n}z^j\right| = \left|\dfrac{z^{n+1}}{1-z}\right|
+  \end{gathered}
+\end{equation*}\par
+\noindent we see that the convergence is uniform on any disk $\left|z\right|\leq r$ for $r<1$ (but not on $\left|z\right|<1$)
+\newpage
+\begin{theo}[Weierstrass $M$-test]{}
+  Suppose that:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}M_j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is a convergent series with non-negative terms, and that
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_j(z)\right|\leq M_j\qquad\forall z\in E\quad\text{and } j\geq J
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then the seris $\sum_{j=0}^{\infty}f_j(z)$  converges uniformly on $E$
+\end{theo}
+\par\bigskip
+\noindent Also easy if you know the Cauchy criterion (\textbf{TEX})
+\par\bigskip
+\noindent We now turn to analytic functions
+\par\bigskip
+\begin{theo}[]{}
+  Let $\left\{f_n\right\}_{n=0}^{\infty}$ be a sequence of analytic functions in a domain $D$, which converges uniformly to $f$ on $D$
+  \par\bigskip
+  \noindent Then $f$ is analytic in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Let $\tilde{D}$ be any disk in $D$. Then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz\stackrel{\text{Thm.}}{=}\lim_{n\to\infty}\int_{\Gamma}f_n(z)dz\\
+      \stackrel{\text{Cauchy int. thm.}}{=} 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent for all closed contours $\Gamma$ in $D$
+  \par\bigskip
+  \noindent By Morera's theorem it follows that $f$ is analytic in $\tilde{D}$. But since $D$ is a union of disks $\tilde{D}$, the result follows.
+\end{prf}
+\par\bigskip
+\noindent We finally mention the following:
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $\left\{f_n\right\}_{n=0}^{\infty}$ is a sequence of functions analytic in $\left|z-z_0\right|\leq R$ which converges uniformly to $f(z)$ on $\left|z-z_0\right|\leq R$.
+  \par\bigskip
+  \noindent Then, for each $r<R$ and each $m\geq1$, the sequence of $m$:th derivatives $\left\{f_n^{(m)(z)}\right\}_{n=0}^{\infty}$ converges uniformly to $f^{(m)}(z)$ on $\left|z-z_0\right|\leq r$
+\end{theo}
+\newpage
+\begin{prf}[]{}
+  Let $\varepsilon>0$ be given.\par
+  \noindent Choose $N$ so large that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_n(z)-f(z)\right|<\varepsilon\qquad\forall z:\quad\left|z-z_0\right|\leq R\qquad\forall n\geq N
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Fix $s$ such that $r<s<R$. By Cauchy's generalised integral formula:
+  \begin{equation*}
+    \begin{gathered}
+      f_n^{(m)}(z)-f^{(m)}(z) = \dfrac{m!}{2\pi i}\int_{\left|\xi-z_0\right| = s}\dfrac{f_n(\xi)-f(\xi)}{(\xi-z)^{m+1}}d\xi
+    \end{gathered}
+  \end{equation*}\par
+  \noindent for $\left|z-z_0\right|\leq r$
+  \par\bigskip
+  \noindent But if $\left|z-z_0\right|\leq r$ and $\left|\xi-z_0\right| = s$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\xi-z\right|\geq s-r
+    \end{gathered}
+  \end{equation*}\par
+  \noindent so that
+  \begin{equation*}
+    \begin{gathered}
+      \left|\dfrac{f_n(\xi)-f(\xi)}{(\xi-z)^{m+1}}\right|\leq \dfrac{\varepsilon}{(s-r)^{m+1}}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So by the ML-inequality:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_n^{(m)}(z)-f^{(m)}(z)\right|\leq\dfrac{m!}{2\pi}\cdot\dfrac{\varepsilon}{(s-r)^{m+1}}\cdot2\pi s
+    \end{gathered}
+  \end{equation*}\par
+  \noindent for all $z$ with $\left|z-z_0\right|\leq r$
+  \par\bigskip
+  \noindent This proves uniform convergence of $\left\{f_n^{(m)}\right\}_{n=0}^{\infty}$ to $f^{(m)}$ on $\left|z-z_0\right|\leq r$
+\end{prf}

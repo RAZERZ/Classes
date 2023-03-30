@@ -9,7 +9,7 @@
 \contentsline {subsection}{\tocsubsection {}{2.2}{Complex mappings}}{8}{subsection.2.2}%
 \contentsline {subsection}{\tocsubsection {}{2.3}{Complex powers}}{8}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{Trigonometric and Hyperbolic functions}}{10}{subsection.2.4}%
-\contentsline {subsection}{\tocsubsection {}{2.5}{Mapping properties of $\qopname \relax o{sin}(z)$}}{11}{subsection.2.5}%
+\contentsline {subsection}{\tocsubsection {}{2.5}{Mapping properties of $\sin (z)$}}{11}{subsection.2.5}%
 \contentsline {section}{\tocsection {}{3}{Topology of $\mathbb {C}$}}{12}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Limits and Continuity}}{14}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The complex derivative}}{15}{subsection.3.2}%
@@ -33,5 +33,13 @@
 \contentsline {subsection}{\tocsubsection {}{11.2}{Cauchy's integral theorem}}{37}{subsection.11.2}%
 \contentsline {section}{\tocsection {}{12}{Goursat's argument}}{39}{section.12}%
 \contentsline {section}{\tocsection {}{13}{Homotopy}}{41}{section.13}%
-\contentsline {section}{\tocsection {}{14}{Applications}}{42}{section.14}%
-\contentsline {subsection}{\tocsubsection {}{14.1}{Finding conformal mappings}}{43}{subsection.14.1}%
+\contentsline {section}{\tocsection {}{14}{Cauchys integral formula \& application}}{43}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Consequences of Cauchys generalised integral formula}}{45}{subsection.14.1}%
+\contentsline {section}{\tocsection {}{15}{Applications to harmonic functions}}{47}{section.15}%
+\contentsline {subsection}{\tocsubsection {}{15.1}{The mean-value property}}{47}{subsection.15.1}%
+\contentsline {subsection}{\tocsubsection {}{15.2}{Applications to harmonic functions}}{48}{subsection.15.2}%
+\contentsline {section}{\tocsection {}{16}{Sequences and series of functions \& Uniform convergence}}{51}{section.16}%
+\contentsline {section}{\tocsection {}{17}{Power series and Taylor series}}{57}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{Power series}}{57}{subsection.17.1}%
+\contentsline {section}{\tocsection {}{18}{Applications}}{60}{section.18}%
+\contentsline {subsection}{\tocsubsection {}{18.1}{Finding conformal mappings}}{61}{subsection.18.1}%

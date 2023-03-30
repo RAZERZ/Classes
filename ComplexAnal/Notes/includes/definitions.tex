@@ -12,7 +12,7 @@
 \usetikzlibrary{arrows.meta}
 
 %Theorem
-\newcounter{theo} \setcounter{theo}{0}
+\newcounter{theo}[section] \setcounter{theo}{0}
 \renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
 \newenvironment{theo}[2][]{%
 \refstepcounter{theo}%

@@ -1,0 +1,170 @@
+\section{Power series and Taylor series}
+\par\bigskip
+\subsection{Power series}\hfill\\
+\par\bigskip
+\begin{theo}[]{}
+  A series of the form $\sum_{j=0}^{\infty}a_j(z-z_0)^j$ is called a \textit{power series}.\par
+  \noindent The constans $a_j$ are called the \textit{coefficients} of the power series.
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  For any power series $\sum_{j=0}^{\infty}a_j(z-z_0)^j$, there exists an $R\in[0,+\infty]$ (dependent on $\left\{a_j\right\}$) such that:\par
+  \begin{itemize}
+    \item The seris converges absolutely for $\left|z-z_0\right|<R$
+    \item The series converges uniformly in any closed subdisk $\left|z-z_0\right|\leq r<R$
+    \item The series diverges for $\left|z-z_0\right|<R$
+  \end{itemize}
+  \par\bigskip
+  \noindent The number $R$ is called the \textit{radius of convergence} of the series
+\end{theo}
+\par\bigskip
+\noindent The proof depends on the following:
+\par\bigskip
+\begin{lem}[]{}
+  Suppose that
+  \begin{equation}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}a_jw^j
+    \end{gathered}
+  \end{equation}
+  converges at some point having modulus $r_0>0$.
+  \par\bigskip
+  \noindent Then the series $(4)$ converges absolutely and uniformly in any closed subdisk $|w|\leq r<r_0$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose that the series $(4)$ converges at some $w_0$ with $\left|w_0\right| = r_0$
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \left|a_jw_0^j\right|\to0\Rightarrow\exists M\text{ s.t } \left|a_jw_0^j\right| = \left|a_j\right|r_0^j\leq M\qquad\forall j\geq0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For $\left|w\right|\leq r$ it follows that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|a_jw^j\right| = \left|a_j\right|r_0^j\left(\dfrac{\left|w\right|}{r_0}\right)^j\leq M\left(\dfrac{r}{r_0}\right)^j
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Letting $M_j = M\left(\dfrac{r}{r_0}\right)^j$ then the result follows by Weierstrass $M$-test
+\end{prf}
+\newpage
+\begin{prf}[av Sats 17.2]{}
+  Let $w = z-z_0$\par
+  \noindent If the series $\sum_{j=0}^{\infty}a_jw^j$ converges only for $w = 0$, or it converges for all $w\in\C$, we are done.
+  \par\bigskip
+  \noindent Otherwise, let $R$ be the greatest $r$ such that $(4)$ converges for some $w$ with $\left|w\right| = r$.\par
+  \noindent More precisely, let $M = \left\{r>0\;:\;(4)\text{ converges for some $w$ with $\left|w\right| = r$}\right\}$.\par
+  \noindent Then, $M$ is non-empty and upper-bounded.
+  \par\bigskip
+  \noindent Let $R = \sup M$. For any $r<R$ there exists $r_1$ with $r<r_1\leq R$ such that $r_1\in M$.
+  \par\bigskip
+  \noindent By the lemma, $(4)$ converges absolutely and uniformly for $\left|w\right| = \left|z-z_0\right|\leq r$\par
+  \noindent If $\left|w\right|>R$, then $(4)$ diverges.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The geometric series $\sum_{j=0}^{\infty}z^j$ has radius of convergence $R = 1$..\par
+\noindent The series does not converge if $\left|z\right| = 1$, since the terms do not tend to zero.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The power series $\sum_{j=0}^{\infty}\dfrac{z^j}{j^2}$ converges uniformly for for $\left|z\right|\leq 1$.\par
+\noindent This follows from the Weierstrass $M$-test with $M_j = \dfrac{1}{j^2}$\par
+\noindent It diverges if $\left|z\right|>1$ since $\dfrac{r^j}{j^2}\not\to0$ if $r>1$, hence $R = 1$
+\par\bigskip
+\noindent Are there any formulae for $R$?\par
+\noindent In practise, the follwing is often useful:
+\par\bigskip
+\begin{theo}[]{}
+  Consider a power series
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{j=0}^{\infty}a_j(z-z_0)^j
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \begin{itemize}[leftmargin=*]
+    \item\textit{Ratio test}: If
+      \begin{equation*}
+        \begin{gathered}
+          L = \lim_{j\to\infty}\left|\dfrac{a_{j+1}}{a_j}\right|
+        \end{gathered}
+      \end{equation*}\par
+      exists, then $R = \dfrac{1}{L}$
+      \par\bigskip
+    \item\textit{Root test}: If
+      \begin{equation*}
+        \begin{gathered}
+          L = \lim_{j\to\infty}\sqrt[j]{\left|a_j\right|}
+        \end{gathered}
+      \end{equation*}\par
+      exists, then $R = \dfrac{1}{L}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item In both cases it is understood that $R = +\infty$ if $L = 0$ and $R = 0$ if $L = +\infty$
+  \item In fact, the following formula, due to Hadamard, is true for any power series:
+    \begin{equation*}
+      \begin{gathered}
+        R = \dfrac{1}{\lim_{j\to\infty\sup\sqrt[j]{\left|a_j\right|}}}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\newpage
+\begin{prf}[]{}
+  Follows directly from the standard ratio and root test.
+  \par\bigskip
+  \noindent Let $c_j(z) = a_j(z-z_0)^j$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \left|\dfrac{c_{j+1}(z)}{c_j(z)}\right| = \left|\dfrac{a_{j+1}}{a_j}\right|\left|z-z_0\right|\to L\left|z-z_0\right|\quad j\to\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So by the ratio test, if $L\left|z-z_0\right|<1$ the series converges, and if $L\left|z-z_0\right|>1$ the series diverges. Thus $R = \dfrac{1}{L}$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{itemize}[leftmargin=*]
+  \item The series $\sum_{j=0}^{\infty}\dfrac{a_j}{j!}$ has $R = +\infty$, since $a_j = \dfrac{1}{j!}$ and so $\left|\dfrac{a_{j+1}}{a_j}\right| = \dfrac{1}{j+1}\stackrel{j\to\infty}{\to0}$
+    \par\bigskip
+  \item The series $\sum_{j=0}^{\infty}j!a^j$ has $R = 0$, since $a_j = j!$ and so $\left|\dfrac{a_{j+1}}{a_j}\right| = j+1\stackrel{j\to\infty}{\to+\infty}$
+\end{itemize}
+\par\bigskip
+\noindent Since the partial sums of a power series are analytic (polynomials!), and converge uniformly in each closed subdisk of the "disks of convergence", the convergence theorems of Chapter 16 imply:
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $\sum_{k=0}^{\infty}a_k(z-z_0)^k$ has radius of convergence $R>0$.\par
+  \noindent Then the function
+  \begin{equation*}
+    \begin{gathered}
+      f(z) = \sum_{k=0}^{\infty}a_k(z-z_0)^k\qquad\left|z-z_0\right|<R
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is analytic. The derivatives of $f$ are obtained by termwise differentiation of the series:
+  \begin{equation*}
+    \begin{gathered}
+      f^{\prime}(z) = \sum_{k=1}^{\infty}ka_k(z-z_0)^{k-1}\\
+      f^{\prime}\prime(z) = \sum_{k=2}^{\infty}k(k-1)a_k(z-z_0)^{k-2}\\
+      \vdots
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent In particular, the coefficients $a_k$ are given by
+  \begin{equation*}
+    \begin{gathered}
+      a_k = \dfrac{1}{k!}f^{(k)}(z_0)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{equation*}
+  \begin{gathered}
+    f(z_0) = a_0\\
+    f^{\prime}(z_0) = \sum_{k=1}^{\infty}ka_k(z-z_0)^{k-1}\Big|
+  \end{gathered}
+\end{equation*}

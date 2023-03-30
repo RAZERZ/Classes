@@ -183,3 +183,70 @@
       \end{equation*}
   \end{itemize}
 \end{theo}
+\newpage
+\begin{prf}[]{}
+  Let $H: I\times I\to D$ be a homotopy from $\Gamma_0$ to $\Gamma_1$.
+  \par\bigskip
+  \noindent If $H(I\times I)$ is a compact subset of $D$ is open, then $\exists\varepsilon>0$  such that $\forall z\in H(I\times I)$ the disk $D_\varepsilon(z)\subset D$ (\textbf{CHECK})
+  \par\bigskip
+  \noindent $H$ is uniformly continous $\implies\exists \delta>0$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|(s,t)-(\tilde{s}, \tilde{t})\right|<\delta\implies \left|H(s,t)-H(\tilde{s}, \tilde{t})\right| <\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Subdivide $I\times I$ into subsquares $Q$  with diam $Q<\delta$. For every subsquare $Q$, $H(Q)$ belongs to a disk contained in $D$. Orient each $\partial Q$ counterclockwise, and $H(\partial Q)$ accordinhly. By Cauchys integral theorem for a disk:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \int_{H(\partial Q)}f(z)dz = 0\quad\forall Q\\
+      \Rightarrow 0 = \sum_{Q}\int_{H(\partial Q)}f(z)dz = \int_{H(\partial (I\times I))}f(z)dz\\
+      = \int_{\lambda_0} + \int_{\Gamma_1}-\int_{\lambda_1}-\int_{\Gamma_0}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent It follows that if $\lambda_0, \lambda_1$ are constant, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\lambda_0} = \int_{\lambda_1} = 0\Rightarrow \int_{\Gamma_0} = \int_{\Gamma_1}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If $\lambda_0 = \lambda_1$ then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\lambda_0} = \int_{\lambda_1}\Rightarrow \int_{\Gamma_0} = \int_{\Gamma_1}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One can argue that the above proof only works for a smooth homotopy.\par
+\noindent Now, if $\gamma: I\to D$ is a contour, then we can find a partition $D = \left\{t_0,\cdots, t_n\right\}$ of $I$:
+\begin{equation*}
+  \begin{gathered}
+    0 = t_0<t_1<\cdots<t_n = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent Such that $\gamma([t_i, t_{i+1}])$ belongs to a disk $D_i$ contained in $D$. If $F_i$ is an antiderivative for $f$ in $D_i$, then letting $\gamma_i$ denote the restriction of $\gamma$  to $[t_i,t_{i+1}]$ it follows that:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\gamma}f(z)dz = \sum_{i=1}^{n-1}\int{\gamma_i}f(z)dz\\
+  \end{gathered}
+\end{equation*}
+\begin{equation}
+  \begin{gathered}
+    = \sum_{i=1}^{n-1}\left(F_i(\gamma(t_{i+1}))-F_i(\gamma(t_i))\right)
+  \end{gathered}
+\end{equation}
+\par\bigskip
+\noindent For any continous curve $\gamma:[0,1]\to D$ one can define $\int_{\gamma}f(z)dz$, if $f$ is analytic in $D$ then by $(2)$ for any partition $P$ of $[0,1]$ such that $\gamma([t_i, t_{i+1}])$ belongs to a disk $D_i\subset D$ and $F_i$ is an antiderivative of $f$ in $D_i$ independent of the choice of $P, D_i, F_i$
+\par\bigskip
+\begin{theo}[Corollary]{}
+  Suppose that $f$ is analytic in a simply connected domain, and let $\Gamma$ be any closed contour (\textbf{CHECK}) in $D$, then:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}

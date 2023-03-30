@@ -1,0 +1,200 @@
+\section{Applications to harmonic functions}
+\par\bigskip
+\subsection{The mean-value property}\hfill\\
+\par\bigskip
+\noindent Suppose that $f$ is analytics inside and on a circle $C_R$ of radius $R$ centered at $z_0$.\par
+\noindent By Cauchys integral formula:
+\begin{equation*}
+  \begin{gathered}
+    f(z_0) = \dfrac{1}{2\pi i}\oint_{C_R}\dfrac{f(z)}{z-z_0}dz
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Parametrise $C_R$: $z(t) = z_0+Re^{it}$ where $0\leq t\leq 2\pi$:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow f(z_0) = \dfrac{1}{2\pi i}\int_{0}^{2\pi}\dfrac{f(z_0+Re^{it})}{Re^{it}}\cdot iRe^{it}dt
+  \end{gathered}
+\end{equation*}\par
+\noindent I.e:
+\begin{equation}
+  \begin{gathered}
+    f(z_0) = \dfrac{1}{2\pi}\int_{0}^{2\pi}f(z_0+Re^{it})dt
+  \end{gathered}
+\end{equation}
+\par\bigskip
+\noindent $(3)$ is called the \textit{mean-value} property.
+\par\bigskip
+\noindent A direct consequence of $(3)$  is the following:
+\par\bigskip
+\begin{lem}[]{}
+  Suppose that $f$ is analytic in a disk centered at $z_0$, say $D(z_0)$.\par
+  \noindent Suppose also that:
+  \begin{equation*}
+    \begin{gathered}
+      \max_{z\in D(z_0)}\left|f(z)\right| = \left|f(z_0)\right|
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f(z)\right| = \left|f(z_0)\right|\qquad\forall z\in D(z_0)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose that $\left|f(z)\right|$ is \textit{not} constant.\par
+  \noindent Then $\exists z_1\in D(z_0)$ such that $\left|f(z_1)\right|<\left|f(z_0)\right|$
+  \par\bigskip
+  \noindent Let $C_R$ be the circle with center at $z_0$ passing through $z_1$.
+  \par\bigskip
+  \noindent By assumption, $\left|f(z)\right|\leq \left|f(z_0)\right|\qquad\forall z\in C_R$
+  \par\bigskip
+  \noindent Since $f$ is continuous, $\exists$ a segment of $C_R$ containing $z_1$ in which $\left|f(z)\right|<\left|f(z_0)\right|$
+  \par\bigskip
+  \noindent Say that $\left|f(z)\right|<\left|f(z_0)\right|-2\pi\varepsilon$ on a segment of opening angle (\textbf{CHECK}) $\delta$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \left|f(z_0)\right|\stackrel{=}{(3)} \left|\dfrac{1}{2\pi}\int_{0}^{2\pi}f(z_0+Re^{it})dt\right|\leq \dfrac{1}{2\pi}\int_{0}^{2\pi}\left|f(z_0+Re^{it})\right|dt\\
+      < \dfrac{1}{2\pi}[(2\pi-\delta)\left|f(z_0)+\delta(\left|f(z_0)-2\pi\varepsilon\right|)\right|]\\
+      = \left|f(z_0)\right| < \delta\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Contradiction!
+\end{prf}
+\par\bigskip
+\noindent The lemma implies the following theorem:
+\par\bigskip
+\begin{theo}[Maximum modulus theorem]{}
+  If $f$ is analytic in a domain $D$, and $\left|f(z)\right|$ attaints its maximum value at a point $z_0\in D$, then $f$ is constant in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  We show that $\left|f\right|$ is constant in $D$
+  \par\bigskip
+  \noindent The result then follows from an exercise (\textbf{DO IT AND TEX})
+  \par\bigskip
+  \noindent Suppose $\left|f(z)\right|$ is \textit{not} constant. Then $\exists z_1\in D$ such that $\left|f(z_1)\right|<\left|f(z_0)\right|$. Let $\gamma$ be a polygonal path from $z_0$ to $z_1$. We now consider the values of $\left|f(z)\right|$ for $z$ on $\gamma$ starting at $z_0$.
+  \par\bigskip
+  \noindent There exists a $w\in \gamma$ such that:\par
+  \begin{itemize}
+    \item $\left|f(z)\right| = \left|f(z_0)\right|\qquad\forall z$ preceeding $w$ on $\gamma$\par
+    \item $\exists$ points $z$ on $\gamma$ orbiting close to $w$ such that $\left|f(z)\right|<\left|f(z_0)\right|$
+  \end{itemize}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:}\par
+  \noindent Follows from the supremum property of $\R$. Parametrise $\gamma$ with $z = z(t),\quad 0\leq t\leq 1, \quad z(0) = z_0,\quad z(1) = z_1$\par
+  \noindent Let $M = \left\{t\in[0,1]\text{ s.t } \left|f(z(t))\right|<\left|f(z_0)\right|\right\}$\par
+  \noindent $M\neq\phi$ ($1\in M$) and $M$ is bounded below (by 0).\par
+  \noindent Let $\alpha = \inf M$ , $w = f(z(\alpha))$. Then:\par
+  \begin{itemize}
+    \item $\alpha$ is a lower bound for $M$:
+      \begin{equation*}
+        \begin{gathered}
+          \Rightarrow \forall t\in M\text{ it holds that } \alpha\leq t\\
+          \Rightarrow\text{ If } t<\alpha\Rightarrow t\not\in M,\quad \left|f(z(t))\right| = f(z_0),\quad\text{ proving the first point}
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item $\alpha$ is the greatest lower bound:
+      \begin{equation*}
+        \begin{gathered}
+          \Rightarrow\forall \beta>\alpha\exists t\in M\text{ s.t } t<\beta
+        \end{gathered}
+      \end{equation*}\par
+      \noindent i.e there are points $z(t)$ with $\left|f(z(t))\right|<\left|f(z_0)\right|$ orbiting close to $w$, proving the second point.
+      \par\bigskip
+      \noindent Since $f$ is continuous, $\left|f(z)\right| = \left|f(z_0)\right|\quad\forall z$ preceeding $w$ on $\gamma$ implies that $\left|f(w)\right| = \left|f(z_0)\right|$.\par
+      \noindent There $\exists$ disk $D(w)$ centered at $w$ countained in $D$. By the lemma above, $\left|f\right|$ is contained in $D(w)$, but this contradicts the fact that $\exists$  points $z$ on $\gamma$ orbiting close to $w$ such that $\left|f(z)\right|<\left|f(z_0)\right|$
+      \par\bigskip
+      \noindent Thus, the assumption that $\left|f\right|$ is \textit{not} constant must be false.
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent Now, suppose $f$ is analytic in a bounded domain $D$  and that $f$ is continuous up to the boundary of $D\Rightarrow \left|f(z)\right|$ attains a maximum in $\overline{D}$.\par
+\noindent According to the  above theorem, the maximum can only be attained in $D$ if $f$ is constant. In any case we have the following variant of the maximum modulus principle:
+\par\bigskip
+\begin{theo}[]{}
+  A function which is analytic in a bounded domain and continuous up to the boundary attains its maximum modulus on the boundary. 
+\end{theo}
+\par\bigskip
+\subsection{Applications to harmonic functions}\hfill\\\par
+\noindent Lets first give a new proof of the following:
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $\phi$  is harmonic in a simply connected domain $D$. Then there exists an analytic function $f$ such that $\phi = \text{Re } f$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  If such a function $f$ exists, say that $f = \phi + i\psi$, then $f^{\prime} = \phi_x + \psi_x = \phi_x-i\phi_y$, so $f$ would be a primitive of $\phi_x-i\phi_y$ .
+  \par\bigskip
+  \noindent So, we exptect that $\phi_x-i\phi_y$ has an antiderivative being the sought function $f$.
+  \par\bigskip
+  \noindent Therefore, define $g(z) = \phi_x -i\phi_y$. Note that:\par
+  \begin{itemize}
+    \item $(\phi_x)_x = (-\phi_y)_y$ since $\Delta\phi = 0$
+    \item $(\phi_x)_y = -(\phi_y)_x$ since $\phi\in C^2$
+  \end{itemize}
+  \par\bigskip
+  \noindent $\Rightarrow$ Cauchy-riemanns equations are satisfied and $g$ real and imaginary parts are $C^1$ since $\phi\in C^2$\par
+  \noindent $\Rightarrow g$ is analytic in a simply connected domain $D$\par
+  \noindent $\Rightarrow g$ has an antiderivative $G = u+iv$ in $D$
+  \par\bigskip
+  \noindent Since $G^{\prime} = g$, we have:
+  \begin{equation*}
+    \begin{gathered}
+      u_x -iu_y = \phi_x -i\phi_y\\
+      \Rightarrow (\phi-u)_x = (\phi-u)_y = 0\\
+      \Rightarrow \phi-u = \text{ constant, say } \phi = u+c\quad c\in\R
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Put $f(z) = G(z)+c$, this $f$ has the sought properties. 
+\end{prf}
+\par\bigskip
+\noindent Now, let $\phi$ be a harmonic function in a simply connected domain $D$\par
+\noindent Let $f = \phi+i\psi$ be analytic in $D$ (exists by previous theorem (\textbf{CHECK})):
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \underbrace{\left|e^f\right|}_{\text{analytic}} = \left|e^{\phi+i\psi}\right| = e^{\phi}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The exponential function is monotonically increasing. If $\phi$  (and therefore $\left|e^f\right|$) attains a maximum in $D$, then $e^f$ is constant.\par
+\noindent Hence, $\phi$ is constant.
+\par\bigskip
+\noindent Since $\phi$ attains its maximum precisely when $-\phi$ attains its maximum, we also have a corresponding minimum principle.
+\par\bigskip
+\noindent We have proven the following:
+\par\bigskip
+\begin{theo}[]{}
+  If $\phi$ is harmonic in a simply connected domain $D$ and if $\phi$ attains its maximum or minimum at some point $z_0\in D$, then $\phi$ is constant
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  A function which is harmonic in a bounded simply connected domain, and continuous up to the boundary, attains its maximum and minimum on the boundary. 
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The assumption of \textit{simple} conncetedness is not necessary in these two theorems.
+\par\bigskip
+\noindent \textit{Recall Dirichlets problem}:\par
+Find a function $\phi(x,y)$ which is harmonic in a domain $D$ and continuous in $\overline{D}$ with given values on the boundary of $D$.
+\par\bigskip
+\noindent\textit{You ask}:\par
+Does a solution of Dirichlets problem exist? If so, is it unique?\par
+\noindent The above theorem implies uniqueness for \textit{bounded} $D$
+\par\bigskip
+\begin{theo}[]{}
+  Let $\phi_1(x,y)$ and $\phi_(x,y)$ be harmonic in a bounded domain $D$, and continuous on $\overline{D}$ such that $\phi_1(x,y) = \phi_2(x,y)$ on $\partial D$\par
+  \noindent Then $\phi_1 = \phi_2$ in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Let $\phi = \phi_1 - \phi_2$.\par
+  \noindent By the geometrisation of the second theorem, $\phi$ attains both its maximum and minimum value on $\partial  D$. But $\phi = 0$ on $\partial  D\Rightarrow \phi = 0$
+  \par\bigskip
+  \noindent An explicit solution can be found if for example $D$ is a disk.
+\end{prf}

@@ -1,0 +1,209 @@
+\section{Cauchys integral formula \& application}\par
+\noindent Using Cauchys integral theorem, one can prove the following important result:
+\par\bigskip
+\begin{theo}[Cauchys integral formula]{}
+  Suppose $f$ is analytics in a simply connected domain $D$. Let $\Gamma$ be a simple closed positively oriented contour in $D$  and $z_0$ any point inside $\Gamma$. Then:
+  \begin{equation*}
+    \begin{gathered}
+      f(z_0) = \dfrac{1}{2\pi i}\int_{\Gamma}\dfrac{f(z)}{z-z_0}dz
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  $\dfrac{f(z)}{z-z_0}$ is analytic in $D\backslash\left\{z_0\right\}$.\par
+  \noindent As in the last \textbf{example of Lecture 9}, we see that:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = \int_{C_r}\dfrac{f(z)}{z-z_0}dz\\
+      = \int_{C_r}\dfrac{f(z_0)}{z-z_0}dz + \int_{C_r}\dfrac{f(z)-f(z_0)}{z-z_0}dz = 2\pi if(z_0)+\int_{C_r}\dfrac{f(z)-f(z_0)}{z-z_0}dz
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Note that $\int_{C_r}\dfrac{f(z)-f(z_0)}{z-z_0}dz$ is independent of $r$, it is therefore enough to show that:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{r\to0^+}\int_{C_r}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $M_r = \max_{z\in C_r}\left|f(z)-f(z_0)\right|$. If $f$ is continous, then $M_r\to0$ as $r\to0+$, so by the ML-inequality:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\int_{C_r}\dfrac{f(z)-f(z_0)}{z-z_0}dz\right|\leq \dfrac{M_r}{r}\cdot2\pi \stackrel{r\to0+}{\to0}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $f(z_0)$ is determined by $f(z)\quad z\in \Gamma$
+\par\bigskip
+\noindent What we have seen is that Cauchys integral formula says that:
+\begin{equation*}
+  \begin{gathered}
+    f(z) = \dfrac{1}{2\pi}\int_{\Gamma}\dfrac{f(\xi)}{\xi-z}d\xi\qquad z\in\Gamma
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent By differentiation under the integral sign, it seems plausible that the following holds:
+\par\bigskip
+\begin{theo}[Cauchys generalised integral formula]{}
+  If $f$ is analytic inside and on a simple closed positively oriented contour, and $z\in \Gamma$, then:
+  \begin{equation*}
+    \begin{gathered}
+      f^{(n)}(z) = \dfrac{n!}{2\pi i}\int_{\Gamma}\dfrac{f(\xi)}{\xi-z}^{n+1}d\xi\qquad n\in\N
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The proof is by induction using the definition of the derivative. \textbf{This is left in the olds notes}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Compute $\int_{\Gamma}\dfrac{2z+1}{z(z-1)^2}dz$ where $\Gamma$ is a one-dimensional Moebius strip.
+\par\bigskip
+\noindent By symmetry, we can divide $\Gamma = \Gamma_1+\Gamma_2$ in a way such that they are both simple and closed, then:
+\begin{equation*}
+  \begin{gathered}
+    \int_{\Gamma}\dfrac{2z+1}{z(z-1)^2}dz = \int_{\Gamma}\dfrac{(2z+1)/z}{z-1}^2dz+\int_{\Gamma_2}\dfrac{(2z+1)/(z-1)^2}{z}dz\\
+    = 2\pi i\dfrac{d}{dz}\left(\dfrac{2z+1}{z}\right)|_{_z = 1} = 2\pi i \dfrac{2z+1}{(z-1)^2}|_{_z = 0} = -4\pi i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Note that Cauchys generalised integral formula implies the following:
+\par\bigskip
+\begin{theo}[]{}
+  If $f$ is analytic in a domain $D$, then all derivatives exists and are analytic in $D$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Apply Cauchys generalised integral formula on a positively oriented circle around an arbitrary $z_0\in D$
+\end{prf}
+\par\bigskip
+\noindent In particular, the derivative of an analytic function is analytic.
+\par\bigskip
+\noindent Suppose $f$ is analytic. Recall that:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(z) = u_x+iv_x = v_y-iu_y
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Since $f^{\prime}$ is analytic, and in particular continous, it follows that $u,v\in C^1$. Since $f^{\prime}\prime$ exists and is continous, and:\par
+\begin{itemize}
+  \item $f^{\prime}\prime(z) = u_{xx}+iv_{xx} = v_{xy}-iuv_{yy}$
+  \item $f^{\prime}\prime(z) = v_{yx}-iu_{yx} = -u_{yy}-iv_{yy}$
+\end{itemize}
+\par\bigskip
+\noindent It follows that also all second derivatives are continous (etc.)
+\par\bigskip
+\begin{theo}[]{}
+  If $f = u+iv$ is analytic in a domain $D$, then $u,v\in C^{\infty}(D)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This completes the proof that $u,v$  are harmonic.
+\par\bigskip
+Suppose that $f$ is continous in a domain $D$ and that:
+\begin{equation*}
+ \begin{gathered}
+   \int_{\Gamma}f(z)dz = 0\quad\forall \text{closed contours } \in D\\
+   \implies f\text{ has antiderivative } F\in D\Lrarr F^{\prime} = f\in D
+ \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Since $F$ is analytic, so if $F^{\prime} = f$ according to the theorem above. We have therefore proven the following:
+\par\bigskip
+\begin{theo}[Morera]{}
+  If $f$ is continous in a domain $D$, and:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Gamma}f(z)dz = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent For all closed contours $\Gamma\in D$, then $f$ is analytic in $D$
+\end{theo}
+\par\bigskip
+\subsection{Consequences of Cauchys generalised integral formula}\hfill\\
+\par\bigskip
+\begin{theo}[Cauchy estimate]{}
+  Let $f$ be analytic inside and on a circle $C_R$ of radius $R$ centered at $z_0$
+  \par\bigskip
+  \noindent Suppose $\left|f(z)\right|\leq M$ for all $z\in C_R$, then it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|f^{(n)}(z_0)\right|\leq \dfrac{n!M}{R^n}\qquad n\in\N
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Give $C_R$ a positive orientation. Then, by Cauchys generalised integral formula:
+  \begin{equation*}
+    \begin{gathered}
+      f^{(n)}(z_0) = \dfrac{n!}{2\pi i}\int_{C_R}\dfrac{f(\xi)}{\xi-z_0}^{n+1}d\xi
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For $\xi\in C_R$, it holds that:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\dfrac{f(\xi)}{\xi-z_0}^{n+1}\right|\leq\dfrac{M}{R^{n+1}}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent The length of $C_R$, $l(C_R)$ is $2\pi R$, so by the ML-inequality:
+\begin{equation*}
+  \begin{gathered}
+    \left|f^{(n)}(z_0)\right|\leq\dfrac{n!}{2\pi}\cdot\dfrac{M}{R^{n+1}}\cdot2\pi R = \dfrac{n!M}{R^n}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Suppose $f$ is entire, $\left|f(z)\right|\leq M$ $\forall z\in\C$.\par
+\noindent Then the Cauchy estimate implies that:
+\begin{equation*}
+  \begin{gathered}
+    \left|f^{\prime}(z_0)\right|\leq\dfrac{M}{R}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{itemize}
+  \item This is true $\forall R>0\Rightarrow \left|f^{\prime}(z_0)\right| = 0$, i.e $f^{\prime}(z_0) = 0$
+  \item This is true $\forall z_0\in\C\Rightarrow f^{\prime}(z) = 0\Rightarrow f(z) = $ continous
+\end{itemize}
+\par\bigskip
+\noindent We have proven the following:
+\par\bigskip
+\begin{theo}[Liouville]{}
+  The only bounded entire functions are the constants functions.
+\end{theo}
+\par\bigskip
+\noindent Liouville's theorem can be used to prove the following well-known result:
+\par\bigskip
+\begin{theo}[Fundamental theorem of algebra]{}
+  Every non-constant polynomial with complex coefficients has at least one zero. 
+\end{theo}
+\newpage
+\begin{prf}[]{}
+  Let $P(z) = a_nz^n+\cdots+a_0$ where $a_n\neq0$. Also, suppose that $P(z)$ has no zeroes.
+  \par\bigskip
+  \noindent Put $f(z) = \dfrac{1}{P(z)}$. Then $f$ is entire.
+  \par\bigskip
+  \noindent We now show that $f(z)$ is bounded:\par
+  \begin{itemize}
+    \item 
+      \begin{equation*}
+        \begin{gathered}
+          P(z) = z^n\left(a_n+\dfrac{a_{n-1}}{z}+\cdots+\dfrac{a_0}{z_n}\right)
+          \text{so } \dfrac{P(z)}{z^n}\to a_n \text{ as } z\to\infty\\
+          \Rightarrow\exists\rho \text{ s.t } \left|z\right|\geq\rho\Rightarrow \left|\dfrac{P(z)}{z^n}\right|\geq\dfrac{\left|a_n\right|}{z}\\
+          \Rightarrow \left|f(z)\right| = \dfrac{1}{\left|P(z)\right|}\leq\dfrac{2}{\left|z\right|^n\left|a_n\right|}\leq \dfrac{2}{\rho^n\left|a_n\right|}\qquad \left|z\right|\geq\rho
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item For  $\left|z\right|\leq\rho$, the funcftion $\left|f(z)\right|$ is a constant function on a compact set $\Rightarrow\left|f(z)\right|$ has a maximum and in particular is bounded.\par
+      \noindent Thus, $\dfrac{1}{P(z)}$ is a bounded entire funcftion and must therefore be constant according to Liouvilles theorem.
+      \par\bigskip
+      \noindent But then $P(z)$ must be constant, in other words, the only polynomials without zeroes are the constant ones. 
+  \end{itemize}
+\end{prf}
