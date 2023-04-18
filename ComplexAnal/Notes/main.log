@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.3.29)  30 MAR 2023 23:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.3)  13 APR 2023 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,6 +1394,12 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -2215,6 +2221,12 @@ Package mdframed Info: mdframed works in twoside mode on input line 18.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 18.
+
+LaTeX Warning: Command \O invalid in math mode on input line 22.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 22.
+
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 25.
@@ -3697,11 +3709,6 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 308.
 
-
-LaTeX Warning: Reference `mdf@pagelabel-156' on page 61 undefined on input line
- 308.
-
-
 Underfull \vbox (badness 1107) has occurred while \output is active []
 
  [61]
@@ -3712,21 +3719,14 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 329.
-
-
-LaTeX Warning: Reference `mdf@pagelabel-157' on page 62 undefined on input line
- 329.
-
-) [62] (./pages/helpfulRemarks/intro.tex) [63]
+)
+[62] (./pages/helpfulRemarks/intro.tex) [63]
 (./pages/helpfulRemarks/findconformalmaps.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 
  []
 
 ) [64] (./main.aux (./includes/title.aux))
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -3735,7 +3735,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  36978 strings out of 476025
- 858656 string characters out of 5796532
+ 858656 string characters out of 5796533
  1879388 words of memory out of 5000000
  56351 multiletter control sequences out of 15000+600000
  521353 words of font info for 68 fonts, out of 8000000 for 9000
@@ -3756,7 +3756,7 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on main.pdf (65 pages, 434970 bytes).
+Output written on main.pdf (65 pages, 434952 bytes).
 PDF statistics:
  821 PDF objects out of 1000 (max. 8388607)
  712 compressed objects within 8 object streams
