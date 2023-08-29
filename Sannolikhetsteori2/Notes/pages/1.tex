@@ -1,0 +1,226 @@
+\section{Repetition}
+\par\bigskip
+\noindent\textbf{Anmärkning:} Det rekommenderas starkt att läsa igenom anteckningarna från Sannolikhetsteori 1
+\par\bigskip
+\begin{theo}[Random trial]{}
+  An event is not certain, it usually has a probability associated with it. Taking that "risk" to see what the outcome is, is called a random trial.
+  \par\bigskip
+  \noindent Examples of random trials include throwing dice, picking cards, number of people who pass a road
+\end{theo}
+\par\bigskip
+\noindent Different possibilities (outcomes).\par
+\noindent In the example of the dice, the outcomes are 1-6
+\par\bigskip
+\begin{theo}[Events]{}
+  An event is something that happens (or does not happen) when you the random trial 
+\end{theo}
+\par\bigskip
+\noindent You can have an event based on one outcome, or multiple.  
+\par\bigskip
+\noindent\textbf{Example} (one outcome): The dice is 3 after a throw
+\par\bigskip
+\noindent\textbf{Example} (several outcomes): The card is 7 or lower (1,2,3,4,5,6, all the different colours)
+\par\bigskip
+\noindent\textbf{Example} (0 outcomes): The card shows both spades and hearts at the same time (impossible)
+\par\bigskip
+\subsection{Probability measure}\hfill\\\par
+\noindent Related to the probability that an event occurs.
+\par\bigskip
+\begin{theo}[Probability measure]{}
+  A \textit{probability measure} is a function which satisfies Kolmogorovs axioms and for each event gives a number $\in [0,1]$
+  \par\bigskip
+  \noindent The number is called the \textit{probability} of the event. Usually denoted $P=P(A)$ where $A\subset\Omega$
+\end{theo}
+\par\bigskip
+\begin{theo}[Kolmogorovs axioms]{}
+  Let $P:2^{\Omega}\to\R$. $P$ is called a \textit{probability measure} if it satisfies the following
+  \par\bigskip
+  \begin{itemize}
+    \item $P(A)\geq0\quad \forall A\in 2^{\Omega}$\\
+    \item $P(\Omega) = 1$\\
+    \item $P(\bigcup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}P(A_i)\quad $ ($A_i$ disjoint)
+  \end{itemize}
+  \par\bigskip
+\end{theo}
+\par\bigskip
+\subsection{Conditional probability theory}\hfill\\\par
+\noindent One can think of conditional probability in the term of Venn Diagrams in order to create intuition. Usually, if one event has happened it will affect other events and it is of interest to take this into consideration when calculating the probability of events. 
+\par\bigskip
+\noindent The probability of an event $A$ occuring given that the event $B$ has occured is denoted by
+\begin{equation*}
+  \begin{gathered}
+    P(A|B)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example}:\par
+Let $A$ be the event that a person has 2 daughters, let $B$ be the event that a person has 0 daughters, and $C$ be the event that he has at leat 1 daughter.
+\par\bigskip
+\noindent The probability $P(A|B)$ is of course 0, since given that he has 0 daughters, the probability is 0 for him to have 2 at the same time as he has 0
+\par\bigskip
+\noindent $P(B|C)$ is also 0, using similar argument as above
+\par\bigskip
+\noindent $P(A|C) = \dfrac{P(A\cap G)}{P(B)}$ We cannot say much here, other than that the probability is strictly positive since we already have one child
+\par\bigskip
+\begin{theo}[Bayes theorem]{}
+  Let $F_1,\cdots, F_n$ be disjoint events $\in\Omega$ with $P(F_i)>0$, and $P(\bigcup F_i) = 1$. 
+  \par\bigskip
+  \begin{equation*}
+    \begin{gathered}
+      P(F_j|E) = \dfrac{P(E|F_j)\cdot P(F_j)}{\sum_{i=1}^{n}P(E|F_i)P(F_i)}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent Suppose we have 3 different cards. The first card is red on both sides (RR), the second card is black on both sides (BB), and the third card is black and red (RB)
+\par\bigskip
+\noindent We draw a card at random of these three cards such that we only see one side of the card.\par
+\noindent Now suppose the side we see is red, what is the probability that the other side is black?
+\par\bigskip
+\noindent We are interested in the event $P(RB|R)$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{P(RB\cap R)}{P(R)}=\overbrace{=}^{\text{Bayes}} =\dfrac{P(R|RB)P(RB)}{P(R|RR)P(RR)+P(R|RB)P(RB)+P(R|BB)P(BB)}\\\\
+    = \dfrac{(1/2)(1/3)}{1\cdot (1/3)+(1/2)\cdot(1/3)+(0)\cdot (1/3)} = \dfrac{1}{3}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Independent events}\hfill\\\par
+\begin{theo}[Independent events]{}
+  If $P(A|B) = P(A)$, then $A$ and $B$ are independent
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent Let $A$ be the event that 2 parents get a daughter, and $B$ be the event that the neighbors child ate an ice cream yesterday.\par
+\noindent Since these events do not affect each other, they are independent.
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent Let $A$ be the event that the first throw of a dice yields 6, and let $B$ be the event that the second throw is 3. Then $A$ and $B$ are independent since the first throw does not affect the second throw:
+\begin{equation*}
+  \begin{gathered}
+    P(A|B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{P(A)P(B)}{P(B)} = P(A)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent There is an equivalent definition for independance through the following:
+\begin{equation*}
+  \begin{gathered}
+    P(A\cap B) = P(A)P(B)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Independance is a symetric relationship.
+\par\bigskip
+\subsection{Random variables}\hfill\\\par
+\begin{theo}[Random variable]{}
+  A \textit{random variable} is a function that for each outcome associates a number with it.
+  \par\bigskip
+  \noindent An example is a persons age, or the value of a card drawn. If the outcome is random, the number is also random.
+\end{theo}
+\par\bigskip
+\noindent Each random variable has a distribution function associated with it, and is defined as $F(X) = P(X\leq x)$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+
+\begin{equation*}
+  \begin{gathered}
+    \lim_{X\to-\infty}F(X)=0\\
+    \lim_{X\to\infty}F(X) = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If $X_1<X_2\Rightarrow F(X_1)\leq F(X_2)$
+\par\bigskip
+\noindent We also have that $F$ is right-continuous, meaning
+\begin{equation*}
+  \begin{gathered}
+    \lim_{X\to a^+}F(X) = F(a)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent There are 2 types of random variables that will be covered in this course, discrete and continuous (there is also absolutely continuous random variables, but they will not be covered)
+\par\bigskip
+\subsubsection{Discrete random variables}\hfill\\
+\par\bigskip
+\begin{theo}[Discrete random variables]{}
+  Consists of a finite or countable infinite set of numbers with probabilities:\par
+  \begin{itemize}
+    \item $P(X=x_i)=P(x_i)>0$
+    \item $P(X = \bigcup_{i=1}^{\infty}x_i) = 1$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we have an uncountable infinite set of possibilities, the probability would be 0. Here is where continuous variables come to play
+\par\bigskip
+\subsubsection{Continuous random variables}\hfill\\\par
+\noindent For a continuous random variable, $F(x)$ is differentiable so that there exists a function $f$ such that:
+\begin{equation*}
+  \begin{gathered}
+    F(x) = \int_{-\infty}^{x}f(t) dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent From this comes 2 important things we can derive (both from the discrete and continuous case), namely expected value and the variance
+\par\bigskip
+\begin{theo}[Expected value]{}
+  For discrete random variables, it is defined as
+  \begin{equation*}
+    \begin{gathered}
+      E(X) = \sum xF(x_i)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent For the continuous case:
+  \begin{equation*}
+    \begin{gathered}
+      E(X) = \int_{-\infty}^{\infty}xf(x)dx
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Variance]{}
+  $Var(X) = E(X-E(X))^2$ for both discrete and continuous random variables 
+  \par\bigskip
+  \noindent An equivalent definition is $E(X^2)-(E(X))^2$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $E(X^2)$ is called the second moment
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If the variance is small, we know that the random variable does not fluctuate a lot from the expected value.
+\par\bigskip
+\noindent If $X$ is a random variable (r.v) with density function $f$ and $g$ is a function, then we can define a new random variable $g(X) = Y$
+\par\bigskip
+\noindent $Y$ is a random variable with density function $\hat{f}$.\par
+\noindent Then:
+\begin{equation*}
+  \begin{gathered}
+    E(Y) = \int y \hat{f}(y)dy = E(g(X)) = \int_{-\infty}^{\infty}g(x)f(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent And for the discrete random variable we have:
+\begin{equation*}
+  \begin{gathered}
+    E(g(X)) = \sum g(x_i)p(x_i)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent It is often better to use the definition of the density function for $X$ rather than $Y$ 
+\par\bigskip
+\noindent Another remark worth noting is that $E(X^2)$ is a special case of $\int g(x)f(x)dx$
+\par\bigskip
+\noindent\textbf{Example}:\par
+\noindent This example considers a distribution with no expected value ($\infty$), and therefore it has no variance.\par
+\noindent $P(X=k) = \dfrac{1}{k}-\dfrac{1}{k+1}$, this fulfills Kolmogorovs axioms, and
+\begin{equation*}
+  \begin{gathered}
+    E(X)=\sum_{k=1}^{\infty}\dfrac{k}{k}-\dfrac{k}{k+1} = \sum_{k=1}^{\infty}\left(1-\dfrac{k}{k+1}\right) = \sum_{k=1}^{\infty}\dfrac{1}{k+1} = \infty
+  \end{gathered}
+\end{equation*}

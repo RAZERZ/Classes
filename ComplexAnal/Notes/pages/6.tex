@@ -1,11 +1,28 @@
 \section{Dirichlet problems}\par
-\noindent We have previously discussed harmonic function over a domain $D$. These have many applications in solving Dirichlets problem:
+\noindent We have previously discussed harmonic function over a domain $D$. These have many applications in solving Dirichlets problem.\par
+\noindent The formulation of Dirichlets problems are as follows:
 \par\bigskip
- Find a function $\phi(x,y)$ continous on $D\cup\partial D$ of class $C^2$ in $D$ such that\par
- \begin{itemize}
-   \item$\nabla^2\phi = \phi_{xx}+\phi_{yy} =0$ in $D$ (second derivatives are 0)
-   \item $\phi = $ some given function on $\partial D$ 
- \end{itemize}
+\begin{theo}[Dirichlet problems]{}
+  Let $A$ be an open and bounded region, and let $u_0$ be a given continous function on $\partial A$, find a real-valued function on $\overline{A}$  that is continous on $\overline{A}$ and harmonic on the entire region $A$.
+  \par\bigskip
+  \noindent Of course, on $\partial A$, $u = u_0$
+\end{theo}
+\par\bigskip
+\noindent Next step is to start pondering whether or not there exists solutions, and whether or not these solutions are unique. \par
+\noindent There are theorems that state if $\partial A$ is "sufficiently smooth" then there is always a solution. These theorems are difficult, but we can show that when there is a solution it is unique.
+\par\bigskip
+\begin{theo}[Uniqueness of solutions]{}
+  Solution to the Dirichlet problems are unique.
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  We go about using the standard proof method, assume we have two solutions $u, \overline{u}$.
+  \par\bigskip
+  \noindent Since they are solutions, they are both harmonic and equal to $u_0$ on $\partial A$, therefore let $\phi = u-\overline{u}$.\par
+  \noindent Then, $\phi = 0$ on $\partial A$. We now need to show that $\phi = 0$ on $A$.
+  \par\bigskip
+  \noindent By the maximum-principle for harmonic functions, $\phi(x,y)\leq0$, and by the minimum-principle for harmonic functions $\phi(x,y)\geq0$. This implies $\phi = 0 = u-\overline{u}\Lrarr u = \overline{u}$
+\end{prf}
 \par\bigskip
 \subsection{Standard cases}\hfill\\\par
 \noindent This can be easily solved in some standard cases:
