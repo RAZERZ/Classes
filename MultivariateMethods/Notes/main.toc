@@ -1,0 +1,3 @@
+\contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
+\contentsline {subsection}{\tocsubsection {}{1.1}{MANOVA}}{2}{subsection.1.1}%
+\contentsline {subsection}{\tocsubsection {}{1.2}{Regressionanalysis}}{2}{subsection.1.2}%
