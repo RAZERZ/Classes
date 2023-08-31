@@ -1,0 +1,291 @@
+\section{Introduction}\par
+\noindent The topic of this course will vary a lot, since mathematics can be applied to physics, biology, etc.\par
+\noindent We will look into different ways to model real life, study it, and draw conclusions from it.
+\par\bigskip
+\noindent\textbf{Anmärkning}:\par
+\noindent One could look at a mathematical models as a set of equations
+\par\bigskip
+\noindent\textbf{Example}: Planetary motion
+\begin{itemize}
+  \item\textit{Observation}: Keplers law $\rightarrow$ elliptic orbits
+  \item\textit{Model}: Newtons gravitational law
+  \item\textit{Mistakes/Errors}: Mercury precission $\rightarrow$ disalignment between model and observation
+  \item\textit{Rectify error}: Introducing relativistic effects in the model
+  \item\textit{Evaluation}: Is the old model useless? No, it is often easier to compute. It is better to keep it simple 
+\end{itemize}\par
+\noindent We arrive at 2 models:
+\begin{center}
+  \textit{Good model}$\rightarrow$ Simple, general (not valid in a specific way)
+\end{center}
+\par\bigskip
+\noindent\textbf{First step in the definition of a model}: Understand which variables are involved
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c|c}
+    Dimension&Unit&Derived&Dimension\\
+    Distance&$m$&$v$&$m/s$\\
+    Temperature&Degrees&$a$&$m/s$\\
+    Time&$s$&&
+  \end{tabular}
+\end{center}
+\par\bigskip
+\begin{theo}[Physical law]{}
+  A physical law is $f(q_1,\cdots,1_n) = 0$
+  \par\bigskip
+  \noindent $L_1,\cdots, L_m$ are the dimensions\par
+  \noindent $[q_i] = L_1\cdots L_m$
+  \par\bigskip
+  \begin{itemize}
+    \item $[q] = 1$ dimensions
+    \item $[v] = L\cdot T^{-1}$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example}:
+\noindent Conservation of energy is an example of such physical law:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{mp^2}{2}+V(q) = C\qquad C\in\R\\
+    F(,m,p,q) = \dfrac{mp^2}{2}+V(q)-C = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example}:
+\noindent Hooks law for springs:
+\begin{equation*}
+  \begin{gathered}
+    F = \underbrace{k}_{\text{Not dimensionless}}\cdot L\qquad f(F,k,L) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Unit free]{}
+  A law is \textit{unit free} if it is independent from the unit, in the sense that if we define a new system in the following way:
+  \begin{equation*}
+    \begin{gathered}
+      \overline{L_i} = \lambda_i L_i
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then $\overline{L_i}$ is a new system of unit $\lambda_i>0$
+  \par\bigskip
+  \begin{equation*}
+    \begin{gathered}
+      [q_i] = L_1^{b_1}\cdots L_n^{b_n}\\
+      f(q_,\cdots,q_n) = 0\Lrarr f(\overline{1_1},\cdots,\overline{q_m}) = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example}:
+\begin{equation*}
+  \begin{gathered}
+    f(x,t,q) = x-\dfrac{1}{2}gt^2 = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Describing a body falling. If we define the following units:\par
+\begin{itemize}
+  \item $[x] = m$
+  \item $[g] = ms^{-2}$
+  \item$[t] = s$
+\end{itemize}\par
+\noindent We can check that if we use different units, say $\overline{x} = 1000x$ (kilometers instead of meters) or $\overline{t} = 3600t$ (hours instead of seconds), then we obtain the same law for $f(\overline{x}, \overline{t}, g) = 0$
+\par\bigskip
+\noindent\textbf{Example}: Just looking at the dimension we can say something about the model. Take the pendulum and study the period of oscillation (is the mass or the length the one that defines the period?)
+\par\bigskip
+\noindent The goal is to find a law for the period. Suppose only the length and the mass are the only variables in our model, then we want to find $P = f(l,m)$\par
+\noindent Notice that we have an error in the dimension, since our period depends on time, so just looking at that we can see that there is something that is missing.
+\par\bigskip
+\noindent We could be interested in adding another term, the gravitational acceleration. We get:
+\begin{equation*}
+  \begin{gathered}
+    T = kL^{\alpha_1}M^{\alpha_2}\dfrac{L^{\alpha_3}}{T^{-2\alpha_3}}\\
+    \begin{cases*}
+      \alpha_2 = 0\quad\rightarrow \text{mass is not involved}\\
+    \alpha_1+\alpha_3 = 0\\
+    -2\alpha_3 = 01\qquad \alpha_3 = \dfrac{-1}{2}\qquad \alpha_1 = \dfrac{1}{2}
+    \end{cases*}\\
+    \Rightarrow P\approx k\sqrt{\dfrac{e}{g}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Another thing we may do is to introduce dimensionless variables:
+\par\bigskip
+\begin{theo}[Pi:s theorem]{}
+  Let $f(q_1,\cdots,q_m) = 0$ be a unit free law with the usual notation for dimension $[q_i] = L_1^{\alpha_{1i}}\cdots L_n^{alpha_{ni}}$ $n<m$
+  \par\bigskip
+  \noindent Define the dimension matrix $A$
+  \begin{equation*}
+    \begin{gathered}
+      A = \begin{pmatrix}\alpha_{11}&\cdots&\alpha_{1m}\\
+      \vdots&\vdots&\vdots\\
+    \alpha_{n1}&\cdots&\alpha_{nm}\end{pmatrix}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $\pi$ be the rank$(A)$. Then there exists $m-r$ dimensionsless variabless $\Pi_1,\cdots,\Pi_{m-r}$ (which can be formed from $q_i$)
+  \par\bigskip
+  \noindent We hve an equivalent law $F(\Pi_1,\cdots,\Pi_{m-r}) = 0$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning}:\par
+\noindent When we have a law, it does not mean that we have the right law (only $q_1,\cdots,q_n$ are involved) but it is not meaningless
+\par\bigskip
+\noindent The usefulness of Pi-theorem:\par
+\begin{itemize}
+  \item Case in which only one dimensionsless variable is involved\par
+    $F(\Pi_1) = 0\rightarrow$ zeroes are discrete\par
+    $\Pi_1$ can assume discrete values and can be deduced from experiments
+\end{itemize}
+\par\bigskip
+\noindent In the case of 2 dimensionsless quantities $F(\Pi_1,\Pi_2) = 0$, if we can invert the relationship then we can write one variable as a function of the other using implicit function theorem.
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    \Pi_1 = f(\Pi_2)\qquad\text{$f$ is unknown}\rightarrow\text{deduced from observation}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example}: Allometry (Biology), the study of characteristics of living creatures change with their size. \par
+\noindent We look for a law that involves\par
+\begin{itemize}
+  \item $q_1 = l = $ length of the organism\qquad $[q_1] = L$
+  \item $q_2 = t = $ time \qquad $[q_2] = T$
+  \item $q_3 = \rho = $ density\qquad $[q_3] = \dfrac{M}{L^3}$
+  \item $q_4 = a = $ resource assimilation rate\qquad$[q_4] = \dfrac{M}{L^2T}$
+  \item $q_5 = b = $ resource utilisation rate\qquad $[q_5] = \dfrac{M}{L^3T}$
+\end{itemize}
+\par\bigskip
+\noindent We look for a law that involves 2 dimensionsless variables, so we apply the theorem:
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}1&0&-3&-2&-3\\0&0&1&1&1\\0&1&0&-1&-1\end{pmatrix}\begin{pmatrix}L\\M\\T\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent (Look at the exponent of the respective variable)\par
+\noindent The rank($A$) = 3 $\rightarrow 5-3 = 2$ dimensionsless variables\par
+\noindent We can try to express $q_i$ as a linear combination of the others. We know the following:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      \alpha_1-3\alpha_3 = -2\\
+      \alpha_3 = 1\\
+      \alpha_2 = -1
+    \end{cases*}\Rightarrow \alpha_1 = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This means that $q_4$ can be expressed as $q_4 = \dfrac{q_1q_3}{q_4}$, yielding:
+\begin{equation*}
+  \begin{gathered}
+    \Pi_1 = \dfrac{q_1q_3}{q_2q_4} = \dfrac{l\rho}{ta}\rightarrow\text{dimensionsless}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can do the same for $q_5\Rightarrow q_5 = \dfrac{q_3}{q_2}$ yielding another dimensionsless variable:
+\begin{equation*}
+  \begin{gathered}
+    \Pi_2 = \dfrac{q_3}{q_2q_5} = \dfrac{\rho}{tb}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Summa sumarum:
+\begin{equation*}
+  \begin{gathered}
+    F(\Pi_1,\Pi_2) = 0 = F\left(\dfrac{l\rho}{ta}, \dfrac{\rho}{tb}\right)\\
+    \pi_1 = f(\Pi_2)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Scaling}\hfill\\
+\par\bigskip
+\noindent The goal is to rescale variables to a quantity that is related to that specific problem. Measuring seconds when it comes to glaciers might be less useful as measuring with years, and seconds for a chemical reaction might be too little. 
+\par\bigskip
+\noindent For example, with time, $\overline{t} = \dfrac{t}{t_c}$. New rescaled time is 1 once it has passed the desired scale. $c$ stands for characteristic\par
+\noindent The same can be done for other quantities such as length $\overline{h} = \dfrac{h}{h_c}$ 
+\newpage
+\noindent\textbf{Example}:
+\noindent Projectile problem where we only consider gravity. Using Newtons gravitational law:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{md^2h}{dt^2} = -G\cdot\dfrac{mM}{(R+h)^2} \Rightarrow \dfrac{d^2h}{dt^2} = -G\dfrac{M}{(R+h)^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent We know that for $h = 0$, $\dfrac{d^2h}{dt^2} = -g = \dfrac{-GM}{R^2} = \dfrac{-gR^2}{(h+R)^2}$\par
+\noindent We also know $h(0) = 0$, $\dfrac{dh}{dt}(0) = v$ (initial velocity)
+\par\bigskip
+\noindent We can introduce dimensionsless variables:\par
+\begin{itemize}
+  \item $[t] = T$
+  \item $[h] = L$
+  \item $[R] = L$
+  \item $[v] = LT^{-1}$
+  \item $[g] = LT^{-2}$
+\end{itemize}\par
+\noindent Since only $L,T$ are involved, we have 2 rows:
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}1&0&0&-1&-2\\0&1&1&1&1\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent rank$(A) = 2\Rightarrow$ 3 dimensionsless variables\par
+\noindent We could for example do 
+\begin{equation*}
+  \begin{gathered}
+    \Pi_1 = \dfrac{h}{R}\qquad\Pi_2 = \dfrac{h}{vt}\qquad\Pi_3 = \dfrac{h}{gt^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Let us see what happens if we do some scaling for the time $\overline{t}$ and the length $\overline{h}$:
+\begin{equation*}
+  \begin{gathered}
+    \overline{t} = \dfrac{t}{t_c}\qquad \overline{h} = \dfrac{h}{h_c}
+  \end{gathered}
+\end{equation*}\par
+\noindent With a dimension of time, we could pick $\dfrac{R}{v}$, or $\sqrt{\dfrac{R}{g}}$, $\dfrac{v}{g}$\par
+\noindent The same for $h$, we could pick $R$, $\dfrac{v^2}{g}$ 
+\par\bigskip
+\noindent Usually only one choice is the one that helps us solve the problem:
+\begin{equation*}
+  \begin{gathered}
+    \overline{t} = \dfrac{t}{R/v}\qquad \overline{h} = \dfrac{h}{R}
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we need to express the laws that we have in terms of $\overline{t}$ and $\overline{h}$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{d^2h}{dt^2} = \dfrac{-gR^2}{(R\overline{h}+R)^2} = \dfrac{-g}{(\overline{h}+1)^2}\qquad h= \overline{h}R\\
+    \dfrac{dh}{dt} = \dfrac{d\overline{h}}{dt}R\qquad\dfrac{d\overline{h}}{d\overline{t}} = \dfrac{d\overline{h}}{dt}\dfrac{dt}{d\overline{t}} = \dfrac{R}{v}\dfrac{d\overline{h}}{dt}\\
+    \dfrac{d^2\overline{h}}{d\overline{t}^2} = \dfrac{d^2\overline{h}}{dt^2}\dfrac{R^2}{v^2}\rightarrow \dfrac{v^2}{Rg}\dfrac{d^2\overline{h}}{d\overline{t}^2} = -\dfrac{1}{(1+\overline{h})^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent We can call $\varepsilon = \dfrac{v^2}{Rg}$ ($\varepsilon$ small)
+\par\bigskip
+\noindent The equation $\varepsilon\dfrac{d^2\overline{h}}{d\overline{t}^2} = -\dfrac{1}{(1+\overline{h})^2}$ has no solution when $\varepsilon = 0$
+\par\bigskip
+\noindent With a different choice
+\begin{equation*}
+  \begin{gathered}
+    \overline{t} = \dfrac{t}{vg^{-1}}\qquad \overline{h} = \dfrac{h}{v^2g^{-1}}\\
+    \Rightarrow \dfrac{d^2\overline{h}}{dt^2} = -\dfrac{1}{(1+\varepsilon\overline{h})^2}\qquad \overline{h}(0) = 0\qquad \dfrac{d\overline{h}}{d\overline{t}}(0) = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice now that when $\varepsilon=0$:
+\begin{equation*}
+  \begin{gathered}
+    \overline{h}^{\prime\prime} = -1\qquad \overline{h}^{\prime} = -\overline{t}+a=-\overline{t}+t\\
+    \overline{h} = -\dfrac{t^2}{2}+\overline{t}+b=-\dfrac{\overline{t}^2}{2}+\overline{t}
+  \end{gathered}
+\end{equation*}\par
+\noindent By substituting the old variables back, we get:
+\begin{equation*}
+  \begin{gathered}
+    h = \dfrac{-t^2}{2}g+vt
+  \end{gathered}
+\end{equation*}\par
+\noindent The quantities that we used for $t_c$, $h_c$:
+\begin{equation*}
+  \begin{gathered}
+    t_c = \dfrac{v}{g}\qquad h_c = \dfrac{v^2}{g}\\
+    h^{\prime}=0\rightarrow -tg+v=0\Rightarrow t = \dfrac{v}{g}
+  \end{gathered}
+\end{equation*}\par
+\noindent Then $h_c$ is the maximum height that the body reaches.
