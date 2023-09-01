@@ -5,3 +5,5 @@
 \contentsline {subsection}{\tocsubsection {}{1.4}{Random variables}}{4}{subsection.1.4}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.4.1}{Discrete random variables}}{4}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.4.2}{Continuous random variables}}{5}{subsubsection.1.4.2}%
+\contentsline {section}{\tocsection {}{2}{Transformations}}{6}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Pre-knowledge}}{6}{subsection.2.1}%

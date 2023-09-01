@@ -1,0 +1,23 @@
+\section{Transformations}\par
+\subsection{Pre-knowledge}\hfill\\
+\par\bigskip
+\noindent Let $X_i$ be independent random variables with the same mean value (expected value) $\mu$ and variance $\sigma^2$ \par
+Let $S_n = \sum_{i=1}^{n}X_i\overbrace{\implies}^{\text{Law of large numbers}}\dfrac{S_n}{n}\to\mu$ (convergance in probability).\par
+\noindent Of course, this is assuming some sort of equal distribution. 
+\par\bigskip
+The notation for convergance in probability is denoted by $Y_n\stackrel{P}{\to}a$. This follows from Markovs inequality. It is strongly suggested to look in the notes from the first course here. 
+\par\bigskip
+From the law of large numbers, $S_n\approx n\mu$. But this does not take into account some erros that may take place in the $\dfrac{S_n}{n}$ side, as this does not affect the convergance to $\mu$.\par
+This is treated with the \textit{Central Limit Theorem}  (CLT), which says that $S_n\sim N(n\mu,n\sigma^2)$ 
+\par\bigskip
+\noindent This is equivalent to say that:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{S_n-n\mu}{\sigma\sqrt{n}}\approx N(0,1)
+  \end{gathered}
+\end{equation*}
+
+When $n$ is large.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Here we talked about \textit{convergence in distribution} 

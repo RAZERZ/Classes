@@ -1,0 +1,46 @@
+\section{Algorithm Analysis}
+\subsection{Time complexity}\hfill\\
+\par\bigskip
+\noindent It takes a lot longer \textit{time} for an algorithm to solve a given problem.\par
+\begin{itemize}
+  \item Size of the input
+  \item Value of the input (could be the total number of bits in the 2 integers)
+\end{itemize}
+\par\bigskip
+\noindent The \textit{input size}  depends on the problem being studied:\par
+\begin{itemize}
+  \item The number of items in the input such as the size of the array being sorted
+  \item Could be something else (bits)
+  \item Could be described by more than one number (graph algorithms are expressed in terms of vertices and edges in input graph) 
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Find runtime}\par
+\textit{Experimentation}: Run a clock, run algorithm, stop clock\par
+Issues arise since it depends on the input, programming language, environment, etc. We need to ensure that we test on "difficult" examples
+\par\bigskip
+\textit{Mathematically}: Using reasoning \& logic to give an estimation of the algorithm runtinme in terms of the size of the input.\par
+Does not depend on OS, CPU, etc. 
+\par\bigskip
+\textbf{Does complexity matter?}\par
+\noindent Recall the traveling salesperson problem (TSP). Assume we have an algorithm than enumerates all routes and chooses the shortest one. This is a natural occurring problem and can be adapted to a bunch of other industries.
+\par\bigskip
+\noindent For $n$ cities to visit, there are $n!$ possible routes.
+\par\bigskip
+\noindent\textbf{Performing Time Complexity Analysis}\par
+\noindent Based on an abstract model of computation (\textit{Random Access Machine} (mental model ofa computer))\par
+Instructions are executed one after nother (no concurrency)\par
+ELementary instructions can be perfomed in constant time (does not depend on the size of arguments)\par
+\begin{itemize}
+  \item Arithmetical operations
+  \item Assignment operations, access to array elements
+  \item Control operations such as branching (if), loops
+\end{itemize}
+\par\bigskip
+\begin{theo}[Runtime of algorithm]{}
+  The runtime (running time)
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{\text{all eLementary operations}}(\text{cost of operations})\cdot(\text{times operations is executed})
+    \end{gathered}
+  \end{equation*}
+\end{theo}
