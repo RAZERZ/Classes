@@ -18,6 +18,21 @@
   \textit{Good model}$\rightarrow$ Simple, general (not valid in a specific way)
 \end{center}
 \par\bigskip
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){Problem};
+      \node[state, right of=p0, xshift=2.5cm](p1){Model};
+      \node[state, right of=p1, xshift=4.5cm](p2){Prediction};
+      \node[state, below of=p2, yshift=-2.5cm](p3){Rectify};
+      \path[-stealth] (p0) edge[above, bend left] node{Formation} (p1);
+      \path[-stealth] (p1) edge[above] node{Solvable/Experiments} (p2);
+      \path[-stealth] (p2) edge[right] node{Not accurate?} (p3);
+      \path[-stealth] (p3) edge[left] node{Improve} (p1);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\par\bigskip
 \noindent\textbf{First step in the definition of a model}: Understand which variables are involved
 \par\bigskip
 \begin{center}
