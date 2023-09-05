@@ -1,0 +1,195 @@
+\section{Pertubation Theory}\par
+\noindent This applies to another class of problems that is known (in a sense that we know how to solve it, we can find the solution); and we consider a new problem that is made of a known problem + \textit{a pertubation}:\par
+\begin{center}
+  Problem + $\varepsilon$ Problem$_2\qquad \varepsilon << 1$
+\end{center}
+\par\bigskip
+\noindent\textbf{Example:} Planetary motion\par
+\noindent If we consider a 2-body problem (one planet \& one star), this can be solved exactly\par
+\noindent Consider now a 3-body problem, then this problem cannot be solved easily.
+\begin{equation*}
+  \begin{gathered}
+    M_{\text{sun}} >> M_{p_1} M_{p_2}\\
+    \underbrace{F_{Sp_1}+F_{Sp_2}}_{\text{2-body}}+\overbrace{F_{p_2p_1}}^{\text{$F_{p_2p_1}<< F_{Sp_{1,2}}$}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:} Here $F_{Sp_i}$ denotes the gravitational pull from the sun to one planet.
+\par\bigskip
+\noindent In general, we apply pertubation theory to equation of the form $F(y,y^{\prime},y^{\prime\prime},\cdots,\varepsilon)=0$.\par
+\noindent We look for a solution $y = y_0+y_1\varepsilon+y_2\varepsilon^2+y_3\varepsilon^3+\cdots$\par
+\noindent We expect $y_0$ (leading term) to be the solution/approximation when $\varepsilon=0$ 
+\par\bigskip
+\noindent We may ask ourselves if the approximation converges to the solution.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    \hat{y} = -y+\varepsilon y^2\qquad y(0) = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We try to do the easiest thing and plug in the approximation:
+\begin{equation*}
+  \begin{gathered}
+    (\hat{y}_0+\varepsilon\hat{y}_1+\varepsilon^2\hat{y}_2+\cdots) = -(y_0+\varepsilon y_1+\varepsilon^2 y_2+\cdots)+\varepsilon(y_0+y_1\varepsilon+\cdots)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we try to solve order by order (collect like terms and see which one equates):
+\begin{equation*}
+  \begin{gathered}
+    \hat{y}_0 = -y_0\\
+    y_0 = Ae^{-t}\qquad y_0 = e^{-t}\qquad\text{since our initial condition}\\
+    \hat{y}_1 = -y_1+y_0^2=-y_1+e^{-2t}\\
+    \hat{y}_1(0) = 0\qquad\text{since we already used our initial condition}\\
+    y_1(t) = e^{-t}+Ae^{-2t}\Rightarrow y_1(t) = e^{-t}-e^{-2t}\\
+    \hat{y}_2 = -y_2+2y_0y_1=-y_2+2e^{-t}(e^{-t}-e^{-2t})\\
+    \hat{y}_2(0)\Rightarrow y_2(t) = e^{-t}-2e^{-2t}+e^{-3t}
+  \end{gathered}
+\end{equation*}\par
+\noindent We have found the first three terms. This problem can be solved exactly, and we can see if our construction solves the equation or not:
+\begin{equation*}
+  \begin{gathered}
+    y(t) = e^{-t}+\varepsilon(e^{-t}-e^{-2t})+\varepsilon^2(e^{-t}-2e^{-2t}+e^{-3t})+\cdots
+  \end{gathered}
+\end{equation*}\par
+\noindent This is a case where regular pertubation works really well, since the explicit solution is given by:
+\begin{equation*}
+  \begin{gathered}
+    y(t) = \dfrac{e^{-t}}{1-\varepsilon+\varepsilon e^{-t}} = \dfrac{e^{-t}}{1+\varepsilon(e^{-t}-1)}\\
+    \sum_{n}x^n = \dfrac{1}{1-x}\Rightarrow e^{-t}(1-\varepsilon(e^{-t}-1)+\varepsilon^2(e^{-t}-1)^2+\cdots)
+  \end{gathered}
+\end{equation*}\par
+\noindent This is not always the case, that it is the same solution. If we use the example from the last lecture (projectile problem), we get something different:
+\begin{equation*}
+  \begin{gathered}
+    h^{\prime\prime} = \dfrac{-1}{(1+\varepsilon h)^2}\\
+    \varepsilon = 0\Rightarrow h_0 = \dfrac{-t^2}{2}+t
+  \end{gathered}
+\end{equation*}\par
+\noindent We try the same technique, suppose $h = h_0+\varepsilon h_1$:
+\begin{equation*}
+  \begin{gathered}
+    (h^{\prime}_0+h^{\prime}_1\varepsilon)(1+\varepsilon(h_0+\varepsilon h_1))^2 = -1\\
+  \end{gathered}
+\end{equation*}\par
+\noindent We collect like terms:
+\begin{equation*}
+  \begin{gathered}
+    h_1^{\prime\prime}+2h^{\prime\prime}_0h_0=0\\
+    h_1 = -(-1)\left(\dfrac{t^4}{4}+t^2-t^3\right)\\
+    h^{\prime}_1 = \dfrac{t^5}{20}+\dfrac{t^3}{3}-\dfrac{t^4}{4}+C\qquad h^{\prime}_1(0) = 0\qquad h_1(0) = 0\\
+    h_1 = \dfrac{t^6}{100}+\dfrac{t^4}{12}-\dfrac{t^5}{20}
+  \end{gathered}
+\end{equation*}\par
+\noindent We have a polynomial in $t$ which is greater than the one in $h_0$, and an exponential in the other.
+\par\bigskip
+\noindent Well, in the terms $\varepsilon(e^{-t}+\cdots)$, the size is dominated by $\varepsilon$ even when $t$ grows, while in the polynomial no matter how small $\varepsilon$ we choose the polynomial can always grow bigger. So $h_0+\varepsilon h_1$, $h_1$ term grows too much. This does not mean that the term is wrong, but it may not have a meaning in the problem that we are considering. 
+\par\bigskip
+\noindent $h_1$ is growing faster than $h_0$ even though there is an $\varepsilon$ in front of it. Recall that $h_1$ is just a correction, because we are adding a term that is bigger than our first approximation. We are essentially not writing a function that is adding smaller and smaller terms. 
+\par\bigskip
+\noindent This method is called \textit{regular pertubation}, and sometimes it works and sometimes it does not. In the case when it does not, we have to try a different technique.\par
+\noindent We consider a different problem:
+\par\bigskip
+\noindent\textbf{Example:} Duffin Equation
+\begin{equation*}
+  \begin{gathered}
+    \hat{\hat{u}} + u+\varepsilon u^3 = 0\qquad t>0\\
+    u(0) = 1\qquad \hat{u}(0) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent In this case, we do not have an explicit formula for the solution. We can try to use regular pertubation and see if it has a meaning or not.
+\begin{equation*}
+  \begin{gathered}
+    u = u_0+\varepsilon u_1\\
+    \Rightarrow \hat{\hat{u}} + u_0 = 0\qquad u_0(0) = 1 \qquad \hat{u}_0(0)=0\\
+    u_0(t) = A\cos(t)+B\sin(t)\\
+    u_0(0) = 1\Rightarrow A = 1\\
+    \hat{u}_0(0)= -\sin(0)+B\cos(0)=0\Rightarrow B = 0\\
+    u_0 = \cos(t)
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice that for $u_0$, we have an oscillatory solution (since the trig-functions are periodic).
+\par\bigskip
+\noindent We collect like terms and equate them:
+\begin{equation*}
+  \begin{gathered}
+    \hat{\hat{u}}_1+u_1+u^3_0=0\qquad u_1(0) = 0 \qquad\hat{u}_1(0) = 0\\
+    \hat{\hat{u}}_1 = -u_1-\cos^3(t)\\
+    \cos^3(t) = \left(\dfrac{e^{i\pi}+e^{-\pi}}{2}\right)^3 =  \dfrac{e^{3i\pi}+e^{-3i\pi}+3d^{2i\pi-i\pi}+3e^{i\pi-2i\pi}}{8}\\
+    =\dfrac{1}{4}\cos(3t)+\dfrac{3}{4}\cos(t)\\
+    \Rightarrow \hat{\hat{u}}_1+u_1 = \dfrac{1}{4}\cos(3t)+\dfrac{3}{4}\cos(t)\\
+    u_1(0)=0 \qquad\hat{u}_1(0)=0\Rightarrow u_1(t) = A\cos(t)+B\sin(t)+C\cos(3t)+At\sin(t)+Bt\cos(t)
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice that since one particular solution already included $\cos(t)$, we add another set of $A\sin(t)+B\cos(t)$, but multiplied with $t$.\par
+\noindent With respect to the initial conditions, we get:
+\begin{equation*}
+  \begin{gathered}
+    u_1(t) = \dfrac{1}{32}(\cos(3t)-\cos(t))-\underbrace{\dfrac{3}{8}t\sin(t)}_{\text{Secular term}}
+  \end{gathered}
+\end{equation*}\par
+\noindent The secular term might be a problem, for exmaple in this case we are interested in an oscillatory solution, so we expect a correction that gives us oscillatory approximation. But the $t$ term makes the correction explode when $t\to\infty$.\par
+\noindent There is also another issue with this approximation. We can show that the solution to this equation is bounded, but with this solution it breaks when $t\to\infty$, so $u_0+\varepsilon u_1$ is not good. 
+\par\bigskip
+\begin{prf}[Exact solution is bounded]{}
+  Consider $\hat{\hat{u}}+u+\varepsilon u^3=0$, and multiply with $\hat{u}$:
+  \begin{equation*}
+    \begin{gathered}
+      \hat{u}\hat{\hat{u}}+\hat{u}u+\varepsilon\hat{u}u^3=0\\
+      =\dfrac{d}{dt}\left(\dfrac{\hat{u}^2}{2}+\dfrac{u^2}{2}+\dfrac{\varepsilon u^4}{4}\right) = 0\Rightarrow \dfrac{\hat{u}^2}{2}+\dfrac{u^2}{2}+\dfrac{\varepsilon u^4}{4} = \text{Constant} = \dfrac{1}{2}+\dfrac{\varepsilon}{4}\\
+      \Rightarrow u\text{ is bounded}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Sometimes having small errors may not seem like a big issue, but these small errors may explode further down as $t\to\infty$
+\par\bigskip
+\subsection{Poincare-Lindstedt Method}\hfill\\
+\par\bigskip
+\noindent The idea is to do a rescaling, considering a pertubative correction of the frequencies of the oscillation.
+\par\bigskip
+\noindent We introduce a new variable (distorted time scale) $\tau = \omega t$ where $\omega = \omega_0+\omega_1\varepsilon+\omega_2\varepsilon^2+\cdots$.\par
+\noindent As in the other case, $\omega_0$ is the leading term when $\varepsilon=0$, which in the previous example is 1.
+\par\bigskip
+\noindent We have to rewrite the equation according to the new time:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{du}{dt} = \dfrac{du}{dt}\dfrac{dt}{d\tau} = \hat{u}\dfrac{1}{\omega}\\
+    \Rightarrow \hat{u} =\omega u^{\prime}\qquad u^{\prime} = \dfrac{du}{d\tau}
+  \end{gathered}
+\end{equation*}\par
+\noindent In the Duffin equation with the new variables we get:
+\begin{equation*}
+  \begin{gathered}
+    \omega^2u^{\prime\prime}+u+\varepsilon u^3=0 \qquad u(0) \stackrel{\tau=0}{=} 1\qquad \dfrac{du}{d\tau}(0)=\dfrac{\hat{u}(0)}{\omega} = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent We now study this equation when $\tau >0$. Essentially what we do, the advantage in this expansion, is that we can kill the terms that in regular pertubation generates the problem terms (secular terms).\par
+\noindent What we will do is choose $\omega_1$ such that it kills the secular terms. The procedure is the same as in regular pertubation:
+\begin{equation*}
+  \begin{gathered}
+    (\omega_0+\omega_1\varepsilon)^2(u^{\prime\prime}_0+\varepsilon u^{\prime\prime}_1)+u_0+\varepsilon u_1+\varepsilon(u_0+u_1\varepsilon)^3=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Gather terms and equate:
+\begin{equation*}
+  \begin{gathered}
+    w_0^2+u^{\prime\prime}_0+u_0=0\qquad u_0(0) =1\qquad u^{\prime}_0(0)=0\\
+    u_0= \cos(\tau)\qquad w_0=1\\
+    (1+2\omega_1\varepsilon+\omega_1^2\varepsilon^2)(u^{\prime\prime}_0+\varepsilon u^{\prime\prime}_1)+u_0+\varepsilon u_1+\varepsilon(u_0+u_1\varepsilon)^3=0\\
+    \Rightarrow 2\omega_1 u^{\prime\prime}_0+u^{\prime\prime}_1+u_1+u_0^3=0\Rightarrow u^{\prime\prime}_1+u_1=-u_0^3-2\omega_1 u^{\prime\prime}_0 = -\cos^3(t)-2\omega_1-\cos(\tau)\\
+    \Rightarrow \dfrac{1}{4}\cos(3\tau)+\dfrac{3}{4}\cos(\tau)+2\omega_1\cos(\tau)\\
+    \Rightarrow \dfrac{1}{4}\cos(3\tau)+\left(2\omega_1-\dfrac{3}{4}\right)\cos(\tau)
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice that the last $\cos(\tau)$ is the generator of our secular term, so we choose $\omega_1$ so that $2\omega_1-\dfrac{3}{4}=0\Rightarrow \omega_1 = \dfrac{3}{8}$
+\par\bigskip
+\noindent What we now get is an approximate term $u_1$ that does not have a secular term, but just sine and cosine (preserving oscillation). We can also use some of the previous calculations, but without the secular term since we have removed it. 
+\begin{equation*}
+  \begin{gathered}
+    u_1(\tau) = \dfrac{1}{32}\left(\cos(3\tau)-\cos(\tau)\right)\\
+    u = \cos(\tau) + \dfrac{\varepsilon}{32}\left(\cos(3\tau)-\cos(\tau)\right)\\
+    \tau = \omega t = (1+\dfrac{3}{8}\varepsilon)t
+  \end{gathered}
+\end{equation*}

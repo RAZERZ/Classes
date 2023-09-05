@@ -1,2 +1,4 @@
 \contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
 \contentsline {subsection}{\tocsubsection {}{1.1}{Scaling}}{5}{subsection.1.1}%
+\contentsline {section}{\tocsection {}{2}{Pertubation Theory}}{8}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Poincare-Lindstedt Method}}{10}{subsection.2.1}%
