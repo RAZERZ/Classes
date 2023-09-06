@@ -193,3 +193,225 @@
     \tau = \omega t = (1+\dfrac{3}{8}\varepsilon)t
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent We have so far covered \textit{singular pertubation}. Let us look at an example when this method fails:
+\par\bigskip
+\noindent\textbf{Example:} $\varepsilon x^5+x-1=0\qquad 0<\varepsilon<<1$:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon=0\qquad x=1\\
+    x_0+\varepsilon x_1+\varepsilon^2x_2+\cdots\\
+    x_0=1
+  \end{gathered}
+\end{equation*}\par
+\noindent From this equation we expect 5 different solutions since it is a polynomial of order 5.\par
+\noindent The issue we have here is that the $\varepsilon$ is in front of the term of highest order.
+\par\bigskip
+\subsection{Dominant Balancing method}\hfill\\
+
+Another example could therefore be $\varepsilon y^{\prime\prime}+y^{\prime}+y=0$.
+\par\bigskip
+\noindent The strategy is to look for a scaling such that the leading term can remain big even though we multiply by $\varepsilon$. We can do this by defining a new variable $x = \dfrac{y}{f(\varepsilon)}$ that allows us to describe problem when the term that we are removing is not small anymore.
+\par\bigskip
+\noindent We solve using \textit{dominant balancing}. \par
+\noindent\textit{Case:} Say $\varepsilon x^5 = O(X)$, then $\varepsilon x^4 = (1)$ and $x = O\left(\dfrac{1}{\sqrt[4]{\varepsilon}}\right)$\par
+\noindent We then get:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon x^5 = \varepsilon O\left(\left(\dfrac{1}{\sqrt[4]{\varepsilon}}\right)^4\right) = O\left(\varepsilon^{1-\dfrac{5}{4}}\right) = O\left(\varepsilon^{-\dfrac{1}{4}}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent With this choice, are these terms bigger than the remaining one? In this case the remaining one is 1, so it is true that when $\varepsilon<<1$ then $\dfrac{1}{\sqrt[4]{\varepsilon}}>>1$
+\par\bigskip
+\noindent\textit{Case:} Say $\varepsilon x^5 = (1)$, then $x = O\left(\dfrac{1}{\sqrt[5]{\varepsilon}}\right)$. So for the second term (that is $x$), we get
+\begin{equation*}
+  \begin{gathered}
+    x = O\left(\dfrac{1}{\sqrt[5]{\varepsilon}}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We see that this is not a good choice because the remaining term $x = O\left(\dfrac{1}{\sqrt[5]{\varepsilon}}\right)>>1$ when $\varepsilon\to0$.\par
+\noindent This is a problem  because we want the leading term to be the bigger one.
+\par\bigskip
+\noindent It is this reasoning that we use when we determine $f(\varepsilon)$.\par
+\noindent Since we saw that the choice $x = \dfrac{y}{\sqrt[4]{\varepsilon}}\Rightarrow f(\varepsilon) = \varepsilon^{-\dfrac{1}{4}}$, we substitute this variable in the equation and try to solve for $y$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\varepsilon y^5}{(\sqrt[4]{\varepsilon})^5}+\dfrac{y}{\sqrt[4]{\varepsilon}} - 1=0\\
+    y^5\varepsilon^{1-\dfrac{5}{4}}+y\varepsilon^{-\dfrac{1}{4}}-1=0\\
+    \Rightarrow y^5 +y-\varepsilon^{\dfrac{1}{4}} = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now $\varepsilon$ is not in the term of the highest order and we can solve using regular pertubation.\par
+\noindent We solve the equation for $\varepsilon=0$:
+\begin{equation*}
+  \begin{gathered}
+    y^5+y=0\Lrarr y(y^4+1) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent One solution is $y=0$, but this is a false root because of our initial conditions (\textbf{CHECK}). The other 4 solutions are given by the roots of unity for $y^4+1=0$:
+\begin{equation*}
+  \begin{gathered}
+    y^4 = -1 = e^{i\pi}\\
+    y_{1,2,3,4} = e^{\dfrac{i\pi+2n\pi}{4}}\qquad n = 0,1,2,3\\
+    \Rightarrow y = y_0+\varepsilon y_1+\varepsilon^2 y_2+\cdots\qquad\text{leading term $y_0$ are the roots } y_n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Going back to our original variable $x = \dfrac{y}{\sqrt[4]{\varepsilon}}$ has leading order terms $\dfrac{y_n}{\sqrt[4]{\varepsilon}}$.
+\par\bigskip
+\noindent This is for the leading order, you can of course compute for the other terms.
+\par\bigskip
+\noindent\textbf{Examples:}\par
+\begin{itemize}
+  \item $\varepsilon x^2+2x+1=0$
+  \item $\varepsilon x^4+\varepsilon x^3-x^2+2x-1=0$
+\end{itemize}\par
+\noindent Try to understand which are the leading orders of the approximated solutions.\par
+\noindent (\textbf{DO THESE})
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{itemize}
+  \item $\varepsilon y^{\prime\prime}+(1+\varepsilon)y^{\prime}+y=0$
+  \item $y(0) = 0$
+  \item $y(1) = 1$
+\end{itemize}
+\par\bigskip
+\noindent Here the problem is a bit different, due to the initial conditions, when $\varepsilon=0$ the equation cannot be solved since
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon=0\Rightarrow y^{\prime}+y=0\qquad y^{\prime} = -y\qquad y(x) = Ae^{-x}\\
+    y(0) = A = 0 \Leftarrow \text{ not a solution}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can compute the solution exactly, this will tell us what the problem is when approaching this in pertubative approach:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon m^2+(1+\varepsilon)m+1=0\\
+    m_{1,2} = \dfrac{-(1+e)\pm\sqrt{(1+\varepsilon)^2-4\varepsilon}}{2\varepsilon}\\
+    m_1 = -1\qquad m_2 = -\dfrac{1}{\varepsilon}\\
+    \Rightarrow y(x) = C_1e^{-x}+C_2e^{-\dfrac{x}{\varepsilon}}\\
+    y(0) = C_1+C_2 = 0\Rightarrow C_1 = -C_2\\
+    y(1) = C_2\left(e^{-\dfrac{1}{\varepsilon}}-e^{-1}\right) = 1\Lrarr C_2 = \dfrac{1}{\left(e^{-\dfrac{1}{\varepsilon}}-e^{-1}\right)}\\
+    y(x) = \dfrac{1}{\left(e^{-(1/\varepsilon)}-e^{-1}\right)}\cdot\left(e^{-(x/\varepsilon)}-e^{-x}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The problem is the size of the term $\varepsilon y^{\prime\prime}$, even if $\varepsilon$ is very small the term can be very big.
+\par\bigskip
+\noindent Using the exact solution we can compute the second derivative:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime} = \dfrac{1}{e^{-(1/\varepsilon)}-e^{-1}}\left(e^{-x}-\dfrac{1}{\varepsilon^2}e^{-(x/\varepsilon)}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If we look at $y^{\prime\prime}(x)$ when $x\to0$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{e^{-(1/\varepsilon)}-e^{-1}}\left(C-\dfrac{1}{\varepsilon^2}D\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent So $\varepsilon y^{\prime\prime}(x) = O\left(\dfrac{1}{\varepsilon}\right)$ which is not small when $\varepsilon=0$ \par
+\noindent But when $x = O(1)\qquad x>>1$:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}(x) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent So in fact, $\varepsilon y^{\prime\prime}$ is small when $x$ grows.
+\par\bigskip
+\noindent We can therefore say that our solution $y = Ae^{-x}$ is valid as long as $x$ is not close to 0 since we have $\varepsilon y^{\prime\prime} = O(\varepsilon)$ and we can use regular pertubation.\par
+\noindent Using $y(1) = 1$ (and not 0, since we want $x$ to be as far away from 0 as we can) we have:
+\begin{equation*}
+  \begin{gathered}
+    y_{\text{outer}}(x) = e\cdot e^{-x} = e^{1-x}
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $y_{\text{outer}}$ denotes the outer domain ($x = O(1)$).  This is only the leading order of the approximation (we are keeping the solution when $\varepsilon=0$).
+\par\bigskip
+\noindent Just as we did with the polynomial, in order to fully solve this we introduce a rescaling to our problem to consider when $\varepsilon y^{\prime\prime}$ is small:
+\begin{equation*}
+  \begin{gathered}
+    \tau = \dfrac{x}{f(\varepsilon)}\\
+    y^{\prime} = \dfrac{dy}{dx} = \dfrac{dy}{d\tau}\dfrac{d\tau}{dx} = \hat{y}\dfrac{1}{f(\varepsilon)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Inserting this in the equation gives us:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon\dfrac{\hat{\hat{y}}}{f(\varepsilon)^2}+(1+\varepsilon)\dfrac{\hat{y}}{f(\varepsilon)}+y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now we compare cases:\par
+\textit{Case 1:}
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\varepsilon}{f(\varepsilon)^2} = O\left(\dfrac{1+\varepsilon}{f(\varepsilon)}\right)\Rightarrow f(\varepsilon) = O\left(\dfrac{\varepsilon}{1+\varepsilon}\right) = O(\varepsilon)\\
+    \begin{cases*}
+      \dfrac{\varepsilon\hat{\hat{y}}}{\varepsilon^2} = \dfrac{\hat{\hat{y}}}{\varepsilon}\\
+      \dfrac{1+\varepsilon}{\varepsilon}\hat{y}\to O\left(\dfrac{1}{\varepsilon}\right)\\
+      y\text{ is } O(1)
+    \end{cases*}\\
+    \dfrac{1}{\varepsilon} >> 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can check that choosing:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\varepsilon}{f(\varepsilon)^2} = O(1)\qquad f(\varepsilon) = O(\sqrt{\varepsilon})\\
+    \begin{cases*}
+      \dfrac{\varepsilon}{f(\varepsilon)^2}\hat{\hat{y}} = O(1)\\
+      \dfrac{1+\varepsilon}{\sqrt{\varepsilon}} = O\left(\dfrac{1}{\sqrt{\varepsilon}}\right)
+    \end{cases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent In this case we see that the term in front of $\hat{y}$ is bigger than the one in front of $\hat{\hat{y}}$ 
+\par\bigskip
+\noindent The equation with the rescaling $\tau = \dfrac{x}{\varepsilon}$ becomes:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\varepsilon}{\varepsilon^2}\hat{\hat{y}} + \dfrac{1+\varepsilon}{\varepsilon}\hat{y} + y = 0\\
+    \hat{\hat{y}}+(1+\varepsilon)\hat{y}+\varepsilon y = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent We solve using regular pertubation:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon = 0\qquad \hat{\hat{y}}+\hat{y} = 0\qquad m^2+m=0\Lrarr m(m+1) = 0\\
+    y_{\text{inner}}(\tau) = A+Ae^{-\tau} = A(1+e^{-\tau})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We have a set of equations to describe our solutions, one given by our outer approximation and one for our inner:
+\par\bigskip
+$
+\begin{cases*}
+  y_{\text{outer}}(x) = e^{1-x}\\
+  y_{\text{inner}} = A(1+e^{-(x/\varepsilon)})\qquad x= O(\varepsilon)
+\end{cases*}$
+\par\bigskip
+\noindent We still have the parameter $A$. We can merge the two solutions in the part of the domain that is hared, for exmaple where $x\approx O(\sqrt{\varepsilon})\qquad \varepsilon<\sqrt{\varepsilon}<1$\par
+\noindent We impose that when $x\cong O(\sqrt{\varepsilon})$, the limits of the two functions is the same.
+\par\bigskip
+\noindent We can define an auxillary variable $\eta = \dfrac{x}{\sqrt{\varepsilon}}$:
+\begin{equation*}
+  \begin{gathered}
+    \lim_{\varepsilon\to0^+}y_{\text{outer}}(\eta\sqrt{\varepsilon}) = \lim_{\varepsilon\to0^+}y_{\text{inner}}(\eta\sqrt{\varepsilon})\\
+    \lim_{\varepsilon\to0^+}e^{1-\eta\sqrt{\varepsilon}} = e\\
+    \lim_{\varepsilon\to0^+}A\left(1-e^{-(\eta/\sqrt{\varepsilon})}\right) = A\Rightarrow A = e
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent You can also write this as one singular function:
+\begin{equation*}
+  \begin{gathered}
+    y = y_{\text{outer}} + y_{\text{inner}} - \underbrace{\text{common limit}}_{\text{$e$}}\\
+    \Rightarrow e^{1-x}+e^{1-(x/\varepsilon)}
+  \end{gathered}
+\end{equation*}
