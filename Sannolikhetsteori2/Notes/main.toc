@@ -7,3 +7,6 @@
 \contentsline {subsubsection}{\tocsubsubsection {}{1.4.2}{Continuous random variables}}{5}{subsubsection.1.4.2}%
 \contentsline {section}{\tocsection {}{2}{Transformations}}{6}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Pre-knowledge}}{6}{subsection.2.1}%
+\contentsline {section}{\tocsection {}{3}{Multivariate random variables}}{6}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Multivariate case}}{7}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Conditional Probabilities}}{9}{subsection.3.2}%

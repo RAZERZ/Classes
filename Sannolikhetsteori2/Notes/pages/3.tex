@@ -1,0 +1,208 @@
+\section{Multivariate random variables}
+\par\bigskip
+\noindent It is strongly suggested to recall the random $n$-dimensional vector from Probability theory 1.
+\par\bigskip
+\noindent It is interesting to look at that the distribution of the vector, but we are often interested in a function $g(X)$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Starting with 1-dimension, and then working our way up.\par
+\noindent Let $Y = g(X)$. Suppose $g$ is strictly increasing of $X$ (larger values of $X\rightarrow g(X)$ is larger).
+\par\bigskip
+\noindent Then
+\begin{equation*}
+  \begin{gathered}
+    Y\leq y\in\R\Lrarr g(X)\leq y\in\R\Lrarr X\leq g^{-1}(y) = h(y)
+  \end{gathered}
+\end{equation*}\par
+\noindent If we look at the distribution function (which gives us everything, the probability the everything):
+\begin{equation*}
+  \begin{gathered}
+    F_Y(y) = P(X\leq g^{-1}(y)) = P(X\leq h(y)) = F_X(h(y))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent The inverse function $g^{-1}$ is denoted by $h$
+\par\bigskip
+\noindent From the chain rule for derivates we get:
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = f_X(h(y))\cdot h^{\prime}(y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We have gotten some information about $X$ from $Y$. We can of course do the same for strictly decreasing functions:
+\begin{equation*}
+  \begin{gathered}
+    Y\leq y\Lrarr X\geq h(y)\\
+    \Rightarrow F_Y(y) = P(X\geq h(y)) = 1-F_X(h(y))
+  \end{gathered}
+\end{equation*}\par
+\noindent This is good since we know that density functions are always positive. Taking the derivative gives us:
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = -f_X(h(y))\cdot h^{\prime}(y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent We assume $g$ is differentiable with an inverse.
+\par\bigskip
+\noindent We showed that $f_Y(y) = f_X(h(y))\cdot \left|h^{\prime}(y)\right|$
+\par\bigskip
+\subsection{Multivariate case}\hfill\\\par
+\noindent Think of two $n$-dimensional space. One for $X = (X_1,X_2,\cdots,X_n)$, and one for $Y= (Y_1,Y_2,\cdots,Y_n)$
+\par\bigskip
+\noindent Suppose $g$ is a bijective function such that $g$ and $g^{-1}$ are differentiable and let $Y = g(X) = (g_1(X),g_2(X),\cdots, g_n(X))$ where the component $Y_i = g_i(X = (X_1,X$
+\par\bigskip
+\noindent We have $X = g^{-1}(Y) = h(Y)$ (same as in 1-dimensional case)
+\par\bigskip
+\begin{theo}[Transformation theorem]{}
+  The density of $Y$ is given by
+  \begin{equation*}
+    \begin{gathered}
+      f_Y(y_1,y_2,\cdots,y_n) = f_X(h_1(y),h_2(y),\cdots,h_n(y))\cdot\left|J\right|
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $J$ is the Jacobian matrix
+  \begin{equation*}
+    \begin{gathered}
+      J = \left|\dfrac{d(x)}{d(y)}\right| = \begin{vmatrix}\dfrac{dx_1}{dy_1}&\cdots&\dfrac{dx_1}{y_n}\\\vdots&\vdots&\vdots\\\dfrac{dx_n}{dy_1}&\cdots&\dfrac{dx_n}{dy_n}\end{vmatrix}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Transformation theorem corresponds to multivariate analysis change of variables
+\par\bigskip
+\begin{prf}[Sketch of Transformation theorem]{}
+  Let $y_0$ be a point in the $Y$-space. Choose an $\varepsilon$-ball $C$ around $y_0$. Then we can assume that $f_Y$ is constant in $C$.
+  \par\bigskip
+  \noindent The probability that our random vector $Y$ will happen in this region is given by
+  \begin{equation*}
+    \begin{gathered}
+      \Delta C\cdot(f_Y(y_0)-\varepsilon)\leq P(Y\in C)\leq \Delta C\cdot(f_Y(y_0)+\varepsilon)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Anmärkning:} $\Delta C$ is the volume/area of $C$
+  \par\bigskip
+  \noindent In the $X$-space, there then is a region which consists of all $x$ whose $g(x)$ belongs to $C$.\par
+  \noindent Since $g$ is bijective $\Rightarrow$ injective, we have that $Y\in C\Lrarr X\in D = g^{-1}(C)$
+  \par\bigskip
+  \noindent This means that these probabilities are the same
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_Y(y_0)\cdot\Delta C-\int_D f_X(x)dx\right|\leq\Delta C\cdot\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent As $C$ decreases, $\Delta C$ decreases as well as $\varepsilon$\par
+  \noindent Since $g$ is a nice function, $D$ will also decreases\par
+  \noindent We let $x_0 = g^{-1}(y_0) = h(y_0)$. We can replace the integral by $f_X(x_0)\cdot\Delta D$ and obtain
+  \begin{equation*}
+    \begin{gathered}
+      f_Y(y_0)\cdot\Delta C\approx f_X(x_0)\cdot\Delta D\Lrarr f_Y(y_0)\approx f_X(x_0)\dfrac{\Delta D}{\Delta C}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We get equality when $C\to0$ (choosing a smaller and smaller $\varepsilon$)
+  \par\bigskip
+  \noindent Recall the functional determinant (Jacobian) of the matrix $\dfrac{\Delta x}{\Delta y} = \left|\dfrac{d(x)}{d(y)}\right|$ (relative volume change)
+  \par\bigskip
+  \noindent Thus, we get $f_Y(y_0) = f_X(h(y_0))\left|\left|J_n(x_0,y_0)\right|\right|$\par
+  \noindent Since this is true for all $y$, we can take away the index $y_0$, and we get:
+  \begin{equation*}
+    \begin{gathered}
+      f_Y(y) = f_X(h(y))\cdot\left|J\right|
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example (1-dim case):}\par
+\noindent Suppose $g(X)=aX+b$. From this it is easy to see what the inverse function $h = g^{-1}$ is, namely $h(y) = \dfrac{y-b}{a}$.
+\par\bigskip
+\noindent The Jacobian is just $\dfrac{1}{a}$. By the transformation theorem we get
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = f_X\left(\dfrac{y-b}{a}\right)\cdot\left|\dfrac{1}{a}\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The main thing is that using the density function of $X$ we can get the density function for $Y$.
+\par\bigskip
+\noindent\textbf{Example 2.4:}\par
+\textit{$X,Y$ are independent normally distributed random variables $N(0,1)$, show that $X+Y$ and $X-Y$ are independent and determine their distribution function.}
+\par\bigskip
+\noindent In order to solve this we do a variable substitution. Let $U = X+Y$ and $V = X-Y$.\par
+\noindent Notice that $\dfrac{U+V}{2} = X$ and $\dfrac{U-V}{2} = Y$\par
+\noindent We have our function $g(x,y) = (u,v) = (x+y,x-y)$\par
+\noindent We have our inverse $g^{-1}(u,v) = (x,y) = \left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right)$\par
+\noindent We can now use the transformation theorem:
+\begin{equation*}
+  \begin{gathered}
+    f_{U,V}(u,v)=f_{X,Y}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right)\cdot\left|J\right|
+  \end{gathered}
+\end{equation*}\par
+\noindent The Jacobian can be found:
+\begin{equation*}
+  \begin{gathered}
+    J = \begin{vmatrix}\dfrac{1}{2}&\dfrac{1}{2}\\\\\dfrac{1}{2}&-\dfrac{1}{2}\end{vmatrix} = \dfrac{-1}{4}-\dfrac{1}{4} = \dfrac{-1}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent By the transformation theorem:
+\begin{equation*}
+  \begin{gathered}
+    f_{U,V}(u,v) = f_{X,Y}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right)\cdot\dfrac{1}{2}\stackrel{\text{indep.}}{=}f_X\left(\dfrac{u+v}{2}\right)f_Y\left(\dfrac{u-v}{2}\right)\cdot\dfrac{1}{2}
+  \end{gathered}
+\end{equation*}\par
+\noindent We know their density functions since they are normally disitrbuted with $N(0,1)$:
+\begin{equation*}
+  \begin{gathered}
+    = \dfrac{1}{\sqrt{2\pi}}e^{-(1/2)\left(\dfrac{u+v}{2}\right)^2}\cdot\dfrac{1}{\sqrt{2\pi}}e^{-(1/2)\left(\dfrac{u-v}{2}\right)^2}\cdot\dfrac{1}{2}\\
+  \end{gathered}
+\end{equation*}\par
+\noindent After simplification we get that $f_{U,V}$ is a product of one function of $U$ and one function of $V$. This means that $U,V$ are independent since we get them as a product of two different functions. 
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Recall the convolution formula from Probability theory 1; if $X,Y$ are independent, we have
+\begin{equation*}
+  \begin{gathered}
+    f_{X+Y}(z) = \int_{-\infty}^\infty f_X(x)f_Y(z-x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can show this from the transformation theorem.
+\par\bigskip
+\noindent By the independance of $X,Y$, we have $f_{X,Y}(x,y) = f_X(x)f_Y(y) \forall x,y$\par
+Let $Z = X+Y$. Then $g(X,Y) = (X+Y,X)$\par
+The inverse is given by $Y = Z-X$. We can now use the transformation theorem:
+\begin{equation*}
+  \begin{gathered}
+    f_{Z,Y}(z,x) = f_{X,Y}(h_1(z,x), h_2(z,x))\cdot\left|J\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The Jacobian is given by
+\begin{equation*}
+  \begin{gathered}
+    \begin{vmatrix}1&-1\\1&0\end{vmatrix} = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $X,Y$ are independent, we get:
+\begin{equation*}
+  \begin{gathered}
+    f_{Z,X}(z,x) = f_Y(z-x)f_X(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent The marginal density is given by integrating away $x$:
+\begin{equation*}
+  \begin{gathered}
+    f_Z(z) = \int_{-\infty}^{\infty}f_{Z,X}(z,x)dx = \int_{-\infty}^{\infty}f_X(x)f_Y(z-x)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Conditional Probabilities}\hfill\\
+\par\bigskip
+\noindent It is suggested to do some examples from Probability theory 1. 

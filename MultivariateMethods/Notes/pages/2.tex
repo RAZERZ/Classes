@@ -1,0 +1,90 @@
+\section{Sample \& Random Matrices}
+\par\bigskip
+\subsection{Slide 3 - Expectation}\hfill\\
+\par\bigskip
+\noindent For a discrete random variable we use summation, for a continuous random variable we use integrals.\par
+\noindent What do we use for vectors/matrices?
+\par\bigskip
+\noindent$\Rightarrow$ We perform the operations elementwise in the matrix. Take $\mathbb{E}(X_{ij})$ 
+\par\bigskip
+\subsection{Slide 4 - Covariance Matrix}\hfill\\
+\par\bigskip
+\noindent Recall 
+\begin{equation}
+  \begin{gathered}
+     \text{Cov}\left(X,Y\right) = \E(X-\E(X)(Y-\E(Y))) = \E(XY)-\E(X)\E(Y)
+  \end{gathered}
+\end{equation}
+\par\bigskip
+\noindent for scalars.\par
+\noindent What about $\text{Cov}\left(\begin{pmatrix}X_1\\X_2\\X_3\end{pmatrix}, \begin{pmatrix}Y_1\\Y_2\end{pmatrix}\right)$?
+\par\bigskip
+\noindent We can pick any pair $(X_i,Y_j)$ and compute $\text{Cov}\left(X_i,Y_j\right)$ leading to the same as (1) but with $X_i, Y_j$ instead.
+\par\bigskip
+\noindent In the case $\begin{pmatrix}X_1\\X_2\\X_3\end{pmatrix}, \begin{pmatrix}Y_1\\Y_2\end{pmatrix}$, we get a $3\times 2$ matrix where the $i,j$th elements corresponds to $\text{Cov}\left(X_i,Y_j\right)$.
+\par\bigskip
+\noindent Think of it like
+\begin{equation}
+  \begin{gathered}
+    XY^T = \begin{pmatrix}X_1Y_1 &X_1Y_2\\X_2T_1&X_2Y_2\\X_3Y_1&X_3Y_2\end{pmatrix}
+  \end{gathered}
+\end{equation}
+\par\bigskip
+\noindent Now look at $\E(XY^T)$, same as (2) but $\E(X_iY_j)$.\par
+\noindent Then we can easily see that $\text{Cov}\left(X,Y\right) = \E(XY^T)-\mu_X\mu_Y^T$
+\par\bigskip
+\noindent\textit{What if $X$ is continuous and $Y$ discrete?}\par
+\noindent\textit{What if $Y=X$?}
+\begin{equation*}
+  \begin{gathered}
+    \text{Cov}\left(X_i,X_i\right) = \E(X_i^2)-(\E(X))^2 = \text{Var}\left(X_i\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 5 - Covariance Matrix}\hfill\\
+\par\bigskip
+\noindent Since in the scalar case $\text{Cov}\left(X_i,X_j\right) = \text{Cov}\left(X_j,X_i\right)$, then $\text{Cov}\left(X,Y\right) = \sum = $ symmetric \& positive definite.
+\par\bigskip
+\begin{theo}[Positive \& Semi-definite]{}
+  Definite matrix $A$:
+  \begin{equation*}
+    \begin{gathered}
+      A>0\Lrarr x^TAx>0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  Semi-definite matrix $A$:
+  \begin{equation*}
+    \begin{gathered}
+      A\geq0\Lrarr x^TAx\geq0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\subsection{Slide 6 - Linear Combination}\hfill\\
+\par\bigskip
+\noindent You can view the vector $c$ as regression values for example
+\par\bigskip
+\subsection{Slide 7 - Linear Combination}\hfill\\
+\par\bigskip
+\noindent\textbf{Example}:
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(X_1+2X_2+4X_3\right)\sim \text{Var}\left(\begin{pmatrix}1&2&4\end{pmatrix}\begin{pmatrix}X_1\\X_2\\X_3\end{pmatrix}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent A tip for remembering where to put $c^T$, think of it like matching dimensions of left hand side and right hand side.
+\par\bigskip
+\noindent We only want to compute expectation for the random stuff, so we can chuck coefficients and constants out.
+\par\bigskip
+\subsection{Slide 9 - Independence}\hfill\\
+\par\bigskip
+\noindent For simplicity, we define independence in the continuous case as $f(X,Y) = f(X)f(Y)$ and in the discrete case as $P(X,Y) = P(X)P(Y)$
+\par\bigskip
+\noindent\textbf{Anmärkning:} Jist because $\text{Cov}\left(X,Y\right)=0$ does not imply independence. Take the unit circle and the contour as pairs over $(X,Y)$. It is clear that $(X,Y)$ are dependant but their covariance is 0 since for every point on the circle you can reflect the $X,Y$ and therefore, by $\text{Cov}\left(X,Y\right) = \E(XY)-\E(X)\E(Y)$, you would be adding a bunch of 0. Same goes for any function that can be reflected.
+\par\bigskip
+\subsection{Slide 10 - Random Sample}\hfill\\
+\par\bigskip
+\noindent \textbf{Example} (Scalar case):\par
+\noindent Let \textbf{x} $\sim$ \textbf{$x_1 x_2 x_3 \cdots$} be a random sample 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.3)  1 SEP 2023 14:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  6 SEP 2023 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -994,6 +994,12 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1246,7 +1252,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-) [6] (./main.aux (./includes/title.aux))
+) (./pages/3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+
+ []
+
+[6]
+Overfull \hbox (47.03618pt too wide) in paragraph at lines 56--57
+\OT1/cmr/m/n/10 Suppose $\OML/cmm/m/it/10 g$ \OT1/cmr/m/n/10 is a bi-jec-tive f
+unc-tion such that $\OML/cmm/m/it/10 g$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 g
+[]$ \OT1/cmr/m/n/10 are dif-fer-en-tiable and let $\OML/cmm/m/it/10 Y \OT1/cmr/
+m/n/10 = \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )
+ = (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )\OM
+L/cmm/m/it/10 ; g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )\OML/cmm
+/m/it/10 ; []  ; g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ))$
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 60.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 60.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 73.
+Package mdframed Info: mdframed works in twoside mode on input line 78.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 78.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 120.
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+) [9] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1256,33 +1297,35 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: A94EEA6E422EE1CD0C9FB4633D444253;1017
-(rerunfilecheck)             After:  4D03FEBA47294A45A564398A0A5AEBBA;1167.
+(rerunfilecheck)             Before: 5192BFCCA35BDD9F59A4EC675F053C93;1552
+(rerunfilecheck)             After:  370DCCD62CDA012E7F8EB61C7267670B;1766.
  ) 
 Here is how much of TeX's memory you used:
- 35837 strings out of 476025
- 831876 string characters out of 5796533
- 1867388 words of memory out of 5000000
- 55485 multiletter control sequences out of 15000+600000
+ 35863 strings out of 477985
+ 832258 string characters out of 5840059
+ 1870388 words of memory out of 5000000
+ 55247 multiletter control sequences out of 15000+600000
  521331 words of font info for 68 fonts, out of 8000000 for 9000
- 1302 hyphenation exceptions out of 8191
- 111i,13n,107p,749b,993s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 175 hyphenation exceptions out of 8191
+ 111i,14n,107p,749b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (7 pages, 185217 bytes).
+extra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb>
+Output written on main.pdf (10 pages, 220935 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 203 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
