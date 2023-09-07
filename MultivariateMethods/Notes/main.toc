@@ -9,3 +9,5 @@
 \contentsline {subsection}{\tocsubsection {}{2.5}{Slide 7 - Linear Combination}}{4}{subsection.2.5}%
 \contentsline {subsection}{\tocsubsection {}{2.6}{Slide 9 - Independence}}{4}{subsection.2.6}%
 \contentsline {subsection}{\tocsubsection {}{2.7}{Slide 10 - Random Sample}}{4}{subsection.2.7}%
+\contentsline {subsection}{\tocsubsection {}{2.8}{Slide 12 - Some Notes on Sample Covariance Matrix}}{5}{subsection.2.8}%
+\contentsline {subsection}{\tocsubsection {}{2.9}{Slide 17 - Sample Covariance Matrix}}{5}{subsection.2.9}%

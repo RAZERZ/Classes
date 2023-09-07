@@ -97,3 +97,41 @@
     p(x,y) = p(x)p(y)
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent The same principle goes for random vectors, eg:
+\begin{equation*}
+  \begin{gathered}
+    X_{n\times p} = \begin{pmatrix}x_1^T\\x_2^T\\\vdots\\x_n^T\end{pmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Think of each row as a sample from a different place $\Rightarrow$ independence in row $\Rightarrow$ random sample.
+\par\bigskip
+\noindent\textbf{Non-example:} Looking at the pulse of 1 person is not an independent response since it is only about 1 person. Even if you sampled a bunch of values from the same person into a matrix, that would still be a non-independent sample since we only sample from 1 person.
+\par\bigskip
+\noindent\textbf{Non-example:} Let us assume there is a competition between Uppsala and Lund in Multivariate Analysis. Everyone in the class at Uppsala has had the same teacher, so the values collected from that class are not independent.
+\par\bigskip
+\subsection{Slide 12 - Some Notes on Sample Covariance Matrix}\hfill\\
+\par\bigskip
+\noindent Unbiased becomes biased during non-linear \& non-affine transformations.
+\par\bigskip
+\noindent Even for large $n$, sometimes you cannot ignore the difference between $S_n$ and $S$ (eg. determining exact distributions)
+\par\bigskip
+\subsection{Slide 17 - Sample Covariance Matrix}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    X-\dfrac{1}{n}\mathbf{1}\mathbf{1}^TX = (I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)X
+  \end{gathered}
+\end{equation*}\par
+\noindent So for $(X-\dfrac{1}{n}\mathbf{1}\mathbf{1}^TX)^T(X-\dfrac{1}{n}\mathbf{1}\mathbf{1}^TX)$:
+\begin{equation*}
+  \begin{gathered}
+    X^T(I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)^T(I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)X = X^T\left[I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T+\dfrac{1}{n}\mathbf{1}\underbrace{\mathbf{1}^T\mathbf{1}}_{\text{$=n$}}\mathbf{1}^T\right]X\\
+    X^T(I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T+\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)X = X^T(I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)X\\
+    X^TX-X^T\mathbf{1}\mathbf{1}^TX\Rightarrow S_n = \dfrac{1}{n}\underbrace{X^TX}_{\text{Data matrix}}-(\dfrac{1}{n}X^T\mathbf{1})(\dfrac{1}{n}\mathbf{1}^TX)\\
+    \text{Cov}\left(X\right) = \E(XX^T)^n-\E(X)\E(X)^T
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent\textbf{1} is an $n\times 1$ vector of ones.
