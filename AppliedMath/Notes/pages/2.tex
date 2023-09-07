@@ -415,3 +415,268 @@ $
     \Rightarrow e^{1-x}+e^{1-(x/\varepsilon)}
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\subsection{WKB Methods (Wentzel, Kramers, Brillouin)}\hfill\\
+\par\bigskip
+\noindent This new method (still falling under pertubation theory) applies to a general class of problems express mainly through differential equations on the following forms (for $\varepsilon<<1$):
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon^2y^{\prime\prime}+q(x)y=0\\
+    y^{\prime\prime}+q(\varepsilon x)^2y = 0\\
+    y^{\prime\prime}+(\lambda^2p(x)-q(x))y=0\qquad\lambda >>1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent These equations come up in problems related to quantum mechanics, where instead of Newtons law there are Schrödinger equations that involves a function $\psi(x,t)$ and satisfies:
+\begin{equation*}
+  \begin{gathered}
+    i\hat{h}\psi_t = \dfrac{-\hat{h}^2}{2m}\psi_{xx}+V(x)\psi
+  \end{gathered}
+\end{equation*}\par
+\noindent Here $\psi$ is the wave function and the equation tells us the probability that a particle is in a certain place. For example:
+\begin{equation*}
+  \begin{gathered}
+    P(a<x\leq b) = \int_{a}^{b}\left|\psi\right|^2dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Let us look at $\phi(x,t)$ more deeply, specifically, let us assume it is separable.\par
+\noindent Then we get $\phi(x,t) = y(x)\varphi(t)$. With this, we can rewrite the equation differently:
+\begin{equation*}
+  \begin{gathered}
+    i\hat{h}y(x)\varphi^{\prime}(t) = -\dfrac{\hat{h}^2}{2m}y^{\prime\prime}(x)\varphi(t)+V(x)y(x)\varphi(t)
+    \dfrac{i\hat{h}\varphi^{\prime}(t)}{\varphi(t)} = \dfrac{-\dfrac{\hat{h}^2}{2m}y^{\prime\prime}(x)\varphi(t)}{y(x)}+V(x)\\
+    \begin{rcases*}
+      \dfrac{i\hat{h}\varphi^{\prime}}{\varphi} = E\\
+      -\dfrac{\hat{h}^2y^{\prime\prime}}{y}+V(x) = E
+    \end{rcases*}\Rightarrow \varphi^{\prime} = \dfrac{E}{i\hat{h}}\varphi = -i\dfrac{E\varphi}{\hat{h}}\qquad\varphi(t) = Ae^{-\dfrac{iEt}{\hat{h}}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We then arrive at:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{\hat{h}^2}{2m}y^{\prime\prime}+(V(x)-E)y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent $\hat{h} = \dfrac{h}{2\pi}$ where $h$ is Plancks constant. We have arrived at our first equation since if we let $\varepsilon = \dfrac{\hat{h}}{\sqrt{2m}}$ and $q(x) = E-V(x)$ it is on the form $\varepsilon^2y^{\prime\prime}+q(x)y=0$
+\par\bigskip
+\noindent In order to solve the first equation we make the ansatz
+\begin{equation*}
+  \begin{gathered}
+    y = e^{\dfrac{u(x)}{\varepsilon}}\\
+    y^{\prime} = e^{\dfrac{u(x)}{\varepsilon}}\cdot\dfrac{1}{\varepsilon}u^{\prime}\\
+    y^{\prime\prime}= e^{\dfrac{u(x)}{\varepsilon}}\dfrac{1}{\varepsilon^2}(u^{\prime})^2+e^{\dfrac{u(x)}{\varepsilon}}\cdot\dfrac{1}{\varepsilon}u^{\prime\prime}\\
+    \Rightarrow e^{u/\varepsilon}(u^{\prime})^2 + \varepsilon e^{u/\varepsilon}u^{\prime\prime}+q(x)e^{u/\varepsilon} = 0\\
+    \Rightarrow (u^{\prime})^2 + u^{\prime\prime}+q(x) = 0\\
+    \text{Let } f=u^{\prime}\Rightarrow f^2+\varepsilon f^{\prime} + q(x)  =0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We can now solve with regular pertubation:
+\begin{equation*}
+  \begin{gathered}
+    f = f_0+\varepsilon f_1\\
+    (f_0+\varepsilon f_1)^2+\varepsilon(f_0^{\prime}+f_1^{\prime}\varepsilon) +q(x)=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Collect terms of the same order and compare:
+\begin{equation*}
+  \begin{gathered}
+    f_0^2+q(x) = 0\Rightarrow f_0 = \pm\sqrt{-q(x)}\qquad q(x)<0\\
+    2f_0f_1+f_0^{\prime} = 0\Rightarrow f_1 = -\dfrac{f_0^{\prime}}{2f_0} = \dfrac{q^{\prime}}{2\cdot2\cdot\sqrt{-q(x)}\cdot\sqrt{-q(x)}} = -\dfrac{q^{\prime}(x)}{4q(x)}
+  \end{gathered}
+\end{equation*}\par
+\noindent We arrive at:
+\begin{equation*}
+  \begin{gathered}
+    f = \pm\sqrt{-q(x)} -\varepsilon\dfrac{q^{\prime}}{4q(x)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $f = u^{\prime}$, we integrate:
+\begin{equation*}
+  \begin{gathered}
+    u = \int_{a}^{x}\pm\sqrt{-q(s)}ds \underbrace{-\dfrac{\varepsilon}{4}\int_{a}^{x}\dfrac{q^{\prime}(s)}{q(s)}ds}_{-\dfrac{\varepsilon}{4}\ln{\left(\left|q(x)\right|\right)}} + O(\varepsilon^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Summa sumarum, we have:
+\begin{equation*}
+  \begin{gathered}
+    y = e^{\dfrac{u(x)}{\varepsilon}}  = e^{\dfrac{\pm1}{\varepsilon}\int_{a}^{x}\sqrt{-q(s)}ds}e^{-\dfrac{\varepsilon}{4\varepsilon}\ln{\left(-q(x)\right)}}e^{\dfrac{O(\varepsilon^2)}{\varepsilon}}\\
+    = \dfrac{1}{\sqrt[4]{-q(x)}}e^{\pm\dfrac{1}{\varepsilon}\int_{a}^{x}\sqrt{-q(s)}ds}e^{O(s)}\\
+    = \underbrace{\dfrac{1}{\sqrt[4]{-q(x)}}e^{\pm\dfrac{1}{\varepsilon}\int_{a}^{x}\sqrt{-q(s)}ds}}_{\text{Our approximation}}(1+O(\varepsilon))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Here we have used the assumption that $q(x)<0$. We can of course do this when $q(x)>0$, but we change the ansatz to $y=e^{\dfrac{iu(x)}{\varepsilon}}$ (in order to avoid $\sqrt{-1}$).\par
+\noindent It would look something like this:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime} = \dfrac{i}{\varepsilon}e^{\dfrac{iu(x)}{\varepsilon}}u^{\prime}\\
+    y^{\prime\prime} = \dfrac{-1}{\varepsilon^2}\dfrac{i}{\varepsilon}e^{\dfrac{iu(x)}{\varepsilon}}(u^{\prime})^2+\dfrac{i}{\varepsilon}e^{\dfrac{iu(x)}{\varepsilon}}u^{\prime\prime}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We try out the same calculations now:
+\begin{equation*}
+  \begin{gathered}
+    -(u^{\prime})^2+i\varepsilon u^{\prime\prime} + q(x) = 0\\
+    \text{Let } f=u^{\prime}\Rightarrow -f^2+i\varepsilon f^{\prime}+q(x) = 0\\
+    f = f_0+\varepsilon f_1
+  \end{gathered}
+\end{equation*}\par
+\noindent Collect like terms and equate:
+\begin{equation*}
+  \begin{gathered}
+    -f_0^2+q(x) = 0\Rightarrow f_0 = \sqrt{q(x)}\\
+    -2f_0f_1+if_0^{\prime}=0\Rightarrow f_1=\dfrac{if_0^{\prime}}{2f_0} = \dfrac{\pm iq^{\prime}}{2\cdot2\cdot\sqrt{q(x)}\cdot\sqrt{q(x)}} = \dfrac{iq^{\prime}(x)}{4q(x)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent This is very similar to the previous computations and in fact it will be a similar solution but with an $i$ appearing in some places:
+\begin{equation*}
+  \begin{gathered}
+    y = e^{\dfrac{\pm i}{\varepsilon}\int_{a}^{x}\sqrt{q(s)}ds}\cdot\dfrac{1}{\sqrt[4]{q(x)}}(1+O(\varepsilon))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Notice however that since $e^{ik}$ can be written with the helps of trigonometric functions, we have an oscillatory (very fast oscillations) solution but we did not have this in the first case. 
+\par\bigskip
+\subsection{Asymptotic Expansion of Integrals}\hfill\\
+\par\bigskip
+\noindent This might happen when we solve a differential equation when we may need to compute an integral but we do not know how to do it explicitly, such as the following:
+\begin{equation*}
+  \begin{gathered}
+    y^{\prime\prime}+2\lambda ty^{\prime} = 0\qquad y(0) = 0 \qquad y^{\prime}(0) = 1\\
+    \text{Let } u = y^{\prime}\Rightarrow u^{\prime} +2\lambda tu = 0\Rightarrow u = Ce^{\lambda t^2}\\
+    y = \int_{0}^{t}e^{\lambda s^2}ds
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent These types of integrals are called \textit{Laplace Integrals} 
+\begin{equation*}
+  \begin{gathered}
+    I(\lambda) = \int_{a}^{b}f(t)e^{-\lambda t}dt\qquad\lambda>>1
+  \end{gathered}
+\end{equation*}\par
+\noindent They look like the Laplace transform:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{\infty}f(t)e^{-\lambda t}dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The term $e^{-\lambda t}$ is very small as $t\to\infty$. We \textit{have} to assume that $f(t)$ is of exponential order in order to proceed pertubatively.
+\par\bigskip
+\begin{lem}[Watson]{}
+  Given the integral
+  \begin{equation*}
+    \begin{gathered}
+      I(\lambda) = \int_{0}^{\infty}t^{\alpha}h(t)e^{-\lambda t}dt
+    \end{gathered}
+  \end{equation*}\par
+  \noindent With $\alpha>-1$, $h(t)$ is analytic (has a Taylor expansion around 0), $h(0)\neq0$.\par
+  \noindent Assume that $h$ is of exponential order.
+  \par\bigskip
+  \noindent Then we can approximate the integral in the form of a series:
+  \begin{equation*}
+    \begin{gathered}
+      I(\lambda) = \sum_{n=0}^{\infty}\dfrac{h^{(n)}(0)\Gamma(\alpha+n+1)}{n!\lambda^{\alpha+n+1}}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent with the Gamma function defined as:
+  \begin{equation*}
+    \begin{gathered}
+      \Gamma(x) = \int_{0}^{\infty}u^{x-1}e^{-u}du\qquad x>0
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This follows from Taylor expansion, but let us look at the proof:
+\par\bigskip
+\begin{prf}[]{}
+  The first thing that we can do is to split the domain such that $t\in [0,T]$:\par
+  \begin{equation*}
+    \begin{gathered}
+      \int_{0}^{T}t^\alpha h(t)e^{-\lambda t}dt +\underbrace{\int_{T}^{\infty}t^\alpha h(t)e^{-\lambda t}dt}_{\text{Exponentially small}} 
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $h$ is bounded, and $t^\alpha$ is of lower growth order than $e^{-\lambda t}$, and $e^{-\lambda t}$ is shrinking as $T\to\infty$, it can be regarded as a very small number.
+  \par\bigskip
+  \noindent In the first integral we use the fact that $h(t)$ is analytic:\par
+  \begin{equation*}
+    \begin{gathered}
+      \int_{0}^{T}t^{\alpha}\left(h(0)+h^{\prime}(0)t+h^{\prime\prime}(0)t^2/2+\cdots\right)e^{-\lambda t}dt + \text{Exp. small}\\
+      \text{Let } u = \lambda t\Rightarrow \int_{0}^{\lambda T}\left(\left(\dfrac{u}{\lambda}\right)^\alpha h(0)+ h^{\prime}(0)\left(\dfrac{u}{\lambda}\right)^{\alpha+1}+\dfrac{1}{2}h^{\prime\prime}(0)\left(\dfrac{u}{\lambda}\right)^{\alpha+2}+\cdots\right) e^{-u}\dfrac{du}{\lambda}
+    \end{gathered}
+  \end{equation*}\par
+  \begin{equation}
+    \begin{gathered}
+      \dfrac{h(0)}{\lambda^{\alpha+1}}\int_{0}^{\lambda T}u^{\alpha}e^{-u}du = \dfrac{h(0)}{\lambda^{\alpha+1}}\int_{0}^{\infty}u^{\alpha}e^{-u}du
+    \end{gathered}
+  \end{equation}
+  \par\bigskip
+  \noindent Since we add an exponentially small term, we can equate the integral going to $\lambda T$ with the integral going to $\infty$ by approximation.
+  \par\bigskip
+  \noindent Upon closer inspection of $(1)$ , we see the following equality:\par
+  \begin{equation*}
+    \begin{gathered}
+      (1) = \dfrac{h(0)}{\lambda^{\alpha+1}}\Gamma(\alpha+1)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent The general term is given on teh following form:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{h^{(n)}(0)}{n!\lambda^{\alpha+n+1}}\Gamma(\alpha+n+1)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is what we wanted to show
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let us look at an application of this lemma. Suppose that we want to compute an approximation of the following integral:
+\begin{equation*}
+  \begin{gathered}
+    I(\lambda) = \int_{0}^{+\infty}\dfrac{\sin(t)}{t}e^{-\lambda t}dt\qquad\lambda >>1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Here, $h(t) = \dfrac{\sin(t)}{t}$, and $\alpha = 0$. We can split the term:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{T}\dfrac{\sin(t)}{t}e^{-\lambda T}dt+\int_{T}^{+\infty}\dfrac{\sin(t)}{t}e^{-\lambda t}dt
+  \end{gathered}
+\end{equation*}\par
+\noindent We look at the behaviour of the function $\left|h(t)\right|= \left|\dfrac{\sin(t)}{t}\right|$ as $t\to\infty$. We know $h(t)$ is bounded, so the right integral is negligable as $t\to\infty$ since it is exponentially small.\par
+\noindent We remain with the following:
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{T}\dfrac{\sin(t)}{t}e^{-\lambda t} dt \Rightarrow\int_{0}^{T}\dfrac{t-\dfrac{t^3}{3!}+\cdots}{t}e^{-\lambda t}dt\\
+    = \int_{0}^{t}\left(1-\dfrac{t^2}{3!}+\cdots\right)e^{-\lambda t}dt\\
+    \text{Let } u = \lambda T\Rightarrow \int_{0}^{\lambda T}\left(1-\left(\dfrac{u}{\lambda}\right)^2+\cdots\right)e^{-\lambda t} \dfrac{du}{\lambda}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Yet again, we see what happens in the world of infinities for each one of the terms (recall that the integral is a linear operator)
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{+\infty}\dfrac{1}{\lambda}e^{-u}du = \dfrac{\Gamma(1)}{\lambda}\\
+    \dfrac{1}{3!\lambda}\int_{0}^{+\infty}\dfrac{u^2e^{-u}}{\lambda^2}du = \dfrac{1}{3!\lambda^3}\Gamma(3)\\
+    \vdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent If we have an integral such as
+\begin{equation*}
+  \begin{gathered}
+    I(\lambda) = \int_{a}^{b}f(t)e^{ -\lambda g(t)} dt
+  \end{gathered}
+\end{equation*}\par
+\noindent We can study the problem in the same way by introducing the change of variable $s = g(t)-g(a)$

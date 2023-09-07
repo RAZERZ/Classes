@@ -205,4 +205,252 @@ The inverse is given by $Y = Z-X$. We can now use the transformation theorem:
 \par\bigskip
 \subsection{Conditional Probabilities}\hfill\\
 \par\bigskip
-\noindent It is suggested to do some examples from Probability theory 1. 
+\noindent It is suggested to do some examples from Probability theory 1.
+\par\bigskip
+\noindent Let $X,Y$ be some random variables with joint discrete distribution (\textbf{TODO:}\textit{ Def}).\par
+\noindent We look at the conditional distribution:
+\begin{equation*}
+  \begin{gathered}
+    p_{Y|X=x}(y) = P(Y=y|X=x) = \dfrac{P_{X,Y}(x,y)}{P_X(x)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If we look at the conditional probability distribution function, we have: 
+\begin{equation*}
+  \begin{gathered}
+    F_{Y|XX=x}(y) = \sum_{z\leq y}P_{Y|X =x}(z)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If we now look at if $X,Y$ have a joint continuous distribution, we have something similar, with a couple of things changed where we use the density function instead (since some probabilities are 0)
+\begin{equation*}
+  \begin{gathered}
+    f_{Y|X=x}(y) = \dfrac{f_{X,Y}(x,y)}{f_{X}(x)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Does this make sense for the continuous case? Well, suppose that $f_{Y|X=x_0}(y) = f_{X,Y}(x_0,y)$, would this be a natural definition?\par
+\noindent The reason we cannot use this definition is because the probability that $X = x_0$ is very small because of continuous. But now we have this given, we have assumed this has happened, so $f_{X,Y}(x_0,y)$ could very well be too small compared to $f_{Y|X = x_0}(y)$ where we already know that $X=x_0$ happpens.\par
+\noindent If we instead put $f_{Y|X=x_0}(y) = Kf_{X,y}(x_0,y)$ some constant to compensate, then we need to check if the properties for density functions are preserved:
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}f_{Y|X=x_0}(y)dy = 1\Lrarr\text{ proper density function}
+  \end{gathered}
+\end{equation*}\par
+\noindent However, with the $K$ in front, we get:
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}f_{Y|X=x_0}(y)dy = 1 = \int_{-\infty}^{\infty}Kf_{X,Y}(x_0,y)dy\\
+    = Kf_{X}(x_0) = 1\\
+    \Rightarrow K = \dfrac{1}{f_X(x_0)}
+  \end{gathered}
+\end{equation*}\par
+\noindent This is true for all $X =x_0$, so the formula we have seems to be correct!
+\par\bigskip
+\noindent Just as in the discrete case, we have:
+\begin{equation*}
+  \begin{gathered}
+    F_{Y|X=x}(y) = \int_{-\infty}^{y}f_{Y|X=x}(z)dz
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now we have all the tools to start define conditional expectations and conditional variances.
+\newpage
+\subsection{Conditional expected values and variances}\hfill\\\par
+\noindent There are some natural definitions
+\par\bigskip
+\begin{theo}[Conditional Expected Value]{}
+  In the continuous case we have:\par
+  \begin{equation*}
+    \begin{gathered}
+      \E(Y|X=x) = \int_{-\infty}^{\infty}yf_{Y|X=x}(y)dy
+    \end{gathered}
+  \end{equation*}
+  \noindent In the discrete case we have:\par
+  \begin{equation*}
+    \begin{gathered}
+      \E(Y|X=x) = \sum_{-\infty}^{\infty}P_{Y|X=x}(y)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Notice that $\E(Y|X=x)$ is a function of $x$.\par
+\noindent We now look at only the random variable $\E(Y|X) = g(X)$ 
+\par\bigskip
+\noindent Sometimes it is easier to look at the conditional expected value.
+\par\bigskip
+\begin{theo}[]{}
+  $\E(Y|X)$ has the same expected value as $\E(Y)$:\par
+  \begin{equation*}
+    \begin{gathered}
+      \E(\E(Y|X)) = \E(g(X)) = \E(Y)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent In the discrete case, we see a variant of the law of total probabilities:\par
+  \begin{equation*}
+    \begin{gathered}
+      \E(Y) = \E(Y|X) = \sum_x \E(Y|X=x)P(X=x)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Rules for caluclations, as in the unconditional case, can be found in the book (\textbf{TODO:}\textit{ Ins}) 
+\begin{equation*}
+  \begin{gathered}
+    \E(f(X)Y|X) = f(X)\E(Y|X)
+  \end{gathered}
+\end{equation*}\par
+\noindent Another natural rule is if $X,Y$ are independent:
+\begin{equation*}
+  \begin{gathered}
+    \E(Y|X) =\E(Y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Conditional variance]{}
+  \begin{equation*}
+    \begin{gathered}
+      v(x) = Var(Y|X = x) = \E((Y-\E(Y|X=x))^2|X=x)\\
+      V(X) = Var(Y|X) = \E((Y-\E(Y|X))^2|X)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  We define $e(X) = \E(Y|X)$ and $V(X) = Var(Y|X)$ and assume $g(X)$ is some function on $X$.\par
+  \noindent Then we have:\par
+  \begin{equation*}
+    \begin{gathered}
+      \E((Y-g(X))^2) = \E(V(X)) + \E((e(X)-g(X))^2)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\pagebreak
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \E((Y-g(X))^2) = \E((Y-e(X)+e(X)-g(X))^2)\\
+      = \E((Y-e(X))^2) +2 \E(Y-e(X))\E(e(X)-g(X)) +\E((e(X)-g(X))^2)\\
+      = \E(\E((Y-e(X))^2)|X)+ 2\E(\E(Y-e(X)\E(e(X)-g(X)))|X)+ \E((e(X)-g(X))^2)\\
+      =\E(v(X))+2(e(X)-g(X))\E(Y-e(X)|X)+\E((e(X)-g(x))^2)\\
+      = \E(v(X))+2(e(X)-g(X))\underbrace{(e(X)-e(X))}_{\text{$=0$}}+\E((e(X)-g(x))^2)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent In the middle term we used: 
+  \begin{equation*}
+    \begin{gathered}
+      \E(\E(Y-e(X))|X) = \E(e(X)-e(X)|X) = e(X)-e(X)=0
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent There is a nice corollary  that follows from this:
+\par\bigskip
+\begin{theo}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      Var(Y) = \E(Var(Y|X)) + Var(\E(Y|X))
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The proof of the corollary follows from Proof 3.2 by choosing $g(X) = \E(Y)$.\par
+\noindent Then the last theorem gives the result directly:
+\begin{equation*}
+  \begin{gathered}
+    \E((Y-e(X))^2) = \E(v(X))+\E((e(X)-e(Y))^2)
+  \end{gathered}
+\end{equation*}\par
+\noindent But $e(X)$ has the same expected value as $Y$, as in $\E(Y) = \E(e(X))$, so we get:
+\begin{equation*}
+  \begin{gathered}
+    \E(v(X))+\E((e(X)-e(Y))^2) = \E(v(X))+Var(\E(Y|X))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Recall that ranom variables do not only have values attached to them, but also parameters. For example $X\sim N(\mu,\sigma^2)$ where $\mu,\sigma^2$ are parameters.
+\par\bigskip
+\noindent For example, if $X\sim N(\mu,\sigma^2)$ and $X =x$ is an outcome of this random variable, then both $x,\mu\in\R$ while $X$ is a random variable.
+\par\bigskip
+\noindent Sometimes we want to think of the parameters as random variables.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Suppose we go to a hospital to take a blood-test and count the number of red blood cells in the sample, then we will get some value which also partly depends on some randomness.\par
+\noindent First we look at some individual (even if I go to the hopsital several times, each time will give different results).
+\par\bigskip
+\noindent This seemingly random variation from the same person can be explained by the Poisson-distribution with some parameter $m$.\par
+\noindent This means that if $X$ is an observed value, $X\sim Po(m)$. The value $m$ can be different across people. 
+\par\bigskip
+\noindent We can think that we do a random trial in 2 steps:\par
+\begin{itemize}
+  \item Choose a random individual to take the blood test from
+  \item Count the amount of red blood cells from that individual
+\end{itemize}\par
+\noindent Then we can let $X$ be the observed value for that person, and we have $X|M = m\sim Po(m)$ with $M$ having some distribution (does not need to have Poisson distribution)
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent By the law of total probability, we can look at:
+\begin{equation*}
+  \begin{gathered}
+    P(A) = \int_{-\infty}^{\infty}P(A|M=x)f_M(x)dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Suppose now that $M\sim Exp(1)$. We then get:
+\begin{equation*}
+  \begin{gathered}
+    P(X=k)= \int_{-\infty}^{\infty}P(X=k|M=x)f_M(x)dx\\
+    =\int_{0}^{\infty}e^{-x}\dfrac{x^k}{k!}e^{-x}dx=\dfrac{1}{k!}\int_{0}^{\infty}x^ke^{-2x}dx\\
+    \dfrac{1}{k!}\int_{0}^{\infty}\dfrac{y^k}{2^k}e^{-y}\dfrac{1}{2}dy=\dfrac{1}{k!+2^{k+1}}\int_{0}^{\infty}y^ke^{-y}dy\\
+    \Rightarrow k!\Rightarrow P(X=k) = \dfrac{1}{2^{k+1}}
+  \end{gathered}
+\end{equation*}\par
+\noindent So $X$ has a geometric distribution. One can also get this from the $\Gamma$ distribution since it is very similar:
+\begin{equation*}
+  \begin{gathered}
+    \Gamma(z) = \int_{0}^{\infty}x^{z-1}e^{-x}dx 
+  \end{gathered}
+\end{equation*}\par
+\noindent When $z = k$ then $\Gamma(z) = (k-1)!$
+\par\bigskip
+\noindent In the last example, we do not need to calculate the unconditional distribution of $X$ if we just want to know the expected value/variance of $X$ using the formulas that we proved above.
+\par\bigskip
+\noindent Recall that we can write $\E(X) = \E(\E(X|M))$. We said that $X|M\sim Po(m)$, and we know that a Poisson random variable has $\E(X|M) = M$, and we get:
+\begin{equation*}
+  \begin{gathered}
+    \E(X) = \E(\E(X|M)) = \E(m)
+  \end{gathered}
+\end{equation*}\par
+\noindent Also remember that $M\sim Exp(1)$, so $\E(M) = 1$, and we have:
+\begin{equation*}
+  \begin{gathered}
+    \E(X) = \E(\E(X|M)) = \E(M) = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent By the corollary, we can also find the variance:
+\begin{equation*}
+  \begin{gathered}
+    Var(X) = \E(Var(X|M))+\underbrace{Var(\E(X)|M)}_{\text{$Var(X|M) = M$}} = \E(M)+\underbrace{Var(M)}_{\text{$=m=1$}} = 1+1 = 2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Suppose we are in a coffee shop, and every customer has a choice between coffee (with probability $p$) or tea (with probability $1-p$).\par
+\noindent Suppose the number of customers during lunchtime is $\sim Po(\lambda)$ distributed. We want to count the number of coffees ordered in total (or rather, find the distribution of the number of coffees).
+\par\bigskip
+\noindent We proceed by letting $X$ be number of coffees ordered, and let $N$ be the number of customers. We actually know because of how we assumed it, we know the amount of customers, we have a binomial distribution:
+\begin{equation*}
+  \begin{gathered}
+    X|N=n\sim Bin(n,p)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent From our example we also know that $N\sim Po(\lambda)$, we have $P(X=k|N=n) = \begin{pmatrix}n\\k\end{pmatrix}p^kq^{n-k}$.\par
+\noindent Now we want to count $P(X=k)$ without $N=n$. We can use the law of large probabilities:
+\begin{equation*}
+  \begin{gathered}
+    P(X=k) =\sum_{n=0}^{\infty}P(X=k|N=n)P(N=n)\\
+    = \sum_{n=0}^{\infty}\begin{pmatrix}n\\k\end{pmatrix}p^kq^{n-k}e^{-\lambda}\dfrac{\lambda^n}{n!}
+  \end{gathered}
+\end{equation*}
