@@ -437,7 +437,7 @@ The inverse is given by $Y = Z-X$. We can now use the transformation theorem:
 \par\bigskip
 \noindent\textbf{Example:}\par
 \noindent Suppose we are in a coffee shop, and every customer has a choice between coffee (with probability $p$) or tea (with probability $1-p$).\par
-\noindent Suppose the number of customers during lunchtime is $\sim Po(\lambda)$ distributed. We want to count the number of coffees ordered in total (or rather, find the distribution of the number of coffees).
+\noindent Suppose the number of customers during lunchtime $N$ is $\sim Po(\lambda)$ distributed. We want to count the number of coffees ordered in total (or rather, find the distribution of the number of coffees).
 \par\bigskip
 \noindent We proceed by letting $X$ be number of coffees ordered, and let $N$ be the number of customers. We actually know because of how we assumed it, we know the amount of customers, we have a binomial distribution:
 \begin{equation*}
@@ -447,10 +447,125 @@ The inverse is given by $Y = Z-X$. We can now use the transformation theorem:
 \end{equation*}
 \par\bigskip
 \noindent From our example we also know that $N\sim Po(\lambda)$, we have $P(X=k|N=n) = \begin{pmatrix}n\\k\end{pmatrix}p^kq^{n-k}$.\par
-\noindent Now we want to count $P(X=k)$ without $N=n$. We can use the law of large probabilities:
+\noindent Now we want to count $P(X=k)$ without $N=n$. We can use the law of total probabilities: 
 \begin{equation*}
   \begin{gathered}
     P(X=k) =\sum_{n=0}^{\infty}P(X=k|N=n)P(N=n)\\
-    = \sum_{n=0}^{\infty}\begin{pmatrix}n\\k\end{pmatrix}p^kq^{n-k}e^{-\lambda}\dfrac{\lambda^n}{n!}
+    = \sum_{n=0}^{\infty}\begin{pmatrix}n\\k\end{pmatrix}p^kq^{n-k}e^{-\lambda}\dfrac{\lambda^n}{n!}\qquad \begin{pmatrix}n\\k\end{pmatrix} = \dfrac{n!}{k!(n-k)!}\\
+    \Rightarrow \dfrac{p^k}{k!}e^{-\lambda}\sum_{n=0}^{\infty}\dfrac{\lambda^n}{(n-k)!}q^{n-k}\\
+    = \dfrac{(\lambda p)^k}{k!}e^{-\lambda}\sum_{n=0}^{\infty}\dfrac{(\lambda q)^{n-k}}{(n-k)!}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $j = n-k$, then we can rewrite the sum as:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{(\lambda p)^k}{k!}e^{-\lambda}\underbrace{\sum_{j=0}^{\infty}\dfrac{(\lambda q)^j}{j!}}_{\text{$=e^{\lambda q}$}}\\
+    \dfrac{(\lambda p)^k}{k!}e^{-\lambda}e^{\lambda q} = \dfrac{(\lambda p)^k}{k!}e^{-\lambda}e^{\lambda (1-p)} = \dfrac{(\lambda p)^k}{k!}e^{-\lambda p}
+  \end{gathered}
+\end{equation*}\par
+\noindent This looks like a Poisson distribution, but $\lambda$ is changed to $\lambda p$. Therefore it is a Poisson distribution with parameter $\lambda p\Rightarrow X\sim Po(\lambda p)$
+\par\bigskip
+\section{Exercises}\par
+\subsection{Exercise 1.5}\hfill\\
+\textit{Show that if $X\sim C(0,1)$, then $X^2\sim F(1,1)$}
+\par\bigskip
+\textbf{Anmärkning:}\par
+\noindent $C$ is a Cauchy distribution, and $F$ is a Fisher distribution. Note also that $\Gamma(1) = 1$ and that $\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}$
+\par\bigskip
+\noindent Let $Y= X^2$. We want to show that it has distribution $\dfrac{1}{\pi}\dfrac{x^{-1/2}}{1+x}$. Taking the derivative of $F_Y(y) = P(Y\leq Y)$ yields the density function.\par
+\noindent Want to show that this is $\dfrac{y^{-1/2}}{1+y}\dfrac{1}{\pi}$:
+\begin{equation*}
+  \begin{gathered}
+    P(Y\leq y) = P(X^2\leq y) = P(\left|X\right|\leq \sqrt{y})\\
+    = P(-\sqrt{y}\leq X \sqrt{y})
+  \end{gathered}
+\end{equation*}\par
+\noindent From the density function of $X$, we can calculate this:
+\begin{equation*}
+  \begin{gathered}
+    = \int_{-\sqrt{y}}^{\sqrt{y}}\dfrac{1}{\pi}\dfrac{1}{1+x^2}dx
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we want the derivative, we can use the fundamental theorem of calculus to take the derivative of the integral:
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = \dfrac{d}{dy}\dfrac{1}{\pi}\int_{-\sqrt{y}}^{\sqrt{y}}\dfrac{1}{1+x^2}dx\\
+    \stackrel{\text{Sym.}}{=} 2\int_{0}^{\sqrt{y}}\dfrac{1}{1+x^2}dx \Rightarrow \dfrac{2}{\pi}\dfrac{1}{y}\cdot \dfrac{d}{dy}\sqrt{y} = \dfrac{2}{\pi}\dfrac{1}{1+y}y^{-0.5}\dfrac{1}{2}\\
+    = \dfrac{1}{\pi}\dfrac{y^{-0.5}}{1+y} = F(1,1)
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent One could have used the transformation theorem here to arrive at the same answer. 
+\par\bigskip
+\subsection{Exercise 1.13}\hfill\\
+\textit{Let $X,Y$ have a joint density function given by}
+\begin{equation*}
+  \begin{gathered}
+    f(x,y) = 
+    \begin{cases*}
+      1\qquad 0\leq x\leq2, \max(0,x-1)\leq y\min(1,x)\\
+      0
+    \end{cases*}
+  \end{gathered}
+\end{equation*}\par
+\textit{determine the joint distribution functions and the joint and marginal distribution function}.
+\par\bigskip
+\noindent We have several different cases to check in this problem depending on where $(x,y)$ is situated. We will look at one trivial case and one non-trivial case.\par
+In general, we know how to write out the distribution of a 2-dimensional r.v:
+\begin{equation*}
+  \begin{gathered}
+    F(x,y)\int_{-\infty}^{x}\int_{-\infty}^{y}f(u,v)dudv
+  \end{gathered}
+\end{equation*}\par
+\noindent In our case we have a uniform distribution, we can use this to skip a lot of the calculations. We integrate over the rectangle covered by $(x,y)$, then the trivial case is where the area we are interested in is covered by $(x,y)$ and the area of that area of interest is 1. The non-trivial part arises when we look at some point inside the area. Another trivial case is putting the point at $(0,0)$, then the area covered is 0.
+\par\bigskip
+In the non-trivial case where we assume $(x,y)$ is somewhere in the left part of the area. It is calculated to be  $xy-\dfrac{y^2}{2}$
+\par\bigskip
+From this, we can calculate the marginal distributions pretty easily by integrating away $x,y$
+\par\bigskip
+\subsection{Exercise 1.19}\hfill\\
+\textit{The random vector $\mathbf{X} = (X_1,X_2,X_3)$ with density function}
+\begin{equation*}
+  \begin{gathered}
+    f_{\mathbf{X}}(\mathbf{x}) = 
+    \begin{cases*}
+      \dfrac{2}{2e-5}x_1^2x_2e^{x_1x_2x_3}\qquad 0<x_1, x_2,x_3<1\\
+      0
+    \end{cases*}
+  \end{gathered}
+\end{equation*}\par
+\textit{Determine the distribution of $X_1\cdot X_2\cdot X_3$}
+\par\bigskip
+\noindent We proceed using the transformation theorem. We define $y_1 = x_1x_2x_3$, $y_2 = x_1x_2$, $y_3 = x_1$. The reason we write it like this is because it is easier to find the inverse of these functions:
+\begin{equation*}
+  \begin{gathered}
+    x_1 = y_3\\
+    x_2 = \dfrac{y_2}{x_1} = \dfrac{y_2}{y_3}\\
+    x_3 = \dfrac{y_1}{x_1x_2} = \dfrac{y_1}{y_3\dfrac{y_2}{y_3}} = \dfrac{y_1}{y_2}
+  \end{gathered}
+\end{equation*}\par
+\noindent All the preparation is done, we use the transformation theorem:
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = f_X(x)\left|J\right|\\
+    J = \begin{vmatrix}0&0&1\\0&\dfrac{1}{y^3}&-\dfrac{y_2}{y_3^2}\\\dfrac{1}{y_2}&-\dfrac{y_1}{y_2}&0\end{vmatrix} = \dfrac{-1}{y_2y_3}\Rightarrow \left|J\right| = \dfrac{1}{y_2y_3}
+  \end{gathered}
+\end{equation*}\par
+\noindent Plug and chugg:
+\begin{equation*}
+  \begin{gathered}
+    f_Y(y) = \dfrac{2}{2e-5}y_3^2\dfrac{y_2}{y_3}e^{y_1}\dfrac{1}{y_2y_3} = \dfrac{2}{2e-5}e^{y_1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Since $y_1 = x_1x_2x_3$ and $x_1x_2x_3$ are all between $0,1$, therefore $y_1<y_2<y_3$.
+\par\bigskip
+\noindent We want to find $Y_1 = X_1X_2X_3$, but this is just the marginal distribution in $Y_1$ of $Y = (Y_1,Y_2,Y_3)$. By integrating away $Y_2, Y_3$ we can get this:
+\begin{equation*}
+  \begin{gathered}
+    F_{Y_1}(y_1) = \int_{y_1}^{1}\int_{y_2}^{1}\dfrac{2}{2e-5}e^{y_1}dy_3dy_2\\
+    = \dfrac{2}{2e-5}e^{y_1}\int_{y_2}^{1}(1-y_2)dy_2
+  \end{gathered}
+\end{equation*}\par
+\noindent As an exercise, show that this integral is equal to $\dfrac{1}{2e-5}(1-y_1)^2e^{y_1}$ for $0<y_1<1$
