@@ -1,0 +1,162 @@
+\section{Multivariate Normal Distribution}
+\subsection{Slide 4-5 - From Univariate to Multivariate Normal}\hfill\\
+\noindent Recall that in the univariate case we had:
+\begin{equation*}
+  \begin{gathered}
+    (x-\mu)\dfrac{1}{\sigma^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent In the multivariate case, we swap $x$ and $\mu$ for vectors instead.\par
+\noindent Since variance matrix is expressed by $(x-\mu)^T\Sigma^{-1}(x-\mu)$, instead of $\sigma^2$ we have have
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{\sigma\sqrt{2\pi}}\sim\rightarrow \dfrac{1}{(2\pi)^{p/2}\sqrt{\text{det}(\Sigma)}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Covariance matrix must be positive definite! Not semi.\par
+\noindent There is no requirement for slide 4 with $\Sigma$ \par
+\noindent The $(2\pi)^{p/2}$ comes from multiplying $z_1z_2\cdots z_p$ $p$-times.
+\par\bigskip
+\subsection{Slide 6 - Special Case: Bivariate Normal}\hfill\\
+\par\bigskip
+
+\noindent\textbf{Anmärkning:} \par
+\noindent $\rho$ denotes the correlation coefficient\par
+\noindent $\sigma_{11} \& \sigma_{22}$ correspond to our variance\par
+\noindent $\sigma_{12} \& \sigma_{21}$ correspond to our covariance\par
+
+\begin{equation*}
+  \begin{gathered}
+    \text{Corr}(x_1,x_2) = \dfrac{\sigma_{12}}{\sqrt{\sigma_{11}\sigma_{22}}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 7 - Contour of Bivariate Normal Density}\hfill\\
+\noindent We change the correlation to see what happens.
+\par\bigskip
+\subsection{Slide 8 - Linear Combinations}\hfill\\
+\noindent For the univariate case, we had that if we scaled $X\sim N(\mu,\sigma^2)$ with an affine transformation, we got $aX+b\sim N(a\mu,a^2\sigma^2)$.
+\par\bigskip
+\noindent One thing that is good to keep in the back of the head is that the linear combination/affine transformation of normally distributed random variables will remain normal. 
+\par\bigskip
+\noindent Let us look at what happens when we look at the multivariate case:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}Y_1\\ Y_2\end{pmatrix}\qquad Y_1\sim N\qquad Y_2\sim N\\
+    \Rightarrow \begin{pmatrix}x_1+x_2\\x_1-x_2\end{pmatrix} = \begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}+\begin{pmatrix}0\\0\end{pmatrix}\sim N_2\left(\begin{pmatrix}0\\0\end{pmatrix}, A\Sigma A^T\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent From result 4.2, we can get the result of multi-linear combinations
+\par\bigskip
+\subsection{Slide 10 - Normal and Chi-Square}\hfill\\
+\par\bigskip
+\noindent If $X$ has a linear combination will it still be $p$-degreees of freedom? Answer is surprisingly yes!
+\begin{equation*}
+  \begin{gathered}
+    \Sigma^{-1} = \Sigma^{-1/2}\Sigma^{-1/2}\qquad X\sim N_p(\mu,\Sigma)\\
+    \Rightarrow Z = \Sigma^{-1/2}(x-\mu) = \underbrace{\Sigma^{-1/2}}_{\text{$A$}}x\underbrace{-\Sigma^{-1/2}\mu}_{\text{$d$}}\sim N_p(0,\Sigma^{-1/2}\Sigma\Sigma^{-1/2})\\
+    (x-\mu)^T\Sigma^{-1}(x-\mu) = Z^tZ=\sum_{j=1}^{p}Z_i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 11 - Subset of Variables}\hfill\\
+\noindent Using result 4.4, we can choose subsets however we want, it will stay normal.
+\par\bigskip
+\subsection{Slide 12 - Example: Subset of Variables}\hfill\\
+\par\bigskip
+\noindent From the slide we have the following:\par
+\textit{Suppose that}:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}\sim N_2\left(\begin{bmatrix}0\\0\\0\end{bmatrix}, 
+    \begin{bmatrix}
+      \sigma_{11}&\sigma_{12}&\sigma_{13}\\
+      \sigma_{21}&\sigma_{22}&\sigma_{23}\\
+      \sigma_{31}&\sigma_{32}&\sigma_{33}
+  \end{bmatrix}\right)
+  \end{gathered}
+\end{equation*}\par
+\textit{Find the distribution of } $\begin{bmatrix}X_1\\X_3\end{bmatrix}$ \textit{as well as the distribution of }
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}X_1&X_3\end{bmatrix}\begin{bmatrix}\sigma_{11}&\sigma_{13}\\\sigma_{31}&\sigma_{33}\end{bmatrix}^{-1}\begin{bmatrix}X_1\\X_3\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In the first one, what we really essentially are looking for is the following:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bNiceMatrix}
+      X_1\\
+      X_2\\
+      X_3\\
+      \CodeAfter\tikz[black]\draw (2.5-|1) -- (2.5-|last);
+    \end{bNiceMatrix}\sim N_3\left(\begin{bNiceMatrix}0\\0\\0\\\CodeAfter\tikz[black]\draw (2.5-|1) -- (2.5-|last);\end{bNiceMatrix}, \begin{bNiceMatrix}
+      \sigma_{11}&\sigma_{12}&\sigma_{13}\\
+      \sigma_{21}&\sigma_{22}&\sigma_{23}\\
+      \sigma_{31}&\sigma_{32}&\sigma_{33}\\
+      \CodeAfter\tikz[black]\draw (2.5-|1) -- (2.5-|last) (1-|2.5) -- (last-|2.5);
+  \end{bNiceMatrix}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent If we want $\begin{bmatrix}X_1\\X_3\end{bmatrix}$, then:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}X_1\\X_3\end{bmatrix}\sim N_2\left(\begin{bmatrix}0\\0\end{bmatrix}, \begin{bmatrix}\sigma_{11}&\sigma_{13}\\\sigma_{31}&\sigma_{33}\end{bmatrix}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent So:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}X_1 &X_3\end{bmatrix}\begin{bmatrix}\sigma_{11}&\sigma_{13}\\\sigma_{31}&\sigma_{33}\end{bmatrix}^{-1}\begin{bmatrix}X_1\\X_3\end{bmatrix}\sim \chi_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent It is really important to remember that linear combinations of normal variables, are still normal variables. Since linear combinations can be regarded as linear/affine transformations, the "crossing out the $X_2$" part of the computation is really just matrix-multiplication, since:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}X_1\\X_3\end{bmatrix} = \underbrace{\begin{bmatrix}1&0&0\\0&0&0\\0&0&1\end{bmatrix}}_{\text{$A$}}\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 13 - Subset of Variables}\hfill\\
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Since what we really care about is what happens during the transpose, sometimes we write $\Sigma_{12}$ for $\Sigma_{12} = \Sigma_{21} = 0$ 
+\par\bigskip
+\subsection{Slide 15 - Marginal Normal and Joint Distribution}\hfill\\
+\par\bigskip
+\noindent Usually, if they are independent, they are normal.
+\par\bigskip
+\subsection{Slide 23 - Likelihood of Normal Random Sample}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    a^TBa = \text{tr}(a^TBa) = \text{tr}(Baa^T)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Of course, in order to maximize the likelihood we sometimes need to find the derivative of the matrix/vector.
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\begin{bmatrix}x_1& x_2\end{bmatrix}}_{\text{$x^T$}}\underbrace{\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}}_{\text{$B$}}\underbrace{\begin{bmatrix}x_1\\x_2\end{bmatrix}}_{\text{$x$}}\Rightarrow \begin{bmatrix}x_1\\x_2\end{bmatrix}\begin{bmatrix}b_{11}x_1+b_{12}x_2\\b_{21}x_1+b_{22}x_2\end{bmatrix}\\
+    \Rightarrow b_{11}x_1^2+b_{12}x_1x_2+b_{21}x_1x_2+b_{22}x_2^2 = f(x_1,x_2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we can just collect the partials in a vector (or a matrix if we end up with a matrix):
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}\dfrac{\partial f}{\partial x_1}\\\\\dfrac{\partial f}{\partial x_2}\end{bmatrix} = \begin{bmatrix}2b_{11}x_1+b_{12}x_2+b_{21}x_2\\2b_{22}x_2+b_{12}x_1+b_{21}x_1\end{bmatrix} = \begin{bmatrix}2b_{11}& b_{12}+b_{21}\\b_{12}+b_{21}&2b_{22}\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 32 - Limit of MLE}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\dfrac{n}{n-1}}_{\stackrel{n\to\infty}{\to1}}\underbrace{(\mu_1-\hat{X_i})}_{\text{$\to0$}}\underbrace{(\hat{X_k}-\mu_k)}_{\text{$\to0$}}\to\dfrac{1}{n-1}\sum\approx \sigma_{ik}
+  \end{gathered}
+\end{equation*}

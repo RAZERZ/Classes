@@ -1,0 +1,354 @@
+\section{Transformations}\par
+\noindent\textbf{NOTE: Fridays notes are not in this document. ADD}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $\exists h$ such that $\psi_X(t)$ is defined $\forall t$ such that $\left|t\right|<h$, then $\E(\left|x\right|^r)<\infty\quad\forall r$. Note that variance is given by second moment, there are some distributions where only maybe one or two moments exists, but this theorem says that all should exist given the cases. 
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  If we have $t>0$ such that $\psi_X(t)<\infty$, then we have that by the definition of the moment generating function:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{\infty}e^{tX}f_X(x)dx<\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent But we also know that $e^x$ grows faster than $x^r$, so if we write
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{\left|x\right|^r}{e^tx} =0\quad \forall r\quad x\to\infty\\
+      \Rightarrow \int_{x_1}^{\infty}\left|x\right|^rf_X(x)dx<\int_{x_1}^{\infty}e^{tX}f_X(x)dx<\infty\qquad \text{for $x$ is large enough}\\
+      \Rightarrow \int_{0}^{\infty}\left|x\right|^rf_X(x)dx<\infty
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Now half of the proof is complete. The definition says we need to look from $-\infty$ to $\infty$. To do this, we look at other $t$:s
+  \par\bigskip
+  \noindent If $x$ is instead close to $-\infty$, then we know that $e^{tx}\to0$ for $t>0$, and at the same time as $\left|x\right|^r\to\infty$.\par
+  \noindent Thus $\lim_{x\to-\infty}\dfrac{\left|x\right|^r}{e^{tx}}\neq0$. But since we assumed in the theorem that $\psi_X(t)$ is defined $\forall\left|t\right|<h$ (in an interval from $-h$ to $h$), the theorem also includes $t<0$.
+  \par\bigskip
+  \noindent We choose such a negative $t$, and write it as $-t$. Then we know that we have:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{x_2}e^{-tx}f_X(dx)<\infty\qquad\forall x_2
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We also know that when we take $\lim_{x\to-\infty}\dfrac{\left|x\right|^r}{e^{-tx}}=0$. Then $\exists x_3$ such that:
+  \begin{equation*}
+    \begin{gathered}
+      \int_{-\infty}^{x_3}\left|x\right|^rf_X(x)dx<\int_{-\infty}^{x_2}e^{-tx}f_X(x)dx<\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We also know that the integral from $x_3$ to $x_2$ is finite, so we know the whole integral is finite.
+\end{prf}
+\par\bigskip
+\noindent The moment generating function is more general than the probability generating function.
+\begin{theo}[]{}
+  Suppose there exists $h$ such that $\psi_X(t)$ is defined for $\left|t\right|<h$, then we have that $\E(\left|X\right|^n) = \psi_X^{(n)}(0)$ $\forall n\in\N$
+\end{theo}
+\pagebreak
+\begin{prf}[]{}
+  This comes naturally from the Taylor expansion of $e^{tX}$:
+  \begin{equation*}
+    \begin{gathered}
+      e^{tX} = \sum_{n=0}^{\infty}\dfrac{t^n X^n}{n!}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Recall that $\psi_X(t) = \E(e^{tX})$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \E(e^{tX}) = \E\left(\sum_{n=0}^{\infty}\dfrac{t^n X^n}{n!}\right) = 1+\sum_{k=1}^{\infty}\dfrac{t^n}{n!}\E(X^n)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Derivating yields:
+  \begin{equation*}
+    \begin{gathered}
+      \psi_X^{\prime}(t) = \sum_{n=1}^{\infty}\dfrac{t^{n-1}\E(X^n)}{(n-1)!} = \E(X)+\sum_{n=2}^{\infty}\dfrac{t^{n-1}\E(X^n)}{(n-1)!}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Plugging in $t=0$, we see that:
+  \begin{equation*}
+    \begin{gathered}
+      \psi_X^{\prime}(0) = \E(X) + 0 = \E(X)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Looking at the second moment instead:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{d}{dt}\left(\E(X)+\sum_{n=2}^{\infty}\dfrac{t^{n-1}\E(X^n)}{(n-1)!}\right) = 0+\sum_{n=2}^{\infty}\dfrac{t^{n-2}\E(X^n)}{(n-2)!}\\
+      = \E(X^2)+\sum_{n=3}^{\infty}\dfrac{t^{n-2}\E(X^n)}{(n-2)!}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Plugging in $t=0$ yields $\psi_X^{\prime\prime}(0) = \E(X^2)$, this will happen for all derivatives.
+\end{prf}
+\par\bigskip
+\noindent We shall now look at some moment generating functions (mgf) for some discrete functions:\par
+\begin{itemize}
+  \item $X\sim Be(p)\quad\E(e^{tX}) = pe^t+(1-p)e^{t0} = pe^t+1-p = \psi_X(t)$\par
+    \noindent Looking at the derivatives we have $\psi_X^{\prime}(t) = pe^t$, and $\psi_X^{\prime}(0) = p = \E(X)$\par
+    \noindent We can find the variance, since it is the second moment minus the first moment squred, and we get $p-p^2 = p(1-p)$ 
+    \par\bigskip
+  \item $X\sim Bin(n,p)\quad\E(e^{tX}) = \sum_{k=0}^{\infty}e^{tk}\begin{pmatrix}n\\k\end{pmatrix}p^k(1-p)^{n-k} = \sum_{k=0}^{\infty}(pe^t)^k\begin{pmatrix}n\\k\end{pmatrix}(1-p)^{n-k}$\par
+    \noindent From the binomial theorem, we can write this as $(pe^t+(1-p))^n$\par
+    \noindent Observe that $(pe^t+(1-p))^n$ is the mgf of $n$ independent $Be(p)$ because of corollary 3.2.1
+    \par\bigskip
+  \item Geometric and Poisson distribution: We know that if the probability generating function exsits (positive integral values), then we can write $\psi_X(t) = \E(e^{tX}) = \E((e^t)^X)$. Letting $t = e^t$, we have $=g_X(e^t)$\par
+    \noindent If we trust the existance, we can use that the probability generating function for the geometric distribution $g_X(t) = \dfrac{p}{1-(1-p)t}$ for $\left|t\right|<1$. This implies:
+    \begin{equation*}
+      \begin{gathered}
+        \Rightarrow \psi_X(t) = \dfrac{p}{1-(1-p)e^t}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent For the Poisson distribution, we saw that $g_X(t) = e^{m(t-1)}$, we can use this again:
+    \begin{equation*}
+      \begin{gathered}
+        \psi_X(t) = e^{m(e^t-1)}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent We will now look at some common continuous distributions as well as their moment generating functions:\par
+\begin{itemize}
+  \item If $X\sim U(a,b)\Rightarrow \psi_X(t) = \int_{a}^{b}e^{tx}\dfrac{1}{b-a}dx = \dfrac{e^{tb}-e^{ta}}{t(b-a)}$
+    \par\bigskip
+    \noindent\textbf{Anmärkning:} If $\psi_X^{\prime}(0)$ yields something indeterminate, then take the limit as $t\to0$
+    \par\bigskip
+  \item For the exponential distribution we have:
+    \begin{equation*}
+      \begin{gathered}
+        \psi_X(t) = \int e^{tx}\dfrac{1}{a}e^{-x/a}dx = \dfrac{1}{a}\dfrac{1}{\dfrac{1}{a}-t} = \dfrac{1}{1-at}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Gamma distribution: We know that the mgf for a sum of independent random variables is the same as the product of the mgf:s, and we know a theorem which says that the gamma distribution is a sum of exponential random variables.\par
+    \noindent For integers $p$, $\Gamma(p,a)$ is a sum of $p$ independent exponentially disitrbuted random variables with parameter $a$. So we can use what we know about mgf:s for exponentially disitrbuted functions:
+    \begin{equation*}
+      \begin{gathered}
+        \psi_X(t) = \dfrac{1}{(1-at)^p}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Normal distrbution ($N(0,1)$):
+    \begin{equation*}
+      \begin{gathered}
+        \psi_X(t) =\int e^{tx}\dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}dx = \dfrac{1}{\sqrt{2\pi}}\int e^{tx-(1/2)x^2}dx\\
+        = \dfrac{1}{\sqrt{2\pi}}\int e^{-(1/2)(x-t)^2-t^2}dx = \underbrace{\dfrac{1}{\sqrt{2\pi}}\int e^{-(1/2)(x-t)^2}}_{\text{$=1$}}e^{t^2/2}dx\Rightarrow e^{t^2/2}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent Looking at the general case $Y\sim N(\mu,\sigma^2)\Rightarrow Y = \sigma X+\mu$:
+    \begin{equation*}
+      \begin{gathered}
+        \psi_Y(t) = \E(e^{\sigma Xt+\mu t}) = e^{\mu t}\E(e^{\sigma Xt}) = e^{\mu t}\psi_X(\sigma t) = e^{\mu t}e^{(\sigma t)^2/2}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent Theorem 3.3 a) tells that if the moment generating function exists $\Rightarrow$ all absolute moments exist and $\E(\left|X\right|^r)<\infty$, but does the opposite apply? The answer to that is infact no, a counter example is something called a log-normal $(LN)$ distribution:
+\begin{equation*}
+  \begin{gathered}
+    X\sim LN(\mu, \sigma^2)\Lrarr X = e^Y\quad (Y\sim N(\mu,\sigma^2))
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Note that $\E(X^r) = \E(e^{Yr}) = \psi_Y(r)<\infty$.\par
+\noindent One can however show that $\psi_X(t) =\E(e^{tX}) = \infty$ $\forall t\neq0$
+\par\bigskip
+\begin{theo}[Moment Generating function for a multivariate variable]{}
+  \begin{equation*}
+    \begin{gathered}
+      \psi_{X_1,X_2,\cdots,X_n}(t_1,t_2,\cdots,t_n) = \E(e^{t_1x_1+t_2x_2+\cdots+t_nx_n})
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Characteristic function]{}
+  \begin{equation*}
+    \begin{gathered}
+      \varphi_X(t) == \E(e^{itX}) = \E(\cos(tX)+i\sin(tX))
+    \end{gathered}
+  \end{equation*}
+\end{theo}\par
+\noindent From the definition, there are some rules that we can derive for the characteristic function:\par
+\begin{itemize}
+  \item $\left|\varphi_X(t)\right|\leq 1\quad \forall t$
+  \item $\varphi_X(t) = \varphi_X(-t)$
+  \item Is uniformly continuous
+  \item $\varphi_S(t) = \Pi\varphi_{X_k}(t)$ where $S = X_1+X_2+\cdots+X_n$
+  \item $\varphi_X^{(k)} = i^k\E(X)$
+\end{itemize}
+\par\bigskip
+\noindent Let us go back to talking about distirbutions with random parameters.
+\par\bigskip
+\noindent Suppose that $X|N = n\sim Bin(n,p)$ where $N\sim Po(\lambda)$. Previously, we tried to find the unconditional distribution.\par
+\noindent We will try to solve this using the probability generating function $g_X(t)$. \par
+\noindent We can do this by looking at $g_X(t) = \E(t^X)$ and rewriting it to include the conditional:
+\begin{equation*}
+  \begin{gathered}
+    g_X(t)\Rightarrow \E(\E(t^X|N))
+  \end{gathered}
+\end{equation*}\par
+\noindent We know that $\E(t^X|N = n) = (q+pt)^n$ since $X|N = n\sim Bin(n,p)$
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \E(t^X|N) = (q+pt)^N \Rightarrow g_X(t) = \E((q+pt)^N) = g_N(q+pt)
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we know the distribution of $N\sim Po(\lambda)$, we know the probability generating function for it too:
+\begin{equation*}
+  \begin{gathered}
+    g_N(t) = e^{\lambda(t-1)}\Rightarrow g_N(q+pt) = e^{\lambda(q+pt-1)} = e^{\lambda(1-p+pt-1)} = e^{\lambda p(t-1)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We have shown that $g_X(t)$ is equal to $e^{\lambda p(t-1)}\Rightarrow X\sim Po(\lambda p)$
+\par\bigskip
+\noindent If one of the distributions is not of integer value, we have to use the moment generating function instead.
+\par\bigskip
+\noindent In example 2.3.1 we have that $X|M = m\sim Po(m)$ where $M\sim Exp(1)$\par
+\noindent We apply the mgf:
+\begin{equation*}
+  \begin{gathered}
+    \psi_X(t) = \E(e^{tX}) = \E(\E(e^{tX}|M))
+  \end{gathered}
+\end{equation*}\par
+\noindent When $M = m\Rightarrow X|M = m\sim Po(m)$. We know that what the mgf for Poisson variables is:
+\begin{equation*}
+  \begin{gathered}
+     = e^{m(e^t-1)}\\
+     \Rightarrow \psi_X(t) = \E((e^{tX}|M)) = \E(e^{M(e^t-1)})
+  \end{gathered}
+\end{equation*}\par
+\noindent This looks like something that we know, in of itself it looks like a mgf because we have $e^M$ where $M$ is a random variable with some real values. Well, our intuition is somewhat correct:
+\begin{equation*}
+  \begin{gathered}
+    =\psi_M(e^t-1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We know $M\sim Exp(1)\Rightarrow$ the mgf for $M = \dfrac{1}{1-t}$. From this, we can now find the mgf for $X$ since we expressed in the terms of $M$:
+\begin{equation*}
+  \begin{gathered}
+    \psi_X(t) = \dfrac{1}{1-(e^t-1)} = \dfrac{1}{2-e^t}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now we want to find the distribution for $X$, so we can look in the table and see that a random variable that has the closest looking mgf is if $X\sim Geo$. We do have to do some rewriting for it to look exact:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1/2}{1-(1/2)e^t} = Geo(1/2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Since if $X\sim Geo(p)$, then the mgf is $\dfrac{p}{1-qe^t}$.\par
+\noindent This means that the function we found is the moment generating function for a geometric distribution with parameter 1/2. 
+\par\bigskip
+\noindent We shall look at one more example. Suppose that $X|\Sigma = y\sim N(0,y)$ with $\Sigma\sim Exp(1)$. We want to find the moment generating function for $X$:
+\begin{equation*}
+  \begin{gathered}
+    \psi_X(t) = \E(e^{tX}) = \E(\E(e^{tX}|\Sigma))
+  \end{gathered}
+\end{equation*}\par
+\noindent We look for an mgf for $N(0,y)$, which is $e^{yt^2/2}$. This means that:
+\begin{equation*}
+  \begin{gathered}
+    \E(e^{tX}|\Sigma)\quad (e^{\Sigma t^2/2})\\
+    \Rightarrow \psi_X(t) = \E(e^{\Sigma t^2/2}) = \psi_\Sigma(t^2/2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $\Sigma\sim Exp(1)$, we know that the mgf for $\Sigma$ is $\dfrac{1}{1-t}$, but now instead of $t$ we have $t^2/2$, so we have:
+\begin{equation*}
+  \begin{gathered}
+    \psi_\Sigma(t^2/2) = \psi_X(t) = \dfrac{1}{1-t^2/2}
+  \end{gathered}
+\end{equation*}\par
+\noindent We now look in the appendix to see if this looks like some known distribution, and it turns out it looks like a Laplace distribution:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{1-a^2t^2}\sim \mathcal{L}(a)\Rightarrow X\sim \mathcal{L}\left(\dfrac{1}{\sqrt{2}}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Sums of random number of terms}\hfill\\\par
+\noindent Suppose that $X_1,X_2,\cdots,$  is a sequence of independent and equally distributed random variables.\par
+\noindent We look at the partial sum $S_N = X_1+X_2+\cdots+X_n$ and study $S_N = X_1+\cdots+X_N$.\par
+\noindent Assume the number of terms is independent of all $X_i$. We first at the special case where $X_i$ are positive integer valued random variables.\par
+\noindent Then we have that the probability generating function for $S_N$ exists, so we can write:
+\begin{equation*}
+  \begin{gathered}
+    g_{S_N}(t) = \E(t^{S_n})
+  \end{gathered}
+\end{equation*}\par
+\noindent In that case we can use the law of total probability and show that it is the following sum:
+\begin{equation*}
+  \begin{gathered}
+    \E(t^{S_n}) = \sum_{n=0}^{\infty}\E(t^{S_N}|N=n)\cdot P(N=n)\\
+    \sum_{n=0}^{\infty}\E(t^{S_n})\cdot P(N=n)\qquad\text{(since all $X_i$ in $S_n$ are independent of $n$)}
+  \end{gathered}
+\end{equation*}\par
+\noindent We know that $\E(t^{S_n}) = g_{S_n} = (g_X(t))^n$:
+\begin{equation*}
+  \begin{gathered}
+    g_{S_N}(t) = \sum_{n=0}^{\infty}(g_X(t))^n\cdot P(N=n) = \E\left(g_X(t)\right)^n
+  \end{gathered}
+\end{equation*}\par
+\noindent This means that this is almost a probability generating function because it is something to the power of $N$:
+\begin{equation*}
+  \begin{gathered}
+    g_N((g_X(t)))
+  \end{gathered}
+\end{equation*}\par
+\noindent We can use this to find $\E(S_N)$:
+\begin{equation*}
+  \begin{gathered}
+    \E(S_N) = g_{S_N}^{\prime}(1) = g_N^{\prime}(g_X(1))g_X^{\prime}(1)
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice that this is a product of 2 expected values, since $g_X^{\prime}(1) = \E(X)$ and $g_N^{\prime}(1) = \E(N)$. Always when you plug in 1 in a probability generating function you will get 1, so $g_X(1) = 1$, and we get:
+\begin{equation*}
+  \begin{gathered}
+    g_N^{\prime}(1)g_X^{\prime}(1) = \E(N)\E(X)
+  \end{gathered}
+\end{equation*}\par
+\noindent If $\text{Var}\left(N\right)<\infty$ and $\text{Var}\left(X\right)<\infty$, 
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(S_N\right) = g_{S_N}^{\prime\prime}(1)+g_{S_N}^{\prime}(1)- \left(g_{S_N}^{\prime}(1)\right)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent We use the following formula for the variance:
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(S_N\right) = \E(\text{Var}\left(S_n\right))+\text{Var}\left(\E(S_N|N)\right)\\
+    \text{Var}\left(S_N|N=n\right) = \text{Var}\left(S_n\right) = n\text{Var}\left(X\right)\\
+    \Rightarrow \text{Var}\left(S_N|N\right) = N\text{Var}\left(X\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent We also have that $\E(S_N|N=n) = n\E(X)$:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow\E(S_N|N) = N\E(X)
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we can actually use this to look at our general formula. From the first part, we know that $\E(\text{Var}\left(S_N|N\right)) = \E(N\text{Var}\left(X\right))$. But $\text{Var}\left(X\right)$ is just a constant, so this we only get $\E(N)\text{Var}\left(X\right)$ from the first part.\par
+\noindent From the second part, we get:
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(\E(S_N|N)\right) = \text{Var}\left(N\E(X)\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Now we also remember from Probability theory 1, that $\text{Var}\left(CX\right) = c^2\text{Var}\left(X\right)$, so we get:
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(N\E(X)\right) = \E^2(X)\text{Var}\left(N\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Then we have our general formula:
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(S_N\right) = \E(N)\text{Var}\left(X\right) + \text{Var}\left(N\right)\E^2(X)
+  \end{gathered}
+\end{equation*}

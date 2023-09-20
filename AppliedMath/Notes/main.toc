@@ -5,3 +5,4 @@
 \contentsline {subsection}{\tocsubsection {}{2.2}{Dominant Balancing method}}{11}{subsection.2.2}%
 \contentsline {subsection}{\tocsubsection {}{2.3}{WKB Methods (Wentzel, Kramers, Brillouin)}}{15}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{Asymptotic Expansion of Integrals}}{17}{subsection.2.4}%
+\contentsline {section}{\tocsection {}{3}{Calculus of Variations}}{20}{section.3}%

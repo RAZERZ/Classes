@@ -11,3 +11,15 @@
 \contentsline {subsection}{\tocsubsection {}{2.7}{Slide 10 - Random Sample}}{4}{subsection.2.7}%
 \contentsline {subsection}{\tocsubsection {}{2.8}{Slide 12 - Some Notes on Sample Covariance Matrix}}{5}{subsection.2.8}%
 \contentsline {subsection}{\tocsubsection {}{2.9}{Slide 17 - Sample Covariance Matrix}}{5}{subsection.2.9}%
+\contentsline {section}{\tocsection {}{3}{Multivariate Normal Distribution}}{6}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Slide 4-5 - From Univariate to Multivariate Normal}}{6}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Slide 6 - Special Case: Bivariate Normal}}{6}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Slide 7 - Contour of Bivariate Normal Density}}{6}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Slide 8 - Linear Combinations}}{6}{subsection.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.5}{Slide 10 - Normal and Chi-Square}}{6}{subsection.3.5}%
+\contentsline {subsection}{\tocsubsection {}{3.6}{Slide 11 - Subset of Variables}}{7}{subsection.3.6}%
+\contentsline {subsection}{\tocsubsection {}{3.7}{Slide 12 - Example: Subset of Variables}}{7}{subsection.3.7}%
+\contentsline {subsection}{\tocsubsection {}{3.8}{Slide 13 - Subset of Variables}}{7}{subsection.3.8}%
+\contentsline {subsection}{\tocsubsection {}{3.9}{Slide 15 - Marginal Normal and Joint Distribution}}{7}{subsection.3.9}%
+\contentsline {subsection}{\tocsubsection {}{3.10}{Slide 23 - Likelihood of Normal Random Sample}}{8}{subsection.3.10}%
+\contentsline {subsection}{\tocsubsection {}{3.11}{Slide 32 - Limit of MLE}}{8}{subsection.3.11}%

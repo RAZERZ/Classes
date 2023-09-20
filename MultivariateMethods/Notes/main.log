@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  7 SEP 2023 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  15 SEP 2023 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,7 +865,84 @@ File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/latex/bbm-macros/bbm.sty
+))) (/usr/share/texmf-dist/tex/latex/nicematrix/nicematrix.sty
+(/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
+)
+Package: nicematrix 2023/03/06 v6.16 Enhanced arrays with the help of PGF/TikZ
+
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen303
+\ar@mcellbox=\box76
+\extrarowheight=\dimen304
+\NC@list=\toks52
+\extratabsurround=\skip131
+\backup@length=\skip132
+\ar@cellbox=\box77
+)
+\g__nicematrix_env_int=\count333
+\g__nicematrix_NiceMatrixBlock_int=\count334
+\l__nicematrix_note_in_caption_int=\count335
+\l__nicematrix_columns_width_dim=\dimen305
+\l__nicematrix_col_width_dim=\dimen306
+\g__nicematrix_row_total_int=\count336
+\g__nicematrix_col_total_int=\count337
+\g__nicematrix_last_row_node_int=\count338
+\l__nicematrix_key_nb_rows_int=\count339
+\g__nicematrix_blocks_wd_dim=\dimen307
+\g__nicematrix_blocks_ht_dim=\dimen308
+\g__nicematrix_blocks_dp_dim=\dimen309
+\l__nicematrix_width_dim=\dimen310
+\l__nicematrix_tabular_width_dim=\dimen311
+\l__nicematrix_rule_width_dim=\dimen312
+\l__nicematrix_old_iRow_int=\count340
+\l__nicematrix_old_jCol_int=\count341
+\g__nicematrix_total_X_weight_int=\count342
+\l__nicematrix_X_columns_dim=\dimen313
+\l__nicematrix_x_initial_dim=\dimen314
+\l__nicematrix_y_initial_dim=\dimen315
+\l__nicematrix_x_final_dim=\dimen316
+\l__nicematrix_y_final_dim=\dimen317
+\l__nicematrix_tmpc_dim=\dimen318
+\l__nicematrix_tmpd_dim=\dimen319
+\g__nicematrix_width_last_col_dim=\dimen320
+\g__nicematrix_width_first_col_dim=\dimen321
+\l__nicematrix_row_min_int=\count343
+\l__nicematrix_row_max_int=\count344
+\l__nicematrix_col_min_int=\count345
+\l__nicematrix_col_max_int=\count346
+\g__nicematrix_static_num_of_col_int=\count347
+\l__nicematrix_rounded_corners_dim=\dimen322
+\l__nicematrix_line_width_dim=\dimen323
+\g__nicematrix_block_box_int=\count348
+\l__nicematrix_submatrix_extra_height_dim=\dimen324
+\l__nicematrix_submatrix_left_xshift_dim=\dimen325
+\l__nicematrix_submatrix_right_xshift_dim=\dimen326
+\l__nicematrix_first_row_int=\count349
+\l__nicematrix_first_col_int=\count350
+\l__nicematrix_last_row_int=\count351
+\l__nicematrix_last_col_int=\count352
+\c@tabularnote=\count353
+\c@nicematrix_draft=\count354
+\l__nicematrix_cell_space_top_limit_dim=\dimen327
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen328
+\l__nicematrix_xdots_inter_dim=\dimen329
+\l__nicematrix_xdots_shorten_start_dim=\dimen330
+\l__nicematrix_xdots_shorten_end_dim=\dimen331
+\l__nicematrix_xdots_radius_dim=\dimen332
+\l__nicematrix_notes_above_space_dim=\dimen333
+\l__nicematrix_left_margin_dim=\dimen334
+\l__nicematrix_right_margin_dim=\dimen335
+\l__nicematrix_extra_left_margin_dim=\dimen336
+\l__nicematrix_extra_right_margin_dim=\dimen337
+\c__nicematrix_max_l_dim=\dimen338
+\l__nicematrix_position_int=\count355
+\l__nicematrix_start_int=\count356
+\l__nicematrix_multiplicity_int=\count357
+\l__nicematrix_brace_yshift_dim=\dimen339
+)
+(/usr/share/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 (Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
@@ -881,26 +958,26 @@ Package: soul 2023-02-18 v3.0 Permit use of UTF-8 characters in soul (HO)
 
 (/usr/share/texmf-dist/tex/generic/soul/soul-ori.sty
 Package: soul-ori 2023-02-18 v3.0 letterspacing/underlining (mf)
-\SOUL@word=\toks52
-\SOUL@lasttoken=\toks53
-\SOUL@syllable=\toks54
-\SOUL@cmds=\toks55
-\SOUL@buffer=\toks56
-\SOUL@token=\toks57
-\SOUL@syllgoal=\dimen303
-\SOUL@syllwidth=\dimen304
-\SOUL@charkern=\dimen305
-\SOUL@hyphkern=\dimen306
-\SOUL@dimen=\dimen307
-\SOUL@dimeni=\dimen308
-\SOUL@minus=\count333
-\SOUL@comma=\count334
-\SOUL@apo=\count335
-\SOUL@grave=\count336
-\SOUL@spaceskip=\skip131
-\SOUL@ttwidth=\dimen309
-\SOUL@uldp=\dimen310
-\SOUL@ulht=\dimen311
+\SOUL@word=\toks53
+\SOUL@lasttoken=\toks54
+\SOUL@syllable=\toks55
+\SOUL@cmds=\toks56
+\SOUL@buffer=\toks57
+\SOUL@token=\toks58
+\SOUL@syllgoal=\dimen340
+\SOUL@syllwidth=\dimen341
+\SOUL@charkern=\dimen342
+\SOUL@hyphkern=\dimen343
+\SOUL@dimen=\dimen344
+\SOUL@dimeni=\dimen345
+\SOUL@minus=\count358
+\SOUL@comma=\count359
+\SOUL@apo=\count360
+\SOUL@grave=\count361
+\SOUL@spaceskip=\skip133
+\SOUL@ttwidth=\dimen346
+\SOUL@uldp=\dimen347
+\SOUL@ulht=\dimen348
 ))
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
@@ -918,26 +995,26 @@ File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multip
 art.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box76
-\pgfnodeparttwobox=\box77
-\pgfnodepartthreebox=\box78
-\pgfnodepartfourbox=\box79
-\pgfnodeparttwentybox=\box80
-\pgfnodepartnineteenbox=\box81
-\pgfnodeparteighteenbox=\box82
-\pgfnodepartseventeenbox=\box83
-\pgfnodepartsixteenbox=\box84
-\pgfnodepartfifteenbox=\box85
-\pgfnodepartfourteenbox=\box86
-\pgfnodepartthirteenbox=\box87
-\pgfnodeparttwelvebox=\box88
-\pgfnodepartelevenbox=\box89
-\pgfnodeparttenbox=\box90
-\pgfnodepartninebox=\box91
-\pgfnodeparteightbox=\box92
-\pgfnodepartsevenbox=\box93
-\pgfnodepartsixbox=\box94
-\pgfnodepartfivebox=\box95
+\pgfnodepartlowerbox=\box78
+\pgfnodeparttwobox=\box79
+\pgfnodepartthreebox=\box80
+\pgfnodepartfourbox=\box81
+\pgfnodeparttwentybox=\box82
+\pgfnodepartnineteenbox=\box83
+\pgfnodeparteighteenbox=\box84
+\pgfnodepartseventeenbox=\box85
+\pgfnodepartsixteenbox=\box86
+\pgfnodepartfifteenbox=\box87
+\pgfnodepartfourteenbox=\box88
+\pgfnodepartthirteenbox=\box89
+\pgfnodeparttwelvebox=\box90
+\pgfnodepartelevenbox=\box91
+\pgfnodeparttenbox=\box92
+\pgfnodepartninebox=\box93
+\pgfnodeparteightbox=\box94
+\pgfnodepartsevenbox=\box95
+\pgfnodepartsixbox=\box96
+\pgfnodepartfivebox=\box97
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 positioning.code.tex
@@ -949,18 +1026,18 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen312
+\arrowsize=\dimen349
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen313
-\pgfarrowlength=\dimen314
-\pgfarrowwidth=\dimen315
-\pgfarrowlinewidth=\dimen316
+\pgfarrowinset=\dimen350
+\pgfarrowlength=\dimen351
+\pgfarrowwidth=\dimen352
+\pgfarrowlinewidth=\dimen353
 )
-\c@theo=\count337
-\c@lem=\count338
-\c@prf=\count339
+\c@theo=\count362
+\c@lem=\count363
+\c@prf=\count364
 )
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
@@ -1039,17 +1116,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count340
-\scratchdimen=\dimen317
-\scratchbox=\box96
-\nofMPsegments=\count341
-\nofMParguments=\count342
-\everyMPshowfont=\toks58
-\MPscratchCnt=\count343
-\MPscratchDim=\dimen318
-\MPnumerator=\count344
-\makeMPintoPDFobject=\count345
-\everyMPtoPDFconversion=\toks59
+\scratchcounter=\count365
+\scratchdimen=\dimen354
+\scratchbox=\box98
+\nofMPsegments=\count366
+\nofMParguments=\count367
+\everyMPshowfont=\toks59
+\MPscratchCnt=\count368
+\MPscratchDim=\dimen355
+\MPnumerator=\count369
+\makeMPintoPDFobject=\count370
+\everyMPtoPDFconversion=\toks60
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1084,6 +1161,10 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into
 your preamble.
  on input line 9.
 
+\c@tabularnotesi=\count371
+\enitdp@tabularnotes=\count372
+\c@tabularnotes*i=\count373
+\enitdp@tabularnotes*=\count374
 \openout2 = `includes/title.aux'.
 
 (./includes/title.tex [0
@@ -1163,33 +1244,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-) [5] (./main.aux (./includes/title.aux))
+) [5] (./pages/3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+\g__nicematrix_max_cell_width_dim=\dimen356
+\c@iRow=\count375
+\c@jCol=\count376
+\l__nicematrix_cell_box=\box99
+\l__nicematrix_the_array_box=\box100
+\l__nicematrix_left_delim_dim=\dimen357
+\l__nicematrix_right_delim_dim=\dimen358
+\g__nicematrix_dp_row_zero_dim=\dimen359
+\g__nicematrix_ht_row_zero_dim=\dimen360
+\g__nicematrix_ht_row_one_dim=\dimen361
+\g__nicematrix_dp_ante_last_row_dim=\dimen362
+\g__nicematrix_ht_last_row_dim=\dimen363
+\g__nicematrix_dp_last_row_dim=\dimen364
+\g__nicematrix_ddots_int=\count377
+\g__nicematrix_iddots_int=\count378
+\g__nicematrix_delta_x_one_dim=\dimen365
+\g__nicematrix_delta_y_one_dim=\dimen366
+\g__nicematrix_delta_x_two_dim=\dimen367
+\g__nicematrix_delta_y_two_dim=\dimen368
+\l__nicematrix_initial_i_int=\count379
+\l__nicematrix_initial_j_int=\count380
+\l__nicematrix_final_i_int=\count381
+\l__nicematrix_final_j_int=\count382
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+) [8] (./main.aux (./includes/title.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A1DCDDD20423AA2D1D7C9E54A8742FED;2795.
+(rerunfilecheck)             Checksum: 9AE3F51352027DEB6DB4EBA4C3F4CCB3;6233.
  ) 
 Here is how much of TeX's memory you used:
- 35804 strings out of 477985
- 831151 string characters out of 5840059
- 1866388 words of memory out of 5000000
- 55201 multiletter control sequences out of 15000+600000
+ 38538 strings out of 477985
+ 917081 string characters out of 5840059
+ 1888388 words of memory out of 5000000
+ 57907 multiletter control sequences out of 15000+600000
  521950 words of font info for 70 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 111i,14n,107p,749b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 111i,19n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 166272 bytes).
+/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (9 pages, 203523 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

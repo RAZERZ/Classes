@@ -1,0 +1,194 @@
+\section{Calculus of Variations}
+\noindent From last time (\textbf{READ}):
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}L(x,y,y^{\prime})dx\qquad y(a) = A\qquad y(b) = B
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent An extremal satisifies Euler-Lagranges equation:
+\begin{equation*}
+  \begin{gathered}
+    L_y -\dfrac{d}{dx}(L_{y^{\prime}}) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent One generalisation of this formula can be obtainedwhen $L = L(x,y,y^{\prime}, y^{\prime\prime})$. In this case we have to assume some regularity for $y$, that is $y\in C^4[a,b]$, and two other initial condition for $y^{\prime}$. 
+\par\bigskip
+\noindent We compute the derivative of the functional  $\delta J(y; v) = \dfrac{d}{d\varepsilon}J(y+\varepsilon v)|_{\varepsilon=0}$\par
+\noindent We want $y+\varepsilon v$ to be an admissable function, so this means that $ v(a) =  v(b)=0$ and $ v^{\prime}(a)= v^{\prime}(b)=0$
+\par\bigskip
+\noindent Using this when trying to compute the derivative of the functional:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{d}{d\varepsilon}\int_{a}^{b}L(x,y+\varepsilon v,y^{\prime}+\varepsilon v^{\prime},y^{\prime\prime}+\varepsilon v^{\prime\prime})dx|_{\varepsilon=0}\\
+    \Rightarrow \int_{a}^{b}L_y v+L_{y^{\prime}} v^{\prime}+L_{y^{\prime\prime}} v^{\prime\prime}dx
+  \end{gathered}
+\end{equation*}\par
+\noindent We solve this by integration by parts:
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}(L_y-\dfrac{d}{dx}L_{y^{\prime}}) v dx +\int_{a}^{b}L_{y^{\prime\prime}} v^{\prime\prime}dx  =  v^{\prime}L_{y^{\prime\prime}}|_a^b-\int_{a}^{b} v^{\prime}\dfrac{d}{dx}(L_{y^{\prime\prime}})dx
+  \end{gathered}
+\end{equation*}\par
+\noindent By our initial conditions, $ v^{\prime}L_{y^{\prime\prime}}|_a^b = 0$:
+\begin{equation*}
+  \begin{gathered}
+    - v\left(\dfrac{d}{dx}L_{y^{\prime\prime}}\right)_a^b+\int_{a}^{b} v\left(\dfrac{d^2}{dx^2}L_{y^{\prime\prime}}\right)dx\\
+    =\int_{a}^{b}L_y-\dfrac{d}{dx}L_{y^{\prime}}+\dfrac{d^2}{dx^2}L_{y^{\prime\prime}} v(x)dx = 0\qquad\forall v
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The condition here becomes:
+\begin{equation*}
+  \begin{gathered}
+    L_y-\dfrac{d}{dx}L_{y^{\prime}}+\dfrac{d^2}{dx^2}L_{y^{\prime\prime}}=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In this equation we will have the 4th derivative w.r.t $y$, which is why we need $y\in C^4[a,b]$
+\par\bigskip
+\noindent As an exercise, try to generalise the formula:\par
+if $L = L(x,y,y^{\prime},\cdots, y^{(n)})\Rightarrow$ the extremals satisfy:
+\begin{equation*}
+  \begin{gathered}
+    L_y+\sum_{k=1}^{n}(-1)^k\dfrac{d^k}{dx^k}L_{y^{(k)}}=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The reason we have a plus and minus is because whenever we integrate by parts we will get a plus and next time a minus etc...
+\par\bigskip
+\noindent\textbf{Exercicse:} Show that if $L$ does not depend on $y$ ($L = L(x,y^{\prime}, y^{\prime\prime})$), then $L_{y^{\prime}}-\dfrac{d}{dx}L_{y^{\prime\prime}}=C$ (some constant)
+\par\bigskip
+\noindent\textbf{Exercicse:} If $L$ does not depend on $x$, show that $L-y^{\prime}(L_y^{\prime}-\dfrac{d}{dx}L_{y^{\prime\prime}})-y^{\prime\prime}L_{y^{\prime\prime}} = C$ (some constant)
+\par\bigskip
+\noindent Another generalisation occurs when we have $L = L(x,y_1,y_2,y_1^{\prime},y_2^{\prime})dx$ with initial values:
+\begin{equation*}
+  \begin{gathered}
+    y_1(a) = A_1\qquad y_1(b) = B_1\\
+    y_2(a) = A_2\qquad y_2(b) = B_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Proceeding with the same strategy as before, we compute the derivative. Starting by imposing $\delta J(y; v)=0$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}\dfrac{d}{d\varepsilon}L(x,y_1+\varepsilon v_1,y_2+\varepsilon v_2,y_1^{\prime}+\varepsilon v_1^{\prime},y_2^{\prime}+\varepsilon v_2^{\prime})dx|_{\varepsilon=0}=0
+  \end{gathered}
+\end{equation*}\par
+\noindent In this case we have that $ v_1, v_2(a) = 0= v_1, v_2(b)$
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}\left(L_{y_1}-\dfrac{d}{dx}L_{y_1}\right) v_1(x)dx+\int_{a}^{b}\left(L_{y_2}-\dfrac{d}{dx}L_{y_2}\right)dx=0\qquad\forall v_1,v_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The trick here is that since this equation has to be true for all $v_1, v_2$, so in particular $v_2=0$. This yields:
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}\left(L_{y_1}-\dfrac{d}{dx}L_{y_1}\right)v_1(x) dx = 0\qquad\forall v_1\Rightarrow L_{y_1}-\dfrac{d}{dx}L_{y_1^{\prime}}= 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent and so 
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}L_{y_2}-\dfrac{d}{dx}L_{y_2^{\prime}}v_2(x)dx = 0\qquad\forall v_2\\
+    \begin{cases*}
+      L_{y_1} -\dfrac{d}{dx}L_{y_1^{\prime}} = 0\\
+      L_{y_2} -\dfrac{d}{dx}L_{y_2^{\prime}} = 0
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exercicse:} Show that if $L = L(y_i; y_i^{\prime})$ (for $i=1,\cdots, n$), then
+\begin{equation*}
+  \begin{gathered}
+    L-\sum_{i=1}^{n}y_i^{\prime}L_{y_i^{\prime}} = C\qquad\text{if } y_i\text{ satisfies the Euler-Lagrange equations}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Let us see what happens if we leave one of the end-boundary conditions unsatisfied, how long will we come in our computation. This is a type of generalisation where the boundary can be free (aka a \textit{free end-point problem}):
+\begin{equation*}
+  \begin{gathered}
+    J(y) = \int_{a}^{b}L(x,y,y^{\prime})dx\qquad y(a) = A\qquad y(b)\text{ is free}
+  \end{gathered}
+\end{equation*}\par
+\noindent We look for extremals. In all our previous computation, to have admissable functions, we took $v(a) = v(b) = 0$. When we looked at the derivative $y+\varepsilon v$, and for it to be admissable we have $y(a)+\varepsilon v(a) = A$, and $A+\varepsilon v(a)=A\Rightarrow v(a) = 0$.\par
+\noindent This condition is not needed anymore in $v(b)$ because we are assuming that $y(b)+\varepsilon v(b)$ is free.
+%\begin{equation*}
+  %\begin{gathered}
+    %\dfrac{d}{d\varepsilon}\int_{a}^{b}L(x,y+\varepsilon v,y^{\prime}+\varepsilon v^{\prime})dx|_{\varepsilon=0} = \int_{a}^{b}L_yv+L_{y_^{\prime}}v^{\prime}dx = \int_{a}^{b}(L_y-\dfrac{d}{dx}L_{y^{\prime}})v(x)dx+\underbrace{v(x)L_{y^{\prime}}|_a^b}_{\text{$\neq0$}}\\
+    %=\int_{a}^{b}L_yv+L_{y_^{\prime}}v^{\prime}dx+v(b)L_{y^{\prime}}(b,y(b),y^{\prime}(b))=0
+  %\end{gathered}
+%\end{equation*}
+\par\bigskip
+\noindent If that term is 0 $\forall v$, it must be 0 for $v(b) = 0$:
+\begin{equation*}
+  \begin{gathered}
+    L_y-\dfrac{d}{dx}L_{y^{\prime}} = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent If $v(b)\neq0$, then $v(b)L_{y^{\prime}}(b,y(b), y^{\prime}(b))=0$, and in that case:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      L_y-\dfrac{d}{dx}L_{y^{\prime}} = 0\\
+      L_{y^{\prime}}(b,y(b),y^{\prime}(b)) = 0
+    \end{cases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exercicse:}
+\begin{equation*}
+  \begin{gathered}
+    J(y) = \int_{0}^{1}(y^{\prime2}+y^2)dx\qquad y(0) = 1\qquad y(1) = \text{ free}
+  \end{gathered}
+\end{equation*}\par
+\noindent Find extremals, so solve this equation
+\begin{equation*}
+  \begin{gathered}
+    L_y -\dfrac{d}{dx}L_{y^{\prime}} = 0\\
+    2y -\dfrac{d}{dx}(2y^{\prime}) = 0\\
+    2y-2y^{\prime\prime}= 0\\
+    y^{\prime\prime}-y=0\qquad y(x) = Ae^{-x}+Be^x\qquad y(0) = A+B = 1\Rightarrow A = 1-B\\
+    y(x) = e^{-x}+B(e^x-e^{-x})\\
+    L_{y^{\prime}} = (1,y(1), y^{\prime}(1)) = 0\qquad L_{y^{\prime}} = 2y^{\prime}\Rightarrow y^{\prime}(1) = 0\\
+    y^{\prime}(x) = -e^{-x}+B(e^x+e^{-x})\Rightarrow y^{\prime}(1) = -e^{-1}+B(e+e^{-1}) = 0\\
+    \Rightarrow B = \dfrac{1}{e}\dfrac{e}{e^2+1} = \dfrac{1}{e^2+1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Another kind of exercise that can be computed with functionals is minimizing path distances.
+\par\bigskip
+\noindent\textbf{Exercicse:} Find the extremal paths that connect two points on a plane. This problem is equivalent to finding extremals to the functional $J(y) = \int_{a}^{b}\sqrt{1+y^{\prime}(x)^2}dx$ and $y(0) = a$, $y(1) = b$. Show that the solution is a line.
+\par\bigskip
+\noindent\textbf{Exercicse:} Find the extremal paths connecting two points on a cylinder.\par
+\noindent Firstly, we switch to cylindrical coordinates: $(x,y,z) = (R\cos(\theta), R\sin(\theta), z)$ where $R$ is the radius (for simplicity, we set $R = 1$)
+\begin{equation*}
+  \begin{gathered}
+    ds = \sqrt{dx^2+dy^2+dz^2}\qquad dx = -\sin(\theta)d\theta\qquad y = \cos(\theta)d\theta\\
+    \Rightarrow ds = \sqrt{\sin^2(\theta)d\theta^2+\cos^2(\theta)d\theta^2+dz^2} = \sqrt{d\theta^2+dz^2} = d\theta\sqrt{1+\left(\dfrac{dz}{d\theta}\right)^2}\\
+    S = \int_{P_1}^{P_1}ds=\int_{\theta_1}^{\theta_2}\sqrt{1+z^{\prime}(\theta)^2}d\theta
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We now want to study the extremals with this functional:
+\begin{equation*}
+  \begin{gathered}
+    L = L(z^{\prime}) = \sqrt{1+z^{\prime2}(\theta)^2}d\theta
+  \end{gathered}
+\end{equation*}\par
+\noindent By the Euler-Lagrange equation:
+\begin{equation*}
+  \begin{gathered}
+    L_z-\dfrac{d}{dx}L_{z^{\prime}} = 0\qquad L_{z^{\prime}} = C\qquad\dfrac{1}{2\sqrt{1+z^{\prime2}(\theta)}}\cdot2z^{\prime}(\theta) = C\\
+    z^{\prime2} = C^2(1+z^{\prime2})\qquad z^{\prime2}(1-C^2) = C^2\Rightarrow z^{\prime2} = \dfrac{C^2}{(1-C^2)}\\
+    z^{\prime} = K\text{ say for example } \dfrac{C}{\sqrt{1-C^2}}\\
+    \Rightarrow z(\theta) = \theta K+a§
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exercicse:} Find the extremal paths connecting two points on a sphere. (You can use the radius 1 to help ya).
+\par\bigskip
+\noindent\textbf{Exercicse:} Consider the surface generated by a rotation around the $x$-axis of a curve $y(x)$. Can we find extremals?
