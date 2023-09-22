@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  18 SEP 2023 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  21 SEP 2023 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -982,6 +982,15 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1199,18 +1208,58 @@ LaTeX Warning: Command \textsection invalid in math mode on input line 188.
 LaTeX Warning: Command \textsection invalid in math mode on input line 188.
 
 Missing character: There is no § in font cmr10!
-) [22] (./main.aux (./includes/title.aux))
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+
+ []
+
+[22] [23]
+
+LaTeX Warning: Command \r invalid in math mode on input line 335.
+
+[24] [25]) (./pages/4.tex
+Package mdframed Info: mdframed works in twoside mode on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 48.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 55.
+Package mdframed Info: mdframed works in twoside mode on input line 57.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 57.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 64.
+ [26]
+Package mdframed Info: mdframed works in twoside mode on input line 77.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 77.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 84.
+ [27]
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 160.
+
+Missing character: There is no ´ in font cmr10!
+) [28] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 742092D876BD86DD01D022ABEC16ECCD;1568.
+(rerunfilecheck)             Checksum: 30FFEEAC0FB7529B70D5E3212BCA7C3D;1901.
  ) 
 Here is how much of TeX's memory you used:
- 35936 strings out of 477985
- 833532 string characters out of 5840059
+ 35967 strings out of 477985
+ 833991 string characters out of 5840059
  1873388 words of memory out of 5000000
- 55314 multiletter control sequences out of 15000+600000
+ 55331 multiletter control sequences out of 15000+600000
  521666 words of font info for 69 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,19n,107p,749b,1018s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1229,10 +1278,10 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (23 pages, 295560 bytes).
+Output written on main.pdf (29 pages, 323259 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 299 PDF objects out of 1000 (max. 8388607)
+ 229 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

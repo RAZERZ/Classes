@@ -1,0 +1,176 @@
+\par\bigskip
+\section{Dynamical Systems}\par
+\noindent In Dynamical Systems we have a set of all the possible status that a system can have, and a \textit{rule}  that tells us how the system evolves in time.
+\par\bigskip
+\noindent We can distinguish between discrete or continuous dynamical system. This can be due to the model itself, naturally we might be interested in a model where we are only interested in discrete time (height of someone), and sometimes it is more useful to have continuous cases (temperature).
+\par\bigskip
+\noindent Another case could be performing continuous operations on a computer, where we discretisise time when numerically computing integrals.
+\par\bigskip
+\noindent\textbf{Example:} We consider a particle that is moving with one degree of freedom (in one direction). One possible evolution can be described in the following way:
+\begin{equation*}
+  \begin{gathered}
+    x_{n+1} = x_n-1
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that this is a discrete model. Let us look at a continuous model:
+\begin{equation*}
+  \begin{gathered}
+    \hat{\hat{x}} = -1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent What is the difference between the discrete and the continuous case then? When the time is discrete, the system is described by some map $F:X\to X$ where $X$ is the space of the possible configurations. In the continuous case, we have a differential equation
+\begin{equation*}
+  \begin{gathered}
+    \hat{x} = F(x,t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent When the system does not depend on time, it is called an \textit{autonomous}  system.
+\par\bigskip
+\noindent Looking at how a system is defined, we are of course interested in a few points. Sometimes these points could be fixed, sometimes they might be singularities, limit points, stationary points/sets, etc.\par
+\noindent We are also intersted in what happens around our point of interest, namely the neighborhood. Are there solutions that converge to some point/set in that neighborhood?
+\par\bigskip
+\noindent\textbf{Example:} A growth-decay model is defined as
+\begin{equation*}
+  \begin{gathered}
+    x_{n+1} = (1+r)x_n
+  \end{gathered}
+\end{equation*}\par
+\noindent We have a discrete mapping. In this particular case we can write the map in a recursive way:
+\begin{equation*}
+  \begin{gathered}
+    x_{n+1} = (1+r)^{n+1}x_0
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $x_0$ is the start condition. Depending on the value of $r$, the quantity could be increasing (growth model) or decreasing (decay model). 
+\par\bigskip
+\begin{theo}[Fixed point]{}
+  A \textit{fixed point} (or \textit{equilibrium solution}) is a point $x_*$ such that its iteration is stationary (can almost say that it is mapped to itself).
+  \begin{equation*}
+    \begin{gathered}
+      x_{n+1} = f(x_n)\Rightarrow x_* = f(x_*)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[Periodic orbit]{}
+  A \textit{periodic orbit} of period $K$ is a point $x_*$ such that after $k$ iterations of the map we are, again at $x_*$:
+  \begin{equation*}
+    \begin{gathered}
+      f^K(x_*) = x_*
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    x_{n+1} = (1+r)x_n
+  \end{gathered}
+\end{equation*}\par
+\noindent A fixed point is $x_* = 0$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The map $x_{n+1} = -x_n$ has the origin as a fixed point and has a period orbit of period 2 since $f(x_n) = -x_n\Rightarrow f(f(x_n)) = f(-x_n) = x_n$, which is true $\forall x_n\neq0$ 
+\par\bigskip
+\begin{theo}[Asymptotic Stability]{}
+  A fixed point is \textit{asymptotically stable} if $\forall y$ in the neighborhood of $x_*$,
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}d(f^n(y), x_*)  = 0
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent To study the stability, one could consider the linearisation of the probelem.
+\par\bigskip
+\noindent\textbf{Result:} Consider a fixed point for a map $x_{n+1} = f(x_n)$. Then, if the spectrum of the linearisation of the map evaluated at the fixed point $Df(x_*)$ (Jacobian) is contained in the unit circle, then the point is asymptotically stable. 
+\par\bigskip
+\noindent On the contrary, if there is an eigenvalue with absolute value greater than one, then the point is unstable. Recall from the lecture notes in ODE (P. 71):
+\par\bigskip
+\begin{center}
+  \begin{tabular}{c|c|c}
+    Egenvärden&Typ&Stabilitet\\\\
+    \hline\\
+    $0<\lambda_2<\lambda_1$&Nod&Instabil\\
+    $\lambda_2<0<\lambda_1$&Sadelpunkt&Instabil\\
+    $<\lambda_2<\lambda_1<0$&Nod&Asymptotiskt stabil\\\\
+    \hline\\
+    $\alpha>0, \beta\neq0$&Spiral&Instabil\\
+    $\alpha=0, \beta\neq0$&Center&Stabil\\
+    $\alpha<0, \beta\neq0$&Spiral&Asymptotiskt stabil\\\\
+    \hline\\
+    $\lambda_1=\lambda_2 > 0$&Nod (G.M = 2)&Instabil\\
+    &Improper node (G.M $<$ 2)&Instabil\\\\
+    \hline\\
+    $\lambda_1=\lambda_2<0$&Nod (G.M = 2)&Asymptotiskt stabil\\
+    &Improper nod (G.M $<$ 2)&Asymptotiskt stabil\\
+  \end{tabular}
+\end{center}
+\par\bigskip
+\noindent If we consider a point $x_*+y_n$ with $y_n$ sall, so that the point is close to the fixed point and then look at the iteration of this point is:
+\begin{equation*}
+  \begin{gathered}
+    f(x_*+y_n) = f(x_*) + Df(x_*)y_n + \text{higher order terms}\\
+    = x_*+y_{n+1} = x_*+Df(x_*)y_n + \text{higher order terms}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent At the linear approximation, $y_n$ satisfies $y_{n+1} = \underbrace{Df(x_*)}_{\text{Matrix}}y_n$
+\par\bigskip
+\noindent For example, in the 1-dimensional case:
+\begin{equation*}
+  \begin{gathered}
+    y_{n+1} = \underbrace{f^{\prime}(x_*)}_{\text{$\lambda$}}y_n \Rightarrow \lambda y_n\\
+    \Rightarrow y_{n+1} = \lambda^{n+1}y_0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent What does this formula tell us? Well, depending on $\lambda$ we can tell if our model is growing or decaying. Considering a point close to our $x_*$, then if $y_n$ is decaying then $x_*+y_n$ seems to converge to $x_*$. If it is exploding, then we do not have a stable point.
+\par\bigskip
+\noindent In the general $m$-dimensional case we deal with a problem in the form:
+\begin{equation*}
+  \begin{gathered}
+    y_{n+1} = Ay_n = A^{n+1}y_0
+  \end{gathered}
+\end{equation*}\par
+\noindent Suppose the matrix is diagonalisable and we can compute the eigenvalues/eigenvectors (and the eigenvectors form a basis of $\R^m$).\par
+\noindent We can then express our point as a linear combination of our vectors:
+\begin{equation*}
+  \begin{gathered}
+    y_0 = c_1v_1+\cdots+c_mv_m\\
+    y_{n+1} = A^{n+1}y_0 = c_1\lambda_1^{n+1}v_1+\cdots+c_m\lambda_m^{n+1}v_m
+  \end{gathered}
+\end{equation*}\par
+\noindent We can reorder the eigenvalues such that the first one is the biggest:
+\begin{equation*}
+  \begin{gathered}
+    y_{n+1} = \lambda_1^{n+1}\left(c_1v_1+\cdots+\left(\dfrac{\lambda_m}{\lambda_1}\right)c_mv_m\right)\\
+    \Rightarrow \left|\dfrac{\lambda_j}{\lambda_1}\right|<1
+  \end{gathered}
+\end{equation*}\par
+\noindent The behaviour for $n\to\infty$ is given by the eigenvalue $\lambda_1$. The asymptotic is given by $c_1\lambda_1^{n+1}v_1$.
+\par\bigskip
+\noindent If $\left|\lambda_1\right|<1$, then the fixed point is stable. Otherwise, unstable.\par
+\par\bigskip
+\noindent\textbf{Exercise:} Find the fixed point and study the linear stability of the map 
+\begin{equation*}
+  \begin{gathered}
+    x_{n+1} = 2´+x_n-x_n^2
+  \end{gathered}
+\end{equation*}\par
+\noindent The function is given by $f(x) = 2+x-x^2$, then fixed point are given by:
+\begin{equation*}
+  \begin{gathered}
+    f(x) = x\Lrarr 2-x^2 = 0\Lrarr x_* = \pm\sqrt{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent For the linear stability, we look at the value of $f^{\prime}(x_*)$:
+\begin{equation*}
+  \begin{gathered}
+    f^{\prime}(x) = 1-2x\Rightarrow f^{\prime}(\pm\sqrt{2}) = 1\pm2\sqrt{2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $\left|1\pm2\sqrt{2}\right|>1$, both points of equilibrium are unstable. 
