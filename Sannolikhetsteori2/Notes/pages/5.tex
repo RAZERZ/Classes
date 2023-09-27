@@ -1,0 +1,144 @@
+\section{Multivariate Normal Distributions}\par
+Usually, an observed value is a funcftiojn of many things at once, such as:
+\begin{equation*}
+  \begin{gathered}
+    W = f(\text{thing}_1, \text{thing}_2, \cdots)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent As long as there are small variations around a mean value, then $f$  is a linear function of all their variables, and the variation is a sum of the contributions.
+\par\bigskip
+\noindent If one wants instead to measure several properties at once for an individual then one can look at the $d$-dimensional vector and show that it also varies in a similar way. This vector will be \textit{multivariate normal distributed}.
+\par\bigskip
+\noindent The mean value is given by:
+\begin{equation*}
+  \begin{gathered}
+    \E(X) = [\E(X_1), \E(X_2), \cdots, \E(X_n)]^T\\
+    \mu = [\mu_1,\mu_2,\cdots]^T
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Well, what about the variance? If they are independent than sure, look at at the vector with all variances. But that does not really tell us a lot about how the variances play together for the different things we are measuring.\par
+\noindent For dependance, we have something called the \textit{covariance matrix}, which corresponds to the variance in the 1-dimensional case:\par
+\begin{equation*}
+  \begin{gathered}
+    (\text{Cov}\left(X\right))_{ik} = \text{Cov}\left(X_i,X_j\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:} Since the covariance is a symmetric operator, the covariance matrix is a symmetric matrix. It is also positive semi-definite.
+\par\bigskip
+\noindent If $B$ is an $m\times n$ matrix and $b$ is an $m$-vector, then we can look at $Y = BX+b = m$-dimensional vector.\par
+\noindent Recall from the 1-dimensional case that we had the following:
+\begin{equation*}
+  \begin{gathered}
+    \E(Y) = B\E(X)+b\qquad \text{Var}\left(Y\right) = B^2\text{Var}\left(X\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In the multivariate case we have:
+\begin{equation*}
+  \begin{gathered}
+    \E(Y) = [\E(Y_1), \E(Y_2), \cdots, \E(Y_n)]\qquad \text{Cov}\left(Y\right) = \text{Cov}\left(\sum_{i,j}B_{ij}X_j+b_i, \sum_{l,e}B_{le}X_e+b_l\right)\\
+    \text{Scalar product of vector with matrix yeilds:}\qquad \sum_{k=1}^{n}\sum_{p=1}^{n}B_{ik}B_{je}\text{Cov}\left(X_k, X_e\right)\\
+    Y_i = \sum_{k=1}^{n}B_{ik}X_k+b_i \Rightarrow\E(Y_i) = \sum_{k=1}^{n}B_{ik}\E(X_k)+b_i\qquad \sum_{k=1}^{n}B_{ik}\sum_{l=1}^{n}\text{Cov}\left(X_k,X_l\right)B_{ej}^T\\
+    \Rightarrow \E(Y) = B\E(X)+b\qquad BXB^T
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Before we continue, it is useful to stop and recall the spectral theorem as well as some properties:
+\begin{theo}[Spectral Theorem]{}
+  A symmetric matrix $A$ has $n$ orthogonal eigenvectors $c_1,\cdots, c_n$, with associated eigenvalues $d_i$.
+  \par\bigskip
+  \noindent The matrix collection of the eigenvectors is an orthogonal matrix:
+  \begin{equation*}
+    \begin{gathered}
+      C^TC = I = C^{-1}C
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If one wants to express $x$ in the basis $c_1,\cdots,c_n$, we find a vector $z$ such that $x = z_1c_1+\cdots+z_nc_n=Cz$, where $c_i$  is column vectors in $C$:
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow z = C^Tx
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Let $D$ be an orthogonal matrix where the diagonal elements are the eigenvalues. We get:
+  \begin{equation*}
+    \begin{gathered}
+      Ax = A\sum_{i=1}^{n}z_ic_i = CDz = CDC^Tx\\
+      \Rightarrow A = CDC^T
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{theo}[]{}
+  When a matrix $A$ is positive semi-definite and symmetric (like our covariance matrix), then $\exists \sqrt{A} = B$ such that $B\times B = A$
+  \par\bigskip
+  \noindent This follows from the spectral theorem. 
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Since $A$ is symmetric, then $A$ can be diagonalized:
+  \begin{equation*}
+    \begin{gathered}
+      A = CDC^T
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $A$ is positive semi-definite, all $d_i\geq0$. We can now construct a diagonal matrix consisting of $\sqrt{d_i}$ on the diagonal. Call this:
+  \begin{equation*}
+    \begin{gathered}
+      \widetilde{D} = C\begin{pmatrix}\sqrt{d_1}&\cdots&0\\\vdots&\sqrt{d_2}&0\\0&\cdots&\sqrt{d_n}\end{pmatrix}C^T\\
+      \Rightarrow B\times B = C\widetilde{D}C^TC\widetilde{D}C^t = CDC^T = A= B\times B = B^TB
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent A symmetric positive definite matrix (not semi-definite) has an inverse $\Lrarr$ the inverse is given by:
+\begin{equation*}
+  \begin{gathered}
+    C\begin{pmatrix}\dfrac{1}{d_1}&\cdots&0\\\vdots&\dfrac{1}{d_2}&0\\0&\cdots&\dfrac{1}{d_n}\end{pmatrix}C^T = A^{-1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Note that the inverse also has a square root:
+\begin{equation*}
+  \begin{gathered}
+    C\begin{pmatrix}\dfrac{1}{\sqrt{d_1}}&\cdots&0\\\vdots&\dfrac{1}{\sqrt{d_2}}&0\\0&\cdots&\dfrac{1}{\sqrt{d_n}}\end{pmatrix}C^T = A^{-1/2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  The $n$-dimensional vector $X$ is multivariate normal $\Lrarr\forall n$ vectors $a$, the 1-dimensional vector $a^Tx$ is normal
+  \par\bigskip
+  \noindent We write:
+  \begin{equation*}
+    \begin{gathered}
+      X\sim N_n(\mu,\Sigma)
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Several properties from this definition follows directly:\par
+\begin{itemize}
+  \item Every compontent in $X$ is $N_1$ distributed
+  \item $X_1+\cdots+X_n\sim N_1$ distributed (let $a 0 (1,\cdots,1)$)
+  \item Each subset of $(X_1,\cdots,X_n)$ is also multivariate normal (mvn) since one can just pick a sufficient $a$
+\end{itemize}
+\par\bigskip
+\begin{theo}[]{}
+  If $X\sim N(\mu,\Sigma)$ and $Y = BX+b$, then $Y\sim N(B\mu+b,B\Sigma B^t)$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Show that it follows the definition:
+  \begin{equation*}
+    \begin{gathered}
+      a^TY = a^T(BX+b) = a^TBX+a^Tb = C^TX+d
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $C^TX\sim N_1$ distributed and $d$ is just a constant.
+\end{prf}

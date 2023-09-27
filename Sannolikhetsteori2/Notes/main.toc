@@ -17,3 +17,4 @@
 \contentsline {subsection}{\tocsubsection {}{4.3}{Exercise 1.19}}{14}{subsection.4.3}%
 \contentsline {section}{\tocsection {}{5}{Transformations}}{15}{section.5}%
 \contentsline {subsection}{\tocsubsection {}{5.1}{Sums of random number of terms}}{19}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{6}{Multivariate Normal Distributions}}{21}{section.6}%
