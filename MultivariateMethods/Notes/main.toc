@@ -23,3 +23,15 @@
 \contentsline {subsection}{\tocsubsection {}{3.9}{Slide 15 - Marginal Normal and Joint Distribution}}{7}{subsection.3.9}%
 \contentsline {subsection}{\tocsubsection {}{3.10}{Slide 23 - Likelihood of Normal Random Sample}}{8}{subsection.3.10}%
 \contentsline {subsection}{\tocsubsection {}{3.11}{Slide 32 - Limit of MLE}}{8}{subsection.3.11}%
+\contentsline {section}{\tocsection {}{4}{Inference for Several Sample}}{9}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Slide 20 - MANOVA Model}}{9}{subsection.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Slide 28 - Multivariate Two-Way Fixed Effects Model with Interaction}}{9}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Slide 33 - Test of No Interaction}}{9}{subsection.4.3}%
+\contentsline {section}{\tocsection {}{5}{Regression}}{10}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Slide 6 - Classic Linear Regression}}{10}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Slide 7 - Matrix Notation}}{10}{subsection.5.2}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{Slide 9 - ANOVA With $g=2$}}{10}{subsection.5.3}%
+\contentsline {subsection}{\tocsubsection {}{5.4}{Slide 10 - Anova With $g=2$ and $b=2$}}{10}{subsection.5.4}%
+\contentsline {subsection}{\tocsubsection {}{5.5}{Slide 11 - Ordinary Least Squares}}{10}{subsection.5.5}%
+\contentsline {subsection}{\tocsubsection {}{5.6}{Slide 12 - OLS Estimator}}{10}{subsection.5.6}%
+\contentsline {subsection}{\tocsubsection {}{5.7}{Slide 18 - Confidence Region}}{11}{subsection.5.7}%

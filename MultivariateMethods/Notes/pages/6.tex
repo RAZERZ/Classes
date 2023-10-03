@@ -1,0 +1,65 @@
+\section{Regression}
+\subsection{Slide 6 - Classic Linear Regression}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    Y = Z^T\beta+e\rightarrow \E(e|Z) = 0\\
+    \E(Y|Z) = \E(Z^T\beta+E|Z) = \underbrace{\E(Z^T\beta|Z)}_{\E(Z^T\beta)}+\underbrace{\E(e|Z)}_{\text{=0}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Why is it then called linear when we do not always approximate using linear functions but curves? Well, $Y = Z^T\beta+e = \beta_1z1+\cdots+\beta_rz_r$, this is just a \textit{linear} combination of our regression-coefficients.\par
+\noindent An example, $Y = \beta_1z1+\beta_2z_2^2$ is still linear regression, since it is linear in $\beta$, what happens with $Z$ is not what we care about.\par
+\noindent However, $Y = e^{\beta_1z_1}/\sin(\beta_2z_2)$ is not a linear regression. 
+\par\bigskip
+\subsection{Slide 7 - Matrix Notation}\hfill\\\par
+\noindent \textit{Heteroscadisticity} = every observation variance depends on observation. Can also be dependant on $Z$, so $\sigma_i^2$
+\par\bigskip
+\noindent Estimation methods still valid for heteroscadistick variances, although maybe not optimal.
+\par\bigskip
+\subsection{Slide 9 - ANOVA With $g=2$}\hfill\\
+\par\bigskip
+\noindent Note that we only need 2 columns to find the last rank $\rightarrow$ 1 restriction:
+\begin{equation*}
+  \begin{gathered}
+    \sum n_l\tau_l = 0\Rightarrow \tau_l=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 10 - Anova With $g=2$ and $b=2$}\hfill\\
+\par\bigskip
+\noindent Instead of restriction, construct a submatrix with the bad (linearly dependant) columns deleted. Estimation depends on rank.
+\par\bigskip
+\subsection{Slide 11 - Ordinary Least Squares}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    -2Z^T(y-Z\beta) = 0\Lrarr Z^Ty = Z^TZ\beta = \hat{\beta}_{\text{OLS}} = (Z^TZ)^{-1}Z^Ty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 12 - OLS Estimator}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    Y = Z\beta +e \qquad \E(Y) = Z\beta \qquad\hat{Y} = Z\hat{\beta}
+  \end{gathered}
+\end{equation*}\par
+\noindent\textit{Residual} is given by $\hat{e} = y -Z\hat{\beta} = y-Hy = (I-H)y$\par
+\noindent Interesting things:
+\begin{equation*}
+  \begin{gathered}
+    Z^T\hat{e} = Z^T(I-H)y = (Z^T-Z^T\underbrace{Z(Z^T\underbrace{Z)^{-1}}_{I}Z^T}_{H})y=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We note that the residual is perpendicular to observed values! This makes sense.
+\begin{equation*}
+  \begin{gathered}
+    \hat{y}^T\hat{e} = y^TH(I-H)y = y^T(H-H^2)y = 0\\
+    H^2 = ZZ^T(Z^TZ)^{-1}Z^TZ(Z^TZ)^{-1}Z^T = H \quad\text{(idempotent)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Predicted value is perpendicular to $\hat{e}$
+\par\bigskip
+\subsection{Slide 18 - Confidence Region}\hfill\\
+\par\bigskip
+\noindent If $\hat{\beta}-\beta\ll1$, then we are close. We capture this in our test. 

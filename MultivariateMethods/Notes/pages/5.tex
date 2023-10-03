@@ -1,0 +1,30 @@
+\section{Inference for Several Sample}
+\subsection{Slide 20 - MANOVA Model}\hfill\\
+\par\bigskip
+\noindent $\tau_i$ denotes population $i$ where $\tau_i$ is how much that population deviates from the mean. This can be useful, since we can look at some statistic over nordic countries and let $\mu$ be the mean over all nordic countries (by adding all statistics from every country and dividing by the nordic population, not by taking the mean of the mean in every country)
+\par\bigskip
+\noindent A one way MANOVA indicates that we are looking at one category of population, ie nationalitiy. We can of course include things like nationalitiy, race, gender, etc. but then it will be two-way/more MANOVA.
+\par\bigskip
+\noindent Since we have variations either above or below the average (per definition of the average), some $n_i\tau_i$ will be negative while others might be positive. That is why we set $\sum n_i\tau_i =0$.\par
+\noindent If we do not do this, we might as well write:
+\begin{equation*}
+  \begin{gathered}
+    \mu+\tau_{\text{SWE}} = \mu+c+\tau_{\text{SWE}}-c\\
+    \mu+\tau_{\text{NOR}} = \mu+c+\tau_{\text{NOR}}-c
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 28 -  Multivariate Two-Way Fixed Effects Model with Interaction}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    \mu+\underbrace{\tau_{l}}_{\text{property 1 in nordic}}+\overbrace{\beta_k}^{\text{property 2 in nordic}}+\underbrace{\gamma_{lk}}_{\text{property 1 $\wedge$ 2 in nordic}}+e_{lkr}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent A \textit{marginalising parameter} is setting it as a summation index, eg: $\sum_j \gamma_{jk}\rightarrow$ $j$ is marginalised
+\par\bigskip
+\noindent $\tau,\beta = $ \textit{main effect}, while $\gamma$ is called the \textit{interaction term}
+\par\bigskip
+\subsection{Slide 33 - Test of No Interaction}\hfill\\
+\par\bigskip
+\noindent It makes no sense (often) to test $\tau_i$ since even if $\sum\tau_i=0$, it may/will have effect on $\gamma_{lk}$. This is called \textit{principal of marginality}.
