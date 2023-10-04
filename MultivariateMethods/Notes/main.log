@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  4 OCT 2023 00:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  4 OCT 2023 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1308,16 +1308,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
  []
 
-) [9] (./pages/6.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+) [10] (./pages/6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 
  []
@@ -1376,21 +1391,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
-[10]) [11] (./main.aux (./includes/title.aux))
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: C5493D4EA1F591177F4E2DC35DE38DE5;8967
-(rerunfilecheck)             After:  DE0CCE11FB97891592D5ACA910528839;9205.
+[11]) [12] (./main.aux (./includes/title.aux))
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 428BC58F31C9D1B0E31C48003A429C04;9945.
  ) 
 Here is how much of TeX's memory you used:
- 38574 strings out of 477985
- 917543 string characters out of 5840059
+ 38582 strings out of 477985
+ 917656 string characters out of 5840059
  1888388 words of memory out of 5000000
- 57922 multiletter control sequences out of 15000+600000
+ 57926 multiletter control sequences out of 15000+600000
  521950 words of font info for 70 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,20n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1409,10 +1418,10 @@ ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pf
 b>
-Output written on main.pdf (12 pages, 232789 bytes).
+Output written on main.pdf (13 pages, 236817 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 295 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 333 words of extra memory for PDF output out of 10000 (max. 10000000)
 

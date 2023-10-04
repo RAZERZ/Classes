@@ -1,4 +1,42 @@
 \section{Inference for Several Sample}
+\subsection{Slide 3 - Paired Data}\hfill\\
+\par\bigskip
+\noindent Here, \textit{paired} means 2 tests/observations from the \textbf{same}  subject $x_{j_1}$ and $x_{j_2}$ are always correlated since they are about the same person.
+\par\bigskip
+\subsection{Slide 9 - Two Populations}\hfill\\
+\par\bigskip
+\noindent Different people, but 2 populations (different countries, people, etc).
+\par\bigskip
+\noindent $X_{ij}$, where $j$ could be the $j$:th person in the $i$:th "country"/group
+\par\bigskip
+\noindent But different countries may have different amounts in population, what happens to $D_i$? Well, we will allow t and define our own $\E$ and $\Sigma$
+\par\bigskip
+\subsection{Slide 10 - Pooled Sample Covariance Matrix}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    X_{11}, \cdots, X_{1n}\sim N(\mu_1,\Sigma)\quad\text{Estimate of $\Sigma$:} \hat{\Sigma_1} = \dfrac{1}{n_1-1}\sum_{j=1}^{n_1}(X_{1j}-\overline{X_1})^2\\
+    X_{21}, \cdots, X_{2n}\sim N(\mu_2,\Sigma)\quad\text{Estimate of $\Sigma$:} \hat{\Sigma_2} = \dfrac{1}{n_2-1}\sum_{j=1}^{n_2}(X_{2j}-\overline{X_2})^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Here we are not using all our possible data to get a good approximation/estimate. Sure, $\hat{\Sigma}_1$ may be unbiased, but it can be better:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \E(\hat{\Sigma_1}) = (n_1-1)\Sigma\\
+      \E(\hat{\Sigma_2}) = (n_1-1)\Sigma
+    \end{rcases*}\Rightarrow (n_1+n_2-2)\Sigma=S_{\text{pooled}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If $\mu_1=\mu_2$, then we can estimate $\Sigma$ using:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \dfrac{\sum_{j=1}^{n_1}(X_{1j}-\overline{Z})^t+\sum_{j=1}^{n_2}(X_{2j}-\overline{Z})^2}{n_1+n_2}
+    \end{rcases*}\text{ Where $\overline{Z} = X_1+\cdots+X_{1n}+X_{21}+\cdots+X_{2n}$}
+  \end{gathered}
+\end{equation*}
 \subsection{Slide 20 - MANOVA Model}\hfill\\
 \par\bigskip
 \noindent $\tau_i$ denotes population $i$ where $\tau_i$ is how much that population deviates from the mean. This can be useful, since we can look at some statistic over nordic countries and let $\mu$ be the mean over all nordic countries (by adding all statistics from every country and dividing by the nordic population, not by taking the mean of the mean in every country)
