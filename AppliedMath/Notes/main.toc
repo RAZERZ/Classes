@@ -8,3 +8,4 @@
 \contentsline {section}{\tocsection {}{3}{Calculus of Variations}}{20}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Hamiltons Principal}}{23}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Dynamical Systems}}{26}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Linear Systems}}{29}{subsection.4.1}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  21 SEP 2023 10:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  5 OCT 2023 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,7 +875,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (/usr/share/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
-))
+)
 (/usr/share/texmf-dist/tex/generic/soul/soul.sty
 Package: soul 2023-02-18 v3.0 Permit use of UTF-8 characters in soul (HO)
 
@@ -902,6 +902,36 @@ Package: soul-ori 2023-02-18 v3.0 letterspacing/underlining (mf)
 \SOUL@uldp=\dimen310
 \SOUL@ulht=\dimen311
 ))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+calc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.markings.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
+ons.markings.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+bending.code.tex
+File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformation
+s.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgftransformnonlinearflatness=\dimen312
+)
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@curvilinear@time@a=\dimen313
+\pgf@curvilinear@length@a=\dimen314
+\pgf@curvilinear@length@b=\dimen315
+\pgf@curvilinear@length@c=\dimen316
+\pgf@curvilinear@length@d=\dimen317
+)
+\pgf@arrows@the@rigidity=\dimen318
+)))
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 4.
@@ -949,14 +979,14 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen312
+\arrowsize=\dimen319
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen313
-\pgfarrowlength=\dimen314
-\pgfarrowwidth=\dimen315
-\pgfarrowlinewidth=\dimen316
+\pgfarrowinset=\dimen320
+\pgfarrowlength=\dimen321
+\pgfarrowwidth=\dimen322
+\pgfarrowlinewidth=\dimen323
 )
 \c@theo=\count337
 \c@lem=\count338
@@ -967,6 +997,18 @@ LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 5.
 
 (./includes/commands.tex) (./main.aux (./includes/title.aux)
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 
 LaTeX Warning: Label `' multiply defined.
 
@@ -1064,13 +1106,13 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count340
-\scratchdimen=\dimen317
+\scratchdimen=\dimen324
 \scratchbox=\box96
 \nofMPsegments=\count341
 \nofMParguments=\count342
 \everyMPshowfont=\toks58
 \MPscratchCnt=\count343
-\MPscratchDim=\dimen318
+\MPscratchDim=\dimen325
 \MPnumerator=\count344
 \makeMPintoPDFobject=\count345
 \everyMPtoPDFconversion=\toks59
@@ -1102,11 +1144,8 @@ Package hyperref Info: Link coloring OFF on input line 9.
 \openout4 = `main.out'.
 
 
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
-your preamble.
- on input line 9.
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 \openout2 = `includes/title.aux'.
 
@@ -1248,21 +1287,55 @@ LaTeX Warning: Command \textasciiacute invalid in math mode on input line 160.
 LaTeX Warning: Command \textasciiacute invalid in math mode on input line 160.
 
 Missing character: There is no ´ in font cmr10!
-) [28] (./main.aux (./includes/title.aux))
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 262.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 262.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 269.
+[29] [30] [31]
+Package mdframed Info: mdframed works in twoside mode on input line 473.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 473.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 475.
+Package mdframed Info: mdframed works in twoside mode on input line 488.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 488.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 490.
+Package mdframed Info: mdframed works in twoside mode on input line 492.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 492.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 496.
+ [32]) [33] (./main.aux (./includes/title.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 30FFEEAC0FB7529B70D5E3212BCA7C3D;1901.
+(rerunfilecheck)             Checksum: 8065EDFFE766209349BDCB8ADC5FE46F;2060.
  ) 
 Here is how much of TeX's memory you used:
- 35967 strings out of 477985
- 833991 string characters out of 5840059
+ 36355 strings out of 477985
+ 843585 string characters out of 5840059
  1873388 words of memory out of 5000000
- 55331 multiletter control sequences out of 15000+600000
- 521666 words of font info for 69 fonts, out of 8000000 for 9000
+ 55685 multiletter control sequences out of 15000+600000
+ 522983 words of font info for 73 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 111i,19n,107p,749b,1018s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 111i,19n,107p,749b,1019s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -1278,10 +1351,10 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (29 pages, 323259 bytes).
+Output written on main.pdf (34 pages, 344832 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 256 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

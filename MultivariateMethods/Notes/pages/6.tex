@@ -60,6 +60,78 @@
 \par\bigskip
 \noindent Predicted value is perpendicular to $\hat{e}$
 \par\bigskip
+\subsection{Slide 15 - Sampling Properties of OLS Estimators}\hfill\\\par
+\noindent $\E(\widehat{e}^T\widehat{e}) = (n-r)\sigma^2$ if $e$ has some distribution of $\mu= 0$ and $\Sigma = \sigma^2I$
+\par\bigskip
+\noindent $\dfrac{1}{n-1}$ comes from $\dfrac{\widehat{e}^T\widehat{e}}{n-r}$, since $\underbrace{Z}_{\text{$n\times r$}}\underbrace{\beta}_{\text{$r\times 1$}}$, but for constants/1D we have $r=1$
+\begin{equation*}
+  \begin{gathered}
+    \text{Cov}\left(\widehat{\beta}, \widehat{e}\right) = \text{Cov}\left(\underbrace{(Z^TZ)^{-1}Z^T}_{\text{$A$}}y, \underbrace{(I-H)}_{\text{$B$}}y\right) = (Z^TZ)^{-1}Z^T\sigma^2I(I-H)^T\\
+    \Rightarrow\sigma^2(Z^TZ)^{-1}Z[I-Z(Z^TZ)^{-1}Z] = \sigma^2((Z^TZ)^{-1}Z^T-(Z^TZ)^{-1}Z(Z^TZ)^{-1}Z^T) = 0\\
+    \Rightarrow\text{unbiased}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 17 - Distribution of Regression Coefficients}\hfill\\\par
+\noindent By assuming $e\sim N$ distributed, we could do inference on $\beta$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item Normal distribution $\Rightarrow$ every marginal distribution is normal
+  \item Sum of squares of normal random variables $\sim \chi^2$
+  \item Standard normal ($N(0,1)$) divided by $\chi^2$ divided by degrees of freedom $\sim t_{n-r}\rightarrow$ degrees of freedom
+  \item Joint stations = how many things you chuck in the conf. intern.
+\end{itemize}
+\par\bigskip
 \subsection{Slide 18 - Confidence Region}\hfill\\
 \par\bigskip
 \noindent If $\hat{\beta}-\beta\ll1$, then we are close. We capture this in our test. 
+\par\bigskip
+\subsection{Slide 19 - Confidence interval}\hfill\\\par
+\noindent You will get some $F$ distribution (\textbf{CHECK})
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Some nomenclature:\par
+\begin{itemize}
+  \item \textit{Multiple regression} $r\geq2,3,\cdots$
+  \item \textit{Multivariate regression} $Y$ is a matrix
+\end{itemize}
+\par\bigskip
+\subsection{Slide 20 - More Than One Responses}\hfill\\\par
+\noindent $\underbrace{Y}_{m\times1}$ here is for one subject, where $m$  is the amount of responses. If we have $n$ subjects, we get what is on slide 21.
+\par\bigskip
+\subsection{Slide 22 - Assumptions}\hfill\\\par
+\noindent In the second point $e_{(i)} = i$th thing to compare, eg price/time and not subject such as apartment.\par
+\noindent $\text{Cov}\left(e_{(i)}, e_{(k)}\right)$ compares price and time simultaneously.
+\par\bigskip
+\subsection{Slide 23 - Least Squares}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{(Y_Z\beta)^T}_{m\times n}\underbrace{(YZ\beta)}_{n\times m}\sim m\times m
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\begin{itemize}
+  \item $Y_{(i)} = i$th column $Y_i = i$th row
+  \item Wishart = Generalisation of $\chi^2$ in multivariate case
+\end{itemize}
+\par\bigskip
+\subsection{Slide 27 - Regression Coefficients With Zero Constraints}\hfill\\\par
+\noindent Wehn we reduce to $Y_{n\times m} = Z_1\beta_1+E$, we can go back to multiple regression by letting $Z = Z_1$, $\beta = \beta_1$
+\par\bigskip
+\noindent What happens to $E$? It never changes, we just use the one that that corresponds with the column we test in the multiple regression model.
+\par\bigskip
+\subsection{Slide 31 - LRT when $m=1$}\hfill\\\par
+\noindent Let $w = $ numerator $= (Y-Z\widehat{\beta})^T(Y-Z\widehat{\beta})$\par
+\noindent Let $w_1 = $ denominator $ = (Y-Z_1\widehat{\beta}_1)^T(Y-Z_1\widehat{\beta}_1)$
+\par\bigskip
+\noindent Result 7.6 says $\dfrac{w_1-w}{w}$ but if $\dfrac{w}{w_1}$ small, then $\dfrac{w_1}{w}$ must be big $\Rightarrow \dfrac{w_1}{w}-1$ is still big.
+\par\bigskip
+\noindent $F$ test tests if every $\beta_i$ is 0 except the intercept.
+\par\bigskip
+\subsection{Slide 32 - Prediction of Regression Function}\hfill\\\par
+\noindent $\beta_{(i)}$ has dimension $1\times r$ $\widehat{\beta}_{(i)}^T$ has dimension $r\times 1$, dimension of $z_0$ $1\times r$. This gives us that $\widehat{\beta}_{(i)}z_0$ is a scalar $\Rightarrow N_1(\mu,\sigma^2)$
+\par\bigskip
+\subsection{Slide 34 - Forecast New Response}\hfill\\\par
+\noindent $\E(Y)$ is predicting mean, but we want to find/predict $Y$

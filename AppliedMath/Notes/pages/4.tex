@@ -174,3 +174,369 @@
   \end{gathered}
 \end{equation*}\par
 \noindent Since $\left|1\pm2\sqrt{2}\right|>1$, both points of equilibrium are unstable. 
+\par\bigskip
+\noindent\textbf{Example:} $u^{\prime} = f(u) = u^2(3-u)$.\par
+\noindent The equilibrium points are:
+\begin{equation*}
+  \begin{gathered}
+    f(u) = 0\Rightarrow\begin{cases}u_1=0\\u_2=3\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent To study the behaviour of $u$, look at the sign of $u$:
+\begin{equation*}
+  \begin{gathered}
+    f(u)>0\qquad u^{\prime}>0\Rightarrow u\text{ increasing}
+    f(u)<0\qquad u^{\prime}<0\Rightarrow u\text{ decreasing}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If $u<0$, then for $\lim_{t\to+\infty} u =0$\par
+\noindent If $0<u<3$, then solution converges to 3 (follows the arrows in the phase-plane)\par
+\noindent If $u>3$, then to 3.
+\par\bigskip
+\noindent We arrive at the following classifications:
+
+\begin{tikzpicture}
+  \def\xmax{2.0}
+  \def\A{1.7}
+  \def\a{0.85}
+  \def\ang{60}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (\A,0);
+  \coordinate (R) at (\ang:\A);
+  \coordinate (R') at (0:\a);
+  \draw[->,thick] (-\xmax,0) -- (\xmax+0.1,0) node[right=-1] {};
+  \draw [<<<<-<<<<, thick, blue] (1,0) -- (-1,0);
+  \fill[myred!50!black] (0,0) circle (0.06); %node[below right=-2] {$(x_1,0)$};
+\end{tikzpicture} Unstable
+\par\bigskip
+\begin{tikzpicture}
+  \def\xmax{2.0}
+  \def\A{1.7}
+  \def\a{0.85}
+  \def\ang{60}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (\A,0);
+  \coordinate (R) at (\ang:\A);
+  \coordinate (R') at (0:\a);
+  \draw[->,thick] (-\xmax,0) -- (\xmax+0.1,0) node[right=-1] {};
+  \draw [>>>>-<<<<, thick, blue] (1,0) -- (-1,0);
+  \fill[myred!50!black] (0,0) circle (0.06); %node[below right=-2] {$(x_1,0)$};
+\end{tikzpicture} Asymptotically stable 
+\par\bigskip
+\noindent We can determine the type of stability through $f^{\prime}$. If $f^{\prime}<0$ then we can think of it as having "right"-facing arrows and the opposite for $f^{\prime}>0$
+\par\bigskip
+\noindent In case of asymptotical stability, is it just local? How does it look like in the global case?
+\par\bigskip
+\noindent In dimension $>1$, we can request an equilibrium point $x_*$ to be \textit{stable} , that is if we fix an $\varepsilon-$ball around $x_*$, then $\exists \delta>0$ such that all of the solutions with initial conditions in $B_{\delta}(x_*)\subseteq B_\varepsilon(x_*)\quad\forall t$ (see figure 2.7 on page 106)
+\par\bigskip
+\noindent\textbf{Anmärkning}: Asymptotically stable point $\Rightarrow$ stable solutions converge to $x_*$ as $t\to+\infty$
+\par\bigskip
+\subsection{Linear Systems}\hfill\\\par
+\noindent Nice to study as tehy approximate behaviour of linear systems.
+\par\bigskip
+\noindent In this course, we will cover 2D systems $\mathbf{x^{\prime}} = A\mathbf{x}\quad\mathbf{x}\in\R^2, A\in\mathcal{M}_{2\times2}(\R)$
+\par\bigskip
+\noindent We look for a solution on the form $x = ve^{\lambda t}$:
+\begin{equation*}
+  \begin{gathered}
+    v\lambda e^{\lambda}t = Ave^{\lambda t}\Lrarr v\lambda = Av\Rightarrow u\text{ is an eigenvector to $A$ with eigenvalue $\lambda$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Imagine $\lambda_1,\lambda_2\in\C$ are our eigenvalues. Then the solution can be written as a linear combination of the associated eigenvector:
+\begin{equation*}
+  \begin{gathered}
+    c_1v_1e^{\lambda_1t}+c_2v_2e^{\lambda_2t} = x(t)\quad\text{(general solution)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Recall the classification of eigenvectors through the table above. 
+\par\bigskip
+\noindent If we can only find one eigenvalue, then the general solution is on the form $\mathbf{x}(t) = c_1v_1e^{\lambda t}+(w+v_1)c_2e^{\lambda t}$, where $w$ satisfies $(A-\lambda I)w = v$ 
+\par\bigskip
+\noindent If we have a new linear system $\mathbf{x^{\prime}} = F(x)\quad\mathbf{x}\in\R^2$, we can define $A = DF(x_*)$ where $x_*$ is an equilibrium point.\par
+\noindent The system $\mathbf{x^{\prime}} = A\mathbf{x}$ is the linearised problem around the equilibrium $x_*$ 
+\par\bigskip
+\begin{theo}[]{}
+  The origin $(0,0)$ is a critical point for $\mathbf{x^{\prime}} = A\mathbf{x}$ of the same type as  $x_*$ for $\mathbf{x^{\prime}} = F(\mathbf{x})$ when:\par
+  \begin{itemize}
+    \item$\lambda_j\in\R\qquad\lambda_1\cdot\lambda_2>0$ (same sign) (node)
+    \item $\lambda_j\in\R\qquad\lambda_1\cdot\lambda_2<0$ (opposite sign) (sadlepoint)
+    \item Re$(\lambda_j) = 0\Rightarrow$ Spiral
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Corollary:} If $(0,0)$ asymptotically stable for $\mathbf{x^{\prime}} = A\mathbf{x}$, then $x_*$ is asymptotically stable for $\mathbf{x^{\prime}} = F(\mathbf{x})$ 
+\par\bigskip
+\noindent\textbf{Example:} Study the stability of the linear system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      x^{\prime} = x+\mu y\\
+      y^{\prime} = x-y
+      \end{cases*}\Rightarrow A = \begin{pmatrix}1&\mu\\1&-1\end{pmatrix}\\
+      \text{Eigenvalues: } (1-\lambda)(-1-\lambda)-\mu=0\Lrarr -1+\lambda^2-\mu = 0\Rightarrow \lambda = \pm\sqrt{\mu+1}
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that we have different equilibrium points depending on the value of $\mu$:
+\begin{equation*}
+  \begin{gathered}
+    \mu>-1\Rightarrow\text{ real eigenvalues with opposite signs }\Rightarrow \text{ saddle}\\
+    \mu<-1\Rightarrow\text{ complex eigenvalues with Re$(\lambda_j)=0$}\Rightarrow \text{ center}\\
+    \mu=-1\Rightarrow\text{ critical value (\textit{bifurcation value})}
+  \end{gathered}
+\end{equation*}\par
+\noindent At the bifurcation value, we have:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases*}
+      x^{\prime} = x-y\\
+      y^{\prime} = x-y
+    \end{cases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent In this specific case, not only the origin is equilibrium, in this case $x^{\prime} = y^{\prime} = 0$, and $y=  x$, every point in this line is an equilibrium point.
+\par\bigskip
+\noindent\textbf{Example:} Damped harmonic oscillator:
+\begin{equation*}
+  \begin{gathered}
+    mx^{\prime\prime}+ax^{\prime}+kx=0\qquad m,a,k>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that for $a = 0$ we have a classical harmonical oscillator.
+\par\bigskip
+\noindent For the harmonic oscillator, the solutions are periodic oscillations aruond the equilibrium poisition. Do we have the same behaviour holding the damping term $y = x^{\prime}$?
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      my^{\prime}+ay+kx=0\\
+      y=x^{\prime}
+    \end{rcases*}\Rightarrow 
+    \begin{rcases*}
+      y=x^{\prime}\\
+      y^{\prime}  = \dfrac{-ay}{m} - \dfrac{k}{m}x
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Here, the orign is an equilibrium point. In matrix form, the system is expressed as:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}x^{\prime}\\y^{\prime}\end{pmatrix} = A\begin{pmatrix}x\\y\end{pmatrix}\Rightarrow A= \begin{pmatrix}0&1\\-\dfrac{k}{m}&-\dfrac{a}{m}\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent The matrix $A$ has eigenvalues:
+\begin{equation*}
+  \begin{gathered}
+    +\lambda\left(\dfrac{a}{m}+\lambda\right) + \dfrac{k}{m} = 0\Rightarrow \lambda^2+\dfrac{a}{m}\lambda+\dfrac{k}{m} = 0\\
+    \Rightarrow \lambda = \dfrac{-a\pm\sqrt{a^2-4km}}{2m}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We know for $a = 0\Rightarrow$ harmonic oscillation, we get the following eigenvalues: $\lambda=\dfrac{\pm\sqrt{-4km}}{2m}$\par
+\noindent Note that we have pure imaginary roots,this implies we have perpetual oscillations around equilibrium.
+\par\bigskip
+\noindent Depending on the sign inside the square root, things can be a little different. It depends on $a^2-4km$:
+\begin{equation*}
+  \begin{gathered}
+    a^2-4km<0\quad\text{ real part is negative}\Rightarrow\text{ asymptotically stable with spiral} 
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent From a physical point of view, oscillation is getting smaller and smaller as $t\to+\infty$ \par
+\noindent If we have a damping constant $a$ such that $a^2-4km\geq0$, then we have real eigenvalues who are both negative, so we are asymptotically stable without oscillation. It is a Node.
+\par\bigskip
+\noindent\textbf{Example, (Lotka-Volteria system):} 
+\begin{equation*}
+  \begin{gathered}
+    x = x(t)\text{ (prey population)}\\
+    y=y(t)\text{ (predator population)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The purpose of this system is to study the evolution of time and how they interract with each other, which can be described by a dynamical system:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = rx-axy\\
+      y^{\prime} = -my+bxy
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\begin{itemize}
+  \item $r = $ rate of increase for prey 
+  \item $a = $ decrease in prey due to predator
+  \item $m = $ mortality rate of predators
+  \item $b = $ increase in the predator population due to preys killed ($b<a$, since each predator consumes more than 1 prey)
+\end{itemize}
+\pagebreak
+\noindent The equilibrium points are given by: \par
+$\begin{rcases*}x(r-ay) = 0\\y(-m+bx) = 0\end{rcases*}$
+\begin{tikzpicture}
+  \def\xmax{2.0}
+  \def\A{1.7}
+  \def\a{0.85}
+  \def\ang{60}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (\A,0);
+  \coordinate (R) at (\ang:\A);
+  \coordinate (R') at (0:\a);
+  \draw[->,thick] (-\xmax,0) -- (\xmax+0.1,0) node[right=-1] {};
+  \draw[->,thick] (0,-\xmax) -- (0,\xmax+0.1) node[above=-1] {};
+  \draw [<<<<->>>>, thick, blue] (1,0) -- (-1,0);
+  \draw [>>>>-<<<<, thick, blue] (0,1) -- (0,-1);
+  \fill[myred!50!black] (0,0) circle (0.06); %node[below right=-2] {$(x_1,0)$};
+  \fill[mypurple!50!black] (1.5,0) circle (0.06) node[below] {$\dfrac{m}{b}$};
+  \fill[mypurple!50!black] (0,1.5) circle (0.06) node[left] {$\dfrac{r}{a}$};
+\end{tikzpicture} (1)
+\par\bigskip
+\noindent We see that one point is $(0,0)$, which is the point where botb prey and predator are extinct. Another point is $\left(\dfrac{m}{b}, \dfrac{r}{a}\right)$, which is the equilibrium of coexistance.
+\par\bigskip
+\noindent We study this non-linear system by looking at the stability of equilibrium:
+\begin{equation*}
+  \begin{gathered}
+    A = \begin{pmatrix}r-ay&-ax\\by&-m+bx\end{pmatrix} = DF(\overline{x})\text{ where } F(\overline{x}) = \overline{x}^{\prime}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In the point $(0,0)$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}r&0\\0&-m\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent We have real eigenvalues with opposite signs, ergo a saddle point with eigenvectors $\underbrace{\begin{pmatrix}1\\0\end{pmatrix}}_{\text{$r$}}, \underbrace{\begin{pmatrix}0\\1\end{pmatrix}}_{\text{$-m$}}$ (1)
+\par\bigskip
+\noindent In the point $\left(\dfrac{m}{b}, \dfrac{r}{a}\right)$:
+\begin{equation*}
+  \begin{gathered}
+    \begin{pmatrix}0&\dfrac{-am}{b}\\\dfrac{br}{a}&0\end{pmatrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Eigenvalues are given by $\lambda^2+mr = 0\Rightarrow=-mr$, which are pure imaginary and so we do not have enough information to conclude anything.
+\par\bigskip
+\noindent We can look at cases when $y^{\prime},x^{\prime} = 0$ to get an idea at the behaviour of the system: $x(r-ay) = 0\Rightarrow y= \dfrac{r}{a}\Rightarrow$ vector-field is vertical and arrows are determined by $y^{\prime} = y(-mx+bx)$ (2)
+
+\begin{tikzpicture}
+  \def\xmax{2.0}
+  \def\A{1.7}
+  \def\a{0.85}
+  \def\ang{60}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (\A,0);
+  \coordinate (R) at (\ang:\A);
+  \coordinate (R') at (0:\a);
+  \draw[->,thick] (-\xmax,0) -- (\xmax+0.1,0) node[right=-1] {};
+  \draw[->,thick] (0,-\xmax) -- (0,\xmax+0.1) node[above=-1] {};
+  \draw[-] (-\xmax,1) -- (\xmax+0.1,1) node[right=-1] {};
+  \draw[-] (1,-\xmax) -- (1,\xmax+0.1) node[above=-1] {};
+  \draw [->, thick, blue] (1.3,1.2);
+  \draw [->, thick, blue] (1.5,1.2);
+  \draw [->, thick, blue] (1.7,1.2);
+  \draw [->, thick, blue] (0.9,1.3) -- (0.8,1.3);
+  \draw [->, thick, blue] (0.9,1.5) -- (0.8,1.5);
+  \draw [->, thick, blue] (0.9,1.7) -- (0.8,1.7);
+  \draw [->, thick, blue] (0.3,0.9) -- (0.3, 0.8);
+  \draw [->, thick, blue] (0.5,0.9) -- (0.5, 0.8);
+  \draw [->, thick, blue] (0.7,0.9) -- (0.7, 0.8);
+  \draw [->, thick, blue] (1.1,0.3) -- (1.2,0.3);
+  \draw [->, thick, blue] (1.1,0.5) -- (1.2,0.5);
+  \draw [->, thick, blue] (1.1,0.7) -- (1.2,0.7);
+  \fill[myred!50!black] (0,0) circle (0.06); %node[below right=-2] {$(x_1,0)$};
+  \fill[mypurple!50!black] (1.5,0) circle (0.06) node[below] {$\dfrac{m}{b}$};
+  \fill[mypurple!50!black] (0,1.5) circle (0.06) node[left] {$\dfrac{r}{a}$};
+\end{tikzpicture} (2)
+\par\bigskip
+\noindent Similarly, for $y^{\prime} = 0$, that is the line $x = \dfrac{m}{b}$, we try to express the solutions of the system by computing:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{dy}{dx} = \dfrac{-my+bxy}{rx-axy}\Rightarrow (rx-axy)dy = (-my+bxy)dx = x(r-ay)dy = y(-m+bx)dx\\
+    \Rightarrow \int \dfrac{r-ay}{y}dy = \int\dfrac{-m+bx}{x}dx\Rightarrow r\ln{\left(y\right)}-ay = -\ln{\left(x\right)}+bx+c\\
+    \Rightarrow y^re^{-ay} = x^{-m}e^{bx}e^c\Rightarrow\text{ can't find closed form solution}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We want to figure out if we have a closed orbit or if we have a spiral.\par
+\noindent Looking at our expression, in the point $x = \dfrac{m}{b}$:
+\begin{equation*}
+  \begin{gathered}
+    y^r = Ce^{ay}
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $C$ is all the constants. We cannot cross the line $x = \dfrac{m}{b}$  many times, ergo we have no spiral behaviour.\par
+\noindent Therefore, every cycle is a coexistance state, but the population will not approach the equation state $\left(\dfrac{m}{b}, \dfrac{r}{a}\right)$ 
+\par\bigskip
+\noindent Some general results about the existance of clsoed orbits in non-linear systems:
+\par\bigskip
+\begin{theo}[Bendixson-Dulan]{}
+  Given a system $\begin{rcases*}x^{\prime}=P(x,y)\\y^{\prime} = Q(x,y)\end{rcases*}$, if $P_x+Q_y$ has the same sign in some region, then there are no closed orbits in that region
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = x+x^3-2y\\
+      y^{\prime} = -3x+y^5
+    \end{rcases*}\quad P_x+Q_y = 1+3x^2+5y^4
+  \end{gathered}
+\end{equation*}\par
+\noindent This is always positive for $(x,y)\in\R^2\Rightarrow $ no closed orbits in $\R^2$
+\par\bigskip
+\begin{theo}[]{}
+  A closed orbit for the system $\begin{rcases*}x^{\prime}=P(x,y)\\y^{\prime} = Q(x,y)\end{rcases*}$ surrounds at least one equilibrium point. Of course, no equilibrium point implies no closed orbits. 
+\end{theo}
+\par\bigskip
+\begin{theo}[Poincare-Bendixson]{}
+  Let $R$ be a closed bounded region without critical points.
+  \par\bigskip
+  \noindent If there exists an orbit $\Gamma$  which is in $R$ at $t_0$ and $\Gamma(t)\in R\quad\forall t>t_0$, then $\Gamma$ is either a closed orbit, or it spirals towards a closed orbit for $t\to+\infty$
+\end{theo}
+\par\bigskip
+\noindent In a plane, an orbit can:\par
+\begin{itemize}
+  \item Leave any bounded set as $t\to+\infty$
+  \item Can be a closed orbit/equilibrium point 
+  \item Approaches a closed orbit/equilibrium point
+\end{itemize}
+\par\bigskip
+\noindent Note that we cannot have chaotic behaviour in the 2D case.
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x^{\prime} = -y-x(x^2+y^2-\mu)\\
+      y^{\prime} = x-y(x^2+y^2-\mu)
+    \end{rcases*}\quad\text{ Polar coordinates }\Rightarrow xx^{\prime}+yy^{\prime}=rr^{\prime}\qquad xy^{\prime}-yx^{\prime} = r^2\theta^{\prime}\\
+    \begin{rcases*}
+      x^{\prime} = r^{\prime}\cos(\theta)-r\sin(\theta)\theta^{\prime}\\
+      y^{\prime} = r\sin(\theta)+r\cos(\theta)\theta^{\prime}
+    \end{rcases*} xx^{\prime}+yy^{\prime}=r\cos(\theta(r^{\prime}\cos(\theta)-r\sin(\theta)\theta^{\prime})+r\sin(\theta)(r^{\prime}\sin(\theta)+r\cos(\theta)\theta^{\prime}))\\
+    = rr^{\prime}\\
+    x(-y-x(x^2+y^2-\mu)) + y(x-y(x^2+y^2-\mu)) = -x^2(r^2-\mu)-y^2(r^2-\mu) = -r^2(r^2-\mu) = rr^{\prime}\\
+    \Rightarrow r^{\prime} = r(r^2-\mu)
+  \end{gathered}
+\end{equation*}\par
+\noindent We do the same for $\theta$:
+\begin{equation*}
+  \begin{gathered}
+    x(x-y(r^2-\mu))-y(-y-x(r^2-\mu)) = r^2\theta^{\prime}\\
+    = x^2+y^2-xy(r^2-\mu)+xy(r^2-\mu) = r^2\theta^{\prime}\\
+    \Rightarrow \underbrace{x^2+y^2}_{r^2} = r^2\theta^{\prime}\Rightarrow\theta^{\prime} = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent We arrive at:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      r^{\prime} = r(r^2-\mu)\\
+      \theta^{\prime} = 1\quad\text{(constant angular velocity)}
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Equilibrium? $r^{\prime}=0\Rightarrow r=0\wedge r = \sqrt{\mu}$ (closed period orbit).\par
+\noindent If inside the circle, that is $r<\sqrt{\mu}$, then $r^{\prime}<0$ and we are moving away from the origin. Else, opposite behaviour, except where $r$ becomes $<\sqrt{\mu}$, then it flips, ergo converging to the orbit.

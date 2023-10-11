@@ -1,0 +1,62 @@
+\section{Principal Component Analysis}
+\subsection{Slide 3 - Motivation}\hfill\\\par
+\noindent PCA is mostly used in pre-processing these days, instead of being the actual analysis.
+\par\bigskip
+\subsection{Slide 4 - Task of Principal Component Analysis (PCA)}\hfill\\\par
+\noindent $\mathbf{a_3}$ maximizes $\text{Var}\left(\mathbf{a_3}^T\mathbf{X}\right)$ and $\text{Cov}\left(\mathbf{a_3}^T\mathbf{X}, \mathbf{a_j}^T\mathbf{X}\right) = 0$. In the covariance term, we look at all $j<3$ and not just $j=1$. That is, our requirement is that $\text{Cov}\left(\mathbf{a_3}^T\mathbf{X},\mathbf{a_1}^T\mathbf{X}\right) = 0\wedge \text{Cov}\left(\mathbf{a_1}^TX,\mathbf{a_2}^TX\right)$
+\par\bigskip
+\noindent Big variation is good since it covers more cases. Think of it like salary analysis, with low variance you may only have asked the CEO/higher ups and you will not get as great of a picture as if you used the whole wide company.
+\par\bigskip
+\subsection{Slide 5 - Restriction}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \text{Cov}\left(\mathbf{a_i}^T\mathbf{X},\mathbf{a_k}^T\mathbf{X}\right) = \mathbf{a_i}^T\underbrace{\text{Cov}\left(\mathbf{X},\mathbf{X}\right)}_{\text{$=\Sigma$}}\mathbf{a_k}\Rightarrow\mathbf{a_i}^T\Sigma\mathbf{a_k}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 6/7 - Principal Compoents and Two useful Lemmas}\hfill\\\par
+\noindent Maximize $\text{Var}\left(\mathbf{a_1}^T\mathbf{X}\right)$ such that $\mathbf{a_1}^T\mathbf{a} = 1\Lrarr $ maximize $f(\mathbf{a_1}) = \text{Var}\left(\mathbf{a_1}^T\mathbf{X}\right)-\underbrace{\lambda}_{\text{Lagrange multiplier}}(\mathbf{a_1}^T\mathbf{a_1}-1)$\par
+\noindent This uses the Lagrange multiplier method.
+\par\bigskip
+\noindent Adding more constraints, you add more Lagrange multipliers (\textit{KKT condition})
+\par\bigskip
+\noindent In order to maximise, we want $\dfrac{df}{da_1} = 0\wedge \dfrac{df}{d\lambda} = 0$\par
+\noindent Note that:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{df}{d\lambda} = -(a_1^Ta_1-1) = 0\wedge \dfrac{df}{da_1} = 1\\
+    \Rightarrow 2\Sigma a_1-2\lambda a_1=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Zero only when $\Sigma a_1 = \lambda a_1$
+\par\bigskip
+\subsection{Slide 7 - Two useful Lemmas}\hfill\\\par
+\noindent Reason we want to use the largest eigenvalue is because we want to maximise variance:
+\begin{equation*}
+  \begin{gathered}
+    Y_1 = a_1^TX\quad (\Sigma a_1=\lambda a_1)\rightarrow \text{Var}\left((Y_1)\right) = a_1^T\Sigma a_1 = \lambda\underbrace{ a_1^Ta_1}_{\text{$=1$}} = \lambda
+  \end{gathered}
+\end{equation*}\par
+\noindent First thing (maximise variance) is done, second step:
+\begin{equation*}
+  \begin{gathered}
+    \max(\text{Var}\left(a_2^TX\right)) = a_2^T\Sigma a_2\text{ s.t } a_2^Ta_1 = 1\quad\underbrace{\underbrace{\text{Cov}\left(a_2^TX,a_1^TX\right) = 0}_{= a_2^T\Sigma a_1 = a_2^T\lambda a_1 = \lambda a_2^Ta_1}}_{a_2\not\in\text{span}\left\{a_1\right\}\Leftarrow a_2^Ta_1=0}\\
+    \Rightarrow \max(f(a_2)) = a_2^T\Sigma a_2 -\lambda (a_2^Ta_2-1)
+  \end{gathered}
+\end{equation*}\par
+\noindent The whole text under the covariance can be boiled down to implying that $a_2$ has to be a span of other eigenvectors. Then they will be orthogonal to each other. \par
+\noindent For the last row, to $f(a_2)$, we use the second largest eigenvector.
+\par\bigskip
+\subsection{Slide 9 - Principal Compoents}\hfill\\\par
+\noindent Even if we have eigenvalues with duplicate values this holds.
+\par\bigskip
+\subsection{Slide 10 - Total Variation Explained by Principal Components}\hfill\\\par
+\noindent By having orthogonal $Y_i$:s (due to eigenvectors), we have reduced dependancy from all $Y_i$:s. Any non-orthogonality yields some correlation between some $Y_i$ and $Y_k$, and we have now removed that.
+\par\bigskip
+\subsection{Slide 12 - Principal Components From Correlation Matrix}\hfill\\\par
+\noindent Reason we standardized is to be able to compare with other data of different scale
+\begin{equation*}
+  \begin{gathered}
+    V = \begin{bmatrix}\sigma_{11}&&\\&\sigma_{22}&\\&&\ddots\end{bmatrix}
+  \end{gathered}
+\end{equation*}
