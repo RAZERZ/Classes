@@ -9,3 +9,4 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Hamiltons Principal}}{23}{subsection.3.1}%
 \contentsline {section}{\tocsection {}{4}{Dynamical Systems}}{26}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Linear Systems}}{29}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{5}{Sturm-Lioville problems and Integral Equations}}{34}{section.5}%

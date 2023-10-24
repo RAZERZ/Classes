@@ -1,0 +1,280 @@
+\section{Sturm-Lioville problems and Integral Equations}\par
+\noindent Can be defined as a class of differential equations on the form:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{d}{dx}\left[p(x)\dfrac{d}{dx}\right]y+q(x)y=\lambda\omega(x)y\qquad x\in [a,b]
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $p,q,\omega$ are given functions and the unknowns are $\lambda$ and the function $y$.
+\par\bigskip
+\noindent We look for $\lambda$ such that there exists a solution.
+\par\bigskip
+\noindent\textbf{Example:} \textit{Schrödingers equations}
+\begin{equation}
+  \begin{gathered}
+    -\dfrac{\hslash^2}{2m}\psi^n+V(x)\psi = E\psi
+  \end{gathered}
+\end{equation}\par
+\noindent In fact, Sturm-Lioville equations has the form:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{d}{dx}[py^{\prime}]+q(x)y=\lambda\omega(x)y\\
+    \Rightarrow -^{\prime}y^{\prime}-py^{\prime\prime}+q(x)y = \lambda\omega(x)y\qquad\text{(2nd order ODE)}
+  \end{gathered}
+\end{equation*}\par
+\noindent In (2), $p$ is constant
+\par\bigskip
+\noindent We can impose boundary conditions:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      C_aY(a) + d_aY^{\prime}(a) = \alpha\\
+      C_by(b)+d_bY^{\prime}(b) = \beta
+    \end{rcases*}\text{Mixed boundary conditions. If $(\alpha,\beta) = 0\Rightarrow$ \textit{homogenous boundary conditions}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Types of boundary conditions:}\par
+\begin{itemize}
+  \item \textit{Dirichlet} $\Rightarrow d_a=d_b=0$
+  \item\textit{Neumann} $\Rightarrow C_a=C_b=0$
+  \item\textit{Periodic}$\Rightarrow y(a) = y(b)\quad\wedge\quad y^{\prime}(a) = y^{\prime}(b)$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Example:} \textit{Schrödingers equation without potential}
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{\hslash^2}{wm}\psi^n(x) = E\psi(x)\qquad\text{$E$ is the $\lambda$ parameter}
+  \end{gathered}
+\end{equation*}\par
+\noindent We fix some initial condition $\psi(0) = \psi(L) = 0$, and study $x\in[0,L]$\par
+\noindent We can explicitly find a solution:
+\begin{equation*}
+  \begin{gathered}
+    \psi^n(x) = -\dfrac{-2mE}{\hslash^2}\psi(x)\\
+    \Rightarrow\text{ Solution: } \psi(x) = A\cos\left(\sqrt{\dfrac{2mE}{\hslash^2}}x\right)+B\sin\left(\sqrt{\dfrac{2mE}{\hslash^2}x}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent When imposing the boundary conditions, we get:\par
+\begin{itemize}
+  \item $\psi(0) = A=0$
+  \item $\psi(L) = B\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right) = 0\Rightarrow \sqrt{\dfrac{2mE}{\hslash^2}}L = k\pi\quad k\in\Z$
+\end{itemize}\par
+\noindent We find the values of $k$ that are admissable:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \dfrac{2mE}{\hslash^2} = \dfrac{k^2\pi^2}{L^2}\Rightarrow E_k = \dfrac{k^2\pi^2\hslash^2}{2mL^2}\quad k\in\Z
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We find that we only have a solution whe the energy is $\dfrac{k\pi\hslash^2}{2mL^2}$, yielding:
+\begin{equation*}
+  \begin{gathered}
+    y_k(x) = B\sin\left(\sqrt{\dfrac{2mE_k}{\hslash^2}}x\right) = B\sin\left(\sqrt{\dfrac{2mk^2\pi^2\hslash^2}{\hslash^2wmL^2}}x\right)\\
+    = B\sin\left(\dfrac{k\pi}{L}x\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent This solution depends on the boundary conditions. Let us see what happens with periodic boundary conditions:
+\begin{equation*}
+  \begin{gathered}
+    \psi(0) = \psi(L)\qquad \psi^{\prime}(0) = \psi^{\prime}(L)
+  \end{gathered}
+\end{equation*}\par
+\noindent We get:
+\begin{equation*}
+  \begin{gathered}
+    \psi(0) = A = \psi(L) = A\cos\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right)+B\sin\left(\sqrt{\dfrac{2mE}{\hslash}}L\right)\\
+    \psi^{\prime}(0) = B\sqrt{\dfrac{2mE}{\hslash^2}} = \psi^{\prime}(L) = -A\sqrt{\dfrac{2mE}{\hslash^2}}\sin\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right)+B\sqrt{\dfrac{2mE}{\hslash^2}}\cos\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent A solution is given when $\sin\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right) = 0$ and $\cos\left(\sqrt{\dfrac{2mE}{\hslash^2}}L\right) = 1$
+\par\bigskip
+\noindent So, instead of $k\pi$, we have $2k\pi\quad k\in \Z$
+\par\bigskip
+\noindent Solutions are linear combinations of $\sin\left(\dfrac{2\pi k}{L}x\right)$ and $\cos\left(\dfrac{2k\pi}{L}x\right)$
+\par\bigskip
+\noindent Can we look at the structure of equations and watch solutions unfold?
+\par\bigskip
+\noindent We have a \textit{regular} Sturm-Lioville problem when $p(x), \omega(x)>0$ and we consider mixed homogenous boundary conditions.
+\par\bigskip
+\noindent A \textit{singular} boundary is when:\par
+\begin{itemize}
+  \item $p(a) = 0$, we miss boundary condition in point $(a)$
+  \item $p(b) = 0$, we miss boundary condition in point $b$
+  \item $p(a) = p(b) = 0$, no boundary conditions
+  \item Interval is not bounded, $a\vee b = \pm\infty$
+\end{itemize}
+\par\bigskip
+\noindent We want to study this problem in the form of an operator.\par
+\noindent We define an operator $L = \dfrac{1}{\omega(x)}\left[-\dfrac{d}{dx}\left[p(x)\dfrac{d}{dx}\right]+q(x)\right]$ such that the Sturm-Lioville problem is equivalent to studying the eigenvalue problem for $L_y = \lambda_y$\par
+\noindent We apply this operator the set of square integrable functions in $[a,b]$, where $\langle f,g \rangle = \int_{a}^{b}\overline{f(x)}g(x)\underbrace{\omega(x)}_{\text{Weight function}}dx$ \par
+\noindent This space is denoted by $H = L^2([a,b], \omega dx)$
+\par\bigskip
+\begin{theo}[]{}
+  Sturm-Lioville is a self-adjoint operator on $H$\par
+  \noindent That is $\langle Lf,g\rangle = \langle f,Lg\rangle$
+  \par\bigskip
+  \noindent (Assuming regular problem) 
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \langle f,Lg\rangle = \int_{a}^{b}\overline{f(x)}\dfrac{1}{\omega(x)}\left[\dfrac{-d}{dx}\left[p(x)g^{\prime}(x)\right]+q(x)g(x)\right]\omega(x)dx\\
+      = \int_{a}^{b}\overline{f(x)}\left[-\dfrac{d}{dx}\left[p(x)g^{\prime}(x)\right]+q(x)g(x)\right]dx
+    \end{gathered}
+  \end{equation*}
+  \begin{equation}
+    \begin{gathered}
+      = -\int_{a}^{b}\overline{f(x)}\dfrac{d}{dx}\left[p(x)g^{\prime}(x)\right]+\int_{a}^{b}\overline{f(x)}q(x)g(x)dx
+    \end{gathered}
+  \end{equation}
+\end{prf}
+\par\bigskip
+\noindent Integrating by parts yields:
+\begin{equation*}
+  \begin{gathered}
+    -\overline{f(x)}p(x)g^{\prime}\vline_a^b+\int_{a}^{b}\overline{f}^{\prime}(x)p(x)g^{\prime}(x)dx+\int_{a}^{b}\overline{f(x)}g(x)q(x)dx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent For $\langle Lf,g\rangle$:
+\begin{equation*}
+  \begin{gathered}
+    \int_{a}^{b}\dfrac{1}{\omega(x)}\left[-\dfrac{d}{dx}\left[p(x)f^{\prime}(x)\right]+q(x)f(x)\right]\omega(x)g(x)dx\qquad p,q,\omega\in\R\text{ connjugate does not do anything}\\
+    = \int_{a}^{b}-\left[\dfrac{d}{dx}\left[p(x)f^{\prime}(x)\right]q(x)f(x)\right]g(x)dx\\
+    -\int_{a}^{b}\dfrac{d}{dx}\left[p(x)\overline{f}^{\prime}(x)\right]g(x)dx+\int_{a}^{b}q(x)\overline{f(x)}g(x)dx\\
+  \end{gathered}
+\end{equation*}\par
+\noindent Integrating by parts yields:
+\begin{equation}
+  \begin{gathered}
+    -\left[p(x)\overline{f}^{\prime}(x)g(x)\right]\vline_a^b+\int_{a}^{b}p(x)\overline{f}^{\prime}(x)g^{\prime}(x)dx+\int_{a}^{b}q(x)\overline{f(x)}g(x)dx
+  \end{gathered}
+\end{equation}\par
+\noindent Need to show that (3) = (4):
+\begin{equation*}
+  \begin{gathered}
+    p(a)g^{\prime}(a)\overline{f(a)}-p(b)g^{\prime}(b)\overline{f(b)} \underbrace{=}_{\text{claim}} p(a)\overline{f}^{\prime}(a)g(a)-p(b)\overline{f}^{\prime}(b)g(b)
+  \end{gathered}
+\end{equation*}\par
+\noindent Using our initial conditions, we can see that this is true :
+\begin{equation*}
+  \begin{gathered}
+    p(a)\underbrace{\left(g^{\prime}(a)\overline{f(a)}-\overline{f}^{\prime}(a)g(a)\right)}_{\text{$=0$ (want to show)}}+p(b)\underbrace{\left(\overline{f}^{\prime}(b)g(b)-g^{\prime}(b)\overline{f}(b)\right)}_{\text{$=0$ (want to show)}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent By the boundary conditions:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      C_af(a)+d_af^{\prime}(a) = 0\\
+      C_ag(a)+d_ag(a) = 0
+    \end{rcases*} g^{\prime}(a) = \dfrac{C_a}{d_a}g(a)\qquad f(a) = -\dfrac{d_a}{C_a}f^{\prime}(a)\\
+    \Rightarrow g^{\prime}(a)f(a)f^{\prime}(a)g(a) = -\dfrac{C_a}{d_a}g(a)\overline{f}^{\prime}(a)=  \dfrac{-d_a}{C_a}-f^{\prime}(a)g(a) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent And we get the same for the term with the condition in $b$.
+\par\bigskip
+\noindent This result can be extended in some singular problem, for exmaple when $p(a) = p(b) = 0$, or if $p(a) = 0$ whilst having homogenous mixed boundary conditions in $b$ 
+\par\bigskip
+\begin{theo}[]{}
+  Eigenvalues of the Sturm-Lioville operator are real
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose we have $\lambda$, $Ly_\lambda = \lambda y_Y$, $Y_\lambda$ are eigenvalues:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases*}
+        \langle L y_{\lambda}, Y_{\lambda}\rangle = \langle Y_{\lambda}, LY_n\rangle\\
+        \overline{\lambda}\langle y_\lambda, y_\lambda\rangle = \lambda\langle y_\lambda,y_n\rangle
+      \end{rcases*}\Rightarrow \lambda = \overline{\lambda}
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  If there exists 2 different eigenvalues $\lambda_n,\lambda_m$; then $y_n\wedge Y_m$ are orthogonal ($\langle y_n,Y_m\rangle = 0$)
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \langle Ly_n,y_m\rangle = \langle y_n,Ly_m\rangle\\
+      = \lambda_n\langle y_n,y_m\rangle = \lambda_m\langle y_n,y_m\rangle
+    \end{gathered}
+  \end{equation*}\par
+  \noindent From assumption that $\lambda_m\neq\lambda_n\Rightarrow \langle y_n,y_m\rangle = 0$ 
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  Every eigenvalue has at most 1 eigenfunction associated (of regular Sturm-Lioville problem, \textit{non-degenerate}) upo to multiplication by constants.
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose there exists 2 eigenfunctions $y_1,y_2$ with the same eigenvalue $\lambda$:
+  \begin{equation*}
+    \begin{gathered}
+      Ly_1 = \lambda y_1\qquad Ly_2 = \lambda y_2\\
+      \Lrarr y_2Ly_1 = \lambda y_1y_2\qquad y_1Ly_2 = \lambda y_1y_2\\
+      \Lrarr y_2Ly_1-y_1Ly_2 = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By definition of the operator:
+  \begin{equation*}
+    \begin{gathered}
+      -y_2\underbrace{\left[\dfrac{d}{dx}\left[p(x)y_1^{\prime}\right]+q(x)y_1(x)\right]}_{\text{$\omega(x)$}}+y_1\underbrace{\left[\dfrac{d}{dx}\left[p(x)y_2^{\prime}\right]+q(x)y_2(x)\right]}_{\text{$\omega(x)$}}\\
+      -y_2\dfrac{d}{dx}\left[p(x)y_1^{\prime}\right]+y_1\left[\dfrac{d}{dx}p(x)y_2^{\prime}\right] = 0\\
+      \dfrac{d}{dx}\left[p(x)\left[y_1(x)y_2^{\prime}(x)-y_1^{\prime}(x)y_2(x)\right]\right]=0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Evaluate at initial condition. We observe that the last equation yield constant, so we \textit{can} compute the value of the boundary and $y_1,y_2$ satisfy the same boundary conditions\par
+  \noindent $\Rightarrow$ The constant we are looking for is 0, and so:
+  \begin{equation*}
+    \begin{gathered}
+      y_1(x)y_2^{\prime}(x) = y_1^{\prime}(x)y_2(x)\quad\forall x\in[a,b]\quad \text{ (independent)}\\
+      \Rightarrow \dfrac{y_1^{\prime}}{y_1} = \dfrac{y_2^{\prime}}{y_2}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By integration, we get $y_1 = Ay_2$ where $A$ is some constant
+\end{prf}
+\par\bigskip
+\noindent Once a solution is known for $y_1$, and we look for anoyher solution $y_2$:
+\begin{equation*}
+  \begin{gathered}
+    p(x)(y_1(x)y_2^{\prime}(x)-y_1^{\prime}(x)y_2(x)) = C
+  \end{gathered}
+\end{equation*}\par
+\noindent This equation can be rewritten as:
+\begin{equation*}
+  \begin{gathered}
+    p(x)\left((y_1(x))^2\dfrac{d}{dx}\left(\dfrac{y_2(x)}{y_1(x)}\right)\right) = C
+  \end{gathered}
+\end{equation*}\par
+\noindent Isolating one term: $\dfrac{d}{dx}\left(\dfrac{y_2(x)}{y_1(x)}\right) = \dfrac{C}{p(x)y_1^2(x)}$\par
+\noindent Integrating yields: $y_2(x) = y_1(x)\int_{x_0}^{x}\dfrac{C}{p(t)y_1^2(t)}dt$
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent IRL in the lecture we stopped here, since we were assuming it was the same eigenvalue. 
+\par\bigskip
+\noindent\textbf{Example:} \textit{Legendre Equation} $(1-x^2)y^{\prime\prime}-2xy^{\prime}+l(l+1)y=0$\par
+\noindent Can be written as:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{d}{dx}\left[(1-x^2)y^{\prime}\right] = l(l+1)y
+  \end{gathered}
+\end{equation*}\par
+\noindent Singular problem $p(1) = p(-1) = 0,\quad q(x) = 0\quad \lambda = l(l+1)$\par
+\noindent The solutions are Legendre polynomials.
+\par\bigskip
+\noindent Chebychevs equation $(1-x^2)y^{\prime\prime}-xy^{\prime}+n^2y=0$  for $x\in[-1,1]$ can be reduced to a Sturm-Lioville problem, if we divide the equation by $\sqrt{1-x^2}$ , then the problem is expressed as:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{d}{dx}\left[\dfrac{1}{\sqrt{1-x^2}}y^{\prime}\right] = \dfrac{n^2}{\sqrt{1-x^2}}y\qquad p(x) = \dfrac{1}{\sqrt{1-x^2}}\qquad q(x) = 0\qquad\omega(x) = p(x)\qquad \lambda = n^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Notice that in the boundary $[-1,1]$, we have a singularity. The type is therefore singular, since $p$  is not continous on the boundary.
