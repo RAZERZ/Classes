@@ -53,6 +53,8 @@
 \subsection{Slide 10 - Total Variation Explained by Principal Components}\hfill\\\par
 \noindent By having orthogonal $Y_i$:s (due to eigenvectors), we have reduced dependancy from all $Y_i$:s. Any non-orthogonality yields some correlation between some $Y_i$ and $Y_k$, and we have now removed that.
 \par\bigskip
+\noindent Using $\dfrac{\lambda_k}{\sum \lambda_i}$ gives us the contribution from $\lambda_k$, but we can look for say $\dfrac{\sum_{k}^{j}\lambda_k}{\sum \lambda_i}$ until we get a \% we are satisfied with. 
+\par\bigskip
 \subsection{Slide 12 - Principal Components From Correlation Matrix}\hfill\\\par
 \noindent Reason we standardized is to be able to compare with other data of different scale
 \begin{equation*}
@@ -60,3 +62,10 @@
     V = \begin{bmatrix}\sigma_{11}&&\\&\sigma_{22}&\\&&\ddots\end{bmatrix}
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\subsection{Slide 14 - Sample Principal Components}\hfill\\\par
+\noindent Let $\Sigma$ be our sample covariance matrix instead. Then we carry out as usual.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Centered = mean is 0. Taking away some of the data would yield an almost 0 mean (numerically 0)
+\par\bigskip

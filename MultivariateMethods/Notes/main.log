@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  12 OCT 2023 00:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  1 NOV 2023 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1488,19 +1488,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--53
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
 
  []
 
-) [16] (./main.aux (./includes/title.aux))
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
+
+ []
+
+) [16] (./pages/8.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--2
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+
+ []
+
+) [17] (./main.aux (./includes/title.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25D4B57199E31BB6BC3B414E9F10B58F;15452.
+(rerunfilecheck)             Checksum: DAAD6E4826C36A7F655AC100445A5309;16352.
  ) 
 Here is how much of TeX's memory you used:
- 38630 strings out of 477985
- 918342 string characters out of 5840059
+ 38644 strings out of 477985
+ 918518 string characters out of 5840059
  1888388 words of memory out of 5000000
- 57948 multiletter control sequences out of 15000+600000
+ 57954 multiletter control sequences out of 15000+600000
  521950 words of font info for 70 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1519,10 +1534,10 @@ ype1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (17 pages, 266466 bytes).
+Output written on main.pdf (18 pages, 269032 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
- 81 named destinations out of 1000 (max. 500000)
- 485 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 519 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 517 words of extra memory for PDF output out of 10000 (max. 10000000)
 

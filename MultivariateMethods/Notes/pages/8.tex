@@ -1,0 +1,19 @@
+\section{Factor Analysis}
+\subsection{Slide 3 - Latent Variable Modelling}\hfill\\\par
+\noindent LVM = factor analysis. Find values such as personality using a proxy. Personality is the factor/latent variable.
+\par\bigskip
+\noindent In PCA, we had a bunch of values and we wanted to simplify them and keep them as concise as possible while still retaining as much of the infomration as possible. In factor analysis, we go the other direction, we have some "simplified" data set and we want to draw more conclusions from this.
+\par\bigskip
+\subsection{Slide 4 - The Model}\hfill\\\par
+\noindent $i = i$th question in questionaire
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{X_i}_{\text{Math-score/what you know}} = \mu_i + \ell_{i1}\underbrace{F_1}_{\text{Algebra ability/what you want to predict}}+\cdots+\varepsilon \rightarrow \text{ math ability still there, but $\varepsilon$ may be lack of sleep. If the $\varepsilon$ is convoluted, then you have not captured everything in your questionaire}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Depending on application, sometimes we need to find $\ell$.
+\par\bigskip
+\noindent Tasks is usually lower than factors.
+\par\bigskip
+\noindent In multiple regression we had $X = X\beta + \varepsilon$
