@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  1 NOV 2023 12:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  19 NOV 2023 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1177,14 +1177,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 
-])
+]
+[2])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2]
+ [3]
 (./pages/1.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--11
 
@@ -1195,7 +1196,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
  []
 
-) [3] (./pages/2.tex
+) [4] (./pages/2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1227,7 +1228,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-[4]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
@@ -1242,12 +1243,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-) [6] (./pages/3.tex
+) [7] (./pages/3.tex
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
@@ -1257,7 +1258,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-[7]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
@@ -1300,12 +1301,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[8]
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-) [9] (./pages/5.tex
+) [10] (./pages/5.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -1330,12 +1331,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--55
 
  []
 
-[10]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-) [11] (./pages/6.tex
+) [12] (./pages/6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 
  []
@@ -1394,7 +1395,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--63
 
  []
 
-[12]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 75--75
 
  []
@@ -1424,7 +1425,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 120--120
 
  []
@@ -1452,7 +1453,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--136
 
  []
 
-) [14] (./pages/7.tex
+) [15] (./pages/7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 
  []
@@ -1487,7 +1488,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--53
 
  []
 
-[15]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 58--58
 
  []
@@ -1497,7 +1498,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--66
 
  []
 
-) [16] (./pages/8.tex
+) [17] (./pages/8.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
 
  []
@@ -1507,15 +1508,371 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--7
 
  []
 
-) [17] (./main.aux (./includes/title.aux))
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DAAD6E4826C36A7F655AC100445A5309;16352.
+
+Overfull \hbox (478.07143pt too wide) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--64
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+
+ []
+
+) [19] (./pages/9.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+
+ []
+
+
+Overfull \hbox (18.56718pt too wide) detected at line 55
+[][]
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+
+ []
+
+) [22] (./pages/10.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+
+ []
+
+[25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Sigma' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Sigma' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Sigma' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 145.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--148
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Sigma' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\not' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Sigma' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 151.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 151.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 199--199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--212
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--238
+
+ []
+
+) [27] (./main.aux (./includes/title.aux))
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 1653347646A65992776AE5DC6AD3F20D;31746
+(rerunfilecheck)             After:  A49CF04F91FCCF782CF84FE51AEA3603;31976.
  ) 
 Here is how much of TeX's memory you used:
- 38644 strings out of 477985
- 918518 string characters out of 5840059
+ 38862 strings out of 477985
+ 921865 string characters out of 5840059
  1888388 words of memory out of 5000000
- 57954 multiletter control sequences out of 15000+600000
+ 58097 multiletter control sequences out of 15000+600000
  521950 words of font info for 70 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1523,21 +1880,22 @@ Here is how much of TeX's memory you used:
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-2.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (18 pages, 269032 bytes).
+cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
+.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (28 pages, 325972 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
- 458 compressed objects within 5 object streams
- 86 named destinations out of 1000 (max. 500000)
- 517 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 869 PDF objects out of 1000 (max. 8388607)
+ 793 compressed objects within 8 object streams
+ 155 named destinations out of 1000 (max. 500000)
+ 973 words of extra memory for PDF output out of 10000 (max. 10000000)
 

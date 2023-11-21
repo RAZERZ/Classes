@@ -1,0 +1,138 @@
+\section{Canonical Correlation Analysis}
+\noindent\textbf{Anmärkning:}\par
+\noindent Tasks is coumns/abilites, such as listening etc
+\par\bigskip
+\noindent Demean $=$ remove mean, that is if something hsa value $\mu+x$, after demeaning it only has value $x$ 
+\par\bigskip
+\noindent \textit{Scores} is tranformed data, ie. $x$-scores $= a^Tx$ (values of linear combination of $U$)\par
+\noindent The scores (latent variables) are what we want for further analysis
+\subsection{Slide 3 - Motivation}\hfill\\\par
+\noindent In PCA, we had a lot of variables and we simplified them to less variables, and in factor analysis we did the opposite and were able to draw conclusions from our data.
+\par\bigskip
+\noindent In CCA, we have 2 sets of variables, and simplify them to have some lower dimension (think PCA on 2 sets of data).
+\par\bigskip
+\noindent Note that just like FA was the "opposite" of PCA, there is an "opposite" to CCA (not covered) called structural equation modelling.
+\par\bigskip
+\noindent The intuition is, say $X^{(2)}$ has $q$ entries, and $X^{(1)}$ has $p$ entries. That is $p\cdot q$ scatter plots to read, we want to minimize this number.\par
+\noindent In PCA, we maximize $\text{Var}\left(a^T\begin{bmatrix}X^{(1)}\\X^{(2)}\end{bmatrix}\right)$
+\par\bigskip
+\subsection{Slide 4 - Task}\hfill\\\par
+\noindent When $\text{Cor}(U,V)$ is maxed, we capture as much information from lower dimensions as we do with higher dimensions (ie, adding more dimensions will not yield more data). This can be seen as regression, want $U$ to describe $V$ as good as possible.
+\par\bigskip
+\subsection{Slide 5 - Correlation Coefficient}\hfill\\\par
+\noindent Even if we let $a,b$ blow up, we normalise it in he correlation through the denominator 
+\par\bigskip
+\subsection{Slide 7 - Canonical Variates}\hfill\\\par
+\noindent $(U_2,V_2)$ will be orthogonal to $(U_1,V_1)$, same with $(U_k,V_k)$, it will be uncorrelated to all the previous ones.
+\par\bigskip
+\subsection{Slide 9 - Find Canonical Variates}\hfill\\\par
+\noindent In PCA we used the Lagrange multipliers in order to maximize, we will do the same but with 2 constraints $(a^T\Sigma_{11}a) = 1$ and $(b^T\Sigma_{22}b) = 1$:
+\begin{equation*}
+  \begin{gathered}
+    \max{f} = a^T\Sigma_{12}b-\lambda_1(a^T\Sigma_{11}a-1)-\lambda_2(b^T\Sigma_{22}b-1)
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that usually it will be $(a^T\Sigma_{12}b)$, but we only care about positive values, so we do $(a^T\Sigma_{12}b)$\par
+\noindent Maximizing:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial f}{\partial a} = 0 = \Sigma_{12}b-\lambda_1(\Sigma_{11}+\Sigma_{11}^T)a-2\Sigma_{11}\qquad \dfrac{\partial f}{\partial b} = 0 = \Sigma_{21}a-\lambda_2(\Sigma_{22}+\Sigma_{22}^T)b-2\Sigma_{22}\\
+    \dfrac{\partial x^T\Sigma x}{\partial x} = (\Sigma+\Sigma^T)x\qquad \dfrac{\partial b^Tx}{\partial x} = b\\
+    b^T\Sigma_{21}a = a^T\Sigma_{12}b\Rightarrow
+    \begin{rcases*}
+      a^T\Sigma_{12}b = 2\lambda_1 \underbrace{a^T\Sigma_{11}a}_{\text{$=1$}}\\
+      b^T\Sigma_{21}a = 2\lambda_2 \underbrace{b^T\Sigma_{22}b}_{\text{$=1$}}
+    \end{rcases*}\Rightarrow \lambda_2 = \lambda_1 = \lambda
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We will see that for $\Sigma_{12}b$ and $\Sigma_{12}a$:
+\begin{equation*}
+  \begin{gathered}
+    \Sigma_{12}b = 2\lambda\Sigma_{11}a\\
+    \Sigma_{21}a = 2\lambda\Sigma_{22}b\Rightarrow b = \dfrac{1}{2\lambda}\Sigma_{22}^{-1}\Sigma_{21} \quad\text{ (assuming $\Sigma_{22}$) is invertible, which it is since it is the covariance matrix}
+  \end{gathered}
+\end{equation*}\par
+\noindent Plugging this definition of $b$ in the first equation yields:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \Sigma_{12}\left(\dfrac{1}{2\lambda}\Sigma_{22}^{-1}\Sigma_{21}a\right) = 2\lambda\Sigma_{22}b\\
+    \Rightarrow \Sigma_{11}^{-1}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}a = 4\lambda^2a\Rightarrow a\quad\text{ is an eigenvector to } \Sigma_{11}^{-1}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\quad\text{ with eigenvalue } (2\lambda)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent By the useful lemma on slide 8:
+\begin{equation*}
+  \begin{gathered}
+    \Sigma_{11}^{-1}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} = \Sigma_{11}^{-1/2}\Sigma_{22}^{-1}\Sigma_{12}^T\Sigma_{11}^{-1/2}\quad\text{ since:}\\
+    \Sigma_{11}^{1/2}\Sigma_{11}^{-1}\Sigma_{12}\Sigma_{22}\Sigma_{21}\Sigma_{11}^{-1/2}\Sigma_{11}^{1/2}\\
+    = \Sigma_{11}^{-1/2}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\Sigma_{11}^{-1/2}(\Sigma_{11}^{1/2}a) = (2\lambda)^2(\Sigma_{11}^{1/2}a)\\
+    \Rightarrow \Sigma_{11}^{-1/2}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\Sigma_{11}^{-1/2}e = (\rho^*)^2e\qquad \rho^* = 2\lambda\\
+    e = \Sigma_{11}^{1/2}a \Rightarrow a= \Sigma_{11}^{-1/2}e\\
+    b = \dfrac{1}{2\lambda}\Sigma_{22}^{-1}\Sigma_{21}a
+  \end{gathered}
+\end{equation*}\par
+\noindent Using $a^T\Sigma_{11}a$:
+\begin{equation*}
+  \begin{gathered}
+    e^T\Sigma^{-1/2}_{11}\Sigma_{11}\Sigma_{11}^{-1/2}e = e^Te=1
+  \end{gathered}
+\end{equation*}\par
+\noindent Similarly:
+\begin{equation*}
+  \begin{gathered}
+    b = \dfrac{1}{(2\lambda)^2}a^T\Sigma_{12}\underbrace{\Sigma_{22}^{-1}\Sigma_{22}}_{\text{$=1$}}\Sigma_{22}^{-1}\Sigma_{21}a\\
+    \Rightarrow \dfrac{1}{(2\lambda)^2}a^T\underbrace{\underbrace{\Sigma_{11}\Sigma_{11}^{-1}}_{\text{add this}}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}a}_{= (2\lambda)^2a}
+  \end{gathered}
+\end{equation*}\par
+\noindent Here, we are using $a^T\Sigma_{11}a = 1$ (linear constraint is satisfied and variance is 1)
+\par\bigskip
+\noindent Now:
+\begin{equation*}
+  \begin{gathered}
+    a^T\Sigma_{12}b = \dfrac{1}{2\lambda}a^T\Sigma_{11}\Sigma_{11}^{-1}\Sigma_{12}^T\Sigma_{12}^{-1}\Sigma_{12}a \Rightarrow 2\lambda \underbrace{a^T\Sigma_{11}a}_{\text{$=1$}} = 2\lambda
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Correlation is therefore given by the square root of eigenvalues. Once we know $a$, we can find $b$ (that is the meaning behind proportionality).
+\par\bigskip
+\subsection{Slide 12 - Scale Invariant: Coefficient Vector}\hfill\\\par
+\noindent Even though it is scale invariant, it is good practice to scale/normalize.
+\par\bigskip
+\subsection{Slide 14 - Proportion of Explained Variance}\hfill\\\par
+\noindent $r^2 = $ how much of the variance that is explained. Sample covariance matrix \textit{or} sample correlation matrix work in slide 9.
+\par\bigskip
+\subsection{Slide 15 - Sample Canonical Variate Pair}\hfill\\\par
+\noindent Sample variance should be one.\par
+\noindent Since we use maximum correlation, we can use one set ot describe the other
+\par\bigskip
+\subsection{Slide 19 - Special case: $p=1$}\hfill\\\par
+\noindent $\alpha = $ proportional
+\par\bigskip
+\subsection{Slide 22 - Almost same thing}\hfill\\\par
+\begin{itemize}
+  \item Demean $\widehat{Y} =0\quad \overline{x_1} = \overline{x_2} = \overline{x_3} = 0$
+  \item $\underbrace{S_{11}^{-1/2}S_{12}S_{22}^{-1}S_{21}S_{11}^{-1/2}}_{\underbrace{Y}_{\text{mean = 0}}=\alpha+\sum_i\underbrace{\beta_i x_i}_{\text{mean = 0}}}\Rightarrow $ forces $\alpha$ to be 0
+\end{itemize}
+\par\bigskip
+\noindent Multiple $r$-squared = "how much variation/variance in $Y$ is explained by our model"
+\par\bigskip
+\subsection{Slide 24 - Maximize Covariance}\hfill\\\par
+\noindent Multicollinearity is a problem with numerical 0:es, such when trying to invert the following matrix:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}1&1e16\\1e16&1\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Very similar to CCA, difference is how we manage restriction:
+\begin{equation*}
+  \begin{gathered}
+    \max \text{Corr}(a^TX,b^TY)\stackrel{\text{Var}=1}{=} \text{Cov}\left(a^TX,b^TY\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Restriction can be $a^T\sum_{xx}a = 1$ and $b^T\sum_{YY}b = 1$. In CCA we downgrade dimension of both $X,Y$ in PLS we only downgrade $X$
+\par\bigskip
+\subsection{Slide 26 - PLS Regression}\hfill\\\par
+\noindent Since $t$ is a vector, $t^Tt$ is a scalar, so $(t^Tt)^{-1}$ is just the reciprocal.

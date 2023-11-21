@@ -1,0 +1,239 @@
+\section{Discriminant Analysis and Classification}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      \node[state](p0){ECM};
+      \node[state, below of=p0, yshift=-2cm, xshift=-2cm](p1){Max Likelihood};
+      \node[state, right of=p1, xshift=2cm](p2){min TPM};
+      \node[state, right of=p2, xshift=2cm](p3){Naive Bayes};
+      \node[state, below of=p3, yshift=-2cm](p4){Gaussian DA};
+      \node[state, left of=p4, xshift=-2cm](p5){$\Sigma_1 =\Sigma_2 = \text{ LDA}$};
+      \node[state, below of=p5](p6){$\Sigma_1\neq\Sigma_2=\text{ QDA}$};
+      \path[-stealth] (p0) edge[] node{} (p1);
+      \path[-stealth] (p0) edge[] node{} (p2);
+      \path[-stealth] (p0) edge[] node{} (p3);
+      \path[-stealth] (p3) edge[] node{} (p4);
+    \end{tikzpicture}
+    \caption{}
+\end{figure}
+\subsection{Slide 3 - Motivation}\hfill\\\par
+\noindent Discrimination here means to separate subjects.\par
+\noindent \textit{Use labeled observations to build a classification rule}, means using previous data.
+\par\bigskip
+\noindent Classes are well defined, that is they are fixed in some sense. Having two classes such as cat and trying to classify a picture of a horse will only lead to the picture of the horse being classified into either cat or dog. It will not "create a new class" just because the data does not match. It will find which class it matches the best in, and sort into there.
+\par\bigskip
+\subsection{Slide 4 - Two-class problem}\hfill\\\par
+\noindent Dividing $\Omega$ into two disjoint sets $R_1$ and $R_2$ is the discrimination step.
+\par\bigskip
+\noindent \textit{Probabilistic = } vague group belonging\par
+\noindent\textit{Deterministic = } you are either in group $A$ or group $B$
+\par\bigskip
+\subsection{Slide 6 - Classification Table}\hfill\\\par
+\noindent $m_{ij}$ where $j = $ observed, and $i = $ predicted
+\par\bigskip
+\noindent There is another thing we can compute, accuracy = $\dfrac{m_{11}+m_{22}}{m_{11}+m_{12}+m_{21}+m_{22}}$
+\par\bigskip
+\noindent Note that using absolute rates, ie $\dfrac{m_{12}+m_{21}}{m_{11}+m_{22}}$ does not take into account he cost of misclassification, it cares more about maximizing $m_{12}+m_{21}$ 
+\par\bigskip
+\subsection{Slide 7 - F-Score of Binary Classification}\hfill\\\par
+\noindent If F-score $>0.5$, then we are goood (DIY rule of thumb)
+\par\bigskip
+\subsection{Slide 8 - Cost of Misclassification}\hfill\\\par
+\noindent ECM $ = \underbrace{c(2|1)}_{\text{cost of misclas.}}\underbrace{P(2|1)}_{\text{prob. of misclas.}}p_1+\cdots$
+\par\bigskip
+\noindent Bayesian means "I have some knowledge, I get new data, I update my previous knowledge"
+\par\bigskip
+\subsection{Slide 9 - Minimizing ECM}\hfill\\\par
+\noindent Intuitive idea: If it costs a lot to misclass into class 1, then we "want" to shit our mistake-making into the other class (ie shift such that whenever we misclass it is a higher probability that we misclass into the "less costly" class).
+\par\bigskip
+\subsection{Slide 10 - An Example Using ECM}\hfill\\\par
+\begin{equation*}
+  \begin{gathered}
+    \pi_1: X\sim N(0,\Sigma)\qquad p_1 = 0.8\qquad c(2|1) = 5\\
+    \pi_2: X\sim N(\mu,\Sigma)\qquad p_2 = 0.2\qquad c(1|2) = 10
+  \end{gathered}
+\end{equation*}\par
+\noindent We now have everything we need to compute:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{c(1|2)p_2}{c(2|1)p_1} = \dfrac{10\cdot 0.2}{5\cdot 0.8} = \dfrac{1}{2}\\
+    R_1: \dfrac{f_1(x)}{f_2(x)} = \dfrac{\dfrac{1}{(2\pi)^{p/2}\left|\Sigma\right|^{1/2}}\exp{\left(-\dfrac{1}{2}x^T\Sigma^{-1}x\right)}}{\dfrac{1}{(2\pi)^{p/2}\left|\Sigma\right|^{1/2}}\exp{\left(-\dfrac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)}}>\dfrac{1}{2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The cost is subject to your own judhement, can be biased to you/the one who decides what the cost of misclassification is. 
+\par\bigskip
+\subsection{Slide 13 - Special Case III: Highest Posterior Probability}\hfill\\\par
+\noindent Assigning class depending on posterior probability.\par
+\begin{itemize}
+  \item Prior: $P(\pi_i)$
+  \item Posterior: $P(\pi_i\underbrace{x}_{\text{data}})$
+\end{itemize}\par
+\noindent After reading mail (spam not spam mail problem), I may update my knowledge of the probabilities of belonging to each class.\par
+\noindent Naive Bayes does this, after updating probabilities it adds into the class with highest probability.
+\par\bigskip
+\subsection{Slide 14 - Niave Bayes: Gaussian Discriminant Analysis}\hfill\\\par
+\noindent If we do not know something, either estimate or use your own judgement.
+\par\bigskip
+\noindent Log-likelihood given by:
+\begin{equation*}
+  \begin{gathered}
+    \ell = \sum_{j}^{n}Z_j\left[\ln{\left(\phi\right)}-\dfrac{p}{2}\ln{\left(2\pi\right)}-\dfrac{1}{2}\ln{\left(\left|\Sigma\right|\right)}-\dfrac{1}{2}(x_j-\mu_1)^T\Sigma^{-1}(x_j-\mu_1)\right]+\\\left(1-Z_j\right)\left[\ln{\left(1-\phi\right)}-\dfrac{p}{2}\ln{\left(2\pi\right)}-\dfrac{1}{2}\ln{\left(\left|\Sigma\right|\right)}-\dfrac{1}{2}(x_j-\mu_2)\Sigma^{-1}(x_j-\mu_2)\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $\widehat{\phi} = \dfrac{\text{numbers of 1}}{n} = \widehat{p_1}\Rightarrow \widehat{p_2} = 1-\phi = \dfrac{\text{number of 2}}{n}$
+\par\bigskip
+\noindent MLE: In order to optimize (find $\widehat{\mu_1}$), we can use the optimization lemma from chapter 4 (slide 24):
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \widehat{\mu_1} = \dfrac{\Sigma \overbrace{Z_j}^{\text{if in group 2, $Z = 0$, so no contrib.}}x_j}{\Sigma Z_j = \dfrac{1}{n}\text{ part}}
+    \end{rcases*}\text{ average of group 1}\\
+    \begin{rcases*}
+      \widehat{\mu_2} = \dfrac{\Sigma(1-Z_j)x_j}{\Sigma(1-Z_j)}
+    \end{rcases*} \text{ average of group 2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Only thing we do not know is $\Sigma$, but we use the same lemma from chapter 4.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Quadratics are the same trace!
+\begin{equation*}
+  \begin{gathered}
+    (x_j-\mu_1)^T\Sigma^{-1}(x_j-\mu_1) = \text{tr}\left(\Sigma^{-1}(x_j-\mu_1)(x_j-\mu_1)^T\right)\\
+    \Rightarrow -\dfrac{1}{2}\left[\Sigma Z_j+\Sigma(1-Z_j)\right]\ln{\left(\left|\Sigma\right|\right)}-\dfrac{1}{2}\Sigma\underbrace{\text{tr}\left(\Sigma^{-1}Z_j(x_j-\mu_1)(x_j-\mu_1)^T + (1-Z_j)(x_2-\mu_2)(x_2-\mu_2)^T\right)}_{\underbrace{=-\dfrac{1}{2}\text{tr}\left(\Sigma\Sigma^{-1}\left(Z_j(x_j-\mu_1)\cdots\right)\right)}_{=A}}\\
+    q = \Sigma Z_j+\Sigma (1-Z_j)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    P(Z = 1) = \widehat{p_1}\qquad X|Z = 1\sim N(\widehat{\mu_1},\widehat{\Sigma})
+    P(Z = 0) = \widehat{p_2}\qquad X|Z = 0\sim N(\widehat{\mu_2},\widehat{\Sigma})\\
+    \Rightarrow P(Z|x_0) = \dfrac{P(x_0|Z)P(Z)}{\sum_{Z}P(x_0|Z)P(Z)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Given you have cancer, you will observe $X$. Logistic regression is opposite, given $X$ determine if the patient has cancer. 
+\par\bigskip
+\subsection{Slide 15 - Gaussian Discriminant Analysis: Classification}\hfill\\\par
+\noindent The equivalence is same as slide 16, by taking the logarithm
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent Gaussian $\Rightarrow$ only for normally distributed
+\par\bigskip
+\subsection{Slide 16 - Gaussian Discriminant Analysis: Decision Boundary}\hfill\\\par
+\noindent Changing $\geq$ to $=$ yields your \textit{decision boundary}
+\par\bigskip
+\subsection{Slide 17 - Fishers Linear Discriminant Analysis}\hfill\\\par
+\noindent Assuming $\Sigma_1 = \Sigma_2 = \Sigma$ yields linearity. Gaussian discriminant analysis is a type of ECM. Fisher ECM works through projections instead.
+\par\bigskip
+\subsection{Slide 18 - MANOVA-Like Idea}\hfill\\\par
+\noindent $W = $ within group variation\par
+\noindent $B = $ between group variation.
+\par\bigskip
+\noindent Want things in the "within" set to be as close to each other, ie small $a^TWa$ and big $a^TBa$ 
+\par\bigskip
+\subsection{Slide 19 - Within Versus Between Variation}\hfill\\\par
+\noindent Note that we have not made any assumptions on the distribution.
+\par\bigskip
+\subsection{Slide 20 - Fishers LDA}\hfill\\\par
+\noindent Idea is the same as Guassiam, instead of $\Sigma$, we use $W$ and we have "mean - mean"$\Sigma$ (or $W$)
+\par\bigskip
+\subsection{Slide 22 - Case I: $\Sigma_1 = \Sigma_2 = \Sigma$}\hfill\\\par
+\noindent The $-\dfrac{1}{2}(\mu_1-\mu_2)^T$ looks similar to $\dfrac{1}{2}(\overline{x_1}-\overline{x_2})^T$
+\par\bigskip
+\subsection{Slide 24 - Connection to Fishers LDA}\hfill\\\par
+\noindent Normality yields robust results, but it can be from other distributions and not necessarily normal.
+\par\bigskip
+\subsection{Slide 26 - Case II: $\Sigma_1\neq\Sigma_2$}\hfill\\\par
+\noindent QDA allows $\Sigma$ to be different, contrary to LDA where it has to be the same.
+\par\bigskip
+\subsection{Slide 27 - Logistic Model For Two Populations}\hfill\\\par
+\noindent Probabilistic model of $X$ to momdel probability
+\par\bigskip
+\subsection{Slide 28 - Maximum Likelihood Estimator}\hfill\\\par
+\noindent For Bernoulli! No close method for finding $\alpha$ and $\beta$. We can either guess or use some numerical method to find it/approximate it.
+\par\bigskip
+\subsection{Slide 29 - Penalized Logistic Regression}\hfill\\\par
+\noindent Think of $\alpha$ like the intercept and $\beta$ like the slope coefficients \par
+\noindent Maximizing likelihood function is the same as minimizing the likelihood function after you multiply it by -1.
+\par\bigskip
+\noindent\underline{SPLINE} approach (yields continuous and differential function)\par
+\noindent Recall noise in data, what can happen to complicated models? Well they would end up modelling the noise in their attempt to fit the curve to the data-points.
+\par\bigskip
+\noindent\underline{Doupple descent} phenomenon
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    -\ell(\alpha,\beta)+\lambda[\left|\beta_1\right|+\left|\beta_2\right|]\Lrarr \max\left(\ell(\alpha,\beta)\right) \text{ such that } \left|\beta_1\right|+\left|\beta_2\right| = t
+  \end{gathered}
+\end{equation*}\par
+\noindent Here $t$ is some number. Tuning $t$ tunes $\lambda$. The above example is an example of LASSO. Below is an example of Ridge:
+\begin{equation*}
+  \begin{gathered}
+    \beta_1^2+\beta_2^2
+  \end{gathered}
+\end{equation*}\par
+\noindent One way to tune $\lambda$ is by cross validation. 3-fold cross validation works in the following way:\par
+\begin{itemize}
+  \item Find a sequence of lambdas beforehand, testing will yield which $\lambda$ to pick ($\underbrace{\lambda = 0,\cdots,\lambda_{\text{max}}}_{\text{somewhere in here}}$)
+  \item Split data into 3 disjoint sets
+  \item Use the first 2 parts to predict 3
+  \item Tune accordingly
+  \item Repeat previous 2 steps $\begin{pmatrix}3\\2\end{pmatrix}$ times
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent 10-fold method is the most popular. 
+\par\bigskip
+\subsection{Slide 30 - Limitation}\hfill\\\par
+\noindent Kind of like how Newtons method works to find 0:es of a function
+\par\bigskip
+\subsection{Slide 31 - Euclidean Inner Product}\hfill\\\par
+\noindent We replace the estimate $\widehat{\beta}$ with $\Sigma d_jx_j$ 
+\par\bigskip
+\subsection{Slide 32 - New Features}\hfill\\\par
+\noindent Here \textit{features}  = covariates. $\delta(x)$ includes "old" features:
+\begin{equation*}
+  \begin{gathered}
+    \begin{bmatrix}x_1\\x_2\end{bmatrix}\stackrel{\delta}{\Rightarrow}\delta\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1\\x_2\\x_1^2\\x_2x_1\\x_2^2\\x_1^3\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 33 - Kernel Function and Kernel Matrix}\hfill\\\par
+\noindent The output of the function $\kappa$  is a scalar.
+\par\bigskip
+\noindent $\delta^T(x)\delta(z) = $ Euclidean inner product of $\delta(x)$ and $\delta(z)$
+\par\bigskip
+\subsection{Slide 38 - Motivation: Margin}\hfill\\\par
+\noindent Idea of a \textit{support vector machine}; if we have multiple ways to pick our decision line, this will give us the best lines.
+\par\bigskip
+\noindent $Y $ here is some binary set.
+\par\bigskip
+\subsection{Slide 40 - Hinge Loss: Brief Intro}\hfill\\\par
+\noindent Term after hinge loss is the Ridge penalty
+\par\bigskip
+\subsection{Slide 41 - Hinge Loss Vs Log-Likelihood Loss}\hfill\\\par
+\noindent You always lose some with logistic regression. With Hinge loss we will lose more because of how the curve is. 
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent In the R code, $\gamma$ is the inverse of $\Sigma$
+\par\bigskip
+\subsection{Slide 45 - Best Partition}\hfill\\\par
+\noindent $\widehat{p}_{mk}$ is the proportion of say $x_1$ in that region.
+\par\bigskip
+\noindent\textit{Purity} is about how red is in the black area etc. A very pure area is homogenous and has a small Gini index.
+\par\bigskip
+\subsection{Slide 47 - A Tree Versus A Forest}\hfill\\\par
+\noindent $B = $ the number of trees in the forest.
+\par\bigskip
+\noindent We cannot mimick the population due to biases, but we can see the data as our population instead and pick out a subset of our data and pretend we are picking out a subset of our population 
+\par\bigskip
+\noindent Line 3 is the bootstrapping method. 
+\par\bigskip
+\subsection{Slide 56 - Linear Discriminants}\hfill\\\par
+\noindent $x_0$ is our new variable $\Rightarrow$ still linear

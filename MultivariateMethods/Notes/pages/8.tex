@@ -16,4 +16,69 @@
 \par\bigskip
 \noindent Tasks is usually lower than factors.
 \par\bigskip
-\noindent In multiple regression we had $X = X\beta + \varepsilon$
+\noindent In multiple regression we had $X = X\beta + \varepsilon$, but this is for all people/subjects, while $X = \mu+\ell F+\varepsilon$  is for 1 person/subject, like in multivariate multiple regression model, difference is $Y_i = \beta^T\underbrace{X_i}_{\text{observed}}+\varepsilon$ 
+\par\bigskip
+\noindent A regressor is values you do not really observe such as IQ, but you still want to build a model using observations.
+\par\bigskip
+\subsection{Slide 5 - Scale Indeterminacy}\hfill\\\par
+\noindent We can redefine scale, continuing with the IQ example, there really is nothing stopping us from saying that the IQ scale should lay inbetween [-1,1] by just compressing the Gaussian.
+\par\bigskip
+\subsection{Slide 7 - Model Implied Covariance Matrix}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \text{Cov}\left(LF+e\right) = \text{Cov}\left(LF,LF\right)+\underbrace{\text{Cov}\left(LF,e\right)}_{L\text{Var}\left(F\right)L^T+\text{Var}\left(e\right) = LL^T+\psi = \text{Cov}\left(X\right)}+\underbrace{\text{Cov}\left(e,LF\right)}_{\text{$=0$}}+\text{Cov}\left(e,e\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The reason for the name model implied covariance matrix, is because it is implied by the setup of the model. 
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\begin{bmatrix}l_{11}&l_{12}\\l_{21}&l_{22}\\l_{31}&l_{32}\end{bmatrix}}_{\text{$L$}}\underbrace{\begin{bmatrix}l_{11}&l_{21}&l_{31}\\l_{12}&l_{22}&l_{32}\end{bmatrix}}_{\text{$L^T$}} + \begin{bmatrix}\psi_1&\quad&\quad\\\quad&\psi_2&\quad\\\quad&\quad&\psi_3\end{bmatrix}\\
+    = \begin{bmatrix}l_{11}^2+l_{12}^2+\psi_1&0&0\\0&l_{21}^2+l_{22}^2+\psi_2&0\\0&0&l_{31}^2+l_{32}^2+\psi_3\end{bmatrix}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Here  $l_{11}^2+l_{12}^2+\psi_1 = \text{Var}\left(X_1\right)$, $l_{21}^2+l_{22}^2+\psi_2 = \text{Var}\left(X_2\right)$, $l_{31}^2+l_{32}^2+\psi_3 = \text{Var}\left(X_3\right)$
+\noindent Want communality over uniqueness
+\par\bigskip
+\subsection{Slide 8 - Existence of Decomposition}\hfill\\
+\par\bigskip
+\noindent Note that the invalid decomposition is invalid due to negative $\psi$ , $\text{Var}\left(e\right)$ not as assumption.
+\par\bigskip
+\noindent\textbf{Anmärkning:} PCA always doable, not the same with factor analysis. 
+\par\bigskip
+\subsection{Slide 9 - Indeterminacy}\hfill\\\par
+\noindent Rotation (multiplication by diagonal matrix $T$) is invariant $\Rightarrow$ indeterminate
+\par\bigskip
+\subsection{Slide 10 - Scale Invariant}\hfill\\\par
+\noindent\textbf{Curiosity:} What happens if $c\mu$ or $cz$?
+\par\bigskip
+\subsection{Slide 11 - Popular Estimation Methods}\hfill\\\par
+\noindent\textbf{Curiosity:} What if only one person in our sample has $p+1\times 1$?
+\par\bigskip
+\subsection{Slide 12 - Spectral Decomposition}\hfill\\\par
+\noindent Recurring small eigenvalues yields a possibility to find $\psi$ such that $\psi$ is diagonal.
+\par\bigskip
+\subsection{Slide 14 - Determine Number of Factors}\hfill\\\par
+\noindent A factor/factors = things we want to test, while $m$ is the number of things we want to test. Say for example we use the multivariate analysis exam as an example. It might test our knowledge in multivariate analysis ($m=1$), but might also in addition test our R knowledge ($m=2$) 
+\par\bigskip
+\noindent Kaiser criterion sucks.
+\par\bigskip
+\subsection{Inbetween lectures}\hfill\\
+\noindent We want the RMSEA index $<0.1$. Or rank of the two sample test $>3$ = bad?
+\par\bigskip
+\subsection{Slide 23 - Versus PCA}\hfill\\\par
+\noindent Notice that they are very similar. I can do PCA to solve FA.
+\par\bigskip
+\subsection{Slide 24 - Orthogonal Rotation}\hfill\\\par
+\noindent Multiplication will not change anything.
+\par\bigskip
+\subsection{Slide 26 - Oblique Rotation}\hfill\\\par
+\noindent All factors cannot allways be orthogonal. For example, say we test English knowledge, then spelling will have some correlation to writing $\rightarrow$ oblique.
+\par\bigskip
+\noindent If we have the following correlation matrix $\begin{bmatrix}1&0.9\\0.9&1\end{bmatrix}$, then 0.9 (since it is too close to 1), might be the same so we could reduce 1 factor.
+\par\bigskip
+\subsection{Slide 28 - Bartlett Score}\hfill\\\par
+\noindent A factor score is the estimate of $F$
