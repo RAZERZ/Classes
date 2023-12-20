@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  19 NOV 2023 17:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.4)  20 DEC 2023 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1858,21 +1858,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--238
 
  []
 
-) [27] (./main.aux (./includes/title.aux))
+) [27] (./pages/11.tex [28]) [29] (./main.aux (./includes/title.aux))
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 1653347646A65992776AE5DC6AD3F20D;31746
-(rerunfilecheck)             After:  A49CF04F91FCCF782CF84FE51AEA3603;31976.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: B3A55BB81F79FDBA33E953E5DC5FE319;32146.
  ) 
 Here is how much of TeX's memory you used:
- 38862 strings out of 477985
- 921865 string characters out of 5840059
+ 38891 strings out of 477985
+ 922204 string characters out of 5840059
  1888388 words of memory out of 5000000
- 58097 multiletter control sequences out of 15000+600000
+ 58107 multiletter control sequences out of 15000+600000
  521950 words of font info for 70 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1892,10 +1889,10 @@ c/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (28 pages, 325972 bytes).
+Output written on main.pdf (30 pages, 334952 bytes).
 PDF statistics:
- 869 PDF objects out of 1000 (max. 8388607)
- 793 compressed objects within 8 object streams
- 155 named destinations out of 1000 (max. 500000)
- 973 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 903 PDF objects out of 1000 (max. 8388607)
+ 824 compressed objects within 9 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 989 words of extra memory for PDF output out of 10000 (max. 10000000)
 

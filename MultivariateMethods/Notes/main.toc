@@ -119,3 +119,4 @@
 \contentsline {subsection}{\tocsubsection {}{9.29}{Slide 45 - Best Partition}}{27}{subsection.9.29}%
 \contentsline {subsection}{\tocsubsection {}{9.30}{Slide 47 - A Tree Versus A Forest}}{27}{subsection.9.30}%
 \contentsline {subsection}{\tocsubsection {}{9.31}{Slide 56 - Linear Discriminants}}{27}{subsection.9.31}%
+\contentsline {section}{\tocsection {}{10}{Old Exam 2022-08-15}}{28}{section.10}%
