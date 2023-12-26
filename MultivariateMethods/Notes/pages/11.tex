@@ -1,4 +1,4 @@
-\section{Old Exam 2022-08-15}
+\section{Old Exam 2022-01-05}
 \begin{enumerate}[label=\arabic*.,leftmargin=*]
   \item\par\bigskip
     \begin{enumerate}[label=\alph*),leftmargin=*]
@@ -102,5 +102,45 @@
         \end{itemize}
     \end{enumerate}
     \par\bigskip
+    \item
+    \begin{enumerate}[label=\alph*),leftmargin=*]
   \item Recall that in CCA, the main task is to find linear combinations of $\begin{rcases*}U = a^TX\\V=b^TY\end{rcases*}$ such that their correlation is maximized and $\begin{rcases*}\text{Var}\left(U\right)=1\\\text{Var}\left(V\right)=1\end{rcases*}$ 
+    \par\bigskip
+    \item\noindent In order to find the canonical variates, we can use Result 10.1 but we would need the eigenvalues of $\Sigma_{11}^{-1/2}\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\Sigma_{11}^{-1/2}$ which we can compute using R:
+    \par\bigskip
+\begin{verbatim}
+eigen() decomposition
+$values
+[1] 0.5458401879 0.0008598121
+\end{verbatim}
+    \par\bigskip
+  \item 
+    \noindent Notice that the second eigenvalue is numerically 0 (i.e it does not contribute that much).
+  \end{enumerate}
+  \par\bigskip
+\end{enumerate}
+\newpage
+\begin{enumerate}[label=\arabic*.,leftmargin=*]
+  \setcounter{enumi}{4}
+  \item 
+  \begin{enumerate}[label=\alph*),leftmargin=*]
+    \item A scree plot is essentially a plot of $(x,y) = $ (number of eigenvalue, eigenvalue). In our case, we can plot it by hand or in R to get the following:
+      \begin{center}
+        \includegraphics[scale=0.7]{./figures/scree_plot.png}
+      \end{center}
+      \par\bigskip
+    \item There are numerous methods to decide how many components to include in the study. We can use the elbow-method in the scree plot or we can use the explained variance proportion which is given by:
+      \begin{equation*}
+        \begin{gathered}
+          \dfrac{\sum_{j=1}^{k}\lambda_j}{\sum_{i=1}^{n}\lambda_i} = \text{ variance explained by the $k$th eigenvalues }
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+      \noindent Personally I would have used 2 components, since this seems to be the elbow in the scree plot. Computing the variance explained yields:
+      \begin{equation*}
+        \begin{gathered}
+          \dfrac{3.50293864+0.34142136}{3.50293864+0.34142136+0.09706136+0.05857864} \approx 96\%\text{ explained}
+        \end{gathered}
+      \end{equation*}
+  \end{enumerate}
 \end{enumerate}
