@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  23 DEC 2023 21:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  30 DEC 2023 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1859,21 +1859,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--238
  []
 
 ) [27] (./pages/11.tex [28] [29]
-<./figures/scree_plot.png, id=789, 335.75438pt x 275.52937pt>
+<./figures/scree_plot.png, id=799, 335.75438pt x 275.52937pt>
 File: ./figures/scree_plot.png Graphic file (type png)
 <use ./figures/scree_plot.png>
 Package pdftex.def Info: ./figures/scree_plot.png  used on input line 129.
 (pdftex.def)             Requested size: 235.02646pt x 192.86923pt.
 ) [30 <./figures/scree_plot.png (PNG copy)>]
-(./main.aux (./includes/title.aux))
+(./pages/12.tex) [31] (./pages/13.tex
+Overfull \hbox (3.92184pt too wide) detected at line 42
+[][]
+ []
+
+[32]) [33] (./main.aux (./includes/title.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1E8E51D13B7CC2001615206E3E1D157F;32146.
+(rerunfilecheck)             Checksum: 25E23DFCB6A82C6DECDCDEF0024E1A6D;32517.
  ) 
 Here is how much of TeX's memory you used:
- 38910 strings out of 477985
- 922486 string characters out of 5840057
+ 38957 strings out of 477985
+ 922889 string characters out of 5840057
  1888388 words of memory out of 5000000
- 58115 multiletter control sequences out of 15000+600000
+ 58121 multiletter control sequences out of 15000+600000
  522118 words of font info for 71 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1894,10 +1899,10 @@ mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (31 pages, 366292 bytes).
+Output written on main.pdf (34 pages, 378972 bytes).
 PDF statistics:
- 921 PDF objects out of 1000 (max. 8388607)
- 838 compressed objects within 9 object streams
- 178 named destinations out of 1000 (max. 500000)
- 994 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 980 PDF objects out of 1000 (max. 8388607)
+ 894 compressed objects within 9 object streams
+ 213 named destinations out of 1000 (max. 500000)
+ 1010 words of extra memory for PDF output out of 10000 (max. 10000000)
 

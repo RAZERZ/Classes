@@ -1,0 +1,65 @@
+\section{Old exam - training exam}
+\noindent\textbf{Anmärkning:} There are certain questions that have come in the homeworks, see respective homework solution. 
+\par\bigskip
+
+\begin{enumerate}[label=\arabic*., leftmargin=*]
+  \setcounter{enumi}{3}
+  \item
+  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \item The test problem that has been considered here is if the mean is $\begin{bmatrix}60\\29\\60\\1000\end{bmatrix}$. This is a one sample $T^2$ test where we assume our data is i.i.d and normal.
+    \par\bigskip
+  \item We know that we can express the $T^2$ distribution using the $F$ distribution throught the follwing relationship:
+    \begin{equation*}
+      \begin{gathered}
+        T^2(p,n-1)\\sigmaim \dfrac{(n-1)p}{n-p}F_{p,n-p}\qquad 
+        \begin{rcases*}
+          n-p = 199\\p=4
+        \end{rcases*}n = 403
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Yes they can if we look invidually for each $X_i$ , no if they are joint.
+    \par\bigskip
+  \item We are not testing any interaction between the data points, only if they have the same value. The MANOVA model is therefore specified through:
+    \begin{equation*}
+      \begin{gathered}
+        X_{ij} = \mathbf{\mu}+\alpha_i+\varepsilon_{ij}\qquad H_0:\alpha_i = 0\quad\forall i
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Our assumptions correspond to the normal MANOVA assumptions, that is $\varepsilon_{ij}$ is multivariate normal, data is independent across stations.
+    \par\bigskip
+  \item We can use 2 methods, either the elbow method (subjective) or we fix an acceptable percentage of explained variance such as 95\%.
+    \par\bigskip
+  \item We sort our $n$ eigenvalues, and then compute the $k$th component by: $\dfrac{\sum_{j=1}^{k}\lambda_j}{\sum_{i=1}^{n}\lambda_i}$\par
+    \noindent In our case, this yields $\dfrac{3}{3+0.6+0.3+0.1} = 75\%$
+    \par\bigskip
+  \item
+    \begin{equation*}
+      \begin{gathered}
+        X = \mu+LF+\varepsilon\qquad \text{Cov}\left(X\right) = LL^T+\Psi
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent Under rotation, this becomes:
+    \begin{equation*}
+      \begin{gathered}
+        L\mapsto LT
+        \Rightarrow (LT)(LT)^T+\Psi = L^TT^TL^T+\Psi
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent We can see here that the matrix $T$ did not disappear, so the communalitites after rotations are not the same as the communalitites before rotation they need to be rotated as well. 
+    \par\bigskip
+  \item PCA is dimension reduction while FA is environmental/causal stuff.
+  \end{enumerate}
+  \par\bigskip
+  \item 
+  \begin{enumerate}[label=\alph*),leftmargin=*]
+    \item $Y$-axis groups distance, so if three clusters are desired then we pick those top 3 highest $Y$ values $\Rightarrow 29,6,12$
+      \par\bigskip
+    \item Using the max CH-index, we get 3 clusters.
+      \par\bigskip
+    \item In $k$-means, the data needs to be standardized and the nstart is too low otherwise it would be unstable.
+  \end{enumerate}
+\end{enumerate}
