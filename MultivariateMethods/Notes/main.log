@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  30 DEC 2023 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  30 DEC 2023 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1870,15 +1870,21 @@ Overfull \hbox (3.92184pt too wide) detected at line 42
 [][]
  []
 
-[32]) [33] (./main.aux (./includes/title.aux))
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25E23DFCB6A82C6DECDCDEF0024E1A6D;32517.
+[32]) [33] (./pages/14.tex) [34] (./main.aux (./includes/title.aux))
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 25E23DFCB6A82C6DECDCDEF0024E1A6D;32517
+(rerunfilecheck)             After:  698518E38A26EF9546E4017E11969759;32715.
  ) 
 Here is how much of TeX's memory you used:
- 38957 strings out of 477985
- 922889 string characters out of 5840057
+ 38964 strings out of 477985
+ 922970 string characters out of 5840057
  1888388 words of memory out of 5000000
- 58121 multiletter control sequences out of 15000+600000
+ 58123 multiletter control sequences out of 15000+600000
  522118 words of font info for 71 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1899,10 +1905,10 @@ mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (34 pages, 378972 bytes).
+Output written on main.pdf (35 pages, 381028 bytes).
 PDF statistics:
- 980 PDF objects out of 1000 (max. 8388607)
- 894 compressed objects within 9 object streams
- 213 named destinations out of 1000 (max. 500000)
+ 985 PDF objects out of 1000 (max. 8388607)
+ 898 compressed objects within 9 object streams
+ 215 named destinations out of 1000 (max. 500000)
  1010 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -122,3 +122,4 @@
 \contentsline {section}{\tocsection {}{10}{Old Exam 2022-01-05}}{28}{section.10}%
 \contentsline {section}{\tocsection {}{11}{Old exam - training exam}}{31}{section.11}%
 \contentsline {section}{\tocsection {}{12}{Old exam 2021-01-11}}{32}{section.12}%
+\contentsline {section}{\tocsection {}{13}{Tips/rumors for the exam}}{34}{section.13}%
