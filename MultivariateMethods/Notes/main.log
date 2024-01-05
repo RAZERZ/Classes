@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  30 DEC 2023 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.20)  1 JAN 2024 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1287,22 +1287,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 \l__nicematrix_final_i_int=\count381
 \l__nicematrix_final_j_int=\count382
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
@@ -1859,7 +1859,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--238
  []
 
 ) [27] (./pages/11.tex [28] [29]
-<./figures/scree_plot.png, id=799, 335.75438pt x 275.52937pt>
+<./figures/scree_plot.png, id=804, 335.75438pt x 275.52937pt>
 File: ./figures/scree_plot.png Graphic file (type png)
 <use ./figures/scree_plot.png>
 Package pdftex.def Info: ./figures/scree_plot.png  used on input line 129.
@@ -1872,19 +1872,16 @@ Overfull \hbox (3.92184pt too wide) detected at line 42
 
 [32]) [33] (./pages/14.tex) [34] (./main.aux (./includes/title.aux))
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 25E23DFCB6A82C6DECDCDEF0024E1A6D;32517
-(rerunfilecheck)             After:  698518E38A26EF9546E4017E11969759;32715.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 698518E38A26EF9546E4017E11969759;32715.
  ) 
 Here is how much of TeX's memory you used:
- 38964 strings out of 477985
- 922970 string characters out of 5840057
- 1888388 words of memory out of 5000000
- 58123 multiletter control sequences out of 15000+600000
+ 38965 strings out of 477985
+ 922982 string characters out of 5840057
+ 1887388 words of memory out of 5000000
+ 58124 multiletter control sequences out of 15000+600000
  522118 words of font info for 71 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  111i,22n,107p,760b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1905,10 +1902,10 @@ mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (35 pages, 381028 bytes).
+Output written on main.pdf (35 pages, 381964 bytes).
 PDF statistics:
- 985 PDF objects out of 1000 (max. 8388607)
- 898 compressed objects within 9 object streams
+ 990 PDF objects out of 1000 (max. 8388607)
+ 902 compressed objects within 10 object streams
  215 named destinations out of 1000 (max. 500000)
- 1010 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1018 words of extra memory for PDF output out of 10000 (max. 10000000)
 

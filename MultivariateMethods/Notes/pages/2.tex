@@ -120,6 +120,11 @@
 \subsection{Slide 17 - Sample Covariance Matrix}\hfill\\
 \begin{equation*}
   \begin{gathered}
+    \begin{bmatrix}\mathbf{x}_1^{\prime}-\mathbf{\overline{x}}^{\prime}\\\mathbf{x}_2^{\prime}-\mathbf{\overline{x}}^{\prime}\\\vdots\\\mathbf{x}_n^{\prime}-\mathbf{\overline{x}}^{\prime}\end{bmatrix} = \underbrace{\mathbf{X}}_{n\times p}-\underbrace{\mathbf{1}}_{n\times1}\underbrace{\mathbf{\overline{x}}_1^{\prime}}_{1\times p}
+  \end{gathered}
+\end{equation*}
+\begin{equation*}
+  \begin{gathered}
     X-\dfrac{1}{n}\mathbf{1}\mathbf{1}^TX = (I-\dfrac{1}{n}\mathbf{1}\mathbf{1}^T)X
   \end{gathered}
 \end{equation*}\par
