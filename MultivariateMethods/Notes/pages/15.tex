@@ -1,0 +1,116 @@
+\section{Clustering}
+Using 1 model to describe your data is not good, clustering and modelling per cluster = much better
+\par\bigskip
+\subsection{Slide 3 - Applications of Multivariate Analysis: Clustering}\hfill\\
+\noindent We don't know which group it comes from, as opposed to classification.\par
+\noindent The first step is to guess how many groups we have to classify our data into.
+\par\bigskip
+\subsection{Slide 5 - Distance for Items/Observations}\hfill\\
+Need to define a metric of how "different" something is.
+\par\bigskip
+\subsection{Slide 6 - Clustering Algorithms}\hfill\\
+\begin{enumerate}[leftmargin=*]
+  \item Forward search (start chaos (lots of groups) $\rightarrow$ purify)
+    \par\bigskip
+  \item Backwards (start with 1 group $\rightarrow$ chop into pieces)
+\end{enumerate}
+\par\bigskip
+\subsection{Slide 7 - Linkage Methods}\hfill\\
+\noindent With forward search we will always end up with 1 cluster. You will be needing to trim the search to your liking. It is exploratory.
+\par\bigskip
+\subsection{Slide 9 - An example}\hfill\\
+\noindent Note that the matrix is symmetric since metrics are symmetric.\par
+\noindent Distance between cluster (12) and (3) and (4) is smallest.
+\par\bigskip
+\noindent\textbf{Anmärkning:}\par
+\noindent For average linkage, we only look for distance between 2 clusters.
+\par\bigskip
+\subsection{Slide 16 - Dendrogram}\hfill\\
+\noindent Height tells us ordering of joining clusters
+\par\bigskip
+\subsection{Slide 18 - Wards Hierarchical Clustering Method}\hfill\\
+\noindent At every step you loose something. This tries to account for sum of squares.\par
+\noindent Large sum of squares = distance is large
+\par\bigskip
+\subsection{Slide 20 - Pros and Cons}\hfill\\
+\noindent Monotone in the sense $x\mapsto x^2, x\mapsto x^3$
+\par\bigskip
+\subsection{Slide 27 - CH Index and Gap Statistic}\hfill\\
+\noindent $W(K)$, take euclidean distance to center and sum. Minimized when each point in its own cluster.
+\par\bigskip
+\noindent\textbf{Idea:} \textit{Difference of clusters} \par
+\noindent Collect distances in vector with closest first, second closest second etc...\par
+\noindent Make $B$ large, make $W$ small.
+\par\bigskip
+\noindent Gap Statistic: If random cluster is similar, you're not doing well. Our model should beat a purely random model.
+\par\bigskip
+\noindent $a_i$ small, $b_i$ large (= sparse points)
+\par\bigskip
+\subsection{Slide 29 - Parametric Approach: Mixing Distribution}\hfill\\
+\noindent Complete is best scenario
+\par\bigskip
+\subsection{Slide 30 - EM Algorithm}\hfill\\
+$\theta = \left\{p_k,\mu_k,\Sigma_k,\forall k\right\}$
+\par\bigskip
+\subsection{Slide 31 - E step}\hfill\\
+\noindent Need to know expected value of $log(\underbrace{f(\overbrace{X}^{\text{given}},\overbrace{Z}^{\text{unknown}},\theta)}_{\text{complete distribution}}|X;\underbrace{\widehat{\theta}}_{\text{guessed}})$
+\par\bigskip
+\noindent Expectation is for $Z|X$
+\begin{equation*}
+  \begin{gathered}
+    \E(log(\cdots)) = \sum_{k=1}^{K}\log(f(X,Z,;\theta))P(Z=k|X;\widehat{\theta}^{(t)})
+  \end{gathered}
+\end{equation*}\par
+\noindent By Bayes: 
+\begin{equation*}
+  \begin{gathered}
+    P(Z=k|X,\widehat{\theta}^{(t)}) = \dfrac{f(X|Z=k,\widehat{\theta}^{(t)})\widehat{P}_k^{(t)}}{\sum_{k=1}^{K}f(X|Z=k,\widehat{\theta}^{(t)})\widehat{P}_k^{(t)}}
+  \end{gathered}
+\end{equation*}\par
+\noindent With normal assumption:
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \sum_{k=1}^{K}\left[\overbrace{\log(p_k)}^{Z=k}\underbrace{-\dfrac{q}{2}\log(2\pi)-\dfrac{1}{2}\log(\left|\Sigma_k\right|-\dfrac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k))}_{X|Z}\right]P(Z=k|X;\widehat{\theta}^{(t)})
+  \end{gathered}
+\end{equation*}\par
+\noindent Because we have a sample of $N$ observations, we get:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=1}^{N}\sum_{k=1}^{K}\log(f(x_j,Z;\theta))P(Z_j=k|x_j;\widehat{\theta}^{(t)}) = Q
+  \end{gathered}
+\end{equation*}\par
+\noindent In order to do M step (maximize Q):
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial Q}{\partial p_k} = \sum_{j=1}^{N}\left[\dfrac{1}{p_k}P(Z_j=k|x_j,\widehat{\theta}^{(t)})-\dfrac{1}{p_k}P(Z_j=k|x_j;\widehat{\theta}^{(t)})\right] = 0\\
+    \Rightarrow p_k = \dfrac{\sum_{j=1}^{N}P(Z_j=k|x_j;\widehat{\theta}^{(t)})P_k}{\sum_{j=1}^{N}P(Z_j=K|x_j;\widehat{\theta}^{(t)})}\\
+    \Rightarrow \dfrac{\sum_{k=1}^{K-1}\sum_{j=1}^{N}P(Z_j=k|x_j;\widehat{\theta}^{(t)})P_k}{\sum_{j=1}^{N}P(Z_j=K|x_j,\widehat{\theta}^{(t)})} = 1\\
+    \Rightarrow \widehat{p}_k^{(t+1)} = \dfrac{\sum_{j=1}^{N}P(Z_j=k|x_j;\widehat{\theta}^{(t)})}{\sum_{k=1}^{K}\sum_{j=1}^{N}P(Z_j=k|x_j;\widehat{\theta}^{(t)})}\leftarrow\text{ updated value at $p_k$}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Next parameter is $\mu_k$, but that depends on the term $-\dfrac{1}{2}(x_j-\mu_k)^T\Sigma_k^{-1}(x_j-\mu_k)\Rightarrow$ essentially want to maximize the following:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{j=1}^{N}(x_j-\mu_k)^T\Sigma_k^{-1}(x_j-\mu_k)P(Z_j=k|x;\widehat{\theta}^{(t)})
+  \end{gathered}
+\end{equation*}\par
+\noindent Similar to Naive Bayes. We can use the lemma from Chapter 4. This yields to something complicated, but there exists a closed form expression of $\mu_k^{(t+1)}$ 
+\par\bigskip
+\noindent Next parameter is $\Sigma_k$, we want to maximize:
+\begin{equation*}
+  \begin{gathered}
+    -\dfrac{N}{2}\log(\left|Z_k\right|)-\dfrac{1}{2}\sum_{j=1}^{N}(x_j-\mu_k)^T\Sigma_k^{-1}(x_j-\mu_k)P(Z_j=k|x_j;\widehat{\theta}^{(t)})
+  \end{gathered}
+\end{equation*}\par
+\noindent to get $\Sigma_k$
+\par\bigskip
+\subsection{Slide 32 - M step}\hfill\\
+\noindent Need to determine which cluster its from, but that is already done! Since the $P(Z=k\cdots)$ part gives probability of being in cluster $k$
+\par\bigskip
+\subsection{Slide 33 - EM Estimator}\hfill\\
+\noindent We update using this $P(Z=k\cdots)$ probability. Like slide 15 in Gaussian DA.
+\par\bigskip
+\subsection{Slide 34 - Gaussian Mixture}\hfill\\
+\noindent Assume $Z$ is multinomial: $P(Z_j=k) = p_k$\par
+$x_j|Z_j=k\sim N_q(\mu_k,\Sigma_k)\leftarrow$ conditional only even though marginals are not normal. 
