@@ -1,0 +1,28 @@
+\section{Simple Linear Regression}
+\subsection{Slide 7}\hfill\\
+\noindent$\sigma^2$ is the same variance for $Y$ and $\mathbf{X}$
+\par\bigskip
+\subsection{Slide 8}\hfill\\
+\noindent An example of heteroscedasticity; imagine you have a scale whose error increases with time. Then it is clear that the displayed weight $Y$ varies depending on which $X$
+\par\bigskip
+\subsection{Slide 11}\hfill\\
+\begin{itemize}
+  \item Possible metric: for a fixed value f $x$, take the mean of all $y$ in that vertical line
+  \item Using the averages, draw the line
+\end{itemize}
+\par\bigskip
+\subsection{Slide 13}\hfill\\
+\noindent Note, in order to minimize, we minimize $(\beta_0,\beta_1)$, so look at:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial \text{RSS}}{\partial \beta_0} = 0\qquad \dfrac{\partial \text{RSS}}{\partial \beta_1} = 0\\
+    \Rightarrow y = \beta_0+\beta_1x+e\Rightarrow \beta_0 = \underbrace{\E(y|x)}_{\overline{y}}-\beta_1x
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 14}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \widehat{\beta_1} = \sum_{i=1}^{n}
+  \end{gathered}
+\end{equation*}

@@ -1,0 +1,179 @@
+%\def\gring{\mathbb{G}}
+%\def\R{\mathbb{R}}
+%\def\Q{\mathbb{Q}}
+%\def\Z{\mathbb{Z}}
+%\def\N{\mathbb{N}}
+%\def\C{\mathbb{C}}
+%\def\H{\mathbb{H}}
+%\def\E{\mathbb{E}}
+%\def\ora{\overrightarrow}
+%\def\Lrarr{\Leftrightarrow}
+%\def\Ln#1{\text{Ln}\left(#1\right)}
+%\usetikzlibrary{automata, positioning, arrows}
+%\usetikzlibrary{arrows.meta}
+%\setlength\parindent{0cm}
+
+%%Theorem
+%\newcounter{theo} \setcounter{theo}{0}
+%\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+%\newenvironment{theo}[2][]{%
+%\refstepcounter{theo}%
+%\ifstrempty{#1}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=gray!20]
+%{\strut Definition/Sats~\thetheo};}}
+%}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=gray!20]
+%{\strut Definition/Sats~\thetheo:~#1};}}%
+%}%
+%\mdfsetup{innertopmargin=10pt,linecolor=gray!20,%
+%linewidth=2pt,topline=true,%
+%frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+%}
+%\begin{mdframed}[]\relax%
+%\label{#2}}{\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Lemma
+%\newcounter{lem}[section] \setcounter{lem}{0}
+%\renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
+%\newenvironment{lem}[2][]{%
+%\refstepcounter{lem}%
+%\ifstrempty{#1}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!20]
+%{\strut Lemma~\thelem};}}
+%}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!20]
+%{\strut Lemma~\thelem:~#1};}}%
+%}%
+%\mdfsetup{innertopmargin=10pt,linecolor=black!20,%
+%linewidth=2pt,topline=true,%
+%frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+%}
+%\begin{mdframed}[]\relax%
+%\label{#2}}{\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Proof
+%\newcounter{prf}[section]\setcounter{prf}{0}
+%\renewcommand{\theprf}{\arabic{section}.\arabic{prf}}
+%\newenvironment{prf}[2][]{%
+%\refstepcounter{prf}%
+%\ifstrempty{#1}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!30]
+%{\strut Bevis~\theprf};}}
+%}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=black!30]
+%{\strut Bevis~\theprf:~#1};}}%
+%}%
+%\mdfsetup{innertopmargin=10pt,linecolor=black,%
+%linewidth=2pt,topline=true,%
+%frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+%}
+%\begin{mdframed}[]\relax%
+%\label{#2}}{\qed\end{mdframed}}
+
+\def\gring{\mathbb{G}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\C{\mathbb{C}}
+\def\H{\mathbb{H}}
+\def\E{\mathbb{E}}
+\def\ora{\overrightarrow}
+\def\Lrarr{\Leftrightarrow}
+\def\Ln#1{\text{Ln}\left(#1\right)}
+\usetikzlibrary{automata, positioning, arrows}
+\usetikzlibrary{arrows.meta}
+\setlength\parindent{0cm}
+
+%Theorem
+\newcounter{theo} \setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+\newenvironment{theo}[2][]{%
+\refstepcounter{theo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=gray!20]
+{\strut Definition/Sats~\thetheo};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=gray!20]
+{\strut Definition/Sats~\thetheo:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=gray!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Lemma
+\newcounter{lem}[section] \setcounter{lem}{0}
+\renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
+\newenvironment{lem}[2][]{%
+\refstepcounter{lem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=black!20]
+{\strut Lemma~\thelem};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=black!20]
+{\strut Lemma~\thelem:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=black!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Proof
+\newcounter{prf}[section]\setcounter{prf}{0}
+\renewcommand{\theprf}{\arabic{section}.\arabic{prf}}
+\newenvironment{prf}[2][]{%
+\refstepcounter{prf}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=black!30]
+{\strut Bevis~\theprf};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=black!30]
+{\strut Bevis~\theprf:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=black,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\qed\end{mdframed}}

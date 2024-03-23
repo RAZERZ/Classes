@@ -1,0 +1,82 @@
+\section{Introduction}
+\begin{theo}[Domain]{}
+  An open connected set $\Omega\subset\R^n$ is called a \textit{domain}
+\end{theo}
+\par\bigskip
+\begin{theo}[Bounded domain]{}
+  A domain is \textit{bounded} if its closure $\overline{\Omega}$ is compact 
+\end{theo}
+\par\bigskip
+\begin{theo}[Smooth boundary]{}
+  The boundary of a set (denoted $\partial \Omega$) is called \textit{smooth} if it can be locally represented by a smooth function
+\end{theo}
+\par\bigskip
+\subsection{Examples of linear operators}\hfill\\
+\begin{itemize}
+  \item Gradient of $u\in C^1(\Omega)$, i.e $\nabla u = (u_{x_1}, \cdots, u_{x_n})$
+  \item Laplacian of $u\in C^2(\Omega)$, i.e $\Delta u = u_{x_1x_1}+\cdots u_{x_nx_n}$
+  \item Divergence of vector field
+\end{itemize}
+\par\bigskip
+\begin{theo}[Classification of PDEs]{}
+  A PDE is said to be \textbf{Quasilinear}: $\sum_{k,l = 1}^{n}a^{kl}(x,u(x), Du(x))u_{x_kx_l}+b(x,u(x),Du(x)) = 0$
+  \par\bigskip
+  \noindent A PDE is said to be \textbf{Semilinear}: $\underbrace{\sum_{k,l = 1}^{n}a^{kl}(x)u_{x_kx_l}}_{\text{principal term}}+b(x,u(x),Du(x)) = 0$
+  \par\bigskip
+  \noindent A PDE is said to be \textbf{linear}: $\sum_{k,l=1}^{n}a^{kl}(x)u_{x_kx_l}+\sum_{l=1}^{n}b^l(x)u_{x_l}+c(x)u(x) = f(x)$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:} Heat equation\par
+\begin{equation*}
+  \begin{gathered}
+    u_t-\Delta u = f\Lrarr (\partial_t-\Delta)u
+  \end{gathered}
+\end{equation*}\par
+\noindent Take domain $\Omega\in\R^3$ and outward pointing unit $\overrightarrow{n}$\par
+\noindent Let $u = u(x,y,z,t)$ be temperature at point $\overline{x} = (x,y,z)$ at time $t$, and let $q = (x,y,z,t,u)$ be the function describing the heat problem.\par
+\noindent Heat production is dependent on temperature.\par
+\noindent Let $\overline{Q} = \overline{Q}(x,y,z,t)$ be a vector field representing heat flux through $\partial \Omega$\par
+\noindent The temperature change from $t$ to $t+\Delta t$ corresponds to the flux in heat production as follows:
+\begin{equation*}
+  \begin{gathered}
+    \int_\Omega (u(x,y,z,t+\Delta t)-u(x,y,z,t))dV = \int_{t}^{t+\Delta t}\int_\Omega q(x,y,z,t,u)dVdt-\int_{t}^{t+\Delta t}\int_{\partial \Omega}Q(x,y,z,t)\overrightarrow{n}dSdt
+  \end{gathered}
+\end{equation*}\par
+\noindent Divide both sides by $\Delta t$ and take the limit as $\Delta t\to 0$ yields:
+\begin{equation*}
+  \begin{gathered}
+    \int_\Omega u_t(x,y,z,t)dV = \int_\Omega q(x,y,z,t,u)dV-\int_{\partial \Omega}\overline{Q}(x,y,z,t)\overrightarrow{n}dS
+  \end{gathered}
+\end{equation*}\par
+\noindent We expect that in practice $\overline{Q} = -a\nabla u$ for $a>0$\par
+\noindent Note that the last term becomes
+\begin{equation*}
+  \begin{gathered}
+    \int_{\partial \Omega}\overline{Q}(x,y,z,t)\overrightarrow{n}dS = \int_{\partial \Omega}-a\nabla u\overrightarrow{n}dS = -a\int_\Omega \nabla\bullet\nabla u dV
+  \end{gathered}
+\end{equation*}\par
+\noindent Move everything ot one side and integrating under same domain:
+\begin{equation*}
+  \begin{gathered}
+    \int_\Omega (u_t(x,y,z,t)-q(x,y,z,t,y)-a\nabla\bullet\nabla u)dV = 0
+  \end{gathered}
+\end{equation*}\par
+This is precisely the heat equation.
+\par\bigskip
+\noindent The further study of the equation involves introducing/imposing further conditions:\par
+\begin{itemize}
+  \item \textit{Initial conditions}: At $t=0$, $u(x,y,z,t) = \varphi(x,y,z)$
+  \item \textit{Dirichlet data}: Prescribes behaviour of boundary independent of time, i.e $u(x,y,z,t) = \psi(x,y,z)\quad\forall (x,y,z)\in\partial \Omega$
+  \item \textit{Neumann Conditions}: Prescribes heat production with boundary independent of time derivative: $u_{\overrightarrow{n}}(x,y,z,t) = \psi(x,y,z)$
+\end{itemize}
+\par\bigskip
+\noindent There are other types, for example Robin conditions.\par
+\noindent They can be mixed, and solutions can be determined if for example the combinations include stability etc.
+\par\bigskip
+\subsection{Other PDEs}\hfill\\
+\begin{itemize}
+  \item \textit{Poisson equations}: $\Delta u = f$, if $f = 0$ then this is the Laplace equation (which has harmonic functions)
+  \item \textit{Wave equations}: $\Delta u-u_{tt}$
+  \item \textit{Minimal surface equation}: $\nabla\left(\dfrac{\nabla u}{\sqrt{1+\left|\nabla u\right|^2}}\right) = 0$
+  \item Eikonal equation $\left|\nabla u\right| = 1$
+\end{itemize}
