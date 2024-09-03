@@ -1,0 +1,103 @@
+\section{$\sigma$-algebras \& Measure spaces}
+\subsection{$\sigma$-algebras}\hfill\\\par
+\begin{defo}[$\sigma$-algebra]{}
+  A collection of subsets $\Sigma$ of a set $S$ is called a $\sigma$\textit{-algebra} if:\par
+  \begin{itemize}
+    \item $\varnothing\in\Sigma$
+    \item Is an algebra:\par
+      \begin{itemize}
+        \item Closed under complements such that for $A\in\Sigma\Rightarrow A^c = S\backslash A\in\Sigma$
+      \item Closed under unions such that $A,B\in\Sigma\Rightarrow A\cup B\in\Sigma$
+      \end{itemize}
+    \item Closed under countably infinite unions $A_i\in\Sigma$ for $i\in\N$, then $\bigcup_{i=1}^{\infty}A_i\in\Sigma$
+  \end{itemize}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $\Sigma = \left\{\varnothing, S\right\}$ is a $\sigma$-algebra on any set $S$.\par
+\noindent Another example is $\mathcal{P}(S)$, which denotes the powerset.\par
+\noindent Another example is $S = \N$, then $\Sigma = \left\{\varnothing,\N, \left\{2k:k\in\N\right\},\left\{2k+1:k\in\N\right\}\right\}$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent There exists many equivalent definitions of a $\sigma$-algebra. For example, instead of the first axiom of $\varnothing\in\Sigma$, an equivalent definition could be "$\Sigma$ is non-empty", since then $\exists A\in\Sigma\Rightarrow A^c\in\Sigma\Rightarrow A\cup A^c = S \in\Sigma\Rightarrow (A\cup A^c)^c = \varnothing\in\Sigma$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Closed under unions $\Rightarrow$ closed under finite unions since $A_1,\cdots, A_n\in\Sigma\Rightarrow A_1\cup A_2\in\Sigma, A_1\cup A_2\cup A_3 = \underbrace{(A_1\cup A_2)}_{\in\Sigma}\cup A_3$, thus by induction $A_1\cup\cdots\cup A_n\in\Sigma$
+\par\bigskip
+\noindent This does \textit{not} imply $\Sigma$ is closed under countable unions.
+\par\bigskip
+\noindent\textbf{Counter-example:}\par
+\noindent Consider $S = [0,1)\subseteq\R$. Let $\Sigma$ be all finite unions of disjoint sets on the form $[a,b)$ such that $0\leq a\leq b<1$ (if $a=b\Rightarrow \varnothing$).\par
+\noindent First and all algebra axioms are fulfilled, but the last one is not since we cvan consider $A_n = \left[\dfrac{1}{n}, 1\right)$. Then $\bigcup_{i=2}^{\infty} = (0,1)\not\in\Sigma$
+\par\bigskip
+\noindent An algebra $\Sigma$ is an algebra in an algebraic sense.\par
+\noindent The symmetric difference $A\triangle B = (A\backslash B)\cup (B\backslash A)$. This behaves like "+" on $\Sigma$ and intersections behave like multiplication.\par
+\noindent Just like one would expect from an algebra, the multiplication is distributive over addition, eg. $C\cap(A\triangle B) = (C\cap A)\triangle (C\cap B)$
+\par\bigskip
+\subsection{Measures}\hfill\\
+\noindent Let $\Sigma$ be a $\sigma$-algebra on $S$, and let $\mu_0$ be a function from $\Sigma_0$ to $[0,\infty] = [0,\infty)\cup\left\{\infty\right\}$, essentially a function that assigns some value to subsets of $\Sigma$.\par
+\noindent Intuitively, a measure should increase if we measure something bigger.
+\par\bigskip
+\begin{defo}[Additive and $\sigma$-additive measures]{}
+  A measure $\mu_0$ is called \textit{additive} if $\mu_0(A\cup B) = \mu_0(A)+\mu_0(B)$ where $A, B$ are disjoint sets.
+  \par\bigskip
+  \noindent A measure $\mu_0$ is called \textit{$\sigma$-additive} if this holds for ocuntable unions, i.e if $A_n$ are pairwise disjoint, then $\mu_0\left(\bigcup_{n=1}^{\infty}A_n\right) = \sum_{n=1}^{\infty}\mu_0(A_n)$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent We say that $\mu_0$ is a measure if $\mu_0$ is $\sigma$-additive and $\mu_0(\varnothing) =0$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $S = \left\{1,2,\cdots, 6\right\}$, $\Sigma = \mathcal{P}(S)$ and set $\mu_0(A) = \dfrac{1}{6}\left|A\right|$. Note here that $\mu_0(S) = 1$
+\par\bigskip
+\begin{defo}[Probability measures]{}
+  All measures that sum up to 1 are called \textit{probability measures}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $S = \N$, $\Sigma = \mathcal{P}(S)$ and set $\mu_0(A\in\Sigma) = \left|A\right|$. Here $\mu_0(S) = \infty$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $S = \N$, $\Sigma = \mathcal{P}(S)$ and set $\mu_0(A\in\Sigma) = \begin{cases*}0\quad\text{if}\quad \left|A\right|<\infty\\\infty\quad\text{if}\quad \left|A\right| = \infty\end{cases*}$\par
+\noindent This is an example of an additive but not $\sigma$-additive measure, since if $A_n = \left\{n\right\}$, then $\mu_0\left(\bigcup_{n=1}^{\infty}A_n\right) = \infty$, but $\sum_{n=1}^{\infty}\mu_0(A_n) = -1$
+\par\bigskip
+\subsection{Measure spaces}\hfill\\
+\begin{defo}[Measure space triplet]{}
+  A \textit{measure space} is a triplet $(S,\Sigma, \mu)$ where $S$ is some set, $\Sigma$ is a $\sigma$-algebra over $S$, and $\mu$ is a $\sigma$-additive function $\mu:\Sigma\to[0,\infty]$ such that $\mu(\varnothing) = 0$
+\end{defo}
+\par\bigskip
+\begin{defo}[Probability space]{}
+  If $\mu(S) = 1$, then the triplet is called a \textit{probability space}.
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:} (finite measure space)\par
+\noindent Let $S = \left\{s_1,\cdots,s_k\right\}$ where $k\in\N$ be a set of outcomes. We also associate probabilities $p_1,\cdots,p_k$ to each $s_1,\cdots,s_k$ such that $\sum_i p_i = 1$. Let $\mu(A) = \sum_{s_i\in A}p_i$ $\forall A\subseteq S$. If we let $\Sigma = \mathcal{P}(S)$, then $(S,\Sigma,\mu)$ is a measure and a probability space.
+\par\bigskip
+\noindent\textbf{Example:} (Lebesgue measure)\par
+\noindent Let $S = \R$, $\Sigma = \mathcal{B}(\R)$ be the Borel $\sigma$-algebra (smallest $\sigma$-algebra that makes open sets measureable, note that $\mathcal{B}(\R)\neq\mathcal{P}(\R)$) and let $\mu$ be something measuring length on finite unions of disjoint open intervals $A = (a_1,b_1)\cup\cdots\cup (a_n,b_n)$ such that $\mu(A) = \left|b_1-a_1\right|+\cdots+\left|b_n-a_n\right|$
+\par\bigskip
+\noindent This $\mu$ is called the Lebesgue measure ($\mathcal{L}$)\par
+\noindent Restricting $S$ to $[0,1]$, then we have a probability measure
+\begin{equation*}
+  \begin{gathered}
+    \mu = \mathcal{L}\mid_{[0,1]}(A) = \mathcal{L}(A\cap[0,1])\Rightarrow ([0,1], \mathcal{B}([0,1],\mathcal{L}\mid_{[0,1]}))\quad\text{is a probability measure}
+  \end{gathered}
+\end{equation*}\par
+\noindent This is a formulation of uniform random numbers in $[0,1]$
+\par\bigskip
+\subsection{Properties of measures}\hfill\\
+\noindent For a measure space, we have the following properties:\par
+\begin{enumerate}[leftmargin=*]
+  \item $\mu(A\cup B)\leq \mu(A)+\mu(B)$
+  \item $\mu\left(\bigcup A_i\right)\leq \sum\mu(A_i)$
+  \item $\mu\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mu(A_i)-\mu(A_1\cap A_2)-\cdots-\mu(A_{n-1}\cap A_n) + \mu(A_1\cap A_2\cap A_3)\cdots + (-1)^{n+1}\mu(A_1\cap A_2\cdots\cap A_n)$
+\end{enumerate}
+\par\bigskip
+\noindent Note that for the first two points, we have previously assumed that $A,B$ were disjoint. This would be the case for "joint" sets.
+\par\bigskip
+\begin{prf}[]{}
+  Consider $\mu(A) = \mu(A\backslash B\cup (A\cap B)) = \mu(A\backslash B) + \mu(A\cap B)$ and proceed.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent For point 4, check \href{https://math.stackexchange.com/questions/1487456/a-closed-formula-for-the-measure-of-the-union-of-n-sets}{Math Stackexchange}
