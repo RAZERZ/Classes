@@ -101,3 +101,29 @@
 \par\bigskip
 \noindent\textbf{Remark:}\par
 \noindent For point 4, check \href{https://math.stackexchange.com/questions/1487456/a-closed-formula-for-the-measure-of-the-union-of-n-sets}{Math Stackexchange}
+\par\bigskip
+\noindent The idea is if we can consider some set that is measurable, we want to be able to say something about the compositions of those measurable sets so the idea is we include their subsets in the $\sigma$-algebra (in the space we set up) as well as keeping it closed in an algebraic sense.
+\par\bigskip
+\subsection{Monoticity of measure}\hfill\\
+\noindent Let $(A_i)$ be a sequence of increasing sets in $\Sigma$ such that $\varnothing\subseteq A_1\subseteq\cdots\subseteq S$. Then:
+\begin{equation*}
+  \begin{gathered}
+    \mu(A_i) = \mu(A_i\backslash A_{i-1}\cup (A_i\cap A_{i-1})) = \mu(A_i\backslash A_{i-1}\cup A_{i-1}) = \mu(A_i\backslash A_{i-1})+\mu(A_{i-1})\geq\mu(A_{i-1})
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus, by induction, $\mu(A_1)\leq\mu(A_2)\leq\cdots$ and by monotone convergence the limit $\lim_{i\to\infty}\mu(A_i)$ exists in the extended positive real line.
+\par\bigskip
+\noindent Writing $A = \bigcup_{i=1}^{\infty}A_i$, we have $\mu(A) = \lim_{i\to\infty}\mu(A_i)$, this because:
+\begin{equation*}
+  \begin{gathered}
+    A = A_1\cup(A_2\backslash A_1)\cup(A_3\backslash A_2)\cup\cdots\\
+    \mu(A) = \mu(A_1)+\mu(A_2\backslash A_1)+\mu(A_3\backslash A_2)+\cdots = \lim_{n\to\infty}\sum_{i=1}^{n}\mu(A_i\backslash A_{i-1})
+  \end{gathered}
+\end{equation*}\par
+\noindent where $A_0 = \varnothing = \lim_{n\to\infty}\mu(A_n)$
+\par\bigskip
+\noindent A similar result holds for decreasing sets, i.e $S\supseteq A_1\supseteq A_2\cdots\supseteq \varnothing$\par
+\noindent We do the limit as $A = \bigcap_{i=1}^{\infty}A_i$ and by monotone convergence $\mu(A) = \lim_{i\to\infty}\mu(A_i)$ with similar proof.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent The last set in the decreasing sets does not necessarily have to be the empty set, recall that we are dealing with intersections instead of unions.

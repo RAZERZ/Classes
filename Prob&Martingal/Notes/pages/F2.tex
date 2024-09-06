@@ -1,0 +1,130 @@
+\subsection{Generated $\sigma$-algebras}\hfill\\
+\noindent Given any collection of subsets of \textgoth{A}$\subseteq\mathcal{P}(S)$, the $\sigma$-algebra \textit{generated} by \textgoth{A} is the smallest $\sigma$-algebra that cointains \textgoth{A} is denoted by $\sigma(\textgoth{A}) = \bigcap_{\Sigma:\sigma\text{-alg}\&\textgoth{A}\subseteq\Sigma}$\par
+\noindent This is sometimes denoted by $<\textgoth{A}>$
+\par\bigskip
+\noindent One can verify that this is indeed a $\sigma$-algbera:\par
+\begin{enumerate}[leftmargin=*]
+  \item$\varnothing$ is contained in all $\sigma$-algebras, so $\varnothing$ is contained in all of the intersections
+  \item If $A\in\sigma(\textgoth{A})$, then $A\in\Sigma$ $\forall$ $\sigma$-algebras, but then $A^c\in\Sigma$ $\forall$ $\sigma$-algebras $\Rightarrow A^c\in\sigma(\textgoth{A})$
+\end{enumerate}\par
+\noindent The rest of the axioms for a $\sigma$-algebras are shown in an equivalent manner as in (2)
+\par\bigskip
+\noindent\textbf{Example:} (Borel $\sigma$-algebra)\par
+\noindent Let $\mathcal{B}(S) = \sigma(\text{open subsets of $S$})$ (here we mean open in a topological sence since we need $S$ to have a notion of opened-ness).\par
+\noindent Since we mean open in a topological sense (which is defined as the complement of a closed set), we could have used the complement of a closed set to denote the open set, but since the complement is in the $\sigma$-algebra we may as well had the equivalent definition using the closed set all together.\par
+\noindent This leads us to $\mathcal{B}(\R) = \sigma(\left\{(a,b):a<b, a,b\in\R\right\})$. Instead of $\R$, any dense set could have worked as well (such as $\Q$)
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $S= \left\{1,2,3\cdots,10\right\}$, and \textgoth{A} = $\left\{\left\{1,2\right\},\left\{5\right\}\right\}$.\par
+\noindent In order to generate a $\sigma$-algebra, we just need to recursively insert things that work with the axioms. For example, we need the empty set so we chuck in the empty set. We need the complement of the empty set so we chuck in the complement to the empty set. We need the complements to all the sets in \textgoth{A}, so we add those as well, as well as their intersections. \par
+\noindent We should then be left with just enough to call it a $\sigma$-algebra, and nothing more, hence the smallest $\sigma$-algebra:
+\begin{equation*}
+  \begin{gathered}
+  \sigma(\textgoth{A}) = \left\{\varnothing, S, \left\{1,2\right\},\left\{5\right\},\left\{1,2,5\right\}, \left\{3,4,5,6,7,8,9,10\right\}, \left\{1,2,3,4,6,7,8,9,10\right\}, \left\{3,4,6,7,8,9,10\right\}\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{defo}[$\pi$-system]{}
+  A $\pi$-\textit{system} on a set $S$ is a collection of subsets $\pi$ such that $\varnothing\in\pi$ and if $A,B\in\pi$ then $A\cap B\in\pi$
+\end{defo}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose $\textgoth{A}\subseteq\mathcal{P}(S)$ is a $\pi$-system and suppose that $\mu_1,\mu_2$ are measures on $(S,\sigma(\textgoth{A}))$ such that $\mu_1(A) = \mu_2(A)$ $\forall A\in\textgoth{A}$
+  \par\bigskip
+  $\Rightarrow$ Then $\mu_1=\mu_2$ on $(S,\sigma(\textgoth{A}))$
+\end{theo}
+\par\bigskip
+\noindent In other words, $\pi$-systems uniquely determine a measure.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $S= \R$, $\textgoth{A} = \left\{[-\infty,a): a\in\R\right\}$, $\sigma(\textgoth{A}) = \mathcal{B}(\R)$\par
+\noindent \textgoth{A} is a $\pi$-system and have any measure is uniquely defined on \textgoth{A}.\par
+\noindent note that $\mu([-\infty,a))$ is nothing but thte cumulative distribution function of the measure $\mu$ (in terms of $a$). "Measure up to a point". The following gives justification to construct measures from small collections.
+\par\bigskip
+\begin{defo}[Caratheodorys extension theorem]{}
+  If $\Sigma_0$ is an algebra and $\mu_0:\Sigma\to[0,\infty]$ is a $\sigma$-additive, $\exists!\quad\mu$ on $\Sigma=\sigma(\Sigma_0)$ such that $\mu(A) = \mu_0(A)\quad\forall A\in\Sigma_0$
+\end{defo}
+\par\bigskip
+\noindent An important consequence is that the Lebesgue measure is unique (only one notion of length on $\mathcal{B}(\R)$) defined through sets of the form $A = (a_1,b_1)\cup\cdots\cup(a_n,b_n)$ (disjoint union of open sets)
+\begin{equation*}
+  \begin{gathered}
+    \mathcal{L}(A) = \left|b_1-a_1\right|+\cdots+\left|b_n-a_n\right|
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\section{Probability Spaces}
+\noindent Probability spaces are normally denoted by $(\Omega,\mathcal{E}, \P)$ where:\par
+\begin{itemize}
+  \item $\Omega$ is the space of realisations
+  \item $\mathcal{E}$ is the sets of events
+  \item $\P$ is the probability measure
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $\Omega = \R$, $\mathcal{E} = \mathcal{B}(\R)$, $\P(A = \int_{a}^{b}\dfrac{1}{\sqrt{2\pi}}e^{-x^2/2})dx$, $A = (a,b)$\par
+\noindent This models a normally distributed real number.
+\par\bigskip
+\subsection{Almost sure events}\hfill\\
+\noindent We say that an event occurs \textit{almost surely} if $\P(\mathcal{E}) = 1$ (equivalently $\P(\mathcal{E}^c) = 0$)
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent Let $E_1,\cdots\in\mathcal{E}$ be such that $\P(E_i) = 1\quad\forall i\in\N$\par
+\noindent Then, $\P\left(\bigcap_{i=1}^{\infty}E_i\right) = 1$
+\par\bigskip
+\begin{prf}[]{}
+  Note that since each of them have probability measure 1, their complement must have measure 0 so:
+  \begin{equation*}
+    \begin{gathered}
+      \P\left(\bigcup_{i\in\N}E_i^c\right)\leq\sum_{i\in\N}\P(E_i^c) 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent However, since:
+  \begin{equation*}
+    \begin{gathered}
+      0\leq\P\left(\bigcup_{i\in\N}E_i^c\right)\leq0\Rightarrow \P\left(\bigcup_{i\in\N}E_i^c\right) = 0\\
+      \Rightarrow\P\left(\left(\bigcup_{i\in\N}E_i^c\right)^c\right) =1
+    \end{gathered}
+  \end{equation*}\par
+  \noindent But we have de-Morgans law, i.e $\bigcup_{i\in\N}E_i^c = \left(\bigcap_{i\in\N}E_i\right)^c$, which yields:
+  \begin{equation*}
+    \begin{gathered}
+      \left(\left(\bigcap_{i\in\N}E_i\right)^c\right)^c = \bigcap_{i\in\N}E_i
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent This applies only to countable unions. If uncountable, we could consider 
+\begin{equation*}
+  \begin{gathered}
+    \Omega = [0,1],\quad\Sigma = \mathcal{B}([0,1]),\quad\P=\mathcal{L}\mid_{[0,1]}
+  \end{gathered}
+\end{equation*}\par
+\noindent Then $\P(X = x) = 0$ (where $X$ is some randomly chosen number and $x$ is some fixed number). Taking the complement of this event yields $\P(X\neq x) = 1$ so $\P(X\neq x:x\in\Q) = 1$
+\par\bigskip
+\subsection{Liminf and limsup}\hfill\\
+\noindent Recall from real analysis:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}\lim_{n\to\infty}\sup x_n = \lim_{n\to\infty}\sup_{m\geq n} x_n\\
+    \lim_{n\to\infty}\inf x_n = \lim_{n\to\infty}\inf_{m\geq n}x_n\end{rcases*}\text{Limits exists in the extended reals and the limit exists iff limsup = liminf}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Recall that if $\lim_{n\to\infty}\sup x_n\geq x\Leftrightarrow \exists$ a subsequence $(x_n)_k$ with limit $\geq x$ and the opposite for liminf.
+\par\bigskip
+\noindent There exists a similar notion for sets.\par
+\noindent Let $E_1,\cdots$ be events (sets)
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \lim_{n\to\infty}\inf E_n = \bigcup_{n\geq1}\bigcap_{m\geq n}E_n\\
+      \lim_{n\to\infty}\sup E_n = \bigcap_{n\geq1}\bigcup_{m\geq n} E_n
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Some intuition here is definitely necessary.\par
+\noindent For the first one, we are taking intersections of less and less sets (increasing sequence of sets), then finally unions. Think of this as events that eventually will appear
+\par\bigskip
+\noindent For the second one, it is decreasing (because of the intersection outside), all points will occur infinitely often.
