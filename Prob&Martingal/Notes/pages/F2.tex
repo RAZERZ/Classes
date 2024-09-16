@@ -41,9 +41,9 @@
 \noindent \textgoth{A} is a $\pi$-system and have any measure is uniquely defined on \textgoth{A}.\par
 \noindent note that $\mu([-\infty,a))$ is nothing but thte cumulative distribution function of the measure $\mu$ (in terms of $a$). "Measure up to a point". The following gives justification to construct measures from small collections.
 \par\bigskip
-\begin{defo}[Caratheodorys extension theorem]{}
+\begin{theo}[Caratheodorys extension theorem]{}
   If $\Sigma_0$ is an algebra and $\mu_0:\Sigma\to[0,\infty]$ is a $\sigma$-additive, $\exists!\quad\mu$ on $\Sigma=\sigma(\Sigma_0)$ such that $\mu(A) = \mu_0(A)\quad\forall A\in\Sigma_0$
-\end{defo}
+\end{theo}
 \par\bigskip
 \noindent An important consequence is that the Lebesgue measure is unique (only one notion of length on $\mathcal{B}(\R)$) defined through sets of the form $A = (a_1,b_1)\cup\cdots\cup(a_n,b_n)$ (disjoint union of open sets)
 \begin{equation*}
@@ -128,3 +128,55 @@
 \noindent For the first one, we are taking intersections of less and less sets (increasing sequence of sets), then finally unions. Think of this as events that eventually will appear
 \par\bigskip
 \noindent For the second one, it is decreasing (because of the intersection outside), all points will occur infinitely often.
+\par\bigskip
+\begin{lem}[Fatous Lemma]{}
+  Let $E_1,\cdots$ be events, then:
+  \begin{equation*}
+    \begin{gathered}
+      \P\left(\lim_{n}\inf E_n\right)\leq \lim_{n}\inf\P(E_n)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[Fatous Lemma]{}
+  Let $F_n = \bigcap_{m\geq n}E_m$, i.e $E_n = \bigcup_{n\in\N}F_n$.\par
+  \noindent Here $F_n$ is an increasing sequence of sets, which implies $F_n\in E_m$ $\forall m\geq n$, so $\P(F_n)\leq \P(E_m)$ $\forall m\geq n$\par
+  \noindent However, this also implies that $\P(F_n)\leq \inf_{m\geq n}\P(E_m)$
+  \par\bigskip
+  \noindent $F_n$ is increasing $\Rightarrow$ probabilities are incfreasing $\Rightarrow \lim_{n\to\infty}\P(F_n)$ exists
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow P\left(\bigcup_{n}^{\infty}F_n\right) = P\left(\lim_{n}\inf E_n\right)\\
+      \Rightarrow \lim_{n\to\infty}\P(F_n)\leq \lim_{n\to\infty}\inf\P(E_n)\qquad\text{by } \P(F_n)\leq \inf_{m\geq n}\P(E_m)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This yields finally $\P(\lim_{n}\inf E_n)\leq \lim_{n}\inf \P(E_n)$, which is what we wanted to prove.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Note:}\par
+\noindent The reverse Fatous lemma can be proved by flipping everything (signs, inequalities, infimum to supremum etc.)
+\par\bigskip
+\begin{lem}[Borel-Cantelli Lemma]{}
+  Let $E_1,\cdots$ be a sequence of events such that $\sum_{n=1}^{\infty}\P(E_n)<\infty$
+  \par\bigskip
+  \noindent Then $\P(\lim_{n}\sup E_n) = 0 = \P(\text{"infinitely many $E_n$ occur"})$
+\end{lem}
+\newpage
+\begin{prf}[Borel-Cantelli Lemma]{}
+  Recall what the limsup is, i.e $\lim_{n}\sup E_n = \bigcap_{n\in\N}\underbrace{\bigcup_{m\geq n} E_ m}_{G_n}$
+  \par\bigskip
+  \noindent Note here that $G_n$ is a decreasing sequence of sets, so $\lim_{n\to\infty}\sup E_n\subseteq G_n\quad\forall m\in \N$ and $\P(\lim_{n\to\infty\sup E_n})\leq \P(G_m)\quad\forall m\in\N$
+  \par\bigskip
+  \noindent In particular, this is bounded above by:
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=m}^{\infty}\P(E_k)\leq \P(\lim_{n\to\infty}\sup E_n)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent But $\sum_{k=m}^{\infty}\P(E_k)\to0$ as $m\to\infty$ since $\sum\P(E_n)<\infty$, so $\P(\lim_{n}\sup E_n) = 0$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:} (Coin toss)\par
+\noindent Let $E_n$ be the event that the first $n$ coin toss in a sequence of tosses is heads. We have $\P(E_n) = 2^{-n}$ (assuming a fair coin) and $\sum_{n=1}^{\infty}\P(E_n) = 1<\infty$ (since $\sum_{n=1}^{\infty}2^{-n}\to1$)\par
+\noindent Thus, by the Borel-Cantelli lemma, $\P(\lim_{n}\sup E_n) = 0$ (finintely many values in which $E_n$ occurs $\Rightarrow$ the run of heads will end almost surely)

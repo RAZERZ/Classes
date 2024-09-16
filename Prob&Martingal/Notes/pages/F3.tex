@@ -1,0 +1,193 @@
+\section{Random Variables}
+\par\bigskip
+\begin{defo}[Measurable functions]{}
+  Let $(S,\Sigma, \mu)$ be a measure space. We say that $f:S\to\R$ is \textit{measurable} if all pre-images of all Borel sets are in $\Sigma$:
+  \begin{equation*}
+    \begin{gathered}
+      f^{-1}(A)\in\Sigma\Rightarrow A\in\mathcal{B}(\R)
+    \end{gathered}
+  \end{equation*}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Note:}\par
+\begin{equation*}
+  \begin{gathered}
+    f^{-1}(A) = \left\{s\in S:f(s)\in A\right\}\in\Sigma\quad\forall A\in\mathcal{B}(\R)
+  \end{gathered}
+\end{equation*}\par
+\begin{itemize}
+  \item $m\Sigma$ are all measurable functions with respect to $\Sigma$
+  \item $(m\Sigma)^+$ are all non-negative measurable functions with respect to $\Sigma$
+  \item $b\Sigma$ are all bounded measurable functions with respect to $\Sigma$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent This can be generalized as functions $f:S\to T$ where $(T, \Sigma^{\prime}, \nu)$ is a measure space.
+\par\bigskip
+\begin{lem}[]{}
+  We have:\par
+  \begin{enumerate}[leftmargin=*]
+    \item $f^{-1}(A^c) = (f^{-1}(A))^c$
+    \item $f^{-1}\left(\bigcup_i A_i\right) = \bigcup_i f^{-1}(A_i)$
+    \item $f^{-1}\left(\bigcap_i A_i\right) = \bigcap_i f^{-1}(A_i)$
+  \end{enumerate}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We shall only prove number 2, but the rest is proved in a similar manner:
+  \begin{equation*}
+    \begin{gathered}
+      \text{If } x\in f^{-1}\left(\bigcup_i A_i\right)\Lrarr f(x)\in\bigcup_i A_i\Lrarr \exists i\text{ s.t } f(x)\in A_i\\
+      \Lrarr x\in f^{-1}(A_i)\Lrarr x\in \bigcup_i f^{-1}(A_i)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Proposition:}\par
+\noindent If $f:S\to\R$ is continuous then it must also be measurable with respect to the Borel $\sigma$-algebra $\mathcal{B}\left(\R\right)$
+\par\bigskip
+\begin{prf}[]{}
+  Follows from topology, since pre-images of any open set is open as well as some help using the following:
+\end{prf}\par
+\noindent\textbf{Proposition:}\par
+\noindent If $C\subseteq\mathcal{P}(\R)$ is a collection such that $\sigma(C) = \overbrace{\mathcal{B}\left(\R\right)}^{\text{codomain}}$, then $f:S\to\R$ is measurable with respect to $\underbrace{\mathcal{B}\left(S\right)}_{\text{domain}}$ if and only if $f^{-1}(A)\in\mathcal{B}\left(S\right)\quad\forall A\in C$
+\par\bigskip
+\noindent\textbf{Examples:}\par
+\noindent In order to check whether $f:S\to\R$ is measurable, it suffices to check one of these:\par
+\begin{itemize}
+  \item $f^{-1}(A)\in\Sigma\quad\forall A$ where $A$ is an open set
+  \item $f^{-1}((a,b))\in\Sigma\quad\forall a<b\in\R$
+  \item $f^{-1}([-\infty,a))\in\Sigma\quad\forall a\in\R$
+  \item Anything that generates $\mathcal{B}\left(\R\right)$
+\end{itemize}
+\par\bigskip
+\begin{lem}[]{}
+  If $f_1,f_2:S\to\R$ are measurable functions, then $f_1+f_2$ is measurable
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We want to show that addition is measurable, we can do this by considering $(f_1+f_2)^{-1}((x,\infty))\in\Sigma$ given that $f_1,f_2$ are measurable of course.
+  \par\bigskip
+  \noindent Since they are individually measurable, this means that the pre-images of this open set is in $\Sigma$, i.e
+  \begin{equation*}
+    \begin{gathered}
+      f_1^{-1}((x,\infty)),f_2^{-1}((x,\infty))\in\Sigma
+    \end{gathered}
+  \end{equation*}\par
+\noindent We use the fact that $x<f_1(s)+f_2(s)\Lrarr \exists q\in\Q$ such that $q<f_1(s)$ and $x-q<f_2(s)$ (this reminds of the construction of the Dedekind sets, which is justified since there must be a rational number between $x$ and $f_1+f_2$ since we can just decrease the denominator to make a DIY $\varepsilon$)
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow (f_1+f_2)^{-1}((x,\infty)) = \underbrace{\bigcup_{q\in\Q}\underbrace{\left(\overbrace{\underbrace{f_1^{-1}((q,\infty))}_{\text{$s$ s.t $q<f_s(s)$}}}^{\in\Sigma}\cap \overbrace{\underbrace{f_2^{-1}((q,\infty))}_{x-q<f_2(s)}}^{\in\Sigma}\right)}_{\in\Sigma}}_{\in\Sigma}
+  \end{gathered}
+\end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent $\underbrace{f_1\circ f_2}_{\text{"multiplication"}}$ is measurable by a similar proof. In fact, any infinite linear combination is measurable.
+\par\bigskip
+\begin{lem}[]{}
+  Compositions of measurable functions is measurable
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      (f_1\circ f_2)^{-1}(A) = \underbrace{f_2^{-1}\circ\underbrace{f_1^{-1}(A)}_{\substack{\text{measurable}\\ \in\Sigma}}}_{\substack{\text{measurable}\\\in\Sigma}} 
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{lem}[]{}
+  If $f_n:S\to\R$ is a sequence of measurable functions $\forall n\in\N$, then\par
+  \begin{itemize}
+    \item $\inf_n f_n$
+    \item $\sup f_n$
+    \item $\lim_{n}\inf f_n$
+    \item $\lim_{n}\sup f_n$
+  \end{itemize}\par
+  \noindent are measurable. Moreover, the event that it exists is measurable, i.e
+  \begin{equation*}
+    \begin{gathered}
+      \left\{s\in S:\lim_{n\to\infty}f_n(s)\text{ exists and is finite}\right\}\in\Sigma
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\newpage
+\begin{prf}[]{}
+  Note that $(\inf_n f_n)^{-1}([x,\infty)) = \left\{s\in S:\underbrace{\inf_n f_n(s)\in[x,\infty)}_{\Lrarr \inf_n f_n(s)\geq x}\right\}$
+  \par\bigskip
+  \noindent Then all events have to be $\geq x$, i.e intersection: 
+  \begin{equation*}
+    \begin{gathered}
+      \bigcap_{n\in\N}\underbrace{\left\{s\in S:f_n(s)\geq x\right\}}_{=f_n^{-1}([x,\infty))\in\Sigma}\in \Sigma
+    \end{gathered}
+  \end{equation*}\par
+  \noindent This can be concluded naturally since $f_n$ is measurable, and hence $\inf_n f_n$ is measurable. Similar reasoning shows that $\sup_n f_n$ is measurable.
+  \par\bigskip
+  \noindent Note that $\lim_{n\to\infty}\inf f_n(s) = \sup_{n\in\N}\inf_{m\geq n}f_n(s)$ which is just a composition of measurable functions which we have shown is measurable $\Rightarrow \lim_{n}\inf f_n$ is measurable. Similar reasoning shows that $\lim_{n}\sup f_n$ is measurable.
+  \par\bigskip
+  \noindent The last statement in Lemma 3.4 can be decomposed into the following:
+  \begin{equation*}
+    \begin{gathered}
+      \left\{s\in S:\lim_{n\to\infty}f_n(s)\text{ exists and is finite}\right\}\in\Sigma=\\
+     \left\{s\in S:\lim_{n}\inf f_n(s)>-\infty\right\}\cap \left\{s\in S:\lim_{n}\sup f_n(s)<\infty\right\}\cap\left\{s\in S: \lim_{n}\inf f_n(s) = \lim_{n}\sup f_n(s)\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is measurable since all of the 3 sets are measurable (pre-images of open sets). Think of it in the following way:\par
+  \begin{itemize}
+    \item $>-\infty\Rightarrow (-\infty,\infty]$ which is an open set
+    \item $<\infty\Rightarrow [-\infty,\infty)$ which is an open set
+  \item $= \Rightarrow \left\{0\right\}$ which is an open set
+  \end{itemize}
+  \par\bigskip
+  \noindent Since compositions of intersections are measurable, the proof is complete.
+\end{prf}
+\par\bigskip
+\begin{defo}[Random Variable]{}
+  Let $(\Omega, \mathcal{F}, \P)$ be a probability space.\par
+  \noindent A measurable funcftion $X:\mathcal{F}\to\R$ is called a \textit{random variable.}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $\Omega = \left\{1,\cdots,6\right\}$, $\mathcal{F} = \mathcal{P}(\Omega)$, $\P = \dfrac{1}{6}|A|$ (rolling a die)\par
+\noindent Define $X(\omega)=\begin{cases}1\quad\omega\in \left\{1,3,5\right\}\quad\text{(odd)}\\0\quad\omega\in\left\{2,4,6\right\}\quad\text{(even)}\end{cases}$\par
+\noindent This is a random variable. One can verify this by checking pre-images of open sets of the range of the random variable $\left\{\varnothing,\left\{1,0\right\}, \left\{1\right\}, \left\{0\right\}\right\}$\par
+\noindent By taking the discrete topology (collection of all subsets of $S$) $\mathcal{P}(S)$, this sneaky random variable is actually a random variable.\par
+\noindent $Y(\omega) = \omega$ is also a random variable here since $\forall A\in\mathcal{F} = \mathcal{P}(\Omega)\subseteq\R$\par
+\noindent Note that we have 2 distinct spaces, $\Omega$ could have not been a subset of $\R$, so $Y$ would not have been a random variable since then $\mathcal{P}(\Omega)\not\subseteq\R$
+\par\bigskip
+\noindent Random variables "collapse" the space $S$ due to their inherent injectivity. One way to measure this collapse is thinking of Borel $\sigma$-algebras in terms of this random variable. I.e, the smallest $\sigma$-algebra such that $X$ is measurable
+\begin{equation*}
+  \begin{gathered}
+    \overbrace{\sigma}^{\text{ensures $\sigma$-alg}}(\left\{\underbrace{X^{-1}(A)}_{\text{ensure measurability}}:A\in\mathcal{B}\left(\R\right)\right\}) = \sigma(X)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent In particular, $(\Omega, \sigma(X), \P)$ is sufficient for $X$ to be measurable (with respect to this space).
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    X(\omega)=\begin{cases}1\quad\omega\in \left\{1,3,5\right\}\quad\text{(odd)}\\0\quad\omega\in\left\{2,4,6\right\}\quad\text{(even)}\end{cases}\qquad Y(\omega) = \omega
+  \end{gathered}
+\end{equation*}\par
+\noindent In this example,
+\begin{equation*}
+  \begin{gathered}
+    \sigma(Y) = \sigma(\left\{Y^{-1}(A):A\in\mathcal{B}\left(\R\right)\right\})
+    = \sigma\overbrace{(\left\{\left\{1\right\},\cdots,\left\{6\right\}\right\})}^{\mathcal{P}(\Omega) = \mathcal{F}}\\
+  \sigma(X) = \left\{\text{pre-images of neighborhoods of 1 \& 0}\right\} = \left\{\varnothing,\Omega,\left\{1,3,5\right\},\left\{2,4,6\right\}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent The last one may be difficult to grasp, but think of it like constructing the following set
+\begin{equation*}
+  \begin{gathered}
+    \left\{\left\{\text{neither 0 $\vee$ 1 $ = \varnothing$}\right\},\left\{\text{both 0 $\vee$ 1}\right\}, \left\{\text{pre-image of 1}\right\}, \left\{\text{pre-image of 0}\right\}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent This yields the smallest $\sigma$-algebra that contains these but still is $\neq \mathcal{F}$
+\par\bigskip
+\noindent Knowing nothing about a measurable/probability space is not possible, we always know things such as $\mu(\Omega) = 1$ and $\mu(\varnothing) = 0$. We could say that "if we know nothing, then we know those 2 things"\par
+\noindent Conversely, if we know that $\mathcal{P}(\Omega)$ or $\mathcal{F}$ is a $\sigma$-algebra, then we know everything (we know the probability of every event happening). \par
+\noindent For a constant random variable $X$, we know nothing (pre-images is $\left\{\varnothing,\Omega\right\}$). We can encode information using this.

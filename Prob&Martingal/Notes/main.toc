@@ -8,3 +8,5 @@
 \contentsline {section}{\tocsection {}{2}{Probability Spaces}}{6}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Almost sure events}}{6}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Liminf and limsup}}{7}{subsection.2.2}%
+\contentsline {section}{\tocsection {}{3}{Random Variables}}{9}{section.3}%
+\contentsline {section}{\tocsection {}{4}{Laws \& Distribution functions}}{13}{section.4}%
