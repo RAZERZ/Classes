@@ -1,0 +1,222 @@
+\section{Integration}
+\noindent Let $(S,\Sigma, \mu)$ be a measure-space. Given some measurable function $f\in m\Sigma$ where $f:S\to\R$, our goal is to define the integral of this function with respect to our measure $\mu$\par
+\noindent We do it in 3 steps, and then the idea is to reduce integration problems to these 3 cases and proceed. Later we will develop some tools to ease in this conversion.
+\par\bigskip
+\begin{enumerate}[leftmargin=*]
+  \item Define integration of an indicator function 
+    \begin{equation*}
+      \begin{gathered}
+        I_A(s) = \begin{cases}1\quad\text{ if } s\in A\\0\quad\text{ else}\end{cases}\qquad \int I_A(s)d\mu = \mu(A)\quad\forall A\in\Sigma
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item Define the integral for finite linear combinations of characteristic functions $f(s) = \sum_{k=1}^{n}a_kI_{A_k}(s)$ where $a_k\in\R$ (sometimes we say they are non-negative, but this is not always the case) and $A_k\in\Sigma$\par
+    \noindent These functions are called \textit{step-functions}. We set the integral:
+    \begin{equation*}
+      \begin{gathered}
+        \int f(s)d\mu = \sum_{k=1}^{n}a_k\int I_{A_k}d\mu = \sum_{k=1}^{n}a_k\mu(A_k)
+      \end{gathered}
+    \end{equation*}\par
+    \noindent Note that if $A_k$  overlap, they are double-counted. This is the desired functionality
+    \par\bigskip
+  \item For $f\in m\Sigma^+$, we define:
+    \begin{equation*}
+      \begin{gathered}
+        \int f d\mu = \sup\left\{\int gd\mu:g\leq f\text{ $f,g$ are non-negative step-functions}\right\}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item We extend this to all measurable functions $f$ by defining the positive $\&$ negative parts of a functions by 
+    \begin{equation*}
+      \begin{gathered}
+        f^+(s) = \begin{cases}f(s)\quad\text{if $f(s)>0$}\\0\quad\text{else}\end{cases}\\
+        f^-(s) = \begin{cases}-f(s)\quad\text{if $f(s)<0$}\\0\quad\text{else}\end{cases}
+      \end{gathered}
+    \end{equation*}\par
+    \noindent Note here that both are non-negative and $f = f^+-f^-$. All operations utilized preserve measurability, thus we define
+    \begin{equation*}
+      \begin{gathered}
+        \int f d\mu = \int f^+ d\mu-\int f^- d\mu
+      \end{gathered}
+    \end{equation*}
+\end{enumerate}
+\par\bigskip
+\subsection{Properties of the integral}\hfill\\
+\begin{enumerate}[leftmargin=*]
+  \item\textbf{Linearity:} $\int af+bg d\mu = a\int f d\mu+b\int g d\mu\quad \forall a,b\in \R$ and $f,g\in m\Sigma$
+    \par\bigskip
+  \item\textbf{Monotonicity:} If $f\leq g\quad\forall s$, then $\int f d\mu\leq \int g d\mu$ (note here that the $\forall$ is really just a "for almost all" sign, since $\mu(\varnothing)=0$)
+    \par\bigskip
+  \item\textbf{Triangle-inequality:}
+    \begin{equation*}
+      \begin{gathered}
+        \left|\int f d\mu\right| = \left|\int f^+ d\mu-\int f^- d\mu\right|\leq\left|\int f^+ d\mu\right|+\left|\int f^- d\mu\right| = \int\left|f\right|d\mu
+      \end{gathered}
+    \end{equation*}
+\end{enumerate}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $\mu$ is a Lebesgue measure on $\R$ (in general in $\R^n$), then $\int d\mu$ is standard Lebesgue integration. If both the Riemann and Lebesgue integral exist (and are equal) then it is just standard Riemann integration
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $\mu$ be the counting measure on integers. Consider $(\R,\mathcal{B}\left(\R\right),\mu)$\par
+\noindent Then $\int f d\mu$ for any $f\in m\mathcal{B}\left(\R\right) = \sum_{k=1}^{\infty}f(k)\mu(\left\{k\right\}) = \sum_{k=1}^{\infty}f(k)$\par
+\noindent Note, this sees very little of the space and does not work with Riemann integration.
+\par\bigskip
+\noindent We can restrict the domain just like we would with "regular integration". Let $A\in\Sigma$, then
+\begin{equation*}
+  \begin{gathered}
+    \int_A fd\mu = \int fI_{A}d\mu
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{defo}[Integrable]{}
+  We say that $f\in m\Sigma$ is \textit{integrable} with respect to the measure $\mu$ if $\int f^+ d\mu$ and $\int f^- d\mu$ exist and are finite. Otherwise, we say that the integral is \textit{undefined}
+  \par\bigskip
+  \noindent The class of integrable functions is denoted $L^1(S,\Sigma,\mu)$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Note:} 
+\noindent If $f(s) = \pm\infty$ and $f\in L^1$, we must have $\mu(\left\{s\right\}) = 0$: Moreoever,
+\begin{equation*}
+  \begin{gathered}
+  \mu(\left\{s:f(s)=\pm\infty\right\}) = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[]{}
+  If $f$ is a non-negative integrable function and $\int f d\mu = 0$, we claim that the measure of all points $s$ such that $f$ is positive is zero for almost every $s$ (i.e $\mu(\left\{s:f(s)=\pm\infty\right\}) = 0$)
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  The proof strategy here will be to dissect this using unions/intersections and their boundedness.\par
+  \noindent Note that
+  \begin{equation*}
+    \begin{gathered}
+    \bigcup_{n\in\N}\left\{s:f(s)>\dfrac{1}{n}\right\} = \left\{s:f(s)>0\right\}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent If $\mu(A_n) = 0\quad\forall n$, then the function is almost surely 0\par
+  \noindent If this is not the case, then $\exists k\in\N$ such that $\mu(A_k)>0$, but then we can take a function that is bounded above by $f$ like $\dfrac{1}{k}I_k\leq f$.\par
+  \noindent By monotonicity, 
+  \begin{equation*}
+    \begin{gathered}
+      \int f(s)d\mu\geq \int\dfrac{1}{k}I_{A_k}d\mu = \dfrac{1}{k}\mu(A_k)>0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By assumption, $\int f d\mu = 0$ which is a contradiction, so $\mu(I_{A_k}) = 0$
+\end{prf}
+\par\bigskip
+\noindent One question that we shall try to explore now is what happens with limits of sequences of functions and their integrals?\par
+\noindent Well, first we may see them as a sequence of expectation of random variables. By intution one might jump to the conclusion that
+\begin{equation*}
+  \begin{gathered}
+    \lim_{n\to\infty}\int f_n d\mu = \int\lim_{n\to\infty}f_n d\mu
+  \end{gathered}
+\end{equation*}\par
+\noindent But this is not the case, for example if $f_n = I_{[n,n+1)}$ and $\mu$ is the Lebesgue measure we have
+\begin{equation*}
+  \begin{gathered}
+    \int f_n(s) d\mu = \int_{[n,n+1)}(x)dx = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent In particular, $\lim_{n\to\infty}\int f_n(s)d\mu = 1$\par
+\noindent However, for a fixed $x$ we have $\lim_{n\to\infty}f_n(x) = 0$ and
+\begin{equation*}
+  \begin{gathered}
+    \int\lim_{n\to\infty}f_n d\mu = 0d\mu = 0 
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent There are circumstances where this equality holds however, and the goal is somewhat to discover \textit{when} this is.
+\par\bigskip
+\begin{theo}[Monotone Conversion Theorem]{}
+  Let $f_n$ be a sequence of non-negative measurable funcitons $f_n\in m\Sigma^+$ such that $f_n\to f$ pointwise (i.e $f_n(x)$ is non-decreasing in $n$ and $f_n(x)\to f(x)$ as $n\to\infty$). Then
+  \begin{equation*}
+    \begin{gathered}
+      \mu(f_n)\to \mu(f)\Rightarrow \lim_{n\to\infty}\int f_n d\mu\to\int f d\mu = \int\lim_{n\to\infty}f_n d\mu
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\noindent We can always approximate measurable functions using sequences of step functions using
+\begin{equation*}
+  \begin{gathered}
+    \alpha^{(r)}(x) = \begin{cases}0\quad\text{if } x=0\\(i-1)2^{-r}\quad\text{ if } (i-r)2^{-r}\leq x\leq i2^{-r}\leq r\\r\quad\text{ for } x>r\end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Note here that we do not mean $i\in\C$\par
+\noindent This is basically discretisation of $y = x$ up to $r$. It is non-decreasing (monotonly) in $r$, and always less than y = x. \par
+\noindent By setting $f^{(r)}(x) = \alpha^{(r)}(f(x))\quad f\in m\Sigma^+$, we get a function that has all the properties that we wished for (i.e $f_n\to f$ and $f_n$ are step functions).\par
+\noindent We can use this to base our proofs on since we can then start to construct proofs in the following way:\par
+\begin{enumerate}[leftmargin=*]
+  \item Prove the property for indictor functions
+  \item Extend to linear combination of step functions (by proven linearity)
+  \item Extend to $f\in m\Sigma^+$ by monotonicity (exchange limits)
+  \item Extend to $f\in m\Sigma$ by splitting $f = f^+-f^-$
+\end{enumerate}
+\par\bigskip
+\begin{lem}[]{}
+  Suppose $f,g\in L^1$ and $\in m\Sigma$ and $f=g$ for almost all $s\in S$. Then
+  \begin{equation*}
+    \begin{gathered}
+      \int f d\mu = \int g d\mu
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[(Sketch)]{}
+  Consider $f-g$. We want to show that $\int f-g d\mu = 0$\par
+  \noindent If $f,g$ are indictor functions, this is trivially true (since they must have the same step-functions)\par
+  \noindent$\Rightarrow$ Take finite linear combinations and consider monotonicity through step functions (step of 0 is 0) and split into $f^+$ and $f^-$
+\end{prf}
+\par\bigskip
+\begin{lem}[Fatous Lemma v2]{}
+  Suppose $f_n$ is a sequence of non-negative measurable functions ($\in m\Sigma^+$). Then
+  \begin{equation*}
+    \begin{gathered}
+      \mu(\lim_{n\to\infty}\inf f_n) \leq \lim_{n\to\infty}\inf\mu(f_n)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  Consider $g_k = \inf_{n\geq k} f_n$ (increasing). Then, $\lim_{k\to\infty} g_k$ exists and is equal to $\lim_{k\to\infty}\inf f_n$\par
+  \noindent Since $g_k$ is monotonly increasing, we have that $g_k\to\lim_{n\to\infty}\inf f_n$, we can use the Monotone Conversion Theorem (MCT) to take the limit out
+  \begin{equation*}
+    \begin{gathered}
+      \mu(\lim_{k\to\infty}g_k) = \mu(\lim_{n\to\infty}\inf f_n) = \lim_{k\to\infty}\mu(g_k)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent We have $g_k\leq f_n\quad\forall n\geq k$, we can use the monotonicity
+  \begin{equation*}
+    \begin{gathered}
+      \mu(g_k)\leq \mu(f_n)\quad\forall n\geq k \Rightarrow \mu(g_k)\leq \inf_{n\geq k}\mu(f_n)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Substitution yields
+  \begin{equation*}
+    \begin{gathered}
+      \mu(\lim\inf f_n)\leq \lim_{k\to\infty}\inf_{n\geq k} \mu(f_n) = \lim_{n\to\infty}\inf\mu(f_n)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\noindent We can say something about $\lim\sup$, suppose $f_n\leq g$ for $f_n,g\in m\Sigma^+$, then
+\begin{equation*}
+  \begin{gathered}
+    \mu(\lim_{n\to\infty}\sup f_n)\geq \lim_{n\to\infty}\sup \mu(f_n)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}[]{}
+  Apply Fatous lemma wiht some $h_n = g-f_n$. The sign flips things arround and yields what we want
+\end{prf}
+\par\bigskip
+\begin{theo}[Dominated Convergance Theorem]{}
+  Let $f_n$ be a sequence of measurable functions $\&$ assume $\left|f_n\right|\leq g$ for some $g\in L^1$. If $f_n\to f$ pointwise, then:\par
+  \begin{itemize}
+    \item $\mu(\left|f_n-f\right|) = \int \left|f_n-f\right|d\mu\to0$
+    \item $\mu(f_n) = \int f_n d\mu\to\int f d\mu = \mu(f)$
+  \end{itemize}
+\end{theo}
