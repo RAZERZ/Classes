@@ -130,7 +130,7 @@
 \par\bigskip
 \noindent There are circumstances where this equality holds however, and the goal is somewhat to discover \textit{when} this is.
 \par\bigskip
-\begin{theo}[Monotone Conversion Theorem]{}
+\begin{theo}[Monotone Convergance Theorem]{}
   Let $f_n$ be a sequence of non-negative measurable funcitons $f_n\in m\Sigma^+$ such that $f_n\to f$ pointwise (i.e $f_n(x)$ is non-decreasing in $n$ and $f_n(x)\to f(x)$ as $n\to\infty$). Then
   \begin{equation*}
     \begin{gathered}
@@ -210,7 +210,7 @@
 \end{equation*}
 \par\bigskip
 \begin{prf}[]{}
-  Apply Fatous lemma wiht some $h_n = g-f_n$. The sign flips things arround and yields what we want
+  Apply Fatous lemma with some $h_n = g-f_n$. The sign flips things arround and yields what we want
 \end{prf}
 \par\bigskip
 \begin{theo}[Dominated Convergance Theorem]{}
@@ -220,3 +220,40 @@
     \item $\mu(f_n) = \int f_n d\mu\to\int f d\mu = \mu(f)$
   \end{itemize}
 \end{theo}
+\par\bigskip
+\begin{prf}[Dominated Convergance Theorem]{}
+  We have
+  \begin{equation*}
+    \begin{gathered}
+      \left|f_n-f\right|\leq \left|f_n\right|+\left|f\right|\leq 2g
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Since $\left|f_n\right|\leq g$ and $\left|f_n\right|\to \left|f_n\right|$ pointwise.\par
+  \noindent By reverse Fatous lemma
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\sup\mu\left(\left|f_n-f\right|\right)\leq\mu\left(\lim_{n\to\infty\sup}\left|f_n-f\right|\right)\Rightarrow \lim_{n\to\infty}\sup\mu\left(\left|f_n-f\right|\right)=0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent It goes to 0 $\forall n$, so $\lim_{n\to\infty}\inf\mu\left(\left|f_n-f\right|\right)\leq0$, so $\lim_{n\to\infty}\mu\left(\left|f_n-f\right|\right)=0$\par
+  \noindent So $\left|\mu(f_n)-\mu(f)\right|$, by linearity of the integral:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\mu(f_n-f)\right|\leq\mu\left(\left|f_n-f\right|\right)\to0\text{ as } n\to\infty\\
+      \Rightarrow \mu(f_n)\to\mu(f)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{lem}[Scheffes lemma]{}
+  Suppose $f_n,f$ are non-negative and $f_n\to f$ for almost any $s\in S$, then
+  \begin{equation*}
+    \begin{gathered}
+      \mu(f_n)\to \mu(f)\text{ as } n\to\infty \Lrarr \mu(\left|f_n-f\right|)\to0\text{ as } n\to\infty
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent Recall how we defined $\int f d\mu$. We started with indicator functions, then linear combinations of them, then we defined for non-negative functions by taking supremum. Then for negative functions, we looked at their positive parts and their negative part.\par
+\noindent THe idea now is we want to measure one function with respect to another function.

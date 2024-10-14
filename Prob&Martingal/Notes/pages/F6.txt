@@ -1,0 +1,9 @@
+"[latex]Define $\sigma$-finite measure[/latex]";"[latex]We say a measure $\mu$ is $\sigma$-finite if we can split it into finite measures
+\begin{equation*}
+\begin{gathered}
+\exists A_n\in S\text{ s.t } S = \bigcup_{n=1}^{\infty}A_n, \mu(A_n)<\infty\quad\forall n\in \N
+\end{gathered}
+\end{equation*}\par
+\noindent Example is a Lebesgue measure[/latex]"
+"[latex]Define testing[/latex]";"[latex]$\E(X;A)$[/latex]"
+"[latex]State the Radon-Nikodyn theore[/latex]";"[latex]If $\mu, \lambda$ are $\sigma$-finite measures and one dominates the other such that $\mu(A) = 0\Rightarrow \lambda(A) =0$, then $\exists$ a density function $f = \dfrac{d\lambda}{d\mu}$ such that $\lambda(A) = \int_A fd\mu\quad \forall A\in\Sigma$[/latex]"

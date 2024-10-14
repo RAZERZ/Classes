@@ -1,0 +1,283 @@
+\section{Densities}
+\noindent Suppose $X$ is a random variable with law $\Lambda_X(A) = \P(X\in A)$
+\par\bigskip
+\begin{theo}[]{}
+  For every Borell measurable function $f$, we get that $\E(f(X)) = \int_\R f(X)d\Lambda_X$\par
+  \noindent Recall $\E(f(X)) = \int_{\Omega}f(X)d\P$
+\end{theo}\par
+\noindent Here $\R$ is the tangent space of $X$\par
+\noindent Recall the proof strategy for integrals, we start by considering indicator functions.
+\par\bigskip
+\begin{prf}[]{}
+  $f(x) = I_A$ where $A\in\mathcal{B}(\R)$, then
+  \begin{equation*}
+    \begin{gathered}
+      \int_{\Omega}I_A(X)d\P = \E(I_{X\in f}) = \P(X\in A)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent The left hand side is complete, lets check the right hand side:
+  \begin{equation*}
+    \begin{gathered}
+      \int_\R I_A(X)d\Lambda_X = \int_A1d\Lambda_X = \Lambda_X(A)\P(X\in A)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We see that it is true for indicator functions, this can be extended to finitely many linear combinations of step functions and then using MCT with $f\in m\Sigma^+$, then $f = f^+-f^-\Rightarrow f\in m\Sigma$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $X$ has a density, we get 
+\begin{equation*}
+  \begin{gathered}
+    \E(f(X)) = \int_\R f(X)\varphi(X)dX
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $\varphi$ is the density of $X$. The proof of this is similar to the previous proof.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Density here is the same as in the Radon-Nikodyn theorem.
+\par\bigskip
+\noindent\textbf{Recall:}\par
+\noindent $X,Y$ are independent if $\P(\left\{X\in A\right\}\cap \left\{Y\in B\right\}) = \P(X\in A)\P(Y\in B)\quad\forall A,B\in\Sigma$\par
+\noindent Through independence, we can split expectation
+\begin{equation*}
+  \begin{gathered}
+    \E(XY) = \E(X)\E(Y)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}[]{}
+  The idea here is to use the step function trick.\par
+  \noindent We estimate $X,Y$ by increasing step functions $\alpha^{(r)}(X)$ and similarly for $Y$\par
+  \noindent Each function is a linear combination of indicators which which $I_A(X) = \begin{cases}1\quad X\in A\\ 0\quad\text{ else}\end{cases}$ (and similarly for $Y$). We get:
+  \begin{equation*}
+    \begin{gathered}
+    \E(I_A(X)I_B(Y)) = \P(\left\{X\in A\right\}\cap\left\{Y\in B\right\}) = \P(X\in A)\P(Y\in B) = \E(I_A(X))\E(I_B(Y))
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent It has now been proved for indicators, we extend this by linearity and MCT
+\end{prf}
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\noindent Two independent random variables $X,Y$ have 0 covariance and their variance behaves linear.
+\par\bigskip
+\begin{prf}[]{}
+  Just plug and chugg in definitions:
+  \begin{equation*}
+    \begin{gathered}
+      \text{Cov}\left(X,Y\right) = \E(XY)_\E(X)\E(Y) \Rightarrow \E(XY) = \E(X)\E(Y)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent For the variance:
+  \begin{equation*}
+    \begin{gathered}
+      \E((X+Y)^2) = \E(X^2)+\E(Y^2)+2\E(XY)\\
+      (\E(X+Y))^2 = (\E(X)+\E(Y))^2 = (\E(X))^2+(\E(Y))^2 + 2\E(X)\E(Y)\\
+      \Rightarrow \E((X+Y)^2)-(\E(X+Y))^2\\
+      = \E(X^2)-(\E(X))^2+\E(Y^2)-(\E(Y))^2+2\E(XY)-2\E(XY) = \text{Var}\left(X\right)+\text{Var}\left(Y\right)
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $X,Y$ are independent, then $\E(XY)= \E(X)\E(Y)$, but the converse is not true!
+\par\bigskip
+\begin{theo}[(Weak) Strong law of large numbers]{}
+  Let $X_1,\cdots$ be a sequence of independent random variables where $\E(X_i) = 0$ and $\E(\left|X_i\right|^4)<\infty$ (or bounded by some finite constant). Then:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{X_1+\cdots+X_n}{n}\to0\quad\text{ as } n\to\infty
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[(Weak) Strong law of large numbers]{}
+  There is some clue in that we have the 4th power requirement. We shall use the inequalities from above. Let $S_n = \sum_{i=1}^{n}X_i$, and $\E(S_n^4)\E\left(\left(\sum_{i=1}^{n}X_i\right)^4\right)$\par
+  \noindent Using the binomial theorem, we get:
+  \begin{equation*}
+    \begin{gathered}
+      \E(X_1^4)+\E(X_2^4)+\cdots\\
+      +4\E(X_1X_2^3)+4\E(X_1X_3^3)+\cdots\\
+      6\E(X_1^2X_2^2)+6\E\cdots\\
+      +12\E(X_1^2X_2X_3)+\cdots\\
+      +24\E(X_1X_2X_3X_4)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Remember that we have independence, so for terms on the form $\E(X_1X_2^3)$, we can rewrite this as $\E(X_1)\E(X_2^3)$. However, we do not know if the square is independent. This yields
+  \begin{equation*}
+    \begin{gathered}
+      \E(X_1^4)+\cdots+\cdots+\E(X_n^4)+ R
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $R$ here is the remainder, which is on the form $\E(X_1)\E(\cdots)$, so all that survives are:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{rcases}
+        \E(S_n^4) = \underbrace{\sum\E(X_i^4)}_{\text{bounded}}+\underbrace{\sum_{i\neq j}\E(X_i^2X_j^2)}_{\text{looks like C.S}}
+      \end{rcases}\Rightarrow \E(X_i^2X_j^2)\leq\sqrt{\underbrace{\E(X_i^4)}_{\text{bounded}}\underbrace{\E(X_j^4)}_{\text{bounded}}}\leq \sqrt{k^2} = k
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $\E(S_n^4)\leq nk+n\underbrace{(n-1)}_{i\neq j}k\leq 2nk$, and so
+  \begin{equation*}
+    \begin{gathered}
+      \E\left(\left(\dfrac{S_n}{n}\right)^4\right)\leq\dfrac{1}{n^4}2n^2k = \dfrac{2k}{n^2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Borell-Cantelli type beat:
+  \begin{equation*}
+    \begin{gathered}
+      \E\left(\sum_{n=1}^{\infty}\left(\dfrac{S_n}{n}\right)^4\right)\leq\sum_{k=1}^{\infty}\dfrac{2k}{n^2}<\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent If the expectation is finite, then with probability 1 $\sum\left(\dfrac{S_n}{n}\right)^4$ is finite $\Rightarrow \dfrac{S_n}{n}\to0$ almost surely.\par
+  \noindent An alternative method is to use Markovs inequality $\P\left(\dfrac{S_n}{n}\leq \dfrac{1}{n}\right)$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Note:}\par
+\noindent For i.i.d with $\E(X_i) = m$, $\dfrac{\sum^n X_i}{n}$ converges to $m$ almost surely, provided the 4th moment is bounded. This can be proved by considering $Y = X_i-\E(X_i)$
+\par\bigskip
+\begin{defo}[Chebychevs inequality]{}
+  \begin{equation*}
+    \begin{gathered}
+      \P(\left|X-\mu\right|\geq C)\leq \dfrac{\E(\left|X-\mu\right|^2)}{C^2} = \dfrac{\text{Var}\left(X\right)}{C^2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+\end{defo}
+\noindent Applying Chebychevs inequality to $S_n$, we note $\E(S_n/n) = \dfrac{\sum\E(X_i)}{n} = \dfrac{n\E(X_1)}{n} = \E(X_1) = \mu$\par
+\noindent Variation is given by $\dfrac{1}{n^2}\text{Var}\left(S_n\right)$, independence yields
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{n^2}n\text{Var}\left(X_1\right) = \dfrac{\text{Var}\left(X_1\right)}{n} = \dfrac{\sigma^2}{n}
+  \end{gathered}
+\end{equation*}\par
+\noindent So $\P\left(\left|\dfrac{S_n}{n}-\mu\right|\geq C\right)$. Chebychevs yields $\leq \dfrac{\sigma^2}{C^2n}\to0$ as $n\to\infty$. \par
+\noindent Note however, it is not summable, otherwise we could have applied Borell-Cantelli, so $\dfrac{S_n}{n}\to\mu$ in probability.
+\par\bigskip
+\section{Conditional Expectations}
+\noindent\textbf{Example:}\par
+\noindent Consider the throw of a die. The outcomes are $\Omega = \left\{1,2,\cdots,6\right\}$. Let $X(\omega) = \omega$.\par
+\noindent We have $\P(X\leq 3) = \dfrac{3}{6} = \dfrac{1}{2}$. Suppose we are given knowledge that outcome is odd and or even. Recall that the conditional \textit{probability} of these events is given by:\par
+\begin{equation*}
+  \begin{gathered}
+    \P(X\leq 3\mid \text{ odd outcome}) = \dfrac{\P(X\leq 3,\text{ odd outcome})}{\P(\text{odd outcome})} = \dfrac{2/6}{3/6} = \dfrac{2}{3}
+  \end{gathered}
+\end{equation*}\par
+\noindent Conversely:
+\begin{equation*}
+  \begin{gathered}
+    \P(X\leq 3\mid\text{even outcome}) = \dfrac{\P(X\leq3,\text{ even outcome})}{\P(\text{even outcome})} = \dfrac{1/6}{3/6} = \dfrac{1}{3}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The conditional expecation is in this case given by:
+\begin{equation*}
+  \begin{gathered}
+    \E(X\mid\text{ $X$ odd}) = \dfrac{1+3+5}{3} = 3\qquad \E(X\mid\text{ $X$ even}) = \dfrac{2+4+6}{3} = 4
+  \end{gathered}
+\end{equation*}\par
+\noindent The division by 3 is from the probability of the outcomes (3 outcomes in each case).
+\par\bigskip
+\subsection{Conditional expecations with respect to $\sigma$-algebras}\hfill\\
+\begin{defo}[Conditional expectation wrt. $\sigma$-algebra]{}
+  Let $(\Omega,\mathcal{F},\P)$ be a probability space and $\mathcal{G}\subseteq\mathcal{F}$ a sub $\sigma$-algebra. Let $X$ be an integrable random variable.\par
+  \noindent $\exists$ a random variable $Y(\omega)$ which satisfies:\par
+  \begin{itemize}
+    \item$Y$ is $\mathcal{G}$ measurable
+    \item $Y$ is integrable
+    \item Reduce it to any element in $\mathcal{G}$, then $\E(Y) = \E(X)$:
+      \begin{equation*}
+        \begin{gathered}
+          \forall g\in\mathcal{G}\quad \int_g Yd\P = \int_g Xd\P
+        \end{gathered}
+      \end{equation*}
+  \end{itemize}\par
+  \noindent Moreover, $Y$ is unique (almost surely), since any $Y^{\prime}$ also satisfying this must satisfy that $\P(Y=Y^{\prime}) = 1$
+  \par\bigskip
+  \noindent We call this $Y$ the \textit{conditional expectation of } $X$ \textit{conditionen on } $\mathcal{G}$, and we write this as $\E(X\mid \mathcal{G}) = Y\Lrarr$ random variable.
+\end{defo}
+\par\bigskip
+\noindent If the $\sigma$-algebra is $\sigma(Z)$ on $\sigma(Z_1,\cdots,Z_n)$ (generated by $Z$), we write $\E(X\mid Z) = \E(X\mid\sigma(Z))$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent In the die example we have $\mathcal{F} = \mathcal{P}(\Omega)$. Both the even and the odd case is:
+\begin{equation*}
+  \begin{gathered}
+  \mathcal{G} = \left\{\varnothing,\Omega,\left\{1,2,3\right\},\left\{2,4,6\right\}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent $\mathcal{G}$-measurability implies $Y$ is a constant $\left\{1,3,5\right\}$ and $\left\{2,4,6\right\}$ (can only take 1 value for smallest piece of the $\sigma$-algebra by pre-image), so $Y(\omega) = a$ if $\omega\in\left\{1,3,5\right\}$ and $Y(\omega) = b$ if $\omega \in \left\{2,4,6\right\}$\par
+\noindent Since the last requirement in the definition ($\forall g\in\mathcal{G}$) we have:
+\begin{equation*}
+  \begin{gathered}
+    \int_\varnothing Yd\P = \int_\varnothing Xd\P
+  \end{gathered}
+\end{equation*}\par
+\noindent This does not tell us anything, but it is worth noting. We continue:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{Y_{\left\{1,3,5\right\}} Yd\P}_{= \int_{\left\{1,3,5\right\}}ad\P}= \int_{\left\{1,3,5\right\}}A = 1\cdot\dfrac{1}{6}+3\cdot\dfrac{1}{6}+5\cdot\dfrac{1}{6} = \dfrac{9}{6}\\
+     = a\P(\left\{1,3,5\right\}) = \dfrac{a}{2}\Rightarrow \dfrac{9}{6} = \dfrac{a}{2} \Rightarrow a = 3
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\int_{\left\{2,4,6\right\}} Yd\P}_{b\P(\left\{2,4,6\right\})}= \int_{\left\{2,4,6\right\}}Xd\P = 2\cdot\dfrac{1}{6}+4\cdot\dfrac{1}{6}+6\cdot\dfrac{1}{6} = 2 = \dfrac{b}{2}\Rightarrow b = 4
+  \end{gathered}
+\end{equation*}\par
+\noindent Obviously we have to verify for all the $g\in\mathcal{G}$:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\int_\Omega Yd\P}_{\dfrac{1}{2}\cdot3+\dfrac{1}{2}\cdot4}= \int_\Omega Xd\P = \dfrac{1+2+3+4+5+6}{6} = \dfrac{7}{6}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If $\mathcal{G}$ is a trivial $\sigma$-algebra, then $\E(X\mid\mathcal{G}) = \E(X)$ since $\int Y = \int X$ almost surely.
+\par\bigskip
+\noindent Philosophically, we may interpret this as a knowledge of a system.\par
+\noindent We want to now investiage sequences of random variables without the iid constraint.
+\par\bigskip
+\section{Martingales}\par
+\begin{defo}[Martingale]{}
+  Let $X_1,\cdots,$ be a sequence of integrable random variables, we say that the sequence is a martingale if $\E(X_{n+1}\mid X_n,X_{n-1},\cdots) = X_n$ almost surely
+\end{defo}
+\par\bigskip
+\noindent On average we have no change. The expectation on the $n+1$:th outcome given the knowledge of previous outcomes is the same as the last outcome.
+\par\bigskip
+\begin{theo}[Properties of martingales]{}
+  \begin{enumerate}[leftmargin=*]
+    \item $\E(\E(X\mid\mathcal{G})) = \E(X)$
+    \item If $X$ is $\mathcal{G}$-measurable, then $\E(X\mid\mathcal{G}) = X$ almost surely
+    \item Linearity condition still holds: $\E(aX+bY\mid \mathcal{G}) = a\E(X\mid\mathcal{G})+b\E(Y\mid\mathcal{G})$ almost surely
+    \item Positivity: If $X\geq0$ almost surely, then $\E(X\mid\mathcal{G})\geq0$ almost surely irregardless of $\mathcal{G}$
+  \end{enumerate}
+\end{theo}
+\par\bigskip
+\begin{prf}[Properties of martingales]{}
+  \begin{enumerate}[leftmargin=*]
+    \item $\E(\E(X\mid\mathcal{G}))\Rightarrow \int_\Omega\E(X\mid\mathcal{G})d\P =\int_\Omega Xd\P$
+    \item $X$ satisfies condition of conditional expectation (measurable on any subset and equality)
+    \item Follows by linearity of $\int \cdots d\P$
+    \item Suppose $Y = \E(X\mid\mathcal{G}) >0$, for positive measure set $A$. Then $\exists n$ such that $\P(Y\leq\dfrac{-1}{n})>0$. This is a $\mathcal{G}$-measurable set and $\int_{A_n}Yd\P \leq \dfrac{-1}{n}\underbrace{\P(A_n)}_{\geq0} = \int_{A_n}X d\P\geq0$ which is a contradiction.
+  \end{enumerate}
+\end{prf}
+\par\bigskip
+\noindent Of course, the results for integration are extended into results in expectation:
+\par\bigskip
+\begin{theo}[]{}
+  \begin{enumerate}[leftmargin=*]
+    \item If $X_1,\cdots$ are a sequence of non-negative random variables and $X_n\to X$, then $\E(X_n\mid\mathcal{G})\to \E(X\mid\mathcal{G})$ (MCT)
+    \item If $X_1,\cdots$ satisfy $\left|X_i\right|\leq Z$ (where $Z$ is integrable and positive and $X_n\to X$), then $\E(X_n\mid\mathcal{G})\to\mathcal \E(X\mid\mathcal{G})$ (DCT)
+    \item Fatous: If $X_1,\cdots$ are non-negative, then we can also take the $\lim_{n\to\infty}\inf$ out:
+      \begin{equation*}
+        \begin{gathered}
+          \E(\lim_{n\to\infty}\inf X_n\mid\mathcal{G})\leq\lim_{n\to\infty}\inf\E(X_n\mid\mathcal{G})
+        \end{gathered}
+      \end{equation*}
+  \end{enumerate}
+\end{theo}

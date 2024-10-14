@@ -1,0 +1,250 @@
+\subsection{Modifying Measures}\hfill\\
+Let $f\in\Sigma^+$. We consider the restricted integral
+\begin{equation*}
+  \begin{gathered}
+    \int_A fd\mu = \int fI_A d\mu = \lambda(A) = \lambda_{f,\mu}(A)
+  \end{gathered}
+\end{equation*}\par
+\noindent where $A\in\Sigma$. This is a measure (also denoted $\mu(f;a)$):\par
+\begin{itemize}
+  \item $\lambda(A)\geq0\quad\forall A\in\Sigma$
+  \item $\sigma$-additivity follows from linearity of integral, disjoint $A_n\in\Sigma$
+  \item 
+    \begin{equation*}
+      \begin{gathered}
+        \lambda\left(\bigcup_{n=1}^{\infty}A_n\right) = \int fA_{\bigcup_{n=1}^{\infty}A_n}d\mu = \int f\left(\sum_{n=1}^{\infty}I_{A_n}\right)d\mu = \int f\lim_{N\to\infty}\underbrace{\sum_{n=1}^{N}I_{A_n}}_{\leq1}d\mu  = \int\lim_{N\to\infty}\sum_{n=1}^{N}fI_{A_n}d\mu
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent By MCT, we can take the limit out
+    \begin{equation*}
+      \begin{gathered}
+        \lim_{N\to\infty}\int\sum_{n=1}^{N}fI_{A_n}d\mu = \lim_{N\to\infty}\sum_{n=1}^{N}\underbrace{\int fI_{A_n}d\mu}_{\lambda(A_n)} \Rightarrow \lim\sum\lambda(A_n)=\sum_{n=1}^{\infty}\lambda(A_n)
+      \end{gathered}
+    \end{equation*}
+  \item $\lambda(\varnothing)=0$
+\end{itemize}
+\par\bigskip
+\noindent $\Rightarrow$ $\lambda$ is a measure, with density $f$ with respect to $\mu$\par
+\noindent We write this as $f = \dfrac{d\lambda}{d\mu}$
+\par\bigskip
+\begin{defo}[$\sigma$-finite measure]{}
+  We say a measure $\mu$ is $\sigma$-finite if we can split it into finite measures
+  \begin{equation*}
+    \begin{gathered}
+      \exists A_n\in S\text{ s.t } S = \bigcup_{n=1}^{\infty}A_n, \mu(A_n)<\infty\quad\forall n\in \N
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Example is a Lebesgue measure
+\end{defo}
+\par\bigskip
+\begin{theo}[Radon-Nikodyn theore]{}
+  If $\mu, \lambda$ are $\sigma$-finite measures and one dominates the other such that $\mu(A) = 0\Rightarrow \lambda(A) =0$, then $\exists$ a density function $f = \dfrac{d\lambda}{d\mu}$ such that $\lambda(A) = \int_A fd\mu\quad \forall A\in\Sigma$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $\mu$ be the Lebesgue measure and $f = \dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}$, then $\lambda(A) = \int_A fd\mu$ is the measure associated with normal distributed random variables on $\R$
+\par\bigskip
+\section{Expectations}
+\noindent The are integrals with respect to a probability measure. An expected value is "a value we expect the random variable to take"
+\par\bigskip
+\noindent Let $(\Omega,\mathcal{F},\R)$ and $X$ be a random variable. Then $\E(X)=\int X(\omega)d\P(omega) = \int Xd\P$.\par
+\noindent If it exists, then $X$ is integrable ($\int\left|X\right|d\P<\infty$)
+\par\bigskip
+\noindent\textbf{Example: } (\textit{Die roll})
+\begin{equation*}
+  \begin{gathered}
+    X(\omega) = X(1)I_{1}(\omega)+\cdots+X(6)I_{6}$, $\E(X) = \int Xd\P = \dfrac{1}{6}\\
+    \E(X) = \int Xd\P = \dfrac{1}{6}X(1)+\cdots+\dfrac{1}{6}X(6)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent A nice thing to remember is all the integral theorems that were previously stated have now become expectation theorems:
+\begin{itemize}
+  \item $0\leq X_n\to X\Rightarrow \E(X_n)\to \E(X)$ (MCT)
+  \item $\left|X_n\right|\leq Y\quad \E(Y)<\infty\Rightarrow \E(X_n)\to \E(\lim_{n\to\infty}X_n)$ (DCP)
+  \item $X_n\to X\Rightarrow \E(X) = \E(\lim_{n\to\infty}X_n)\leq \lim_{n\to\infty}\inf\E(X_n)$ (Fatou)
+  \item $\E(X;A) = \mu(X;A) = \E(XI_A) = \int_A Xd\P$
+\end{itemize}
+\par\bigskip
+\noindent We are now going to look at estimating size/somethign large using expectation.
+\par\bigskip
+\begin{theo}[Markovs Inequality]{}
+  Let $Z$ be a random variable with values in some set $G$ ($Z:\Omega\to G$) and let $g:G\to[0,\infty]$ be a non-decreasing function in $G\subseteq\R$ and measurable. Then
+  \begin{equation*}
+    \begin{gathered}
+      \E(g(Z))\geq \E(g(Z)I_{Z\geq C}) = \E(g(Z);{Z\geq C})
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[Markovs Inequality]{}
+  Since $g$ is non-decreasing, we have $\geq \E(g(C);{Z\geq C}) = g(C)(I_{Z\geq C}\cdot\text{ const.})\leq g(C)\P(Z\geq C)$
+  \par\bigskip
+  \noindent We can now estimate $\P(Z\geq C)$ using expectation, since $\E(g(Z))\geq g(C)\P(Z\geq C)$ we get $\P(Z\geq C)\leq \dfrac{\E(g(Z))}{g(C)}$
+\end{prf}
+\par\bigskip
+\noindent Obviously the special case occurs when $g(X) = X$, since the inequality becomes $\P(Z\geq C)\leq \dfrac{\E(Z)}{C}$ for non-negative $Z$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $Z:\Omega\to\N$, then
+\begin{equation*}
+  \begin{gathered}
+    \P(Z\neq0) = P(Z\geq1)\leq \dfrac{\E(Z)}{1} = \E(Z)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Important special case:}\par
+\begin{equation*}
+  \begin{gathered}
+    g(X) = e^{\theta X},\quad \theta>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Then, $\P(Z\geq C) = \P(e^{\theta Z}\geq e^{\theta C})\leq \dfrac{\overbrace{\E(e^{\theta Z})}^{\text{mgf.}}}{e^{\theta C}}$
+\par\bigskip
+\subsection{Jensens inequality}\hfill\\
+\noindent A function is called convex on $I$ if function value of an average $f(px+qy)\leq pf(x)+qf(y)\quad\forall p,q\in[0,1]$ such that $p+q = 1$ and $x,y\in I$\par
+\noindent In laymans terms, a straight line from $x\to y$ is above the function, then $f(px+qy)\leq\text{ straightline}(px+qy)$
+\par\bigskip
+\noindent\textbf{Examples:}\par
+$x\mapsto C$, $x\mapsto cx$, $x\mapsto e^x$, $x\mapsto x^n$ for $n\geq 1$
+\par\bigskip
+\begin{defo}[Jensens inequality]{}
+  Let $f:I\to\R$ be a convex function and $x:\Omega\to I$ be a random variable.\par
+  \noindent Then $\E(f(X))\geq f(\E(X))$
+\end{defo}
+\newpage
+\begin{prf}[Jensens inequality]{}
+  We start off by rewriting the convexity condition: $\underbrace{f(v)-f(u)}_{v-u}\leq \underbrace{f(w)-f(u)}_{w-v}$ for $u<v<w$.\par
+  \noindent So, by monotonicity, left and right derivatives exist (but not always equal). We get $f(x)>f(x)\geq f(w)+m(x-v)$ for any $m$ between left and right derivative. Substituting this into the above, we get
+  \begin{equation*}
+    \begin{gathered}
+      \E(f(x))\geq \underbrace{\E(f(\underbrace{\E(x)}_{\text{const.}}))}_{f(\E(x))}+\underbrace{m(x-\E(x))}_{\E(m(x-\E(x)))=m(\E(x))-m(\E(x))}= f(\E(x))
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\subsection{$L^p$-norms}\hfill\\
+\noindent These norms tell us how well behaved our function is.\par
+\noindent For $p\geq1$, we define $\left|\left|X\right|\right|_p = \E(\left|X\right|^p)^{1/p}$, this defines a norm for $p\geq 1$.
+\par\bigskip
+\noindent $L^p(\Omega,\mathcal{F},\P)$ is a collection of all functions such that the $p$-norm is finite ($\forall X$ such that $\left|\left|X\right|\right|_p<\infty$). Let $f(X) = X^{r/p}$, we want this to be convex so for $r\geq p\geq1$, then $f$ is convex and we can use Jensens inequality and up with 
+\begin{equation*}
+  \begin{gathered}
+    \E(\left|Y\right|^{r/p})\geq \E(\left|Y\right|)^{r(p)}\Rightarrow Y=\left|X\right|^p\\
+    \Rightarrow \E(\left|X\right|^r)\geq \E(\left|X\right|^p)^{r/p}\Rightarrow \E(\left|X\right|^r)^{1/r}\geq \E(\left|X\right|^p)^{1/p}\\
+    \Rightarrow \left|\left|X\right|\right|_r\geq\left|\left|X\right|\right|_p\qquad\text{where $r>p$}
+  \end{gathered}
+\end{equation*}\par
+\noindent If $r$-norm $<\infty\Rightarrow p$-norm $<\infty$, so $L^r(\Omega, \mathcal{F},\P)\subseteq L^p(\Omega, \mathcal{F},\P)$
+\par\bigskip
+\noindent Be advised! $L^2$ is important!
+\par\bigskip
+\begin{defo}[Cauchy-Schwarz inequality]{}
+  If $X,Y$ are random variables and $\in L^2(\Omega, \mathcal{F},\P)$, then $X\cdot Y$ is integrable (also in $L^2$) and we can bound the product:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\E(XY)\right|\leq \E(\left|XY\right|)\leq \left|\left|X\right|\right|_2\left|\left|Y\right|\right|_2 = \sqrt{\E(\left|X\right|)^2\E(\left|Y\right|)^2}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This implies we got an inner product on 2 random variables by $\langle X,Y\rangle = \E(\left|XY\right|)$
+\end{defo}
+\par\bigskip
+\begin{prf}[Cauchy-Schwarz inequality]{}
+  Truncating $X,Y$ by defining $X_n = \min\left\{\left|X\right|, n\right\}$ and similarly for $Y_n$. These are bounded and non-negative random variables\par
+  \noindent For $a\in\R$, we look at $\\E((aX_n+Y_n)^2)\geq0$ (since we are squaring it), but we can also write this on the form $a^2\E(X_n^2)+\E(Y_n^2)+2a\E(X_nY_n)\geq0$\par
+  \noindent Lets consider this as a polynomial in $a$:
+  \begin{equation*}
+    \begin{gathered}
+      f(a), \quad f\geq0\Rightarrow (2\E(X_nY_n))^2-4\E(X_n^2)\E(Y_n^2)<0\\
+      \Rightarrow \E(X_nY_n)^2\leq \E(X_n^2)\E(Y_n^2)\Rightarrow \E(X_nY_n)\leq \sqrt{\E(X_n^2)\E(Y_n^2)}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is the Cauchy-Schwarz inequality for $X_n,Y_n$. To finish the proof, we take limits in $n$ and use monotonicity and MCT to get:
+  \begin{equation*}
+    \begin{gathered}
+      \E(\left|XY\right|)\leq \sqrt{\E(X^2)\E(Y^2)}
+    \end{gathered}
+  \end{equation*}
+\end{prf}\par
+\noindent The proof idea we used was to truncate (bound) and then take the limit.
+\par\bigskip
+\noindent\textbf{Corollary:}\par
+\begin{equation*}
+  \begin{gathered}
+    \left|\left|X+Y\right|\right|_2\leq \left|\left|X\right|\right|_2+\left|\left|Y\right|\right|_2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}[]{}
+  The trick here is to take the $p$:th power, in this case $2$:
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|X+Y\right|\right|_2^2=\E((X+Y)^2) = \E(X^2)+\E(Y)+2\E(XY)\leq \E(X^2)+\E(Y^2)+2\left|\left|X\right|\right|_2\left|\left|Y\right|\right|_2
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent Since what we have shown satisfies the triangle inequality, means we got a norm.
+\par\bigskip
+\begin{defo}[Covariance and variance]{}
+  Let $X,Y$ be random variables with $m_X=\E(X)$ and $m_Y=\E(Y)$\par
+  \noindent We set $\text{Cov}\left(X,Y\right) = \E(XY)-\E(X)\E(Y)$ and $\text{Var}\left(X\right) = \text{Cov}\left(X,X\right) = \E(X^2)-(\E(X))^2$
+  \par\bigskip
+  \noindent Note that $\text{Cov}\left(X,Y\right) = \E((X-m_X)(Y-m_Y))$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Properties:}
+\begin{itemize}
+  \item $\text{Var}\left(x\right)\geq0$
+  \item $X,Y$ independent $\Rightarrow \text{Cov}\left(X,Y\right) = 0$
+  \item $\left|\text{Cov}\left(X,Y\right)\right|\leq \sqrt{\text{Var}\left(X\right)\text{Var}\left(Y\right)}$
+\end{itemize}\par
+\noindent Normalisiing yields the correlation:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\text{Cov}\left(X,Y\right)}{\sqrt{\text{Var}\left(x\right)}\text{Var}\left(Y\right)} = \text{Corr}\left(X,Y\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that the denominator is a bound for the numerator, hence $\left|\text{Corr}\left(X,Y\right)\right|\leq1$ and equality if and only if there is an almost sure linear relation between $X,Y$.
+\par\bigskip
+\noindent This generalises to something known as the Hölder inequality:\par
+Assume $X\in L^p,\quad Y\in L^q$ with $\dfrac{1}{p}+\dfrac{1}{q}=1$ (so $p,q\geq1$), then
+\begin{equation*}
+  \begin{gathered}
+    \left|\E(XY)\right|\leq \E(\left|XY\right|)\leq \left|\left|X\right|\right|_p+\left|\left|Y\right|\right|_q
+  \end{gathered}
+\end{equation*}\par
+\noindent holds for measure spaces.
+\par\bigskip
+\noindent\textbf{Corollary:} \textit{(Minkowskis inequality)}\par
+\begin{equation*}
+  \begin{gathered}
+    \left|\left|X+Y\right|\right|_p\leq \left|\left|X\right|\right|_p+\left|\left|Y\right|\right|_p
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{prf}[]{}
+  Want to use Hölders inequality and previous trick of truncating. $\left|\left|X+Y\right|\right|_p^p = \E((X+Y)^p)$, wlog, $p\geq1$ (case $p=1$ is trivial)
+  \begin{equation*}
+    \begin{gathered}
+      \E(\left|X+Y\right|\left|X+Y\right|^{p-1})\leq \E(\left|X\right|\left|X+Y\right|^{p-1})+\E(\left|Y\right|\left|X+Y\right|^{p-1})\\
+      \leq \left|\left|X\right|\right|_p\left|\left|\left|X+Y\right|^{p-1}\right|\right|_q+\left|\left|Y\right|\right|_p\left|\left|\left|X+Y\right|^{p-q}\right|\right|_q
+    \end{gathered}
+  \end{equation*}\par
+  \noindent By Hölder inequality and the requirement on $p,q$ yielding $q = \dfrac{p}{p-1}$, we collect some terms and get:
+  \begin{equation*}
+    \begin{gathered}
+      (\left|\left|X\right|\right|_p+\left|\left|Y\right|\right|_p)\left|\left|\left|X+Y\right|^{p-1}\right|\right|_q = (\left|\left|X\right|\right|_p+\left|\left|Y\right|\right|_p)E\left(\left|X+Y\right|^{p}\right)^{1/q}\\
+      \Rightarrow(\left|\left|X+Y\right|\right|_p)^{p-p/q}\leq \left|\left|X\right|\right|_p+\left|\left|Y\right|\right|_p
+    \end{gathered}
+  \end{equation*}\par
+  \noindent But $p-\dfrac{p}{q} = 1$ and thus the claim follows.
+\end{prf}
+\par\bigskip
+\noindent Thus $\left|\left|\cdot\right|\right|_p$ is a norm.
+\begin{defo}[Completeness of $L^p$]{}
+  $L^p(\Omega, \mathcal{F},\P)$ is complete (not bounded), i.e Cauchy sequences with respect to the $p$-norm converge in the space.
+\end{defo}
