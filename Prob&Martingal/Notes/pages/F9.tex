@@ -1,0 +1,211 @@
+\section{Stopping times}
+A stopping time is a random variable $T$ with values in $\left\{0,1,2,\cdots,\infty\right\}$ and the property that $\left\{T\leq n\right\} = \left\{\omega\in\Omega:T(\omega)\leq n\right\}\in\mathcal{F}_n$ for all $n$.\par
+\noindent Equivalently, $\left\{T=n\right\} = \mathcal{F}_n \quad\forall n$. This follows from
+\begin{equation*}
+  \begin{gathered}
+  \left\{T\leq n\right\} = \left\{T\leq n-1\right\}\cup \left\{T=n\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Examples:}
+\begin{itemize}
+  \item All constants are stopping times
+  \item "First occurence", i.e $T = \min\left\{n:X_n=0\right\}$ for an adapted process $X_n$
+  \item  If $S,T$ are stopping times, then so are:
+    \begin{itemize}
+      \item $\min\left\{S,T\right\} = S\wedge T$ "either stopped"
+      \item $\max\left\{S,T\right\} = S\vee T$ "both stopped"
+    \end{itemize}
+  \item "Counting": For example, set $N_n = $  number of indices $k\leq n$ with $X_k=0$, $T=\min\left\{n:N_n=10\right\}$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent The following are generally \textit{not} stopping times:
+\begin{equation*}
+  \begin{gathered}
+  T = \max\left\{n:N_n=0\right\} 
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we cannot determine whether $N_k = 0$ for $k>n$
+\par\bigskip
+\noindent Also:
+\begin{equation*}
+  \begin{gathered}
+  T = \min\left\{n:X_n = \sup_k X_k\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $\sup_k X_k$ is not measurable with respect to $\mathcal{F}_n$. Could be larger Later
+\par\bigskip
+\section{Stopped Processes}
+Let $X_n$ be an adapted process and $T$ a stopping time with respect to a given filtration. The stopped process $X^T$ is
+\begin{equation*}
+  \begin{gathered}
+    X_n^T(\omega) = X_{n\wedge T(\omega)}(\omega) = \begin{cases}X_{T(\omega)}(\omega)\quad\text{if } n\geq T(\omega)\\X_n(\omega)\quad\text{if } n<T(\omega)\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  If $X_n$ is a martingale/super-martingale/sub-martingale, then so is $X_n^T$. In particular, for every $n$
+  \begin{equation*}
+    \begin{gathered}
+      \E(X_{T\wedge n})\leq \E(X_0)\qquad\text{super-martingale}\\
+      \E(X_{T\wedge n})\geq \E(X_0)\qquad\text{sub-martingale}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Note that $C_n^T=\underbrace{I_{\left\{n\leq 1\right\}} = 1-I_{\left\{T\leq n-1\right\}}}_{\text{not yet stopped at time $n-1$}}$ is pre-visible.\par
+  \noindent We have 
+  \begin{equation*}
+    \begin{gathered}
+      (C^T\cdot X)_n = \sum_{k=1}^{n}C_k^T(X_k-X_{k-1})\\
+      = \sum_{k=1}^{n}I_{\left\{k\leq T\right\}}(X_k-X_{k-1}) = \sum_{k=1}^{T\wedge n}(X_k-X_{k-1})\\
+      = X_{T\wedge n} -X_0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $X_{T\wedge n}$ is a martingale.\par
+  \noindent Since $\E(\E(X\mid\mathcal{F})) = \E(X)$, the second conclusion follows
+\end{prf}
+\par\bigskip
+\noindent So for every fixed $n$, $\E(X_{T\wedge n}) = \E(X_0)$. Question is, is it true that $\E(X_T) = \E(X_0)$?\par
+\noindent In general, \textbf{no!}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Consider the martingale $X_0=1$, $X_n = \begin{cases}2X_{n-1}\quad\text{ prob. }1/2\\0\quad\text{ prob.} 1/2\end{cases}$\par
+\noindent Let $T = \min\left\{n:X_n=0\right\}$. Clearly $\E(X_T) = 0\neq \E(X_0)$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Consider the simple random walk $X_0=0$ and $X_n = \begin{cases}X_{n-1}+1\quad\text{ prob.} 1/2\\X_{n-1} = -1\quad\text{ prob.} 1/2\end{cases}$\par
+\noindent Define $T = \min\left\{n:X_n = 1\right\}$. This is a stopping time and one can show that $T<\infty$ almost surely.\par
+\noindent Hence $\E(X_T) = 1\neq \E(X_0)$\par
+\noindent However, under simpler conditions $\E(X_T) = \E(X_0)$
+\par\bigskip
+\begin{theo}[Doobs Optional Stopping Theorem]{}
+  Let $T$ be a stopping time and let $X$ be either a super-martingale or a sub-martingale. Suppose one of the following hold:\par
+  \begin{itemize}
+    \item $T$ is bounded almost surely
+      \item $X_n$ is bounded and $T<\infty$ for $\omega\in\Omega$
+    \item $\E(T)<\infty$ and $\left|X_n(\omega)-X_{n-1}(\omega)\right|$ for all $n$ and almost every $\omega\in\Omega$
+  \end{itemize}
+  \par\bigskip
+  \noindent Then
+  \begin{equation*}
+    \begin{gathered}
+      \E(X_T) \leq \E(X_0)\qquad\text{super-martingale}\\
+      \E(X_T) = \E(X_0)\qquad\text{martingale}\\
+      \E(X_T) \geq \E(X_0)\qquad\text{sub-martingale}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[Doobs Optional Stopping Theorem]{}
+  \begin{itemize}
+    \item If $T$ is bounded by some $N$ almost surely, we have $T\wedge N = T$ and so:
+      \begin{equation*}
+        \begin{gathered}
+          \E(X_T) \leq \E(X_0)\qquad\text{super-martingale}\\
+          \E(X_T) = \E(X_0)\qquad\text{martingale}\\
+          \E(X_T) \geq \E(X_0)\qquad\text{sub-martingale}
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item We have $\E(X_{T\wedge n}) \leq,=,\geq \E(X_0)$ for fixed $n$. Since $X$ is bounded, we can use DCT
+      \begin{equation*}
+        \begin{gathered}
+          \E(X_0) = \lim_{n\to\infty}\E(X_{T\wedge n}) = \E(\lim_{n\to\infty}X_{T\wedge n}) - \E(X_T)
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item We have
+      \begin{equation*}
+        \begin{gathered}
+          \left|X_{T\wedge n}-X_0\right| = \left|\sum_{k=1}^{T\wedge n}(X_k-X_{k-1})\right|\leq \sum_{k=1}^{T\wedge n}\left|X_k-X_{k-1}\right|\leq K(T\wedge n)\leq KT
+        \end{gathered}
+      \end{equation*}\par
+      \noindent So $\E(KT) = K\E(T)<\infty$ and we can apply DCT on above
+  \end{itemize}
+\end{prf}
+\par\bigskip
+\noindent The following lemma is useful to show that $\E(T)<\infty$ for specific stopping times:
+\par\bigskip
+\begin{lem}[]{}
+  Suppose there exists $\varepsilon>0$ and a positive integer $N$ such that $\P(T\leq n+N\mid\mathcal{F}_n)\geq\varepsilon$ for all $n$. Then $\E(T)<\infty$
+  \par\bigskip
+  \noindent I.e, the probablity of stopping at any point within the next $N$ steps is at least $\varepsilon>0$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We have 
+  \begin{equation*}
+    \begin{gathered}
+      \P(T>N)\leq 1-\varepsilon\qquad\text{first $N$ step}\\
+      \P(T>2N\mid T>n)\leq 1-\varepsilon\qquad\text{steps $N+1,\cdots,2N$}\\
+      \P(T>3N\mid T>2N)\leq 1-\varepsilon
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So:
+  \begin{equation*}
+    \begin{gathered}
+      \E(T)\leq N\varepsilon+2N\varepsilon(1-\varepsilon)+3N\varepsilon(1-\varepsilon)+\cdots\\
+      =N\varepsilon(1+2(1-\varepsilon)+e(1-\varepsilon)^2+\cdots)\\
+      N\varepsilon\dfrac{1}{(1-(1-\varepsilon))^2} = \dfrac{N}{\varepsilon}<\infty
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Consider the simple random walk that we have considered in previous examples.\par
+\noindent Take $T = \min\left\{n:\left|X_n\right|=a\right\}$, then $\E(T)<\infty$. It follows by taking $N=a$ and $\varepsilon= \dfrac{1}{2}a$
+\par\bigskip
+\noindent More generally, we can consider $T= \min\left\{n:X_n\geq a\vee X_n\leq -b\right\}$\par
+\noindent Since $\left|X_k-X_{k-1}\right|=1$, the third (or second item) of Doobs optional stopping theorem applies.\par
+\noindent This allows us to answer questions such as:\par
+
+\begin{itemize}
+  \item What is the probablity that we reach $a$ before $-b$?
+  \item What is the expected time for one of the two to happen?
+\end{itemize}
+\par\bigskip
+\noindent We get:
+\begin{equation*}
+  \begin{gathered}
+    \E(X_T) = \E(X_0) = 0\quad\text{from DOST}\\
+    \Lrarr 
+    \begin{rcases*}
+      a\P(X_T = a)+(-b)\P(X_T = -b) = 0\\
+      \P(X_T = a)+\P(X_T=-b) = 1
+    \end{rcases*}\\
+    \Rightarrow \P(X_T = a) = \dfrac{b}{a+b}\\
+    \Rightarrow \P(X_T = -b) = \dfrac{a}{a+b}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now lets look at $X_n^2$:
+\begin{equation*}
+  \begin{gathered}
+    \E(X_n^2\mid\mathcal{F}_{n-1}) = \dfrac{1}{2}(X_{n-1}+1)^2+\dfrac{1}{2}(X_{n-1}-1)^2 = X_{n-1}^2+1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent It follows that
+\begin{equation*}
+  \begin{gathered}
+    \E(X_n^2-n\mid\mathcal{F}_{n-1}) = X_{n-1}^2+1-n = X_{n-1}^2-(n-1)
+  \end{gathered}
+\end{equation*}\par
+\noindent Hence $Y_n = X_n^2-n$ is a martingale!\par
+\noindent The 2nd and 3rd of DOST then apply and 
+\begin{equation*}
+  \begin{gathered}
+    \E(Y_T) = \E(Y_0) =0\\
+    Y_T = X_T^2-T = \text{ either } a^2-T \vee b^2-T\\
+    \Rightarrow \E(X_T^2) =\E(T)\wedge \dfrac{a^2b}{a+b}+\dfrac{b^2a}{a+b} = \E(T)
+  \end{gathered}
+\end{equation*}\par
+\noindent So we find 
+\begin{equation*}
+  \begin{gathered}
+    \E(T) = \dfrac{ab(a+b)}{a+b} = ab
+  \end{gathered}
+\end{equation*}

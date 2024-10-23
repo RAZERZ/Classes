@@ -242,42 +242,26 @@
 \noindent Philosophically, we may interpret this as a knowledge of a system.\par
 \noindent We want to now investiage sequences of random variables without the iid constraint.
 \par\bigskip
-\section{Martingales}\par
-\begin{defo}[Martingale]{}
-  Let $X_1,\cdots,$ be a sequence of integrable random variables, we say that the sequence is a martingale if $\E(X_{n+1}\mid X_n,X_{n-1},\cdots) = X_n$ almost surely
-\end{defo}
+\begin{lem}[]{}
+  $\E(X\mid\mathcal{G})$ is unqiue
+\end{lem}
 \par\bigskip
-\noindent On average we have no change. The expectation on the $n+1$:th outcome given the knowledge of previous outcomes is the same as the last outcome.
-\par\bigskip
-\begin{theo}[Properties of martingales]{}
-  \begin{enumerate}[leftmargin=*]
-    \item $\E(\E(X\mid\mathcal{G})) = \E(X)$
-    \item If $X$ is $\mathcal{G}$-measurable, then $\E(X\mid\mathcal{G}) = X$ almost surely
-    \item Linearity condition still holds: $\E(aX+bY\mid \mathcal{G}) = a\E(X\mid\mathcal{G})+b\E(Y\mid\mathcal{G})$ almost surely
-    \item Positivity: If $X\geq0$ almost surely, then $\E(X\mid\mathcal{G})\geq0$ almost surely irregardless of $\mathcal{G}$
-  \end{enumerate}
-\end{theo}
-\par\bigskip
-\begin{prf}[Properties of martingales]{}
-  \begin{enumerate}[leftmargin=*]
-    \item $\E(\E(X\mid\mathcal{G}))\Rightarrow \int_\Omega\E(X\mid\mathcal{G})d\P =\int_\Omega Xd\P$
-    \item $X$ satisfies condition of conditional expectation (measurable on any subset and equality)
-    \item Follows by linearity of $\int \cdots d\P$
-    \item Suppose $Y = \E(X\mid\mathcal{G}) >0$, for positive measure set $A$. Then $\exists n$ such that $\P(Y\leq\dfrac{-1}{n})>0$. This is a $\mathcal{G}$-measurable set and $\int_{A_n}Yd\P \leq \dfrac{-1}{n}\underbrace{\P(A_n)}_{\geq0} = \int_{A_n}X d\P\geq0$ which is a contradiction.
-  \end{enumerate}
+\begin{prf}[]{}
+  Assume we have $Y,Y^{\prime}$ satisfying 1)$\to$3) and $\P(Y=Y^{\prime})\neq1$. Then $\P(Y>Y^{\prime})>0$ (wlog, assume this). Note:
+  \begin{equation*}
+    \begin{gathered}
+      \left\{Y>Y^{\prime}\right\} = \bigcup_{n\in\N}\left\{Y\geq Y^{\prime}+\dfrac{1}{n}\right\}
+    \end{gathered}
+  \end{equation*}\par
+
+  \noindent and for some $n$ we have $\P(Y\geq Y^{\prime}+\dfrac{1}{n})>0$. $Y,Y^{\prime}$ are $\mathcal{G}$-measurable $\Rightarrow Y-Y^{\prime}$ is $\mathcal{G}$-measurable $\Rightarrow \left\{Y\geq Y^{\prime}0\dfrac{1}{n}\right\} = \left\{Y-Y^{\prime}\geq\dfrac{1}{n}\right\}\in\mathcal{G}$ 
+  \par\bigskip
+  \noindent So we can compare integrals and by condition 3)
+  \begin{equation*}
+    \begin{gathered}
+      \int_G Yd\P = \int_G Xd\P = \int_GY^{\prime}d\P \Rightarrow \int_GYd\P-\int_GY^{\prime}d\P\quad\forall G\\
+      = \int_GY-Y^{\prime}d\P = \int_{\left\{Y-Y^{\prime}\geq\dfrac{1}{n}\right\}}\geq\dfrac{1}{n}\P(\left\{Y-Y^{\prime}\geq\dfrac{1}{n}\right\})\neq0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Buy this is a contradiction (since $0$ cannot be $>0$)
 \end{prf}
-\par\bigskip
-\noindent Of course, the results for integration are extended into results in expectation:
-\par\bigskip
-\begin{theo}[]{}
-  \begin{enumerate}[leftmargin=*]
-    \item If $X_1,\cdots$ are a sequence of non-negative random variables and $X_n\to X$, then $\E(X_n\mid\mathcal{G})\to \E(X\mid\mathcal{G})$ (MCT)
-    \item If $X_1,\cdots$ satisfy $\left|X_i\right|\leq Z$ (where $Z$ is integrable and positive and $X_n\to X$), then $\E(X_n\mid\mathcal{G})\to\mathcal \E(X\mid\mathcal{G})$ (DCT)
-    \item Fatous: If $X_1,\cdots$ are non-negative, then we can also take the $\lim_{n\to\infty}\inf$ out:
-      \begin{equation*}
-        \begin{gathered}
-          \E(\lim_{n\to\infty}\inf X_n\mid\mathcal{G})\leq\lim_{n\to\infty}\inf\E(X_n\mid\mathcal{G})
-        \end{gathered}
-      \end{equation*}
-  \end{enumerate}
-\end{theo}
