@@ -1,3 +1,5 @@
 \contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
 \contentsline {subsection}{\tocsubsection {}{1.1}{Examples of linear operators}}{2}{subsection.1.1}%
 \contentsline {subsection}{\tocsubsection {}{1.2}{Other PDEs}}{3}{subsection.1.2}%
+\contentsline {section}{\tocsection {}{2}{}}{4}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Methods of solutions - Transport equation}}{4}{subsection.2.1}%

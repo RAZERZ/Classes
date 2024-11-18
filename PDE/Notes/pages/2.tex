@@ -1,0 +1,97 @@
+\section{}
+\subsection{Methods of solutions - Transport equation}\hfill\\
+\noindent A quick recall, a Quasi-linear PDE is on the form:
+\begin{equation*}
+  \begin{gathered}
+    a(x,y,u)u_x+b(x,y,u)u_y = c(x,y,u)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:} Transport-equation
+\begin{equation*}
+  \begin{gathered}
+    u_t+aux = 0\\
+    u(t=0, x) = h(x)
+  \end{gathered}
+\end{equation*}
+\noindent This can be solved with a number of methods.
+\par\bigskip
+\noindent\textbf{Method 1 - Change of variables}
+\noindent By letting $s = x-at$ and $v = x+at$, we get by the chain rule:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial u}{\partial t} = \dfrac{\partial u}{\partial s}\dfrac{\partial s}{\partial t}+\dfrac{\partial u}{\partial v}\dfrac{\partial v}{\partial t} = \dfrac{\partial u}{\partial s}(-a)+\dfrac{\partial u}{\partial v}a\\
+    \dfrac{\partial u}{\partial x}= \dfrac{\partial u}{\partial s}+\dfrac{\partial u}{\partial v}
+  \end{gathered}
+\end{equation*}\par
+\noindent Then, by substitution into our original equation, we get:
+\begin{equation*}
+  \begin{gathered}
+    0 = \dfrac{\partial u}{\partial t}+a\dfrac{\partial u}{\partial x} = 2a\dfrac{\partial u}{\partial v}\Rightarrow u = u(s) = u(x-at)
+  \end{gathered}
+\end{equation*}\par
+\noindent We assume $h\in C^1$
+\par\bigskip
+\noindent\textbf{Method 2}\par
+\noindent Note that we can rewrite our problem as $(1,a)\bullet\nabla u=0$, this means that the gradient of the solution must be orthogonal to the lines $(1,a)$ (where $a\neq0$)\par
+\noindent Thus, $u(x_0+at,t) = =c\quad\forall t\in\R$ and $u(x_0,0) = 0$.\par
+\noindent By initial condition, $u(x_0,0) = h(x_0)$ . Since the lines can written as $x_0+at=x$, we immediately obtain that by shifting:
+\begin{equation*}
+  \begin{gathered}
+    u(x-at,0) = h(x-at) = u(x,t)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Method 2 (general)}\par
+\noindent  For a general Quasi-linear PDE, we have $(a,b,c)\bullet(u_x,u_y,-1) = 0$ \par
+\noindent Some geometry; think of the graph $S$ of the function $u = u(x,y)$ with $z = u(x,y)$. Since $a,b,c$ are functions of $x,y,u$, they may be treated as functions in $\R^3$ and we may therefore define the vector field $(a,b,c)$ on $\R^3$.
+\par\bigskip
+\begin{theo}[Integral surface of vector field]{}
+  The graph (sruface) in the above mentioned paragraph is called the \textit{integral surface} of $\overline{V}$
+\end{theo}
+\par\bigskip
+\noindent The equation will usually be given an initial condition, which we have to interpret geometrically. Naturallym, we prescribe a curve $\Gamma:S\to(x_0(s),y_0(s),z_0(s))$
+\par\bigskip
+\noindent\textbf{Example}\par
+\noindent Consider the transport  equation with initial conditions $u(x_0,0) = h(x_0)$. Think of $t$ as $y$, then for $x = s$, $y = 0$, $z = h(s)$, we get:
+\begin{equation*}
+  \begin{gathered}
+    \Gamma:S\to(s,0,h(s))
+  \end{gathered}
+\end{equation*}\par
+\noindent Most Quasi-linear PDEs can be transformed this way
+\par\bigskip
+\noindent\textbf{Method of characteristics}\par
+Idea is we want to define surface $S\subset\R^3$ representing the graph of a solution such that the vector field is tangent to $S$ at any point and such that $S$ is continuous along $\Gamma$\par
+\noindent Take a poiunt $(x_0(s), y_0(s),z_0(s))$ and find a curve $\gamma_s(t) = (x(t),y(t),z(t))$ (integral curve of $\overline{V}$) along $S$
+\par\bigskip
+\noindent In this case, the curves equations are:
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      x_t(t) = a(x(t),y(t),z(t))\\
+      y_t(t) = b(x(t),y(t),z(t))\\
+      z_t(t)= c(x(t),y(t),z(t))\\
+      x(0)= x_0(s)\\
+      y(0) = y_0(s)\\
+      z(0) = z_0(s)
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textit{Potential problems}\par
+\noindent Only guaranteed existence for the system locally over $t$  by the Picard-Lindelöf theorem.\par
+\noindent The graph $S$ may fold into itself so that $\left|\nabla u\right| = 0$\par
+\noindent This happens during joining of local parametrization, where transitions may seem smooth.\par
+\noindent Another problem is $\overline{V}$  may be paralel to $\Gamma$, the procedurew will not recover $\Gamma$ 
+\par\bigskip
+\noindent\textbf{Example}\par
+
+\begin{equation*}
+  \begin{gathered}
+    uu_x+u_y=0\qquad y>0\\
+    u(x,0) = h(x)
+  \end{gathered}
+\end{equation*}\par
+\noindent Here we have $a = u = z$, $b = 1$, $c = 0$\par
+\noindent Similar to before, $\Gamma:s\to(s,0,h(s))$. 
