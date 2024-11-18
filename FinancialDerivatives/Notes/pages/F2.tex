@@ -1,0 +1,126 @@
+\section{Continous time \& Brownian Motion}
+\subsection{Simple Random Walk}\hfill\\
+\noindent Let $X_i$ be i.i.d.r.v with $\P(X_k = 1)=\P(X_k = -1) = \dfrac{1}{2}$\par
+\noindent Let $S_n = \sum_{i=1}^{n}X_i$, then this is a stochastic process, still in discrete time. Do note that the expectation is 0 for the r.v. and that:\par
+\begin{equation*}
+  \begin{gathered}
+    \E(S_n) = \sum_{k=1}^{n}\E(X_i) = 0\\
+    \text{Var}\left(S_n\right) = \E(S_n^2)-\underbrace{(\E(S_n))^2}_{\text{=0}} = \sum_{k=1}^{n}\text{Var}\left(X_i\right) = \sum_{k=1}^{n}1 = n
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Note that this was discrete time, how do we proceed to make this continuous?\par
+\noindent We do this by scaling to finer time. Frist, fix a time interval:\par
+\noindent\textbf{Stage 1}\par
+\noindent Let $X_0^1 = 0$\par
+At $t=0$, toss a coin, $X_T^1 = \begin{cases}\sqrt{T}\quad\text{heads}\\-\sqrt{T}\quad\text{tails}\end{cases}$.\par
+\noindent Here $\E(X_T^1) = 0$ and $\text{Var}\left(X_T^1\right) = T = $ elapsed time.
+\par\bigskip
+\noindent\textbf{Stage 2}\par
+\noindent Add another time step. Let $X_0^2 = 0$, toss a coin, $X_{T/2}^2 = \begin{cases}\sqrt{\dfrac{T}{2}}\quad\text{heads}\\-\sqrt{\dfrac{T}{2}}\quad\text{tails}\end{cases}$\par
+\noindent Repeat at $t = \dfrac{T}{2}$, adding/subtracting $\sqrt{\dfrac{T}{2}}$
+\par\bigskip
+\noindent\textbf{Stage n}\par
+\noindent Let $X_0^n = 0$, at each time $t_k = \dfrac{k}{n}T$, toss a coin.\par
+\noindent Define $X_{t_{k+1}}^n = X_{t_k}^n+Y_k$ where $Y_k = \pm\sqrt{\dfrac{T}{2}}$ with prob. 1/2. Simulating our coin tosses.\par
+\noindent Here
+\begin{equation*}
+  \begin{gathered}
+    \E(X_{t_k}^n) = \E\left(\sum_{i=1}^{k-1}Y_i\right) = \sum_{i=1}^{k-1}\E(Y_i) = 0\\
+    \text{Var}\left(X_{t_k}^n\right) = \text{Var}\left(\sum_{i=1}^{n}Y_i\right)\stackrel{\text{indep}}{=}\sum_{i=1}^{k} = \dfrac{T}{n}k = t_k
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Now the question becomes, what happens when $n\to\infty$? We obtain \textit{Brownian Motion}, aka Weiner process.
+\par\bigskip
+\begin{defo}[Brownian Motion]{}
+  \textit{Brownian Motion} is a stochastic process $W$ if:\par
+  \begin{itemize}
+    \item $W_0=0$
+    \item Independent increments, i.e $W_{t_4}-W_{t_3}$ and $W_{t_2}-W_{t_1}$ are independent (as long as they are not overlapping)
+    \item $W_t-W_s\sim N(0,t-s)$
+    \item $t\mapsto W_t$ is continuous
+  \end{itemize}
+\end{defo}
+\par\bigskip
+\noindent This is a nice definition and all, but does there even exists something which satsifies our definition?
+\par\bigskip
+\begin{theo}[]{}
+  $t\mapsto W_t$ is of infinite variation and nowehere differentiable\par
+  \noindent By infinite variation, it is meant
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\sum_k\left|W_{t_{k+1}}-W_{t_k}\right| =\infty
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent A regular differentiable function has bounded variation. The next goal is to define the stochastic integral $\int_{0}^{t}g_sdW_s$, where $g_t$ is a stochastic process determined by the Brownian motion $W$
+\par\bigskip
+\begin{defo}[Measurable w.r.t $\sigma$-algebra]{}
+Let $X_t$ be a stochastic process. An event $A$ is $\mathcal{F}_t^X$ measurable (denoted $A\in\mathcal{F}_t^X$) if it is possible to determine whether $A$ has happened or not based on observations of $\left\{X_s:0\leq s\leq t\right\}$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $A = \left\{X_s\leq 7:\forall s\leq9\right\}\in\mathcal{F}_9^X$
+\par\bigskip
+\begin{defo}[]{}
+If a random variable $Z$ can be determined by observations of $\left\{X_s:0\leq s\leq t\right\}$, then $Z\in\mathcal{F}_t^X$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    Z = \int_{0}^{5}X_sd_s\in\mathcal{F}_5^X
+  \end{gathered}
+\end{equation*}\par
+\noindent If you only know $X_5$ up to 4, then you cannot determine $Z$
+\par\bigskip
+\begin{defo}[]{}
+  A stochastic process $Y_t$ with $Y_t\in\mathcal{F}_t^X\quad\forall t$ is \textit{adapted to the filtration} $\mathcal{F}_t^X$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $Y_t = \sup_{0\leq s\leq t}W_s$ is adapted to $\mathcal{F}_t^W$
+\par\bigskip
+\begin{defo}[]{}
+  The process $g_t\in\mathcal{L}^2$ if\par
+  \begin{itemize}
+    \item $g$ is adapted to $\mathcal{F}_t^W$
+    \item $\int_{0}^{t}\E(g_s^2)ds<\infty$
+  \end{itemize}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Brownian motion $\in\mathcal{L}^2$, its adapted to $\mathcal{F}_t^W$ and $\int_{0}^{t}\E(\overbrace{W_s^2}^{\sim N(0,\sqrt{s})})ds = \int_{0}^{t}sds = \dfrac{t^2}{2}<\infty$
+\par\bigskip
+\subsection{Stochastic integration}\hfill\\
+\noindent Assume $g\in\mathcal{L}^2$. If $g$ is simple (i.e $g_s = g_{t_k}$ for $s\in[t_k,t_{k+1}]$), then we define
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{t}g_sdW_s = \sum_{k=0}^{n-1}g_{t_k}(W_{t_{k+1}}-W_{t_k})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent For egeneral $g\in\mathcal{L}^2$, we can approximate $g$ using step functions which are simple such that
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{t}\E((g_s-g_s^n)^2)ds \to0\quad\text{as } n\to\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent Then, one defines the stochastic integral as
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{t}g_sdW_s = \lim_{n\to\infty}g_s^ndW_s
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Remark}\par
+\noindent One can show that the limit indeed exists and does not depend on the sequence used for approximation.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Forward increments are used! The integrand is fixed at $t_k$, and we look at forward movements of the Brownian motion.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Steiltjes integration si not possible since paths are not of unbounded variation.
+\par\bigskip

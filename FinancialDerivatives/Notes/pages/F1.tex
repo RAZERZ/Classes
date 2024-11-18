@@ -1,0 +1,89 @@
+\section{Options}
+\noindent\textbf{Motivating Discussion:}\par
+\noindent Say a Swedish company has signed a contract to buy a machine from a US company for 100000USD to be paid at delivery 6 months from now. $T = \dfrac{1}{2}$ years.\par
+\noindent Current exchange rate is 11SEK/USD. The buyer is suject to currency risk. There are 3 possible strategies to implement:\par
+\begin{enumerate}[leftmargin=*]
+  \item Buy 100000USD today and deposit in the bank.\par
+    The risk is eliminated but money is tied up for a long time and the company may not have access to this money
+  \item Buy a \textit{forward contract} from a bank, i.e the bank delivers the sum you need at $T = \dfrac{1}{2} = t$, in return, the company payes some constant $K\cdot100000USD$ at $T = t$, where $K$ is chosen at $t = 0$ such that no transfer of money is needed at $t = 0$. Here, the bank takes all of the risk, but if the exchange rate drops below $K$ then we would have preffered to do nothing.
+  \item Buy a \textit{European call option} on 100000USD, with strike price $K$ and exercise date $T$. I.e, it gives the right but not the obligation to buy 100000USD at price $K\cdot100000USD$ at time $T = t$. If exchange rate at $T$ is $>K$, then we use the option. If its below at $t = T$ thne we do not use the option (right, not obligation)
+\end{enumerate}
+\par\bigskip
+\noindent The last one is a good choice, but not free. This leads to the 2 main problems in the course:\par
+\begin{itemize}
+  \item How much is a fair price for an option?
+  \item If you are the seller of an option, how to protect (hedge) from risk of exchange rate not going up?
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Motivating Example in discrete time}\par
+\noindent At $t=0$, we can trade in a market with 2 assets:\par
+\begin{itemize}
+  \item \textit{Bank account} (risk-free/non-risky asset)\par
+    At $t=0$ the value is 1 and at $t=1$ the value is 1\par
+  \item \textit{Stock} (risky asset)\par
+    At $t=0$, $S_0=100$ then it either grows $(S_1 = 120)$ or declines $(S_1 = 80)$ with probability $p=0.6$ and $p= 0.4$ respectively
+\end{itemize}
+\par\bigskip
+\begin{defo}[Call option]{}
+  A \textit{call option} is a contract that gives its holder the right but not the obligation to buy one share of a stock at time $T$ with predetermined price $K$. Thus, at time $t=1$, the option is worth $S_1-K$ if $S_1>K$ and 0 else
+\end{defo}
+\par\bigskip
+\noindent What is a fair price of the option? The sensible thing to pay would be $p(S_1-K)$. Assuming $K = 110$ in the above example, then $0.6(120-110) = 6$. But this is not the best price!
+\par\bigskip
+\noindent The idea is to replicate the option by finding a trading stategy using both the risk-free (B) and the risky asset (S) such that the value of the stock at $t=1$ coincides with the value of hte option.\par
+\noindent Is that possible? Yes. Let $x = $ amount in the bank at $t=0$ and $y$ be the number of shares of stock. We want to pick $x,y$ such that regardles if stock goes up or down we have increase.\par
+\noindent At $t=1$
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x+S_1y = S_1-K\\
+      x+S_1y = 0
+    \end{rcases*}
+  \end{gathered}
+\end{equation*}\par
+\noindent If $K = 110$ and $S_1 = \left\{120,80\right\}$, then $x = -20$ and $y = \dfrac{1}{4}$ since
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      x+120y = 10\\
+      x+80y = 0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent At $t = 0$. Our strategy is therefore to borrow 20 from the bank and buy $\dfrac{1}{4}$ of a share. The cost is $25-20 = 5$ which is less than 6. \par
+\noindent At time $t = 1$ our holdings are worth $\dfrac{1}{4}S_1-20 = \begin{cases}10\quad\text{if } S_1 = 120\\0\quad\text{if } S_1 = 80\end{cases}$ which is exactly the same as the option.
+\par\bigskip
+\noindent\textbf{Conclusion:}\par
+\noindent By the APT (Arbitrage pricing theory), the price of the call must be equal to the cost of setting up this portfolio.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent The probabilities do not influence the option value. They were never used in the calculation of the price.
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Let us change $p$ into $q$ such that $\E(S_1) = S_0 = 100$ in the example, which value of $q$ satisfies this? It is symmetric in the example, so let $p = q = \dfrac{1}{2}$\par
+\noindent Then $\E(\max\left\{S_1-k,0\right\}) = 10\cdot\dfrac{1}{2}+0\cdot\dfrac{1}{5} = 5$ \par
+\noindent In general, the option price is $\E^Q\left(\dfrac{B_0}{B_1}\max\left\{S_1-k,0\right\}\right)$ where $Q$ is chosen such that $\E^Q\left(\dfrac{B_0S_1}{B_1}\right) = \dfrac{S_0}{B_0}$
+\par\bigskip
+\noindent\textbf{Notation:}\par
+\noindent $a^+ = \max\left\{a,0\right\}$. In particular, 
+\begin{equation*}
+  \begin{gathered}
+    (s-K)^+ = \begin{cases}s-K\quad\text{if } s\geq K\\0\quad\text{if } s<K\end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Exercise:}\par
+\begin{itemize}
+  \item In the above example, find a replicating strategy for a put option (right but not obligated to sell one share) at price $K = 110$
+  \item Find the vlaue of the option at $t = 0$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Answer:}\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      x = 90\\
+      y = \dfrac{-3}{4}
+    \end{rcases*}\quad\text{option value of 15}
+  \end{gathered}
+\end{equation*}
