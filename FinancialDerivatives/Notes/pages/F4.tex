@@ -1,0 +1,226 @@
+\section{Itos formula}
+\noindent Assume 
+\begin{equation*}
+  \begin{gathered}
+    X_t = a+\int_{0}^{t}\mu_sds + \int_{0}^{t}\sigma_sdW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent for some adapted process $\mu_t$ and $\sigma_t$. Short-hand notation $\begin{cases}dX_t = \mu_tdt+\sigma_tdW_t\\X_0=a\end{cases}$
+\par\bigskip
+\noindent Let $f(t,x)$ be a $C^{1,2}$-function and define $Z_t = f(t,X_t)$, what does $dZ_t$ look like?
+\par\bigskip
+\noindent\textbf{Recall:}
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{t}W_sdW_s = \dfrac{W_t^2}{2}-\dfrac{t}{2}
+  \end{gathered}
+\end{equation*}\par
+\noindent so $W_t^2 = t+2\int_{0}^{t}W_sdW_s$, thus 
+\begin{equation*}
+  \begin{gathered}
+    d(W_t^2) = dt +2W_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Fix $n$ and let $t_k = \dfrac{k}{n}t$\par
+\noindent Let $\Delta W_{t_k} = W_{t_{k+1}}-W_{t_k}$ and consider
+\begin{equation*}
+  \begin{gathered}
+    S_n = \sum_{k=0}^{n-1} \left(\Delta W_{t_k}\right)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent We have 
+\begin{equation*}
+  \begin{gathered}
+    \E(S_n) = \sum_{k=0}^{n-1}\E\left(\left(\Delta W_{t_k}\right)^2\right) = \sum_{k=0}^{n-1}\dfrac{t}{n} = t
+  \end{gathered}
+\end{equation*}\par
+\noindent and
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}\left(S_n\right) \stackrel{\text{indep.}}{=} \sum_{k=0}^{n-1}\text{Var}\left(\left(\Delta W_{t_k}\right)^2\right) = n\text{Var}\left(\left(\Delta W_{t_0}\right)^2\right) = n\cdot2\dfrac{t^2}{n^2}\to0\quad\text{ as } n\to\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $S_n\to t$ as $n\to\infty$ (in $\mathcal{L}^2$). This motivates to write
+\begin{equation*}
+  \begin{gathered}
+    \int_{0}^{t}(dW_s^2) = t\\
+    \Lrarr dW_t^2 = dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Taylor Expansion}\hfill\\
+
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = \dfrac{\partial f}{\partial t} dt + \dfrac{\partial f}{\partial x}dX_t+\dfrac{1}{2}+\dfrac{\partial^2f}{\partial x^2}(dX_t)^2 + \dfrac{\partial^2f}{\partial t^2}(dt)^2+ \dfrac{\partial^2f}{\partial t\partial x}dtdX_t+\text{ higher order terms}\\
+    = \left(\dfrac{\partial f}{\partial t}+\mu_t\dfrac{\partial f}{\partial x}+\dfrac{1}{2}\sigma_t^2\dfrac{\partial^2f}{\partial x^2}\right)dt+\sigma_t\dfrac{\partial f}{\partial x}dW+\text{ higher order terms}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[Itos formula]{}
+  If $dX_t = \mu_tdt + \sigma_tdW_t$ and $Z_t=f(t,X_t)$, then
+  \begin{equation*}
+    \begin{gathered}
+      dZ_t = \left(\dfrac{\partial f}{\partial t}+\mu_t\dfrac{\partial f}{\partial x}+\dfrac{1}{2}\sigma_t^2\dfrac{\partial^2 f}{\partial x^2}\right)dt+\sigma_t\dfrac{\partial f}{\partial x}dW_t
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Here $\dfrac{\partial f}{\partial t} = \dfrac{\partial f}{\partial t}(t,X_t)$ and similarly for other derivatives of $f$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Alternative formulation}:
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = \dfrac{\partial f}{\partial t}dt + \dfrac{\partial f}{\partial x}dX_t + \dfrac{1}{2}\dfrac{\partial^2 f}{\partial x^2} (dX_t)^2
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $(dX_t)^2$ is calculated using\par
+\begin{itemize}
+  \item $(dt)^2 = 0$
+  \item $dtdW_t = 0$
+  \item $(dW_t)^2=dt$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Compute $\int_{0}^{t}W_sdW_s$. Let $Z_t = W_t^2$, then by Itos formula
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = 2W_tdW_t + \dfrac{1}{2}\cdot2(dW_t)^2\\
+    = dt+2W_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $W_t^2 = Z_t = t+2\int_{0}^{t}W_sdW_s$, so $\int_{0}^{t}W_sdW_s = \dfrac{W_t^2}{2}-\dfrac{t}{2}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Compute $\E(W_t^4)$\par
+\noindent Let $Z_t = W_t^4$, then by Itos formula
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = 4W_t^3dW_t + \dfrac{1}{2}\cdot12W_t^2(dW_t)^2\\
+    = 6W_t^2dt+4W_t^3dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    W_t^4 = Z_t = 6\int_{0}^{t}W_s^2ds+4\int_{0}^{t}W_s^3dW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent Taking expectation yields
+\begin{equation*}
+  \begin{gathered}
+    \E(W_t^4) = 6\int_{0}^{t}\underbrace{\E(W_s^2)}_{s}ds+4\underbrace{\E\left(\int_{0}^{t}W_s^3dW_s\right)}_{=0}\\
+    = 6\int_{0}^{t}sds = 3t^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Alternatively, without using Itos formula
+\begin{equation*}
+  \begin{gathered}
+    \E(W_t^4) = \int_\R x^4\dfrac{1}{\sqrt{2\pi t}}e^{-x^2/(2t)}dx\stackrel{\text{parts.}}{=}\left[x^3\dfrac{t}{\sqrt{2\pi t}}e^{-x^2/(2t)}\right]_{-\infty}^\infty + \int_\R 3x^2\dfrac{t}{\sqrt{2\pi t}}e^{-x^2/(2t)}dx\\
+    = 3t\text{Var}\left(W_t\right) = 3t^2
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Compute $\E(e^{{\alpha W_t}})$\par
+\noindent Let $Z_t = e^{\alpha W_t}$. Itos formula yields
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = \alpha e^{\alpha W_t}dW_t + \dfrac{1}{2}\alpha^2e^{\alpha W_t}(dW_t)^2\\
+    = \dfrac{\alpha^2}{2}e^{\alpha W_t}dt + \alpha e^{\alpha W_t}dW_t\\
+    = \dfrac{\alpha^2}{2}Z_tdt+\alpha Z_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Integration yields
+\begin{equation*}
+  \begin{gathered}
+    Z_t = 1+\dfrac{\alpha^2}{2}\int_{0}^{t}Z_sds + \alpha\int_{0}^{t}Z_sdW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent So
+\begin{equation*}
+  \begin{gathered}
+    \E(Z_t) = 1+\E\left(\dfrac{\alpha^2}{2}\int_{0}^{t}Z_sds\right) + \underbrace{\E\left(\alpha\int_{0}^{t}Z_sdW_s\right)}_{=0}\\
+    = 1+ \dfrac{\alpha^2}{2}\int_{0}^{t}\E(Z_s)ds
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $m(t) = \E(Z_t)$, then
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \dfrac{dm}{dt} = \dfrac{\alpha^2}{2}m(t)\\
+      m(0) = 1
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Which has the solution $m(t) = e^{\dfrac{\alpha^2}{2}}t$
+\par\bigskip
+\subsection{Multi-dimensional Ito formula}\hfill\\
+\noindent Assume $dX_t^i = \mu_t^idt +\sum_{j=1}^{d}\sigma_t^{ij}dW_t^j$ where $W^i$ are $d$ independent Brownian motions.\par
+\noindent On a matrix form:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{dX_t}_{n\times 1} = \underbrace{\mu_t}_{n\times 1}dt + \underbrace{\sigma_t}_{n\times d}\underbrace{dW_t}_{d\times 1}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $Z_t = f(t,X_t)$ where $f:[0,\infty]\times \R^2\to\R$ is $C^{1,2}$
+\par\bigskip
+\begin{theo}[Itos multi-dimensional formula]{}
+  \begin{equation*}
+    \begin{gathered}
+      dZ_t = \dfrac{\partial f}{\partial t}dt + \sum_{i=1}^{n}\dfrac{\partial f}{\partial x_i}dX_t^i+\dfrac{1}{2}\sum_{i,j=1}^{n}\dfrac{\partial^2f}{\partial x_i\partial x_j}dX_t^idX_t^j
+    \end{gathered}
+  \end{equation*}
+\end{theo}\par
+\noindent Where\par
+\begin{itemize}
+  \item $dW_t^idW_t^j=0$ if $i\neq j$
+  \item $\left(dW_t^i\right) = dt$
+  \item $(dt)^2 = dtdW_t = 0$
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Alternatively}
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = \left(\dfrac{\partial f}{\partial t}+\sum_{i=1}^{n}\mu_t^i\dfrac{\partial f}{\partial x_i}+\dfrac{1}{2}\sum_{i,j=1}^{n}C_t^{i,j}\dfrac{\partial^2f}{\partial x_i\partial x_j}\right)dt + \sum_{i=1}^{n}\dfrac{\partial f}{\partial x_i}\sigma_t^idW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $C = \sigma\sigma^*$ and $\sigma^i$ is the $i$:th row of $\sigma$\par
+\noindent Indeend, 
+\begin{equation*}
+  \begin{gathered}
+    dX_t^idX_t^j = \left(\sum_{j)1}^{d}\sigma^{ik}dW^k\right)\left(\sum_{l=1}^{d}\sigma^{jl}dWl\right)\\
+    = \left(\sum_{k=1}^{d}\sigma^{ik}\sigma^{jl}\right)dt\\
+    = (\sigma\sigma^*)^{ij}dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $\begin{cases}
+  dX_t = \alpha X_tdt+\sigma X_tdW_t\\ dY_t = \gamma Y_tdt+\delta Y_tdV_t
+\end{cases}$ and $Z_t = X_tY_t$; find $dZ_t$
+\par\bigskip
+\noindent Itos formula yields
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = Y_tdX_t + X_tdY_t+\dfrac{1}{2}\cdot2dX_tdY_t\\
+    = \left(\alpha+\gamma\right)Z_tdt + Z_t(\sigma d W_t+\delta dV_t)
+  \end{gathered}
+\end{equation*}\par
+\noindent Setting $\overline{W}_t = \dfrac{1}{\sqrt{\sigma^2+\delta^2}}(\sigma W_t+\delta V_t)$, then $\overline{W}$ is a Brownian Motion and 
+\begin{equation*}
+  \begin{gathered}
+    dZ_t = \left(\alpha+\gamma\right)Z_tdt + \sqrt{\sigma^2+\delta^2}Z_td\overline{W}_t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\section{Correlated Brownian Motions}
+Let $\overline{W} = \begin{bmatrix}\overline{W}^1\\\vdots\\\overline{W}^d\end{bmatrix}$ where $\overline{W}^1,\cdots,\overline{W}^d$ are independent
+\par\bigskip
+\noindent Consider $W = \delta\overline{W}$ where
+\begin{equation*}
+  \begin{gathered}
+    \delta = \begin{bmatrix}\delta_{11}&\cdots&\delta_{1d}\\\vdots&\vdots&\vdots\\\delta_{d1}&\cdots&\delta_{dd}\end{bmatrix} = \begin{bmatrix}\delta_1\\\vdots\\\delta_d\end{bmatrix}
+  \end{gathered}
+\end{equation*}
