@@ -1,0 +1,139 @@
+\subsection{Drift estimation}\hfill\\
+Assume $X_t = \mu_t+\sigma W_t$ and we want a confidence interval for $\mu$. An estimare for $\mu$ is $\widehat{\mu} = \dfrac{X_t}{t}\in N\left(\mu,\dfrac{\sigma}{\sqrt{t}}\right)$ and a confidence interval is
+\begin{equation*}
+  \begin{gathered}
+    \left(\widehat{\mu}-\dfrac{\sigma}{\sqrt{t}}\cdot1.96, \widehat{\mu}+\dfrac{\sigma}{\sqrt{t}}\cdot1.96\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent If one wants a certain precision $\Delta \mu$ so that $\P(\mu\in(\widehat{\mu}-\Delta\mu,\widehat{\mu}+\Delta\mu)) = 0.95$, one needs
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{2\sigma}{\sqrt{T}} =\Delta\mu\quad\Lrarr\quad t = \dfrac{4\sigma^2}{(\Delta\mu)^2}
+  \end{gathered}
+\end{equation*}\par
+\noindent Plug in reasonable values $\begin{rcases}
+  \sigma = 0.3\\\Delta\mu = 0.06
+\end{rcases}\Rightarrow t=100$ years!
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent When pricing options, the drift of the stock needs not be estimated (since under the pricing measure $Q$, the drift is $r$)
+\par\bigskip
+\section{Volatility}
+In the BS-formula, $s,r,t$ are observable, $T,K$ are specified in the contract and $\sigma$ is not directly observable. All are needed.\par
+\noindent There are 2 approaches, one using \textit{historic volatility} and one using \textit{implied volatility}.
+\par\bigskip
+\subsection{Historic volatility}\hfill\\
+If $dS_t = \mu S_tdt + \sigma S_tdW_t$, then sample $S$ at $n+1$ time points and let 
+\begin{equation*}
+  \begin{gathered}
+    \xi_i = \ln{\left(\dfrac{S_{ti}}{S_{t_{i-1}}}\right)} = \left(\mu-\dfrac{\sigma^2}{2}\right)\Delta t+\sigma(W_{t_i}-W_{t_{i-1}})\sim N\left((\mu-\dfrac{\sigma^2}{2})\Delta t, \sigma\sqrt{\Delta t}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent An esimate of $\sigma^2$ is then $S^2 = \dfrac{\sum_{i=1}^{n}(\xi_i-\overline{\xi})^2}{(n-1)\Delta t}$ where $\overline{\xi} = \dfrac{1}{n}\sum_{i=1}^{n}\xi_i$
+\par\bigskip
+\subsection{Implied volatility}\hfill\\
+\noindent Let $p$ be the price in the market of a certain call option (maturity $T$, with strike price $K$). Find $\sigma$ such that $p = \text{BS}(s,t,T,r,\sigma,K)$ where BS denotes the Black-Scholes formula\par
+\noindent This $\sigma$ is called \textit{implied volatility}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Recall that the BS-formula is increasing in $\sigma$
+\par\bigskip
+\noindent If gBm is the correct model (i.e option prices are calculated using the BS-formula), then the \textit{same} implied volatility would be obtained for different $K$ and $T$
+\par\bigskip
+\section{Completeness and Hedging}
+\begin{defo}[]{}
+  A $T$-claim $X$ can be \textit{replicated} if there exists a self-financing portfolio $h$ with $\P(V_T^h = X) = 1$.\par
+  \noindent If every $T$-claim can be replicated then the market is \textit{complete}
+\end{defo}
+\par\bigskip
+\begin{theo}[]{}
+  Assume that a $T$-claim $X$ can be replicated using $h$. Then the only possible arbitrage-free price of $X$ is $\Pi_t(X) = V_t^h$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  If for example $\Pi_t(X)<V_t^h$ for some $t$; sell the portfolio and buy the claim $\Rightarrow$ arbitrage
+\end{prf}
+\par\bigskip
+\noindent We now specialize to the model
+\begin{equation}
+  \begin{gathered}
+    dB_t = rB_tdt\\
+    dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_tdW_t
+  \end{gathered}
+\end{equation}\par
+\noindent with $\sigma(t,s)>0$
+\par\bigskip
+\begin{theo}[]{}
+  The model (5) is complete
+\end{theo}
+\par\bigskip
+\noindent We will rpove a simpler result, namely that all \textit{simple} $T$-claims can be replicated.\par
+\noindent Recall that the value $\Pi_t(X)$ of a simple $T$-claim $X = \phi(S_T)$ is $F(t,S_t)$ where $F(t,s)$ is the pricing function. Thus
+\begin{equation*}
+  \begin{gathered}
+    d\Pi_t = F_tdt+F_sdS_t + \dfrac{1}{2}F_{ss}(dS_t)^2\\
+    = \left(F_t + \dfrac{\sigma^2}{2}S_t^2F_{ss}\right)dt + F_sdS_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Moreover, a portfolio $h = (h^B, h^S)$ is self-financing if $dV_t^h = h_t^BdB_t+h_t^sdS_t$. Choose $h_t^S = F_s(t,S_t)$
+\par\bigskip
+\begin{theo}[]{}
+  Let $X = \phi(S_T)$ and define $F(t,s)$ by 
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t + \dfrac{\sigma^2S^2}{2}F_{ss}+rsF_s-rF = 0\\
+        F(T,s)\phi(s)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Define $h = (h^B,h^S)$ by 
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        h_t^B = \dfrac{F(t,S_t)-S_tF_s(t,S_t)}{B_t}\\
+        h_t^S = F_s(t,S_t)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Then $h$ replicates $X$ and $\Pi_t(X) = V_t^h = F(t,S_t)$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  $V_t^h = h_t^BB_t + h_t^SS_t = F(t,S_t)$, so 
+  \begin{equation*}
+    \begin{gathered}
+      dV_t^h = F_tdt + F_sdS_t + \dfrac{1}{2}F_{ss}(dS_t)^2\\
+      = \left(F_t + \dfrac{\sigma^2}{2}S_t^2F_{ss}\right)dt + F_sdS_t\\
+      \stackrel{\text{BS PDE}}{=} r(F-S_tF_s)dt + F_sdS_t = h_t^BdB_t+h_t^SdS_t
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Thus $h$ is self-financing. Since $V_T^h = F(T,S_t)= \phi(S_T) = X$, $h$ replicates $X$.\par
+  \noindent By no-arbitrage $\Pi_t(X) = V_t^h = F(t,S_t)$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $X = S_T$, then $F(t,s) = s$, so $h_t^S = F_s = 1$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent For a call option (in the standard BS-model), $F(0,s) = sN(d_1) - K\text{exp}\left\{-rT\right\}N(d_2)$, thus
+\begin{equation*}
+  \begin{gathered}
+    F_S(0,s) = N(d_1)+\dfrac{1}{\sqrt{2\pi}}\left(s\text{exp}\left\{-\dfrac{d_1^2}{2}\right\}-K\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{d_2^2}{2}\right\}\right)\dfrac{\partial d_1}{\partial s}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Moreoever, 
+\begin{equation*}
+  \begin{gathered}
+    s\text{exp}\left\{-\dfrac{d_1^2}{2}\right\}-K\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{d_2^2}{2}\right\} = \text{exp}\left\{-\dfrac{d^2}{2}\right\}\left(s-K\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{\sigma^2T}{2}\right\}\text{exp}\left\{\sigma\sqrt{T}d_1\right\}\right) = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent so $F_s(0,s) = N(d_1)$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent The derivative $\Delta = F_s$ is called the \textit{delta}.\par
+\noindent In a replicating portfolio one should hold $\Delta$ shares of $S$ at each time.

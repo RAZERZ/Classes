@@ -221,6 +221,49 @@ Let $\overline{W} = \begin{bmatrix}\overline{W}^1\\\vdots\\\overline{W}^d\end{bm
 \noindent Consider $W = \delta\overline{W}$ where
 \begin{equation*}
   \begin{gathered}
-    \delta = \begin{bmatrix}\delta_{11}&\cdots&\delta_{1d}\\\vdots&\vdots&\vdots\\\delta_{d1}&\cdots&\delta_{dd}\end{bmatrix} = \begin{bmatrix}\delta_1\\\vdots\\\delta_d\end{bmatrix}
+    \delta = \begin{bmatrix}\delta_{11}&\cdots&\delta_{1d}\\\vdots&\vdots&\vdots\\\delta_{d1}&\cdots&\delta_{dd}\end{bmatrix} = \underbrace{\begin{bmatrix}\delta_1\\\vdots\\\delta_d\end{bmatrix}}_{\text{Row vectors with $\left|\left|\delta_i\right|\right| = 1$}}
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\noindent Here $\left|\left|\delta_i\right|\right| = \sqrt{\delta_{i1}^2+\cdots+\delta_{id}^2}$.\par
+\noindent So $W^i$ is a Brownian motion.
+\par\bigskip
+\noindent Moreover,
+\begin{equation*}
+  \begin{gathered}
+    dW_t^idW_t^j = \left(\sum_{k=1}^{d}\delta_{ik}d\overline{W}_t^k\right)\left(\sum_{l=1}^{d}\delta_{jl}d\overline{W}_t^l\right)\\
+    = \sum_{k=1}^{d}\delta_{ik}\delta_{}dt = (\delta\delta^*)_{ij}dt
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{defo}[Correlated Wiener Process]{}
+  $W_t$ as constructed above is a $d$-dimensional \textit{correlated Wiener process} with correlation matrix $\rho = \delta\delta^*$
+\end{defo}
+\par\bigskip
+\begin{theo}[Itos formula, correlated version]{}
+  If $W_t$ is a correlated Wiener process as above, and 
+  \begin{equation*}
+    \begin{gathered}
+      \underbrace{dX_t}_{n\times 1} = \underbrace{\mu_t}_{n\times 1}dt+\underbrace{\sigma_t}_{n\times d}\underbrace{dW_t}_{d\times 1}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent satisfies
+  \begin{equation*}
+    \begin{gathered}
+      dZ_t = \dfrac{\partial  f}{\partial t}dt + \sum_{i=1}^{n}\dfrac{\partial f}{\partial x_i}dX_t^i +\dfrac{1}{2}\sum_{i,j=1}^{n}\dfrac{\partial^2 f}{\partial x_i\partial x_j}dX_t^idX_t^j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent where\par
+  \begin{itemize}
+    \item $(dt)^2 = dtdW^i = 0$
+    \item $dW^idW^j = \rho_{ij}dt$
+  \end{itemize}
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Given $\overline{W} = \begin{bmatrix}\overline{W}^1\\\overline{W}^2\end{bmatrix}$ (where $\overline{W}^1, \overline{W}^2$ are independent), construct $W = \begin{bmatrix}W^1\\W^2\end{bmatrix}$ with correlation matrix $\rho = \begin{bmatrix}1&\rho_0\\\rho_0&1\end{bmatrix}$
+\par\bigskip
+\noindent Note that $\delta = \begin{bmatrix}1&0\\\rho_0&\sqrt{1-\rho_0^2}\end{bmatrix}$ satisfies $\rho\rho^* = \begin{bmatrix}1&\rho_0\\\rho_0&1\end{bmatrix} = \rho$\par
+\noindent Thus $W = \begin{bmatrix}\overline{W}^1\\\rho_0\overline{W}^1+\sqrt{1-\rho_0^2}\overline{W}^2\end{bmatrix}$ is a correlated Wiener process with correlated matrix $\delta$
+\par\bigskip
+\noindent What other choices for $\delta$ are possible?

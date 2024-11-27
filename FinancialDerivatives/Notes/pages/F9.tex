@@ -1,0 +1,318 @@
+\section{Arbitrage Pricing}
+\noindent In this chapter, $N = 2$ (two assets):
+\begin{equation*}
+  \begin{gathered}
+    dB_t = rB_tdt
+  \end{gathered}
+\end{equation*}\par
+\noindent This is a risk-free asset, think bank account and $r$ is a constant interest rate, and 
+\begin{equation*}
+  \begin{gathered}
+    dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent is a risky asset, think stock price
+\par\bigskip
+\noindent\textbf{Remarks:}\par
+\begin{enumerate}[leftmargin=*]
+  \item $B_t = B_0e^{rt}$
+  \item $\mu$ (local mean rate of return) and $\sigma$ (volatility) are functions of $t$ and current stock price
+  \item In the Black-Scholes model, $\mu$ and $\sigma$ are constants
+\end{enumerate}\par
+\noindent The aim is to find a "fair" value of options written on $S$\par
+\noindent \textit{Options} are also called \textit{financial derivatives}
+\par\bigskip
+\begin{defo}[European Call Option]{}
+  A \textit{European call option} with strike price $K$ and maturity date $T$ on the underlying asset $S$ is a contract such that the holder (owner) at time $T$ has the right, but not the obligation to buy one share of $S$ at price $K$ from the option writer (seller)
+\end{defo}
+\par\bigskip
+\noindent\textbf{Remarks:}\par
+\begin{itemize}
+  \item A \textit{European put option} gives the right (but not the obligation) to \textit{sell} one share of $S$ at time $T$ at price $K$
+  \item An \textit{American call/put} gives the right to buy/sell at \textit{any} time before $T$
+\end{itemize}
+\par\bigskip
+\begin{defo}[]{}
+  A \textit{contingent claim with maturity } $T$  (or a $T$-\textit{claim}) is a random variable $X\in \mathcal{F}_T^S$\par
+  \noindent A contingent claim is \textit{simple} is $X = \phi(S_T)$ for some \textit{contract function} (or payoff function) $\phi$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent For a European call option, $\phi(x) = (x-K)^+ = \max\left\{x-K,0\right\}$\par
+\noindent Indeed, if $S_T\geq K$, then buy at price $K$ and make profit $S_T-K$. If $S_T<K$, do not exercise the option. For a European put option $\phi(x) = (K-x)^+$\par
+\noindent We will determine the price $\pi(t, X)$ of a $T$-claim $X$ at time $t$ by requiring the market to be \textit{arbitrage-free}.
+\par\bigskip
+\begin{defo}[]{}
+  A self-financing portfolio $h$ is an \textit{arbitrage} if $\begin{cases}
+    V_0^h = 0\\ \P(V_T^h\geq0) = 1\\\P(V_T^h>0)>0
+  \end{cases}$
+  \par\bigskip
+  \noindent The market is \textit{arbitrage-free} if no arbitrage exists.
+\end{defo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dS_t^1 = dt+dW_t\\
+      dS_t^2 = dW_t\\
+      dB_t = 0
+    \end{cases}\qquad\text{ is not arbitrage free}\\
+    \begin{cases}
+      dS_t^1 = dt+dW_t^1\\
+      dS_t^2 = dW_t^2\\
+      dB_t = 0
+    \end{cases}\qquad\text{ is arbitrage free (first two lines indep)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textit{Assumption}: The price process $\Pi_t(X)$ is such that $(B_t,S_t,\Pi_t(X))$ is arbitrage-free.\par
+\noindent We also assume that all assets (including the option) can be sold/bought with no market frictions (no transaction consts, no liquidity constraints)
+\par\bigskip
+\noindent\textit{Idea:} Create a self-financing portfolio of options and the sock such that its vlaue process is locally risk-free (has no $dW$-term). The drift of the valu emust then coincide with the interest rate (otherwise arbitrage). This will give a condition on the price of the option.
+\par\bigskip
+\noindent Assume $X = \phi(S_T)$ (simple $T$-claim) and that $\Pi_t(X)=F(t,S_t)$ for some function $F$.\par
+\noindent\textit{New Notation:} $F_t = \dfrac{\partial F}{\partial t}$, $F_s = \dfrac{\partial F}{\partial s}$, $F_{ss} = \dfrac{\partial^2F}{\partial s^2}$
+\par\bigskip
+\noindent Then
+\begin{equation*}
+  \begin{gathered}
+    dF(t,S_t)\stackrel{\text{Ito}}{=} F_tdt+F_sdS_t+\dfrac{1}{2}F_{ss}(dS_t)^2\\
+    = \underbrace{\dfrac{\left(F_t+\dfrac{\sigma^2 S_t^2}{2}F_{ss}+\mu S_tF_s\right)}{F}}_{=\mu^F}F(t,S_t)dt+\underbrace{\dfrac{\sigma S_t F_s}{F}}_{=\sigma^F}FdW_t\\
+    = \mu^FFdt+\sigma^FFdW_t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Let $(w^S,w^F)$ be a self financing relative portfolio of stocks and options ($w^S+w^F = 1$), and let $V$ be its value process. Then
+\begin{equation*}
+  \begin{gathered}
+    dV_t = V_t\left(\dfrac{w^S}{S_t}dS_t+\dfrac{w^F}{F}dF_t\right)\\
+    = \left(\mu w^S+\mu^Fw^F\right)V_tdt + (\sigma w^S+\sigma^F w^F)V_t dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $(w^S,w^F)$ be defined by
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases}
+      w^S+w^F = 1\\
+      \sigma w^S+\sigma^Fw^F =0
+      \end{rcases}\Lrarr\begin{cases}
+      w^s = \dfrac{\sigma^F}{\sigma^F-\sigma}\\
+      w^F = \dfrac{-\sigma}{\sigma^F -\sigma}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Then $dV_t = \dfrac{\mu \sigma^F-\mu^F\sigma}{\sigma^F - \sigma}V_t dt$\par
+\noindent By a no-arbitrage argument, we must have $r = \dfrac{\mu \sigma^F-\mu^F\sigma}{\sigma^F - \sigma}$
+\par\bigskip
+\noindent Here $\underbrace{r\sigma^F-r\sigma}_{= \dfrac{r\sigma S_tF_s}{F}-r\sigma} = \underbrace{\mu\sigma^F-\mu^F\sigma}_{= \dfrac{\mu\sigma S_tF_s}{F}-\dfrac{\sigma(F_t+\mu S_tF_s+)+\dfrac{-2S_t^2}{2}F_{ss}}{F}}$
+\begin{equation*}
+  \begin{gathered}
+    rS_tF_s -rf = \mu S_tF_s - F_t -\mu S_tF_s +\dfrac{\sigma^2}{2}S_t^2F_{ss}\\
+    = -F_t+\dfrac{\sigma^2}{2}S_t^2F_{ss}\\
+    F_t + \dfrac{\sigma^2S_t^2}{2}F_{ss}+rS_tF_r - rF=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $S_t$ can take any value, $F$ must satisfy the PDE
+\begin{equation*}
+  \begin{gathered}
+    F_t(t,s)+\dfrac{\sigma^2(t,s)}{2}s^2F_{ss}+rsF_s(t,s)-rF(t,s) = 0
+  \end{gathered}
+\end{equation*}\par
+
+\noindent Also, $\Pi_T(X) = F(T,S_T) = \phi(S_T)$, so we also have $F(T,S) =\phi(S_T)$
+\par\bigskip
+\begin{theo}[Black-Sholes equation]{}
+  In the market $\begin{cases}
+    dB_t = rB_t dt\\
+    dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_tdW_t
+  \end{cases}$, the only arbitrage-free price of a $T$-claim $X = \phi(S_T)$ is $F(t,S_t)$, where $F(t,s)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t(t,s)+\dfrac{\sigma^2(t,s)}{2}s^2F_{ss}(t,s)+rsF_s(t,s)-rF(t,s) =0\\
+        F(T,s) = \phi(s)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent The solution to the BS-equation is by Feynman-Kac
+\begin{equation*}
+  \begin{gathered}
+    F(t,s) = \E_{t,s}\left(\text{exp}\left\{-r(T-t)\phi(S_T)\right\}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent where 
+\begin{equation}
+  \begin{gathered}
+    dS_u = rS_udu+\sigma(u,S_u)S_udW_u\\
+    S_t = s
+  \end{gathered}
+\end{equation}\par
+\noindent we refer to 
+\begin{equation}
+  \begin{gathered}
+    \begin{cases}
+      dS_u = \mu(u,S_u)S_u du+\sigma(u,S_u)S_udW_u\\
+      S_t = s
+    \end{cases}
+  \end{gathered}
+\end{equation}\par
+\noindent as the \textit{P-dynamics} of $S$ (the specification of $S$ under the "physical measure" $P$). (3) is refered to as the \textit{Q-dynamics} of $S$ (Q is the \textit{pricing measure}, or the \textit{martingale measure})
+\par\bigskip
+\begin{theo}[]{}
+  The arbitrage-free price of a simple $T$-claim $X= \phi(S_T)$ is $F(t,S_t)$ where
+  \begin{equation*}
+    \begin{gathered}
+      F(t,s) = \E_{t,s}^Q\left(\text{exp}\left\{-r(T-t)\phi(S_T)\right\}\right)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and the Q-dynamics of $S$ are as in (3)
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent In the standard BS-model (i.e constant $\sigma$), what is the arbitrage-free price of the $T$-claim $X=S_T^2$?\par
+\noindent By risk-neutral valuation, $F(t,s) = \text{exp}\left\{-r(T-t)\right\}\E_{t,s}^Q(S_T^2)$\par
+\noindent Let $Y_u =S_u^2$, then
+\begin{equation*}
+  \begin{gathered}
+    dY_u = 2S_udS_u+(dS_u)^2\stackrel{dS_u = rS_udu+\sigma S_udW_u}{=}(2r+\sigma^2)Y_udu+2\sigma Y_udW_u
+  \end{gathered}
+\end{equation*}\par
+\noindent $Y$ is a gBm and thus
+\begin{equation*}
+  \begin{gathered}
+    \E_{t,s}^Q(S_T^2) = \E^Q(Y_T) = s^2\text{exp}\left\{(2r+\sigma^2)(T-t)\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Which is the price of $X$ at time $t$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent What is the price of $X = S_t$?\par
+\noindent By risk-neutral valuation
+\begin{equation*}
+  \begin{gathered}
+    F(t,s) = \text{exp}\left\{-r(T-t)\right\}\E_{t,s}^Q(S_T) = s
+  \end{gathered}
+\end{equation*}\par
+\noindent So the price at time $t$ is $S_t$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent In time-homogenous models (such as the BS-model), the relevant quantity is time $T-t$ left to maturity.
+\par\bigskip
+\noindent\textbf{Example:} \textit{Binary option}\par
+\noindent In the standard BS-model, find the value of $X = \phi(S_T)$ where $\phi(x) = \begin{cases}
+  1\quad\text{if } x\geq K\\
+  0\quad\text{if } x<K
+\end{cases}$
+\par\bigskip
+
+\begin{equation*}
+  \begin{gathered}
+    F(0,s) = \text{exp}\left\{-rT\right\}\E_{0,s}^Q\left(I_{\left\{S_T\geq K\right\}}\right) = \text{exp}\left\{-rT\right\}Q(S_T\geq K)\\
+  = \text{exp}\left\{-rT\right\}Q(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma W_T\right\}\geq K)\\
+  = \text{exp}\left\{-rT\right\}Q\left(\dfrac{1}{\sqrt{T}}W_T\geq \dfrac{\ln{\left(\dfrac{K}{S}\right)}-(r-\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}\right)\\
+  = \text{exp}\left\{-rT\right\}Q\left(\dfrac{1}{\sqrt{T}}W_t\leq \dfrac{\ln{\left(\dfrac{S}{K}\right)}+(r-\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}\right)\\
+  = \text{exp}\left\{-rT\right\}N\left(\dfrac{\ln{\left(\dfrac{S}{K}\right)}+(r-\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $N(x)\sim N(0,1)$, and the last line is the price at time $t$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent What is the price of a European call option $ X= (S_T-K)^+$? In the standard BS-model
+\begin{equation*}
+  \begin{gathered}
+    F(0,s) = \text{exp}\left\{-rT\right\}\E_{0,s}^Q\left((S_t-K)^+\right) = \text{exp}\left\{-rT\right\}\E^Q\left(\left(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma W_T\right\}-K\right)^+\right)\\
+    = \text{exp}\left\{-rT\right\}\int_{a}^{\infty}\left(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}-K\right)\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{\dfrac{-x^2}{2}\right\}dx\qquad a = \dfrac{\ln{\left(\dfrac{K}{S}\right)}-(r-\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}\\
+    s \int_{a}^{\infty}\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{\dfrac{-(x-\sigma\sqrt{T})^2}{2}\right\}dx-K\text{exp}\left\{-rT\right\}N(-a)\\
+    =s \int_{a-\sigma\sqrt{T}}^{\infty}\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{\dfrac{-x^2}{2}\right\}dx-K\text{exp}\left\{-rT\right\}N(-a)\\
+    = sN(\sigma\sqrt{T}-a)-K\text{exp}\left\{-rT\right\}N(-a)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Here we used the fact that the normal-distribution has symmetric tails
+\par\bigskip
+\begin{theo}[Black-Scholes formula]{}
+  In teh standard BS-model, the price of a European call option is $F(t,S_t)$, where 
+  \begin{equation*}
+    \begin{gathered}
+      F(t,s) = sN(d_1)-K\text{exp}\left\{-r(T-t)\right\}N(d_2)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        d_1 = \dfrac{\ln{\left(\dfrac{S}{K}\right)}+(r+\dfrac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}}\\
+        d_2 = d_1 -\sigma\sqrt{T-t}
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\noindent Consider $F(0,s) = sN(d_1)-K\text{exp}\left\{-rT\right\}N(d_2)$ as above, then we have
+\begin{equation*}
+  \begin{gathered}
+    F(0,s) = \E_{0,s}^Q\left(\text{exp}\left\{-rT\right\}(S_T-K)^+\right)\leq \E_{0,s}^Q\left(\text{exp}\left\{-rT\right\}(S_T)\right) = s
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent and
+\begin{equation*}
+  \begin{gathered}
+    F(0,s) = \E_{0,s}^Q\left(\text{exp}\left\{-rT\right\}(S_T-K)^+\right)\geq \E_{0,s}^Q\left(\text{exp}\left\{-rT\right\}(S_T-K)\right) = s-K\text{exp}\left\{-rT\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent We shall see below that $F(0,s) = F(0,s;\sigma)$ is increasing in $\sigma$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent What about the put option?\par
+\begin{equation*}
+  \begin{gathered}
+    \E_{0,s}^Q\left(\text{exp}\left\{-rT\right\}(K-S_T)^+\right)=\text{ similar to above}
+  \end{gathered}
+\end{equation*}\par
+\noindent Alternatively, $(K-s)^+ = K-s+(s-K)^+$. We have priced $(s-K)^+$, and $s$, so $p(0,s) = K\text{exp}\left\{-rT\right\}-s+c(0,s)$ where $p$ is the put price and $c$ is the call price. This relation is called the \textit{put-call parity}\par
+\noindent Thus,
+\begin{equation*}
+  \begin{gathered}
+    p(0,s) = K\text{exp}\left\{-rT\right\}-s+sN(d_1)-K\text{exp}\left\{-rT\right\}N(d_2)\\
+    =K\text{exp}\left\{-rT\right\}\underbrace{(1-N(d_2))}_{=N(-d_2)}-s\underbrace{(1-N(d_1))}_{=N(-d_1)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  Let $F(t,s)$ be the pricing function f a simple $T$-claim $X = \phi(S_T)$ in the standard BS-model.\par
+  \noindent If $\phi$ is convex, then:\par
+  \begin{enumerate}[leftmargin=*]
+    \item $F(t,s)$ is convex in $s$
+    \item $F(t,s)$ is increasing in $\sigma$
+  \end{enumerate}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      F(0,s) = \text{exp}\left\{-rT\right\}\int_\R\phi\left(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\right)\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{-\dfrac{x^2}{2}\right\}dx
+    \end{gathered}
+  \end{equation*}\par
+  \begin{enumerate}[leftmargin=*]
+    \item
+      \begin{equation*}
+        \begin{gathered}
+          F_{ss} = \text{exp}\left\{-rT\right\}\int_\R\phi^{\prime\prime}\left(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\right)\text{exp}2\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{-\dfrac{x^2}{2}\right\}dx\geq0
+        \end{gathered}
+      \end{equation*}
+      \par\bigskip
+    \item
+      \begin{equation*}
+        \begin{gathered}
+          \dfrac{\partial F}{\partial \sigma}=\int_\R\phi^{\prime}\left(s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\right)s\text{exp}\left\{-\dfrac{\sigma^2T}{2}+\sigma\sqrt{T}x\right\}\sqrt{T}(x-\sigma\sqrt{T})\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{\dfrac{-x^2}{2}\right\}dx\\
+          = s\sqrt{T}\int_\R\phi^{\prime}\left(\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\right)(x-\sigma\sqrt{T})\text{exp}\left\{-\dfrac{(x-\sigma\sqrt{T})^2}{2}\right\}\dfrac{1}{\sqrt{2\pi}}dx\\
+          \stackrel{\text{parts.}}{=}s\sqrt{T}\int_\R\phi^{\prime\prime}()s\text{exp}\left\{(r-\dfrac{\sigma^2}{2})T+\sigma\sqrt{T}x\right\}\sigma\sqrt{T}\text{exp}\left\{-\dfrac{(x-\sigma\sqrt{T})^2}{2}\right\}\dfrac{1}{\sqrt{2\pi}}dx\geq0
+        \end{gathered}
+      \end{equation*}
+  \end{enumerate}
+\end{prf}

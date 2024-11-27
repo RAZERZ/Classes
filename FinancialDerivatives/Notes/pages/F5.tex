@@ -1,0 +1,251 @@
+\section{Stochastic Differential Equations}
+Let\par
+\begin{itemize}
+  \item a $d$-dimensiona Brownian motion $W$
+  \item $\mu:[0,\infty)\times\R^n\to\R^n$
+  \item $\sigma:[0,\infty)\times\R^n\to\R^{n\times d}$
+  \item $x_0\in\R^n$
+\end{itemize} be given. A \textit{stochastic differential equation} is an equation at the form
+\begin{equation}
+  \begin{gathered}
+    \begin{cases}
+      dX_t = \mu(t,X_t)dt +\sigma(t,X_t)dW_t\\
+      X_0 = x_0
+    \end{cases}
+  \end{gathered}
+\end{equation}\par
+\noindent Or, equivalently, 
+\begin{equation*}
+  \begin{gathered}
+    X_t = x_0+\int_{0}^{t}\mu(s,X_s)ds + \int_{0}^{t}\sigma(s,X_s)dW_s
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  Assume 
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|\mu(t,x)-\mu(t,y)\right|\right|+\left|\left|\sigma(t,x)-\sigma(t,y)\right|\right|\leq K\left|\left|x-y\right|\right|
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and $\left|\left|\mu(t,x)\right|\right|+\left|\left|\sigma(t,x)\right|\right|\leq K\left|\left|x\right|\right|$ for some $K$
+  \par\bigskip
+  \noindent Then there exists a unique solution $X_t$ to the SDE (1). Moreover,\par
+  \begin{enumerate}[leftmargin=*]
+    \item $X$ is $\mathcal{F}^W$-adapted
+    \item $X_t$ has continuous trajectories
+    \item $X$ is a Markov process
+  \end{enumerate}
+\end{theo}
+\par\bigskip
+\section{Geometric Brownian Motion}
+Consider
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dX_t = \alpha X_tdt + \sigma X_tdW_t\qquad\text{$\alpha, \sigma$ constans}\\
+      X_0 = x
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent\textbf{Anmärkning:}\par
+\noindent If $\sigma = 0$, then $dX_t = \alpha X_tdt$ so $X_t = x_0e^{\alpha t}$\par
+\noindent Let $Z_t = \ln{\left(X_t\right)}$. Then
+\begin{equation*}
+  \begin{gathered}
+    dZ_t \stackrel{\text{Ito}}{=}\dfrac{1}{X_t}dX_t - \dfrac{1}{2}\dfrac{1}{X_t^2}\left(dX_t\right)A^2 = \left(\alpha-\dfrac{\sigma^2}{2}\right)dt+\sigma W_t
+  \end{gathered}
+\end{equation*}\par
+\noindent so $Z_t = \ln{\left(x_0\right)}+\left(\alpha-\dfrac{\sigma^2}{2}\right)t+\sigma W_t$ and $X_t = e^{Z_t}=x_0e^{\left(\alpha-\dfrac{\sigma^2}{2}\right)t+\sigma W_t}$
+\par\bigskip
+\noindent Moreover,
+\begin{equation*}
+  \begin{gathered}
+    \E(X_t) = x_0+\E\left[\int_{0}^{t}\alpha X_sds\right] + \underbrace{\E\left[\int_{0}^{t}\sigma X_sdW_s\right]}_{=0}
+  \end{gathered}
+\end{equation*}\par
+\noindent So if $m(t) = \E(X_t)$, we find $\begin{cases}
+  \dfrac{dm}{dt} = \alpha m(t)\\ m(0)=x_0
+\end{cases}$\par
+\noindent Thus $m(t) = x_0e^{\alpha t}$
+\par\bigskip
+\noindent\textbf{Results:}\par
+\noindent The solution of $\begin{cases}
+  dX_t = \alpha X_tdt + \sigma X_tdW_t\\X_0=x_0
+\end{cases}$ is $X_t = x_0\text{exp}\left\{\left(\alpha-\dfrac{\sigma^2}{2}\right)t+\sigma W_t\right\}$\par
+\noindent Moreover, $\E(X_t) = x_0e^{\alpha t}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Consider the SDE $\begin{cases}
+  dX_t = -X_tdt + dW_t\\X_0 = x
+\end{cases}$ (tihs is a mean-reverting Ornstein-Uhlenbeck process)\par
+\noindent The trick here is to let $Y_t = e^tX_t$. Then
+\begin{equation*}
+  \begin{gathered}
+    dY_t = e^tX_tdt + e^tdX_t = e^tdW_t\\
+    \Rightarrow Y_t = x+\int_{0}^{t}e^sdW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $X_t = e^{-t}Y_t = xe^{-t} + e^{-t}\int_{0}^{t}e^sdW_s$\par
+\noindent Moreover $\E(X_t) = xe^{-t}$
+\par\bigskip
+\begin{defo}[Diffusion process]{}
+  The solution $X$ of an SDE
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dX_t = \mu(t,X_t)dt + \sigma(t,X_t)dW\\
+        X_0 = x_0
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is called a \textit{diffusion process}.\par
+  \noindent $\mu$ is called the \textit{drift} and $\sigma$ is the \textit{diffusion coefficient}
+\end{defo}
+\par\bigskip
+\section{Partial Differential Equtions}
+Consider the following \textit{terminal value problem}:\par
+\noindent Given function $\sigma,\mu,\phi$, find a function $F(t,x)$ such that 
+\begin{equation}
+  \begin{gathered}
+    \dfrac{\partial F}{\partial t}(t,x)+\dfrac{\sigma^2(t,x)}{2}\dfrac{\partial^2 F}{\partial x^2}F(t,x)+\mu(t,x)\dfrac{\partial F}{\partial t}(t,x) = 0\\
+    F(T,x) = \phi(x)
+  \end{gathered}
+\end{equation}\par
+\noindent If $F(t,x)$ satisfies (2), define $X_s$ by $\begin{cases}
+  dX_s = \mu(s,X_s)ds+\sigma(s,X_s)dW_s\\X_t=x
+\end{cases}$ and let $Z_s = F(s,X_s)$. Then
+\begin{equation*}
+  \begin{gathered}
+    dZ_s \stackrel{\text{Ito}}{=}\dfrac{\partial F}{\partial s}ds+\dfrac{\partial F}{\partial x}dX_s+\dfrac{1}{2}\dfrac{\partial^2 F}{\partial x^2}(dX_s)^2\\
+    = \underbrace{\left(\dfrac{\partial F}{\partial s}+\mu\dfrac{\partial F}{\partial x}+\dfrac{\sigma^2}{2}\dfrac{\partial^2 F}{\partial x^2}\right)}_{=0}ds + \sigma\dfrac{\partial F}{\partial x}dW_s\\
+    = \sigma\dfrac{\partial F}{\partial x}dW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent Integrate:
+\begin{equation*}
+  \begin{gathered}
+    Z_T = Z_t + \int_{t}^{T}\sigma(s,X_s)\dfrac{\partial F}{\partial x}(s,X_s)dW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent Take expectation:
+\begin{equation*}
+  \begin{gathered}
+    \E(Z_T) = Z_t = F(t,x) = \E(F(T,X_T)) \stackrel{*}{=} \E(\phi(X_t))
+  \end{gathered}
+\end{equation*}\par
+\noindent We write $F(t,x) = \E_{t,x}(\phi(X_T))$ (to indicate that $X_t = x$)
+\par\bigskip
+\noindent We have thus proved the following:
+\par\bigskip
+\begin{theo}[Feynman-Kac]{}
+  If $F(t,x)$ satisfies
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        \dfrac{\partial F}{\partial t}+\dfrac{\sigma^2(t,x)}{2}\dfrac{\partial^2 F(t,x)}{\partial x^2}+\mu(t,x)\dfrac{\partial F}{\partial x} = 0\qquad (t<T)\\
+        F(t,x) = \phi(x)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent then $F(t,x) = \E_{t,x}(\phi(X_T))$ where $\begin{cases}
+    dX_s = \mu(s,X_s)ds+\sigma(s,X_s)dW_s\\X_t = x
+  \end{cases}$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Solve the PDE $\begin{cases}
+  \dfrac{\partial F}{\partial t}+\dfrac{\sigma^2}{2}\dfrac{\partial^2 F}{\partial x^2} = 0\\
+  F(T,x) = x^2\\
+\end{cases}$
+\par\bigskip
+\noindent\textbf{Solution:}\par
+\noindent Let $X_s$ be the solution of $\begin{cases}
+  dX_s = \sigma dW_s\\X_t = x
+\end{cases}$ i.e $X_s = x+\sigma(W_s-W_t)$\par
+\noindent By Feynman-Kac:
+\begin{equation*}
+  \begin{gathered}
+    F(t,x) = \E_{t,x}(X_T^2) = \E((x+\sigma(W_T-W_t))^2)\\
+    = x^2+2x\sigma\E(W_t-W_t)+\sigma^2\E((W_T-W_t)^2)\\
+    = x^2+\sigma^2(T-t)
+  \end{gathered}
+\end{equation*}\par
+\noindent $F(t,x) = x^2+\sigma^2(T-t)$
+\par\bigskip
+\begin{theo}[Feynman-Kac in higher dimensions + discounting]{}
+  Assume that $F:[0,T]\times R^n\to\R$ satisfies
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        \dfrac{\partial F}{\partial t}+ \dfrac{1}{2}\sum_{i,j=1}^{n}C_{i,j}(t,x)\dfrac{\partial^2 F}{\partial x_i\partial x_j}+\sum_{i=1}^{n}\mu_i(t,x)\dfrac{\partial F}{\partial x_i}-rF(t,x) = 0\\
+        F(T,x)=  \phi(x)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Where $C(t,x) = \sigma(t,x)\sigma^*(t,x)$ for some matrix $\sigma$ ($n\times d$)\par
+  \noindent Then $F(t,x) = e^{-r(T-t)}\E_{t,x}(\phi(X_T))$ where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dX_s = \mu(s,X_s)ds+\sigma(s,X_s)dW_s\\
+        X_t = x
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Let $Z_s = e^{-r(s-t)}F(s,X_s)$. Then 
+  \begin{equation*}
+    \begin{gathered}
+      dZ_s \stackrel{\text{Ito}}{=} e^{-r(s-t)}\underbrace{\left(\dfrac{\partial F}{\partial s}+\dfrac{1}{2}\sum_{i,j=1}^{n}C_{ij}\dfrac{\partial^2 F}{\partial x_i\partial x_j}+\sum_{i=1}^{n}\mu_i\dfrac{\partial F}{\partial x_i}-rF\right)ds}_{=0}+e^{-r(s-t)}\sum_{i=1}^{n}\dfrac{\partial F}{\partial x_i}\sigma_i dW_s
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So
+  \begin{equation*}
+    \begin{gathered}
+      Z_T = \underbrace{Z_t}_{F(t,x)}+\int_{t}^{T}\cdots dW_s = e^{-r(T-t)}\phi(X_T)
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Thus $F(t,x) = e^{-r(T-t)}\E(\phi(X_T))$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Solve the PDE $\begin{cases}
+  \dfrac{\partial F}{\partial t}+\dfrac{\sigma^2}{2}\dfrac{\partial^2 F}{\partial x^2}+\dfrac{\delta^2}{2}\dfrac{\partial^2 F}{\partial y^2}-rF = 0\\ F(T,x,y) = xy
+\end{cases}$
+\par\bigskip
+\noindent\textbf{Solution:}\par
+\noindent Here $C = \begin{bmatrix}\sigma^2&0\\0&\delta^2\end{bmatrix}$ so $\sigma = \begin{bmatrix}\sigma&0\\0&\delta\end{bmatrix}$ satisfies $C = \sigma\sigma^*$
+\begin{equation*}
+  \begin{gathered}
+    d\begin{bmatrix}X_t\\Y_t\end{bmatrix} = \begin{bmatrix}\sigma&0\\0&\delta\end{bmatrix}\begin{bmatrix}dW_t^1\\dW_t^2\end{bmatrix}\Rightarrow \begin{cases}
+    X_t = x+\sigma(W_T^1-W_t^1)\\ Y_T = y+\delta(W_T^2-W_t^2)
+  \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Feynman-Kac gives
+\begin{equation*}
+  \begin{gathered}
+    F(t,x,y) = \E_{t,x,y}\left(e^{-r(T-t)}X_TY_T\right) = e^{-r(T_t)}\E\left(\left(x+\sigma(W_T^1-W_t^1)\right)\left(y+\delta(W_T^2-W_t^2)\right)\right)\\
+    \stackrel{\text{indep}}{=} e^{-r(T-t)}\E\left(x+\sigma(W_T^1-W_t^1)\right)\E\left(y+\delta(W_T^2-W_t^2)\right) = e^{-r(T-t)}xy
+  \end{gathered}
+\end{equation*}par
+\noindent Answer is therefore $F(t,x,y) = e^{-r(T-t)}xy$
+\par\bigskip
+\begin{defo}[Infitesimal Operator]{}
+  The differential operator
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{A} = \dfrac{1}{2}\sum_{i,j=1}^{n}C_{ij}\dfrac{\partial ^2}{\partial x_i\partial x_j} + \sum_{i=1}^{n}\mu_i\dfrac{\partial }{\partial x_i}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is called the \textit{infitesimal operator} of $X$
+\end{defo}
+\par\bigskip
+\noindent\textbf{Itos formula:}\par
+\noindent If $Z_t = f(t,X_t)$, then $dZ_t = \left(\dfrac{\partial f}{\partial t}+\mathcal{A}f\right)dt + \sum_{i=1}^{n}\dfrac{\partial f}{\partial x_i}\sigma_idW_t$

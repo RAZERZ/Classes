@@ -1,0 +1,62 @@
+\section{Portfolio Dynamics}
+\noindent Let the time axis be discrete
+\par\bigskip
+\begin{defo}[]{}
+  \begin{itemize}
+    \item $N = $ the number of different assets
+    \item $S_n^i = $ the price of one unit of asset $i$ at time $n$
+    \item $h_n^i = $ the number of units of asset $i$ bought at time $n$
+    \item $h_n = (h_n^1,h_n^2,\cdots,h_n^N)$ is a \textit{portfolio}
+    \item $V_n = $ the value of a portfolio $h_n$ at time $n$ = $\sum_{i=1}^{N}h_n^is_n^i = h_n\cdot S_n$
+  \end{itemize}
+\end{defo}
+\par\bigskip
+\noindent The interpretation:\par
+\begin{itemize}
+  \item At time $n-$ we have an old portfolio $h_{n-1}$ from the previous period
+  \item At time $n$, $S_n$ becomes observable
+  \item At time $n$, after observing $S_n$, we chose $h_n$
+\end{itemize}
+\par\bigskip
+\begin{defo}[Budget equation]{}
+  $h_n\cdot S_{n+1} = h_{n+1}\cdot S_{n+1}$
+  \par\bigskip
+  \noindent\textbf{Notation:} If $\left\{x_n\right\}_{n=0}^\infty$ is a sequence of real numbers, let $\Delta x_n = x_{n+1}-x_n$.\par
+  \noindent The budget equation becomes $S_{n+1}\cdot\Delta h_n = 0$ 
+\end{defo}
+\par\bigskip
+\noindent Recall $Y_n = h_n\cdot S_n$\par
+\noindent Since $\Delta V_n = h_{n+1}\cdot S_{n+1}-h_n\cdot S_n = h_{n+1}\cdot S_{n+1}-h_n\cdot S_{n+1}+h_n\cdot S_{n+1}-h_n\cdot S_n$\par
+\noindent $= S_{n+1}\cdot\Delta h_n + h_n\cdot\Delta S_n$\par
+\noindent we have $\Delta V_n = h_n\cdot\Delta S_n$ if the budget equation is fulfilled.
+\par\bigskip
+\noindent Below we use this relation to \textit{define} what is meant by a self-financing portfolio in continuous time.
+\par\bigskip
+\begin{defo}[]{}
+Let $\left\{S_t\mid t\geq0\right\}$ be an $N$-dimensional process\par
+\begin{itemize}
+  \item A \textit{portfolio} $h$ is an $\mathcal{F}^s$-adapted $N$-dimensional process
+  \item $h$ is \textit{Markovian} if $h_t = h(t,S_t)$ for some function $h$
+  \item The \textit{value process} $V^h$ of $h$ is
+    \begin{equation*}
+      \begin{gathered}
+        V_t^h = \sum_{i=1}^{N}h_t^iS_t^i = h_t\cdot S_t
+      \end{gathered}
+    \end{equation*}
+  \item A portfolio $h$ is \textit{self-financing} if
+    \begin{equation*}
+      \begin{gathered}
+        dV_t^h = h_t\cdot dS_t
+      \end{gathered}
+    \end{equation*}
+  \item For a given portfolio $h$, the corresponding \textit{relative portfolio} $w$ is
+    \begin{equation*}
+      \begin{gathered}
+        w_t^i = \dfrac{h_t^iS_t^i}{V_t^h}\qquad i = 1,\cdots, N
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent Note that $\sum_{i=1}^{N}w_t^i = 1$.\par
+\noindent Also, $h$ is self-financing if and only if $dV_t^h = V_t^h\sum_{i=1}^{N}\dfrac{\partial w_t^i}{S_t^i}dS_t^i$
+\end{defo}
