@@ -78,7 +78,7 @@ Consider
 \noindent\textbf{Example:}\par
 \noindent Consider the SDE $\begin{cases}
   dX_t = -X_tdt + dW_t\\X_0 = x
-\end{cases}$ (tihs is a mean-reverting Ornstein-Uhlenbeck process)\par
+\end{cases}$ (this is a mean-reverting Ornstein-Uhlenbeck process)\par
 \noindent The trick here is to let $Y_t = e^tX_t$. Then
 \begin{equation*}
   \begin{gathered}
@@ -108,8 +108,10 @@ Consider the following \textit{terminal value problem}:\par
 \noindent Given function $\sigma,\mu,\phi$, find a function $F(t,x)$ such that 
 \begin{equation}
   \begin{gathered}
-    \dfrac{\partial F}{\partial t}(t,x)+\dfrac{\sigma^2(t,x)}{2}\dfrac{\partial^2 F}{\partial x^2}F(t,x)+\mu(t,x)\dfrac{\partial F}{\partial t}(t,x) = 0\\
-    F(T,x) = \phi(x)
+    \begin{cases}
+      \dfrac{\partial F}{\partial t}(t,x)+\dfrac{\sigma^2(t,x)}{2}\dfrac{\partial^2 F}{\partial x^2}F(t,x)+\mu(t,x)\dfrac{\partial F}{\partial t}(t,x) = 0\\
+      F(T,x) = \phi(x)
+    \end{cases}
   \end{gathered}
 \end{equation}\par
 \noindent If $F(t,x)$ satisfies (2), define $X_s$ by $\begin{cases}
