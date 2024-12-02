@@ -1,0 +1,138 @@
+\section{The Convergence Theorem}
+Are the conditions under which a martingale converges to a limit $X_{\infty}$? The limit may still be random.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $X_0=0$, $X_n = X_{n-1} = \begin{cases}
+  +\dfrac{1}{2^n}\quad p = \dfrac{1}{2}\\-\dfrac{1}{2^n}\quad p = \dfrac{1}{2}
+\end{cases}$
+\par\bigskip
+\noindent We can express $X_n$ as
+\begin{equation*}
+  \begin{gathered}
+    X_n = \sum_{k=1}^{n}\dfrac{1}{2^k} Y_k\qquad Y_k = \pm1\\
+    X_{\infty} = \sum_{k=1}^{\infty}\dfrac{1}{2^k}Y_k\qquad\text{always exists because sum is absolutely convergent}
+  \end{gathered}
+\end{equation*}\par
+\noindent In fact, $X_{\infty}$ is uniformly distributed on $[-1,1]$ (Bernoulli convolutions project)
+\par\bigskip
+\noindent We want to establish conditions under which martingales converge almost surely.
+\par\bigskip
+\subsection{Upcrossings}\hfill\\
+Fix $a<b$, an upcrossing starts from a value below $a$ and ends with a value above $b$.
+\par\bigskip
+\noindent Formally, let $X_n$ be an adapted process, and let $U_N[a,b](\omega)$ be the largest $k$ such that there exists times 
+\begin{equation*}
+  \begin{gathered}
+    0\leq s_1<t_1<s_2<\cdots<s_k<t_k\leq N
+  \end{gathered}
+\end{equation*}\par
+\noindent with $X_{s_i}(\omega)<a$ and $X_{t_i}(\omega)>b$ for all $i$.\par
+\noindent Consider the previsible process that is equal to 1 within an upcrossing and 0 otherwise.
+\begin{equation*}
+  \begin{gathered}
+  C_1 = I_{\left\{X_0<a\right\}}\\
+  C_n = I_{\left\{C_{n-1}=1\right\}}I_{\left\{X_{n-1}\leq b\right\}} + I_{\left\{C_{n-1}=0\right\}}I_{\left\{X_{n-1}<a\right\}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Think of it like "currently in an upcrossing"$\cdot$"not completed yet" + "currently not in an upcrossing"$\cdot$"starting a new upcrossing"
+\par\bigskip
+\noindent The transformed sequence $Y = C\cdot X$ satisfies
+\begin{equation*}
+  \begin{gathered}
+    Y_n(\omega)\geq\underbrace{(b-a)U_N[a,b](\omega)}_{\substack{\text{within each upcrossing}\\\sum(X_i-X_{i-1})\geq(b-a)}}-\underbrace{\left(X_N(\omega)-a\right)^-}_{\substack{\text{correction for last}\\\text{incomplete upcrossing}}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Apply expectation to both sides to get:
+\par\bigskip
+\begin{lem}[Doobs upcrossing lemma]{}
+  If $X$ is a supermartingale, then
+  \begin{equation*}
+    \begin{gathered}
+      (b-a)\E\left[U_N[a,b]\right]\leq \E\left[(X_n-a)^-\right]
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent This follows ince the transform of a supermartingale by a non-negative pre-visible process is still a supermartingale:\par
+\noindent So $Y$ is a supermartingale, then 
+\begin{equation*}
+  \begin{gathered}
+    \E\left[Y_n\right]\leq \E\left[Y_0\right]= 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[]{}
+  (More of a corollay)\par
+  \noindent If $X$ is a supermartingale wiht $\sup_n \E\left[\left|X_n\right|\right]<\infty$, then we have
+  \begin{equation*}
+    \begin{gathered}
+      (b-a)\E\left[U_{\infty}[a,b]\right]\leq \left|a\right|+\sup_n \E\left[\left|X_n\right|\right]<\infty
+    \end{gathered}
+  \end{equation*}\par
+  \noindent where $U_{\infty}[a,b] = \lim_{N\to\infty}U_N[a,b]$
+  \par\bigskip
+  \noindent In particular, $U_\infty[a,b]$ is almost surely finite
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We have
+  \begin{equation*}
+    \begin{gathered}
+      (b-a)\E\left[U_N[a,b]\right]\leq \E\left[(X_n-a)^-\right]\leq \E\left[\left|X_n-a\right|\right]\leq \E\left[\left|X_n\right|\right]+\left|a\right|\\
+      \leq \sup_n\E\left[\left|X_n-a\right|\right]+\left|a\right|
+    \end{gathered}
+  \end{equation*}\par
+  \noindent We take $N\to\infty$ and apply MCT
+\end{prf}
+\par\bigskip
+\begin{theo}[Doobs Convergence Theorem]{}
+  Let $X_n$ be a supermartingale with $\sup_n\E\left[\left|X_n\right|\right]<\infty$\par
+  \noindent Then, $X_\infty = \lim_{n\to\infty}X_n$ exists a.s and is finite
+  \par\bigskip
+  \noindent To make $X_\infty$ well-defined where the limits deos not exists one can define it as $X_\infty = \lim_{n\to\infty}\sup X_n$\par
+  \noindent The statement above becomes:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}X_n = X_\infty\text{ a.s}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and $X_\infty\neq\pm\infty$ a.s
+\end{theo}
+\par\bigskip
+\begin{prf}[Doobs Convergence Theorem]{}
+  Suppose that for some $\omega\in\Omega$, the limit does not exist (even as $\pm\infty$). Then there are $a,b\in\Q$ such that
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\inf X_n(\infty)<a<b<\lim_{n\to\infty}\sup X_n(\omega)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent This means that $X_n(\omega)$ drops below $a$ and rises above $b$ infinitely many times, so $U_{\infty}[a,b]=\infty$
+  \par\bigskip
+  \noindent We conclude
+  \begin{equation*}
+    \begin{gathered}
+      E = \left\{\omega\in\Omega\mid \lim_{n\to\infty}\inf X_n(\omega)\neq\lim_{n\to\infty}\sup X_n(\omega)\right\}\subseteq \bigcup_{\substack{a,b\in\Q\\ a<b}}\left\{\omega\in\Omega\mid U_\infty[a,b](\omega)=\infty\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent which is a countable union of null sets and $\P(E) = 0$, hence the limit exists almost sturely.
+  \par\bigskip
+  \noindent It remains to show that the limit is finite a.s.\par
+  \noindent By Fatous lemma, $\E\left[\left|X_\infty\right|\right] = \E\left[\lim_{n\to\infty}\inf X_n\right]\leq \lim_{n}\inf \E\left[\left|X_n\right|\right]\leq \sup_n\E\left[\left|X_n\right|\right]<\infty$ by assumption.
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent In particular, the theorem holds if $\left|X_n\right|\leq K$ $\forall n$ (a.s)
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $X_n$ is a non-negative supermartingale, tehn 
+\begin{equation*}
+  \begin{gathered}
+    \E\left[\left|X_n\right|\right]= \E\left[X_n\right]\leq \E\left[X_0\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent for all $n$, and the condition holds, provided $\E\left[X_0\right]<\infty$
+\par\bigskip
+\noindent Non-negative martingale convergence theorem: non-negative martingales converge.
+\par\bigskip
+\noindent We will now explore martingales with stronger assumptions:

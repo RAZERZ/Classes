@@ -1,0 +1,237 @@
+\section{$L^2$-Martingales}
+In the following, we consider martingales $X_n$ with finite second moment $\E\left[X_n^2\right]<\infty$
+\par\bigskip
+\noindent We define the inner product $\langle U, V\rangle =\E\left[UV\right]$ and have the following orthogonality property:\par
+\noindent for $s\leq t\leq u\leq v$ and an $L^2$-martingale $M_n$
+\begin{equation*}
+  \begin{gathered}
+    \langle M_t-M_s, M_v-M_u\rangle = 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Increments at different times are independent
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[M_v-M_u\mid \mathcal{F}_k\right]\\
+      =\E\left[M_v\mid\mathcal{F}_k\right]-\E\left[M_u\mid \mathcal{F}_k\right] = M_k-M_k = 0\quad\forall k\leq u\leq v
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Likewise $\E\left[M_t-M_s\mid\mathcal{F}_k\right]=0\quad\forall k\leq s\leq t$ 
+  \par\bigskip
+  \noindent Consider
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\underbrace{\left(M_t-M_s\right)}_{\substack{\mathcal{F}_t\text{ measurable}}}(M_v-M_u)\mid\mathcal{F}_t\right] = (M_t-M_s)\E\left[M_v-M_u\mid\mathcal{F}_t\right] =(M_t-M_s)0 = 0\text{ a.s}\\
+      \Rightarrow \E\left[(M_t-M_s)(M_v-M_u)\right] = \E\left[\E\left[(M_t-M_s)(M_v-M_u)\mid\mathcal{F}_t\right]\right] = \E\left[0\right] = 0
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So increments over disjoint intervals are orthogonal with respect to the inner product.
+\end{prf}
+\par\bigskip
+\noindent If we write $M_n = M_0 + (M_1-M_0)+(M_2-M_1)+\cdots+ (M_n-M_{n-1})$, then all the summands are pairwise orthogonal and Pythagoras theorem gives us
+\begin{equation*}
+  \begin{gathered}
+    \E\left[M_n^2\right] = \E\left[M_0^2\right] + \E\left[(M_1-M_0)^2\right]+\cdots+\E\left[(M_n-M_{n-1})^2\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent So
+\begin{equation*}
+  \begin{gathered}
+    \E\left[M_n2\right]<\infty\Lrarr \sum_{n=1}^{\infty}\E\left[(M_n-M_{n-1})^2\right]<\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent Here also $\E\left[\left|M_n\right|\right]\leq \sqrt{\E\left[M_n^2\right]}<\infty$, so the convergence theorem applies and $M_n\to M_\infty$ a.s
+\par\bigskip
+\noindent It also holds that $\E\left[(X_\infty-X_n)^2\right] = \left|\left|X_\infty-X_n\right|\right|_2^2$ tends to 0. \par
+
+\noindent That is, $M_n-M_\infty$ with respect to the $\left|\left|\cdot\right|\right|_2$\par
+\noindent One can verify this as follows
+\begin{equation*}
+  \begin{gathered}
+    \E\left[(M_{n+r}-M_r)^2\right] = \sum_{k=r+1}^{n+r}\E\left[(M_k-M_{k-1})^2\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent by orthogonality.\par
+\noindent Now, let $n\to\infty$:
+\begin{equation*}
+  \begin{gathered}
+    \E\left[(M_\infty-M_r)^2\right]\\
+    = \E\left[\lim_{n\to\infty}(M_{n+r}-M_r)^2\right]\stackrel{\text{Fatou}}{\leq}\lim_{n}\inf\E\left[(M_{n+r}-M_r)^2\right]\\
+    = \sum_{k=r+1}^{\infty}\E\left[(M_k-M_{k-1})^2\right]<\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent Now as $r\to\infty$. It follows that $\E\left[(M_\infty-M_r)^2\right]\to0$
+\par\bigskip
+\noindent Now consider the special case where $M_n$ is a sum of independent random variables $X_1,\cdots, X_n$.\par
+\noindent $M_0=0$, $M_n = \sum_{i=1}^{n}X_i$ with $\sigma_k^2 = \text{Var}\left(X_k\right)<\infty$\par
+\noindent If $\E\left[X_k\right] = 0$ for all $k$, then $M_n$ is a martingale.
+\par\bigskip
+\begin{theo}[]{}
+  If $\sum\sigma_k^2<\infty$, then 
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=1}^{\infty}X_k = \lim_{n\to\infty}M_n
+    \end{gathered}
+  \end{equation*}\par
+  \noindent exists and is almost surely finite.
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=1}^{\infty}\E\left[(M_k-M_{k-1})^2\right] = \sum_{k=1}^{\infty}\underbrace{\E\left[X_k^2\right]}_{\substack{\text{Var}\left(X_k\right)}} = \sum_{k=1}^{\infty}\sigma_k^2
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So convergence follows (why? work out details)
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If the $X_k$ are also uniformly bounded, the converse also holds: If the sum $\sum X_k$ converges a.s, then $\sum \sigma_k^2<\infty$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Let $X_1,X_2, \cdots, $ be random variables with $\P(X_i=1) = \P(X_i=-1) = \dfrac{1}{2}$, and consider the random sum $\sum_{k=1}^{\infty}a_kX_k$, and $\sup_k\left|a_k\right|<\infty$\par
+\noindent Note that $\text{Var}\left(a_kX_k\right) = \E\left[(a_kX_k)^2\right] = ak^2$\par
+\noindent So the theorem above shows that the random sum converges a.s if and only if $\sum ak^2<\infty$
+\par\bigskip
+\subsection{Strong law of large numbers for $L^2$ random variables}\hfill\\
+\noindent We shall combine our $L^2$ martingale results with results from real analysis:
+\par\bigskip
+\begin{lem}[Cesaros Lemma]{}
+  If $b_n$ is a sequence of non-negative reals with $b_n\to\infty$ and $v_n$ is a convergent sequence of reals with $v_n\to v_\infty$, then 
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{b_n}\sum_{k=1}^{n}(b_k-b_{k-1})v_k\to v_\infty
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Note:} WLOG, $b_0=0$ and then 
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=1}^{n}\dfrac{b_k-b_{k-1}}{b_n} = 1
+    \end{gathered}
+  \end{equation*}\par
+  \noindent so LHS is a weighted average of $v_k$
+\end{lem}
+\par\bigskip
+\begin{lem}[Kroneckers Lemma]{}
+  Let $b_n $ be a non-negative sequence of reals with $b_n\to\infty$\par
+  \noindent Let $x_n$ be an arbitrary sequence of reals and let $s_n = \sum_{i=1}^{n}x_i$.
+  \par\bigskip
+  \noindent If $\sum_{n=1}^{\infty}\dfrac{x_n}{b_n}$ converges, then $\dfrac{s_n}{b_n}$
+\end{lem}
+\par\bigskip
+\noindent Let $Y_n$ be a sequence of independent random variables with $\E\left[Y_n\right] = 0$ and $\text{Var}\left(Y_n\right) <\infty$ $\forall n\in\N$
+\par\bigskip
+\noindent If $\sum_{n=1}^{\infty}\dfrac{\text{Var}\left(Y_n\right)}{n^2}<\infty$, then $\sum_{n=1}^{\infty}\dfrac{Y_n}{n}$ converges a.s\par
+\noindent This is because $\text{Var}\left(\dfrac{Y_n}{n}\right) = \dfrac{\text{Var}\left(Y_n\right)}{n^2}$ and we can apply the previous convergence theorem.
+\par\bigskip
+\noindent Kroneckers lemma with $b_n = n$ and $x_n = Y_n$ gives $\dfrac{s_n}{b_n} = \dfrac{\sum_{k=1}^{n}Y_k}{n}$ converging for almost every $\omega\in\Omega$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent The strong law of large numbers holds for all $Y_n$ such that $\sum \dfrac{\text{Var}\left(Y_n\right)}{n^2}<\infty$ (rather than $\E\left[Y_n^4\right]\leq k$)
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $X_n$ is an i.i.d sequence of random variables wiht mean $\mu$ and variance $\sigma^2 = \text{Var}\left(X_n\right)$, then $Y_n = X_n-\mu$ satisfies:\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \E\left[Y_n\right] = 0\\
+      \text{Var}\left(Y_n\right) = \sigma^2
+    \end{rcases*}\Rightarrow \sum_{n\in\N}\dfrac{\text{Var}\left(Y_n\right)}{n^2} = \sigma^2\sum_{n\in\N}\dfrac{1}{n^2}<\infty
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Hence $\dfrac{\sum_i X_i}{n} = \dfrac{\sum_i Y_i}{n}+\mu\to\mu$ almost surely
+\par\bigskip
+\noindent We will slightly tweak this method with a truncation approach:
+\par\bigskip
+\begin{lem}[Kolmogorovs Truncation Lemma]{}
+  Let $(X_n)$ be a sequence of i.i.d random variables.\par
+  \noindent Assume $X\sim X_n$ is integrable and $\E\left[X\right] = \mu$.\par
+  \noindent Write $Y_n = \begin{cases}
+    X_n\quad\text{ if } \left|X_n\right|\leq n\\
+    0\quad\text{ else}
+  \end{cases}$ Then the following holds:\par
+  \begin{enumerate}[leftmargin=*]
+    \item $\E\left[Y_n\right]\to\mu$ as $n\to\infty$
+    \item $\P(Y_n = X_n\quad\text{ for all but finitely many } n) = 1$
+    \item $\sum_{n\in\N}\dfrac{\text{Var}\left(Y_n\right)}{n^2}<\infty$
+  \end{enumerate}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{enumerate}[leftmargin=*]
+    \item $\left|Y_n\right|\leq \left|X_n\right|$ and hence
+      \begin{equation*}
+        \begin{gathered}
+          \E\left[\left|Y_n\right|\right]\leq \E\left[\left|X_n\right|\right] = \E\left[X\right]<\infty
+        \end{gathered}
+      \end{equation*}
+      \noindent Thus, by DCT, $\E\left[Y_n\right]\to \E\left[X\right] = \mu$
+      \par\bigskip
+    \item $\P(Y_n\neq X_n) = \P(\left|X_n\right|>n)$. Thus
+      \begin{equation*}
+        \begin{gathered}
+          \sum_{n\geq 1}\P(Y_n\neq X_n) = \sum_{n\in\N}\P(\left|X_n\right|>n) = \sum_{n\in\N}\P(\left|X\right|>n) = \sum_{n\in\N}\E\left[I_{\left\{\left|X\right|>n\right\}}\right]\\
+          = \E\underbrace{\left[\sum_{n\in\N}I_{\left\{\left|X\right|>n\right\}}\right]}_{\substack{\text{\# of integers}\\<\left|X\right|}}\leq \E\left[\left|X\right|\right]<\infty
+        \end{gathered}
+      \end{equation*}\par
+      \noindent The statement then follows with Borell-Canteli lemma
+      \par\bigskip
+    \item We have $\text{Var}\left(Y_n\right) = \E\left[Y_n^2\right]-\E\left[Y_n\right]^2\leq \E\left[Y_n^2\right]$, so 
+      \begin{equation*}
+        \begin{gathered}
+          \sum_{n\in\N}\dfrac{\text{Var}\left(Y_n\right)}{n^2}\leq \sum_{n\in\N}\dfrac{\E\left[Y_n\right]}{n^2} = \sum_{n\in\N}\dfrac{\E\left[X_n^2I_{\left\{\left|X_n\right|\leq n\right\}}\right]}{n^2}\\
+          =\sum_{n\in\N}\dfrac{\E\left[\left|X\right|^2I_{\left\{\left|X\right|\leq n\right\}}\right]}{n^2} = \E\left[\left|X\right|^2\sum_{n\in\N}\dfrac{1}{n^2}I_{\left\{\left|X\right|\leq n\right\}}\right]\\
+          = \E\left[\left|X\right|^2\sum_{n\geq\left|X\right|}\dfrac{1}{n^2}\right]\stackrel{(*)}{\leq}\E\left[\left|X\right|^2\dfrac{2}{\max\left\{1,\left|X\right|\right\}}\right] = \E\left[2\left|X\right|\right]<\infty
+        \end{gathered}
+      \end{equation*}\par
+      \noindent where $(*)$ follows from:
+      \begin{equation*}
+        \begin{gathered}
+          \dfrac{1}{n^2}\leq\dfrac{2}{n(n+1)} = \dfrac{2}{n}-\dfrac{2}{n+1}
+        \end{gathered}
+      \end{equation*}\par
+      \noindent and 
+      \begin{equation*}
+        \begin{gathered}
+          \sum_{n\geq k}\dfrac{1}{n^2}\leq \sum_{n\geq k}\left(\dfrac{2}{n}-\dfrac{2}{n+1}\right) = \left(\dfrac{2}{k}-\dfrac{2}{k+1}\right) + \left(\dfrac{2}{k+1}-\dfrac{2}{k+2}\right)+\cdots\\
+          = \dfrac{2}{k}
+        \end{gathered}
+      \end{equation*}
+  \end{enumerate}
+\end{prf}
+\par\bigskip
+\begin{theo}[Kolmogorovs Strong Law of Large Numbers (LLN)]{}
+  Let $X_1,X_2,\cdots$ be independent, identically distributed random variables with $\E\left[X_i\right] = \mu$. Then
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{n}\sum_{i=1}^{n}X_i\stackrel{n\to\infty}{\rightarrow}\mu\text{ a.s}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  Define $Y_n$ as above (truncation)\par
+  \noindent Note that $\dfrac{1}{n}(X_1+\cdots+X_n)$ and $\dfrac{1}{n}(Y_1+\cdots+Y_n)$ almost sturely have the same limit as they only differ finitely many times (by 2). Now:
+  \begin{equation*}
+    \begin{gathered}
+      \dfrac{1}{n}(Y_1+\cdots+Y_n) = \dfrac{(Y_1-\E\left[Y_1\right])+\cdots+(Y_n-\E\left[Y_n\right])}{n} + \dfrac{1}{n}(\E\left[Y_1\right]+\cdots+\E\left[Y_n\right])
+    \end{gathered}
+  \end{equation*}\par
+  \noindent The first summand satisfies previous criteria:
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[Y_j-\E\left[Y_j\right]\right] = 0\qquad\sum_j\dfrac{\text{Var}\left(Y_j-\E\left[Y_j\right]\right)}{j^2}= \sum\dfrac{\text{Var}\left(Y_j\right)}{j^2}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent which is finite by \textbf{3.} Hence
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\dfrac{1}{n}(Y_1+\cdots+Y_n) = \lim_{n\to\infty}\dfrac{1}{n}(\E\left[Y_1\right]+\cdots+\E\left[Y_n\right])
+    \end{gathered}
+  \end{equation*}\par
+  \noindent which equals $\mu$ by Cesaros lemma and \textbf{1.}
+\end{prf}
