@@ -1,0 +1,157 @@
+\section{Volatility Mis-specification}
+\noindent Assuem that a trader believes in 
+\begin{equation*}
+  \begin{gathered}
+    dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_t dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent whereas the stock actually follows
+\begin{equation*}
+  \begin{gathered}
+    d\stackrel{\sim}{S_t} = \stackrel{\sim}{\mu}(t,\stackrel{\sim}{S_t})\stackrel{\sim}{S_t}dt + \stackrel{\sim}{\sigma}(t,\stackrel{\sim}{S_t})d\stackrel{\sim}{W_t}
+  \end{gathered}
+\end{equation*}\par
+\noindent What happens if the trader tries to replicate a simple $T$-claim $x=\phi(\stackrel{\sim}{S_T})$?\par
+\noindent The trader solves $\begin{cases}
+  F_t+\dfrac{\sigma^2}{2}s^2F_{ss}+rsF_s-rF=0\\
+  F(T,s) = \phi(s)
+\end{cases}$ and constructs a portfolio $h = (h^B,h^S)$ with initial value $V_0^h = F(0,s)$ containing $F_s(t,\stackrel{\sim}{\S_t})$ shares of $\stackrel{\sim}{S}$ at each time (and $V_t^h - \stackrel{\sim}{S_t}F_s(t,S_t)$) in the bank account.
+\par\bigskip
+\noindent The \textit{tracking error} $Y_t = V_t^h-F(t,\stackrel{\sim}{S_t})$ satisfies $Y_0=0$ and
+\begin{equation*}
+  \begin{gathered}
+    dY_t = r(V_t^h-\stackrel{\sim}{S_t}F_s)dt + F_sd\stackrel{\sim}{S}-\left(F_tdt+F_sd\stackrel{\sim}{S_t}+\dfrac{1}{2}\stackrel{\sim}{\sigma}^2\stackrel{\sim}{S_t}^2F_{ss}dt\right)\\
+    = rV_t^hdt-\underbrace{\left(F_t+\dfrac{1}{2}\sigma^2\stackrel{\sim}{S}^2F_{ss}+r\stackrel{\sim}{S_t}F_s\right)}_{rF}dt + \dfrac{\sigma^2-\stackrel{\sim}{\sigma}^2}{2}\stackrel{\sim}{S_t}^2F_{ss}dt\\
+    = rY_tdt+\dfrac{\sigma^2-\stackrel{\sim}{\sigma}^2}{2}\stackrel{\sim}{S_t}^2F_{ss}dt
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus, if $\sigma^2\geq\stackrel{\sim}{\sigma}^2$ and $F_{\sigma}\geq0$, then $Y(T) = V(T)-\phi(\stackrel{\sim}{S_T})\geq0$
+\par\bigskip
+\noindent A trader who overestimates volatility and who uses a model with a convex price will superreplicate the claim!
+\par\bigskip
+\section{Asian Options}
+Asian options are option on the \textit{average} of $S$.\par
+
+\noindent An Asian call option pays $\chi = \left(\dfrac{1}{T}\int_{0}^{T}S_tdt-K\right)^+$ at $T$.\par
+\noindent Note, it is not a simple $T$-claim!
+\par\bigskip
+\begin{theo}[]{}
+  Let $\chi = \phi(S_T,Z_T)$, where $Z_t = \int_{0}^{t}g(u,S_u)du$ for some function $g$.\par
+  \noindent Let $F(t,s,z)$ solve
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t+\dfrac{\sigma^2 s^2}{2}F_{ss}+rsF_s + g(t,s)F_z -rF=0\\
+        F(T,s,z) = \phi(s,Z)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent and let $\begin{cases}
+    h_t^B = \dfrac{F(t,S_t,Z_t)-S_tF_s(t,S_t,Z_t)}{B_t}\\
+    h_t^S = F_s(t,S_t,Z_t)
+  \end{cases}$\par
+  \noindent Then $h$ is self-financing and it replicates $\chi$, with 
+  \begin{equation*}
+    \begin{gathered}
+      \Pi_t(\chi) = V_t^h = F(t,S_t,Z_t)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Moreover, $F(t,s,Z) = \text{exp}\left\{-r(T-t)\right\}\E_{t,s,z}^Q\left[\phi(S_T,Z_T)\right]$\par
+  \noindent where the $Q$-dynamics are
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dS_u = rS_udu+\sigma(u,S_u)S_udW_u^Q\\
+        S_t = s\\
+        dZ_u = g(u,S_u)du\\
+        Z_t = z
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      V_t^h = h_t^BB_t+h_t^SS_t = F(t,S_t,Z_t)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent In particular, $V_T^h = F(T,S_T,Z_T) = \phi(S_T,Z_T) = \chi$\par
+  \noindent Moreover, 
+  \begin{equation*}
+    \begin{gathered}
+      dV_t^h\stackrel{\text{Ito}}{=} F_tdt+F_sdS_t+F_zdZ_t+\dfrac{1}{2}F_{ss}(dS_t)^2\\
+      = \underbrace{\left(F_t+\dfrac{\sigma^2}{2}S_t^2F_{ss}+g(t,S_t)F_z\right)}_{=r(F-S_tF_s)\text{ by BS PDE}}dt+F_sdS_t\\
+      = r(F-S_tF_s)dt + F_sdS_t = h_t^BdB_t+h_t^SdS_t
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $h$ is self-financing and replicates $\chi$\par
+  \noindent Therefore, by no arbitrage, $\Pi_t(\chi) = V_t^h = F(t,S_t,Z_t)$\par
+  \noindent Finally, the stochastic representation follows from Feynman-Kac
+\end{prf}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $\chi = \dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu$ paid at $T_2$\par
+\noindent What is the value of the $T_2$-claim $\chi$ at $t<T_1$?
+\begin{equation*}
+  \begin{gathered}
+    \E_{t,s}^Q\left[\text{exp}\left\{-r(T_2-t)\right\}\dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu\right] = \dfrac{\text{exp}\left\{-r(T_2-t)\right\}}{T_2-T_1}\int_{T_1}^{T_2}\underbrace{\E_{t,s}\left[S_u\right]}_{s\text{exp}\left\{r(u-t)\right\}}du\\
+    = \dfrac{\text{exp}\left\{-r(T_2-t)\right\}}{T_2-T_1}\dfrac{s}{r}\left(\text{exp}\left\{r(T_2-t)\right\}-\text{exp}\left\{r(T_1-t)\right\}\right)\\
+    = \dfrac{s}{r(T_2-T_1)}\left(1-\text{exp}\left\{-r(T_2-T_1)\right\}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Which yields the answer, i.e the price is $\dfrac{S_t}{r(T_2-T_1)}\left(1-\text{exp}\left\{-r(T_2-T_1)\right\}\right)$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent What is the value of $\chi$ in the previous exercise at $t \in[T_1,T_2]$?\par
+\begin{equation*}
+  \begin{gathered}
+    \chi = \dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu = \underbrace{\dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu}_{\text{known at $t$}}+\underbrace{\dfrac{1}{T_2-T_1}\int_{t}^{T_2}S_udu}_{y}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Price of $y$:
+\begin{equation*}
+  \begin{gathered}
+    \E_{t,s}^Q\left[\text{exp}\left\{-r(T_2-t)\right\}\dfrac{1}{T_2-T_1}\int_{t}^{T_2}S_udu\right]\\
+    =\dfrac{\text{exp}\left\{-r(T_2-t)\right\}}{T_2-T_1}\int_{t}^{T_2}s\text{exp}\left\{r(u-t)\right\}du\\
+    = \dfrac{s}{r(T_2-T_1)}\left(1-\text{exp}\left\{-r(T_2-t)\right\}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent The answer is $\dfrac{1}{T_2-T_1}\left(\text{exp}\left\{-r(T_2-t)\right\}\int_{T_1}^{t}S_udu+\dfrac{S_t}{r}\left(1-\text{exp}\left\{-r(T_2-t)\right\}\right)\right)$
+\par\bigskip
+\subsection{Completeness vs Absence of Arbitrage}\hfill\\
+\begin{enumerate}[leftmargin=*]
+  \item The BS-model $\begin{cases}
+    dB_t = rB_tdt\\ dS_t = \mu S_tdt+\sigma S_tdW_t
+    \end{cases}$ is arbitrage-free and complete
+    \par\bigskip
+  \item The model 
+    \begin{equation*}
+      \begin{gathered}
+        dB_t = rB_tdt\\
+        dS_t^1  = \mu_1S_t^1dt+\sigma_1S_t^1dW_t\\
+        dS_t^2=\mu_2S_t^1dt+\sigma_2S_t^2dW_t
+      \end{gathered}
+    \end{equation*}\par
+    \noindent is complete, but (typically) \textit{not} arbitrage free since one may construct a portfolio in $S^1,S^2$ with do $dW$ term and with local mean rate of return $\neq r$
+    \par\bigskip
+  \item The model
+    \begin{equation*}
+      \begin{gathered}
+        dB_t = rB_tdt\\
+        dS_t = \mu S_tdt+\sigma_1S_tdW_t^1+\sigma_2S_tdW_t^2
+      \end{gathered}
+    \end{equation*}\par
+    \noindent is arbitrage-free but \textit{not} complete since $\chi = W_T^1$ cannot be replicated
+\end{enumerate}
+\par\bigskip
+\begin{theo}[Meta-theorem]{}
+  Let $M = $ the number of traded assets excluding $B$ and $R = $ the number random sources (BMs, Poisson processes) etc. Then:\par
+  \begin{itemize}
+    \item Absence of arbitrage $\Lrarr$ $M\leq R$
+    \item Completeness $\Lrarr$ $M\geq R$
+    \item Absence of arbitrage and completeness $\Lrarr M=R$
+  \end{itemize}
+\end{theo}

@@ -2,7 +2,7 @@
 \contentsline {section}{\tocsection {}{2}{Continous time \& Brownian Motion}}{4}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Simple Random Walk}}{4}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Stochastic integration}}{6}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Properties of the stochastic integarl}}{7}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Properties of the stochastic integral}}{7}{subsection.2.3}%
 \contentsline {section}{\tocsection {}{3}{Martingales}}{8}{section.3}%
 \contentsline {section}{\tocsection {}{4}{Itos formula}}{9}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Taylor Expansion}}{9}{subsection.4.1}%
@@ -18,3 +18,6 @@
 \contentsline {subsection}{\tocsubsection {}{11.1}{Historic volatility}}{23}{subsection.11.1}%
 \contentsline {subsection}{\tocsubsection {}{11.2}{Implied volatility}}{23}{subsection.11.2}%
 \contentsline {section}{\tocsection {}{12}{Completeness and Hedging}}{23}{section.12}%
+\contentsline {section}{\tocsection {}{13}{Volatility Mis-specification}}{26}{section.13}%
+\contentsline {section}{\tocsection {}{14}{Asian Options}}{26}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Completeness vs Absence of Arbitrage}}{28}{subsection.14.1}%
