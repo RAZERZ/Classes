@@ -1,0 +1,329 @@
+\section{Pricing \& Arbitrage}
+\noindent Firstly, we start off with some quick definitions/notations:\par
+\begin{itemize}
+  \item\textbf{Stock market}: assets are modelled as random processes
+  \item\textbf{Derivatives}: Assets determined by other assetsÖ
+    \begin{itemize}
+      \item\textit{Futures/Forward contracts}\par
+        \noindent Buy/sell an asset at time $T$ at a fixed price $K$\par
+        \noindent If the value at time $T$ is $S_T$, the win/loss ("payoff") is $S_T-K$ for the buyer and $K-S_T$ for the seller
+        \par\bigskip
+      \item\textit{Swaps}:\par
+        \noindent Exchange of future cash flow, eg. currency swaps
+        \par\bigskip
+      \item\textit{Options:}\par
+        \noindent Right, but not the obligation to buy/sell an asset at a future time $T$ for price $K$
+        \par\bigskip
+        \begin{itemize}
+          \item Call option (buying): payoff $(S_T-K)^+$
+          \item Put option (selling): payoff $(K-S_T)^+$
+          \item European option: right ot buy/sell, can only be exercised at time $T$
+          \item America option: right can be exercised at any time up to $T$
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\par\bigskip
+\noindent Options are "safe" (the payoff is non-negative), so we must have a cost.\par
+\begin{itemize}
+  \item \textbf{Pricing:} We want to know the fair price for an option
+\end{itemize}
+\par\bigskip
+\noindent We need some concepts to make this precise and well-defined. The key concept is \textit{arbitrage} (risk-free gains)
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Suppose Sweden plays Canada in the World Curling Championship final.\par
+\noindent We compare two betting sites:\par
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline\\
+    Site&*bet Swe&*bet Cnd\\
+    \hline\\
+    A&1.5&2.0\\
+    B&3.0&1.2\\
+    \hline
+  \end{tabular}
+\end{center}\par
+\noindent We can do the following:\par
+\begin{itemize}
+  \item Bet 3 units on Canada with A
+  \item Bet 2 units on Sweden with B
+\end{itemize}\par
+\noindent We will always get 6 units, but we only paid 5 units.\par
+\noindent This situation where we can make risk-free profit is called \textit{arbitrage}. We will make the key assumption that markets are arbitrage-free.\par
+\noindent More precisely, one assumes that there is a certian risk-free rate $r$ at which money can be invested.\par
+\noindent 1 unit becomes $\begin{cases}
+  (1+r)^T\quad\text{at time }T\\\text{exp}\left\{rT\right\}\quad\text{at time $T$ with compound interest}
+\end{cases}$\par
+\noindent If $r=0\Lrarr$ "no risk-free interest"
+\par\bigskip
+\noindent Absence of arbitrage means that we cannot do better than $r$ without risks.
+\par\bigskip
+\noindent Another tool we will use are \textit{hedging portfolios}, i.e comparing assets by a "replicating strategy"
+\par\bigskip
+\noindent\textbf{Example:} \textit{Call-Put parity}\par
+\noindent It relates the prices of (European) call and put options on the same asset with the same parameters $K,T$\par
+\noindent Note that the difference in payoffs is 
+\begin{equation*}
+  \begin{gathered}
+    (S_T-K)^+ -(K-S_T)^+ = \begin{rcases}
+      S_T-K-0\quad\text{if } S_T\geq K\\
+      0-(K-S_T)\quad\text{else}
+    \end{rcases} = S_T-K
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Compare the following strategies:\par
+\begin{enumerate}[leftmargin=*]
+  \item Buy a call option, sell a put option $\rightarrow$ payoff at time $T$ is $S_T-K$
+  \item Buy the asset at its current price $S_0$ and borrow $\text{exp}\left\{-rT\right\}K$ at risk-free interest $\rightarrow$ at time $T$ the portfolio is worth $S_T-\underbrace{K}_{\substack{\text{loan + interest}}}$
+\end{enumerate}
+\par\bigskip
+\noindent Since both strategies are equal, their cost at time 0 must coincide. Otherwise, there is possible for arbitrage. Hence
+\begin{equation*}
+  \begin{gathered}
+    C_0-P_0 = S_0-\text{exp}\left\{-rT\right\}K
+  \end{gathered}
+\end{equation*}\par
+\noindent Call price at time 0 - put price at time 0 (call-put parity)
+\par\bigskip
+\noindent We do not know $C_0$ nor $P_0$ yet but one determines the other.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Consider a market where there is only one time period $T=1$ and only two outcomes $S_1= \begin{cases}
+  13\\8
+\end{cases}$ and $S_0=10$, $K=11$, $r=0$\par
+\noindent What is the fair price of a call option?\par
+
+\noindent If we knew the probabilities $p,1-p$ of the outcomes, we would have
+\begin{equation*}
+  \begin{gathered}
+    \E\left[(S_1-K)^+\right] = p(13-10)^++(1-p)(8-10)^+ =2p
+  \end{gathered}
+\end{equation*}\par
+\noindent But we do not know this, so how do we choose $p$?\par
+\noindent We try to repicate the option with a portfolio of:\par
+\begin{itemize}
+  \item $\eta$ units cash
+  \item $\theta$ units asset
+\end{itemize}\par
+\noindent At time $T =1$, this is worth $\begin{cases}
+  \eta+13\theta\\\eta+8\theta
+\end{cases}$ which we want to set equal to the payoff of the option
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \eta+13\theta=2\\
+      \eta+8\theta=0
+    \end{rcases*}\Rightarrow \eta =-3.2,\quad\theta = 0.4
+  \end{gathered}
+\end{equation*}\par
+\noindent So the fair rpice of the option has to be the value of the portfolio at time 0:
+\begin{equation*}
+  \begin{gathered}
+    \eta+10\theta = 0.8
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Note that this price corresponds to the expected payoff with probability 0.4 that the price goes up. For such $p$, we get
+\begin{equation*}
+  \begin{gathered}
+    S_1 = \begin{cases}
+      13\quad p=0.4\\
+      8\quad 1-p
+    \end{cases}\qquad S_0=10
+  \end{gathered}
+\end{equation*}\par
+\noindent and $\E\left[S_1\mid S_0\right] = p\cdot13+(1-p)8=10=S_0$ a \textit{martingale}!
+\par\bigskip
+\noindent This is not a coincidence. We will see that it holds in much greater generality.
+\par\bigskip
+\noindent Fair option price = expected payoff assuming that the asset price is a martingale.
+\par\bigskip
+\noindent Finding a replicating strategy was possible here because there were only two possible outcomes. This might not be true in general. Models whose every contigent claim (options) can be obtained by a hedging strategy are called \textit{complete}
+\par\bigskip
+\subsection{Binomial Model}\hfill\\
+\noindent At time periods $T$, the asset price can change by a factor of $(1+a)$ or $(1+b)$ where $a<b$\par
+\noindent $S_i = \begin{cases}
+  (1+b)S_{i-1}\\(1+a)S_{i-1}
+\end{cases}$ for all time steps i.\par
+\noindent The risk-free rate satisfies $a<r<b$
+\par\bigskip
+\noindent Consider a single time step where $S_0= \begin{cases}
+  (1+b)S_b\quad\text{payoff } H_b\\(1+a)S_a\quad\text{payoff } H_a
+\end{cases}$\par
+\noindent A replicating strategy consists of\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \eta\text{ cash units}\\
+      \theta\text{ asset units}
+    \end{rcases*}\rightarrow (1+r)\eta,\quad (1+b)\theta \text{ or } (1+a)\theta \text{ after 1 time step}
+  \end{gathered}
+\end{equation*}
+\noindent We want
+\begin{equation*}
+  \begin{gathered}
+    H_a = \eta(1+r)+\theta(1+a)S_0\Lrarr \beta H_a=\eta+\beta\theta(1+a)S_0\\
+    H_b = \eta(1+r)+\theta(1+b)S_0\Lrarr\beta H_b = \eta+\beta\theta(1+b)S_0
+  \end{gathered}
+\end{equation*}\par
+\noindent where $\beta = \dfrac{1}{1+r}$ is the \textit{discounting factor}
+\par\bigskip
+\noindent Solving the linear equations gives
+\begin{equation*}
+  \begin{gathered}
+    \theta = \dfrac{H_b-H_a}{S_b-S_a} = \dfrac{H_b-H_a}{(b-a)S_0}\qquad\eta = \beta\dfrac{(1+b)H_a-(1+a)H_b}{b-a}
+  \end{gathered}
+\end{equation*}\par
+\noindent The portfolio value at time 0 can be computed to be
+\begin{equation*}
+  \begin{gathered}
+    \eta+\theta S_0 = \beta\dfrac{(1+b)H_a-(1+a)H_b}{b-a} + \dfrac{H_b-H_a}{(b-a)S_0}S_0\\
+    =\beta\dfrac{1+b}{b-a}H_a-\beta\dfrac{1+a}{b-a}H_b + \dfrac{1}{b-a}H_b-\dfrac{1}{b-a}H_a\\
+    =\beta\left(H_a\left(\dfrac{1+b}{b-a}-\dfrac{1+r}{b-a}\right)+H_b\left(\dfrac{1+r}{b-a}-\dfrac{1+a}{b-a}\right)\right)\\
+    =\beta\left(H_a\dfrac{b-r}{b-a}+H_b\dfrac{r-a}{b-a}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent The terms $\dfrac{b-r}{b-a}$ and $\dfrac{r-a}{b-a}$ cna be interpreted as probabilites:
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\dfrac{b-r}{b-a}}_{\substack{q}}+\underbrace{\dfrac{r-a}{b-a}}_{\substack{1-q}} = \dfrac{b-a}{b-a} = 1
+  \end{gathered}
+\end{equation*}\par
+\noindent The probabilites turn $S$ (when discounted) into a martingale:
+\begin{equation*}
+  \begin{gathered}
+    \E\left[S_1\mid S_0\right] = q(1+a)S_0+(1-q)(1+b)S_0\\
+    = \dfrac{(b-r)(1+a)S_0}{b-a} + \dfrac{(r-a)(1+b)S_0}{b-a}\\
+    = \dfrac{b-a+rb-ra}{b-a}S_0 = \left(1+r\right)S_0
+  \end{gathered}
+\end{equation*}\par
+\noindent and $\E\left[\beta S_1\mid S_0\right] = \beta(1+r)S_0 = S_0$
+\par\bigskip
+\noindent For a scenario with second time steps, we can repeat the argument and work backwards.\par
+\noindent After repeating this argument, we get that the fair price at time 0 is $\E\left[\beta^T\cdot\text{payoff}\right]$ where expectation is taken according to probabilites $q = \dfrac{b-r}{b-a}$, $1-q = \dfrac{r-a}{b-a}$ for factors $1+a$, $1+b$ respectively.\par
+
+\noindent They are chosen such that $\beta^nS_n$ is a martingale:
+\begin{equation*}
+  \begin{gathered}
+    \E\left[\beta^nS_n\mid\beta^{n-1}S_{n-1}\right] = \beta^{n-1}S_{n-1}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The probability that we end with asset price $(1+b)^{T-k}(1+a)^kS_0$ is $\begin{pmatrix}T\\k\end{pmatrix}(1-q)^{T-k}q^k$\par
+\noindent Let $H(x)$ be the payoff if the asset price is $x$, then
+\begin{equation*}
+  \begin{gathered}
+    \E\left[\beta^T\cdot\text{payoff}\right] = \beta^T\sum_{k=0}^{T}\begin{pmatrix}T\\k\end{pmatrix}(1-q)^{T-k}q^kH\left((1+b)^{T-k}(1+a)^kS_0\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent For a European call option, $H(x) = (x-K)^+$\par
+\noindent The fair price under the binomial model is:
+\begin{equation*}
+  \begin{gathered}
+    \beta^T\sum_{k=0}^{T}\begin{pmatrix}T\\k\end{pmatrix}(1-q)^{T-k}q^k\left((1+b)^{T-k}(1+a)^kS_0-K\right)^+
+  \end{gathered}
+\end{equation*}\par
+\noindent This is the \textit{Cox-Ross-Rubinstein} formula
+\par\bigskip
+\subsection{Some General Bounds}\hfill\\
+\begin{itemize}
+  \item European \& American options:\par
+    Let $C_0(E), C_0(A)$ be the price for a European/American call option with some parameters $T,K$\par
+    noindent We have $0\leq C_0(E)\leq C_0(A)$ since if $C_0(E)>C_0(A)$ you can just buy the American option, sell the European option and gain difference
+    \par\bigskip
+  \item Call-put parity:
+    \begin{equation*}
+      \begin{gathered}
+        C_0(E)-P_0(E) = S_0-\beta^TK
+      \end{gathered}
+    \end{equation*}\par
+    \noindent i.e "price for call option" - "price for put option" = $S_0-\beta^TK$\par
+    \noindent and so $C_0\geq S_0-\beta^TK\geq S_0-K$ (assuming $\beta\leq1$)
+    \par\bigskip
+  \item We have $C_0(A)\geq C_0(E)\geq S_0-K$. By the same argument, $C_t(A)\geq S_t-K$ for all $o\leq t\leq T$\par
+    \noindent Hence, $C_t(A)$ is always at least the current payoff $(S_t-K)^+\Rightarrow$ it is always better to keep option than to use it
+\end{itemize}
+\par\bigskip
+\noindent With a "perfect" strategy, an American call option is only used at time $T$, thus $C_0(A) = C_0(E)$
+\par\bigskip
+\noindent\textit{An American call option on a stock without dividents and with non-negative interest $r$ has the same fair price as a European option}
+\par\bigskip
+\subsection{General Discrete Models}\hfill\\
+\noindent We get some underlying notation under the way.
+\par\bigskip
+\begin{itemize}
+  \item Probability space $(\Omega, \mathcal{F}, \P)$ modelling the underlying market
+    \par\bigskip
+  \item Filtration $\mathcal{F}_0\subseteq\cdots\subseteq\mathcal{F}$ modelling time and informatio
+    \par\bigskip
+  \item Price process: vector $S = (S^0,S^1,\cdots,S^d)$ where $S_t^0$ is the risk-free (deterministic) investment (think of it like the cash in the bank) and $S_t^i$ is the price of asset $i$ at time $t$\par
+    \noindent We assume $S_t^i$ is adapted to $\mathcal{F}_n$. At least one of $S_t^i$ is strictly positive
+    \par\bigskip
+  \item Discounting factor $\beta_t = \dfrac{1}{S_t^0}$
+\end{itemize}
+\par\bigskip
+\subsection{Trading Strategies}\hfill\\
+\noindent Portfolio at time $t$ is a vector $(\theta_t^0,\cdots,\theta_t^d)$ describing how much we have of each asset.\par
+\noindent $\theta_t^i$ is assumed to be pre-visible ($\mathcal{F}_{t-1}$-times)\par
+\noindent The \textit{value} at time $t$ is
+\begin{equation*}
+  \begin{gathered}
+    V_t(\theta) = \theta_t\cdot S_t = \sum_{i=0}^{d}\theta_t^iS_t^i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent A strategy is called \textit{self-financing} if there are no withdrawals or additional funds
+\begin{equation*}
+  \begin{gathered}
+    \theta_{t+1}\cdot S_t = \theta_t\cdot S_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Equivalently
+\begin{equation*}
+  \begin{gathered}
+    \Delta V_t(\theta) = V_t(\theta)-V_{t-1}(\theta)\\
+    = \theta_t \cdot S_t - \theta_{t-1}\cdot S_{t-1}\\
+    =\theta_t \cdot S_t - \theta_t \cdot S_{t-1}\\
+    =\theta_t\cdot(S_t-S_{t-1})\\
+    =\theta_t \cdot \Delta S_t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The \textit{gains process} is defined by
+\begin{equation*}
+  \begin{gathered}
+    G_0(\theta) = 0\\
+    G_t(\theta) = V_t(\theta)-V_0(\theta)
+  \end{gathered}
+\end{equation*}\par
+\noindent To make prices/values at different times comparable, we define the \textit{discounted version} of a random variable $X_t$ at time $t$ by $\overline{X}_t = \beta_t X_t = \dfrac{X_t}{S_t^0}$\par
+\noindent\textbf{Note:} Discounting is always indicated by a bar.
+\par\bigskip
+\noindent A portfolio is self-financing if and only if 
+\begin{equation*}
+  \begin{gathered}
+    \Delta\theta_t \cdot\overline{S}_{t-1} = (\theta_t-\theta_{t-1})\cdot\overline{S}_{t-1}\\
+    =(\theta_t-\theta_{t-1})\cdot\beta_{t-1}S_{t-1} = 0\qquad\forall t
+  \end{gathered}
+\end{equation*}\par
+\noindent It is always possible to make portfolios self-financing by noly changing $\theta_t^0$ (i.e the amount in the bank). This is solving a linear equation for $\theta_t^0$
+\par\bigskip
+\noindent A strategy is called \textit{admissible} if $V_t(\theta)\geq0$ for all $t\geq0$\par
+
+\noindent Suppose there was an admissible strategy such that
+\begin{equation*}
+  \begin{gathered}
+    V_0(\theta) = 0,\quad V_t(\theta)\geq0\quad\forall t,\quad \E\left[V_T(\theta)\right]>0
+  \end{gathered}
+\end{equation*}\par
+\noindent This would constitute an arbitrage opportunity!\par
+\noindent In a \textit{viable} (arbitrage-free) model, there are no such opportunities.
+\par\bigskip
+\noindent The following is called \textit{weak arbitrage}
+\begin{equation*}
+  \begin{gathered}
+    V_0(\theta) = 0,\quad V_T(\theta)\geq0,\quad\E\left[V_T(\theta)\right]>0
+  \end{gathered}
+\end{equation*}\par
+\noindent Now, clearly arbitrage $\Rightarrow$ weak arbitrage, but we shall see that the converse also holds

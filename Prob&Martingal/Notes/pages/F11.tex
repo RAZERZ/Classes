@@ -235,3 +235,34 @@ In the following, we consider martingales $X_n$ with finite second moment $\E\le
   \end{equation*}\par
   \noindent which equals $\mu$ by Cesaros lemma and \textbf{1.}
 \end{prf}
+\par\bigskip
+\subsection{Doob Decomposition}\hfill\\
+\noindent Let $X_n$ be an adapted process with respect to $(\mathcal{F}_n)$.\par
+\noindent Then we can always find a pre-visible process $A_n$ and a martingale $M_n$ such that
+\begin{equation*}
+  \begin{gathered}
+    X_n = X_0+M_n +A_n\qquad M_0=A_0=0
+  \end{gathered}
+\end{equation*}\par
+\noindent This decomposition is unique (up to a null-set).\par
+\noindent From this, we also get $X_n$ is a super/submartingale $\Lrarr$ $A_n$ is decreasing/increasing a.s
+\par\bigskip
+\begin{prf}[]{}
+  Suppose we are given the decomposition $X_n-X_{n-1} = M_n-M_{n-1}+A_n-A_{n-1}$.\par
+  \noindent This gives:
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[X_n-X_{n-1}\mid\mathcal{F}_{n-1}\right]\\
+      =\underbrace{\E\left[M_n-M_{n-1}\mid\mathcal{F}_{n-1}\right]}_{\substack{\text{martingale}}}+\underbrace{\E\left[A_n-A{n-1}\mid\mathcal{F}_{n-1}\right]}_{\substack{\text{previsible}}}\\
+      = 0 + A_{n}-A_{n-1}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then, 
+  \begin{equation*}
+    \begin{gathered}
+      A_n = \sum_{k=1}^{n}A_k-A_{k-1} = \sum_{k=1}^{n}\E\left[X_k-X_{k-1}\mid\mathcal{F}_{k-1}\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is uniquely determined and so is $M_n = X_n-X_0-A_n$ a.s\par
+  \noindent Conversely, one can check that this choice of $M_n,A_n$ works
+\end{prf}

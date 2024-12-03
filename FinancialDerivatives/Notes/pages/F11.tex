@@ -1,5 +1,5 @@
 \section{Volatility Mis-specification}
-\noindent Assuem that a trader believes in 
+\noindent Assume that a trader believes in 
 \begin{equation*}
   \begin{gathered}
     dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_t dW_t
@@ -81,7 +81,7 @@ Asian options are option on the \textit{average} of $S$.\par
   \noindent Moreover, 
   \begin{equation*}
     \begin{gathered}
-      dV_t^h\stackrel{\text{Ito}}{=} F_tdt+F_sdS_t+F_zdZ_t+\dfrac{1}{2}F_{ss}(dS_t)^2\\
+      dV_t^h\stackrel{\text{Ito}}{=} F_tdt+F_sdS_t+\underbrace{F_zdZ_t}_{\substack{gdt}}+\dfrac{1}{2}F_{ss}(dS_t)^2 + \underbrace{\dfrac{1}{2}F_{zz}(dZ)^2}_{\substack{=0}}+ F_{sz}\underbrace{dSdZ}_{\substack{=0}}\\
       = \underbrace{\left(F_t+\dfrac{\sigma^2}{2}S_t^2F_{ss}+g(t,S_t)F_z\right)}_{=r(F-S_tF_s)\text{ by BS PDE}}dt+F_sdS_t\\
       = r(F-S_tF_s)dt + F_sdS_t = h_t^BdB_t+h_t^SdS_t
     \end{gathered}
@@ -93,7 +93,7 @@ Asian options are option on the \textit{average} of $S$.\par
 \par\bigskip
 \noindent\textbf{Example:}\par
 \noindent $\chi = \dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu$ paid at $T_2$\par
-\noindent What is the value of the $T_2$-claim $\chi$ at $t<T_1$?
+\noindent What is the value of the $T_2$-claim $\chi$ at time 0?
 \begin{equation*}
   \begin{gathered}
     \E_{t,s}^Q\left[\text{exp}\left\{-r(T_2-t)\right\}\dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu\right] = \dfrac{\text{exp}\left\{-r(T_2-t)\right\}}{T_2-T_1}\int_{T_1}^{T_2}\underbrace{\E_{t,s}\left[S_u\right]}_{s\text{exp}\left\{r(u-t)\right\}}du\\
@@ -104,10 +104,13 @@ Asian options are option on the \textit{average} of $S$.\par
 \noindent Which yields the answer, i.e the price is $\dfrac{S_t}{r(T_2-T_1)}\left(1-\text{exp}\left\{-r(T_2-T_1)\right\}\right)$
 \par\bigskip
 \noindent\textbf{Remark:}\par
+\noindent All $T$-claims $\chi$ are priced as $\E^Q\left[\text{exp}\left\{-rT\right\}\chi\right]$ (not only simple $T$-claims and Asian options)
+\par\bigskip
+\noindent\textbf{Remark:}\par
 \noindent What is the value of $\chi$ in the previous exercise at $t \in[T_1,T_2]$?\par
 \begin{equation*}
   \begin{gathered}
-    \chi = \dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu = \underbrace{\dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu}_{\text{known at $t$}}+\underbrace{\dfrac{1}{T_2-T_1}\int_{t}^{T_2}S_udu}_{y}
+    \chi = \dfrac{1}{T_2-T_1}\int_{T_1}^{T_2}S_udu = \underbrace{\dfrac{1}{T_2-T_1}\int_{T_1}^{t}S_udu}_{\text{known at $t$}}+\underbrace{\dfrac{1}{T_2-T_1}\int_{t}^{T_2}S_udu}_{y}
   \end{gathered}
 \end{equation*}
 \par\bigskip

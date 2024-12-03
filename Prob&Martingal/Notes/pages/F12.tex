@@ -1,0 +1,328 @@
+\section{Uniform Integrability}
+\noindent\textbf{Problem:} Given $X_n\to X_\infty$, when can we say that $\E\left[X_n\right]\to\E\left[X_\infty\right]$?
+\par\bigskip
+\noindent\textbf{Example:}
+\begin{equation*}
+  \begin{gathered}
+    X_n  = \begin{cases}
+      n^2\quad p=\dfrac{1}{n^2}\\ 0\quad\text{else}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Then $\E\left[X_n\right] = 1$. Since $\sum_n \P(X_n\neq0) = \sum_n\dfrac{1}{n^2}<\infty$, we have $X_n\to X_\infty = 0$ a.s\par
+\noindent But $\E\left[X_\infty\right] = 0\neq1 =\lim_{n}\E\left[X_n\right]$
+\par\bigskip
+\noindent Uniform integrability is a key condition that allows exchange of $\E$ and $\lim$
+\par\bigskip
+\begin{lem}[]{}
+  Let $X$ be an integrable random variable.\par
+  \noindent For every $\varepsilon>0$, there exists $\delta>0$ such tat $\forall$ events $E$ with $\P(E)<\delta$, we have
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\left|X\right|\mid E\right] = \E\left[\left|X\right|I_E\right]<\varepsilon
+    \end{gathered}
+  \end{equation*}
+  \noindent\textbf{Note:}\par
+  \noindent This is a special case of \textit{Egorovs theorem}
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  Suppose this was not the case, for some $\varepsilon_0>0$, there exists a sequence of events $E_n$ such that $\P(E_n)<2^{-n}$ but $\E\left[\left|X\right|I_{E_n}\right]\geq \varepsilon_0$\par
+  \noindent Since $\sum_n \P(E_n)<\infty$, the Borell-Canteli lemma imples that only finitely many $E_n$ occur.
+  \par\bigskip
+  \noindent Let $F = \lim_{n\to\infty}\sup E_n$. Then $\P(F) = 0$\par
+  \noindent Hence $\E\left[\left|X\right|I_F\right] = 0$\par
+  \noindent But by the reverse Fatou lemma:
+  \begin{equation*}
+    \begin{gathered}
+      \lim_{n\to\infty}\sup \E\left[\left|X\right|I_{E_n}\right]\leq\E\left[\left|X\right|\lim_n\sup I_{E_n}\right] = \E\left[\left|X\right|I_F\right]=0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent But the LHS is bounded below by $\varepsilon_0>0$, which is a contradiction.
+\end{prf}
+\par\bigskip
+\noindent In particular, there exists $K>0$ such that $\E\left[\left|X\right|\mid\left|X\right|>K\right]<\varepsilon$\par
+\noindent This holds because $\P(\left|X\right|>K)\leq \dfrac{\E\left[\left|X\right|\right]}{K}$ by Markovs inequality so we can take $K>\dfrac{\E\left[\left|X\right|\right]}{\delta}$
+\par\bigskip
+\noindent\textbf{Note:}\par
+\noindent $K$ generally depends on $\varepsilon$ \textit{and} $X$
+\par\bigskip
+\begin{defo}[Uniform Integrability]{}
+  Let $\mathcal{E}$ be a family of random variables. \par
+  \noindent We say $\mathcal{E}$ is \textit{uniformly integrable} if $\forall \varepsilon>0$, $\exists K_0$ such that 
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\left|X\right|\mid\left|X\right|>K\right]<\varepsilon\quad\forall X\in\mathcal{E}
+    \end{gathered}
+  \end{equation*}
+\end{defo}
+\par\bigskip
+\noindent\textbf{Note:}\par
+\noindent $K$ does not depend on $X$ (just $\varepsilon,\mathcal{E}$)
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    X_n = \begin{cases}
+      n^2\quad p=\dfrac{1}{n^2}\\0\quad\text{else}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent is \textit{not} uniformly integrable. No matter the choice of $K>0$, for large enough $n$, $\E\left[\left|X\right|\mid \left|X\right|\geq K\right] = n^2\cdot\dfrac{1}{n^2} = 1$
+\par\bigskip
+\noindent Uniform integrability and whether $\lim_{n}\E\left[X_n\right]=\E\left[\lim_{n}X_n\right]$ are closely connected.
+\par\bigskip
+\noindent We start with a sufficient condition:
+\par\bigskip
+\begin{lem}[]{}
+  Assume there exists $p>1$ and $C>0$ such that $\E\left[\left|X\right|^p\right]\leq C$ for all $X\in\mathcal{E}$\par
+  \noindent Then $(X)_{X\in\mathcal{E}}$ is uniformly integrable
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We have for all $K>0$
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\left|X\right|\mid\left|X\right|>K\right]\leq\E\left[\left|X\right|\left(\dfrac{\left|X\right|^{p-1}}{K}\right)\mid\left|X\right|>K\right]\\
+      =\E\left[\left|X\right|^pK^{1-p}\mid\left|X\right|>K\right]\leq K^{1-p}\E\left[\left|X\right|^p\right]\leq CK^{1-p}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Hence, choosing $K =\qquad\left(\dfrac{\varepsilon}{C}\right)^{\dfrac{1}{1-p}} = \left(\dfrac{C}{\varepsilon}\right)^{\dfrac{1}{p-1}}$ suffices.
+\end{prf}
+\par\bigskip
+\noindent Another sufficient condition:
+\par\bigskip
+\begin{lem}[]{}
+  If $\left|X\right|\leq Y\quad\forall X\in\mathcal{E}$ where $Y$ is an integrable random variable, then $\mathcal{E}$ is uniformly integrable
+\end{lem}
+\par\bigskip
+\begin{theo}[]{}
+  Let $X$ be an integrable random variable. Then family
+  \begin{equation*}
+    \begin{gathered}
+      \mathcal{E} = \left\{\E\left[X\mid\mathcal{G}\mid\mathcal{G}\text{ is a sub $\sigma$-algebra of } \mathcal{F}\right]\right\}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent is uniformly integrable
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  For a given $\varepsilon>0$, choose $\delta$ such that $\P(F)<\delta$ implies $\E\left[X\mid F\right]<\varepsilon$ for all $F\in\mathcal{F}$\par
+  \noindent Now take $K>\dfrac{\E\left[\left|X\right|\right]}{\delta}$
+  \par\bigskip
+  \noindent For $Y = \E\left[X\mid\mathcal{G}\right]$, we get
+  \begin{equation*}
+    \begin{gathered}
+      \left|Y\right| = \left|\E\left[X\mid\mathcal{G}\right]\right|\stackrel{\text{Jens.}}{\leq}\E\left[\left|X\right|\mid\mathcal{G}\right]\\
+      \Rightarrow \E\left[\left|Y\right|\right] \leq \E\left[\E\left[\left|X\right|\mid\mathcal{G}\right]\right] = \E\left[\left|X\right|\right]\\
+      K\P(\left|Y\right|>K)\stackrel{\text{Markov}}{\leq}\E\left[\left|Y\right|\right]\leq \E\left[\left|X\right|\right]<K\delta
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and so $\P(\left|Y\right|>K)<\delta$
+  \par\bigskip
+  \noindent And we get
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\left|Y\right|\mid\left|Y\right|>K\right]\leq \E\left[\left|X\right|\mid\left|Y\right|>K\right]<\varepsilon
+    \end{gathered}
+  \end{equation*}
+\end{prf}
+\par\bigskip
+\begin{defo}[Convergence in probability]{}
+  A sequence $X_n$ of random variables is said to \textit{converge in probability} $(X_n\stackrel{p}{\to}X)$ if for all $\varepsilon>0$
+  \begin{equation*}
+    \begin{gathered}
+      \P(\left|X_n-X\right|>\varepsilon)\stackrel{n\to\infty}{\to0}
+    \end{gathered}
+  \end{equation*}
+\end{defo}
+\par\bigskip
+\begin{lem}[]{}
+  If $X_n\stackrel{\text{a.s}}{\to}X$, then $X_n\stackrel{p}{\to}X$
+  \par\bigskip
+  \noindent If $X_n\stackrel{L^p}{\to}X$ for some $p>1$ (i.e $\left|\left|X_n-X\right|\right|_p\to0$), then also $X_n\stackrel{p}{\to} X$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  For the first part, assume $X_n\to X$ a.s and apply reverse Fatou lemma:
+  \begin{equation*}
+    \begin{gathered}
+    \lim_{n\to\infty}\sup\P(\left|X_n-X\right|>\varepsilon)\leq\P\left(\lim\sup\left\{\left|X_n-X\right|>\varepsilon\right\}\right)\\
+    = \P\left(\left|X_n-X\right|>\varepsilon\text{ infinitely often}\right)\\
+    %\leq \P(X_n\not\to X)=0\quad\text{by a.s convergence}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $X_n\stackrel{p}{\to} X$
+  \par\bigskip
+  \noindent For the second part, suppose $X_n\stackrel{L^p}{\to}X$, that is 
+  \begin{equation*}
+    \begin{gathered}
+      \left|\left|X_n-X\right|\right|_p = \E\left[\left|X_n-X\right|^p\right]^{1/p}\to0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent we use Markovs inequality:
+  \begin{equation*}
+    \begin{gathered}
+      \P(\left|X_n-X\right|>\varepsilon) = \P(\left|X_n-X\right|^p>\varepsilon^p)\\
+      \leq\varepsilon^{-p}\E\left[\left|X_n-X\right|^p\right]\stackrel{n\to\infty}{\to}0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent From which we again have $X_n\stackrel{p}{\to}X$
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $X_n\stackrel{p}{\to}X$ and $\left|X_n\right|\leq K$ for some $K>0$, for all $n\in\N$
+  \par\bigskip
+  \noindent Then we have $\E\left[\left|X_n-X\right|\right]\to0$ and thus $X_n\stackrel{L^1}{\to}X$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  For every $k\in\N$, we have
+  \begin{equation*}
+    \begin{gathered}
+      \P(\left|X\right|>K+\dfrac{1}{k})\leq\P(\left|X_n-X\right|>\dfrac{1}{k})\stackrel{n\to\infty}{\to}0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $\P(\left|X\right|>K+\dfrac{1}{k})=0$ and $\left|X\right|\leq K$ a.s
+  \par\bigskip
+  \noindent Let $\varepsilon>0$ and pick $n_0$ large enough such that
+  \begin{equation*}
+    \begin{gathered}
+      \P(\left|X_n-X\right|>\dfrac{\varepsilon}{3})<\dfrac{\varepsilon}{3K}\quad\forall n\geq n_0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Then,
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\left|X_n-X\right|\right] = \E\left[\overbrace{\left|X_n-X\right|}^{\leq \varepsilon/3}\mid\left|X_n-X\right|\leq \dfrac{\varepsilon}{3}\right] + \E\left[\underbrace{\left|X_n-X\right|}_{\substack{\leq \left|X_n\right|+\left|X\right|\leq 2K}}\mid \left|X_n-X\right|>\dfrac{\varepsilon}{3}\right]\\
+      \leq \dfrac{\varepsilon}{3}+\P(\left|X_n-X\right|>\dfrac{\varepsilon}{3})2K\\
+      < \dfrac{\varepsilon}{3}+2K\dfrac{\varepsilon}{3K} = \varepsilon
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $\varepsilon>0$ was arbitrary, $\E\left[\left|X_n-X\right|\right]\to0$ and $X_n\stackrel{L^1}{\to} X$
+\end{prf}
+\par\bigskip
+\begin{theo}[]{}
+  Suppose that $X_n$ is a sequence of integrable random variables. The following are equivalent:\par
+  \begin{enumerate}[leftmargin=*]
+    \item $\E\left[\left|X_n-X\right|\right]\to0$
+  \item $X_n\stackrel{p}{\to}X$ and $\left\{X_n\right\}$ is uniformly integrable
+  \end{enumerate}
+\end{theo}
+\par\bigskip
+\subsection{Uniformly Integrable Martingales}\hfill\\
+\noindent Let $M_n$ be a uniformly integrable martingale.\par
+
+\noindent $M_n\to M_\infty$ a.s by the martingale convergance theorem. By uniform integrability, $M_n\stackrel{L^1}{\to}M_\infty$
+\par\bigskip
+\noindent For any fixed $n$, we have $\E\left[M_r\mid\mathcal{F_n}\right] = M_n$ for $r\geq n$
+\begin{equation*}
+  \begin{gathered}
+    \Rightarrow \E\left[M_r\mid F\right] = \E\left[M_n\mid F\right]\quad\forall F\in \mathcal{F}_n
+  \end{gathered}
+\end{equation*}\par
+\noindent We get:
+\begin{equation*}
+  \begin{gathered}
+    \left|\E\left[M_n\mid F\right]-\E\left[M_\infty\mid F\right]\right|\\
+    = \left|\E\left[M_r\mid F\right]-\E\left[M_\infty\mid F\right]\right|\\
+    =\left|\E\left[M_r-M_\infty\mid F\right]\right|\leq \E\left[\left|M_r-M_\infty\right|\mid F\right]\quad\forall r\geq n\\
+    \to0\text{ as } r\to\infty
+  \end{gathered}
+\end{equation*}\par
+\noindent So we must have $\E\left[M_n\mid F\right] = \E\left[M_\infty\mid F\right]$ for all $F\in\mathcal{F}$, so $M_n = \E\left[M_\infty\mid \mathcal{F}_n\right]$ a.s
+\par\bigskip
+\noindent We have essentially shown:
+\par\bigskip
+\begin{theo}[]{}
+  If $M_n$ is a uniformly integrable martingale with respect to filtration $\mathcal{F}_n$, then $M_\infty = \lim_{n}M_n$ exists a.s and we have $M_n = \E\left[M_\infty\mid\mathcal{F}_n\right]$ a.s for all $n\in\N$
+\end{theo}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent This also holds for super/submartingales with appropriate inequalities
+\par\bigskip
+\subsection{Doobs submartingale inequality}\hfill\\
+\begin{theo}[]{}
+  Consider a non-negative submartingale $Z_n$\par
+  \noindent For every $c>0$, we have
+  \begin{equation*}
+    \begin{gathered}
+      c\P\left(\sup_{k\leq n}Z_k\geq c\right)\leq \E\left[Z_n\mid\sup_{k\leq n}Z_k\geq c\right]\leq \E\left[Z_n\right]
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent\textbf{Remark:}\par
+  \noindent Note the similarity to Markovs inequality
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  The event $\left\{\sup_{k\leq n}Z_k\geq c\right\}$ can be decomposed into disjoint events
+  \begin{equation*}
+    \begin{gathered}
+    F_0=\left\{Z_0\geq c\right\}\quad F_1 = \left\{Z_0<c\right\}\cap\left\{Z_1\geq c\right\}\\
+  F_2 = \left\{Z_0<c\right\}\cap\left\{Z_1<c\right\}\cap \left\{Z_2\geq c\right\}\\
+  F_3 = \cdots
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Note that $F_k\in\mathcal{F}_k\supseteq \sigma(Z_0,\cdots,Z_k)$, so 
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[Z_n\mid F_k\right] = \int_{F_k}Z_nd\P=\int_{F_k}\E\left[Z_n\mid\mathcal{F}_k\right]d\P\
+      \stackrel{\text{submart.}}{\leq}\int_{F_k}Z_kd\P = \E\left[Z_k\mid F_k\right]
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Now, since $Z_k\geq c$ on $F_k$,
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[Z_n\mid F_k\right]\geq \int_{F_k}cd\P = c\P(F_k)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Now summing yields
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=0}^{n}\E\left[Z_n\mid F_k\right]\geq c\sum_{k=0}^{n}\P(F_k)\\
+      =c\P\left(\bigcup_{k=0}^{n}F_k\right) = c\P\left(\sup_{k\leq n}Z_k\geq c\right)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and LHS yields
+  \begin{equation*}
+    \begin{gathered}
+      \sum_{k=0}^{n}\E\left[Z_n\mid F_k\right] = \sum_{k=0}^{n}\E\left[Z_nI_{F_k}\right] = \E\left[Z_n\sum_{k=0}^{n}I_{F_k}\right]\\
+      =\E\left[Z_nI_{\bigcup_{k=0}^{n}F_k}\right] = \E\left[Z_n\mid\sup_{k\leq n}Z_k\geq c\right]\leq\E\left[Z_n\right]
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent So $\E\left[Z_n\right]\geq c\P\left(\sup_{k\leq n}Z_k\geq c\right)$ as required
+\end{prf}
+\par\bigskip
+\noindent Jensens inequality also implies:
+\par\bigskip
+\begin{lem}[]{}
+  If $M_n$ is a martingale and $f$ is a convex function such that $f(M_n)$ is integrable for all $n$, then $f(M_n)$ is a submartingale
+\end{lem}
+\par\bigskip
+\begin{theo}[Kolmogorovs Inequality]{}
+  Let $X_n$ be a sequence of independent random variables with $\E\left[X_n\right] = 0$ and $\text{Var}\left(X_n\right) = \sigma_n^2<\infty$\par
+  \noindent Set $S_n =X_1+\cdots+X_n$
+  \par\bigskip
+  \noindent Then, for every $c>0$
+  \begin{equation*}
+    \begin{gathered}
+      c^2\P\left(\sup_{k\leq n}\left|S_k\right|\geq c\right)\leq V_n = \text{Var}\left(S_n\right) = \sum_{k=1}^{n}\sigma_k^2
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  $S_n$ is a martingale and $S_n^2$ a submartingale as $x\mapsto x^2$ is convex
+  \par\bigskip
+  \noindent By Doobs submartingale inequality, we get
+  \begin{equation*}
+    \begin{gathered}
+      c^2\P\left(\sup_{k\leq n}\left|S_k\right|\geq c\right) = c^2\P\left(\sup_{k\leq n}S_k^2\geq c^2\right)\leq \E\left[S_n^2\right] = \text{Var}\left(S_n\right)
+    \end{gathered}
+  \end{equation*}
+\end{prf}

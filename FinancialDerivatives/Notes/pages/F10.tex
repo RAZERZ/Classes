@@ -57,8 +57,10 @@ If $dS_t = \mu S_tdt + \sigma S_tdW_t$, then sample $S$ at $n+1$ time points and
 \noindent We now specialize to the model
 \begin{equation}
   \begin{gathered}
-    dB_t = rB_tdt\\
-    dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_tdW_t
+    \begin{cases}
+      dB_t = rB_tdt\\
+      dS_t = \mu(t,S_t)S_tdt + \sigma(t,S_t)S_tdW_t
+    \end{cases}
   \end{gathered}
 \end{equation}\par
 \noindent with $\sigma(t,s)>0$
@@ -67,7 +69,7 @@ If $dS_t = \mu S_tdt + \sigma S_tdW_t$, then sample $S$ at $n+1$ time points and
   The model (5) is complete
 \end{theo}
 \par\bigskip
-\noindent We will rpove a simpler result, namely that all \textit{simple} $T$-claims can be replicated.\par
+\noindent We will prove a simpler result, namely that all \textit{simple} $T$-claims can be replicated.\par
 \noindent Recall that the value $\Pi_t(X)$ of a simple $T$-claim $X = \phi(S_T)$ is $F(t,S_t)$ where $F(t,s)$ is the pricing function. Thus
 \begin{equation*}
   \begin{gathered}
@@ -137,3 +139,42 @@ If $dS_t = \mu S_tdt + \sigma S_tdW_t$, then sample $S$ at $n+1$ time points and
 \noindent\textbf{Remark:}\par
 \noindent The derivative $\Delta = F_s$ is called the \textit{delta}.\par
 \noindent In a replicating portfolio one should hold $\Delta$ shares of $S$ at each time.
+\par\bigskip
+\noindent If the pricing function is convex in $S$, then in order to replicate it then $\Delta$ goes up then buy more stock. Conversely, sell off if the opposite.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent For a call option in the standard BS-model
+\begin{equation*}
+  \begin{gathered}
+    F(0,s) = sN(d_1)-K\text{exp}\left\{-rT\right\}N(d_2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $\begin{cases}
+  d_1 = \dfrac{\ln{\left(\dfrac{s}{K}\right)}+(r+\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}\\d_2 = \dfrac{\ln{\left(\dfrac{s}{K}\right)}+(r-\dfrac{\sigma^2}{2})T}{\sigma\sqrt{T}}
+\end{cases}$\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    \Delta = F_s(0,s) = N(d_1)+s\varphi(d_1)\dfrac{1}{s\sigma\sqrt{T}}-K\text{exp}\left\{-rT\right\}\varphi(d_2)\dfrac{1}{s\sigma\sqrt{T}}\\
+    = N(d_1) +\dfrac{1}{\sigma\sqrt{T}}\left(\varphi(d_1)-\dfrac{K}{s}\text{exp}\left\{-rT\right\}\varphi(d_2)\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent Where
+\begin{equation*}
+  \begin{gathered}
+    N(x) = \int_{-\infty}^{x}\varphi(z)dz\\
+    \varphi(z) = \dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{-\dfrac{z^2}{2}\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The claim is that we are left with 0 on the second term, we check:
+\begin{equation*}
+  \begin{gathered}
+    \sqrt{2\pi}\dfrac{\varphi(d_1)-\dfrac{K}{s}\text{exp}\left\{-rT\right\}\varphi(d_2)}{} \stackrel{d_2 = d_1-\sigma\sqrt{T}}{=} \text{exp}\left\{-\dfrac{d_1^2}{2}\right\}-\dfrac{K}{s}\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{\left(d_1-\sigma\sqrt{T}\right)^2}{2}\right\}\\
+    = \text{exp}\left\{-\dfrac{d_1^2}{2}\right\}\left(1-\dfrac{K}{s}\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{\sigma^2T}{2}\right\}\text{exp}\left\{d_1\sigma\sqrt{T}\right\}\right)\\
+    = \text{exp}\left\{-\dfrac{d_1^2}{2}\right\}\left(1-\dfrac{K}{s}\underbrace{\text{exp}\left\{-rT\right\}\text{exp}\left\{-\dfrac{\sigma^2T}{2}\right\}\text{exp}\left\{\ln{\left(\dfrac{s}{K}\right)}+(r+\sigma^2/2)T\right\}}_{\substack{\dfrac{s}{K}}}\right) = 0\\
+    \Rightarrow N(d_1) +\dfrac{1}{\sigma\sqrt{T}}\left(\varphi(d_1)-\dfrac{K}{s}\text{exp}\left\{-rT\right\}\varphi(d_2)\right) = N(d_1)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent The $\Delta$ is simply the first derivative of the pricing function.

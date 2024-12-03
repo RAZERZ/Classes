@@ -34,3 +34,12 @@
 \contentsline {subsection}{\tocsubsection {}{14.1}{Upcrossings}}{44}{subsection.14.1}%
 \contentsline {section}{\tocsection {}{15}{$L^2$-Martingales}}{46}{section.15}%
 \contentsline {subsection}{\tocsubsection {}{15.1}{Strong law of large numbers for $L^2$ random variables}}{47}{subsection.15.1}%
+\contentsline {subsection}{\tocsubsection {}{15.2}{Doob Decomposition}}{49}{subsection.15.2}%
+\contentsline {section}{\tocsection {}{16}{Uniform Integrability}}{50}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Uniformly Integrable Martingales}}{53}{subsection.16.1}%
+\contentsline {subsection}{\tocsubsection {}{16.2}{Doobs submartingale inequality}}{53}{subsection.16.2}%
+\contentsline {section}{\tocsection {}{17}{Pricing \& Arbitrage}}{55}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{Binomial Model}}{56}{subsection.17.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{Some General Bounds}}{58}{subsection.17.2}%
+\contentsline {subsection}{\tocsubsection {}{17.3}{General Discrete Models}}{58}{subsection.17.3}%
+\contentsline {subsection}{\tocsubsection {}{17.4}{Trading Strategies}}{58}{subsection.17.4}%
