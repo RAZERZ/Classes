@@ -1,0 +1,93 @@
+\section{Parity Relations}
+To replicate a $T$-claim in the BS-model, we need \textit{continuous} rebalancing of our portfolio. In reality, this is expensive (due to transaction costs). There are two approaches to this:\par
+\begin{enumerate}[leftmargin=*]
+  \item Static hedging
+  \item Delta and gamma hedging
+\end{enumerate}
+\par\bigskip
+\subsection{Static Hedging}\hfill\\
+A put option can be replicated with a \textit{static} portfolio of stocks, bonds and call options
+\par\bigskip
+\noindent\textbf{Remark:} A \textit{bond} (or a \textit{zero-coupan $T$-bond}) pays its owner a pre-determined fixed amount $K$ at time $T$.\par
+\noindent If the interest rate is constant, the price of a $T$-bond is $K\text{exp}\left\{-r(T-t)\right\}$ where $K$ is called the \textit{face value} of the bond.
+\par\bigskip
+\begin{lem}[Put-call parity]{}
+  If $p(t,s)$ is the price at $t$ of a put option (strike price $K$, maturity date $T$) and similarly $c(t,s)$ is the price of a call option, then
+  \begin{equation*}
+    \begin{gathered}
+      p(t,s) = K\text{exp}\left\{-r(T-t)\right\}-s+ec(t,s)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Moreover, the put can be replicated by a static portfolio consisting of a call, a short position in the stock, and a zero-coupon bond with face value $K$
+\end{lem}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent What is the pricing formula for a put option in the standard BS-model?\par
+\noindent\textit{Alternative 1:}
+\begin{equation*}
+  \begin{gathered}
+    p(t,s) = \E_{t,s}^Q\left[\text{exp}\left\{-r(T-t)(K-S_T)^+\right\}\right]\\
+    = \text{exp}\left\{-r(T-t)\right\}\int_{-\infty}^{a}\dfrac{1}{\sqrt{2\pi}}\text{exp}\left\{-x^2/2\right\}\left(K-s\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-t)+\sigma\sqrt{T-t}x\right\}\right)dx\\
+    = \cdots
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textit{Alternative 2:} Put-call parity yields
+\begin{equation*}
+  \begin{gathered}
+    p(t,s) = K\text{exp}\left\{-r(T-t)\right\}-s+c(t,s) = K\text{exp}\left\{-r(T-t)\right\}-s+sN(d_1)-K\text{exp}\left\{-r(T-t)\right\}N(d_2)\\
+    = KN(-d_2)-sN(d_1)
+  \end{gathered}
+\end{equation*}\par
+\noindent where 
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      d_1 = \dfrac{\ln{\left(\dfrac{s}{K}\right)}+\left(r+\dfrac{\sigma^2}{2}\right)(T-t)}{\sigma\sqrt{T-t}}\\
+      d_2 = d_1 -\sigma\sqrt{T-t}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $\chi = \begin{cases}
+  K\quad\text{if } S_T\leq A\\
+  K+A-S_T\quad\text{if } A<S_T\leq K+a\\
+  0\quad\text{if } K+A<S_T
+\end{cases}$\par
+\noindent Determine a static portfolio of stocks, bonds, and call options that replicates $\chi$\par
+\noindent Here, $\chi$ can be graphed as the constant function $K$ minus the linear function starting at $A$ plus the linear function starting at $K+A$, so the portfolio consisting of:\par
+\begin{itemize}
+  \item One zer-coupon bond with face value $K$
+  \item One short position in a call with strike $A$
+  \item One long position in a call with strike $K+A$
+\end{itemize}\par
+\noindent can be used to replicate $\chi$
+\par\bigskip
+\subsection{The Greeks}\hfill\\
+\noindent Let $F(t,s)$ be the pricing function of a simple $T$-claim in the standard BS-model.
+\par\bigskip
+\begin{defo}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      \Delta = \dfrac{\partial F}{\partial s}\quad \Gamma = \dfrac{\partial^2F}{\partial s^2}\quad \rho = \dfrac{\partial F}{\partial r}\quad \theta = \dfrac{\partial F}{\partial t}\quad\nu= \dfrac{\partial F}{\partial \sigma}
+    \end{gathered}
+  \end{equation*}
+\end{defo}
+\par\bigskip
+\subsection{Delta and Gamma Hedging}\hfill\\
+\noindent The seller of an option would often try to replicate it to reduce risk. In discrete time, teh seller does as follows:\par
+\begin{enumerate}[leftmargin=*]
+  \item\textit{At $t=0$}: Sell the option, buy $F_s(0,S_0)$ shares of $S$, deposit $F(0,S_0)-F_s(0,S_0)$ in the bank
+  \item\textit{At $t=\Delta t$}: Adjust stock holdings to $F_s(\Delta t,S_{\Delta T})$ shares (in a self-financing way, i.e adjust bank holdings accordingly)
+  \item\textit{At $t=k\Delta t$}: Repeat until $T$
+\end{enumerate}\par
+\noindent The $\Delta$ of the whole portfolio (option, stocks, bank account) is close to 0. If $\Gamma = \dfrac{\partial \Delta}{\partial s}$ is small, then chaning in $\Delta$ is small and then rebalancing can be made less frequently!
+\par\bigskip
+\noindent Let $G$ be the pricing function of another lcaim $\chi_G$ on the same stock $S$. Modify the strategy as follows:\par
+\begin{itemize}
+  \item Buy $x_G$ units of $\chi_G$ (where $\dfrac{\partial^2 F}{\partial s^2} = x_G\dfrac{\partial^2 G}{\partial s^2}$)
+  \item Buy $x_s$ shares of $S$ (where $\dfrac{\partial F}{\partial s} = x_s+x_G\dfrac{\partial G}{\partial s}$)
+  \item Deposit $F(0,S_0)-x_GG(0,S_0)-x_sS_0$ in the bank account.
+\end{itemize}\par
+\noindent This portfolio is $\Delta$-neutral \textit{and} $\Gamma$-neutral. Rebalancing can be made less frequently!
