@@ -1,0 +1,195 @@
+\section{Multi-dimensional Models}
+\begin{defo}[Multi Dimensional Model]{}
+  A model $\begin{cases}
+    dB_t = rB_tdt\\ dS_t^i = \mu_iS_t^idt+S_ti\sum_{j=1}^{n}\sigma_{ij}dW_t^j
+    \end{cases}$ where $r,\mu_i,\sigma_{ij}$ are constants and $\begin{pmatrix}\sigma_{11}&\cdots&\sigma_{in}\\\vdots&\vdots&\vdots\\\sigma_{n1}&\cdots&\sigma_{nn}\end{pmatrix}$ is a non-singular matrix is a \textit{multi-dimensional }model
+\end{defo}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent In the meta-theorem, $R=M=n$, so we expect the market to be arbitrage-free and complete.
+\par\bigskip
+\noindent The question becomes, what is the arbitrage-free price of a simple $T$-claim $\chi = phi(S_T)$?
+\par\bigskip
+\noindent The idea is that we could construct a portfolio of $S^1,S^2,\cdots,S^n,\Pi(\chi)$ which is locally risk-free (no $dW$-terms). Then, to avoid arbitrage, the drift of the portfolio must be $r$. This will yield a PDE for the price.
+\par\bigskip
+\noindent Instead, we will take the following route. We \textit{guess} that the price is $\Pi_t(\chi) = F(t,S_t^1,\cdots,S_t^n)$ where $F(t,S_1,\cdots,S_n)$ satisfies
+\begin{equation}
+  \begin{gathered}
+    \begin{cases}
+      F_t+\dfrac{1}{2}\sum_{i,j=1}^{n}S_iS_jC_{ij}F_{s,s_j}+s\sum S_iF_{S_i}-rF=0\\
+      F(T,S_1,\cdots,S_n) = \phi(S_1,\cdots,S_n)
+    \end{cases}
+  \end{gathered}
+\end{equation}\par
+\noindent where $C=\sigma\sigma^*$\par
+\noindent To show that the guess is correct, we give a replication argument.
+\par\bigskip
+\begin{theo}[]{}
+  To avoid arbitrage, the price of $\chi = \phi(S_T)$ has to be $F(t,S_t)$ where $F(t,s)$ is given by (6) above. Moreover, $\chi$ is replicated by $h = (h^B,h^1,\cdots,h^n)$ where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        h_t^B = \dfrac{F(t,S_t)-\sum_{i=1}^{n}S_t^iF_{S_i}(t,S_t)}{B_t}\\
+        h_t^i = F_{S_i}(t,S_t)\qquad(i=1,\cdots,n)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  \begin{equation*}
+    \begin{gathered}
+      V_t^h = h_t^BB_t+\sum_{i=1}^{n}h_t^iS_t^i =F(t,S_t)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So $V_T^h = F(T,S_T) = \phi(S_T) = \chi$ which is the correct terminal value.\par
+  \noindent We have
+  \begin{equation*}
+    \begin{gathered}
+      dV_t^h\stackrel{\text{Ito}}{=} F_tdt+\sum_{i=1}^{n}F_{S_i}dS_t^i+\dfrac{1}{2}\sum_{i,j=1}^{n}F_{S_i,S_j}(dS_t^i)(dS_t^j)\\
+      = \left(F_t+\dfrac{1}{2}\sum_{i,j=1}^{n}S_t^iS_t^jC_{ij}F_{S_i,S_j}\right)dt+\sum_{i=1}^{n}F_{S_i}dS_t^i\\
+      \stackrel{\text{(6)}}{=} \left(rF-r\sum_{i=1}^{n}S_t^jF_{S_i}\right)dt+\sum_{i=1}^{n}F_{S_i}dS_t^i\\
+      =h_t^BdB_t+\sum_{i=1}^{n}h_t^idS_t^i
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Thus $h$ is self-financing and it replicates $\chi$.\par
+  \noindent  Any price different from $V_t^h=F(t,S_t)$ would lead to an arbitrage
+\end{prf}
+\par\bigskip
+\begin{theo}[Risk Neutral Valuation]{}
+  The prcing function has the representation 
+  \begin{equation*}
+    \begin{gathered}
+      F(t,s) = \E_{t,s}^Q\left[\text{exp}\left\{-r(T-t)\right\}\phi(S_T)\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where the $Q$-dynamics of $S$ are $\begin{cases}
+    dS_u^i=rS_u^idu+S_u^i\sum_{j=1}^{n}\sigma_{ij}dW_u^j\\S_t^i=S_i
+  \end{cases}$
+\end{theo}
+\par\bigskip
+\subsection{Reducing the state space}\hfill\\
+\noindent Let $n=2$, and assume that $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$ for $k>0$.\par
+\noindent Then $\phi(s_1,s_2) = s_2\phi\left(\dfrac{s_1}{s_2},1\right)$
+\par\bigskip
+\noindent\textbf{Ansatz}:
+\begin{equation*}
+  \begin{gathered}
+    F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent For some function $G(t,z)$
+\par\bigskip
+\noindent $F(T,s_1,s_2) = \phi(s_1,s_2)$ translates into $G(T,z) = \phi(z,1)$\par
+\noindent We now translate all derivatives in the BS-equation:
+\begin{equation*}
+  \begin{gathered}
+    F_t+\dfrac{1}{2}s_1^2C_{11}F_{s_1s_1}+\dfrac{1}{2}s_2^2C_{22}F_{s_2s_w}+s_1s_2C_{12}F_{s_1s_2}+rs_1F_{s_1}+rs_2F_{s_2}-rF=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Into derivatives of $G:$
+\begin{equation*}
+  \begin{gathered}
+    F_t = s_2G_t\qquad F_{s_1s_1} = \dfrac{1}{s_2}G_{zz}\\
+    F_{s_1} = G_z\qquad F_{s_1s_2} = \dfrac{-s_1}{s_2^2}G_{zz}\\
+    F_{\sigma_2} = G-\dfrac{s_1}{s_2}G_z\qquad F_{s_2s_2} =\dfrac{s_1^2}{s_2^3}G_{zz}
+  \end{gathered}
+\end{equation*}\par
+\noindent We get:
+\begin{equation*}
+  \begin{gathered}
+    s_2G_t+\dfrac{1}{2}\dfrac{s_1^2}{2}C_{11}G_{zz}+\dfrac{1}{2}\dfrac{s_1^2}{s_2}C_{22}G_{zz}-\dfrac{s_1^2}{s_2}C_{12}G_{zz}+rs_1G_z+rs_2G-rs_1G_z-rs_2G=0
+  \end{gathered}
+\end{equation*}\par
+\noindent which simplifies to
+\begin{equation*}
+  \begin{gathered}
+    G_t+\dfrac{1}{2}\dfrac{s_1^2}{s_2^2}\left(C_{11}+C_{22}-2C_{12}\right)G_{zz} = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Since the argument of $G$ and its derivatives is $\left(t,\dfrac{s_1}{s_2}\right)$, we have the following:
+\par\bigskip
+\begin{lem}[]{}
+  Assume $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$, then $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where $G(t,z)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        G_t+\dfrac{1}{2}\left(C_{11}+C_{22}-2C_{12}\right)z^3G_{zz}=0\\
+        G(T,z) = \phi(z,1)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dS_t^1 = \mu_1S_t^1dt+\sigma_1S_t^1dW_t^1\\
+      dS_t^2=\mu_2S_t^2dt+\sigma_2S_t^2dW_t^2\\
+      dB_t = rB_tdt
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $\chi = \left(S_T^1-S_T^2\right)^+$. This is an \textit{exchange option}. It gives the right to exchange one share of $S^2$ for one share of $S^1$\par
+\noindent We have $\phi(s_1,s_2) = (s_1-s_2)^+$ so $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$\par
+\noindent By our recipe, $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where $G(t,z)$ solves
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      G_t+\dfrac{1}{2}\left(\sigma_1^2+\sigma_2^2\right)z^2G_{zz}=0\\
+      G(T,z) = (z-1)^+
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Using the BS-formula,  $G(t,z) = zN(d_1)-N(d_2)$ so
+\begin{equation*}
+  \begin{gathered}
+    F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right) = s_1N(d_1)-s_2N(d_2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Where
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      d_1 = \dfrac{\ln{\left(\dfrac{s_1}{s_2}\right)}+\dfrac{1}{2}(\sigma_1^2+\sigma_2^2)(T-t)}{\sqrt{\sigma_1^2+\sigma_2^2}\sqrt{T-t}}\\
+      d_2 = d_1-\sqrt{(\sigma_1^2+\sigma_2^2)(T-t)}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent In the market $\begin{cases}
+  dB_t = rB_tdt\\
+  dS_t^1=\mu S_t^1dt+\sigma_1S_t^1dW_t^1\\
+  dS_t^2=\mu_2S_t^2dt+\sigma_2S_t^2\left(\rho dW_t^1+\sqrt{1-\rho^2}dW_t^2\right)
+\end{cases}$\par
+\noindent Find the price at $t=0$ of the $T$-claim $\chi = \dfrac{(S_T^1)^2}{S_T^2}$
+\par\bigskip
+\noindent To answer this, notet that $\phi(s_1,s_2) = \dfrac{s_1^2}{s_2}$, to $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$\par
+\noindent Thus, $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      G_t+\dfrac{1}{2}z^2\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)G_{zz} = 0\\
+      G(T,z) = z^2
+    \end{cases}
+  \end{gathered}
+\end{equation*}par
+\noindent Let $\sigma = \sqrt{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}$, we have
+\begin{equation*}
+  \begin{gathered}
+    G(0,z) = \E_{0,z}\left[Z_T^2\right]\qquad dZ_t = \sigma ZdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $Y_t = Z_t^2$, then 
+\begin{equation*}
+  \begin{gathered}
+    dY_t = 2Z_tdZ_t+(dZ_t)^2=\sigma^2Y_tdt+2\sigma Y_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent so $G(0,z) = \E\left[Z_T^2\right] = z^2\text{exp}\left\{\sigma^2T\right\}$
+\par\bigskip
+\noindent\textit{Answer:} $F(0,s_1,s_2) = s_2G\left(0,\dfrac{s_1}{s_2}\right) = \dfrac{s_1^2}{s_2}\text{exp}\left\{\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)T\right\}$

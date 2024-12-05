@@ -25,3 +25,5 @@
 \contentsline {subsection}{\tocsubsection {}{15.1}{Static Hedging}}{29}{subsection.15.1}%
 \contentsline {subsection}{\tocsubsection {}{15.2}{The Greeks}}{30}{subsection.15.2}%
 \contentsline {subsection}{\tocsubsection {}{15.3}{Delta and Gamma Hedging}}{30}{subsection.15.3}%
+\contentsline {section}{\tocsection {}{16}{Multi-dimensional Models}}{31}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Reducing the state space}}{32}{subsection.16.1}%
