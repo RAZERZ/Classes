@@ -16,7 +16,7 @@
 \begin{equation}
   \begin{gathered}
     \begin{cases}
-      F_t+\dfrac{1}{2}\sum_{i,j=1}^{n}S_iS_jC_{ij}F_{s,s_j}+s\sum S_iF_{S_i}-rF=0\\
+      F_t+\dfrac{1}{2}\sum_{i,j=1}^{n}S_iS_jC_{ij}F_{s,S_j}+s\sum S_iF_{S_i}-rF=0\\
       F(T,S_1,\cdots,S_n) = \phi(S_1,\cdots,S_n)
     \end{cases}
   \end{gathered}
@@ -70,49 +70,49 @@
 \end{theo}
 \par\bigskip
 \subsection{Reducing the state space}\hfill\\
-\noindent Let $n=2$, and assume that $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$ for $k>0$.\par
-\noindent Then $\phi(s_1,s_2) = s_2\phi\left(\dfrac{s_1}{s_2},1\right)$
+\noindent Let $n=2$, and assume that $\phi(kS_1,kS_2) = k\phi(S_1,S_2)$ for $k>0$.\par
+\noindent Then $\phi(S_1,S_2) = S_2\phi\left(\dfrac{S_1}{S_2},1\right)$
 \par\bigskip
 \noindent\textbf{Ansatz}:
 \begin{equation*}
   \begin{gathered}
-    F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)
+    F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right)
   \end{gathered}
 \end{equation*}\par
 \noindent For some function $G(t,z)$
 \par\bigskip
-\noindent $F(T,s_1,s_2) = \phi(s_1,s_2)$ translates into $G(T,z) = \phi(z,1)$\par
+\noindent $F(T,S_1,S_2) = \phi(S_1,S_2)$ translates into $G(T,z) = \phi(z,1)$\par
 \noindent We now translate all derivatives in the BS-equation:
 \begin{equation*}
   \begin{gathered}
-    F_t+\dfrac{1}{2}s_1^2C_{11}F_{s_1s_1}+\dfrac{1}{2}s_2^2C_{22}F_{s_2s_w}+s_1s_2C_{12}F_{s_1s_2}+rs_1F_{s_1}+rs_2F_{s_2}-rF=0
+    F_t+\dfrac{1}{2}S_1^2C_{11}F_{S_1S_1}+\dfrac{1}{2}S_2^2C_{22}F_{S_2S_2}+S_1S_2C_{12}F_{S_1S_2}+rS_1F_{S_1}+rS_2F_{S_2}-rF=0
   \end{gathered}
 \end{equation*}\par
 \noindent Into derivatives of $G:$
 \begin{equation*}
   \begin{gathered}
-    F_t = s_2G_t\qquad F_{s_1s_1} = \dfrac{1}{s_2}G_{zz}\\
-    F_{s_1} = G_z\qquad F_{s_1s_2} = \dfrac{-s_1}{s_2^2}G_{zz}\\
-    F_{\sigma_2} = G-\dfrac{s_1}{s_2}G_z\qquad F_{s_2s_2} =\dfrac{s_1^2}{s_2^3}G_{zz}
+    F_t = S_2G_t\qquad F_{S_1S_1} = \dfrac{1}{S_2}G_{zz}\\
+    F_{S_1} = G_z\qquad F_{S_1S_2} = \dfrac{-S_1}{S_2^2}G_{zz}\\
+    F_{\sigma_2} = G-\dfrac{S_1}{S_2}G_z\qquad F_{S_2S_2} =\dfrac{S_1^2}{S_2^3}G_{zz}
   \end{gathered}
 \end{equation*}\par
 \noindent We get:
 \begin{equation*}
   \begin{gathered}
-    s_2G_t+\dfrac{1}{2}\dfrac{s_1^2}{2}C_{11}G_{zz}+\dfrac{1}{2}\dfrac{s_1^2}{s_2}C_{22}G_{zz}-\dfrac{s_1^2}{s_2}C_{12}G_{zz}+rs_1G_z+rs_2G-rs_1G_z-rs_2G=0
+    S_2G_t+\dfrac{1}{2}\dfrac{S_1^2}{2}C_{11}G_{zz}+\dfrac{1}{2}\dfrac{S_1^2}{S_2}C_{22}G_{zz}-\dfrac{S_1^2}{S_2}C_{12}G_{zz}+rS_1G_z+rS_2G-rS_1G_z-rS_2G=0
   \end{gathered}
 \end{equation*}\par
 \noindent which simplifies to
 \begin{equation*}
   \begin{gathered}
-    G_t+\dfrac{1}{2}\dfrac{s_1^2}{s_2^2}\left(C_{11}+C_{22}-2C_{12}\right)G_{zz} = 0
+    G_t+\dfrac{1}{2}\dfrac{S_1^2}{S_2^2}\left(C_{11}+C_{22}-2C_{12}\right)G_{zz} = 0
   \end{gathered}
 \end{equation*}
 \par\bigskip
-\noindent Since the argument of $G$ and its derivatives is $\left(t,\dfrac{s_1}{s_2}\right)$, we have the following:
+\noindent Since the argument of $G$ and its derivatives is $\left(t,\dfrac{S_1}{S_2}\right)$, we have the following:
 \par\bigskip
 \begin{lem}[]{}
-  Assume $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$, then $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where $G(t,z)$ solves
+  Assume $\phi(kS_1,kS_2) = k\phi(S_1,S_2)$, then $F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right)$ where $G(t,z)$ solves
   \begin{equation*}
     \begin{gathered}
       \begin{cases}
@@ -134,8 +134,8 @@
   \end{gathered}
 \end{equation*}\par
 \noindent Let $\chi = \left(S_T^1-S_T^2\right)^+$. This is an \textit{exchange option}. It gives the right to exchange one share of $S^2$ for one share of $S^1$\par
-\noindent We have $\phi(s_1,s_2) = (s_1-s_2)^+$ so $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$\par
-\noindent By our recipe, $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where $G(t,z)$ solves
+\noindent We have $\phi(S_1,S_2) = (S_1-S_2)^+$ so $\phi(kS_1,kS_2) = k\phi(S_1,S_2)$\par
+\noindent By our recipe, $F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right)$ where $G(t,z)$ solves
 \begin{equation*}
   \begin{gathered}
     \begin{cases}
@@ -147,14 +147,14 @@
 \noindent Using the BS-formula,  $G(t,z) = zN(d_1)-N(d_2)$ so
 \begin{equation*}
   \begin{gathered}
-    F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right) = s_1N(d_1)-s_2N(d_2)
+    F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right) = S_1N(d_1)-S_2N(d_2)
   \end{gathered}
 \end{equation*}\par
 \noindent Where
 \begin{equation*}
   \begin{gathered}
     \begin{cases}
-      d_1 = \dfrac{\ln{\left(\dfrac{s_1}{s_2}\right)}+\dfrac{1}{2}(\sigma_1^2+\sigma_2^2)(T-t)}{\sqrt{\sigma_1^2+\sigma_2^2}\sqrt{T-t}}\\
+      d_1 = \dfrac{\ln{\left(\dfrac{S_1}{S_2}\right)}+\dfrac{1}{2}(\sigma_1^2+\sigma_2^2)(T-t)}{\sqrt{\sigma_1^2+\sigma_2^2}\sqrt{T-t}}\\
       d_2 = d_1-\sqrt{(\sigma_1^2+\sigma_2^2)(T-t)}
     \end{cases}
   \end{gathered}
@@ -168,8 +168,8 @@
 \end{cases}$\par
 \noindent Find the price at $t=0$ of the $T$-claim $\chi = \dfrac{(S_T^1)^2}{S_T^2}$
 \par\bigskip
-\noindent To answer this, notet that $\phi(s_1,s_2) = \dfrac{s_1^2}{s_2}$, to $\phi(ks_1,ks_2) = k\phi(s_1,s_2)$\par
-\noindent Thus, $F(t,s_1,s_2) = s_2G\left(t,\dfrac{s_1}{s_2}\right)$ where
+\noindent To answer this, notet that $\phi(S_1,S_2) = \dfrac{S_1^2}{S_2}$, to $\phi(kS_1,kS_2) = k\phi(S_1,S_2)$\par
+\noindent Thus, $F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right)$ where
 \begin{equation*}
   \begin{gathered}
     \begin{cases}
@@ -192,4 +192,4 @@
 \end{equation*}\par
 \noindent so $G(0,z) = \E\left[Z_T^2\right] = z^2\text{exp}\left\{\sigma^2T\right\}$
 \par\bigskip
-\noindent\textit{Answer:} $F(0,s_1,s_2) = s_2G\left(0,\dfrac{s_1}{s_2}\right) = \dfrac{s_1^2}{s_2}\text{exp}\left\{\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)T\right\}$
+\noindent\textit{Answer:} $F(0,S_1,S_2) = S_2G\left(0,\dfrac{S_1}{S_2}\right) = \dfrac{S_1^2}{S_2}\text{exp}\left\{\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)T\right\}$
