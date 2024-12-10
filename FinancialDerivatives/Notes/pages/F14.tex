@@ -1,0 +1,107 @@
+\section{Incomplete Markets}
+\noindent\textbf{Assumption:} Two objects are given:\par
+\begin{itemize}
+  \item A risk-free asset $dB_t = rB_tdt$
+  \item A stochastic process $X$ which is \textit{not} assumed to be the price of a traded assets, with 
+    \begin{equation*}
+      \begin{gathered}
+        dX_t = \mu(t,X_t)dt+\sigma(t,X_t)dW_t
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent Consider a $T$-claim $y = \phi(X_T)$, what is the price $\Pi_t(y)$ at $t<T$?
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent $X_t$ is the temperature in Brighton at time $g$
+\begin{equation*}
+  \begin{gathered}
+    \phi(x) = \begin{cases}
+      100\quad\text{if } x\leq20\\
+      0\quad\text{if } x>20
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent The holder of the $T$-claim receives 100 if the temperature is below 20, 0 otherwise
+\par\bigskip
+\noindent\textbf{Our expectations:} In the meta-theorem, $R=1$, $M=0$ so the market is incomplete. The price of $y$ is \textit{not} uniquely determined. If the price of a benchmark derivative is given, however, then all other derivatives will have unique prices. Certain consistency relations between prices should hold!
+\par\bigskip
+\noindent Assume $y$ and $Z$ have price proesses
+\begin{equation*}
+  \begin{gathered}
+    \Pi_t(y) = F(t,X_t)\qquad\Pi_t(Z) = G(t,X_t)\\
+    d\pi_t(y) = \mu_FFdt+\sigma_FFdW_t\qquad\begin{cases}
+      \mu_F = \dfrac{F_t+\dfrac{\sigma^2}{2}F_{xx}+\mu F_x}{F}\\
+      \sigma_F = \dfrac{\sigma F_x}{F}\\
+      d\Pi_t(Z) = \alpha_GGdt+\sigma_GGdW_t
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $w = (w^F,W^G)$ be a self-financing relative portfolio in $F$ and $G$
+\begin{equation*}
+  \begin{gathered}
+    dV_t^w = V_t^ww^F\dfrac{dF}{F}+V_t^ww^G\dfrac{dG}{G}\\
+    =\left(\mu_Fw^F+\mu_Gw^G\right)V_t^wdt+\left(\sigma_Fw^F+\sigma_Gw^G\right)V_t^wdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Chose $w^F,w^G$ so that 
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases}
+      w^F+w^G=1\\
+      \sigma_Fw^F+\sigma_Gw^G=0
+      \end{rcases}\Lrarr\begin{cases}
+      w^F =\dfrac{-\sigma_G}{\sigma_F-\sigma_G}\\
+      w^G = \dfrac{\sigma_F}{\sigma_F-\sigma_G}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Then $dV_t^w = \dfrac{\sigma_F\mu_G-\sigma_G\mu_F}{\sigma_F-\sigma_G}V_t^wdt$\par
+\noindent By the no-arbitrage assumption, we must have $\dfrac{\sigma_F\mu_G-\sigma_G\mu_F}{\sigma_F-\sigma_G} = r$\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    \sigma_F\mu_G -\sigma_G\mu_F = r\sigma_F-r\sigma_G\\
+    \Lrarr \dfrac{\mu_F-r}{\sigma_F} = \dfrac{\mu_G-r}{\sigma_G}
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that the LHS does not involve $G$ and the RHS does not involve $F$
+\par\bigskip
+\begin{lem}[]{}
+  Assume the market for derivatives is arbitrage-free. Then there exists a process $\lambda$ such taht $\lambda(t,X_t) = \dfrac{\mu_F(t,X_t)-r}{\sigma_F(t,X_t)}$ for any pricing function $F$
+\end{lem}
+\par\bigskip
+\noindent\textbf{Terminology:} $\lambda_t$ is called the \textit{market price of risk}
+\par\bigskip
+\noindent We have $\lambda = \dfrac{\mu_F-r}{\sigma_F} = \dfrac{F_t+\dfrac{\sigma^2}{2}F_{xx}+\mu F_x-rF}{\sigma F_x}$
+\par\bigskip
+\begin{lem}[]{}
+  The price of a $T$-claim $\phi(X_T)$ is $F(t,X_t)$ where  $F(t,x)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t+\dfrac{\sigma^2}{2}F_{xx}+(\mu-\sigma\lambda)F_x-rF=0\\
+        F(T,x) = \phi(x)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Moreover, $F(t,x) = \E_{t,x}^Q\left[\text{exp}\left\{-r(T-t)\right\}\phi(X_T)\right]$\par
+  \noindent where $\begin{cases}
+    dX_s = \left(\mu(s,X_s)-\lambda(s,X_s)\sigma(s,X_S)\right)ds+\sigma(s,X_s)dW_s^Q\\
+    X_t = x
+  \end{cases}$ under $Q$
+\end{lem}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent $\lambda(t,x)$ is \textit{not} specified within the model. If we take the price of one derivative as given with price process $\Pi_t = G(t,X_t)$, then $\lambda(t,x) = \dfrac{\mu_G(t,x)-r}{\sigma_G(t,x)}$ can be calculated. This $\lambda$ can then be used to price other derivatives.
+\par\bigskip
+\noindent\textbf{Special Case:}\par
+\noindent Assume that $X$ \textit{is} in fact a traded asset. The claim $\overline{Z} = X_T$ then has price $G(t,X_t) = X_t$, so
+\begin{equation*}
+  \begin{gathered}
+    \lambda(t,x) = \dfrac{\mu_F-r}{\sigma_G} = \dfrac{G_t+\dfrac{\sigma^2}{2}G_{xx}+\mu G_x-rG}{\sigma G_x} \stackrel{G(t,x) = x}{=} \dfrac{\mu-rx}{\sigma}
+  \end{gathered}
+\end{equation*}\par
+\noindent The factor $\mu-\lambda\sigma$ is then $\mu-\lambda\sigma = rx$\par
+\noindent Thus the usual BS-equation is recovered!

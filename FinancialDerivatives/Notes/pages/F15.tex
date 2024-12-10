@@ -1,0 +1,220 @@
+\section{Discrete Dividends}
+Consider a stock $S$ that pays dividends at times $T_1,\cdots,T_K$ where $0<T_1<T_2\cdots T_K<T$.\par
+\noindent In addition to $S$, there is also a bank account $dB_t = rB_tdt$\par
+\noindent Between dividend dates, $S$ follows the geometric Brownian motion
+\begin{equation*}
+  \begin{gathered}
+    dS_t =\mu S_tdt+\sigma S_tdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent At each $t = T_i$, a dividend $\delta(S_{T_i})$ is paid out.\par
+\noindent Here $\delta:[0,\infty)\to[0,\infty)$ is a continuous function with $\delta(S)\leq S$\par
+\noindent To avoid arbitrage, we must have $S_{T_i} = S_{T_i}-\delta(S_{T_i})$
+\par\bigskip
+\noindent\textbf{Question:} What is the price of a $T$-claim $\chi = \phi(S_T)$?\par
+\noindent\textbf{Answer:} For $t\in[T_i,T_{i+1}]$ we have $\Pi_t(\chi) =F^i(t,S_t)$ where $F^i(t,s)$ is constructed as follows:\par
+\begin{itemize}
+  \item \textit{Up to $T_{K-1}$}
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases}
+          F_t^{K-2}+\dfrac{\sigma^2}{2}S^2F_{ss}^{K-2}rSF_s^{K-2}-rF^{K-2}=0\\
+          F^{K-2}(T,S) = F^{K-1}(F,S-\delta(S))
+        \end{cases}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item \textit{Up to $T_K$}
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases}
+          F_t^{K-1}+\dfrac{\sigma^2}{2}S^2F_{ss}^{K-1}+rSF_s^{k-1}=rF^{K-1}\\
+          F^{K_1}(T_K,S) = F^K(T_k,S-\delta(S))
+        \end{cases}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item\textit{Up to $T$}
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases}
+          F_T^K+\dfrac{\sigma^2}{2}S^2F_{ss}^K+rSF_s^K=rF^k\\
+          F^K(T,S) =\phi(S)
+        \end{cases}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\begin{lem}[Risk-neutral valuation]{}
+  The arbitrage-free price of a simple $T$-claim $\chi = \phi(S_T)$ in the presence of discrete dividends is $F(t,S_t)$ where 
+  \begin{equation*}
+    \begin{gathered}
+      F(t,s) = \text{exp}\left\{-r(T-t)\right\}\E_{t,s}^Q\left[\phi(S_T)\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Here, the following is under $Q$:
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dS_u =rS_udu+\sigma S_udW_u^q\\
+        S_t=s\\
+        S_{T_i} = S_{T_i}-\delta(S_{T_i})
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Important special case:}\par
+\noindent $\delta(S) = \underbrace{\delta}_{\substack{\delta\in(0,1)}}S$\par
+\noindent Then
+\begin{equation*}
+  \begin{gathered}
+    S_T  = S_{T_K}\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-T_K)+\sigma(W_T^Q-W_{T_K}^Q)\right\}\\
+    =(1-\delta)S_{T_K^-}\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-T_K)+\sigma(W_T^Q-W_{T_K}^Q)\right\}\\
+    =(1-\delta)S_{T_{K-1}}\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-T_{K-1})+\sigma(W_T^Q-W_{T_{K-1}}^Q)\right\}\\
+    =(1-\delta)^2S_{T_{K_1^-}}\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-T_{K-1})+\sigma(W_T^Q-W_{T_{K-1}}^Q)\right\}\\
+    =\cdots=(1-\delta)^nS\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-t)+\sigma(W_T^Q-W_t^Q)\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $n$ is the number of dividends times in $[t,T]$\par
+\noindent Therefore $F^\delta(t,s) = F^0(t,S(1-\delta)^n)$, i.e pricing function in presence of dividends = pricing function with no dividends.
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Assume $\delta(S) =\delta S$. What is the price of a call option $\chi = (S_T-K)^+$?\par
+\noindent\textit{Answer:} 
+\begin{equation*}
+  \begin{gathered}
+    F^\delta(t,s) =F^0(t,S(1-\delta)^n)=(1-\delta)^nSN(d_1)_K\text{exp}\left\{r(T-t)\right\}N(d_2)\\
+    \begin{cases}
+      d_1 = \dfrac{\ln{\left(\dfrac{S(1-\delta)^n}{K}\right)}+\left(r+\dfrac{\sigma^2}{2}\right)(T-t)}{\sigma\sqrt{T-t}}\\
+      d_2 = d_1-\sigma\sqrt{T-t}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Find a replciating strategy for $\chi = S_T$ (assume $n$ remaining dividends)\par
+\noindent\textit{Answer:}\par
+\noindent The value of $\chi$ is $F^{\delta}(0,S) = F^0(0,S(1-\delta)^n) = S(1-\delta)^n$\par
+\noindent At $t=0$, buy $(1-\delta)^n$ shares of $S$\par
+\noindent At $t=T_1$, receive $(1-\delta)^n\delta S_{T_1^-}$ in dividends.\par
+\noindent New stock price is $S_{T_1} = (1-\delta)S_{T_1^-}$; so we can buy $\dfrac{(1-\delta)^n\delta S_{T_1^-}}{(1-\delta)S_{T_1^-}}$ new shares. Total holdings of $(1-\delta)^n+\delta(1-\delta)^{n-1} = (1-\delta)^{n-1}$\par
+\noindent Contiue similarly at $T_2,\cdots,T_n$. After $T_k$; we have $(1-\delta)^{n-k}$ shares, so at $t=T$ we have $(1-\delta)^{n-n}=1$ shares of $S$\par
+\noindent Thus $\chi$ is replicated!
+\par\bigskip
+\section{Continuous Dividends}\par
+\noindent The market admits the same model as previously, i.e
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dB_t = rB_tdt\\
+      dS_t = \mu S_tdt+\sigma S_tdW_t
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent\textbf{Dividend structure:} $dD_t = \delta(S_t)S_tdt$ where $\delta$ is some continuous fucntion
+\par\bigskip
+\noindent\textbf{Interpretation:}\par
+\noindent During an interval $[t_1,t_2]$, the holder of one share of $S$ receives the amount
+\begin{equation*}
+  \begin{gathered}
+    \int_{t_1}^{t_2}\delta(S_u)S_udu
+  \end{gathered}
+\end{equation*}\par
+\noindent To price a $T$-claim $\chi = \phi(S_T)$, we follow our usual approach. \par
+\noindent Assume $\Pi_t(\chi) = F(t,S_t)$ and let $(w^S,w^F)$ be a self-financing relative portfolio of $S$ and $F$
+\begin{equation*}
+  \begin{gathered}
+    dV_t^w\stackrel{\text{self-fin}}{=} V_t^ww^S\dfrac{dS_t+dD_t}{S_t}+V_t^ww^F\dfrac{dF_t}{F_t}\\
+    = V_t^w(w^S(\mu+\delta)+w^F\mu_F)dt+V_t^w(w^s\sigma+w^F\sigma_F)dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Where 
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \mu_F = \dfrac{F_t+\mu SF_s+\dfrac{\sigma^2S^2}{2}F_{ss}}{F}\\
+      \sigma_F = \dfrac{\sigma SF_s}{F}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Choose $(w^S,w^F)$ such that
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      w^S+w^F = 1\\
+      \sigma w^S+\sigma_Fw^F = 0
+    \end{rcases*}\Lrarr
+    \begin{cases}
+      w^S = \dfrac{-\sigma_F}{\sigma-\sigma_F}\\
+      w^F =\dfrac{\sigma}{\sigma-\sigma_F}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent Comparing with the bank account to avoid arbitrage, we must have
+\begin{equation*}
+  \begin{gathered}
+    w^S(\mu+\delta)+w^F\mu_F =r
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    -\sigma_F(\mu+\delta)+\mu_F\sigma = r(\sigma-\sigma_F)-SF_s(\mu+\delta)+F_t+\mu SF_S+\dfrac{\sigma^2S^2}{2}F_{ss}\\
+    = rF-rSF_s\\
+    F_t +\dfrac{\sigma^2S_t^2}{2}F_{ss}+\left(r-\delta\right)S_tF_s-rF=0
+  \end{gathered}
+\end{equation*}\par
+\noindent Since $S_t$ can take any value, the PDE must hold at all points $(t,s)$
+\par\bigskip
+\begin{lem}[]{}
+  The pricing function $F(t,s)$ of $\chi = \phi(S_T)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t + \dfrac{1}{2}\sigma^2S^2F_{ss}+(r-\delta)SF_s -rF=0\\
+        F(T,S) = \phi(S)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Moreover, $F(t,s) =\E_{t,s}^Q\left[\text{exp}\left\{-r(T-t)\right\}\phi(S_T)\right]$ where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dS_u = (r-\delta)S_udt+\sigma S_udW_u^Q\\
+        S_t = s
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent under $Q$
+\end{lem}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent If $\delta(s) =\delta$ (i.e constant), then
+\begin{equation*}
+  \begin{gathered}
+    S_T = s\text{exp}\left\{\left(r-\delta-\dfrac{\sigma^2}{2}\right)(T-t)+\sigma(W_T-W_t)\right\}\\
+    = s\text{exp}\left\{-\delta(T-t)\right\}\text{exp}\left\{\left(r-\dfrac{\sigma^2}{2}\right)(T-t)+\sigma(W_T-W_t)\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $F^\delta(t,s) = F^0(t,s\text{exp}\left\{-\delta(T-t)\right\})$\par
+\noindent I.e the pricing function with continuous dividends is the same as the pricing function with no dividends
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent What is the price of $\chi S_T$ if continuous dividends are paid (at a constant proportial to the rate $\delta$)?\par
+\noindent $F^\delta(0,s) = F^0(0,s\text{exp}\left\{-\delta T\right\}) =s\text{exp}\left\{-\delta T\right\}$
+\par\bigskip
+\noindent Can we find a replicating strategy?\par
+\noindent At $t=0$; buy $\text{exp}\left\{-\delta T\right\}$ shares of $S$. Use all dividends to buy new shares. If $f(t)$ shares are held at time $t$, then$\delta f(t)dt$ new shares can be bought during $(t,t+dt)$\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      \dfrac{df(t)}{dt} = \delta f(t)\\
+      f(0) = \text{exp}\left\{-\delta T\right\}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent So $f(t) = \text{exp}\left\{-\delta(T-t)\right\}$. In particular, $f(T) = 1$ so $\chi$ is replicated!

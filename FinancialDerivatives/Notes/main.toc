@@ -27,3 +27,6 @@
 \contentsline {subsection}{\tocsubsection {}{15.3}{Delta and Gamma Hedging}}{30}{subsection.15.3}%
 \contentsline {section}{\tocsection {}{16}{Multi-dimensional Models}}{31}{section.16}%
 \contentsline {subsection}{\tocsubsection {}{16.1}{Reducing the state space}}{32}{subsection.16.1}%
+\contentsline {section}{\tocsection {}{17}{Incomplete Markets}}{35}{section.17}%
+\contentsline {section}{\tocsection {}{18}{Discrete Dividends}}{37}{section.18}%
+\contentsline {section}{\tocsection {}{19}{Continuous Dividends}}{38}{section.19}%

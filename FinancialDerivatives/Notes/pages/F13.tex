@@ -193,3 +193,59 @@
 \noindent so $G(0,z) = \E\left[Z_T^2\right] = z^2\text{exp}\left\{\sigma^2T\right\}$
 \par\bigskip
 \noindent\textit{Answer:} $F(0,S_1,S_2) = S_2G\left(0,\dfrac{S_1}{S_2}\right) = \dfrac{S_1^2}{S_2}\text{exp}\left\{\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)T\right\}$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dS_t^1 = \mu_1S_t^1dt+\sigma_1S_t^1dW_t^1\\
+      dS_t^2=\mu_2S_t^2dt+\sigma_2S_t^2dW_t^2\\
+      dB_t = rB_tdt
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Here $dW^1dW^2  = \rho dt$. Let $\chi = \left(S_T^1-S_T^2\right)^+$.\par
+\noindent By our recipe $F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right)$ where $G(t,z)$ satisfies
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      G_t+\dfrac{1}{2}\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)z^2G_{zz}=0\\
+      G(T,z) = (z-1)^+
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Using the BS formula
+\begin{equation*}
+  \begin{gathered}
+    G(t,z) = zN(d_1)-N(d_2)
+  \end{gathered}
+\end{equation*}\par
+\noindent where 
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      d_1 = \dfrac{\ln{\left(z\right)}+\overbrace{\dfrac{\sigma^2}{2}}^{\left(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2\right)}(T-t)}{\sigma\sqrt{T-t}}\\
+      d_2 = \dfrac{\ln{\left(z\right)}-\dfrac{\sigma^2}{2}(T-t)}{\sigma\sqrt{T-t}}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus, the pricing function $F$ is 
+\begin{equation*}
+  \begin{gathered}
+    F(t,S_1,S_2) = S_2G\left(t,\dfrac{S_1}{S_2}\right) = S_2\left(\dfrac{S_1}{S_1}N(d_1)-N(d_2)\right)\\
+    = S_1N(d_1)-S_2N(d_2)
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $d_1,d_2$ are now equal to
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      d_1 = \dfrac{\ln{\left(\dfrac{S_1}{S_2}\right)}+\dfrac{\sigma^2}{2}(T-t)}{\sigma\sqrt{T-t}}\\
+      d_2 = \dfrac{\ln{\left(\dfrac{S_1}{S_2}\right)}-\dfrac{\sigma^2}{2}(T-t)}{\sigma\sqrt{T-t}}
+    \end{cases}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent In general, the payoff function $\phi$ could be something like $\min\left\{S_1(T),S_2(T)\right\}$, then according to the recipe we should plug in for the terminal condition $\min\left\{z,1\right\} = \phi(z,1)$.\par
+\noindent This is a linear function minus a call option, so it is solvable. For the linear function the one-dimensional BS PDE is easy to solve.
