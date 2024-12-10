@@ -30,3 +30,4 @@
 \contentsline {section}{\tocsection {}{17}{Incomplete Markets}}{35}{section.17}%
 \contentsline {section}{\tocsection {}{18}{Discrete Dividends}}{37}{section.18}%
 \contentsline {section}{\tocsection {}{19}{Continuous Dividends}}{38}{section.19}%
+\contentsline {section}{\tocsection {}{20}{Forward Contracts}}{40}{section.20}%
