@@ -1,0 +1,220 @@
+\section{Superhedging}
+Given a claim $H = f(S_T)$ (function of an asset price at time $N$), and $(x,H)$-hedge is an admissible strategy with 
+\begin{equation*}
+  \begin{gathered}
+    V_0(\theta) = x\quad V_T(\theta)\geq H
+  \end{gathered}
+\end{equation*}\par
+\noindent The \textit{sellers price} $\pi_S(H)$ can now be defined as
+\begin{equation*}
+  \begin{gathered}
+    \pi_S = \inf\left\{z\geq0\mid \exists \text{ a $(z,H)$-hedge}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent $\rightarrow$ this guarantees the seller of $H$ not to incur losses.
+\par\bigskip
+\noindent The \textit{sellers price} $\pi_B(H)$ is analagously 
+\begin{equation*}
+  \begin{gathered}
+    \pi_B = \sup\left\{z\geq0\mid\exists\text{ a $(-z,-H)$-hedge}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent $\rightarrow$ guarantees the buyer not to incur losses.\par
+\noindent If there is a replicating strategy $\theta$, then we actually have equality everywhere:
+\begin{equation*}
+  \begin{gathered}
+    V_T(\theta) = H\Rightarrow \theta\text{ is a } (z,H)\text{-hedge}\\
+    \Rightarrow -\theta\text{ is a } (-z,-H)\text{-hedge}
+  \end{gathered}
+\end{equation*}\par
+\noindent for $z = V_0(\theta)$. In this case, $\pi_B =\pi_S = \pi(H)$
+\par\bigskip
+\noindent In general, we only have $\pi_B\leq \pi_S$\par
+\noindent If we have an equivalent martingale measure $Q$; then for a sellers strategy $\theta$ we have
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\overline{H}\right]\leq \E_Q\left[\overline{V_T}(\theta)\right] = \E_Q\left[V_0(\theta)\right] = V_0(\theta)\\
+    \Rightarrow \E_Q\left[\overline{H}\right]\leq \pi_S
+  \end{gathered}
+\end{equation*}\par
+\noindent upon taking it.\par
+\noindent In the same way, $\E_Q\left[\overline{H}\right]\geq \pi_B$\par
+\noindent If the claim is attainable (i.e there exists a replicating strategy), we have equalities throughout.
+\par\bigskip
+\subsection{Strategies involving contingent claims}\hfill\\
+\noindent We now expand our standard model with asset prices $S_t^0,S_t^1,\cdots, S_t^d$ by adding some attainable European claims $Z_t^1,\cdots, Z_t^m$
+\par\bigskip
+\noindent A trading strategy is now a pair $\Phi= (\theta,\gamma)$ (composed of standard strategy vs trading with $Z_t^1,\cdots$) with initial value $V_0(\Phi) = \theta_0\cdot S_0+\gamma_0\cdot Z_0$\par
+\noindent It is self-financing if 
+\begin{equation*}
+  \begin{gathered}
+    \theta_t\cdot S_t + \gamma_t\cdot Z_t = \theta_{t+1}\cdot S_t +\gamma_{t+1}\cdot Z_t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{theo}[]{}
+  The model is arbitrage-free if and only if every attainable European claim with payoff  $Z$ has value process
+  \begin{equation*}
+    \begin{gathered}
+      Z_t = S_t^0\E_Q\left[\dfrac{Z}{S_T^0}\mid\mathcal{F}_t\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent where $Q$ is an equivalent martingale measure for the price process $S$
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+  By assumption, there is a replicating strategy $\theta$ for $Z$. Its value is
+  \begin{equation*}
+    \begin{gathered}
+      V_t(\theta) = S_t^0\E_Q\left[\dfrac{Z}{S_T^0}\mid\mathcal{F}_t\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent by the martingale property. Now suppose $V_t(\theta) \neq Z_t$ on a set of positive measures\par
+  \noindent WLOG, we may assume $\P(Z_u>V_u(\theta))>0$ for some time $u$\par
+  \noindent There
+  There now exists an arbitrage strategy:\par
+  \begin{itemize}
+    \item Do nothing until time $u$
+    \item If the event $Z_u>V_u(\theta)$ does not occur, keep doing nothing
+    \item If $Z_u>V_u(\theta)$:\par
+      \begin{itemize}
+        \item Sell $Z$ for price $Z_u$
+        \item Invest in $\theta$ (at price $V_u(\theta)$)
+        \item Put positive difference in bank
+      \end{itemize}
+  \end{itemize}
+  \par\bigskip
+  \noindent At time $T$, $V_T(\theta) = Z$, so $\theta$ and $Z$ cancel\par
+  \noindent We are left with the difference. This happens with positive probability and is hence (weak) arbitrage, a contradiction in an arbitrage-free market.\par
+  \noindent Hence $Z_t = S_t^0\E\left[\dfrac{Z}{S_T^0}\mid\mathcal{F}_t\right]$ almost surely for all $t$. This proves the first direction.
+  \par\bigskip
+  \noindent Assume now that all contingent claims follow this rule, $Z_t = S_t^0\E_Q\left[\dfrac{Z}{S_T^0}\mid\mathcal{F}_t\right]$\par
+  \noindent Consider a self-financing strategy $\Phi = (\theta,\gamma)$ with $V_0(\Phi) = 0$ and $V_T(\Phi) \geq0$ almost surely
+  \begin{equation*}
+    \begin{gathered}
+      \E_Q\left[\overline{V_t}(\Phi)\mid\mathcal{F}_{t-1}\right] = \E_Q\left[\sum_{i}\theta_t^i\overline{S_t}^i+\sum_{j}\gamma_t^j\overline{Z_t}^j\mid\mathcal{F}_{t-1}\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Note that the first term is a martingale under $Q$, and the second term is pre-visible:
+  \begin{equation*}
+    \begin{gathered}
+      \E\left[\overline{Z_t}^j\mid\mathcal{F}_{t-1}\right] = \E\left[\dfrac{Z_t^j}{S_t^0}\mid\mathcal{F}_{t-1}\right]\\
+      = \E\left[\E\left[\dfrac{Z^j}{S_T^0}\mid\mathcal{F}_t\right]\mid\mathcal{F}_{t-1}\right]\\
+      = \E\left[\dfrac{Z^j}{S_T^0}\mid\mathcal{F}_{t-1}\right] = \overline{Z}_{t-1}^j
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Combining gives $\overline{V}_{t-1}(\Phi)$ and $\overline{V_t}(\Phi)$ is a martingale
+  \begin{equation*}
+    \begin{gathered}
+      \Rightarrow \E\left[\overline{V_T}(\theta)\right] = \E\left[\overline{V_0}(\theta)\right] = 0\\
+      \Rightarrow \overline{V_T}(\theta) = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent almost surely since $V_T(\theta)\geq0$ almost surely by assumption.\par
+  \noindent It follows that there is no arbitrage
+\end{prf}
+\par\bigskip
+\subsection{From the Binomial model to Black-Scholes}\hfill\\
+\noindent In the binomial model, the price changes by either $1+a$ or $1+b$ in each step $(a<b)$\par
+\noindent The risk-free rate is $r$ (factor of $(1+r)$ per time step)
+\par\bigskip
+\noindent The equivalent martingale measure is determined by a single probability $q = \dfrac{b-r}{b-a}$ and $1-q = \dfrac{r-a}{b-a}$ where $a<r<b$\par
+\noindent We derived the fair price for a European call using this model with 
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\beta_T(S_T-K)^+\mid\mathcal{F}_0\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent where $\beta_T$ is the discounting factor and $(S_T-K)^+$ is the payoff
+\par\bigskip
+\noindent We now let the number of time steps $N$ go to $\infty$ while decreasing the time between steps to 0 to obtain a continuous model.\par
+\noindent We define $a,b,r$ in such a way that the process converges:\par
+\noindent Let $h_N = \dfrac{T}{N}$ (length of one time step), and $\mathcal{L}_N = rh_n$ (risk-free rate)\par
+\noindent Observe that 
+\begin{equation*}
+  \begin{gathered}
+    (1+\mathcal{L}_N)^N = \left(1+r\dfrac{T}{N}\right)^N\stackrel{N\to\infty}{\rightarrow} e^{rT}
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $a_N, b_N$ satisfy
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \ln{\left(\dfrac{1+b_n}{1+\mathcal{L}_N}\right)} = \sigma\sqrt{h_N} = \sigma\sqrt{\dfrac{T}{N}}\\
+      \ln{\left(\dfrac{1+a_N}{1+\mathcal{L}_N}\right)} = -\sigma\sqrt{h_N} = \sigma\sqrt{\dfrac{T}{N}}
+    \end{rcases*}\text{ chosen s.t process converges}
+  \end{gathered}
+\end{equation*}\par
+\noindent Where $\sigma$ is a constant that measures the \textit{volatility} of an asset. We get
+\begin{equation*}
+  \begin{gathered}
+    1+a_N = (1+\mathcal{L}_N)\text{exp}\left\{-\sigma\sqrt{h_N}\right\}\quad 1+b_N = (1+\mathcal{L}_N)\text{exp}\left\{\sigma\sqrt{h_N}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent and we find 
+\begin{equation*}
+  \begin{gathered}
+    q_N  = \dfrac{b_N-\mathcal{L}_N}{b_N-a_N} = \dfrac{(1+\mathcal{L}_n)\text{exp}\left\{\sigma\sqrt{\dfrac{T}{N}}\right\}-(1+\mathcal{L}_N)}{(1+\mathcal{L}_N\text{exp}\left\{\sigma\sqrt{\dfrac{T}{N}}\right\}-(1+\mathcal{L}_N)\text{exp}\left\{-\sigma\sqrt{\dfrac{T}{N}}\right\})}\stackrel{N\to\infty}{\rightarrow} \dfrac{1}{2}
+  \end{gathered}
+\end{equation*}\par
+
+\noindent and $1-q_N\to \dfrac{1}{2}$
+\par\bigskip
+\noindent The discounted price process becomes
+\begin{equation*}
+  \begin{gathered}
+    \overline{S_N}^{(N)} = S_0(1+\mathcal{L}_N)^{-N}\prod_{k=1}^{N}\overbrace{R_k^{(N)}}^{\text{either $1+a_N$ or $1+b_N$}}\\
+    = S_0\prod_{k=1}^{N}\left(\dfrac{R_k^{(N)}}{1+\mathcal{L}_N}\right)\begin{cases}
+      \text{either } \dfrac{1+a_N}{1+\mathcal{L}_N} = \text{exp}\left\{-\sigma\sqrt{\dfrac{T}{N}}\right\}\\\text{or } \dfrac{1+b_N}{1+\mathcal{L}_N} = \text{exp}\left\{\sigma\sqrt{\dfrac{T}{N}}\right\}\\
+      =S_0\text{exp}\left\{\sum_{k=1}^{N}Y_k^{(N)}\right\}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent where $Y_k^{(N)}$ is $\pm\sigma\sqrt{\dfrac{T}{N}}$. The sum has mean
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\sum_{k=1}^{N}Y_k^N\right] = N\left((1-q_N)\sigma\sqrt{\dfrac{T}{N}}+q_N\left(-\sigma\sqrt{\dfrac{T}{T}}\right)\right)\\
+    =\sigma\sqrt{T\cdot N}\left(1-2q_N\right)\stackrel{N\to\infty}{\rightarrow} -\dfrac{\sigma^2}{2}T
+  \end{gathered}
+\end{equation*}\par
+
+\noindent and variance
+\begin{equation*}
+  \begin{gathered}
+    \text{Var}_Q\left(\sum_{k=1}^{N}Y_k^{(N)}\right) = N\text{Var}_Q\left(Y_k^{(N)}\right)\stackrel{N\to\infty}{\rightarrow} \sigma^2T
+  \end{gathered}
+\end{equation*}\par
+\noindent By the central limit theorem, $\sum_{k=1}^{N}Y_k^{(N)}$ converges in distribution to a normal distribution:
+\begin{equation*}
+  \begin{gathered}
+    \sum_{k=1}^{N}Y_k^{(N)}\to\mathcal{N}\left(-\dfrac{\sigma^2}{2}T,\sigma^2T\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent This justifies our choice of $\pm\sigma\sqrt{\dfrac{T}{N}}$. If the factors were too large, there would be no convergence, and if they were too small there would be a trivial deterministic limit.
+\par\bigskip
+\noindent The discounted price $\overline{S_N}^{(N)}$ under the martingale measure is distributed as
+\begin{equation*}
+  \begin{gathered}
+    \text{exp}\left\{\mathcal{N}\left(-\dfrac{\sigma^2}{2}T,\sigma^2T\right)\right\}\sim\text{exp}\left\{-\dfrac{\sigma^2}{2}T+\sigma\sqrt{T}\cdot\mathcal{N}(0,1)\right\}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent We cano now plug this into the general formula
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\beta_T\cdot\text{(payoff at time $T$)}\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent and we obtain the \textit{Black-Scholes formula}:\par
+\noindent\textbf{Eurpean Call}
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}\underbrace{\left(S_0\text{exp}\left\{-\dfrac{\sigma^2}{2}T+\sigma\sqrt{T}x-\text{exp}\left\{-rT\right\}K\right\}\right)^+}_{\substack{\text{discounted payoff with underlying}\\\text{asset price distributed as above}}}\dfrac{\text{exp}\left\{-\dfrac{x^2}{2}\right\}}{\sqrt{2\pi}}dx
+  \end{gathered}
+\end{equation*}\par
+\noindent\textbf{European Put}
+\begin{equation*}
+  \begin{gathered}
+    \int_{-\infty}^{\infty}\left(\text{exp}\left\{-rT\right\}K-S_0\text{exp}\left\{-\dfrac{1}{2}\sigma^2T+\sigma\sqrt{T}x\right\}\right)^+\dfrac{\text{exp}\left\{-\dfrac{1}{2}x^2\right\}}{\sqrt{2\pi}}dx
+  \end{gathered}
+\end{equation*}

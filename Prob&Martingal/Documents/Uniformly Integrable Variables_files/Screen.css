@@ -1,0 +1,312 @@
+/*Screen style sheet for Random: Probability, Statistics, and Stochastic Processes*/
+
+/*Body*/
+body {
+	color: black;
+	font: normal 11pt "Times New Roman", Times, serif;
+	line-height: 21px;
+	margin: 15pt;
+}
+
+body.ancillary {
+	background: rgb(230, 230, 230);
+	color: black;
+}
+
+/*Divisions*/
+div.latex {
+	margin: 0px;
+	display: none;
+}
+
+div.unit {
+	border: dashed 1px rgb(220, 220, 220);
+	background: rgb(230, 230, 230);
+	counter-increment: unitCount;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+div.unit p:nth-child(n+2) {margin-left: 10px;}
+
+div.contents {
+	background: rgb(220, 220, 220);
+}
+
+@media screen and (min-width: 600px){
+	div.contents{
+		float: left;
+		width: 30%;
+		margin-right: 5px;
+	}
+}
+
+.column {
+	float: left;
+}
+	
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*Headings*/
+h1 { 
+	font-size: 200%; 
+	text-align: center;
+	color: white;
+	border: solid 1px silver;
+	background: rgb(0, 0, 140);
+	padding: 5px;
+}
+
+h2 { 
+	font-size: 150%;
+	color: white;
+	border: solid 1px silver;
+	background: rgb(0, 0, 140);
+	padding: 5px;
+}
+
+h2.home {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
+
+h3 { font-size: 125%; }
+
+h2.ancillary, h3.ancillary {
+	color: white;
+	border: solid 1px blue;
+	background: red;
+	padding: 3px;
+}
+
+h4 { font-size: 100%; }
+
+h4.chapter:before { content: counter(chapterCount) ". "; }
+h4.chapter { counter-increment: chapterCount; }
+
+/*Paragraphs */
+p.dfn, p.math, p.app, p.stat {
+	margin-left: 15px;
+	text-indent: -15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+p.dfn::before { content: url("icons/DieGreen5.svg") " " counter(unitCount) ". "; }
+
+p.math::before { content: url("icons/DieBlue5.svg") " " counter(unitCount) ". "; }
+
+p.app::before { content: url("icons/DieRed5.svg") " " counter(unitCount) ". "; }
+
+p.stat::before { content: url("icons/DieRed5.svg") " " counter(unitCount) ". "; }
+
+/*Figures and images*/
+
+figcaption { 
+	font-size: 80%;
+}
+
+/*Image styles*/
+img {
+	border-style: none;
+	vertical-align: middle;
+}
+
+/*Header and footer*/
+header {
+	margin-top: 0px;
+	border-bottom: solid 1px gray;
+}
+
+footer {
+	border-top: solid 1px gray;
+}
+
+/*Keyword style*/
+dfn {
+	color: green;
+	font-style: italic;
+}
+
+/*Details*/
+summary { font-style: italic; }
+
+details { margin-left: 15px; }
+
+/*Anchor styles*/
+a { text-decoration: none; color: blue; }
+a:hover { text-decoration: underline; }
+a.external, a.download { color: brown; }
+a.ancillary { color: red; }
+
+/*List Styles*/
+li.sister {
+	display: inline;
+	padding-left: 2px;
+	padding-right: 2px;;
+}
+
+ul.ancillary, li.ancillary { list-style-image: url("icons/DieRed5.svg"); }
+
+ul.map {
+	list-style: none;
+	font-family: Arial, sans-serif;
+	font-size: 80%;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding: 0px 0px;
+}
+
+ol.map {
+	font-family: Arial, sans-serif;
+	font-size: 80%;
+	list-style: none;
+	margin-left: 0px;
+	padding: 0px 0px;
+	margin-bottom: 0px;
+}
+
+li.child {
+	display: inline;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+li.details {
+	display: inline;
+	float: right;
+}
+
+li.current {
+	display: inline;
+	border: solid 1px black;
+}
+
+li.parent {
+	list-style: none;
+	display: inline;
+}
+
+li.parent:after { content: " > "; }
+li.sister:after { content: " | "; }
+ol.sub { list-style-type: lower-alpha; }
+li.expand { list-style-image: url("Icons/Plus.svg"); }
+li.contract { list-style-image: url("Icons/Minus.svg"); }
+dt { font-style: italic; }
+
+/*Tables*/
+div.data {
+	width: 400px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	background: white;
+	border: solid 1px black;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	background: white;
+}
+
+div.scroll {
+	overflow-y: auto;
+}
+
+div.scroll thead th {
+	position: sticky;
+	top: 0;
+	cursor: pointer;
+ }
+
+ div.scroll table {
+	width: 100%;
+ }
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 8px 8px;
+	border: 1px solid black;
+}
+
+th {
+	background: #eee;
+	text-align: left;
+}
+
+tfoot {
+	font-weight: bold;
+	background: #eee;
+}
+
+caption { font-weight: bold; }
+
+table.data td { text-align: right; }
+table.data tr:nth-child(even) { background-color: #f2f2f2; }
+
+/*App rules*/
+
+div.toolbar { margin: 5px; }
+
+div.group { border: solid 1px black; }
+
+/*Text area styles*/
+textarea {
+	font: normal 9pt Courier;
+	border: 1px solid black;
+	background: rgb(240, 240, 240);
+	margin-bottom: 0px;
+	vertical-align: middle;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	white-space: pre;	
+}
+
+/*App controls*/
+button, label, select, input { 
+	height: 25px;
+	margin-left: 3px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+input.parameter {
+	vertical-align: middle;
+	width: 100px;
+	padding: 0;
+	margin: 0;
+}
+
+input.color {
+	vertical-align: middle;
+	width: 50px;
+}
+
+input.data { 
+	vertical-align: middle;
+	width: 50px;
+}
+
+div.ancillary {
+	background: rgb(225, 225, 225);
+}
+
+div.app {
+	background: rgb(200, 200, 200);
+	margin-top: 5px;
+}
+
+span.tool{
+	white-space: nowrap;
+	margin: 2px;
+}
+
+svg { vertical-align: middle; }

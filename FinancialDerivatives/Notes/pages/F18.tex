@@ -1,0 +1,63 @@
+\section{Bonds and Interest Rates}
+\begin{defo}[]{}
+  A \textit{zero coupon bond with maturity} $T$ (or $T$-bond) gives its holder 1 SEK paid at $T$. The price is denoted $p(t,T)$
+\end{defo}\par
+\noindent Note that $p(t,t) = 1$
+\par\bigskip
+\noindent A strategy to obtain a deterministic rate of return over a future interval [S,T] would be:\par
+\begin{itemize}
+  \item At time 0, sell one $S$ bond and buy $\dfrac{p(0,S)}{p(0,T)}$ $T$-bonds with it. Cost is 0
+  \item At time $S$, pay 1 SEK
+  \item At time $T$, receive $\dfrac{p(0,S)}{p(0,T)}$
+\end{itemize}\par
+\noindent We have created a strategy which gives a riskless rate of return over the \textit{future} interval $[S,T]$. This is known as a \textit{forward} rate
+\par\bigskip
+\noindent\textt{Some different interest rates:}\par
+\begin{itemize}
+  \item\textbf{LIBOR forward rate} $L(t;S,T)$ solves 
+    \begin{equation*}
+      \begin{gathered}
+        \dfrac{p(t,S)}{p(t,T)} = 1+(T-S)L\\
+        \Lrarr L(t;S,T) = -\dfrac{p(t,T)-p(t,S)}{(T-S)p(t,T)}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item\textbf{Continously compounded forward rate} $R(t;S,T)$ solves
+    \begin{equation*}
+      \begin{gathered}
+        \dfrac{p(t,S)}{p(t,T)} =\text{exp}\left\{(T-S)R\right\}\\
+        \Lrarr R(t;S,T) = -\dfrac{\ln{\left(p(t,T)\right)}-\ln{\left(p(t,S)\right)}}{T-S}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item\textbf{Instantaneous forward rate} is
+    \begin{equation*}
+      \begin{gathered}
+        f(t,T) = -\dfrac{\partial \ln{\left(p(t,T)\right)}}{\partial T}
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item\textbf{Instantaneous short rate} is 
+    \begin{equation*}
+      \begin{gathered}
+        r_t = f(t,t)
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+  \item\textbf{Yield curve} at $t$ is the function
+    \begin{equation*}
+      \begin{gathered}
+        y(t,T) = -\dfrac{\ln{\left(p(t,T)\right)}}{T-t}\quad T>t\\
+        \text{Solves } p(t,T) = \text{exp}\left\{-y(t,T)(T-t)\right\}
+      \end{gathered}
+    \end{equation*}
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent One could chose to model\par
+\begin{enumerate}[leftmargin=*]
+  \item The short rate $r_t$
+  \item Bond prices $p(t,T)$
+  \item The Instantaneous forward rate $f(t,T)$
+\end{enumerate}\par
+\noindent We will only model $r_t$, but the book is more extensive

@@ -1,0 +1,171 @@
+\section{The Separating Hyperplane Theorem}
+\begin{theo}[Separating Hyperplane Theorem]{}
+  Let $L$ be a linear subspace of $\R^n$ and $K$ a convex compact subset of $\R^n$, disjoint from $L$.\par
+  \noindent THen there exists a linear functional $\phi:\R^n\to\R$ such that\par
+  \begin{itemize}
+    \item $\phi(x) = 0$ for $x\in L$
+    \item $\phi(x)\geq c$ for all $x\in K$ where $c>0$
+  \end{itemize}
+\end{theo}\par
+\noindent In order to prove this, we shall firstly prove the following lemma:\par
+\begin{lem}[]{}
+  Let $C\subseteq \R^d$ be closed and convex such that $0\not\in C$. THen there exists a linear $\phi:\R^d\to\R$ and $c>0$ such that $\phi(x)\geq c$ for all $x\in C$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  If $C$ is empty, the statement is trivial, so we assume $C\neq\varnothing$\par
+\noindent Take $r>0$ large such that the closed ball $B(0,r) = \left\{x\in\R^d\mid\left|\left|x\right|\right|\leq r\right\}$ intersects $C$
+\par\bigskip
+\noindent The interesection is non-empty and closed, hence comapct. Since the norm $\left|\left|\cdot\right|\right|$ is continuous, it has a minimum in $C\cap B(0,r)$, that is $\exists x_0\in C\cap B(0,r)$ such that $\left|\left|z\right|\right|\geq \left|\left|x_0\right|\right|$ for all $z\in C\cap B(0,r)$\par
+\noindent Further, $\left|\left|x_0\right|\right|\leq r<\left|\left|z\right|\right|$ for all $z\in C$\par
+\noindent By convexity, if $z\in C$ we have $\lambda x_0+(1-\lambda)z\in C$ for all $\lambda\in [0,1]$
+\par\bigskip
+\noindent So
+\begin{equation*}
+  \begin{gathered}
+    \left|\left|x_0\right|\right|^2\leq \left|\left|\lambda x_0+(1-\lambda)z\right|\right|^2\\
+    x_0x_0\leq (\lambda x_0+(1-\lambda)z)(\lambda x_0+(1-\lambda)z)\\
+    =\lambda^2 x_0x_0 + (1-\lambda)^2 zz + 2\lambda(1-\lambda)x_0z\\
+    (1-\lambda^2)x_0x_0\leq (1-\lambda)^2zz+2\lambda(1-\lambda)x_0z\\
+    (1-\lambda)(1+\lambda)x_0x_0\leq (1-\lambda)^2zz+2\lambda(1-\lambda)x_0z\\
+    (1+\lambda)x_0x_0\leq (1-\lambda)zz+2\lambda x_0z
+  \end{gathered}
+\end{equation*}\par
+\noindent Taking $\lambda\to1$:
+\begin{equation*}
+  \begin{gathered}
+    2x_0x_0\leq 2x_0z\Rightarrow x_0x_0\leq x_0z
+  \end{gathered}
+\end{equation*}\par
+\noindent Hence the linear functional $\phi:z\mapsto x_0z$ satisfies $\phi(z) = x_0z\geq c:=x_0x_0=\left|\left|x_0\right|\right|^2>0$
+\end{prf}
+\par\bigskip
+\begin{prf}[Separating Hyperplane Theorem]{}
+Let $C=K-L = \left\{k-l\mid k\in K, l\in L\right\}$\par
+\noindent This set is convesx, since for $x_1 = k_1-l_1\in C$ and $x_2 = k_2-l_2\in C$ we have
+\begin{equation*}
+  \begin{gathered}
+    \lambda x_1 + (1-\lambda)x_2 = \lambda k_1-\lambda l_1+(1-\lambda)k_2-(1-\lambda)l_2\\
+    = \underbrace{\lambda k_1+(1-\lambda)k_2}_{\substack{\in K}}-\underbrace{\left(\lambda l_1+(1-\lambda)l_2\right)}_{\substack{\in L}}\in K-L=C
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent $C$ is also closed. Let $c_n = k_n-l_n$ be a sequence that converges in $\R^2$ as $n\to\infty$\par
+\noindent By compactness of $K$, there exists a subsequence $n_r$ such that $k_{n_r}\to k_\infty$ for some $k_\infty\in K$.\par
+\noindent Since $c_n\to c_\infty$, we have $l_{n_r} = k_{n_r}-c_{n_r}$ converges to $l_\infty=k_\infty-c_\infty$.\par
+\noindent Since $L$ is closed, $l_\infty\in L$ and $c_\infty=k_\infty-l_\infty\in K-L$ and as $c_n$ was chosen arbitrary, $C$ is closed.
+\par\bigskip
+\noindent We now apply the lemma above and conclude that there exists a functional $\phi$ such that $\phi(x)\geq c>0$ for all $x\in C$\par
+\noindent Hence, for all $k\in K$ and $l\in L$
+\begin{equation*}
+  \begin{gathered}
+    \phi(k-l) = \phi(k)-\phi(l)\geq c
+  \end{gathered}
+\end{equation*}\par
+\noindent If $\phi(l)\neq0$ for some $l\in L$, we get for all $a\in \R$ $\phi(k-al)=\phi(k)-a\phi(l)$ and chosing $\left|a\right|$ large and of the same sign as $\phi(l)$ yields
+\begin{equation*}
+  \begin{gathered}
+    0<c\leq \phi(k-al) = \phi(k)-a\phi(l)<0
+  \end{gathered}
+\end{equation*}\par
+\noindent which is a contradiction. Hence $\phi(l) = 0$ and $\phi(k)\geq c>0$ for all $k\in K$
+\end{prf}
+\par\bigskip
+\section{Construction of Martingale Measures}
+\begin{defo}[Finitely generated probablity space]{}
+  A probablity space is called \textit{finitely generated} if every measurable function takes at most finitely many distinct values
+\end{defo}
+\par\bigskip
+\noindent $\Omega$ can be partitioned into $n$ disjoint sets $\Omega = \Omega_1\cup \cdots\cup \Omega_n$ such that every measurable function is constant on $\Omega_i$\par
+\noindent WLOG, we can assume $\Omega_i = \left\{\omega_i\right\}$ are singletons and the probablity measure is determined by $p_i = \P(\Omega_i) = \P(\left\{\omega_i\right\})$
+\par\bigskip
+\noindent\textbf{Recall}\par
+\noindent A model is viable if there is no arbitrage strategy. An attainable strategy $\theta$ is uniquely determined under the self-financing property (linear equation). The gains are
+\begin{equation*}
+  \begin{gathered}
+    \overline{G}_t(\theta) = \sum_{u=1}^{t}\theta_u\cdot\Delta\overline{S_u}
+  \end{gathered}
+\end{equation*}\par
+\noindent We now assume our model is finitely generated. Then, the condition of being viable/arbitrage free is equivalent to gains $G_t(\theta)$ not belonging to $\mathcal{C}= \left\{X\mid X(\omega_i)\geq0\quad\forall i, \exists i\quad X(\omega_i)>0\right\}$ 
+\par\bigskip
+\begin{theo}[First Fundamental Theorem of Asset Pricing]{}
+  Assume that the model is finitely generated. Then the following are equivalent:\par
+  \begin{enumerate}[leftmargin=*]
+    \item The model is viable
+    \item There exists an equivalent martingale measure $Q$
+  \end{enumerate}
+\end{theo}
+\par\bigskip
+\begin{prf}[]{}
+    $(2)\Rightarrow (1)$\par
+    \noindent Recall that if $\overline{S}$ is a martingale under $Q$, then so is $\overline{G}_t(\theta)$ for every attainable $\theta$ as it is a martingale transform
+    \begin{equation*}
+      \begin{gathered}
+        \Rightarrow \E\left[\overline{G_t}(\theta)\right] = \E\left[\overline{G_0}(\theta)\right]=0\\
+        \Rightarrow\text{if } \overline{G_t}(\theta)\geq0\text{ a.s }\Rightarrow \overline{G_t}(\theta)=0
+      \end{gathered}
+    \end{equation*}\par
+    \noindent So there is no arbitrage and the model is viable
+    \par\bigskip
+    $(1)\Rightarrow (2)$\par
+    \noindent First, $L = \left\{\overline{G_T}(\theta)\mid\text{$\theta$ attainable strategy}\right\}$ is a linear subspace of the space of all random variables:\par
+    \begin{itemize}
+      \item $0\in L$
+      \item $\theta_1,\theta_2$ attainable strategies $\Rightarrow$ $\theta_1+\theta_2$ attainable strategy
+      \item $\theta_1$ attainable strategy, $c\in\R\Rightarrow$ $c\theta_1$ is an attainable strategy
+    \end{itemize}\par
+    \noindent Since $\overline{G_T}(\theta)$ is linear in $\theta$, linearity of $L$ follows.\par
+    \noindent Further, $K =\left\{X\text{ non-neg r.v with } \E_P\left[X\right]=1\right\}$ is compact w.r.t $\left|\left|\cdot\right|\right|_1$ since any open cover $\left|U_i\right|$ of $K$ must contain a $U_i$ which contains an element $X\in K$, but then $B(X,\varepsilon)\supseteq \left\{Y\mid\left|\left|Y\right|\right|_1\right\}\supseteq\left\{Y\geq 1\mid \E\left[Y\right]=1\right\} = K$\par
+    \noindent Hence $U_i$ is a cover of $K$ and $K$ is compact.\par
+    \noindent $K$ is also convex since
+    \begin{equation*}
+      \begin{gathered}
+        X_1,X_2\in K,\lambda\in [0,1]\Rightarrow \E\left[\lambda X_1+(1-\lambda)X_2\right]\\
+        =\lambda\E\left[X_1\right]+(1-\lambda)\E\left[X_2\right]=\lambda+(1-\lambda) = 1
+      \end{gathered}
+    \end{equation*}\par
+    \noindent and $\lambda X_1+(1-\lambda)X_2\in K$
+    \par\bigskip
+    \noindent Note that $K\cap L = \varnothing$ since any attainable strategy with $\E\left[\overline{G_T}(\theta)\right] = 1$ would be arbitrage. We can apply the separating hyperplane theorem and there exists a linear functional $\varphi$ that is zero on $L$ and $\geq c>0$ on $K$\par
+    \noindent By finiteness, we can now express $\varphi$ as
+    \begin{equation*}
+      \begin{gathered}
+        \varphi(X) = \sum_{i=1}^{n}q_i X(\omega_i)
+      \end{gathered}
+    \end{equation*}\par
+    \noindent for some constants $q_i$.\par
+    \noindent In particular, consider the random variable $\xi_i =\dfrac{1}{p_i}I{\omega_i}$, then $\xi_i$ is non-negative and 
+    \begin{equation*}
+      \begin{gathered}
+        \E\left[\xi_i\right] = \dfrac{1}{p_i}\E\left[I_{\omega_i}\right] = \dfrac{\P(\omega_i)}{p_i} = 1
+      \end{gathered}
+    \end{equation*}\par
+    \noindent So $\xi_i \in K$ and $\varphi(\xi_i) = q_i\cdot\dfrac{1}{p_i}\geq c>0$
+    \par\bigskip
+    \noindent Hence $q_i>0$ for all $i$. Define $Q$ by 
+    \begin{equation*}
+      \begin{gathered}
+        Q(\left\{\omega_i\right\}) = \dfrac{q_i}{\sum_j q_j}>0
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent This is a probablity measure as 
+    \begin{equation*}
+      \begin{gathered}
+        \sum_i\dfrac{q_i}{\sum_j q_j} = \dfrac{\sum_i q_i}{\sum_j q_j} = 1
+      \end{gathered}
+    \end{equation*}
+    \par\bigskip
+    \noindent We have $\E_Q\left[\overline{G_T}(\theta)\right] = \dfrac{1}{\sum_j q_j}\underbrace{\sum_iq_i\overline{G_T}(\theta)(\omega_i)}_{\substack{=\varphi(\overline{G_T}(\theta))=0\\\text{as }\overline{G_T}(\theta)\in L}}$
+    \par\bigskip
+  \noindent Now $Q$ is an equivalent martingale  measure as $Q\left(\left\{\omega_i\right\}\right)>0$ (equiv. to $\P$) and 
+  \begin{equation*}
+    \begin{gathered}
+      \E_Q\left[\overline{G_T}(\theta)\right] = 0
+    \end{gathered}
+  \end{equation*}\par
+  \noindent for all predictable processes, so $\E_Q\left[\Delta\overline{S_t}^i\mid\mathcal{F}_{t-1}\right] = 0$ for all $t$
+\end{prf}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent This holds in greater generality for non-finite models

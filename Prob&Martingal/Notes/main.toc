@@ -43,3 +43,12 @@
 \contentsline {subsection}{\tocsubsection {}{17.2}{Some General Bounds}}{58}{subsection.17.2}%
 \contentsline {subsection}{\tocsubsection {}{17.3}{General Discrete Models}}{58}{subsection.17.3}%
 \contentsline {subsection}{\tocsubsection {}{17.4}{Trading Strategies}}{58}{subsection.17.4}%
+\contentsline {section}{\tocsection {}{18}{Arbitrage Prices}}{60}{section.18}%
+\contentsline {section}{\tocsection {}{19}{Martingales and Pricing}}{60}{section.19}%
+\contentsline {subsection}{\tocsubsection {}{19.1}{Uniqueness of equivalent martingale measures}}{62}{subsection.19.1}%
+\contentsline {section}{\tocsection {}{20}{Superhedging}}{63}{section.20}%
+\contentsline {subsection}{\tocsubsection {}{20.1}{Strategies involving contingent claims}}{63}{subsection.20.1}%
+\contentsline {subsection}{\tocsubsection {}{20.2}{From the Binomial model to Black-Scholes}}{64}{subsection.20.2}%
+\contentsline {section}{\tocsection {}{21}{The Separating Hyperplane Theorem}}{67}{section.21}%
+\contentsline {section}{\tocsection {}{22}{Construction of Martingale Measures}}{68}{section.22}%
+\contentsline {section}{\tocsection {}{23}{Completeness of Market Models}}{70}{section.23}%

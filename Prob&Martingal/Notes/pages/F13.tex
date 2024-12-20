@@ -327,3 +327,31 @@
   \end{gathered}
 \end{equation*}\par
 \noindent Now, clearly arbitrage $\Rightarrow$ weak arbitrage, but we shall see that the converse also holds
+\par\bigskip
+\begin{lem}[Weak arbitrage $\Lrarr$ arbitrage]{}
+  Arbitrage, i.e the existence of a strategy with $V_0(\theta) = 0$, $V_t(\theta)\geq0$ $\forall t$ and $\E\left[V_T(\Theta)\right]>0$, is equivalent to weak arbitrage, i.e the existence of a strategy with $V_0(\theta) = 0$, $V_T(\theta)\geq0$ at time $T$ and $\E\left[V_T(\theta)\right]>0$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  The fact that arbitrage $\Rightarrow$ weak arbitrage is trivial and we only have to prove the converse.\par
+  \noindent Suppose $\theta$ is a portfolio that offers weak arbitrage but $V_t(\theta)$ is not (almost surely) non-negative for all $t$.\par
+  \noindent Then there exists a time $t<T$ and an event $A\in\mathcal{F}$ with $\P(A)>0$ such that
+  \begin{equation*}
+    \begin{gathered}
+      V_t(\theta)(\omega) = (\theta_t\cdot S_t)(\omega)<0\quad \omega\in A
+    \end{gathered}
+  \end{equation*}\par
+  \noindent We may assume $t$ is the latest such time (discrete model!) and $V_u(\theta)(\omega)\geq0$ almost surely $\forall t<u\leq T>$\par
+  \noindent We now construct a portfolio that offers (strong) arbitrage:
+  \begin{itemize}
+    \item $\varphi_a(\omega) = 0$ for $\omega\not\in A$ and all $u$
+    \item $\varphi_u(\omega) = 0$ for $\omega \in A$ and $u\leq t$
+    \item $\varphi_u^0(\omega) = \theta_u^0(\omega)-\dfrac{\theta_t(\omega)\cdot S_t(\omega)}{S_t^0(\omega)}$ for $\omega\in A$, $u>t$\par
+      \noindent Note that $\theta_t\cdot S_t<0$ by assumption and so this term is positive
+      \par\bigskip
+    \item $\varphi_u^i(\omega) = \theta_u^i(\omega)$
+  \end{itemize}
+  \par\bigskip
+  \noindent This is a pre-visible/predictible self-financing strategy.\par
+  \noindent We also have $V_t(\varphi)\geq0$ for all $t$, and $V_0(\varphi)=0$ and $\E\left[V_T(\varphi)\right]>0$, thus we have arbitrage
+\end{prf}

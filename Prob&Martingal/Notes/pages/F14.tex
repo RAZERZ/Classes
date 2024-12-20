@@ -1,0 +1,144 @@
+\section{Arbitrage Prices}
+\begin{defo}[Attainable claim]{}
+  \noindent Let $H$ be a claim with maturity $T$\par
+  \noindent If the claim has a generating/replicating strategy $\theta$ (i.e a self-financing strategy with $V_T(\theta)=H$), then we say $H$ is \textit{attainable}
+\end{defo}
+\par\bigskip
+\noindent In the case $V_0(\theta)$ can be taken as a fair price for $H$\par
+\noindent We want to know if this price is \textit{unique}
+\par\bigskip
+\begin{lem}[]{}
+  For all generating strategies of $H$, the associated value process is the same at all times (almost surely), provided the model is free of arbitrage
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  Assume to the contrary and we have two strategies $\theta,\varphi$ such that $V_T(\theta) = H=V_T(\varphi)$ almost surely, but $V_t(\theta)\neq V_t(\varphi)$ for some $t$ with positive probability.\par
+\noindent Without loss of generality, we may assume $A = \left\{V_t(\theta)>V_t(\varphi)\right\}\in\mathcal{F}_t$ has positive probability. Now consider the strategy $\psi$ with $\psi_u(\omega) = \theta_u(\omega)-\varphi_u(\omega)\quad\forall u$ if $\omega\not\in A$ and for $\omega\in A$ let:
+\begin{equation*}
+  \begin{gathered}
+    \psi_u(\omega) = \theta_u(\omega)-\varphi_u(\omega)\quad u\leq t\\
+    \begin{rcases*}
+      \psi_u^0(\omega) = \dfrac{V_t(\theta)-V_t(\varphi)}{S_t^0}\\
+      \psi_u^i(\omega) = 0 \quad i>0
+    \end{rcases*}\quad\text{for } u>t
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent If $A$ does not occur, $V_T(\psi) = V_T(\theta)-V_T(\varphi) = 0$\par
+\noindent If $A$ occurs, positive difference is converted into cash and $V_T(\psi)>0$. Hence there is weak arbitrage, contradicting the arbitrage-free assumption.
+\end{prf}
+\par\bigskip
+\noindent Thus the fair price can be uniquely defined by $V_0(\theta)$ almost surely
+\par\bigskip
+\section{Martingales and Pricing}
+\noindent Recall, if $M_t$ is a martingale, then 
+\begin{equation*}
+  \begin{gathered}
+    \E\left[M_t\mid\mathcal{F}_{t-1}\right] = M_{t-1}\Lrarr \E\left[\underbrace{M_t-M_{t-1}}_{\substack{\Delta M_t}}\mid \mathcal{F}_{t-1}\right] = 0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent For predictible/previsible $\varphi$; we define the martingale transform $X = \varphi\cdot M$ as
+\begin{equation*}
+  \begin{gathered}
+    X_t = \varphi_1\Delta M_1 + \varphi_2\Delta M_2+\cdots +\varphi_t\Delta M_t\\
+    =\sum_{k=1}^{t}\varphi_k(M_k-M_{k-1})
+  \end{gathered}
+\end{equation*}\par
+\noindent Note that
+\begin{equation*}
+  \begin{gathered}
+    \E\left[\varphi_k\Delta M_k\mid\mathcal{F}_{k-1}\right] = \overbrace{\varphi_k}^{\text{$\varphi$ predictible}}\E\left[\Delta M_k\mid\mathcal{F}_{k-1}\right] \stackrel{\text{martingale}}{=} 0
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus $\E\left[\varphi_k\Delta M_k\right] = 0\Rightarrow \E\left[X_t\right] = 0$ $\forall t\leq k$
+\par\bigskip
+\noindent Now suppose we have a probability measure $Q$ such that teh discounted price process $\overline{S}_t$ becomes a martingale:
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\Delta\overline{S_t}^i\mid\mathcal{F}_{t-1}\right] = 0\quad\forall i,t
+  \end{gathered}
+\end{equation*}\par
+\noindent Equivalently, $\E_Q\left[\overline{S_t}^i\mid\mathcal{F}_{t-1}\right] = \overline{S_{t-1}}^i$ for all $i,t$\par
+\noindent Let $\theta$ be an admissible strategy. The discounted value process can be expressed as a martingale transform:
+\begin{equation*}
+  \begin{gathered}
+    \overline{V_t}(\theta) = V_0(\theta) + \sum_{u=1}^{t}\theta\cdot\Delta\overline{S_u}\\
+    = \sum_{i=0}^{d}\theta_0^iS_0^i+\sum_{i=1}^{d}\left(\sum_{u=1}^{t}\theta_u^i\Delta\overline{S_u}^i\right)
+  \end{gathered}
+\end{equation*}\par
+\noindent We may ignore $i=0$ as this is the "cash" term, which, when discounted is a constant and $\Delta \overline{S_u}^0 = 0$
+\par\bigskip
+\noindent Since $\E_Q\left[\sum_{u=1}^{t}\theta_u^i\Delta\overline{S_u}^i\right] = 0$ by our observations and the assumption that $\overline{S_u}$ is a martingale, we get 
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\overline{V_t}(\theta)\right] = \E_Q\left[V_0(\theta)\right] = V_0(\theta)
+  \end{gathered}
+\end{equation*}\par
+\noindent Let $\P$ be the probability measure in our model. If $Q,\P$ are equivalent ($\P\sim Q$, i.e they have the same null-sets), then this rules out arbitrage:
+\par\bigskip
+\noindent Assume there is a portfolio $\theta$ such that $V_0(\theta) = 0$ but $V_T(\theta)\geq0$ under $\P$ almost surely.\par
+\noindent Then also $V_T(\theta)\geq0$ under $Q$ almost surely since $Q\sim\P$. Note also that
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\overline{V_T}(\theta)\right] = \E_Q\left[V_0(\theta)\right] = V_0(\theta)= 0
+  \end{gathered}
+\end{equation*}\par
+\noindent From this it follows that $V_T(\theta) = 0$ under $Q$ almost surely and so under $\P$ almost surely. In other words, there is no weak (and hence "full") arbitrage\par
+\noindent This $Q$ is called the \textit{equivalent martingale measure}
+\par\bigskip
+\begin{lem}[]{}
+  If $H$ is an attainable claim (i.e has a replicating strategy); then for any replicating strategy $\theta$ we have
+  \begin{equation*}
+    \begin{gathered}
+      \overline{V_t}(\theta)= \E_Q\left[\beta H\mid \mathcal{F}_t\right]\text{ a.s w.r.t } \P\wedge Q
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent This follows by taking conditional expectation in 
+\begin{equation*}
+  \begin{gathered}
+    \overline{V_t}(\theta) = V_0(\theta) + \sum_{u=1}^{t}\theta_u\cdot\Delta \overline{S_u}
+  \end{gathered}
+\end{equation*}\par
+\noindent and using the martingale property of $\overline{S}$
+\par\bigskip
+\noindent We can define the fair price of $H$ by $\overline{V_0}(\theta)$:
+\begin{equation*}
+  \begin{gathered}
+    \pi(H) = \overline{V_0}(\theta) = \E_Q\left[\beta_T H\mid\mathcal{F}_0\right] = \E_Q\left[\beta_T H\right]
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent In the binomial model, the measure $Q$ was determined by the probability $q$ that turned the model into a martingale up to the discounting factor $\beta$
+\begin{equation*}
+  \begin{gathered}
+    \E\left[\overline{S_t}\mid\mathcal{F}_{t-1}\right] = q\beta\overline{S}_{t-1}(1+a)+(1-q)\beta(1+b)\overline{S}_{t-1}
+  \end{gathered}
+\end{equation*}\par
+\noindent $q$ is the term determined by the equation
+\begin{equation*}
+  \begin{gathered}
+    1 = q\beta(1+a)+(1-q)\beta(1+b) = \dfrac{q}{1+r}(1+a)+(1-q)\dfrac{1+b}{1+r}\\
+    \Lrarr 1+r = q(1+a)+(1+b)-q(1+b) = q(a-b)+(1+b)\\
+    \Lrarr q = \dfrac{r-b}{a-b} = \dfrac{b-r}{b-a}
+  \end{gathered}
+\end{equation*}\par
+\noindent The price of a European call can then be expressed on $\E_Q\left[\beta(S_T-K)^+\right]$\par
+\noindent Evaluating this expectation yields the \textit{Cox-Ross-Rubinstein} formula
+\par\bigskip
+\noindent Note that the formula requires the existence of a replicating strategy, even if not explciitly referenced. In \textit{complete} market models, all European contingent claims have a replicating strategy and can be priced this way.
+\par\bigskip
+\subsection{Uniqueness of equivalent martingale measures}\hfill\\
+\noindent In principle, the martingale measure may not be unique.\par
+\noindent Suppose $Q,R$ are two equivalent measures in a \textit{complete mmodel}, Then
+\begin{equation*}
+  \begin{gathered}
+    \E_Q\left[\beta_TH\right] = \E_R\left[\beta_T H\right]\quad\forall H\\
+    \Rightarrow \E_Q\left[H\right] = \E_R\left[H\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent a fair price is unique in absence of arbitrage.\par
+\noindent So $\E_Q\left[I_A\right] = \E_R\left[I_A\right]$ for all indicators $I_A = H$ and $Q(A) = R(A)$ for all $A$

@@ -1,0 +1,141 @@
+\section{Completeness of Market Models}
+\noindent Recall that a market model is \textit{complete} if every contingent claim $X$ has a replicating (generating) strategy $\theta$: a strategy with $V_T(\theta) = X$
+\par\bigskip
+\noindent Recall that we are only considering finite models.
+\par\bigskip
+\begin{lem}[]{}
+  Let a viable market model with an equivalent martingale measure $Q$ be given.\par
+\noindent The model is complete if and only if every real-valued martingale (w.r.t $Q$) $\left\{M_t:0\leq t\leq T\right\}$ has a representation of the form
+\begin{equation*}
+  \begin{gathered}
+    M_t = M_0+\sum_{u=1}^{t}\gamma_u\cdot\Delta\overline{S_u}
+  \end{gathered}
+\end{equation*}\par
+\noindent for some predictable $\gamma_u = \left\{\gamma_u^1,\cdots, \gamma_u^d\right\}$
+\end{lem}
+\par\bigskip
+\begin{prf}[]{}
+  We first assume the model is complete.\par
+  \noindent WLOG, we assume it is non-negative writing the original as a difference of martingales.\par
+  \noindent Set $C = M_TS_T^0$ and interpret it on a claim.\par
+  \noindent It has a replicating strategy $\theta$ and
+  \begin{equation*}
+    \begin{gathered}
+      V_T(\theta) = C\Lrarr \overline{V_T}(\theta) = M_T
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent Since $\overline{V_T}(\theta)$ is a martingale transform of a $Q$ martingale, it is a $Q$-martingale itself.
+  \par\bigskip
+  \noindent So, 
+  \begin{equation*}
+    \begin{gathered}
+      \overline{V_t}(\theta) =\E_Q\left[\overline{V_T}(\theta)\mid\mathcal{F}_t\right] = \E_Q\left[M_T\mid\mathcal{F}_t\right] = M_t
+    \end{gathered}
+  \end{equation*}\par
+  \noindent But then
+  \begin{equation*}
+    \begin{gathered}
+      M_t = \overline{V_t}(\theta) = V_0(\theta) + \sum_{u=1}^{t} \theta_u\cdot\Delta\overline{S_u} = M_0+\sum_{u=1}^{t}\theta_u\cdot\Delta\overline{S_u}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent So we have a representation of $M_t$ in the desired form
+  \par\bigskip
+  \noindent For the converse, consider a claim $C$. Define a martingale by $M_t = \E\left[\beta_T C\mid\mathcal{F}_t\right]$\par
+  \noindent There must be a representation of the form $M_t = M_0+\sum_{u=1}^{t}\gamma_u\cdot\Delta\overline{S_u}$ for some $\gamma_u = (\gamma_u^1,\cdots,\gamma_u^d)$\par
+  \noindent Define a strategy by $\theta_t^i = \gamma_t^i$ which uniquely determines $\theta_t^0$ as well by the self-financing property.\par
+  \noindent The precise choise is
+  \begin{equation*}
+    \begin{gathered}
+      \theta_t^0 = M_t-\gamma_t\cdot\overline{S_t}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent which gives the required replicating strategy:
+  \begin{equation*}
+    \begin{gathered}
+      V_t(\theta) = \theta_t\cdot S_t = \theta_t^0S_t^0+\sum_{j=1}^{d}\theta_t^jS_t^j\\
+      = S_t^0\left(\theta_t^0+\sum_{j=1}^{d}\gamma^j\overline{S_t}^j\right)\\
+      S_t^0\left(\theta_t^0+\gamma_t\cdot\overline{S_t}\right) = S_t^0M_t
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent In particular, $C = S_T^0M_T = V_T(\theta)$
+\end{prf}
+\par\bigskip
+\begin{theo}[Second Fundamental Theorem of Asset Pricing]{}
+  A finite market model is \textit{complete} if and only if it has a \textit{unique} equivalent martingale measure
+\end{theo}
+\par\bigskip
+\begin{prf}[Second Fundamental Theorem of Asset Pricing]{}
+  $\Rightarrow$
+  Suppose first that the model is complete and assume that $Q,Q^{\prime}$ are equivalent martingale measures.\par
+  \noindent Let $X$ be a contingent lcaim with generating strategy $\theta$. We have
+  \begin{equation*}
+    \begin{gathered}
+      \beta_TX = \overline{V_T}(\theta) = V_0(\theta) + \underbrace{\sum_{t=1}^{T}\theta_t\Delta\overline{S_t}}_{\substack{\text{martingale transform of the}\\Q,Q^{\prime}\text{ martingale } \overline{S_t}}}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent By the martingale property, we have
+  \begin{equation*}
+    \begin{gathered}
+      \E_Q\left[\beta_TX\right] = V_0(\theta) = \E_{Q^{\prime}}\left[\beta_TX\right]
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This holds for all claims and in particular $X = I_A$ for all events $A$\par
+  \noindent Hence, 
+  \begin{equation*}
+    \begin{gathered}
+      Q(A) = \E_Q\left[I_A\right] = \E_{Q^{\prime}}\left[I_A\right] = Q^{\prime}(A)
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and $Q = Q^{\prime}$. Hence the equivalent martingale measure is unique
+  \par\bigskip
+  \noindent For the converse, assume there exists a claim $X$ that does not have a replicating strategy and let $Q$ be an equivalent martingale measure.\par
+  \noindent Define
+  \begin{equation*}
+    \begin{gathered}
+      L = \left\{c+\sum_{t=1}^{T}\theta_k\cdot\Delta\overline{S_t}\mid c\in\R,\theta_t\text{ predictable}\right\}
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent This is a linear subspace of the vector space of all random variables in $(\Omega,\mathcal{F})$\par
+  \noindent It is a proper subspace on $X\not\in L$\par
+  \noindent We assumed $\Omega$ is finite, so on $L\subsetneq \Omega$ there exists a random variable $Z$ that is orthogonal to $L$, i.e non-zero $Z$ such that
+  \begin{equation*}
+    \begin{gathered}
+      \E_Q\left[YZ\right] = 0\quad\forall Y\in L
+    \end{gathered}
+  \end{equation*}
+  \par\bigskip
+  \noindent We define a new measure $Q^{\prime}\neq Q$, set
+  \begin{equation*}
+    \begin{gathered}
+      Q^{\prime}(\left\{\omega\right\}) = Q(\left\{\omega\right\})\left(1+\dfrac{Z(w)}{2\left|\left|Z\right|\right|_\infty}\right)
+    \end{gathered}
+  \end{equation*}\par
+\noindent where $2\left|\left|Z\right|\right|_\infty =\max_\omega\left\{\left|Z(\omega)\right|\right\}$
+\par\bigskip
+\noindent Note that $\dfrac{Z(\omega)}{2\left|\left|Z\right|\right|_\infty}6\left(\dfrac{-1}{2},\dfrac{1}{2}\right)$ and $Q^{\prime}$ is positive whenever $Q$ is.\par
+\noindent Further
+\begin{equation*}
+  \begin{gathered}
+    \sum_{\omega\in\Omega}Q^{\prime}(\omega) = \underbrace{\sum_{\omega\in\Omega}Q(\omega)}_{\substack{=1\\\text{$Q$ prob. meas.}}}+\dfrac{1}{2\left|\left|Z\right|\right|_\infty}\underbrace{\sum_{\omega\in\Omega}Q(\omega)Z(\omega)}_{\substack{=\E_Q\left[Z\right]=0\text{ as}\\Y=1\in L}} = 1
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent So $Q^{\prime}$ is a probablity measure with $Q\sim Q^{\prime}$. We have
+\begin{equation*}
+  \begin{gathered}
+    \E_{Q^{\prime}}\left[\sum_{t=1}^{T}\theta_t\cdot\Delta\overline{S_t}\right] = \sum_\omega Q^{\prime}(\omega)\sum_{i=1}^{T}\theta_t(\omega)\cdot\Delta\overline{S_t}(\omega)\\
+    =\sum_\omega Q(\omega)\sum_{i=1}^{T}\theta_t(\omega)\cdot\Delta\overline{S_t}(\omega) + \dfrac{1}{2\left|\left|Z\right|\right|_\infty}\underbrace{\sum_\omega Q(\omega)Z(\omega)\sum_{i=1}^{T}\theta_t(\omega)\cdot\Delta\overline{S_t}(\omega)}_{\substack{=\E_Q\left[Z\sum_{t=1}^{T}\theta_t\cdot\Delta\overline{S_t}\right]=0\\\text{by orthogonality}}}\\
+    =\E_Q\left[\sum_{t=1}^{T}\theta_t\cdot\Delta\overline{S_t}\right]=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent So $\E_{Q^{\prime}}\left[\sum_{t=1}^{T}\theta_t\cdot\Delta\overline{S_t}\right]=0$ for all choices of $\theta$ which is only possible if $\overline{S_t}$ is a martingale w.r.t $Q^{\prime}$
+\par\bigskip
+\noindent Now both $Q,Q^{\prime}$ are equivalent martingale measures and since $Z$ is non-zero, there exists $\omega\in\Omega$ with $Q(\omega),Q^{\prime}(\omega)>0$ and $Q(\omega)\neq Q^{\prime}(\omega)$\par
+\noindent Hence $Q$ is not unique, a contradiction. This proves the claim
+\end{prf}

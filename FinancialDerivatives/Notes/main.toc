@@ -31,3 +31,4 @@
 \contentsline {section}{\tocsection {}{18}{Discrete Dividends}}{37}{section.18}%
 \contentsline {section}{\tocsection {}{19}{Continuous Dividends}}{38}{section.19}%
 \contentsline {section}{\tocsection {}{20}{Forward Contracts}}{40}{section.20}%
+\contentsline {section}{\tocsection {}{21}{Currency Derivatives}}{41}{section.21}%
