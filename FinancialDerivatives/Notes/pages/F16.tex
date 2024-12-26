@@ -32,3 +32,358 @@
     \Pi_s(\chi)-\text{exp}\left\{-r(T-s)\right\}f(t,T;\chi)
   \end{gathered}
 \end{equation*}
+\par\bigskip
+\begin{lem}[]{}
+  The forward price is
+  \begin{equation*}
+    \begin{gathered}
+      f(t,T;\chi) = \text{exp}\left\{r(T-t)\right\}\Pi(t;\chi)
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $\chi = S(T)$ (non-dividend paying asset) what is its forward price?\par
+\noindent $f(t,T,S(T)) = \Pi(t;S(T))\text{exp}\left\{r(T-t)\right\} =\text{exp}\left\{r(T-t)\right\}S(t)$
+\par\bigskip
+\noindent What is the value of a forward contract at time $s$ where $t<s<T$\par
+\begin{equation*}
+  \begin{gathered}
+    \Pi(s;\chi)-\text{exp}\left\{-r(T-s)\right\}f(t,T;\chi)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Short Rate Models}\hfill\\
+\noindent Model $\begin{cases}
+  dr_t = \mu(t,r_t)dt+\sigma(t,r_t)dW_t\\dB_t = r_tB_tdt
+\end{cases}$\par
+\noindent The goal is to price zero-coupon $T$-bonds for all $T$
+\par\bigskip
+\noindent\textbf{Expectations:}\par
+\noindent $M=$ number of traded assets excluding the bank account $=0$\par
+\noindent $R = $ number of random sources $=1$
+\par\bigskip
+\noindent The market is arbitrage-free but incomplete.\par
+\noindent Prices of $T$-bonds with different $T$ should satisfy consistency relations.
+\par\bigskip
+\noindent Assume $p(t,T) = F^T(t,r_t)$ for some function $F^T$\par
+\noindent Clearly, $F^T(T,r) = 1$\par
+\noindent Fix $S,T$ and form a locally risk-free portfolio $(w^S,w^T)$ of $S$-bonds and $T$-bonds
+\begin{equation*}
+  \begin{gathered}
+    dF^T(t,r_t)\stackrel{\text{Ito}}{=}\alpha_TF^Tdt+\sigma_TF^TdW_t
+  \end{gathered}
+\end{equation*}
+\begin{equation}
+  \begin{gathered}
+    \begin{cases}
+      \alpha_T = \dfrac{F_t^T+\dfrac{\sigma^2}{2}F_{rr}^T+\mu_r^T}{F^T}\\
+      \sigma_T = \dfrac{\sigma F_r^T}{F}
+    \end{cases}
+  \end{gathered}
+\end{equation}\par
+\noindent and $dF^S(t,r_t) = \alpha_sF^Sdt+\sigma_sF^SdW_t$\par
+\noindent Then
+\begin{equation*}
+  \begin{gathered}
+    dV_t^w = V_t^w(\alpha_Tw^T+\alpha_Sw^S)dt+(\sigma_Tw^T+\sigma_Sw^S)V_t^wdW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent and choosing $w$ such that
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      w^S+w^T=1\\
+      \sigma_Sw^S+\sigma_Tw^T=0
+    \end{rcases*}\Lrarr
+    \begin{cases}
+      w^S = \dfrac{\sigma_T}{\sigma_T-\sigma_S}\\
+      w^T =\dfrac{-\sigma_S}{\sigma_T-\sigma_S}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent gives
+\begin{equation*}
+  \begin{gathered}
+    dV_t^w = \dfrac{\alpha_S\sigma_T-\alpha_T\sigma_S}{\sigma_T-\sigma_S}V_t^wdt
+  \end{gathered}
+\end{equation*}\par
+\noindent By no-arbitrage, we get
+\begin{equation*}
+  \begin{gathered}
+    r_t = \dfrac{\alpha_S\sigma_T-\alpha_T\sigma_S}{\sigma_T-\sigma_S}
+  \end{gathered}
+\end{equation*}\par
+\noindent so
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{\dfrac{\alpha_s-r_t}{\sigma_s}}_{\substack{\text{expression involving}\\F^S\text{ not } F^T}} = \underbrace{\dfrac{\alpha_T-r_t}{\sigma_T}}_{\substack{\text{expression involving}\\F^T\text{ not }F^S}} =:\lambda_t\leftarrow\text{market price of risk}
+  \end{gathered}
+\end{equation*}\par
+\noindent Inserting (7) yields
+\begin{equation*}
+  \begin{gathered}
+    F_t^T+\dfrac{\sigma^2}{2}F_{rr}^T+(\mu-\lambda \sigma)F_r^T-rF^T=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[The term-structure equation]{}
+  The arbitrage-free price f a $T$-bond is $F^T(t,r_t)$ where $F^T(t,r)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t^T+\dfrac{\sigma^2}{2}F_{rr}^T+(\mu-\lambda\sigma)F_r^T-rF^T=0\\
+        F^T(T,r) =1
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Alternatively, $F^T(t,r) = \E_{t,r}^Q\left[\text{exp}\left\{-\int_{t}^{T}r_sds\right\}\right]$, where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dr_s = (\mu-\lambda\sigma)ds+\sigma dW_s^Q\\
+        r_t=r
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent under $Q$
+\end{lem}
+\par\bigskip
+\noindent\textbf{Remarks:}\par
+\begin{enumerate}[leftmargin=*]
+  \item For the stochastic representation of $F^T$, see exercise 5.12
+  \item $T$-claims $\chi =\phi(r_T)$ are priced similarly (replace the terminal condition by $F^T(T,r) = \phi(r)$)
+  \item The market price of risk $\lambda$ is \textit{not} specified within the model, but needs to be estimated using market prices.
+\end{enumerate}
+\par\bigskip
+\section{Martingale Models for the Short Rate}
+\noindent\textbf{Approach:} Model $r$ \textit{directly under $Q$}  as 
+\begin{equation*}
+  \begin{gathered}
+    dr_t = \mu(t,r_t)dt+\sigma(t,r_t)
+  \end{gathered}
+\end{equation*}\par
+\noindent From now on, $\mu$ is the drift under $Q$, not under $P$
+\par\bigskip
+\subsection{Popular Models}\hfill\\
+\begin{enumerate}[leftmargin=*]
+  \item\textit{Vasicek} $dr_t = (b-ar_t)dt+\sigma dW_T$
+  \item\textit{Cox-Ingersoll-Ross} $dr_t = (b-ar_t)dt+\sigma\sqrt{r_t}dW_t$
+  \item\textit{Dothan} $dr_t = ar_tdt+\sigma r_tdW_t$
+  \item\textit{Ho-Lee} $dr_t = \theta(t)dt+\sigma dW_t$
+  \item\textit{Hull-White} (extended Vasicek) $dr_t=(b(t)-a(t)r_t)dt+\sigma(t)r_t dW_t$
+  \item\textit{Hull-White} (extended CIR) $dr_t = (b(t)-a(t)r_t)dt+\sigma(t)\sqrt{r_t}dW_t$
+\end{enumerate}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent $\sigma$ can be estimated from historical data since $\sigma$ is the same under $P$ and $Q$. The drift $\mu$ \textit{cannot} be estimated using historical data. Instead, $\mu$ is chosen so that the theoretical term structure $\left\{p(0,T),T\geq0\right\}$ fits the observed term structure $\left\{p^*(0,T),T\geq0\right\}$.\par
+\noindent"Inversion of the yield curve"
+\par\bigskip
+\subsection{Affine Term Structures}\hfill\\
+If the term structure $\left\{p(t,T),o\leq t\leq T, T\geq0\right\}$ has the form
+\begin{equation*}
+  \begin{gathered}
+    p(t,T) = \text{exp}\left\{A(t,T)-B(t,T)r_t\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent then the model admits an \textit{affine term structure}
+\par\bigskip
+\noindent\textit{Question:} Which models admit an affine term structure?\par
+\noindent To answer this, plug in $F^T(t,r) = \text{exp}\left\{A(t,T)-B(t,T)r\right\}$ into the term structure equation
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      F_t^T+\dfrac{\sigma^2}{2}F_{rr}^T+\mu F_r^T-rF^T=0\\
+      F^T(T,r) = 1
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent We get
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      A_t-B_tr+\dfrac{\sigma^2}{2}B^2-\mu B-r=0\\
+      A(T,T) = 0\\
+      B(T,T) = 0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Assume now that $\mu(t,r)$ and $\sigma^2(t,r)$ are both affine, i.e
+\begin{equation}
+  \begin{gathered}
+    \begin{cases}
+       \mu(t,r) = \alpha(t)r+\beta(t)\\
+       \sigma^2(t,r) = \gamma(t)r+\delta(t)
+    \end{cases}
+  \end{gathered}
+\end{equation}\par
+\noindent We then get
+\begin{equation*}
+  \begin{gathered}
+    A_t+\dfrac{\delta}{2}B^2-\beta B-\left(B_t-\dfrac{\gamma}{2}B^2+\alpha B+1\right)r=0
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[Affine Term Structure]{}
+  Assume that $\mu$ and $\sigma^2$ are affine as in (9) above.\par
+  \noindent Then bond prices are $p(t,T) = \text{exp}\left\{A(t,T)-B(t,T)r_t\right\}$, where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        B_t-\dfrac{\gamma}{2}B^2+\alpha B+1 = 0\\
+        B(T,T) =0
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent and 
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        A_t+\dfrac{\delta}{2}B^2-\beta B=0\\
+        A(T,T) = 0
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Example:} \textit{Vasicek Model}
+\begin{equation*}
+  \begin{gathered}
+    dr_t = (b-ar_t)dt+\sigma dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Here $\begin{cases}
+  \mu = b-ar\\\sigma^2 = \text{const. }\in\R
+\end{cases}$ so they are on the form (8)
+\par\bigskip
+\noindent The Ansatz $F^T(t,r) = \text{exp}\left\{A(t,T)-B(t,T)r\right\}$ gives (plug in the term structure equation)
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      A_t-B_tr+\dfrac{\sigma^2}{2}B^2-(b-ar)B-r=0\\
+      A(T,T) = 0\\
+      B(T,T) = 0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent I.e
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      B_t-aB+1=0\\
+      B(T,T) = 0
+      \end{cases}\quad\text{and}\quad\begin{cases}
+      A_t+\dfrac{\sigma^2}{2}B^2-bB=0\\
+      A(T,T)
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent We get $B(t,T) = \dfrac{1}{a}\left(q-\text{exp}\left\{-a(T-t)\right\}\right)$ and
+\begin{equation*}
+  \begin{gathered}
+    A(t,T) = \int_{t}^{T}\left(\dfrac{\sigma^2}{2}B^2(s,T)-bB(s,T)\right)ds\\
+    = \dfrac{\sigma^2}{2a^2}\int_{t}^{T}\left(1-\text{exp}\left\{-a(T-s)\right\}\right)^2ds-\dfrac{b}{a}\int_{t}^{T}1-\text{exp}\left\{-a(T-s)\right\}ds\\
+    =\left(\dfrac{\sigma^2}{2a^2}-\dfrac{b}{a}\right)(T-t)+\left(\dfrac{b}{a^2}-\dfrac{\sigma^2}{a^3}\right)\left(1-\text{exp}\left\{-a(T-t)\right\}\right)+\dfrac{\sigma^2}{4a^3}\left(1-\text{exp}\left\{-2a(T-t)\right\}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent Alternatively, to see that the Vasicek model admits an affine term structure, use
+\begin{equation*}
+  \begin{gathered}
+    r_t = r\text{exp}\left\{-at\right\}+\dfrac{b}{a}\left(1-\text{exp}\left\{-at\right\}\right)+\sigma\text{exp}\left\{-at\right\}\int_{0}^{t}\text{exp}\left\{as\right\}dW_s
+  \end{gathered}
+\end{equation*}\par
+\noindent Then
+\begin{equation*}
+  \begin{gathered}
+    F^T(0,r) \stackrel{\text{risk neutral val.}}{=} \E\left[\text{exp}\left\{-\int_{0}^{T}r_tdt\right\}\right]=\E\left[\text{exp}\left\{-r\int_{0}^{T}\text{exp}\left\{-at\right\}dt+\underbrace{\int_{0}^{T}\cdots dt}_{\substack{\text{no dep. on $r$}}}\right\}\right]\\
+    =\text{exp}\left\{-\dfrac{1}{a}\left(1-\text{exp}\left\{-aT\right\}\right)r\right\}\E\left[\text{exp}\left\{\int_{0}^{T}\cdots dt\right\}\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent So $p(t,T) =\text{exp}\left\{A(t,T)-B(t,T)r_t\right\}$ for some $A$ and $B$
+\par\bigskip
+\noindent\textbf{Remark:}\par
+\noindent The same approach for the Dothan model gives a mess:\par
+\noindent If $dr_t = ar_tdt+\sigma r_tdW_t$, then 
+\begin{equation*}
+  \begin{gathered}
+    F^T(0,r) = \E\left[\text{exp}\left\{-r\int_{0}^{T}\text{exp}\left\{\left(a-\dfrac{\sigma^2}{2}\right)t+\sigma W_t\right\}dt\right\}\right]=\
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:} \textit{Inversion of the yield curve, Ho-Lee model}\par
+\begin{equation*}
+  \begin{gathered}
+    dr_t =\theta(t)dt+\sigma dW_t
+  \end{gathered}
+\end{equation*}\par
+\noindent Fit this to observed bond prices $\left\{p^*(0,T),T\geq0\right\}$
+\par\bigskip
+\noindent We first calculate theoretical bond prices $\left\{p(0,T),T\geq0\right\}$\par
+\noindent Plug $F^T(t,r) =\text{exp}\left\{A(t,T)-B(t,T)r\right\}$ into the term structure equation
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      F_t^T+\dfrac{\sigma^2}{2}F_{rr}^T+\theta F_r^T-rF^T=0\\
+      F^T(T,r)=1
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent We get
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      A_t-B_tr+\dfrac{\sigma^2}{2}B^2-\theta B-r=0\\
+      A(T,T) =0\\
+      B(T,T) =0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent so
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      B_t+1=0\\B(T,T)=0
+      \end{cases}\quad\text{and}\quad\begin{cases}
+      A_t+\dfrac{\sigma^2}{2}B^2-\theta B=0\\A(T,T)=0
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent We get $B(t,T) = T-t$, so
+\begin{equation*}
+  \begin{gathered}
+    A(t,T) = \int_{t}^{T}\dfrac{\sigma^2}{2}(T-s)^2-\theta(s)(T-s)ds
+  \end{gathered}
+\end{equation*}\par
+\noindent Thus
+\begin{equation*}
+  \begin{gathered}
+    p(0,T) = \text{exp}\left\{\int_{0}^{T}\dfrac{\sigma^2}{2}(T-s)^2-\theta(s)(T-s)ds-Tr\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Putting $p(0,T) = p^*(0,T)$, we must have
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\sigma^2}{6}T^3-\int_{0}^{T}\theta(s)(T-s)ds-rT=\ln{\left(p^*(0,T)\right)}
+  \end{gathered}
+\end{equation*}\par
+\noindent Differentiation yields
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\sigma^2}{2}T^2-\int_{0}^{T}\theta(s)ds-r=\dfrac{\partial \ln{\left(p^*(0,T)\right)}}{\partial T}
+  \end{gathered}
+\end{equation*}\par
+\noindent Differentiation again yields
+\begin{equation*}
+  \begin{gathered}
+    \sigma^2T-\theta(T)=\dfrac{\partial^2\ln{\left(p^*(0,T)\right)}}{\partial T^2}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textit{Conclusion:} The drift should be chosen as
+\begin{equation*}
+  \begin{gathered}
+    \theta(T) = \sigma^2T-\dfrac{\partial^2\ln{\left(p^*(0,T)\right)}}{\partial T^2}
+  \end{gathered}
+\end{equation*}

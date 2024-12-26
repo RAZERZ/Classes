@@ -31,4 +31,9 @@
 \contentsline {section}{\tocsection {}{18}{Discrete Dividends}}{37}{section.18}%
 \contentsline {section}{\tocsection {}{19}{Continuous Dividends}}{38}{section.19}%
 \contentsline {section}{\tocsection {}{20}{Forward Contracts}}{40}{section.20}%
-\contentsline {section}{\tocsection {}{21}{Currency Derivatives}}{41}{section.21}%
+\contentsline {subsection}{\tocsubsection {}{20.1}{Short Rate Models}}{40}{subsection.20.1}%
+\contentsline {section}{\tocsection {}{21}{Martingale Models for the Short Rate}}{41}{section.21}%
+\contentsline {subsection}{\tocsubsection {}{21.1}{Popular Models}}{42}{subsection.21.1}%
+\contentsline {subsection}{\tocsubsection {}{21.2}{Affine Term Structures}}{42}{subsection.21.2}%
+\contentsline {section}{\tocsection {}{22}{Currency Derivatives}}{45}{section.22}%
+\contentsline {section}{\tocsection {}{23}{Bonds and Interest Rates}}{47}{section.23}%

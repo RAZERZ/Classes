@@ -1,2 +1,115 @@
 \section{Currency Derivatives}
-\noindent $X(t) = $ exchange rate at $t = \dfrac{\text{units of domestic currency}}{\text{units of foreign currency}} = 8.50$ SEK/USD
+\noindent $X(t) = $ exchange rate at $t = \dfrac{\text{units of domestic currency}}{\text{units of foreign currency}} = 8.50$ SEK/USD.
+\par\bigskip
+\noindent\textit{Given:}
+\begin{equation*}
+  \begin{gathered}
+    \begin{cases}
+      dX = \alpha_xXdt+\sigma_xXd\overline{W}\\
+      dB_d = r_dB_ddt\quad\text{measured in domestic currency}\\
+      dB_f = r_fdB_fdt\quad\text{measured in foreign currency}
+    \end{cases}
+  \end{gathered}
+\end{equation*}\par
+\noindent Here $\alpha_x,\sigma_x,r_d,r_f$ are constants
+\par\bigskip
+\noindent\textit{Problem:}\par
+\noindent Price a currency derivative, i.e a $T$-claim $Z = \phi(X(T))$
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent If $\phi(x) = (x-K)^+$, then the owner of $Z$ has the option to buy 1 unit of the foreign currency at time $T$ at price $K$
+\par\bigskip
+\noindent\textbf{Assumption:}\par
+\noindent All holdings of foreign currency are invested in the foreign bank account
+\par\bigskip
+\noindent\textbf{Expectations:}\par
+\noindent The foreign bank account is a risky asset if quoted in domestic currency. $M=R=1$ in the meta-theorem, so we expect a unique price of $Z$\par
+\noindent Moreoever, owning foreign currency gives you an interest, which is similar to owning a stock that pays dividends.
+\par\bigskip
+\noindent $B_f$ units of foreign currency is worth $XB_f$ in domestic currency\par
+\noindent Let $\widetilde{B}_f:=B_f(t)X(t)$
+\begin{equation*}
+  \begin{gathered}
+    d\widetilde{B}_f(t) = B_fdX+XdB_f=(\alpha_x+r_f)\widetilde{B}_fdt+\sigma_x\widetilde{B}_fd\overline{W}
+  \end{gathered}
+\end{equation*}\par
+\noindent Risk-neutral valuation gives
+\begin{equation*}
+  \begin{gathered}
+    \Pi(t;Z) = \text{exp}\left\{-r_d(T-t)\right\}\E_{t,x}^Q\left[\phi(X(T))\right]
+  \end{gathered}
+\end{equation*}\par
+\noindent What are the $Q$-dynamics of $X$?
+\par\bigskip
+\noindent\textit{Answer:}\par
+\noindent All traded (domestic) asstets have drift $r$ under $Q$, thus
+\begin{equation*}
+  \begin{gathered}
+    d\widetilde{B}_f = r_d\widetilde{B}_fdt+\sigma_x\widetilde{B}_fdW
+  \end{gathered}
+\end{equation*}\par
+\noindent under $Q$, and $X = \dfrac{\widetilde{B}_f}{B_f}$ yields
+\begin{equation*}
+  \begin{gathered}
+    dX(t) = (r_d-r_f)Xdt+\sigma_xXdW
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\begin{lem}[]{}
+  $\Pi(t;Z) = F(t,X(t))$ where
+  \begin{equation*}
+    \begin{gathered}
+      F(t,x) = \text{exp}\left\{-r_d(T-t)\right\}\E_{t,x}^Q\left[\phi(X(T))\right]
+    \end{gathered}
+  \end{equation*}\par
+  \noindent where
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        dX(u) = (r_d-r_f)X(u)du+\sigma_xX(u)dW(u)\\
+        X(t) = x
+      \end{cases}
+    \end{gathered}
+  \end{equation*}\par
+  \noindent under $Q$
+  \par\bigskip
+  \noindent Alternatively, $F(t,x)$ solves
+  \begin{equation*}
+    \begin{gathered}
+      \begin{cases}
+        F_t+\dfrac{\sigma_x^2}{2}x^2F_{xx}+(r_d-r_f)xF_x-r_dF=0\\
+        F(T,x) = \phi(x)
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\begin{lem}[]{}
+  The price of a curreny derivative $\phi(X(T))$ is 
+  \begin{equation*}
+    \begin{gathered}
+      F(t,x) = F_0(t,x\text{exp}\left\{-r_f(T-t)\right\})
+    \end{gathered}
+  \end{equation*}\par
+  \noindent Where $F_0$ is the BS-price of $\phi$
+  \par\bigskip
+  \noindent If $\phi(x) = (x-K)^+$, then
+  \begin{equation*}
+    \begin{gathered}
+      F(t,x) = x\text{exp}\left\{-r_f(T-t)\right\}\left(N(d_1)-K\text{exp}\left\{-r_d(T-t)\right\}N(d_2)\right)\\
+      \begin{cases}
+        d_1 = \dfrac{\ln{\left(\dfrac{x}{K}\right)}+\left(r_d-r_f+\dfrac{\sigma_x^2}{2}\right)(T-t)}{\sigma_x\sqrt{T-t}}\\
+        d_2 = d_1-\sigma_x\sqrt{T-t}
+      \end{cases}
+    \end{gathered}
+  \end{equation*}
+\end{lem}
+\par\bigskip
+\noindent\textbf{Example:}\par
+\noindent Find a replicating portfolio for $Z = X(T)$\par
+\noindent By the previous Proposition/Lemma, the initial value of the portfolio should be $x\text{exp}\left\{-r_fT\right\}$\par
+\noindent The replicating portfolioq:\par
+\begin{itemize}
+  \item\textit{At } $t=0$: invest the amount $x\text{exp}\left\{-r_fT\right\}$ (in domestic currency) in the foreign bank account, i.e $\text{exp}\left\{-r_fT\right\}$ in foreign currency\par
+  \item\textit{At } $t=T$ this has grown to 1 in foreign currency, i.e $X(T)$ in domestic currency
+\end{itemize}
