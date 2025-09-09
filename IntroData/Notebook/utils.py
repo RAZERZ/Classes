@@ -360,7 +360,7 @@ def epsilon_bounded(n,b,alpha):
 
 def compute_confidence_interval_bounded(data,delta,min_value=None,max_value=None):
     """
-    Uses the information P(X \in [min_value,max_value]) = 1 and uses Hoeffding to compute
+    Uses the information P(X in [min_value,max_value]) = 1 and uses Hoeffding to compute
     the value of epsilon such that
         P(X - E[X] > epsilon) < \delta
     then uses this to construct a 1-delta confidence interval, i.e. it
