@@ -1,1 +1,1 @@
-\contentsline {section}{\tocsection {}{1}{Contingency Table}}{2}{section.1}%
+\contentsline {section}{\tocsection {}{1}{Chapter 1 \& 2}}{2}{section.1}%

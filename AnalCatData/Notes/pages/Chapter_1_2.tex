@@ -1,0 +1,94 @@
+\section{Chapter 1 \& 2}
+\begin{itemize}
+  \item Nominal: no ordering behind the categories
+\end{itemize}
+\par\bigskip
+\noindent\textbf{Note:} The features can be continuous, but in this course the categorical variable is discrete.
+\par\bigskip
+\noindent \textbf{Slide 33}\par
+\noindent One can always construct a table whose partial tables has odds ratio 1. For the Berkley data, looking at the universiuty as a whole we had independence but dependence when looking departmentwise. Just because the odds ratio is 1, does not mean that the marginal odds will also be 1.
+\par\bigskip
+\begin{center}
+  \begin{tabular}{cccc}
+    && \multicolumn{2}{c}{$Y$} \\
+    \cmidrule{3-4}
+    $Z$&$X$&0&1\\
+    \midrule 
+       $Z_1$&0&100&10\\
+       $Z_2$&1&200&20\\
+       $Z_3$&0&100&50\\
+       $Z_4$&1&60&30\\
+  \end{tabular}
+\end{center}\par
+\noindent Here, the odds ratio is $\dfrac{100\cdot20}{10\cdot200} = 1 = \dfrac{100\cdot30}{50\cdot60}$, but the marginal table looks like this:
+\begin{center}
+  \begin{tabular}{ccc}
+    &\multicolumn{2}{c}{$Y$}\\
+    \cmidrule{2-3}
+    $X$&0&1\\
+    \midrule
+    0&100+100&10+50\\
+    1&200+60&20+30
+  \end{tabular}
+\end{center}\par
+\noindent We can see that $\theta_{xy} = \dfrac{200\cdot50}{60\cdot260}\neq1$ 
+\par\bigskip
+\noindent\textbf{Slide 38}\par
+\noindent Odds ratio can be computed by pairwise computation.\par
+\noindent Local odds ratio: \textit{only} adjacent, eg $X = 0$ and $Y = 2$ columns will not be included. Only this is needed.
+\par\bigskip
+\noindent\textbf{Slide 41}\par
+\noindent For the following table:
+\begin{center}
+  \begin{tabular}{ccc}
+    &\multicolumn{2}{c}{$Y$}\\
+    \cmidrule{2-3}
+    $X$&1&2\\
+    \midrule
+    1&$n_{11}$&$n_{12}$\\
+    2&$n_{21}$&$n_{22}$
+  \end{tabular}
+\end{center}\par
+\noindent Assuming multinomial sampling with the total sum being fixed to $n$m we wish to find the distribution of all $n_{ij}$. Since $n$ is known, we normalize:\par
+\begin{center}
+  \begin{tabular}{ccc}
+    &\multicolumn{2}{c}{$Y$}\\
+    \cmidrule{2-3}
+    $X$&1&2\\
+    \midrule
+    1&$n_{11}/n$&$n_{12}/n$\\
+    2&$n_{21}/n$&$n_{22}/n$
+  \end{tabular}
+\end{center}\par
+\noindent Note that this is indeed a valid estimation, since they all sum to 1. Also, since they sum to 1, we only need to know three of them. When we want to estimate the distribution of $\dfrac{1}{n}\begin{bmatrix}n_{11}\\n_{12}\\n_{21}\end{bmatrix}$, we use the CLT:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{1}{\sqrt{n}}\left(\dfrac{1}{n}\begin{bmatrix}n_{11}\\n_{12}\\n_{21}\end{bmatrix}-\begin{bmatrix}\pi_{11}\\\pi_{12}\\\pi_{21}\end{bmatrix}\right)\approx N\left(0,\begin{bmatrix}\pi_{11}(1-\pi_{11})&-\pi_{11}\pi_{12}&\pi_{11}\pi_{21}\\&\pi_{12}(1-\pi_{12})&-\pi_{12}\pi_{21}\\&&\pi_{21}(1-\pi_{21})\end{bmatrix}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent\textbf{Example:} Consider $g(x_1,x_2,x_3) = \ln{\left(x_1\right)}-\ln{\left(x_2\right)}-\ln{\left(x_3\right)}+\ln{\left(1-x_1-x_2-x_3\right)}$\par
+\noindent If:
+\begin{equation*}
+  \begin{gathered}
+    \begin{rcases*}
+      \dfrac{n_{11}}{n} = x_1\\
+      \dfrac{n_{12}}{n} = x_2\\
+      \dfrac{n_{21}}{n} = x_3\\
+    \end{rcases*}\quad \ln{\left(\dfrac{n_{11}}{n}\right)}-\ln{\left(\dfrac{n_{12}}{n}\right)}- \ln{\left(\dfrac{n_{21}}{n}\right)}+\underbrace{\ln{\left(1-\dfrac{n_{11}}{n}-\dfrac{n_{12}}{n}-\dfrac{n_{21}}{n}\right)}}_{\substack{\ln{\left(n_{22}/n\right)}}} = \ln{\left(\widehat{\theta}\right)}
+  \end{gathered}
+\end{equation*}\par
+\noindent To find the distribution of $\ln{\left(\widehat{\theta}\right)}$, apply the delta method to $g$:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial g}{\begin{bmatrix}\partial x_1\\\partial x_2\\\partial x_3\end{bmatrix}} = \begin{bmatrix}\dfrac{1}{x_1}-\dfrac{1}{1-x_1-x_2-x_3}\\\vdots\end{bmatrix}\\
+    \Rightarrow \ln{\left(\widehat{\theta}\right)}-\ln{\left(\theta_0\right)}\approx N(0,?)\\
+    ? = \begin{bmatrix}\dfrac{1}{\pi_{11}}-\dfrac{1}{\pi_{22}}, -\dfrac{1}{\pi_{12}}-\dfrac{1}{\pi_{22}}, -\dfrac{1}{\pi_{21}}-\dfrac{1}{\pi_{22}}\end{bmatrix}\begin{bmatrix}\pi_{11}(1-\pi_{11})&-\pi_{11}\pi_{12}&\pi_{11}\pi_{21}\\&\pi_{12}(1-\pi_{12})&-\pi_{12}\pi_{21}\\&&\pi_{21}(1-\pi_{21})\end{bmatrix}\\
+    \begin{bmatrix}
+      \dfrac{1}{\pi_{11}}-\dfrac{1}{\pi_{22}}\\
+      -\dfrac{1}{\pi_{12}}-\dfrac{1}{\pi_{22}}\\
+      -\dfrac{1}{\pi_{21}}-\dfrac{1}{\pi_{22}}
+    \end{bmatrix} = \dfrac{1}{n_{11}}+\dfrac{1}{n_{12}}+\dfrac{1}{n_{21}}+\dfrac{1}{n_{22}}
+  \end{gathered}
+\end{equation*}\par
+\noindent The last equality holds regardless of sampling method. 
