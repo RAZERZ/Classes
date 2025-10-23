@@ -1,0 +1,82 @@
+\section{Chapter 5 \& 6}
+\subsection{Slide 4}\hfill\\
+\noindent Say we have two models, $M_1 = \beta_0+\beta_1x_1+\beta_2x_2$ and $M_2 = \beta_0+\beta_1x_2+\beta_2x_2+\beta_3x_1x_2$\par
+\noindent In $M_1$, if there is change in $x_1$ there is no change in the other covariates not concerning $x_1$, however, in $M_2$, if we change $x_1$ then this also changes $\beta_1\wedge\beta_3$
+\par\bigskip
+\subsection{Slide 5}\hfill\\
+\noindent \textit{Prospective}: Look ahead in time (will smoking cause cancer?)\par
+\noindent\textit{Case-control}: Data already available (is probability of cancer higher given that you smoke?)
+\par\bigskip
+\noindent In the prospective case,
+\begin{equation*}
+  \begin{gathered}
+    P(Y=1\mid X) = \dfrac{\text{exp}\left\{\alpha+\beta x\right\}}{1+\text{exp}\left\{\alpha+\beta x\right\}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Since we are using the logit model, $\ln{\left(\dfrac{\pi}{1+\pi}\right)} = \alpha+\beta x$\par
+\noindent In the case-control case it depends on the sampling. It yields slightly different models and probabilities
+\begin{equation*}
+  \begin{gathered}
+    P(Z=1\mid Y=1),\quad P(Z=1\mid Y=0)
+  \end{gathered}
+\end{equation*}\par
+\noindent If we take a study of cancer vs driving+smoking, then we look at the subset we are interested in. This $Z$ variable is that, if what we are interested in is sampled in the observation.\par
+\begin{equation*}
+  \begin{gathered}
+    P(Y=1\mid Z=1,X) = \dfrac{P(Z=1\mid Y=1, X)P(Y=1\mid X)}{P(Z=1\mid Y=1,X)P(Y=1\mid X)+P(Z=1\mid Y=0,X)P(Y=0\mid X)}\\\\
+    = \dfrac{P(Z=1\mid Y=1)\dfrac{\text{exp}\left\{\alpha+\beta x\right\}}{1+\text{exp}\left\{\alpha+\beta x\right\}}}{P(Z=1\mid Y=1)\dfrac{\text{exp}\left\{\alpha+\beta x\right\}}{1+\text{exp}\left\{\alpha+\beta x\right\}}+\dfrac{P(Z=1\mid Y=0)}{1+\text{exp}\left\{\alpha+\beta x\right\}}}\\
+    =\dfrac{P(Z=1\mid Y=1)\text{exp}\left\{\alpha+\beta x\right\}}{P(Z=1\mid Y=1)\text{exp}\left\{\alpha+\beta x\right\}+P(Z=1\mid Y=0)}\\
+    =\dfrac{P(Z=1\mid Y=1)\text{exp}\left\{\alpha+\beta x\right\}/P(Z=1\mid Y=0)}{1+\dfrac{P(Z=1\mid Y=1)\text{exp}\left\{\alpha+\beta x\right\}}{P(Z=1\mid Y=0)}}\\
+    \Rightarrow \alpha = \alpha + \ln{\left(\dfrac{P(Z=1\mid Y=1)}{P(Z=1\mid Y=0)}\right)}
+  \end{gathered}
+\end{equation*}\par
+\par\bigskip
+\subsection{Slide 17}\hfill\\
+\noindent If $X$ is the gender, and $Z$ is the department (from the Berkley admission data example), then\par
+\begin{itemize}
+  \item $\beta_i^X = \begin{cases}1\quad\text{female}\\0\quad\text{male}\end{cases}$
+  \item $\beta_k^Z = \begin{cases}1\quad\text{dept. k}\\0\quad\text{else}\end{cases}$
+  \item $\beta_{ik}^{XZ} = \begin{cases}1\quad\text{dept. k}\wedge\text{female}\\0\quad\text{else}\end{cases}$
+\end{itemize}
+\par\bigskip
+\subsection{Slide 20}\hfill\\
+\noindent Residual deviance tells us if we have a good model by comparing to $\chi^2$. If it is less than $\chi^2$, then the model assuming conditional independence is good.
+\par\bigskip
+\noindent In order to compare models, we compare their residuals. Say we have two models $M_1$ and $M_2$ with respective residuals $R_1$ and $R_2$, then we compare $R_1-R_2$ with $\chi^2(1)$ (one-degree of freedom). If the difference is larger than the $\chi^2$, we reject the null-hypothesis that we have conditional independence. 
+\par\bigskip
+\subsection{Slide 21}\hfill\\
+\noindent This is like the Fisher-exact test, but without confounding factos.
+\par\bigskip
+\subsection{Slide 22}\hfill\\
+\noindent If we have confounding factors, we do the Fisher-exact on each partial table. If they are independent, then all are hypergeometrically distributed. 
+\par\bigskip
+\subsection{Slide 23}\hfill\\
+\noindent We need homogeneous association here!
+\par\bigskip
+\subsection{Slide 24}\hfill\\
+\noindent As $k\to\infty$, we get more partial tables.\par
+\begin{equation*}
+  \begin{gathered}
+    \underbrace{1}_{\substack{\text{intcpt.}}}+\underbrace{1}_{\substack{\beta_1}}+\underbrace{(k-1)}_{\substack{\text{deg. free.}}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 26}\hfill\\
+\noindent We should be seeing convergence to $\beta =0.5$, but it is centered around 1 instead. This is because $n =2k$  and the MLE converges to $2\beta$ 
+\par\bigskip
+\subsection{Slide 27}\hfill\\
+\noindent CMH is popular for Meta-analysis.
+\par\bigskip
+\subsection{Slide 28}\hfill\\
+\noindent If $Z\wedge X\mid Y$ are conditionally independent, then they are conditionally independent given $Y$, i.e $Z\perp X\mid Y\Rightarrow P(X=1\mid Y=j, Z=k)\stackrel{\text{cond. indep}}{=}P(X=1\mid Y=j)$\par
+\noindent Odds-ratio between $X,Y$ for some level of $Z$ is given by:
+\par\bigskip
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{P(X=1\mid Y=1, Z=k)P(X=2\mid Y=2, Z=k)}{P(X=1\mid Y=2, Z=k)P(X=2\mid Y=1,Z=k)}\\
+    = \underbrace{\dfrac{P(X=1\mid Y=1)P(X=2\mid Y=2)}{P(X=1\mid Y=2)P(X=2\mid Y=1)}}_{\substack{\text{marginal table}}} = \theta(X,Y, Z=k) \leftarrow\quad\text{partial table}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 30}\hfill\\
+\noindent Just use residual deviance, if larger than $\chi^2$, then bad \& switch to saturated model.

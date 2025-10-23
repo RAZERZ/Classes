@@ -1,0 +1,37 @@
+\section{Chapter 7}
+\subsection{Slide 5}\hfill\\
+\noindent For $F_\varepsilon$, what distribution you might ask? Logistic distribution:
+\begin{equation*}
+  \begin{gathered}
+    \varepsilon\sim F(X) = \dfrac{\text{exp}\left\{x\right\}}{1+\text{exp}\left\{x\right\}}\quad \pi\Rightarrow\dfrac{\text{exp}\left\{x^T\beta\right\}}{1+\text{exp}\left\{x^T\beta\right\}}\Lrarr \ln{\left(\dfrac{\pi}{1-\pi}\right)} = x^T\beta
+  \end{gathered}
+\end{equation*}\par
+\noindent Choice of link-function needs to be motivated for the error.
+\par\bigskip
+\subsection{Slide 13}\hfill\\
+\noindent Here it is assumed $y_i\in\left\{0,1\right\}$
+\par\bigskip
+\subsection{Slide 14}\hfill\\
+\noindent This is for the Frequentist only. We assume we have a distribution with known $\theta$. $Y_i$ is observed from distribution.\par
+\noindent A \textit{statistic }$T = T(Y_1,\ldots, Y_n)$, conditional distribution of data given sufficient statistic does not depend on $\theta$, all information about $\theta$ is contained in the sufficient statistic.\par
+\noindent \textit{Minimal sufficient statistic}  uses the smallest dimension. \par
+\noindent As an example, assume we have two samples $X_i, Y_j$. Take the ratio $\dfrac{f(Y\mid\theta)}{f(X\mid\theta)}$. A statistic $T(Y)$ is minimal sufficient if the ratio does not depend on $\theta\Lrarr T(X) = T(Y)$\par
+\noindent In order to not be dependent on $\alpha, $, we need 
+\begin{equation*}
+  \begin{gathered}
+    \sum_i y_i = \sum_i y_i^*
+  \end{gathered}
+\end{equation*}\par
+\noindent so that they cancel. Thus, $\sum_i y_i$  is a minimal sufficient statistic.
+\par\bigskip
+\subsection{Slide 15}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \ln{\left(\dfrac{\pi}{1-\pi}\right)} = \alpha+\beta_1x_1+\beta_2x_2
+  \end{gathered}
+\end{equation*}\par
+\noindent Here, $\alpha$ and $\beta_2$ are nuisance parameters, and the minimal sufficent statistic for \par
+\begin{itemize}
+  \item $\alpha$: $\sum y$
+  \item $\beta_j$: $\sum y_i x_{ij}$
+\end{itemize}

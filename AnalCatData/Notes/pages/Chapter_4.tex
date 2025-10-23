@@ -1,0 +1,69 @@
+\section{Chapter 4}
+\subsection{Slide 9}\hfill\\
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial \ell}{\partial \beta} = \dfrac{\partial \ell}{\partial \theta}\dfrac{\partial \theta}{\partial \mu}\dfrac{\partial \mu}{\partial \eta}\dfrac{\partial \eta}{\partial \beta}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\noindent With the following holding:
+\begin{equation*}
+  \begin{gathered}
+    \mu = b^{\prime}(\theta)\Rightarrow \dfrac{\partial \mu}{\partial \theta}= b^{\prime\prime}(\theta) = \dfrac{\text{Var}\left(Y_i\right)}{\phi_i}\\
+    \Rightarrow \dfrac{\partial \theta}{\partial \mu} = \dfrac{\phi_i}{\text{Var}\left(Y_i\right)}\\
+    \eta = x_i^T\beta\Rightarrow \dfrac{\partial \eta}{\partial \beta} = x_i
+  \end{gathered}
+\end{equation*}\par
+\noindent This yields for functions belonging to the exponential family: 
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial }{\partial \beta}\left[\dfrac{y_i\theta_i-b(\theta_i)}{\phi_i}+c(y_i,\phi_i)\right] = \overbrace{\dfrac{y-i-b^{\prime}(\theta_i)}{\phi_i}}^{\partial \ell/\partial \theta}\cdot\dfrac{\phi_i}{\text{Var}\left(Y_i\right)}\cdot\dfrac{\partial \mu}{\partial \eta}\cdot x_i
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 12}\hfill\\
+\noindent In the Poisson case, we have the link-function $g(\mu) = \ln{\left(\mu\right)}\Rightarrow\mu = \text{exp}\left\{\eta_i\right\}$, this yields the following matrices:\par
+\begin{itemize}
+  \item $\boldsymbol{D} = \dfrac{\partial \mu_i}{\partial \eta} = \text{exp}\left\{\eta_i\right\} = \text{exp}\left\{x_i^T\beta\right\}$
+  \item $\boldsymbol{V} = \mu_i=\text{exp}\left\{\eta\right\}  \text{exp}\left\{x_i^T\beta\right\}$
+\end{itemize}
+\par\bigskip
+\subsection{Slide 13}\hfill\\
+
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial \ell}{\partial \beta} = \boldsymbol{X}^T\boldsymbol{DV}^{-1}(\boldsymbol{y}-\boldsymbol{\mu})
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 16}\hfill\\
+\noindent The Fisher infortmation can be expressed in the following way:
+\begin{equation*}
+  \begin{gathered}
+    I(\beta) = \text{Var}\left(\dfrac{\partial \ell}{\partial \beta}\right) = -\E\left[\dfrac{\partial^2\ell(\beta)}{\partial^2}\right] = \text{Var}\left(\boldsymbol{X}^T\boldsymbol{DV}^{-1}(\boldsymbol{y}-\boldsymbol{\mu})\right) = \boldsymbol{X}^T\boldsymbol{DV}^{-1}\underbrace{\text{Var}\left(\boldsymbol{y}-\boldsymbol{\mu}\right)}_{\substack{=\boldsymbol{V}}}\boldsymbol{V}^{-1}\boldsymbol{DX}\\
+    = \boldsymbol{X}^T\boldsymbol{DV}^{-1}\boldsymbol{DX}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 20}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \widehat{\beta}\approx N\left(\beta,(\boldsymbol{X}^T\boldsymbol{WX})^{-1}\right)
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 21}\hfill\\
+\noindent The likelihood function here is not the same the same as the one for $\beta$, since the MLE assumes $\beta$ follows a certain model.
+\par\bigskip
+\subsection{Slide 25}\hfill\\
+\noindent Note that we have continuous data in the $x_2$ column, therefore it is automatically ungrouped
+\par\bigskip
+\subsection{Slide 32}\hfill\\
+\noindent Here $n = $ number of observations
+\par\bigskip
+\subsection{Slide 35}\hfill\\
+\noindent Note that we have patterns due to ungrouped data.
+\par\bigskip
+\subsection{Slide 37}\hfill\\
+\noindent In the second figure, we have the quantile regression (3 lines). Reading this, they should be straight in the quantiles .75, .5, .25 

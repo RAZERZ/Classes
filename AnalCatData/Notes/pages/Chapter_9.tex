@@ -1,0 +1,57 @@
+\section{Chapter 9}
+\subsection{Slide 4}\hfill\\
+\noindent $N_1,\cdots,N_C$ are independent Poisson with mean $\mu_i$ . $P(N_1=n_1,\cdots,N_C=n_C\mid\sum_{i=1}^{C}N_i=n)$ for Poisson, total number of observations in random variable but we condition on it so we know it.
+\begin{equation*}
+  \begin{gathered}
+    = \dfrac{P(N_1=n_1\cdots,N_C=n_C)}{P(\sum_{i=1}^{C}N_i=n)} \stackrel{\text{indep.}}{=}\dfrac{\prod_{i=1}^{C}\dfrac{\mu_i^{n_i}}{n_i!}\text{exp}\left\{-\mu_i\right\}}{\sum N_i\sim \text{Po}(\sum \mu_i)}\\
+    \Rightarrow \dfrac{\prod_{i=1}^{C}\dfrac{\mu_i^{n_i}}{n_i!}\text{exp}\left\{-\mu_i\right\}}{\dfrac{\left(\sum \mu_i\right)^n}{n!}\text{exp}\left\{-\sum \mu_i\right\}} = \dfrac{n!\prod_{i=1}^{C}\mu_i^{n_i}}{\prod_{i=1}^{C}n_i!\left(\sum \mu_i\right)^n} = \dfrac{n!}{\prod_{i=1}^{C}n_i!}\prod_{i=1}^{C}\left(\dfrac{\mu_i}{\sum \mu_i}\right)^{n_i}\\
+    \Rightarrow \pi_i = \dfrac{\mu_i}{\sum \mu_i}\leftarrow \quad\text{multinomial}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 5}\hfill\\
+\noindent Log-likelihood for Poisson: 
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\mu^y}{y!}\text{exp}\left\{-\mu\right\}\Rightarrow \text{exp}\left\{y\ln{\left(\mu\right)}-\mu-\ln{\left(y!\right)}\right\}
+  \end{gathered}
+\end{equation*}\par
+\noindent Maximizing this like-likehood, i.e $\dfrac{\partial \ell}{\partial \lambda} =0 $ yields
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\partial \ell}{\partial \lambda} = \text{exp}\left\{\lambda\right\}\sum_i\text{exp}\left\{\beta^Tx\right\} =\sum_i\underbrace{\text{exp}\left\{\lambda+\beta^Tx\right\}}_{\substack{\text{exponential}=\mu_i\\\text{transformed linear}\\\text{predictor}}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 6}\hfill\\
+\noindent $\beta$:s are almost the same, even if we start with Poisson or multinomial, since $\lambda$  in Poisson but multinomial cancels.\par
+\noindent Given contingency table, just build loglinear and find $\beta$  (simplest and fastest way)
+\par\bigskip
+\subsection{Slide 11}\hfill\\
+\noindent For association, we only care about the interaction term  $\lambda^{XY}$
+\par\bigskip
+\subsection{Slide 14}\hfill\\
+\begin{itemize}
+  \item Do not inference each other at all. Eg, BMW prices in USA vs weather
+  \item $X$ is blood pressure, $Z$ is the disease, $Y$ is BMW prices
+\end{itemize}
+\par\bigskip
+\subsection{Slide 17}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \pi_{ijk} = n\pi_{i+k} = \dfrac{\pi_{+jk}}{\pi_{++k}}\\
+    \Rightarrow \ln{\left(\pi_{ijk}\right)} = \underbrace{\ln{\left(n\right)}}_{\substack{\lambda}}+\underbrace{\ln{\left(\pi_{i+k}\right)}}_{\substack{\lambda^{XZ}}}+\underbrace{\ln{\left(\pi_{+jk}\right)}}_{\substack{\lambda^{YZ}}}-\underbrace{\ln{\left(\pi_{++k}\right)}}_{\substack{\lambda^Z}}
+  \end{gathered}
+\end{equation*}\par
+\noindent Now, by the hierarchical principle, we need $\lambda^X,\lambda^Y$ as well, which is given thanks to the generative class.
+\par\bigskip
+\noindent If $\ln{\left(\theta_{ij(k)}\right)}$ expanded does not depend on $k,C\Rightarrow$ homogeneous association.
+\par\bigskip
+\subsection{Slide 25}\hfill\\
+\noindent Minimal sufficient statistic: $\dfrac{f(y)}{f(y^{\prime})}$ does not depend on the parameter $\Lrarr T(y) = T(y^{\prime})$\par
+\noindent In order to find sufficient statistic, use factorization theorem:
+\begin{equation*}
+  \begin{gathered}
+    \ln{\left(L(\theta)\right)} = g(T(y),\theta)+h(y)\Rightarrow T(y)\text{ is sufficient stat.}
+  \end{gathered}
+\end{equation*}

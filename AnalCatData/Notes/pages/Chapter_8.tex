@@ -1,0 +1,53 @@
+\section{Chapter 8}
+\subsection{Slide 4}\hfill\\
+\noindent In order to get rid of $\pi_C$:
+\begin{equation*}
+  \begin{gathered}
+    1=\sum_{j=1}^{J}\pi_j(x) = \sum_j\pi_C(x)\text{exp}\left\{\alpha_j+\beta_j^Tx\right\}\qquad
+    \begin{rcases*}
+      \alpha_C=0\\\beta_C=0
+    \end{rcases*}\Rightarrow \text{exp}\left\{0\right\}=1\\
+    \Rightarrow\pi_C = \dfrac{1}{\sum_j\text{exp}\left\{\alpha_j+\beta_j^Tx\right\}}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 5}\hfill\\
+\noindent We use maximum likelihood to find $\alpha,\beta$. $C$ can be freely chosen and $=0$, this does not change probability due to softmax since:
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{\text{exp}\left\{z_1\right\}/\text{exp}\left\{z_C\right\}}{\left(\sum_{i}\text{exp}\left\{z_i\right\}\right)\text{exp}\left\{z_C\right\}}\\
+    \ln{\left(\dfrac{\pi_j}{\pi_C}\right)}=\alpha_j+\beta_j^Tx\\
+    \ln{\left(\dfrac{\pi_j}{\pi_A}\right)} = \ln{\left(\pi_j\right)}-\ln{\left(\pi_A\right)} = \ln{\left(\dfrac{\pi_j}{\pi_C}\right)}-\ln{\left(\dfrac{\pi_A}{\pi_C}\right)}\\
+    = (\alpha_j-\alpha_A)+\underbrace{(\beta_j-\beta_A)}_{\substack{\text{normal since}\\\begin{bmatrix}\widehat{\beta}_j\\\widehat{\beta}_k\end{bmatrix}\text{ joint normal}}}^Tx
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 6}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    P(Y=j)  P(U_j>U_k\quad\forall k\neq j) = \int P(U_j>U_k\quad\forall k\neq j)f(U_j)dU_j
+  \end{gathered}
+\end{equation*}\par
+\noindent By the law of total probability
+\par\bigskip
+\subsection{Slide 7}\hfill\\
+\noindent Ordering, eg grades, if you get a 4, then you also get a 3. We do cummulative probabilities.
+\par\bigskip
+\subsection{Slide 10}\hfill\\
+\begin{equation*}
+  \begin{gathered}
+    \ln{\left(\dfrac{P(Y<j)}{1-P(Y\leq j)}\right)} = \alpha_j\beta^Tx
+  \end{gathered}
+\end{equation*}\par
+\noindent (same as the binary outcome)
+\begin{equation*}
+  \begin{gathered}
+    \dfrac{P(Y\leq j\mid x_1)}{1-P(Y\leq j\mid x=x_1)} = \text{exp}\left\{\beta^T(x_1-x_2)\right\}\dfrac{P(Y\leq j\mid x_2)}{1-P(Y\leq j\mid x=x_2)}
+  \end{gathered}
+\end{equation*}
+\par\bigskip
+\subsection{Slide 11}\hfill\\
+\noindent Ordinal data assumes $\beta_j=\beta_i$ $\forall i,j$. Because of total representation.
+\par\bigskip
+\subsection{Slide 13}\hfill\\
+\noindent Can happen here that as we include more categories, our probabilities decrease.
