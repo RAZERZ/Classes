@@ -1,0 +1,10 @@
+Year	Prime_minister
+2022	Ulf Kristersson
+2021	Magdalena Andersson
+2014	Stefan Löfven
+2006	Fredrik Reinfeldt 
+1996	Göran Persson
+1994	Ingvar Carlsson
+1991	Carl Bildt
+1986	Ingvar Carlsson
+1982	Olof Palme
