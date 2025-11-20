@@ -1,0 +1,11 @@
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\renewcommand{\labelenumi}{\large\textbf{\arabic{enumi}}.}
+%\renewcommand{\labelenumii}{\Large\arabic{enumi}.\arabic{enumii}}
+%\renewcommand{\labelenumiii}{\large\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+\numberwithin{equation}{section}
+\numberwithin{table}{section}

@@ -1,0 +1,39 @@
+%\section{Censoring and Truncation}
+
+\noindent Today:\par
+\begin{itemize}
+  \item Right, left and interval censoring
+  \item Right and left truncation 
+  \item Likelihood for censored 
+\end{itemize}
+\par\bigskip
+\subsection{Censored observations}\hfill\\
+
+\noindent Something that is very typical for survival data is not all individuals do experience the event of interest during time of study. When the sutyd is closed, some of the patients have experienced the events, and others have not. Or, some patients may have experienced the event but the exact time point is unknown. The observation for an individual who has not experienced the event, or for whom the time point is unknown, is said to be a \textit{censored observation}.
+\par\bigskip
+\noindent\textbf{Example}: 
+\noindent Patients with a certain disease are being followed for 15 days after starting a new treatment to see how long it takes before they respond to the treatment. So our event is treatment response, and the variable is timed treatment response in days.\par
+\noindent The first patient experiences the event (treatment response) after approximately five days. A second patient goes through the 15 days without response. All we know is that the patient has not responded to the treatment, what happens after 15 days we do not know since we stop following. This is a censored observation.
+\par\bigskip
+\noindent Survival analysis takes censoring into account, and calculates likelihoods based on the combination of the probability to experience the event at a certain time with the probability to experience the event at a certain time or \textit{later}.
+\par\bigskip
+\noindent There are different categories of censoring:\par
+\begin{itemize}
+  \item Right censoring
+  \item Left censoring
+  \item Interval censoring
+\end{itemize}\par
+\noindent The reason we learn about these different types is that each type will lead to a different Likelihood function.
+\par\bigskip
+\subsubsection{Right censoring}\par
+\noindent Right censoring occurs when the event is observed only if it occurs before a certain, e.g the predetermined end of a study. Starting times and censoring times may be fixed or vary from indivudal to individual. This means there are different types of right censoring:\par
+\begin{itemize}
+  \item Type I censoring\par
+    Starting point is the same for all individuals, but censoring times may vary.
+  \item Progressive Type I censoring
+  \item Generalized Type I censoring
+  \item Type II censoring
+  \item Rando censoring
+\end{itemize}\par
+\noindent All of these are different types of right censoring.
+\par\bigskip

@@ -1,0 +1,2 @@
+\contentsline {subsection}{\tocsubsection {}{0.1}{Censored observations}}{2}{subsection.0.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{0.1.1}{Right censoring}}{2}{subsubsection.0.1.1}%
