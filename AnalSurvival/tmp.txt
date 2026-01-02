@@ -1,0 +1,3 @@
+The industry standard for investigating whether treatment has any adverse effects on the outcome is using something called the cox-regression. Doing so will will effectively tell us whether or not there is any relationship and we can include multiple factors that may be interesting.
+
+In doing so, we found that treatment had no adverse effect on survival 
